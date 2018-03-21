@@ -1,33 +1,24 @@
 //
-//  TheConsoleViewController.m
+//  HistoryFeverViewController.m
 //  TheBabyBedProduct
 //
-//  Created by Wangyongxin on 2018/3/20.
+//  Created by Wangyongxin on 2018/3/21.
 //  Copyright © 2018年 Wangyongxin. All rights reserved.
 //
 
-#import "TheConsoleViewController.h"
+#import "HistoryFeverViewController.h"
 
-@interface TheConsoleViewController ()
+@interface HistoryFeverViewController ()
+
 
 @end
 
-@implementation TheConsoleViewController
+@implementation HistoryFeverViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
 }
-
-
--(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
-    
-    
-    
-}
-
-
-
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

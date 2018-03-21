@@ -1,5 +1,6 @@
 platform :ios, '8.0'
 use_frameworks!
+
 target 'TheBabyBedProduct' do
     pod 'AFNetworking'
     pod 'MJRefresh', '~> 3.1.0'
@@ -12,6 +13,6 @@ target 'TheBabyBedProduct' do
 
     pod 'Masonry'
     pod 'JSONModel'
-
+    pod 'Charts', '~> 3.0.5'
 
 end

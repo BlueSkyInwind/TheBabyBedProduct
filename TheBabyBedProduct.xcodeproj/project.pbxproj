@@ -21,6 +21,8 @@
 		22CFD38920614C180004186D /* EarlyEducationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22CFD38820614C180004186D /* EarlyEducationViewController.m */; };
 		22CFD38D20614C3F0004186D /* MyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22CFD38C20614C3F0004186D /* MyViewController.m */; };
 		22CFD39120614C820004186D /* LoginAndRegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22CFD39020614C820004186D /* LoginAndRegisterViewController.m */; };
+		22CFD3972062A78C0004186D /* HistoryFeverViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22CFD3962062A78C0004186D /* HistoryFeverViewController.m */; };
+		22CFD39D2062ADB30004186D /* TemperatureChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = 22CFD39C2062ADB30004186D /* TemperatureChartView.m */; };
 		347E55C5AB34C5F0659DAE6B /* Pods_TheBabyBedProduct.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 884698C1D52FC8383E4B1BCF /* Pods_TheBabyBedProduct.framework */; };
 		8449AC0820620CB300526935 /* BaseResultModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8449AC0720620CB300526935 /* BaseResultModel.m */; };
 		8449AC0B20620D1B00526935 /* BaseViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8449AC0A20620D1B00526935 /* BaseViewModel.m */; };
@@ -80,6 +82,10 @@
 		22CFD38C20614C3F0004186D /* MyViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyViewController.m; sourceTree = "<group>"; };
 		22CFD38F20614C820004186D /* LoginAndRegisterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoginAndRegisterViewController.h; sourceTree = "<group>"; };
 		22CFD39020614C820004186D /* LoginAndRegisterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoginAndRegisterViewController.m; sourceTree = "<group>"; };
+		22CFD3952062A78C0004186D /* HistoryFeverViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HistoryFeverViewController.h; sourceTree = "<group>"; };
+		22CFD3962062A78C0004186D /* HistoryFeverViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HistoryFeverViewController.m; sourceTree = "<group>"; };
+		22CFD39B2062ADB30004186D /* TemperatureChartView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TemperatureChartView.h; sourceTree = "<group>"; };
+		22CFD39C2062ADB30004186D /* TemperatureChartView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TemperatureChartView.m; sourceTree = "<group>"; };
 		2F6F434F00B680C952F3C9BF /* Pods-TheBabyBedProduct.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TheBabyBedProduct.release.xcconfig"; path = "Pods/Target Support Files/Pods-TheBabyBedProduct/Pods-TheBabyBedProduct.release.xcconfig"; sourceTree = "<group>"; };
 		764BC6823587F5E7CC72C6C4 /* Pods-TheBabyBedProduct.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TheBabyBedProduct.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TheBabyBedProduct/Pods-TheBabyBedProduct.debug.xcconfig"; sourceTree = "<group>"; };
 		8449AC0620620CB300526935 /* BaseResultModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseResultModel.h; sourceTree = "<group>"; };
@@ -163,6 +169,7 @@
 				22CFD36B206142850004186D /* Common */,
 				8449AC032062031F00526935 /* NetWorkModules */,
 				22CFD369206142060004186D /* Modules */,
+				22CFD3982062AC480004186D /* View */,
 				8449AC042062051C00526935 /* ViewModel */,
 				8449AC052062052800526935 /* Model */,
 				22CFD340206141080004186D /* Assets.xcassets */,
@@ -255,6 +262,7 @@
 			children = (
 				22CFD38320614B420004186D /* TheConsoleViewController.h */,
 				22CFD38420614B420004186D /* TheConsoleViewController.m */,
+				22CFD3942062A72A0004186D /* Temperature */,
 			);
 			path = TheConsoleModules;
 			sourceTree = "<group>";
@@ -284,6 +292,40 @@
 				22CFD39020614C820004186D /* LoginAndRegisterViewController.m */,
 			);
 			path = LoginAndRegister;
+			sourceTree = "<group>";
+		};
+		22CFD3942062A72A0004186D /* Temperature */ = {
+			isa = PBXGroup;
+			children = (
+				22CFD3952062A78C0004186D /* HistoryFeverViewController.h */,
+				22CFD3962062A78C0004186D /* HistoryFeverViewController.m */,
+			);
+			path = Temperature;
+			sourceTree = "<group>";
+		};
+		22CFD3982062AC480004186D /* View */ = {
+			isa = PBXGroup;
+			children = (
+				22CFD39A2062AC810004186D /* TheConsole */,
+				22CFD3992062AC6B0004186D /* Home */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		22CFD3992062AC6B0004186D /* Home */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		22CFD39A2062AC810004186D /* TheConsole */ = {
+			isa = PBXGroup;
+			children = (
+				22CFD39B2062ADB30004186D /* TemperatureChartView.h */,
+				22CFD39C2062ADB30004186D /* TemperatureChartView.m */,
+			);
+			path = TheConsole;
 			sourceTree = "<group>";
 		};
 		8449AC032062031F00526935 /* NetWorkModules */ = {
@@ -469,6 +511,7 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-TheBabyBedProduct/Pods-TheBabyBedProduct-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/AFNetworking/AFNetworking.framework",
+				"${BUILT_PRODUCTS_DIR}/Charts/Charts.framework",
 				"${BUILT_PRODUCTS_DIR}/IQKeyboardManager/IQKeyboardManager.framework",
 				"${BUILT_PRODUCTS_DIR}/JSONModel/JSONModel.framework",
 				"${BUILT_PRODUCTS_DIR}/MBProgressHUD/MBProgressHUD.framework",
@@ -482,6 +525,7 @@
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AFNetworking.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Charts.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManager.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JSONModel.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MBProgressHUD.framework",
@@ -537,6 +581,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				22CFD39D2062ADB30004186D /* TemperatureChartView.m in Sources */,
 				8449AC0E2062283300526935 /* NetWorkRequestManager.m in Sources */,
 				22CFD38D20614C3F0004186D /* MyViewController.m in Sources */,
 				22CFD38120614AE90004186D /* HomePageViewController.m in Sources */,
@@ -551,6 +596,7 @@
 				22CFD375206146370004186D /* BaseViewController.m in Sources */,
 				22CFD37B2061476C0004186D /* BaseNavigationViewController.m in Sources */,
 				8449AC122062338F00526935 /* MBPAlertView.m in Sources */,
+				22CFD3972062A78C0004186D /* HistoryFeverViewController.m in Sources */,
 				8449AC1B20623ACC00526935 /* GlobalTool.m in Sources */,
 				22CFD378206146AF0004186D /* BaseTabBarViewController.m in Sources */,
 				22CFD347206141080004186D /* main.m in Sources */,
@@ -701,6 +747,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_STYLE = Automatic;
+				DEFINES_MODULE = YES;
 				GCC_PREFIX_HEADER = TheBabyBedProduct/Common/TheBabyBedProduct.pch;
 				INFOPLIST_FILE = "$(SRCROOT)/TheBabyBedProduct/Support/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
@@ -718,6 +765,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_STYLE = Automatic;
+				DEFINES_MODULE = YES;
 				GCC_PREFIX_HEADER = TheBabyBedProduct/Common/TheBabyBedProduct.pch;
 				INFOPLIST_FILE = "$(SRCROOT)/TheBabyBedProduct/Support/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;

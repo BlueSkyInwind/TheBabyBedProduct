@@ -22,7 +22,7 @@ green:((float)((rgbValue & 0xFF00) >> 8))/255.0 \
 blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
 
 // 设置三原色
-#define rgb(r,g,b) [UIColor colorWithRed:r/255.0f green:g/255.0f blue:b/255.0f alpha:1.0f]
+#define rgb(r,g,b,a) [UIColor colorWithRed:r/255.0f green:g/255.0f blue:b/255.0f alpha:a]
 
 #define _k_w           [UIScreen mainScreen].bounds.size.width
 #define _k_h           [UIScreen mainScreen].bounds.size.height
@@ -39,7 +39,6 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
 
 //主色调
 #define UI_MAIN_COLOR [UIColor colorWithRed:255/255.0 green:236/255.0 blue:183/255.0 alpha:1]
-
 
 
 UIKIT_EXTERN NSString * const Auth_Token;

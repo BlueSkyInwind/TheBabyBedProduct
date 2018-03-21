@@ -56,7 +56,7 @@
     UIImage *selectedImage = [[UIImage imageNamed:selectedImageName]imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     UITabBarItem *item = [[UITabBarItem alloc]initWithTitle:title image:image selectedImage:selectedImage];
 //    [item setImageInsets:UIEdgeInsetsMake(5, 5, 5, 5)];
-    [item setTitleTextAttributes:@{NSForegroundColorAttributeName:rgb(153, 153, 153)} forState:UIControlStateNormal];
+    [item setTitleTextAttributes:@{NSForegroundColorAttributeName:rgb(153, 153, 153,1)} forState:UIControlStateNormal];
     [item setTitleTextAttributes:@{NSForegroundColorAttributeName:UI_MAIN_COLOR} forState:UIControlStateSelected];
     [item setTitlePositionAdjustment:UIOffsetMake(0, -3)];
     return item;
