@@ -7,7 +7,7 @@
 //
 
 #import "AppDelegate.h"
-
+#import "LaunchConfiguration.h"
 @interface AppDelegate ()
 
 @end
@@ -18,6 +18,8 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     
+    [[LaunchConfiguration shared] InitializeAppConfiguration];
+
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window.backgroundColor = [UIColor whiteColor];
     [application setStatusBarHidden:NO withAnimation:UIStatusBarAnimationNone];
@@ -35,32 +37,10 @@
     dispatch_queue_t queue = dispatch_queue_create("trilateral_initialize", DISPATCH_QUEUE_CONCURRENT);
     dispatch_async(queue, ^{
         
-        
     });
 }
 
-- (void)monitorNetworkState
-{
-    AFNetworkReachabilityManager *mgr = [AFNetworkReachabilityManager sharedManager];
-    
-    // 2.设置网络状态改变后的处理
-    [mgr setReachabilityStatusChangeBlock:^(AFNetworkReachabilityStatus status) {
-        // 当网络状态改变了, 就会调用这个block
-        switch (status) {
-            case AFNetworkReachabilityStatusUnknown: // 未知网络
-            case AFNetworkReachabilityStatusNotReachable: // 没有网络(断网)
-                DLog(@"未知网络 || 没有网络(断网)");
-                break;
-                
-            case AFNetworkReachabilityStatusReachableViaWWAN: // 手机自带网络
-            case AFNetworkReachabilityStatusReachableViaWiFi: // WIFI
-                DLog(@"手机自带网络 || WIFI");
-                break;
-        }
-    }];
-    // 3.开始监控
-    [mgr startMonitoring];
-}
+
 
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
