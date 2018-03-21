@@ -54,9 +54,8 @@
 {
     UIImage *image = [[UIImage imageNamed:imageName]imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     UIImage *selectedImage = [[UIImage imageNamed:selectedImageName]imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
-    
     UITabBarItem *item = [[UITabBarItem alloc]initWithTitle:title image:image selectedImage:selectedImage];
-    //    [item setImageInsets:UIEdgeInsetsMake(3, 0, -3, 0)];
+//    [item setImageInsets:UIEdgeInsetsMake(5, 5, 5, 5)];
     [item setTitleTextAttributes:@{NSForegroundColorAttributeName:rgb(153, 153, 153)} forState:UIControlStateNormal];
     [item setTitleTextAttributes:@{NSForegroundColorAttributeName:UI_MAIN_COLOR} forState:UIControlStateSelected];
     [item setTitlePositionAdjustment:UIOffsetMake(0, -3)];
@@ -67,7 +66,6 @@
 {
 
 }
-
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
