@@ -22,6 +22,13 @@
 		22CFD38D20614C3F0004186D /* MyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22CFD38C20614C3F0004186D /* MyViewController.m */; };
 		22CFD39120614C820004186D /* LoginAndRegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22CFD39020614C820004186D /* LoginAndRegisterViewController.m */; };
 		347E55C5AB34C5F0659DAE6B /* Pods_TheBabyBedProduct.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 884698C1D52FC8383E4B1BCF /* Pods_TheBabyBedProduct.framework */; };
+		8449AC0820620CB300526935 /* BaseResultModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8449AC0720620CB300526935 /* BaseResultModel.m */; };
+		8449AC0B20620D1B00526935 /* BaseViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8449AC0A20620D1B00526935 /* BaseViewModel.m */; };
+		8449AC0E2062283300526935 /* NetWorkRequestManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8449AC0D2062283300526935 /* NetWorkRequestManager.m */; };
+		8449AC122062338F00526935 /* MBPAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8449AC112062338F00526935 /* MBPAlertView.m */; };
+		8449AC152062354000526935 /* LaunchConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = 8449AC142062354000526935 /* LaunchConfiguration.m */; };
+		8449AC18206239F900526935 /* GlobalUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = 8449AC17206239F900526935 /* GlobalUtility.m */; };
+		8449AC1B20623ACC00526935 /* GlobalTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 8449AC1A20623ACC00526935 /* GlobalTool.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,6 +82,20 @@
 		22CFD39020614C820004186D /* LoginAndRegisterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoginAndRegisterViewController.m; sourceTree = "<group>"; };
 		2F6F434F00B680C952F3C9BF /* Pods-TheBabyBedProduct.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TheBabyBedProduct.release.xcconfig"; path = "Pods/Target Support Files/Pods-TheBabyBedProduct/Pods-TheBabyBedProduct.release.xcconfig"; sourceTree = "<group>"; };
 		764BC6823587F5E7CC72C6C4 /* Pods-TheBabyBedProduct.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TheBabyBedProduct.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TheBabyBedProduct/Pods-TheBabyBedProduct.debug.xcconfig"; sourceTree = "<group>"; };
+		8449AC0620620CB300526935 /* BaseResultModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseResultModel.h; sourceTree = "<group>"; };
+		8449AC0720620CB300526935 /* BaseResultModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BaseResultModel.m; sourceTree = "<group>"; };
+		8449AC0920620D1B00526935 /* BaseViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseViewModel.h; sourceTree = "<group>"; };
+		8449AC0A20620D1B00526935 /* BaseViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BaseViewModel.m; sourceTree = "<group>"; };
+		8449AC0C2062283300526935 /* NetWorkRequestManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NetWorkRequestManager.h; sourceTree = "<group>"; };
+		8449AC0D2062283300526935 /* NetWorkRequestManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NetWorkRequestManager.m; sourceTree = "<group>"; };
+		8449AC102062338F00526935 /* MBPAlertView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MBPAlertView.h; sourceTree = "<group>"; };
+		8449AC112062338F00526935 /* MBPAlertView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MBPAlertView.m; sourceTree = "<group>"; };
+		8449AC132062354000526935 /* LaunchConfiguration.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LaunchConfiguration.h; sourceTree = "<group>"; };
+		8449AC142062354000526935 /* LaunchConfiguration.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LaunchConfiguration.m; sourceTree = "<group>"; };
+		8449AC16206239F900526935 /* GlobalUtility.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GlobalUtility.h; sourceTree = "<group>"; };
+		8449AC17206239F900526935 /* GlobalUtility.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GlobalUtility.m; sourceTree = "<group>"; };
+		8449AC1920623ACC00526935 /* GlobalTool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GlobalTool.h; sourceTree = "<group>"; };
+		8449AC1A20623ACC00526935 /* GlobalTool.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GlobalTool.m; sourceTree = "<group>"; };
 		884698C1D52FC8383E4B1BCF /* Pods_TheBabyBedProduct.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TheBabyBedProduct.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -140,7 +161,10 @@
 				22CFD337206141080004186D /* AppDelegate.h */,
 				22CFD338206141080004186D /* AppDelegate.m */,
 				22CFD36B206142850004186D /* Common */,
+				8449AC032062031F00526935 /* NetWorkModules */,
 				22CFD369206142060004186D /* Modules */,
+				8449AC042062051C00526935 /* ViewModel */,
+				8449AC052062052800526935 /* Model */,
 				22CFD340206141080004186D /* Assets.xcassets */,
 				22CFD371206144BF0004186D /* Support */,
 			);
@@ -194,9 +218,16 @@
 		22CFD36B206142850004186D /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				8449AC0F20622EBC00526935 /* costom */,
 				22CFD372206145150004186D /* TheBabyBedProduct.pch */,
 				22CFD36E2061438C0004186D /* GlobalConfig.h */,
 				22CFD36F206143AA0004186D /* GlobalConfig.m */,
+				8449AC132062354000526935 /* LaunchConfiguration.h */,
+				8449AC142062354000526935 /* LaunchConfiguration.m */,
+				8449AC16206239F900526935 /* GlobalUtility.h */,
+				8449AC17206239F900526935 /* GlobalUtility.m */,
+				8449AC1920623ACC00526935 /* GlobalTool.h */,
+				8449AC1A20623ACC00526935 /* GlobalTool.m */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -253,6 +284,42 @@
 				22CFD39020614C820004186D /* LoginAndRegisterViewController.m */,
 			);
 			path = LoginAndRegister;
+			sourceTree = "<group>";
+		};
+		8449AC032062031F00526935 /* NetWorkModules */ = {
+			isa = PBXGroup;
+			children = (
+				8449AC0C2062283300526935 /* NetWorkRequestManager.h */,
+				8449AC0D2062283300526935 /* NetWorkRequestManager.m */,
+			);
+			path = NetWorkModules;
+			sourceTree = "<group>";
+		};
+		8449AC042062051C00526935 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				8449AC0920620D1B00526935 /* BaseViewModel.h */,
+				8449AC0A20620D1B00526935 /* BaseViewModel.m */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		8449AC052062052800526935 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				8449AC0620620CB300526935 /* BaseResultModel.h */,
+				8449AC0720620CB300526935 /* BaseResultModel.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		8449AC0F20622EBC00526935 /* costom */ = {
+			isa = PBXGroup;
+			children = (
+				8449AC102062338F00526935 /* MBPAlertView.h */,
+				8449AC112062338F00526935 /* MBPAlertView.m */,
+			);
+			path = costom;
 			sourceTree = "<group>";
 		};
 		EA9F0AC7DB5AD08E71A8DDDA /* Pods */ = {
@@ -470,14 +537,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8449AC0E2062283300526935 /* NetWorkRequestManager.m in Sources */,
 				22CFD38D20614C3F0004186D /* MyViewController.m in Sources */,
 				22CFD38120614AE90004186D /* HomePageViewController.m in Sources */,
+				8449AC152062354000526935 /* LaunchConfiguration.m in Sources */,
+				8449AC18206239F900526935 /* GlobalUtility.m in Sources */,
 				22CFD39120614C820004186D /* LoginAndRegisterViewController.m in Sources */,
+				8449AC0820620CB300526935 /* BaseResultModel.m in Sources */,
+				8449AC0B20620D1B00526935 /* BaseViewModel.m in Sources */,
 				22CFD38920614C180004186D /* EarlyEducationViewController.m in Sources */,
 				22CFD370206143AA0004186D /* GlobalConfig.m in Sources */,
 				22CFD38520614B420004186D /* TheConsoleViewController.m in Sources */,
 				22CFD375206146370004186D /* BaseViewController.m in Sources */,
 				22CFD37B2061476C0004186D /* BaseNavigationViewController.m in Sources */,
+				8449AC122062338F00526935 /* MBPAlertView.m in Sources */,
+				8449AC1B20623ACC00526935 /* GlobalTool.m in Sources */,
 				22CFD378206146AF0004186D /* BaseTabBarViewController.m in Sources */,
 				22CFD347206141080004186D /* main.m in Sources */,
 				22CFD339206141080004186D /* AppDelegate.m in Sources */,

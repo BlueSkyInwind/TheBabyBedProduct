@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface TheConsoleViewController : UIViewController
+@interface TheConsoleViewController : BaseViewController
 
 @end
