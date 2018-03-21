@@ -38,7 +38,7 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
 #define NaviBarHeight [[UIApplication sharedApplication] statusBarFrame].size.height + self.navigationController.navigationBar.frame.size.height
 
 //主色调
-#define UI_MAIN_COLOR [UIColor colorWithRed:0/255.0 green:170/255.0 blue:238/255.0 alpha:1]
+#define UI_MAIN_COLOR [UIColor colorWithRed:255/255.0 green:236/255.0 blue:183/255.0 alpha:1]
 
 
 

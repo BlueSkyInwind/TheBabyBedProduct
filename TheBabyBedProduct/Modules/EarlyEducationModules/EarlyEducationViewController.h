@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface EarlyEducationViewController : UIViewController
+@interface EarlyEducationViewController : BaseViewController
 
 @end

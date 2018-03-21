@@ -30,4 +30,12 @@
 -(UIViewController *)topViewController;
 //判断手机号是否有效
 + (BOOL)isMobileNumber:(NSString *)mobileNum;
+
+/**
+ 生成对应颜色的图片
+ 
+ @param color 色值
+ @return 图片
+ */
+-(UIImage *)imageWithColor:(UIColor *)color;
 @end

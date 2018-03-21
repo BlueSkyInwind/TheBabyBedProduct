@@ -19,8 +19,8 @@
     // Do any additional setup after loading the view.
     
     self.navigationController.navigationBar.titleTextAttributes = @{NSFontAttributeName:[UIFont systemFontOfSize:19],NSForegroundColorAttributeName:[UIColor blackColor]};
-    [self.navigationController.navigationBar setBackgroundColor:[UIColor whiteColor]];
-    //    [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"navigation"] forBarMetrics:UIBarMetricsDefault];
+//    [self.navigationController.navigationBar setBackgroundColor:UI_MAIN_COLOR];
+    [self.navigationController.navigationBar setBackgroundImage:[[GlobalTool share] imageWithColor:UI_MAIN_COLOR] forBarMetrics:UIBarMetricsDefault];
     self.navigationController.navigationBar.translucent = true;
     
 }

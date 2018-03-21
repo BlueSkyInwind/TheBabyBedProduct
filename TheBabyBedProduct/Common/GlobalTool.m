@@ -114,4 +114,25 @@ static GlobalTool * shareTool = nil;
     }
 }
 
+/**
+ 生成对应颜色的图片
+
+ @param color 色值
+ @return 图片
+ */
+-(UIImage *)imageWithColor:(UIColor *)color {
+    
+    CGRect rect = CGRectMake(0.0, 0.0, 1.0, 1.0);
+    UIGraphicsBeginImageContext(rect.size);
+    CGContextRef  context = UIGraphicsGetCurrentContext();
+    CGContextSetFillColorWithColor(context, color.CGColor);
+    CGContextFillRect(context, rect);
+    UIImage * image =  UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    return image;
+}
+
+
+
+
 @end
