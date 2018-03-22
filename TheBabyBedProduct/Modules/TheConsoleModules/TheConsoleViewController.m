@@ -7,7 +7,7 @@
 //
 
 #import "TheConsoleViewController.h"
-
+#import "HistoryFeverViewController.h"
 @interface TheConsoleViewController ()
 
 @end
@@ -22,11 +22,10 @@
 
 -(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
     
-    
+    HistoryFeverViewController * historyFeverVC = [[HistoryFeverViewController alloc]init];
+    [self.navigationController pushViewController:historyFeverVC animated:true];
     
 }
-
-
 
 
 - (void)didReceiveMemoryWarning {

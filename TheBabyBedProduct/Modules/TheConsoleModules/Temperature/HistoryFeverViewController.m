@@ -7,9 +7,12 @@
 //
 
 #import "HistoryFeverViewController.h"
+#import "TemperatureChartView.h"
 
 @interface HistoryFeverViewController ()
 
+
+@property(nonatomic,strong)TemperatureChartView * temChartView;
 
 @end
 
@@ -18,6 +21,16 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    self.title = @"历史体温";
+    
+    [self configureView];
+}
+-(void)configureView{
+    
+    _temChartView = [[TemperatureChartView alloc]initWithFrame:CGRectMake(0, NaviBarHeight, _k_w, _k_h / 2)];
+    _temChartView.backgroundColor = [UIColor whiteColor];
+    [self.view addSubview:_temChartView];
+    
 }
 
 - (void)didReceiveMemoryWarning {
