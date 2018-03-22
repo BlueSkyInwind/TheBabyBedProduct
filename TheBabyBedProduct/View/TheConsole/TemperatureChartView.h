@@ -7,8 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "PXLineChartView.h"
 
 @interface TemperatureChartView : UIView
 
-@property (nonatomic,strong)LineChartView * lineChartView;
 @end

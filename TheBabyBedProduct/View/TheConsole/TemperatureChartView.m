@@ -8,11 +8,14 @@
 
 #import "TemperatureChartView.h"
 #import "DateValueFormatter.h"
+#import "PointItem.h"
 
-@interface TemperatureChartView()<ChartViewDelegate,IChartAxisValueFormatter>{
+@interface TemperatureChartView()<PXLineChartViewDelegate>{
     NSArray * xArr;
     NSArray * yArr;
 }
+@property (nonatomic,strong)PXLineChartView * lineChartView;
+@property (nonatomic, strong) NSArray *lines;//line count
 
 @end
 
@@ -28,94 +31,121 @@
 
 -(void)configureView{
     
-    xArr = [NSArray arrayWithObjects:@"1:00",@"2:00",@"3:00",@"4:00",@"5:00",@"6:00",@"7:00",@"8:00",@"9:00",@"10:00",@"11:00",@"12:00",@"13:00",@"14:00",@"15:00", nil];
-    yArr = [NSArray arrayWithObjects:@"35",@"37",@"39.8",@"37.6",@"37.9",@"38.9",@"38.5",@"38.6",@"38.9",@"37",@"38.6",@"39",@"40",@"38.9",@"34", nil];
-    
-    _lineChartView = [[LineChartView alloc]initWithFrame:CGRectMake(0, 15, self.bounds.size.width, self.bounds.size.height - 20)];
-    _lineChartView.delegate = self;
-    _lineChartView.chartDescription.enabled = NO;
-    _lineChartView.dragEnabled = YES;
-    [_lineChartView setScaleEnabled:YES];
-    _lineChartView.pinchZoomEnabled = YES;
-    _lineChartView.drawGridBackgroundEnabled = NO;
-    _lineChartView.backgroundColor = [UIColor whiteColor];
-    _lineChartView.scaleYEnabled = false;
-    //设置x,y轴的最小缩放值
-    [_lineChartView setScaleMinima:2 scaleY:1];
+    _lineChartView = [[PXLineChartView alloc]initWithFrame:CGRectMake(0, 0, self.frame.size.width, self.frame.size.height)];
     [self addSubview:_lineChartView];
-
-    ChartLegend *l = _lineChartView.legend;
-    l.form = ChartLegendFormLine;
-    l.font = [UIFont systemFontOfSize:12];
-    l.textColor = kUIColorFromRGB(0xff9b39);
-    l.horizontalAlignment = ChartLegendHorizontalAlignmentLeft;
-    l.orientation = ChartLegendOrientationHorizontal;
-    l.drawInside = NO;
-    
-    //X轴
-    ChartXAxis *xAxis = _lineChartView.xAxis;
-    DateValueFormatter * formatter = [[DateValueFormatter alloc] init];
-    formatter.xAxisDatas = xArr;
-    xAxis.valueFormatter = formatter;
-    xAxis.granularity = xAxis.axisMaximum / xArr.count;
-    xAxis.labelPosition = XAxisLabelPositionBottom;
-    xAxis.labelFont = [UIFont systemFontOfSize:11.f];
-    xAxis.labelTextColor = kUIColorFromRGB(0xff9b39);
-    xAxis.drawGridLinesEnabled = NO;
-    xAxis.drawAxisLineEnabled = NO;
-
-    //y轴
-    ChartYAxis *leftAxis = _lineChartView.leftAxis;
-    leftAxis.labelTextColor = [UIColor blackColor];
-//    leftAxis.axisLineColor = [UIColor clearColor];
-    leftAxis.axisLineDashPhase = 10.0;
-    leftAxis.labelCount = 5;
-    leftAxis.forceLabelsEnabled = true;
-    leftAxis.axisMaximum = 40;
-    leftAxis.axisMinimum = 34;
-    leftAxis.drawGridLinesEnabled = YES;
-    leftAxis.drawZeroLineEnabled = NO;
-    leftAxis.granularityEnabled = NO;
-    leftAxis.drawBottomYLabelEntryEnabled = false;
-    _lineChartView.rightAxis.enabled = NO;
-    [self setChartData:xArr values:yArr];
+    _lineChartView.delegate = self;
+    xArr = [NSArray arrayWithObjects:@"1:00",@"2:00",@"3:00",@"4:00",@"5:00",@"6:00",@"7:00",@"8:00",@"9:00",@"10:00",@"11:00",@"12:00",@"13:00",@"14:00",@"15:00",@"16:00",@"17:00",@"18:00",@"19:00",@"20:00",@"21:00",@"22:00",@"23:00",@"24:00", nil];
+    yArr = [NSArray arrayWithObjects:@"32",@"34",@"36",@"38",@"40", nil];
+    self.lines = [self lines:true];
 }
 
--(void)setChartData:(NSArray *)dataPoints values:(NSArray *)arr{
+
+
+- (NSArray *)lines:(BOOL)fill {
+    NSArray *pointsArr = @[                           @{@"xValue" : @"1:00", @"yValue" : @"39"},
+                                                      @{@"xValue" : @"2:00", @"yValue" : @"37"},
+                                                      @{@"xValue" : @"3:00", @"yValue" : @"39.5"},
+                                                      @{@"xValue" : @"5:00", @"yValue" : @"38"},
+                                                      @{@"xValue" : @"6:00", @"yValue" : @"36"}];
     
-    NSMutableArray * dataArr  = [NSMutableArray array];
-    for (int i = 0;i< dataPoints.count;i++) {
-        ChartDataEntry * dataEntry = [[ChartDataEntry alloc]initWithX:i y:[arr[i] doubleValue]];
-        [dataArr addObject:dataEntry];
+    NSArray *pointsArr1 = @[
+                            @{@"xValue" : @"12:00", @"yValue" : @"37"},
+                            @{@"xValue" : @"13:00", @"yValue" : @"38"},
+                            @{@"xValue" : @"14:00", @"yValue" : @"40"}];
+    
+    NSMutableArray *points = @[].mutableCopy;
+    for (int i = 0; i < pointsArr.count; i++) {
+        PointItem *item = [[PointItem alloc] init];
+        NSDictionary *itemDic = pointsArr[i];
+        item.price = itemDic[@"yValue"];
+        item.time = itemDic[@"xValue"];
+        item.chartLineColor = rgb(255, 155, 57, 1);
+        item.chartPointColor = UI_MAIN_COLOR;
+        item.pointValueColor = rgb(255, 155, 57, 1);
+        item.chartFillColor = rgb(255, 155, 57, 0.45);
+        item.chartFill = YES;
+
+        [points addObject:item];
     }
-    LineChartDataSet * set = [[LineChartDataSet alloc]initWithValues:dataArr label:@"温度曲线"];
-    set.drawIconsEnabled = NO;
-    [set setColor:UIColor.blackColor];
-    [set setCircleColor:UIColor.blackColor];
-    set.lineWidth = 1.0;
-    set.circleRadius = 3.0;
     
-    //曲线填充色
-    NSArray *gradientColors = @[
-                                (id)kUIColorFromRGB(0xFF9B39).CGColor,
-                                (id)kUIColorFromRGB(0xFF9B39).CGColor
-                                ];
-    CGGradientRef gradient = CGGradientCreateWithColors(nil, (CFArrayRef)gradientColors, nil);
-    
-    set.fillAlpha = .45f;
-    set.fill = [ChartFill fillWithLinearGradient:gradient angle:90.f];
-    set.drawFilledEnabled = YES;
-    CGGradientRelease(gradient);
-    LineChartData *data = [[LineChartData alloc] initWithDataSet:set];
-    _lineChartView.data = data;
+    NSMutableArray *pointss = @[].mutableCopy;
+    for (int i = 0; i < pointsArr1.count; i++) {
+        PointItem *item = [[PointItem alloc] init];
+        NSDictionary *itemDic = pointsArr1[i];
+        item.price = itemDic[@"yValue"];
+        item.time = itemDic[@"xValue"];
+        item.chartLineColor = UI_MAIN_COLOR;
+        item.chartPointColor = UI_MAIN_COLOR;
+        item.pointValueColor = UI_MAIN_COLOR;
+        item.chartFillColor = rgb(255, 155, 57, 0.45);
+        item.chartFill = YES;
+        [pointss addObject:item];
+    }
+    //两条line
+    return @[pointss,points];
 }
+#pragma mark PXLineChartViewDelegate
+//通用设置
+- (NSDictionary<NSString*, id> *)lineChartViewAxisAttributes {
+    return @{yElementInterval : @"40",
+             xElementInterval : @"40",
+             yMargin : @"50",
+             xMargin : @"25",
+             yElementsUnit : @"度",
+             xElementsUnit : @"时间",
+             yAxisColor : [UIColor colorWithRed:178.0/255 green:178.0/255 blue:178.0/255 alpha:1],
+             xAxisColor : [UIColor clearColor],
+             gridColor : [UIColor colorWithRed:178.0/255 green:178.0/255 blue:178.0/255 alpha:1],
+             gridHide : @0,
+             pointHide : @0,
+             pointFont : [UIFont systemFontOfSize:10],
+             firstYAsOrigin : @1,
+             scrollAnimation : @1,
+             scrollAnimationDuration : @"2"};
+}
+//line count
+- (NSUInteger)numberOfChartlines {
+    return self.lines.count;
+    //    return 0;
+}
+//x轴y轴对应的元素count
+- (NSUInteger)numberOfElementsCountWithAxisType:(AxisType)axisType {
+    return (axisType == AxisTypeY)? yArr.count : xArr.count;
+}
+//x轴y轴对应的元素view
+- (UILabel *)elementWithAxisType:(AxisType)axisType index:(NSUInteger)index {
+    UILabel *label = [[UILabel alloc] init];
+    NSString *axisValue = @"";
+    if (axisType == AxisTypeX) {
+        axisValue = xArr[index];
+        label.textAlignment = NSTextAlignmentCenter;//;
+    }else if(axisType == AxisTypeY){
+        axisValue = yArr[index];
+        label.textAlignment = NSTextAlignmentRight;//;
+    }
+    label.text = axisValue;
+    label.font = [UIFont systemFontOfSize:12];
+    label.textColor = [UIColor blackColor];
+    return label;
+}
+//每条line对应的point数组
+- (NSArray<id<PointItemProtocol>> *)plotsOflineIndex:(NSUInteger)lineIndex {
+    return self.lines[lineIndex];
+}
+//点击point回调响应
+- (void)elementDidClickedWithPointSuperIndex:(NSUInteger)superidnex pointSubIndex:(NSUInteger)subindex {
+    PointItem *item = self.lines[superidnex][subindex];
+    NSString *xTitle = item.time;
+    NSString *yTitle = item.price;
+    
+    NSLog(@"%@",[NSString stringWithFormat:@"x：%@ \ny：%@",xTitle,yTitle]);
 
+}
 
 // Only override drawRect: if you perform custom drawing.
 // An empty implementation adversely affects performance during animation.
 - (void)drawRect:(CGRect)rect {
     // Drawing code
-//    [@"度" drawInRect:CGRectMake(0, 2, 10, 10) withAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIFont systemFontOfSize:10.0],NSFontAttributeName,[UIColor blackColor],NSForegroundColorAttributeName, nil]];
 //    [@"时间" drawInRect:CGRectMake(rect.size.width - 20, rect.size.height - 10, 20, 10) withAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIFont systemFontOfSize:10.0],NSFontAttributeName,[UIColor blackColor],NSForegroundColorAttributeName, nil]];
 }
 
