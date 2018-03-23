@@ -38,4 +38,19 @@
  @return 图片
  */
 -(UIImage *)imageWithColor:(UIColor *)color;
+
+
+/**
+ 获取当前时间
+
+ @return 当前时间  yyyy-MM-dd
+ */
++ (NSString *)getNowTime;
+
+//将时间转换为时间戳
++ (NSTimeInterval)timeToTimestamp:(NSString *)timeStr;
+//时间戳转换为时间
++ (NSString *)timestampToTime:(NSTimeInterval)timestamp;
+
+
 @end

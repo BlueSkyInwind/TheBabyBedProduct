@@ -53,9 +53,10 @@
     [self.subviews makeObjectsPerformSelector:@selector(removeFromSuperview)];
     [self reset];
     
-    UILabel * unitLabel = [[UILabel alloc]initWithFrame:CGRectMake(0,2,CGRectGetWidth(self.frame)-5,12)];
+    UILabel * unitLabel = [[UILabel alloc]initWithFrame:CGRectMake(0,10,CGRectGetWidth(self.frame)-5,12)];
     unitLabel.font = [UIFont systemFontOfSize:12];
     unitLabel.text = self.yElementsUnit;
+    unitLabel.textAlignment = NSTextAlignmentRight;
     [self addSubview:unitLabel];
     
     self.ylineView.frame = CGRectMake(CGRectGetWidth(self.frame) - 1, 0, 1, CGRectGetHeight(self.frame));

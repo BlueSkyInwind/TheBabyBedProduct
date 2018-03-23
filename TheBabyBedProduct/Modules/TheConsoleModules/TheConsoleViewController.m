@@ -8,7 +8,13 @@
 
 #import "TheConsoleViewController.h"
 #import "HistoryFeverViewController.h"
+#import "ConsoleHeaderView.h"
+#import "ConsoleBodyView.h"
+
 @interface TheConsoleViewController ()
+
+@property (nonatomic,strong)ConsoleHeaderView * headerView;
+@property (nonatomic,strong)ConsoleBodyView * bodyView;
 
 @end
 
@@ -17,15 +23,59 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    [self configureView];
+}
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    self.navigationController.navigationBar.hidden = true;
+}
+-(void)viewWillDisappear:(BOOL)animated{
+    [super viewWillDisappear:animated];
+    self.navigationController.navigationBar.hidden = false;
+}
+
+-(void)configureView{
+    
+    _headerView = [[NSBundle mainBundle]loadNibNamed:@"ConsoleHeaderView" owner:self options:nil].lastObject;
+    [self.view addSubview:_headerView];
+    [_headerView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.left.right.equalTo(@0);
+        make.height.equalTo(@190);
+    }];
+    
+    _bodyView = [[NSBundle mainBundle]loadNibNamed:@"ConsoleBodyView" owner:self options:nil].lastObject;
+    [self.view addSubview:_bodyView];
+    [_bodyView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.right.equalTo(@0);
+        make.top.equalTo(self.headerView.mas_bottom).with.offset(5);
+        make.height.equalTo(@(_k_h - 218));
+    }];
+    
+    __weak typeof (self) weakSelf = self;
+    _bodyView.bobyTemperatureBtnClick = ^(UIButton *button) {
+        HistoryFeverViewController * historyFeverVC = [[HistoryFeverViewController alloc]init];
+        [weakSelf.navigationController pushViewController:historyFeverVC animated:true];
+    };
+    
+    _bodyView.roomTemperatureBtnClick = ^(UIButton *button) {
+        
+    };
+    _bodyView.cryingBtnClick = ^(UIButton *button) {
+        
+    };
+    _bodyView.wettingBtnClick = ^(UIButton *button) {
+        
+    };
+    _bodyView.qulitBtnClick = ^(UIButton *button) {
+        
+    };
+    _bodyView.videoBtnClick = ^(UIButton *button) {
+        
+    };
+    
 }
 
 
--(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
-    
-    HistoryFeverViewController * historyFeverVC = [[HistoryFeverViewController alloc]init];
-    [self.navigationController pushViewController:historyFeverVC animated:true];
-    
-}
 
 
 - (void)didReceiveMemoryWarning {

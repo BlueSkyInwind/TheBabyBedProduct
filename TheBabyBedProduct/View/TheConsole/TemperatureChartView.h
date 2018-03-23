@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "PXLineChartView.h"
-
+#import "DateChooseView.h"
 @interface TemperatureChartView : UIView
 
 @end

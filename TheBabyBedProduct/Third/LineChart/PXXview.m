@@ -54,7 +54,7 @@
     unitLabel.textColor = UI_MAIN_COLOR;
     unitLabel.text = self.xElementUnit;
     CGSize elementSize = [unitLabel.text sizeWithAttributes:attr];
-    unitLabel.frame = CGRectMake(CGRectGetWidth(self.frame) - elementSize.width-20,CGRectGetHeight(self.frame)-elementSize.height - 5,elementSize.width+20,elementSize.height + 5);
+    unitLabel.frame = CGRectMake(_k_w - elementSize.width-20,CGRectGetHeight(self.frame)-elementSize.height - 5,elementSize.width+20,elementSize.height + 5);
     [self addSubview:unitLabel];
     
     if (self.axisAttributes[yAxisColor]) {
@@ -75,7 +75,7 @@
             elementView = (UILabel *)[_delegate elementWithAxisType:AxisTypeX index:i];
         }
         NSDictionary *attr = @{NSFontAttributeName : elementView.font};
-        elementView.textColor = UI_MAIN_COLOR;
+        elementView.textColor = rgb(255, 155, 57, 1);
         CGSize elementSize = [elementView.text sizeWithAttributes:attr];
         elementView.frame = CGRectMake(0,
                                     CGRectGetHeight(self.frame)-elementSize.height,

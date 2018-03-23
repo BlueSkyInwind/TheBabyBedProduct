@@ -29,6 +29,11 @@
 		22CFD3AF206401780004186D /* PXLineChartConst.m in Sources */ = {isa = PBXBuildFile; fileRef = 22CFD3A5206401780004186D /* PXLineChartConst.m */; };
 		22CFD3B0206401780004186D /* PXLineChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = 22CFD3AA206401780004186D /* PXLineChartView.m */; };
 		22CFD3B3206402BF0004186D /* PointItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 22CFD3B2206402BF0004186D /* PointItem.m */; };
+		22CFD3B6206532F20004186D /* DateChooseView.m in Sources */ = {isa = PBXBuildFile; fileRef = 22CFD3B5206532F20004186D /* DateChooseView.m */; };
+		22CFD3B9206545040004186D /* ConsoleHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 22CFD3B8206545040004186D /* ConsoleHeaderView.m */; };
+		22CFD3BB2065451D0004186D /* ConsoleHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22CFD3BA2065451D0004186D /* ConsoleHeaderView.xib */; };
+		22CFD3BE206548000004186D /* ConsoleBodyView.m in Sources */ = {isa = PBXBuildFile; fileRef = 22CFD3BD206548000004186D /* ConsoleBodyView.m */; };
+		22CFD3C0206548100004186D /* ConsoleBodyView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22CFD3BF206548100004186D /* ConsoleBodyView.xib */; };
 		347E55C5AB34C5F0659DAE6B /* Pods_TheBabyBedProduct.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 884698C1D52FC8383E4B1BCF /* Pods_TheBabyBedProduct.framework */; };
 		8449AC0820620CB300526935 /* BaseResultModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8449AC0720620CB300526935 /* BaseResultModel.m */; };
 		8449AC0B20620D1B00526935 /* BaseViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8449AC0A20620D1B00526935 /* BaseViewModel.m */; };
@@ -107,6 +112,14 @@
 		22CFD3AB206401780004186D /* PXYview.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PXYview.h; sourceTree = "<group>"; };
 		22CFD3B1206402BF0004186D /* PointItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PointItem.h; sourceTree = "<group>"; };
 		22CFD3B2206402BF0004186D /* PointItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PointItem.m; sourceTree = "<group>"; };
+		22CFD3B4206532F20004186D /* DateChooseView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DateChooseView.h; sourceTree = "<group>"; };
+		22CFD3B5206532F20004186D /* DateChooseView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DateChooseView.m; sourceTree = "<group>"; };
+		22CFD3B7206545040004186D /* ConsoleHeaderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ConsoleHeaderView.h; sourceTree = "<group>"; };
+		22CFD3B8206545040004186D /* ConsoleHeaderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ConsoleHeaderView.m; sourceTree = "<group>"; };
+		22CFD3BA2065451D0004186D /* ConsoleHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ConsoleHeaderView.xib; sourceTree = "<group>"; };
+		22CFD3BC206548000004186D /* ConsoleBodyView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ConsoleBodyView.h; sourceTree = "<group>"; };
+		22CFD3BD206548000004186D /* ConsoleBodyView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ConsoleBodyView.m; sourceTree = "<group>"; };
+		22CFD3BF206548100004186D /* ConsoleBodyView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ConsoleBodyView.xib; sourceTree = "<group>"; };
 		2F6F434F00B680C952F3C9BF /* Pods-TheBabyBedProduct.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TheBabyBedProduct.release.xcconfig"; path = "Pods/Target Support Files/Pods-TheBabyBedProduct/Pods-TheBabyBedProduct.release.xcconfig"; sourceTree = "<group>"; };
 		764BC6823587F5E7CC72C6C4 /* Pods-TheBabyBedProduct.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TheBabyBedProduct.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TheBabyBedProduct/Pods-TheBabyBedProduct.debug.xcconfig"; sourceTree = "<group>"; };
 		8449AC0620620CB300526935 /* BaseResultModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseResultModel.h; sourceTree = "<group>"; };
@@ -349,6 +362,14 @@
 			children = (
 				22CFD39B2062ADB30004186D /* TemperatureChartView.h */,
 				22CFD39C2062ADB30004186D /* TemperatureChartView.m */,
+				22CFD3B4206532F20004186D /* DateChooseView.h */,
+				22CFD3B5206532F20004186D /* DateChooseView.m */,
+				22CFD3B7206545040004186D /* ConsoleHeaderView.h */,
+				22CFD3B8206545040004186D /* ConsoleHeaderView.m */,
+				22CFD3BA2065451D0004186D /* ConsoleHeaderView.xib */,
+				22CFD3BC206548000004186D /* ConsoleBodyView.h */,
+				22CFD3BD206548000004186D /* ConsoleBodyView.m */,
+				22CFD3BF206548100004186D /* ConsoleBodyView.xib */,
 			);
 			path = TheConsole;
 			sourceTree = "<group>";
@@ -369,15 +390,15 @@
 				22CFD3A8206401780004186D /* PXChartBackgroundView.h */,
 				22CFD3A1206401780004186D /* PXChartBackgroundView.m */,
 				22CFD3A3206401780004186D /* PXLineChartView.h */,
+				22CFD3AA206401780004186D /* PXLineChartView.m */,
 				22CFD3AB206401780004186D /* PXYview.h */,
 				22CFD3A4206401780004186D /* PXYview.m */,
-				22CFD3A6206401780004186D /* PointItemProtocol.h */,
 				22CFD3A7206401780004186D /* PXXview.h */,
 				22CFD3A2206401780004186D /* PXXview.m */,
 				22CFD3A9206401780004186D /* PXLineChart.h */,
-				22CFD3AA206401780004186D /* PXLineChartView.m */,
 				22CFD3B1206402BF0004186D /* PointItem.h */,
 				22CFD3B2206402BF0004186D /* PointItem.m */,
+				22CFD3A6206401780004186D /* PointItemProtocol.h */,
 			);
 			path = LineChart;
 			sourceTree = "<group>";
@@ -546,6 +567,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				22CFD341206141080004186D /* Assets.xcassets in Resources */,
+				22CFD3C0206548100004186D /* ConsoleBodyView.xib in Resources */,
+				22CFD3BB2065451D0004186D /* ConsoleHeaderView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -645,6 +668,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				22CFD3AE206401780004186D /* PXYview.m in Sources */,
+				22CFD3B6206532F20004186D /* DateChooseView.m in Sources */,
 				22CFD39D2062ADB30004186D /* TemperatureChartView.m in Sources */,
 				22CFD3AC206401780004186D /* PXChartBackgroundView.m in Sources */,
 				8449AC0E2062283300526935 /* NetWorkRequestManager.m in Sources */,
@@ -668,8 +692,10 @@
 				8449AC1B20623ACC00526935 /* GlobalTool.m in Sources */,
 				22CFD378206146AF0004186D /* BaseTabBarViewController.m in Sources */,
 				849ECA76206395D5008049A9 /* DateValueFormatter.m in Sources */,
+				22CFD3B9206545040004186D /* ConsoleHeaderView.m in Sources */,
 				22CFD3B0206401780004186D /* PXLineChartView.m in Sources */,
 				22CFD347206141080004186D /* main.m in Sources */,
+				22CFD3BE206548000004186D /* ConsoleBodyView.m in Sources */,
 				22CFD339206141080004186D /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

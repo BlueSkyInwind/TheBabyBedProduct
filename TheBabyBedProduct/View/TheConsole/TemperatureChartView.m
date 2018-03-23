@@ -15,6 +15,8 @@
     NSArray * yArr;
 }
 @property (nonatomic,strong)PXLineChartView * lineChartView;
+@property (nonatomic,strong)DateChooseView * dateChooseView;
+
 @property (nonatomic, strong) NSArray *lines;//line count
 
 @end
@@ -31,15 +33,32 @@
 
 -(void)configureView{
     
-    _lineChartView = [[PXLineChartView alloc]initWithFrame:CGRectMake(0, 0, self.frame.size.width, self.frame.size.height)];
-    [self addSubview:_lineChartView];
+    _dateChooseView = [DateChooseView initFrame:CGRectMake(0, 0, _k_w, 47) mainColor:rgb(255, 155, 57, 1)];
+    [self addSubview:_dateChooseView];
+    _dateChooseView.chooseDateBlock = ^(NSTimeInterval chooseInterval) {
+        //选择日期的时间戳
+        
+    };
+    
+    UIView * backView = [[UIView alloc]initWithFrame:CGRectMake(0, 47, _k_w, 245)];
+    [self addSubview:backView];
+    
+    //添加上下分割线
+    UIView * topView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, _k_w, 1)];
+    topView.backgroundColor = [UIColor colorWithRed:244/255.0 green:244/255.0 blue:244/255.0 alpha:1];
+    [backView addSubview:topView];
+    
+    UIView * bottomView = [[UIView alloc]initWithFrame:CGRectMake(0, backView.frame.size.height - 1, _k_w, 1)];
+    bottomView.backgroundColor = [UIColor colorWithRed:244/255.0 green:244/255.0 blue:244/255.0 alpha:1];
+    [backView addSubview:bottomView];
+    
+    _lineChartView = [[PXLineChartView alloc]initWithFrame:CGRectMake(-10, 1, self.frame.size.width - 10, 233)];
+    [backView addSubview:_lineChartView];
     _lineChartView.delegate = self;
     xArr = [NSArray arrayWithObjects:@"1:00",@"2:00",@"3:00",@"4:00",@"5:00",@"6:00",@"7:00",@"8:00",@"9:00",@"10:00",@"11:00",@"12:00",@"13:00",@"14:00",@"15:00",@"16:00",@"17:00",@"18:00",@"19:00",@"20:00",@"21:00",@"22:00",@"23:00",@"24:00", nil];
     yArr = [NSArray arrayWithObjects:@"32",@"34",@"36",@"38",@"40", nil];
     self.lines = [self lines:true];
 }
-
-
 
 - (NSArray *)lines:(BOOL)fill {
     NSArray *pointsArr = @[                           @{@"xValue" : @"1:00", @"yValue" : @"39"},
@@ -60,7 +79,7 @@
         item.price = itemDic[@"yValue"];
         item.time = itemDic[@"xValue"];
         item.chartLineColor = rgb(255, 155, 57, 1);
-        item.chartPointColor = UI_MAIN_COLOR;
+        item.chartPointColor = rgb(255, 155, 57, 1);
         item.pointValueColor = rgb(255, 155, 57, 1);
         item.chartFillColor = rgb(255, 155, 57, 0.45);
         item.chartFill = YES;
@@ -74,9 +93,9 @@
         NSDictionary *itemDic = pointsArr1[i];
         item.price = itemDic[@"yValue"];
         item.time = itemDic[@"xValue"];
-        item.chartLineColor = UI_MAIN_COLOR;
-        item.chartPointColor = UI_MAIN_COLOR;
-        item.pointValueColor = UI_MAIN_COLOR;
+        item.chartLineColor = rgb(255, 155, 57, 1);
+        item.chartPointColor = rgb(255, 155, 57, 1);
+        item.pointValueColor = rgb(255, 155, 57, 1);
         item.chartFillColor = rgb(255, 155, 57, 0.45);
         item.chartFill = YES;
         [pointss addObject:item];

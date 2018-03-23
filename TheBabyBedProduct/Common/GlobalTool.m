@@ -132,7 +132,36 @@ static GlobalTool * shareTool = nil;
     return image;
 }
 
++ (NSString *)getNowTime
+{
+    NSDate *date = [NSDate date];
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:@"yyyy-MM-dd"];
+    NSString *dateStr = [formatter stringFromDate:date];
+    return dateStr;
+}
 
+//将时间转换为时间戳
++ (NSTimeInterval)timeToTimestamp:(NSString *)timeStr
+{
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:@"yyyy-MM-dd"];
+    NSDate *date = [formatter dateFromString:timeStr];
+    NSTimeInterval timesp = [date timeIntervalSince1970];
+    formatter = nil;
+    return timesp;
+}
+//时间戳转换为时间
++ (NSString *)timestampToTime:(NSTimeInterval)timestamp
+{
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:@"yyyy-MM-dd"];
+    NSDate *date = nil;
+    date = [NSDate dateWithTimeIntervalSince1970:timestamp];
+    NSString *timeStr = [formatter stringFromDate:date];
+    formatter = nil;
+    return timeStr;
+}
 
 
 @end

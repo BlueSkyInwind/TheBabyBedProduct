@@ -66,6 +66,8 @@
     [self.scrollView addSubview:_xAxisView];
     [self.scrollView addSubview:_chartBackgroundView];
     
+ 
+    
 }
 
 - (void)layoutSubviews {
@@ -114,7 +116,7 @@
                               @"xWidth": @(xWidth),
                               @"xHeight": @(_xHeight),
                               @"yHeight": @(yHeight),
-                              @"scrollHeight": @(scrollHeight),
+                              @"scrollHeight": @(scrollHeight - 2),
                               @"scrollWidth": @(scrollWidth),
                               };
     

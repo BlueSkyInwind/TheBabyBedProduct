@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="ConsoleHeaderView">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="210"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="console_header_Icon" translatesAutoresizingMaskIntoConstraints="NO" id="X7Q-z3-tvt">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="210"/>
+                </imageView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BqA-nW-jAr">
+                    <rect key="frame" x="152" y="70" width="70" height="70"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="70" id="S8v-4s-p5M"/>
+                        <constraint firstAttribute="width" constant="70" id="T1O-IQ-KLW"/>
+                    </constraints>
+                    <state key="normal" title="Button" image="console_baby_Icon"/>
+                    <connections>
+                        <action selector="consoleHeaderClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="ecv-zU-eDQ"/>
+                    </connections>
+                </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="您的宝宝已经22天了" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PcH-Md-llX">
+                    <rect key="frame" x="112.5" y="148" width="149.5" height="19.5"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="BqA-nW-jAr" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="07l-8P-VU2"/>
+                <constraint firstItem="X7Q-z3-tvt" firstAttribute="trailing" secondItem="iN0-l3-epB" secondAttribute="trailing" id="0Ix-PN-c1N"/>
+                <constraint firstItem="BqA-nW-jAr" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="CPv-33-e0t"/>
+                <constraint firstItem="X7Q-z3-tvt" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="G6n-m1-Jyq"/>
+                <constraint firstItem="X7Q-z3-tvt" firstAttribute="bottom" secondItem="iN0-l3-epB" secondAttribute="bottom" id="Jo9-Qd-rJC"/>
+                <constraint firstItem="PcH-Md-llX" firstAttribute="top" secondItem="BqA-nW-jAr" secondAttribute="bottom" constant="8" id="bEZ-8G-iYb"/>
+                <constraint firstItem="PcH-Md-llX" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="hNH-Cv-BTz"/>
+                <constraint firstItem="X7Q-z3-tvt" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="kZs-aE-GXc"/>
+            </constraints>
+            <nil key="simulatedTopBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="consoleHeaderBtn" destination="BqA-nW-jAr" id="SRB-ce-GSd"/>
+                <outlet property="consoleHeaderLabel" destination="PcH-Md-llX" id="jt7-vp-fo4"/>
+            </connections>
+            <point key="canvasLocation" x="33.5" y="-180"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="console_baby_Icon" width="128" height="128"/>
+        <image name="console_header_Icon" width="750" height="436"/>
+    </resources>
+</document>
