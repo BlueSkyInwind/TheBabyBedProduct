@@ -7,7 +7,6 @@
 //
 
 #import "TemperatureChartView.h"
-#import "DateValueFormatter.h"
 #import "PointItem.h"
 
 @interface TemperatureChartView()<PXLineChartViewDelegate>{

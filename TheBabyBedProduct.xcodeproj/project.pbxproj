@@ -47,7 +47,6 @@
 		8449AC152062354000526935 /* LaunchConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = 8449AC142062354000526935 /* LaunchConfiguration.m */; };
 		8449AC18206239F900526935 /* GlobalUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = 8449AC17206239F900526935 /* GlobalUtility.m */; };
 		8449AC1B20623ACC00526935 /* GlobalTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 8449AC1A20623ACC00526935 /* GlobalTool.m */; };
-		849ECA76206395D5008049A9 /* DateValueFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 849ECA74206395D5008049A9 /* DateValueFormatter.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -151,8 +150,6 @@
 		8449AC17206239F900526935 /* GlobalUtility.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GlobalUtility.m; sourceTree = "<group>"; };
 		8449AC1920623ACC00526935 /* GlobalTool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GlobalTool.h; sourceTree = "<group>"; };
 		8449AC1A20623ACC00526935 /* GlobalTool.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GlobalTool.m; sourceTree = "<group>"; };
-		849ECA74206395D5008049A9 /* DateValueFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DateValueFormatter.m; sourceTree = "<group>"; };
-		849ECA75206395D5008049A9 /* DateValueFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DateValueFormatter.h; sourceTree = "<group>"; };
 		884698C1D52FC8383E4B1BCF /* Pods_TheBabyBedProduct.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TheBabyBedProduct.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -467,8 +464,6 @@
 		849ECA73206395B0008049A9 /* Formatter */ = {
 			isa = PBXGroup;
 			children = (
-				849ECA75206395D5008049A9 /* DateValueFormatter.h */,
-				849ECA74206395D5008049A9 /* DateValueFormatter.m */,
 			);
 			path = Formatter;
 			sourceTree = "<group>";
@@ -622,7 +617,6 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-TheBabyBedProduct/Pods-TheBabyBedProduct-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/AFNetworking/AFNetworking.framework",
-				"${BUILT_PRODUCTS_DIR}/Charts/Charts.framework",
 				"${BUILT_PRODUCTS_DIR}/IQKeyboardManager/IQKeyboardManager.framework",
 				"${BUILT_PRODUCTS_DIR}/JSONModel/JSONModel.framework",
 				"${BUILT_PRODUCTS_DIR}/MBProgressHUD/MBProgressHUD.framework",
@@ -636,7 +630,6 @@
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AFNetworking.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Charts.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManager.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JSONModel.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MBProgressHUD.framework",
@@ -721,7 +714,6 @@
 				22CFD3972062A78C0004186D /* HistoryFeverViewController.m in Sources */,
 				8449AC1B20623ACC00526935 /* GlobalTool.m in Sources */,
 				22CFD378206146AF0004186D /* BaseTabBarViewController.m in Sources */,
-				849ECA76206395D5008049A9 /* DateValueFormatter.m in Sources */,
 				22CFD3B9206545040004186D /* ConsoleHeaderView.m in Sources */,
 				22CFD3B0206401780004186D /* PXLineChartView.m in Sources */,
 				22CFD347206141080004186D /* main.m in Sources */,
