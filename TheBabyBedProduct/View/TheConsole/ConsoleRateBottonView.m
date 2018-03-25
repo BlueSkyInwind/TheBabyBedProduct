@@ -40,8 +40,7 @@
     }];
     
     _displayIcon = [[UIImageView alloc]init];
-//    _displayIcon.image =
-    _displayIcon.backgroundColor = [UIColor redColor];
+    _displayIcon.image = [UIImage imageNamed:@"curve_Icon"];
     [_historyButton addSubview:_displayIcon];
     [_displayIcon mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerY.equalTo(_historyButton.mas_centerY);

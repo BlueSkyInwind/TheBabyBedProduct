@@ -15,6 +15,7 @@
 #define DLog(...)
 #endif
 
+
 //十六进制色值
 #define kUIColorFromRGB(rgbValue) [UIColor \
 colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 \
@@ -40,24 +41,12 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
 //主色调
 #define UI_MAIN_COLOR [UIColor colorWithRed:255/255.0 green:236/255.0 blue:186/255.0 alpha:1]
 
-
 UIKIT_EXTERN NSString * const Auth_Token;
 UIKIT_EXTERN NSString * const kLoginFlag;
-
 
 #pragma mark - 服务器地址，接口地址
 
 UIKIT_EXTERN NSString * const _main_url;
-
-//测试123
-
-
-
-
-
-
-
-
 
 
 
