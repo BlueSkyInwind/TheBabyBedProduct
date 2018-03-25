@@ -47,7 +47,6 @@
 		8449AC152062354000526935 /* LaunchConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = 8449AC142062354000526935 /* LaunchConfiguration.m */; };
 		8449AC18206239F900526935 /* GlobalUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = 8449AC17206239F900526935 /* GlobalUtility.m */; };
 		8449AC1B20623ACC00526935 /* GlobalTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 8449AC1A20623ACC00526935 /* GlobalTool.m */; };
-		849ECA76206395D5008049A9 /* DateValueFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 849ECA74206395D5008049A9 /* DateValueFormatter.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -151,8 +150,6 @@
 		8449AC17206239F900526935 /* GlobalUtility.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GlobalUtility.m; sourceTree = "<group>"; };
 		8449AC1920623ACC00526935 /* GlobalTool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GlobalTool.h; sourceTree = "<group>"; };
 		8449AC1A20623ACC00526935 /* GlobalTool.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GlobalTool.m; sourceTree = "<group>"; };
-		849ECA74206395D5008049A9 /* DateValueFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DateValueFormatter.m; sourceTree = "<group>"; };
-		849ECA75206395D5008049A9 /* DateValueFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DateValueFormatter.h; sourceTree = "<group>"; };
 		884698C1D52FC8383E4B1BCF /* Pods_TheBabyBedProduct.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TheBabyBedProduct.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -277,7 +274,6 @@
 		22CFD36B206142850004186D /* Common */ = {
 			isa = PBXGroup;
 			children = (
-				849ECA73206395B0008049A9 /* Formatter */,
 				8449AC0F20622EBC00526935 /* costom */,
 				22CFD372206145150004186D /* TheBabyBedProduct.pch */,
 				22CFD36E2061438C0004186D /* GlobalConfig.h */,
@@ -462,15 +458,6 @@
 				8449AC112062338F00526935 /* MBPAlertView.m */,
 			);
 			path = costom;
-			sourceTree = "<group>";
-		};
-		849ECA73206395B0008049A9 /* Formatter */ = {
-			isa = PBXGroup;
-			children = (
-				849ECA75206395D5008049A9 /* DateValueFormatter.h */,
-				849ECA74206395D5008049A9 /* DateValueFormatter.m */,
-			);
-			path = Formatter;
 			sourceTree = "<group>";
 		};
 		EA9F0AC7DB5AD08E71A8DDDA /* Pods */ = {
@@ -721,7 +708,6 @@
 				22CFD3972062A78C0004186D /* HistoryFeverViewController.m in Sources */,
 				8449AC1B20623ACC00526935 /* GlobalTool.m in Sources */,
 				22CFD378206146AF0004186D /* BaseTabBarViewController.m in Sources */,
-				849ECA76206395D5008049A9 /* DateValueFormatter.m in Sources */,
 				22CFD3B9206545040004186D /* ConsoleHeaderView.m in Sources */,
 				22CFD3B0206401780004186D /* PXLineChartView.m in Sources */,
 				22CFD347206141080004186D /* main.m in Sources */,
