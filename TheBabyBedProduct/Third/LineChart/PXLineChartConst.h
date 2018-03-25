@@ -15,6 +15,10 @@ extern NSString *const yElementInterval; //y轴坐标间隔
 
 extern NSString *const xElementInterval; //x轴坐标间隔
 
+extern NSString *const yElementMax; //y轴最大元素
+
+extern NSString *const yElementMaxPointColor; //y轴最大点的色值
+
 extern NSString *const yElementsUnit; //y轴坐标单位
 
 extern NSString *const xElementsUnit; //y轴坐标单位

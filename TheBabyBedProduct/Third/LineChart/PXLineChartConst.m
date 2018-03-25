@@ -14,6 +14,10 @@ NSString *const yElementInterval = @"yElementInterval";
 
 NSString *const xElementInterval = @"xElementInterval";
 
+NSString *const yElementMax = @"yElementMax";
+
+NSString *const yElementMaxPointColor = @"yElementMaxPointColor";
+
 NSString *const yElementsUnit = @"yElementsUnit";
 
 NSString *const xElementsUnit = @"xElementsUnit";

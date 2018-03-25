@@ -112,6 +112,8 @@
              xMargin : @"25",
              yElementsUnit : @"度",
              xElementsUnit : @"时间",
+             yElementMax: @"40",
+             yElementMaxPointColor: [UIColor redColor],
              yAxisColor : [UIColor colorWithRed:178.0/255 green:178.0/255 blue:178.0/255 alpha:1],
              xAxisColor : [UIColor clearColor],
              gridColor : [UIColor colorWithRed:178.0/255 green:178.0/255 blue:178.0/255 alpha:1],

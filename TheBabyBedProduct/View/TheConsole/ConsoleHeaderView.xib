@@ -30,33 +30,79 @@
                     </connections>
                 </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="您的宝宝已经22天了" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PcH-Md-llX">
-                    <rect key="frame" x="112.5" y="148" width="149.5" height="19.5"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                    <rect key="frame" x="117" y="148" width="140.5" height="18"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="宝宝盖被正常" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1yW-hO-qiU">
+                    <rect key="frame" x="144.5" y="167.5" width="86" height="17"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <color key="textColor" red="1" green="0.60784313725490191" blue="0.22352941176470587" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="踢被" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tz7-fZ-94f">
+                    <rect key="frame" x="169" y="41" width="37" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RDa-QW-xW7">
+                    <rect key="frame" x="15" y="41.5" width="20" height="20"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="20" id="cjS-1T-YjC"/>
+                        <constraint firstAttribute="height" constant="20" id="dJC-14-4ic"/>
+                    </constraints>
+                    <state key="normal" title="Button"/>
+                    <connections>
+                        <action selector="backBtnClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="WLJ-N9-Igt"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="t8X-q4-wRD">
+                    <rect key="frame" x="339" y="41" width="20" height="20"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="20" id="XCr-TL-TjL"/>
+                        <constraint firstAttribute="height" constant="20" id="hvI-2h-tzc"/>
+                    </constraints>
+                    <state key="normal" title="Button" image="consoleSet_Icon"/>
+                    <connections>
+                        <action selector="settingBtnClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="i8i-4d-TL7"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="BqA-nW-jAr" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="07l-8P-VU2"/>
                 <constraint firstItem="X7Q-z3-tvt" firstAttribute="trailing" secondItem="iN0-l3-epB" secondAttribute="trailing" id="0Ix-PN-c1N"/>
+                <constraint firstItem="BqA-nW-jAr" firstAttribute="top" secondItem="Tz7-fZ-94f" secondAttribute="bottom" constant="8" id="7U5-uM-hAA"/>
                 <constraint firstItem="BqA-nW-jAr" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="CPv-33-e0t"/>
+                <constraint firstAttribute="trailing" secondItem="t8X-q4-wRD" secondAttribute="trailing" constant="16" id="EnN-9h-BLe"/>
                 <constraint firstItem="X7Q-z3-tvt" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="G6n-m1-Jyq"/>
+                <constraint firstItem="RDa-QW-xW7" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="15" id="I72-YF-VUT"/>
                 <constraint firstItem="X7Q-z3-tvt" firstAttribute="bottom" secondItem="iN0-l3-epB" secondAttribute="bottom" id="Jo9-Qd-rJC"/>
+                <constraint firstItem="1yW-hO-qiU" firstAttribute="top" secondItem="PcH-Md-llX" secondAttribute="bottom" constant="1.5" id="SH2-RD-f7x"/>
                 <constraint firstItem="PcH-Md-llX" firstAttribute="top" secondItem="BqA-nW-jAr" secondAttribute="bottom" constant="8" id="bEZ-8G-iYb"/>
+                <constraint firstItem="Tz7-fZ-94f" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="beU-Ae-FSv"/>
                 <constraint firstItem="PcH-Md-llX" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="hNH-Cv-BTz"/>
+                <constraint firstItem="RDa-QW-xW7" firstAttribute="centerY" secondItem="Tz7-fZ-94f" secondAttribute="centerY" id="jgA-dZ-VWH"/>
                 <constraint firstItem="X7Q-z3-tvt" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="kZs-aE-GXc"/>
+                <constraint firstItem="t8X-q4-wRD" firstAttribute="centerY" secondItem="Tz7-fZ-94f" secondAttribute="centerY" id="mcF-vD-kYi"/>
+                <constraint firstItem="1yW-hO-qiU" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="oFK-Ag-HHa"/>
             </constraints>
             <nil key="simulatedTopBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
+                <outlet property="backBtn" destination="RDa-QW-xW7" id="rGv-LG-aQs"/>
                 <outlet property="consoleHeaderBtn" destination="BqA-nW-jAr" id="SRB-ce-GSd"/>
                 <outlet property="consoleHeaderLabel" destination="PcH-Md-llX" id="jt7-vp-fo4"/>
+                <outlet property="settingBtn" destination="t8X-q4-wRD" id="ei5-a6-F1B"/>
+                <outlet property="statusLabel" destination="1yW-hO-qiU" id="bDg-YG-9zX"/>
             </connections>
             <point key="canvasLocation" x="33.5" y="-180"/>
         </view>
     </objects>
     <resources>
+        <image name="consoleSet_Icon" width="40" height="40"/>
         <image name="console_baby_Icon" width="128" height="128"/>
         <image name="console_header_Icon" width="750" height="436"/>
     </resources>

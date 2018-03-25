@@ -15,6 +15,20 @@
     
 }
 
+- (IBAction)settingBtnClick:(id)sender {
+    if (self.settingButtonClick) {
+        self.settingButtonClick(sender);
+    }
+    
+}
+
+- (IBAction)backBtnClick:(id)sender {
+    if (self.backButtonClick) {
+        self.backButtonClick(sender);
+    }
+
+}
+
 /*
 // Only override drawRect: if you perform custom drawing.
 // An empty implementation adversely affects performance during animation.

@@ -57,6 +57,21 @@
     // Dispose of any resources that can be recreated.
 }
 
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    NSString * vcStr = NSStringFromClass(self.class);
+    AppDelegate * delegate = (AppDelegate*)[[UIApplication sharedApplication] delegate];
+    if ([delegate.tabBar.vcNameArr containsObject:vcStr]) {
+        self.tabBarController.tabBar.hidden = false;
+    }else{
+        self.tabBarController.tabBar.hidden = true;
+    }
+}
+-(void)viewWillDisappear:(BOOL)animated{
+    [super viewWillDisappear:animated];
+    
+}
+
 /*
 #pragma mark - Navigation
 

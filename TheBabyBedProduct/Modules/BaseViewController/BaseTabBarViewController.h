@@ -10,4 +10,6 @@
 
 @interface BaseTabBarViewController : UITabBarController
 
+@property (nonatomic,strong)NSArray * vcNameArr;
+
 @end

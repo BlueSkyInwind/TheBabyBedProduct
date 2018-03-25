@@ -29,16 +29,16 @@
 - (void)setTabbarCon
 {
     
-    NSArray *vcNameArr = @[@"HomePageViewController",@"TheConsoleViewController",@"EarlyEducationViewController",@"MyViewController"];
+    _vcNameArr = @[@"HomePageViewController",@"TheConsoleViewController",@"EarlyEducationViewController",@"MyViewController"];
     NSArray *titleArr = @[@"首页",@"控制台",@"早教",@"我的"];
     NSArray *imageArr = @[@"home_unselect",@"console_unselect",@"earlyEdu_unselect",@"my_unselect"];
     NSArray *seleteimageArr = @[@"home_select",@"console_select",@"earlyEdu_select",@"my_select"];
     
     NSMutableArray *ncArr = [NSMutableArray array];
     
-    for (int i = 0; i < vcNameArr.count; i++) {
+    for (int i = 0; i < _vcNameArr.count; i++) {
         //将字符串转化成类
-        Class vc = NSClassFromString([vcNameArr objectAtIndex:i]);
+        Class vc = NSClassFromString([_vcNameArr objectAtIndex:i]);
         //父类指针指向子类对象
         UIViewController *viewController = [[vc alloc]init];
         BaseNavigationViewController *nc = [[BaseNavigationViewController alloc]initWithRootViewController:viewController];

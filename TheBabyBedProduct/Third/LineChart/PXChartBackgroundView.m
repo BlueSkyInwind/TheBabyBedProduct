@@ -184,7 +184,6 @@ static char OperationKey;
                 if ([pointItem respondsToSelector:@selector(px_chartPointColor)]) {
                     pointColor = [pointItem px_chartPointColor];
                 }
-                [pointButton setBackgroundColor:pointColor];
                 CGSize pSize = CGSizeMake(6, 6);
                 if ([pointItem respondsToSelector:@selector(px_pointSize)]) {
                     pSize = [pointItem px_pointSize];
@@ -193,6 +192,13 @@ static char OperationKey;
                 pointButton.center = CGPointMake(pointCenterX, pointCenterY);
                 pointButton.layer.cornerRadius = MIN(pSize.width, pSize.height)/2;
                 pointButton.layer.masksToBounds = YES;
+                if ([pointYvalue isEqualToString:_axisAttributes[yElementMax]]) {
+                    [pointButton setBackgroundColor:_axisAttributes[yElementMaxPointColor]];
+                }else{
+                    [pointButton setBackgroundColor:[UIColor whiteColor]];
+                    pointButton.layer.borderColor = pointColor.CGColor;
+                    pointButton.layer.borderWidth = MIN(pSize.width, pSize.height)/4;
+                }
                 pointButton.userInteractionEnabled = YES;
                 [pointButton actionWithEvent:UIControlEventTouchUpInside withBlock:^(id sender) {
                     [weakSelf pointDidSelect:i subIndex:j];
@@ -222,6 +228,14 @@ static char OperationKey;
                                            pointCenterY - CGRectGetHeight(pointButton.frame)/2-5-buttonSize.height,
                                            buttonSize.width,
                                            buttonSize.height);
+            //处理第一个X轴上的第一个元素
+            UILabel *xElementlab = [_delegate elementWithAxisType:AxisTypeX index:0];
+            if ([pointXvalue isEqualToString:xElementlab.text]) {
+                CGRect rect = titlebutton.frame;
+                UIScrollView * scrollView = (UIScrollView *)self.superview;
+            }
+            
+            
             [titlebutton actionWithEvent:UIControlEventTouchUpInside withBlock:^(id sender) {
                 [weakSelf pointDidSelect:i subIndex:j];
             }];

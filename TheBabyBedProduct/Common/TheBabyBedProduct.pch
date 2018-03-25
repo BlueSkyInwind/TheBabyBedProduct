@@ -23,6 +23,7 @@
 #import "BaseViewController.h"
 #import <Charts/Charts-Swift.h>
 #import <Masonry/Masonry.h>
+#import "AppDelegate.h"
 
 //#import "TheBabyBedProduct-Swift.h"
 

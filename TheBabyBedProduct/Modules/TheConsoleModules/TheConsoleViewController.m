@@ -10,6 +10,7 @@
 #import "HistoryFeverViewController.h"
 #import "ConsoleHeaderView.h"
 #import "ConsoleBodyView.h"
+#import "ConsoleRateViewController.h"
 
 @interface TheConsoleViewController ()
 
@@ -37,6 +38,9 @@
 -(void)configureView{
     
     _headerView = [[NSBundle mainBundle]loadNibNamed:@"ConsoleHeaderView" owner:self options:nil].lastObject;
+    _headerView.backBtn.hidden = true;
+    _headerView.settingBtn.hidden = true;
+    _headerView.statusLabel.hidden = true;
     [self.view addSubview:_headerView];
     [_headerView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.left.right.equalTo(@0);
@@ -48,7 +52,7 @@
     [_bodyView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.right.equalTo(@0);
         make.top.equalTo(self.headerView.mas_bottom).with.offset(5);
-        make.height.equalTo(@(_k_h - 218));
+        make.height.equalTo(@(_k_h - 190));
     }];
     
     __weak typeof (self) weakSelf = self;
@@ -59,20 +63,30 @@
     
     _bodyView.roomTemperatureBtnClick = ^(UIButton *button) {
         
+
     };
+    
     _bodyView.cryingBtnClick = ^(UIButton *button) {
-        
+        ConsoleRateViewController * rateVC = [[ConsoleRateViewController alloc]init];
+        rateVC.rateType = BabyCryType;
+        [weakSelf.navigationController pushViewController:rateVC animated:true];
     };
+    
     _bodyView.wettingBtnClick = ^(UIButton *button) {
-        
+        ConsoleRateViewController * rateVC = [[ConsoleRateViewController alloc]init];
+        rateVC.rateType = BabyWetType;
+        [weakSelf.navigationController pushViewController:rateVC animated:true];
     };
+    
     _bodyView.qulitBtnClick = ^(UIButton *button) {
-        
+        ConsoleRateViewController * rateVC = [[ConsoleRateViewController alloc]init];
+        rateVC.rateType = BabyKickType;
+        [weakSelf.navigationController pushViewController:rateVC animated:true];
     };
+    
     _bodyView.videoBtnClick = ^(UIButton *button) {
         
     };
-    
 }
 
 
