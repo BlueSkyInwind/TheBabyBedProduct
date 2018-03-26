@@ -37,7 +37,6 @@
 		22CFD3C3206652B70004186D /* ConsoleRateView.m in Sources */ = {isa = PBXBuildFile; fileRef = 22CFD3C2206652B70004186D /* ConsoleRateView.m */; };
 		22CFD3C6206659AD0004186D /* ConsoleRateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22CFD3C5206659AD0004186D /* ConsoleRateViewController.m */; };
 		22CFD3C920667B250004186D /* ConsoleRateBottonView.m in Sources */ = {isa = PBXBuildFile; fileRef = 22CFD3C820667B250004186D /* ConsoleRateBottonView.m */; };
-		22CFD3CC20669D260004186D /* ThresholdSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22CFD3CB20669D260004186D /* ThresholdSettingViewController.m */; };
 		22CFD3CF2066A07A0004186D /* RoomTemperatureViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22CFD3CE2066A07A0004186D /* RoomTemperatureViewController.m */; };
 		22CFD3D22067C3120004186D /* ConsoleTemperatureViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22CFD3D12067C3120004186D /* ConsoleTemperatureViewController.m */; };
 		22CFD3D52067C58B0004186D /* ThermometerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 22CFD3D42067C58B0004186D /* ThermometerView.m */; };
@@ -45,6 +44,14 @@
 		22CFD3DA2067D5B10004186D /* ConsoleRoomTemperatureViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22CFD3D92067D5B10004186D /* ConsoleRoomTemperatureViewController.m */; };
 		22CFD3DD2067D8160004186D /* RoomIndicatorView.m in Sources */ = {isa = PBXBuildFile; fileRef = 22CFD3DC2067D8160004186D /* RoomIndicatorView.m */; };
 		22CFD3DF2067D82E0004186D /* RoomIndicatorView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22CFD3DE2067D82E0004186D /* RoomIndicatorView.xib */; };
+		22CFD3E92067FD650004186D /* CryingThresholdSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22CFD3E72067FD650004186D /* CryingThresholdSettingViewController.m */; };
+		22CFD3EA2067FD650004186D /* CryingThresholdSettingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22CFD3E82067FD650004186D /* CryingThresholdSettingViewController.xib */; };
+		22CFD3EE2067FD8C0004186D /* WettingThresholdSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22CFD3EC2067FD8C0004186D /* WettingThresholdSettingViewController.m */; };
+		22CFD3EF2067FD8C0004186D /* WettingThresholdSettingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22CFD3ED2067FD8C0004186D /* WettingThresholdSettingViewController.xib */; };
+		22CFD3F32067FDAF0004186D /* KickQulitThresholdSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22CFD3F12067FDAF0004186D /* KickQulitThresholdSettingViewController.m */; };
+		22CFD3F42067FDAF0004186D /* KickQulitThresholdSettingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22CFD3F22067FDAF0004186D /* KickQulitThresholdSettingViewController.xib */; };
+		22CFD3FA2067FE060004186D /* TemperatureThresholdSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22CFD3F82067FE060004186D /* TemperatureThresholdSettingViewController.m */; };
+		22CFD3FB2067FE060004186D /* TemperatureThresholdSettingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22CFD3F92067FE060004186D /* TemperatureThresholdSettingViewController.xib */; };
 		347E55C5AB34C5F0659DAE6B /* Pods_TheBabyBedProduct.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 884698C1D52FC8383E4B1BCF /* Pods_TheBabyBedProduct.framework */; };
 		8449AC0820620CB300526935 /* BaseResultModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8449AC0720620CB300526935 /* BaseResultModel.m */; };
 		8449AC0B20620D1B00526935 /* BaseViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8449AC0A20620D1B00526935 /* BaseViewModel.m */; };
@@ -136,8 +143,6 @@
 		22CFD3C5206659AD0004186D /* ConsoleRateViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ConsoleRateViewController.m; sourceTree = "<group>"; };
 		22CFD3C720667B250004186D /* ConsoleRateBottonView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ConsoleRateBottonView.h; sourceTree = "<group>"; };
 		22CFD3C820667B250004186D /* ConsoleRateBottonView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ConsoleRateBottonView.m; sourceTree = "<group>"; };
-		22CFD3CA20669D260004186D /* ThresholdSettingViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ThresholdSettingViewController.h; sourceTree = "<group>"; };
-		22CFD3CB20669D260004186D /* ThresholdSettingViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ThresholdSettingViewController.m; sourceTree = "<group>"; };
 		22CFD3CD2066A07A0004186D /* RoomTemperatureViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RoomTemperatureViewController.h; sourceTree = "<group>"; };
 		22CFD3CE2066A07A0004186D /* RoomTemperatureViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RoomTemperatureViewController.m; sourceTree = "<group>"; };
 		22CFD3D02067C3120004186D /* ConsoleTemperatureViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ConsoleTemperatureViewController.h; sourceTree = "<group>"; };
@@ -150,6 +155,18 @@
 		22CFD3DB2067D8160004186D /* RoomIndicatorView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RoomIndicatorView.h; sourceTree = "<group>"; };
 		22CFD3DC2067D8160004186D /* RoomIndicatorView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RoomIndicatorView.m; sourceTree = "<group>"; };
 		22CFD3DE2067D82E0004186D /* RoomIndicatorView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RoomIndicatorView.xib; sourceTree = "<group>"; };
+		22CFD3E62067FD650004186D /* CryingThresholdSettingViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CryingThresholdSettingViewController.h; sourceTree = "<group>"; };
+		22CFD3E72067FD650004186D /* CryingThresholdSettingViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CryingThresholdSettingViewController.m; sourceTree = "<group>"; };
+		22CFD3E82067FD650004186D /* CryingThresholdSettingViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CryingThresholdSettingViewController.xib; sourceTree = "<group>"; };
+		22CFD3EB2067FD8C0004186D /* WettingThresholdSettingViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WettingThresholdSettingViewController.h; sourceTree = "<group>"; };
+		22CFD3EC2067FD8C0004186D /* WettingThresholdSettingViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WettingThresholdSettingViewController.m; sourceTree = "<group>"; };
+		22CFD3ED2067FD8C0004186D /* WettingThresholdSettingViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WettingThresholdSettingViewController.xib; sourceTree = "<group>"; };
+		22CFD3F02067FDAF0004186D /* KickQulitThresholdSettingViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KickQulitThresholdSettingViewController.h; sourceTree = "<group>"; };
+		22CFD3F12067FDAF0004186D /* KickQulitThresholdSettingViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KickQulitThresholdSettingViewController.m; sourceTree = "<group>"; };
+		22CFD3F22067FDAF0004186D /* KickQulitThresholdSettingViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = KickQulitThresholdSettingViewController.xib; sourceTree = "<group>"; };
+		22CFD3F72067FE060004186D /* TemperatureThresholdSettingViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TemperatureThresholdSettingViewController.h; sourceTree = "<group>"; };
+		22CFD3F82067FE060004186D /* TemperatureThresholdSettingViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TemperatureThresholdSettingViewController.m; sourceTree = "<group>"; };
+		22CFD3F92067FE060004186D /* TemperatureThresholdSettingViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TemperatureThresholdSettingViewController.xib; sourceTree = "<group>"; };
 		2F6F434F00B680C952F3C9BF /* Pods-TheBabyBedProduct.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TheBabyBedProduct.release.xcconfig"; path = "Pods/Target Support Files/Pods-TheBabyBedProduct/Pods-TheBabyBedProduct.release.xcconfig"; sourceTree = "<group>"; };
 		764BC6823587F5E7CC72C6C4 /* Pods-TheBabyBedProduct.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TheBabyBedProduct.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TheBabyBedProduct/Pods-TheBabyBedProduct.debug.xcconfig"; sourceTree = "<group>"; };
 		8449AC0620620CB300526935 /* BaseResultModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseResultModel.h; sourceTree = "<group>"; };
@@ -333,8 +350,7 @@
 				22CFD3D12067C3120004186D /* ConsoleTemperatureViewController.m */,
 				22CFD3D82067D5B10004186D /* ConsoleRoomTemperatureViewController.h */,
 				22CFD3D92067D5B10004186D /* ConsoleRoomTemperatureViewController.m */,
-				22CFD3CA20669D260004186D /* ThresholdSettingViewController.h */,
-				22CFD3CB20669D260004186D /* ThresholdSettingViewController.m */,
+				22CFD3E02067FCC50004186D /* ThresholdSetting */,
 				22CFD3942062A72A0004186D /* Temperature */,
 			);
 			path = TheConsoleModules;
@@ -448,6 +464,25 @@
 				22CFD3A6206401780004186D /* PointItemProtocol.h */,
 			);
 			path = LineChart;
+			sourceTree = "<group>";
+		};
+		22CFD3E02067FCC50004186D /* ThresholdSetting */ = {
+			isa = PBXGroup;
+			children = (
+				22CFD3E62067FD650004186D /* CryingThresholdSettingViewController.h */,
+				22CFD3E72067FD650004186D /* CryingThresholdSettingViewController.m */,
+				22CFD3E82067FD650004186D /* CryingThresholdSettingViewController.xib */,
+				22CFD3EB2067FD8C0004186D /* WettingThresholdSettingViewController.h */,
+				22CFD3EC2067FD8C0004186D /* WettingThresholdSettingViewController.m */,
+				22CFD3ED2067FD8C0004186D /* WettingThresholdSettingViewController.xib */,
+				22CFD3F02067FDAF0004186D /* KickQulitThresholdSettingViewController.h */,
+				22CFD3F12067FDAF0004186D /* KickQulitThresholdSettingViewController.m */,
+				22CFD3F22067FDAF0004186D /* KickQulitThresholdSettingViewController.xib */,
+				22CFD3F72067FE060004186D /* TemperatureThresholdSettingViewController.h */,
+				22CFD3F82067FE060004186D /* TemperatureThresholdSettingViewController.m */,
+				22CFD3F92067FE060004186D /* TemperatureThresholdSettingViewController.xib */,
+			);
+			path = ThresholdSetting;
 			sourceTree = "<group>";
 		};
 		8449AC032062031F00526935 /* NetWorkModules */ = {
@@ -609,6 +644,10 @@
 				22CFD3C0206548100004186D /* ConsoleBodyView.xib in Resources */,
 				22CFD3BB2065451D0004186D /* ConsoleHeaderView.xib in Resources */,
 				22CFD3D72067C69B0004186D /* ThermometerView.xib in Resources */,
+				22CFD3EF2067FD8C0004186D /* WettingThresholdSettingViewController.xib in Resources */,
+				22CFD3FB2067FE060004186D /* TemperatureThresholdSettingViewController.xib in Resources */,
+				22CFD3EA2067FD650004186D /* CryingThresholdSettingViewController.xib in Resources */,
+				22CFD3F42067FDAF0004186D /* KickQulitThresholdSettingViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -711,7 +750,10 @@
 				22CFD3CF2066A07A0004186D /* RoomTemperatureViewController.m in Sources */,
 				22CFD39D2062ADB30004186D /* TemperatureChartView.m in Sources */,
 				22CFD3AC206401780004186D /* PXChartBackgroundView.m in Sources */,
+				22CFD3FA2067FE060004186D /* TemperatureThresholdSettingViewController.m in Sources */,
 				22CFD3C920667B250004186D /* ConsoleRateBottonView.m in Sources */,
+				22CFD3E92067FD650004186D /* CryingThresholdSettingViewController.m in Sources */,
+				22CFD3F32067FDAF0004186D /* KickQulitThresholdSettingViewController.m in Sources */,
 				8449AC0E2062283300526935 /* NetWorkRequestManager.m in Sources */,
 				22CFD38D20614C3F0004186D /* MyViewController.m in Sources */,
 				22CFD3B3206402BF0004186D /* PointItem.m in Sources */,
@@ -730,10 +772,10 @@
 				22CFD375206146370004186D /* BaseViewController.m in Sources */,
 				22CFD37B2061476C0004186D /* BaseNavigationViewController.m in Sources */,
 				22CFD3C6206659AD0004186D /* ConsoleRateViewController.m in Sources */,
-				22CFD3CC20669D260004186D /* ThresholdSettingViewController.m in Sources */,
 				8449AC122062338F00526935 /* MBPAlertView.m in Sources */,
 				22CFD3AF206401780004186D /* PXLineChartConst.m in Sources */,
 				22CFD3972062A78C0004186D /* HistoryFeverViewController.m in Sources */,
+				22CFD3EE2067FD8C0004186D /* WettingThresholdSettingViewController.m in Sources */,
 				8449AC1B20623ACC00526935 /* GlobalTool.m in Sources */,
 				22CFD378206146AF0004186D /* BaseTabBarViewController.m in Sources */,
 				22CFD3B9206545040004186D /* ConsoleHeaderView.m in Sources */,

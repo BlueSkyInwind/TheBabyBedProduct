@@ -1,22 +1,22 @@
 //
-//  ThresholdSettingViewController.m
+//  TemperatureThresholdSettingViewController.m
 //  TheBabyBedProduct
 //
-//  Created by Wangyongxin on 2018/3/24.
+//  Created by Wangyongxin on 2018/3/25.
 //  Copyright © 2018年 Wangyongxin. All rights reserved.
 //
 
-#import "ThresholdSettingViewController.h"
+#import "TemperatureThresholdSettingViewController.h"
 
-@interface ThresholdSettingViewController ()
+@interface TemperatureThresholdSettingViewController ()
 
 @end
 
-@implementation ThresholdSettingViewController
+@implementation TemperatureThresholdSettingViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    // Do any additional setup after loading the view from its nib.
     self.title = @"阈值设定";
 }
 

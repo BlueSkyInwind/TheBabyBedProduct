@@ -232,9 +232,11 @@ static char OperationKey;
             UILabel *xElementlab = [_delegate elementWithAxisType:AxisTypeX index:0];
             if ([pointXvalue isEqualToString:xElementlab.text]) {
                 CGRect rect = titlebutton.frame;
-                UIScrollView * scrollView = (UIScrollView *)self.superview;
+                CGFloat originX = rect.origin.x;
+                rect.origin.x = originX + 8;
+                titlebutton.frame = rect;
+//                UIScrollView * scrollView = (UIScrollView *)self.superview;
             }
-            
             
             [titlebutton actionWithEvent:UIControlEventTouchUpInside withBlock:^(id sender) {
                 [weakSelf pointDidSelect:i subIndex:j];

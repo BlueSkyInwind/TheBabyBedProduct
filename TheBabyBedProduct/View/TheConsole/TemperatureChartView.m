@@ -102,6 +102,7 @@
     //两条line
     return @[pointss,points];
 }
+
 #pragma mark PXLineChartViewDelegate
 //通用设置
 - (NSDictionary<NSString*, id> *)lineChartViewAxisAttributes {

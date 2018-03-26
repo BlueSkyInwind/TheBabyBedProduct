@@ -10,7 +10,7 @@
 #import "ConsoleRateView.h"
 #import "ConsoleHeaderView.h"
 #import "ConsoleRateBottonView.h"
-#import "ThresholdSettingViewController.h"
+#import "TemperatureThresholdSettingViewController.h"
 
 @interface ConsoleRateViewController (){
     
@@ -71,7 +71,7 @@
         [weakSelf.navigationController popViewControllerAnimated:true];
     };
     _headerView.settingButtonClick = ^(UIButton *button) {
-        ThresholdSettingViewController * setVC = [[ThresholdSettingViewController alloc]init];
+        TemperatureThresholdSettingViewController * setVC = [[TemperatureThresholdSettingViewController alloc]init];
         [weakSelf.navigationController pushViewController:setVC animated:true];
     };
     [_headerView mas_makeConstraints:^(MASConstraintMaker *make) {
