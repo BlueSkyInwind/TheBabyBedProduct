@@ -9,5 +9,8 @@
 #import <UIKit/UIKit.h>
 
 @interface BBLoginView : UIView
+@property(nonatomic,copy) void(^forgetPasswordBlock)(void);
+@property(nonatomic,copy) void(^loginBlock)(NSString *phone,NSString *password);
+@property(nonatomic,copy) void(^thirdLoginBlock)(BBThirdLoginType type);
 
 @end

@@ -40,12 +40,19 @@
     
     self.loginV = [[BBLoginView alloc]initWithFrame:CGRectMake(0, 200, _k_w, _k_h-200)];
     [self.view addSubview:self.loginV];
+    self.loginV.forgetPasswordBlock = ^{
+        //
+        DLog(@"点击忘记密码");
+    };
+    self.loginV.loginBlock = ^(NSString *phone, NSString *password) {
+        DLog(@"点登录按钮 %@--%@",phone,password);
+    };
+    self.loginV.thirdLoginBlock = ^(BBThirdLoginType type) {
+        DLog(@"第三方登录方式 %ld",(long)type);
+    };
     
     self.registV = [[BBRegistView alloc]initWithFrame:CGRectMake(_k_w, 200, _k_w, _k_h-200)];
     [self.view addSubview:self.registV];
-    
-    self.loginV.backgroundColor = [UIColor redColor];
-    self.registV.backgroundColor = [UIColor purpleColor];
     
 }
 -(void)creatHeaderVUI
