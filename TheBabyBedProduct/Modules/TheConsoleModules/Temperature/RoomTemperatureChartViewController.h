@@ -8,7 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
-@interface RoomTemperatureChartViewController : UIViewController
+@interface RoomTemperatureChartViewController : BaseViewController
 
 @property (nonatomic,assign)BOOL isOutside;
+
 @end
+
+
+

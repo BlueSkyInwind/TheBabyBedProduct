@@ -63,6 +63,8 @@
 		84DD47562068DB7B00D154B5 /* ThresholdTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 84DD47542068DB7B00D154B5 /* ThresholdTableViewCell.m */; };
 		84DD47572068DB7B00D154B5 /* ThresholdTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84DD47552068DB7B00D154B5 /* ThresholdTableViewCell.xib */; };
 		84DD475A2068F04000D154B5 /* RoomTemperatureView.m in Sources */ = {isa = PBXBuildFile; fileRef = 84DD47592068F04000D154B5 /* RoomTemperatureView.m */; };
+		84DD475D2068FC7600D154B5 /* WettingChartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84DD475C2068FC7600D154B5 /* WettingChartViewController.m */; };
+		84DD47602068FCD600D154B5 /* WettingChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = 84DD475F2068FCD600D154B5 /* WettingChartView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -191,6 +193,10 @@
 		84DD47552068DB7B00D154B5 /* ThresholdTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ThresholdTableViewCell.xib; sourceTree = "<group>"; };
 		84DD47582068F04000D154B5 /* RoomTemperatureView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RoomTemperatureView.h; sourceTree = "<group>"; };
 		84DD47592068F04000D154B5 /* RoomTemperatureView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RoomTemperatureView.m; sourceTree = "<group>"; };
+		84DD475B2068FC7600D154B5 /* WettingChartViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WettingChartViewController.h; sourceTree = "<group>"; };
+		84DD475C2068FC7600D154B5 /* WettingChartViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WettingChartViewController.m; sourceTree = "<group>"; };
+		84DD475E2068FCD600D154B5 /* WettingChartView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WettingChartView.h; sourceTree = "<group>"; };
+		84DD475F2068FCD600D154B5 /* WettingChartView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WettingChartView.m; sourceTree = "<group>"; };
 		884698C1D52FC8383E4B1BCF /* Pods_TheBabyBedProduct.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TheBabyBedProduct.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -398,6 +404,8 @@
 				22CFD3962062A78C0004186D /* HistoryFeverViewController.m */,
 				22CFD3CD2066A07A0004186D /* RoomTemperatureChartViewController.h */,
 				22CFD3CE2066A07A0004186D /* RoomTemperatureChartViewController.m */,
+				84DD475B2068FC7600D154B5 /* WettingChartViewController.h */,
+				84DD475C2068FC7600D154B5 /* WettingChartViewController.m */,
 			);
 			path = Temperature;
 			sourceTree = "<group>";
@@ -425,6 +433,8 @@
 				22CFD39C2062ADB30004186D /* TemperatureChartView.m */,
 				84DD47582068F04000D154B5 /* RoomTemperatureView.h */,
 				84DD47592068F04000D154B5 /* RoomTemperatureView.m */,
+				84DD475E2068FCD600D154B5 /* WettingChartView.h */,
+				84DD475F2068FCD600D154B5 /* WettingChartView.m */,
 				22CFD3B4206532F20004186D /* DateChooseView.h */,
 				22CFD3B5206532F20004186D /* DateChooseView.m */,
 				22CFD3B7206545040004186D /* ConsoleHeaderView.h */,
@@ -786,12 +796,14 @@
 				22CFD3C3206652B70004186D /* ConsoleRateView.m in Sources */,
 				22CFD375206146370004186D /* BaseViewController.m in Sources */,
 				22CFD37B2061476C0004186D /* BaseNavigationViewController.m in Sources */,
+				84DD47602068FCD600D154B5 /* WettingChartView.m in Sources */,
 				22CFD3C6206659AD0004186D /* ConsoleRateViewController.m in Sources */,
 				8449AC122062338F00526935 /* MBPAlertView.m in Sources */,
 				22CFD3AF206401780004186D /* PXLineChartConst.m in Sources */,
 				22CFD3972062A78C0004186D /* HistoryFeverViewController.m in Sources */,
 				22CFD3EE2067FD8C0004186D /* WettingThresholdSettingViewController.m in Sources */,
 				8449AC1B20623ACC00526935 /* GlobalTool.m in Sources */,
+				84DD475D2068FC7600D154B5 /* WettingChartViewController.m in Sources */,
 				22CFD378206146AF0004186D /* BaseTabBarViewController.m in Sources */,
 				22CFD3B9206545040004186D /* ConsoleHeaderView.m in Sources */,
 				84DD475A2068F04000D154B5 /* RoomTemperatureView.m in Sources */,

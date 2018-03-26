@@ -9,6 +9,7 @@
 #import "ConsoleRoomTemperatureViewController.h"
 #import "ConsoleHeaderView.h"
 #import "RoomIndicatorView.h"
+#import "RoomTemperatureChartViewController.h"
 
 @interface ConsoleRoomTemperatureViewController ()
 
@@ -54,10 +55,14 @@
     _indicatorView = [[NSBundle mainBundle]loadNibNamed:@"RoomIndicatorView" owner:self options:nil].lastObject;
     [self.view addSubview:_indicatorView];
     _indicatorView.roomTemperatureCurveClick = ^{
-        
+        RoomTemperatureChartViewController * roomTemPeratureChartVC = [[RoomTemperatureChartViewController alloc]init];
+        roomTemPeratureChartVC.isOutside = false;
+        [weakSelf.navigationController pushViewController:roomTemPeratureChartVC animated:true];
     };
     _indicatorView.outdoorTemperatureCurveClick = ^{
-        
+        RoomTemperatureChartViewController * roomTemPeratureChartVC = [[RoomTemperatureChartViewController alloc]init];
+        roomTemPeratureChartVC.isOutside = true;
+        [weakSelf.navigationController pushViewController:roomTemPeratureChartVC animated:true];
     };
     [_indicatorView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.right.equalTo(@0);

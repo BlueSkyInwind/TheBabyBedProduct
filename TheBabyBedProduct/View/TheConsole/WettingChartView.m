@@ -1,24 +1,24 @@
 //
-//  RoomTemperatureView.m
+//  WettingChartView.m
 //  TheBabyBedProduct
 //
 //  Created by admin on 2018/3/26.
 //  Copyright © 2018年 Wangyongxin. All rights reserved.
 //
 
-#import "RoomTemperatureView.h"
+#import "WettingChartView.h"
 #import "PointItem.h"
 
-@interface RoomTemperatureView()<PXLineChartViewDelegate>{
+@interface WettingChartView()<PXLineChartViewDelegate>{
     NSArray * xArr;
     NSArray * yArr;
 }
 @property (nonatomic,strong)PXLineChartView * lineChartView;
 @property (nonatomic,strong)DateChooseView * dateChooseView;
 @property (nonatomic, strong) NSArray *lines;//line count
-
 @end
-@implementation RoomTemperatureView
+
+@implementation WettingChartView
 
 
 -(instancetype)initWithFrame:(CGRect)frame{
@@ -54,10 +54,11 @@
     [backView addSubview:_lineChartView];
     _lineChartView.delegate = self;
     xArr = [NSArray arrayWithObjects:@"1:00",@"2:00",@"3:00",@"4:00",@"5:00",@"6:00",@"7:00",@"8:00",@"9:00",@"10:00",@"11:00",@"12:00",@"13:00",@"14:00",@"15:00",@"16:00",@"17:00",@"18:00",@"19:00",@"20:00",@"21:00",@"22:00",@"23:00",@"24:00", nil];
-    yArr = [NSArray arrayWithObjects:@"0",@"5",@"10",@"15",@"20",@"25",@"30",@"35", nil];
+    yArr = [NSArray arrayWithObjects:@"0",@"1",@"2",@"3", nil];
     self.lines = [self lines:true];
-    
+
 }
+
 - (NSArray *)lines:(BOOL)fill {
     NSArray *pointsArr = @[                           @{@"xValue" : @"1:00", @"yValue" : @"34"},
                                                       @{@"xValue" : @"2:00", @"yValue" : @"33"},
@@ -161,8 +162,6 @@
     NSLog(@"%@",[NSString stringWithFormat:@"x：%@ \ny：%@",xTitle,yTitle]);
     
 }
-
-
 
 /*
 // Only override drawRect: if you perform custom drawing.

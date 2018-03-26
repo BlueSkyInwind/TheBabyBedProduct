@@ -1,30 +1,23 @@
 //
-//  TemperatureThresholdSettingViewController.m
+//  WettingChartViewController.m
 //  TheBabyBedProduct
 //
-//  Created by Wangyongxin on 2018/3/25.
+//  Created by admin on 2018/3/26.
 //  Copyright © 2018年 Wangyongxin. All rights reserved.
 //
 
-#import "TemperatureThresholdSettingViewController.h"
+#import "WettingChartViewController.h"
 
-@interface TemperatureThresholdSettingViewController ()
+@interface WettingChartViewController ()
 
 @end
 
-@implementation TemperatureThresholdSettingViewController
+@implementation WettingChartViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
-    self.title = @"阈值设定";
-    
-    
-}
-
--(void)configureView{
-    
-    
+    // Do any additional setup after loading the view.
+    self.title = @"尿湿";
     
 }
 
