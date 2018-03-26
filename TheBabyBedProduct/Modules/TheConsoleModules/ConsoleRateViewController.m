@@ -11,6 +11,9 @@
 #import "ConsoleHeaderView.h"
 #import "ConsoleRateBottonView.h"
 #import "TemperatureThresholdSettingViewController.h"
+#import "CryingThresholdSettingViewController.h"
+#import "WettingThresholdSettingViewController.h"
+#import "KickQulitThresholdSettingViewController.h"
 
 @interface ConsoleRateViewController (){
     
@@ -66,13 +69,13 @@
     
     __weak typeof (self) weakSelf = self;
     _headerView = [[NSBundle mainBundle]loadNibNamed:@"ConsoleHeaderView" owner:self options:nil].lastObject;
+    _headerView.consoleHeaderLabel.text = self.title;
     [self.view addSubview:_headerView];
     _headerView.backButtonClick = ^(UIButton *button) {
         [weakSelf.navigationController popViewControllerAnimated:true];
     };
     _headerView.settingButtonClick = ^(UIButton *button) {
-        TemperatureThresholdSettingViewController * setVC = [[TemperatureThresholdSettingViewController alloc]init];
-        [weakSelf.navigationController pushViewController:setVC animated:true];
+        [weakSelf pushThresholdSettingVC];
     };
     [_headerView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.left.right.equalTo(@0);
@@ -109,9 +112,29 @@
 -(void)pushHistoryVC{
     
     
-    
 }
-
+-(void)pushThresholdSettingVC{
+    
+    switch (self.rateType) {
+        case BabyCryType:{
+            CryingThresholdSettingViewController * setVC = [[CryingThresholdSettingViewController alloc]init];
+            [self.navigationController pushViewController:setVC animated:true];
+        }
+            break;
+        case BabyKickType:{
+            KickQulitThresholdSettingViewController * setVC = [[KickQulitThresholdSettingViewController alloc]init];
+            [self.navigationController pushViewController:setVC animated:true];
+        }
+            break;
+        case BabyWetType:{
+            WettingThresholdSettingViewController * setVC = [[WettingThresholdSettingViewController alloc]init];
+            [self.navigationController pushViewController:setVC animated:true];
+        }
+            break;
+        default:
+            break;
+    }
+}
 
 
 -(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{

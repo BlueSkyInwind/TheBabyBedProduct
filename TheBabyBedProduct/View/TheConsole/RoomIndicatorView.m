@@ -10,6 +10,30 @@
 
 @implementation RoomIndicatorView
 
+-(void)awakeFromNib{
+    [super awakeFromNib];
+    
+    UITapGestureRecognizer * roomTap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(roomTemperatureCurveViewTap)];
+    [self.roomTemperatureCurveView addGestureRecognizer:roomTap];
+    
+    UITapGestureRecognizer * outdoorTap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(outdoorTemperatureCurveViewTap)];
+    [self.outdoorTemperatureCurveView addGestureRecognizer:outdoorTap];
+    
+}
+
+-(void)roomTemperatureCurveViewTap{
+    if (self.roomTemperatureCurveClick) {
+        self.roomTemperatureCurveClick();
+    }
+}
+
+-(void)outdoorTemperatureCurveViewTap{
+    if (self.outdoorTemperatureCurveClick) {
+        self.outdoorTemperatureCurveClick();
+    }
+}
+
+
 /*
 // Only override drawRect: if you perform custom drawing.
 // An empty implementation adversely affects performance during animation.

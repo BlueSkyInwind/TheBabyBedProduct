@@ -53,6 +53,12 @@
     
     _indicatorView = [[NSBundle mainBundle]loadNibNamed:@"RoomIndicatorView" owner:self options:nil].lastObject;
     [self.view addSubview:_indicatorView];
+    _indicatorView.roomTemperatureCurveClick = ^{
+        
+    };
+    _indicatorView.outdoorTemperatureCurveClick = ^{
+        
+    };
     [_indicatorView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.right.equalTo(@0);
         make.top.equalTo(self.headerView.mas_bottom).with.offset(5);

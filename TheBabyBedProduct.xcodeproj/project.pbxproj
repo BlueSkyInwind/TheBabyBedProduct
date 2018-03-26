@@ -37,7 +37,7 @@
 		22CFD3C3206652B70004186D /* ConsoleRateView.m in Sources */ = {isa = PBXBuildFile; fileRef = 22CFD3C2206652B70004186D /* ConsoleRateView.m */; };
 		22CFD3C6206659AD0004186D /* ConsoleRateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22CFD3C5206659AD0004186D /* ConsoleRateViewController.m */; };
 		22CFD3C920667B250004186D /* ConsoleRateBottonView.m in Sources */ = {isa = PBXBuildFile; fileRef = 22CFD3C820667B250004186D /* ConsoleRateBottonView.m */; };
-		22CFD3CF2066A07A0004186D /* RoomTemperatureViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22CFD3CE2066A07A0004186D /* RoomTemperatureViewController.m */; };
+		22CFD3CF2066A07A0004186D /* RoomTemperatureChartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22CFD3CE2066A07A0004186D /* RoomTemperatureChartViewController.m */; };
 		22CFD3D22067C3120004186D /* ConsoleTemperatureViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22CFD3D12067C3120004186D /* ConsoleTemperatureViewController.m */; };
 		22CFD3D52067C58B0004186D /* ThermometerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 22CFD3D42067C58B0004186D /* ThermometerView.m */; };
 		22CFD3D72067C69B0004186D /* ThermometerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22CFD3D62067C69B0004186D /* ThermometerView.xib */; };
@@ -60,6 +60,9 @@
 		8449AC152062354000526935 /* LaunchConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = 8449AC142062354000526935 /* LaunchConfiguration.m */; };
 		8449AC18206239F900526935 /* GlobalUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = 8449AC17206239F900526935 /* GlobalUtility.m */; };
 		8449AC1B20623ACC00526935 /* GlobalTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 8449AC1A20623ACC00526935 /* GlobalTool.m */; };
+		84DD47562068DB7B00D154B5 /* ThresholdTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 84DD47542068DB7B00D154B5 /* ThresholdTableViewCell.m */; };
+		84DD47572068DB7B00D154B5 /* ThresholdTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84DD47552068DB7B00D154B5 /* ThresholdTableViewCell.xib */; };
+		84DD475A2068F04000D154B5 /* RoomTemperatureView.m in Sources */ = {isa = PBXBuildFile; fileRef = 84DD47592068F04000D154B5 /* RoomTemperatureView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -143,8 +146,8 @@
 		22CFD3C5206659AD0004186D /* ConsoleRateViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ConsoleRateViewController.m; sourceTree = "<group>"; };
 		22CFD3C720667B250004186D /* ConsoleRateBottonView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ConsoleRateBottonView.h; sourceTree = "<group>"; };
 		22CFD3C820667B250004186D /* ConsoleRateBottonView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ConsoleRateBottonView.m; sourceTree = "<group>"; };
-		22CFD3CD2066A07A0004186D /* RoomTemperatureViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RoomTemperatureViewController.h; sourceTree = "<group>"; };
-		22CFD3CE2066A07A0004186D /* RoomTemperatureViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RoomTemperatureViewController.m; sourceTree = "<group>"; };
+		22CFD3CD2066A07A0004186D /* RoomTemperatureChartViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RoomTemperatureChartViewController.h; sourceTree = "<group>"; };
+		22CFD3CE2066A07A0004186D /* RoomTemperatureChartViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RoomTemperatureChartViewController.m; sourceTree = "<group>"; };
 		22CFD3D02067C3120004186D /* ConsoleTemperatureViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ConsoleTemperatureViewController.h; sourceTree = "<group>"; };
 		22CFD3D12067C3120004186D /* ConsoleTemperatureViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ConsoleTemperatureViewController.m; sourceTree = "<group>"; };
 		22CFD3D32067C58B0004186D /* ThermometerView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ThermometerView.h; sourceTree = "<group>"; };
@@ -183,6 +186,11 @@
 		8449AC17206239F900526935 /* GlobalUtility.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GlobalUtility.m; sourceTree = "<group>"; };
 		8449AC1920623ACC00526935 /* GlobalTool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GlobalTool.h; sourceTree = "<group>"; };
 		8449AC1A20623ACC00526935 /* GlobalTool.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GlobalTool.m; sourceTree = "<group>"; };
+		84DD47532068DB7B00D154B5 /* ThresholdTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ThresholdTableViewCell.h; sourceTree = "<group>"; };
+		84DD47542068DB7B00D154B5 /* ThresholdTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ThresholdTableViewCell.m; sourceTree = "<group>"; };
+		84DD47552068DB7B00D154B5 /* ThresholdTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ThresholdTableViewCell.xib; sourceTree = "<group>"; };
+		84DD47582068F04000D154B5 /* RoomTemperatureView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RoomTemperatureView.h; sourceTree = "<group>"; };
+		84DD47592068F04000D154B5 /* RoomTemperatureView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RoomTemperatureView.m; sourceTree = "<group>"; };
 		884698C1D52FC8383E4B1BCF /* Pods_TheBabyBedProduct.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TheBabyBedProduct.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -388,8 +396,8 @@
 			children = (
 				22CFD3952062A78C0004186D /* HistoryFeverViewController.h */,
 				22CFD3962062A78C0004186D /* HistoryFeverViewController.m */,
-				22CFD3CD2066A07A0004186D /* RoomTemperatureViewController.h */,
-				22CFD3CE2066A07A0004186D /* RoomTemperatureViewController.m */,
+				22CFD3CD2066A07A0004186D /* RoomTemperatureChartViewController.h */,
+				22CFD3CE2066A07A0004186D /* RoomTemperatureChartViewController.m */,
 			);
 			path = Temperature;
 			sourceTree = "<group>";
@@ -415,6 +423,8 @@
 			children = (
 				22CFD39B2062ADB30004186D /* TemperatureChartView.h */,
 				22CFD39C2062ADB30004186D /* TemperatureChartView.m */,
+				84DD47582068F04000D154B5 /* RoomTemperatureView.h */,
+				84DD47592068F04000D154B5 /* RoomTemperatureView.m */,
 				22CFD3B4206532F20004186D /* DateChooseView.h */,
 				22CFD3B5206532F20004186D /* DateChooseView.m */,
 				22CFD3B7206545040004186D /* ConsoleHeaderView.h */,
@@ -433,6 +443,9 @@
 				22CFD3DB2067D8160004186D /* RoomIndicatorView.h */,
 				22CFD3DC2067D8160004186D /* RoomIndicatorView.m */,
 				22CFD3DE2067D82E0004186D /* RoomIndicatorView.xib */,
+				84DD47532068DB7B00D154B5 /* ThresholdTableViewCell.h */,
+				84DD47542068DB7B00D154B5 /* ThresholdTableViewCell.m */,
+				84DD47552068DB7B00D154B5 /* ThresholdTableViewCell.xib */,
 			);
 			path = TheConsole;
 			sourceTree = "<group>";
@@ -644,6 +657,7 @@
 				22CFD3C0206548100004186D /* ConsoleBodyView.xib in Resources */,
 				22CFD3BB2065451D0004186D /* ConsoleHeaderView.xib in Resources */,
 				22CFD3D72067C69B0004186D /* ThermometerView.xib in Resources */,
+				84DD47572068DB7B00D154B5 /* ThresholdTableViewCell.xib in Resources */,
 				22CFD3EF2067FD8C0004186D /* WettingThresholdSettingViewController.xib in Resources */,
 				22CFD3FB2067FE060004186D /* TemperatureThresholdSettingViewController.xib in Resources */,
 				22CFD3EA2067FD650004186D /* CryingThresholdSettingViewController.xib in Resources */,
@@ -747,8 +761,9 @@
 				22CFD3D22067C3120004186D /* ConsoleTemperatureViewController.m in Sources */,
 				22CFD3AE206401780004186D /* PXYview.m in Sources */,
 				22CFD3B6206532F20004186D /* DateChooseView.m in Sources */,
-				22CFD3CF2066A07A0004186D /* RoomTemperatureViewController.m in Sources */,
+				22CFD3CF2066A07A0004186D /* RoomTemperatureChartViewController.m in Sources */,
 				22CFD39D2062ADB30004186D /* TemperatureChartView.m in Sources */,
+				84DD47562068DB7B00D154B5 /* ThresholdTableViewCell.m in Sources */,
 				22CFD3AC206401780004186D /* PXChartBackgroundView.m in Sources */,
 				22CFD3FA2067FE060004186D /* TemperatureThresholdSettingViewController.m in Sources */,
 				22CFD3C920667B250004186D /* ConsoleRateBottonView.m in Sources */,
@@ -779,6 +794,7 @@
 				8449AC1B20623ACC00526935 /* GlobalTool.m in Sources */,
 				22CFD378206146AF0004186D /* BaseTabBarViewController.m in Sources */,
 				22CFD3B9206545040004186D /* ConsoleHeaderView.m in Sources */,
+				84DD475A2068F04000D154B5 /* RoomTemperatureView.m in Sources */,
 				22CFD3B0206401780004186D /* PXLineChartView.m in Sources */,
 				22CFD347206141080004186D /* main.m in Sources */,
 				22CFD3BE206548000004186D /* ConsoleBodyView.m in Sources */,

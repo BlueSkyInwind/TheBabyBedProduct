@@ -10,4 +10,10 @@
 
 @interface CryingThresholdSettingViewController : BaseViewController
 
+@property (weak, nonatomic) IBOutlet UITextField *decibelTextField;
+@property (weak, nonatomic) IBOutlet UITableView *displayTableView;
+@property (weak, nonatomic) IBOutlet UILabel *quietnessLabel;
+@property (weak, nonatomic) IBOutlet UILabel *cryingLabel;
+@property (weak, nonatomic) IBOutlet UIButton *saveButton;
+
 @end

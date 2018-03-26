@@ -1,25 +1,37 @@
 //
-//  RoomTemperatureViewController.m
+//  RoomTemperatureChartViewController.m
 //  TheBabyBedProduct
 //
 //  Created by Wangyongxin on 2018/3/24.
 //  Copyright © 2018年 Wangyongxin. All rights reserved.
 //
 
-#import "RoomTemperatureViewController.h"
+#import "RoomTemperatureChartViewController.h"
+#import "RoomTemperatureView.h"
 
-@interface RoomTemperatureViewController ()
+@interface RoomTemperatureChartViewController ()
+@property(nonatomic,strong)RoomTemperatureView * roomTemperatureView;
 
 @end
 
-@implementation RoomTemperatureViewController
+@implementation RoomTemperatureChartViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    self.title = @"室内温度";
+    if (self.isOutside) {
+        self.title = @"室外温度";
+    }
+    [self configureView];
+}
+-(void)configureView{
+    
+    _roomTemperatureView = [[RoomTemperatureView alloc]initWithFrame:CGRectMake(0, NaviBarHeight, _k_w, _k_h / 2)];
+    _roomTemperatureView.backgroundColor = [UIColor whiteColor];
+    [self.view addSubview:_roomTemperatureView];
     
 }
-
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
