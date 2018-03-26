@@ -1,37 +1,25 @@
 //
-//  WettingChartViewController.m
+//  CryingChartViewController.m
 //  TheBabyBedProduct
 //
-//  Created by admin on 2018/3/26.
+//  Created by Wangyongxin on 2018/3/26.
 //  Copyright © 2018年 Wangyongxin. All rights reserved.
 //
 
-#import "WettingChartViewController.h"
-#import "WettingChartView.h"
+#import "CryingChartViewController.h"
 
-@interface WettingChartViewController ()
-
-
-@property(nonatomic,strong)WettingChartView * wettingChartView;
+@interface CryingChartViewController ()
 
 @end
 
-@implementation WettingChartViewController
+@implementation CryingChartViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.title = @"尿湿";
-    [self configureView];
+    self.title = @"哭闹";
 }
 
--(void)configureView{
-    
-    _wettingChartView = [[WettingChartView alloc]initWithFrame:CGRectMake(0, NaviBarHeight, _k_w, _k_h / 2)];
-    _wettingChartView.backgroundColor = [UIColor whiteColor];
-    [self.view addSubview:_wettingChartView];
-
-}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

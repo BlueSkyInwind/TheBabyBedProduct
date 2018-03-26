@@ -23,6 +23,7 @@
 #import "BaseViewController.h"
 #import <Masonry/Masonry.h>
 #import "AppDelegate.h"
+#import "UIFont+YX_Font.h"
 
 //#import "TheBabyBedProduct-Swift.h"
 

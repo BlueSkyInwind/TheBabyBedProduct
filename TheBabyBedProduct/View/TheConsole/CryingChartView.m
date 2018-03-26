@@ -1,15 +1,16 @@
 //
-//  RoomTemperatureView.m
+//  CryingChartView.m
 //  TheBabyBedProduct
 //
-//  Created by admin on 2018/3/26.
+//  Created by Wangyongxin on 2018/3/26.
 //  Copyright © 2018年 Wangyongxin. All rights reserved.
 //
 
-#import "RoomTemperatureView.h"
+#import "CryingChartView.h"
 #import "PointItem.h"
 
-@interface RoomTemperatureView()<PXLineChartViewDelegate>{
+
+@interface CryingChartView()<PXLineChartViewDelegate>{
     NSArray * xArr;
     NSArray * yArr;
 }
@@ -18,9 +19,7 @@
 @property (nonatomic, strong) NSArray *lines;//line count
 
 @end
-@implementation RoomTemperatureView
-
-
+@implementation CryingChartView
 -(instancetype)initWithFrame:(CGRect)frame{
     self = [super initWithFrame:frame];
     if (self) {
@@ -30,7 +29,7 @@
 }
 
 -(void)configureView{
-        
+    
     _dateChooseView = [DateChooseView initFrame:CGRectMake(0, 0, _k_w, 47) mainColor:self.mainColor];
     [self addSubview:_dateChooseView];
     _dateChooseView.chooseDateBlock = ^(NSTimeInterval chooseInterval) {
@@ -161,7 +160,6 @@
     NSLog(@"%@",[NSString stringWithFormat:@"x：%@ \ny：%@",xTitle,yTitle]);
     
 }
-
 
 
 /*

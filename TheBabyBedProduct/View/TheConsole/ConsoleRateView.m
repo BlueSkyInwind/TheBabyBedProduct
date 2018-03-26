@@ -93,6 +93,11 @@
     [CATransaction setAnimationDuration:0.5];
     self.progressLayer.strokeEnd =  num / 100;
     [CATransaction commit];
+    
+    if (num == 100) {
+        self.titleLabel.backgroundColor = rgb(255, 108, 140, 1);
+        self.progressLayer.strokeColor = rgb(255, 108, 140, 1).CGColor;
+    }
 }
 
 /*

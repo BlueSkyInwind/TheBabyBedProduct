@@ -14,6 +14,8 @@
 #import "CryingThresholdSettingViewController.h"
 #import "WettingThresholdSettingViewController.h"
 #import "KickQulitThresholdSettingViewController.h"
+#import "WettingChartViewController.h"
+#import "CryingChartViewController.h"
 
 @interface ConsoleRateViewController (){
     
@@ -110,8 +112,26 @@
 }
 
 -(void)pushHistoryVC{
-    
-    
+    switch (self.rateType) {
+        case BabyCryType:{
+            CryingChartViewController * cryingVC = [[CryingChartViewController alloc]init];
+            [self.navigationController pushViewController:cryingVC animated:true];
+
+        }
+            break;
+        case BabyKickType:{
+            
+            
+        }
+            break;
+        case BabyWetType:{
+            WettingChartViewController * chartVC = [[WettingChartViewController alloc]init];
+            [self.navigationController pushViewController:chartVC animated:true];
+        }
+            break;
+        default:
+            break;
+    }
 }
 -(void)pushThresholdSettingVC{
     

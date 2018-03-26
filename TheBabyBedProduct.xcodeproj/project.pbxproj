@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2266C1B720692D73004F653A /* UIFont+YX_Font.m in Sources */ = {isa = PBXBuildFile; fileRef = 2266C1B620692D72004F653A /* UIFont+YX_Font.m */; };
+		2266C1BA20694A61004F653A /* CryingChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2266C1B920694A61004F653A /* CryingChartView.m */; };
+		2266C1BD20694A85004F653A /* CryingChartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2266C1BC20694A85004F653A /* CryingChartViewController.m */; };
 		22CFD339206141080004186D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 22CFD338206141080004186D /* AppDelegate.m */; };
 		22CFD341206141080004186D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 22CFD340206141080004186D /* Assets.xcassets */; };
 		22CFD347206141080004186D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 22CFD346206141080004186D /* main.m */; };
@@ -92,6 +95,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2266C1B520692D72004F653A /* UIFont+YX_Font.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIFont+YX_Font.h"; sourceTree = "<group>"; };
+		2266C1B620692D72004F653A /* UIFont+YX_Font.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIFont+YX_Font.m"; sourceTree = "<group>"; };
+		2266C1B820694A61004F653A /* CryingChartView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CryingChartView.h; sourceTree = "<group>"; };
+		2266C1B920694A61004F653A /* CryingChartView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CryingChartView.m; sourceTree = "<group>"; };
+		2266C1BB20694A85004F653A /* CryingChartViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CryingChartViewController.h; sourceTree = "<group>"; };
+		2266C1BC20694A85004F653A /* CryingChartViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CryingChartViewController.m; sourceTree = "<group>"; };
 		22CFD334206141080004186D /* TheBabyBedProduct.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TheBabyBedProduct.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		22CFD337206141080004186D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		22CFD338206141080004186D /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -352,6 +361,8 @@
 				8449AC17206239F900526935 /* GlobalUtility.m */,
 				8449AC1920623ACC00526935 /* GlobalTool.h */,
 				8449AC1A20623ACC00526935 /* GlobalTool.m */,
+				2266C1B520692D72004F653A /* UIFont+YX_Font.h */,
+				2266C1B620692D72004F653A /* UIFont+YX_Font.m */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -427,6 +438,8 @@
 				22CFD3CE2066A07A0004186D /* RoomTemperatureChartViewController.m */,
 				84DD475B2068FC7600D154B5 /* WettingChartViewController.h */,
 				84DD475C2068FC7600D154B5 /* WettingChartViewController.m */,
+				2266C1BB20694A85004F653A /* CryingChartViewController.h */,
+				2266C1BC20694A85004F653A /* CryingChartViewController.m */,
 			);
 			path = Temperature;
 			sourceTree = "<group>";
@@ -456,6 +469,8 @@
 				84DD47592068F04000D154B5 /* RoomTemperatureView.m */,
 				84DD475E2068FCD600D154B5 /* WettingChartView.h */,
 				84DD475F2068FCD600D154B5 /* WettingChartView.m */,
+				2266C1B820694A61004F653A /* CryingChartView.h */,
+				2266C1B920694A61004F653A /* CryingChartView.m */,
 				22CFD3B4206532F20004186D /* DateChooseView.h */,
 				22CFD3B5206532F20004186D /* DateChooseView.m */,
 				22CFD3B7206545040004186D /* ConsoleHeaderView.h */,
@@ -854,6 +869,7 @@
 				22CFD38120614AE90004186D /* HomePageViewController.m in Sources */,
 				8449AC152062354000526935 /* LaunchConfiguration.m in Sources */,
 				8449AC18206239F900526935 /* GlobalUtility.m in Sources */,
+				2266C1B720692D73004F653A /* UIFont+YX_Font.m in Sources */,
 				22CFD39120614C820004186D /* LoginAndRegisterViewController.m in Sources */,
 				574C6CB92069254200F5BF55 /* NSMutableAttributedString+KeywordHignlight.m in Sources */,
 				8449AC0820620CB300526935 /* BaseResultModel.m in Sources */,
@@ -864,6 +880,7 @@
 				22CFD38520614B420004186D /* TheConsoleViewController.m in Sources */,
 				22CFD3DA2067D5B10004186D /* ConsoleRoomTemperatureViewController.m in Sources */,
 				22CFD3C3206652B70004186D /* ConsoleRateView.m in Sources */,
+				2266C1BD20694A85004F653A /* CryingChartViewController.m in Sources */,
 				22CFD375206146370004186D /* BaseViewController.m in Sources */,
 				22CFD37B2061476C0004186D /* BaseNavigationViewController.m in Sources */,
 				574C6CBB2069254200F5BF55 /* PPBaseTextField.m in Sources */,
@@ -873,6 +890,7 @@
 				8449AC122062338F00526935 /* MBPAlertView.m in Sources */,
 				22CFD3AF206401780004186D /* PXLineChartConst.m in Sources */,
 				22CFD3972062A78C0004186D /* HistoryFeverViewController.m in Sources */,
+				2266C1BA20694A61004F653A /* CryingChartView.m in Sources */,
 				22CFD3EE2067FD8C0004186D /* WettingThresholdSettingViewController.m in Sources */,
 				8449AC1B20623ACC00526935 /* GlobalTool.m in Sources */,
 				574C6CBE2069254200F5BF55 /* PPLabel.m in Sources */,

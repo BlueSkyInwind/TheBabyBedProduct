@@ -19,17 +19,24 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.title = @"室内温度";
-    if (self.isOutside) {
-        self.title = @"室外温度";
-    }
     [self configureView];
+
 }
 -(void)configureView{
     
     _roomTemperatureView = [[RoomTemperatureView alloc]initWithFrame:CGRectMake(0, NaviBarHeight, _k_w, _k_h / 2)];
     _roomTemperatureView.backgroundColor = [UIColor whiteColor];
     [self.view addSubview:_roomTemperatureView];
+    
+    self.title = @"室内温度";
+    _roomTemperatureView.mainColor = rgb(173, 229, 69, 1);
+    _roomTemperatureView.fillColor = rgb(69, 207, 229, 1);
+    _roomTemperatureView.fillColor = rgb(173, 229, 69, 0.45);
+    if (self.isOutside) {
+        self.title = @"室外温度";
+        _roomTemperatureView.mainColor = rgb(69, 207, 229, 1);
+        _roomTemperatureView.fillColor = rgb(69, 207, 229, 0.45);
+    }
     
 }
 - (void)didReceiveMemoryWarning {
