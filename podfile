@@ -13,5 +13,7 @@ target 'TheBabyBedProduct' do
 
     pod 'Masonry'
     pod 'JSONModel'
+    pod 'BAButton', '~> 2.6.5'
+    pod 'QMUIKit', '~> 2.4.0'
 
 end

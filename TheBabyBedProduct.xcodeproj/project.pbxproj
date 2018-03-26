@@ -63,6 +63,19 @@
 		574C6CBC2069254200F5BF55 /* NSString+PPTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 574C6CB12069254200F5BF55 /* NSString+PPTextField.m */; };
 		574C6CBD2069254200F5BF55 /* JKCountDownButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 574C6CB42069254200F5BF55 /* JKCountDownButton.m */; };
 		574C6CBE2069254200F5BF55 /* PPLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 574C6CB72069254200F5BF55 /* PPLabel.m */; };
+		574C6CD42069262000F5BF55 /* BBMyHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 574C6CC02069262000F5BF55 /* BBMyHeaderView.m */; };
+		574C6CD52069262000F5BF55 /* BBUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 574C6CC42069262000F5BF55 /* BBUser.m */; };
+		574C6CD62069262000F5BF55 /* BBLoginView.m in Sources */ = {isa = PBXBuildFile; fileRef = 574C6CC72069262000F5BF55 /* BBLoginView.m */; };
+		574C6CD72069262000F5BF55 /* BBRegistView.m in Sources */ = {isa = PBXBuildFile; fileRef = 574C6CC82069262000F5BF55 /* BBRegistView.m */; };
+		574C6CD82069262000F5BF55 /* BBLoginAndRegistViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 574C6CCB2069262000F5BF55 /* BBLoginAndRegistViewController.m */; };
+		574C6CD92069262000F5BF55 /* BBLoginRegistHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 574C6CCD2069262000F5BF55 /* BBLoginRegistHeaderView.m */; };
+		574C6CDA2069262000F5BF55 /* BBSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 574C6CD12069262000F5BF55 /* BBSettingViewController.m */; };
+		574C6CE62069272700F5BF55 /* UIImageView+EasilyMake.m in Sources */ = {isa = PBXBuildFile; fileRef = 574C6CE12069272700F5BF55 /* UIImageView+EasilyMake.m */; };
+		574C6CE72069272700F5BF55 /* UITableViewCell+EasilyMake.m in Sources */ = {isa = PBXBuildFile; fileRef = 574C6CE22069272700F5BF55 /* UITableViewCell+EasilyMake.m */; };
+		574C6CE82069272700F5BF55 /* UIFont+BB.m in Sources */ = {isa = PBXBuildFile; fileRef = 574C6CE32069272700F5BF55 /* UIFont+BB.m */; };
+		574C6CE92069272700F5BF55 /* UITableView+EasilyMake.m in Sources */ = {isa = PBXBuildFile; fileRef = 574C6CE42069272700F5BF55 /* UITableView+EasilyMake.m */; };
+		574C6CEA2069272700F5BF55 /* UIButton+EasilyMake.m in Sources */ = {isa = PBXBuildFile; fileRef = 574C6CE52069272700F5BF55 /* UIButton+EasilyMake.m */; };
+		574C6CED20693D2400F5BF55 /* UILabel+EasilyMake.m in Sources */ = {isa = PBXBuildFile; fileRef = 574C6CEC20693D2400F5BF55 /* UILabel+EasilyMake.m */; };
 		8449AC0820620CB300526935 /* BaseResultModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8449AC0720620CB300526935 /* BaseResultModel.m */; };
 		8449AC0B20620D1B00526935 /* BaseViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8449AC0A20620D1B00526935 /* BaseViewModel.m */; };
 		8449AC0E2062283300526935 /* NetWorkRequestManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8449AC0D2062283300526935 /* NetWorkRequestManager.m */; };
@@ -203,6 +216,33 @@
 		574C6CB42069254200F5BF55 /* JKCountDownButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JKCountDownButton.m; sourceTree = "<group>"; };
 		574C6CB62069254200F5BF55 /* PPLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPLabel.h; sourceTree = "<group>"; };
 		574C6CB72069254200F5BF55 /* PPLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPLabel.m; sourceTree = "<group>"; };
+		574C6CC02069262000F5BF55 /* BBMyHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBMyHeaderView.m; sourceTree = "<group>"; };
+		574C6CC12069262000F5BF55 /* BBMyHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBMyHeaderView.h; sourceTree = "<group>"; };
+		574C6CC32069262000F5BF55 /* BBUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBUser.h; sourceTree = "<group>"; };
+		574C6CC42069262000F5BF55 /* BBUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBUser.m; sourceTree = "<group>"; };
+		574C6CC62069262000F5BF55 /* BBLoginAndRegistViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBLoginAndRegistViewController.h; sourceTree = "<group>"; };
+		574C6CC72069262000F5BF55 /* BBLoginView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBLoginView.m; sourceTree = "<group>"; };
+		574C6CC82069262000F5BF55 /* BBRegistView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBRegistView.m; sourceTree = "<group>"; };
+		574C6CC92069262000F5BF55 /* BBLoginRegistHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBLoginRegistHeaderView.h; sourceTree = "<group>"; };
+		574C6CCA2069262000F5BF55 /* BBLoginView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBLoginView.h; sourceTree = "<group>"; };
+		574C6CCB2069262000F5BF55 /* BBLoginAndRegistViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBLoginAndRegistViewController.m; sourceTree = "<group>"; };
+		574C6CCC2069262000F5BF55 /* BBRegistView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBRegistView.h; sourceTree = "<group>"; };
+		574C6CCD2069262000F5BF55 /* BBLoginRegistHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBLoginRegistHeaderView.m; sourceTree = "<group>"; };
+		574C6CD12069262000F5BF55 /* BBSettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBSettingViewController.m; sourceTree = "<group>"; };
+		574C6CD22069262000F5BF55 /* BBSettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBSettingViewController.h; sourceTree = "<group>"; };
+		574C6CDC2069272700F5BF55 /* UIImageView+EasilyMake.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+EasilyMake.h"; sourceTree = "<group>"; };
+		574C6CDD2069272700F5BF55 /* UITableView+EasilyMake.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableView+EasilyMake.h"; sourceTree = "<group>"; };
+		574C6CDE2069272700F5BF55 /* UIFont+BB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIFont+BB.h"; sourceTree = "<group>"; };
+		574C6CDF2069272700F5BF55 /* UITableViewCell+EasilyMake.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableViewCell+EasilyMake.h"; sourceTree = "<group>"; };
+		574C6CE02069272700F5BF55 /* UIButton+EasilyMake.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+EasilyMake.h"; sourceTree = "<group>"; };
+		574C6CE12069272700F5BF55 /* UIImageView+EasilyMake.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+EasilyMake.m"; sourceTree = "<group>"; };
+		574C6CE22069272700F5BF55 /* UITableViewCell+EasilyMake.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableViewCell+EasilyMake.m"; sourceTree = "<group>"; };
+		574C6CE32069272700F5BF55 /* UIFont+BB.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIFont+BB.m"; sourceTree = "<group>"; };
+		574C6CE42069272700F5BF55 /* UITableView+EasilyMake.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableView+EasilyMake.m"; sourceTree = "<group>"; };
+		574C6CE52069272700F5BF55 /* UIButton+EasilyMake.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+EasilyMake.m"; sourceTree = "<group>"; };
+		574C6CEB20693D2400F5BF55 /* UILabel+EasilyMake.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UILabel+EasilyMake.h"; sourceTree = "<group>"; };
+		574C6CEC20693D2400F5BF55 /* UILabel+EasilyMake.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UILabel+EasilyMake.m"; sourceTree = "<group>"; };
+		574C6CEE206943B500F5BF55 /* BBMacros.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BBMacros.h; sourceTree = "<group>"; };
 		764BC6823587F5E7CC72C6C4 /* Pods-TheBabyBedProduct.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TheBabyBedProduct.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TheBabyBedProduct/Pods-TheBabyBedProduct.debug.xcconfig"; sourceTree = "<group>"; };
 		8449AC0620620CB300526935 /* BaseResultModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseResultModel.h; sourceTree = "<group>"; };
 		8449AC0720620CB300526935 /* BaseResultModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BaseResultModel.m; sourceTree = "<group>"; };
@@ -351,6 +391,7 @@
 		22CFD36B206142850004186D /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				574C6CDB2069272700F5BF55 /* Category */,
 				8449AC0F20622EBC00526935 /* costom */,
 				22CFD372206145150004186D /* TheBabyBedProduct.pch */,
 				22CFD36E2061438C0004186D /* GlobalConfig.h */,
@@ -361,8 +402,7 @@
 				8449AC17206239F900526935 /* GlobalUtility.m */,
 				8449AC1920623ACC00526935 /* GlobalTool.h */,
 				8449AC1A20623ACC00526935 /* GlobalTool.m */,
-				2266C1B520692D72004F653A /* UIFont+YX_Font.h */,
-				2266C1B620692D72004F653A /* UIFont+YX_Font.m */,
+				574C6CEE206943B500F5BF55 /* BBMacros.h */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -414,6 +454,10 @@
 		22CFD38A20614C230004186D /* MyModules */ = {
 			isa = PBXGroup;
 			children = (
+				574C6CC52069262000F5BF55 /* Login */,
+				574C6CC22069262000F5BF55 /* M */,
+				574C6CCE2069262000F5BF55 /* Setting */,
+				574C6CBF2069262000F5BF55 /* V */,
 				22CFD38B20614C3F0004186D /* MyViewController.h */,
 				22CFD38C20614C3F0004186D /* MyViewController.m */,
 			);
@@ -588,6 +632,93 @@
 				574C6CB72069254200F5BF55 /* PPLabel.m */,
 			);
 			path = PPLabel;
+			sourceTree = "<group>";
+		};
+		574C6CBF2069262000F5BF55 /* V */ = {
+			isa = PBXGroup;
+			children = (
+				574C6CC02069262000F5BF55 /* BBMyHeaderView.m */,
+				574C6CC12069262000F5BF55 /* BBMyHeaderView.h */,
+			);
+			path = V;
+			sourceTree = "<group>";
+		};
+		574C6CC22069262000F5BF55 /* M */ = {
+			isa = PBXGroup;
+			children = (
+				574C6CC32069262000F5BF55 /* BBUser.h */,
+				574C6CC42069262000F5BF55 /* BBUser.m */,
+			);
+			path = M;
+			sourceTree = "<group>";
+		};
+		574C6CC52069262000F5BF55 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				574C6CCA2069262000F5BF55 /* BBLoginView.h */,
+				574C6CC72069262000F5BF55 /* BBLoginView.m */,
+				574C6CCC2069262000F5BF55 /* BBRegistView.h */,
+				574C6CC82069262000F5BF55 /* BBRegistView.m */,
+				574C6CC62069262000F5BF55 /* BBLoginAndRegistViewController.h */,
+				574C6CCB2069262000F5BF55 /* BBLoginAndRegistViewController.m */,
+				574C6CC92069262000F5BF55 /* BBLoginRegistHeaderView.h */,
+				574C6CCD2069262000F5BF55 /* BBLoginRegistHeaderView.m */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		574C6CCE2069262000F5BF55 /* Setting */ = {
+			isa = PBXGroup;
+			children = (
+				574C6CCF2069262000F5BF55 /* M */,
+				574C6CD02069262000F5BF55 /* C */,
+				574C6CD32069262000F5BF55 /* V */,
+			);
+			path = Setting;
+			sourceTree = "<group>";
+		};
+		574C6CCF2069262000F5BF55 /* M */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = M;
+			sourceTree = "<group>";
+		};
+		574C6CD02069262000F5BF55 /* C */ = {
+			isa = PBXGroup;
+			children = (
+				574C6CD12069262000F5BF55 /* BBSettingViewController.m */,
+				574C6CD22069262000F5BF55 /* BBSettingViewController.h */,
+			);
+			path = C;
+			sourceTree = "<group>";
+		};
+		574C6CD32069262000F5BF55 /* V */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = V;
+			sourceTree = "<group>";
+		};
+		574C6CDB2069272700F5BF55 /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				574C6CDC2069272700F5BF55 /* UIImageView+EasilyMake.h */,
+				574C6CDD2069272700F5BF55 /* UITableView+EasilyMake.h */,
+				574C6CDF2069272700F5BF55 /* UITableViewCell+EasilyMake.h */,
+				574C6CE02069272700F5BF55 /* UIButton+EasilyMake.h */,
+				574C6CE12069272700F5BF55 /* UIImageView+EasilyMake.m */,
+				574C6CE22069272700F5BF55 /* UITableViewCell+EasilyMake.m */,
+				574C6CDE2069272700F5BF55 /* UIFont+BB.h */,
+				574C6CE32069272700F5BF55 /* UIFont+BB.m */,
+				574C6CE42069272700F5BF55 /* UITableView+EasilyMake.m */,
+				574C6CE52069272700F5BF55 /* UIButton+EasilyMake.m */,
+				574C6CEB20693D2400F5BF55 /* UILabel+EasilyMake.h */,
+				574C6CEC20693D2400F5BF55 /* UILabel+EasilyMake.m */,
+				2266C1B520692D72004F653A /* UIFont+YX_Font.h */,
+				2266C1B620692D72004F653A /* UIFont+YX_Font.m */,
+			);
+			path = Category;
 			sourceTree = "<group>";
 		};
 		8449AC032062031F00526935 /* NetWorkModules */ = {
@@ -782,11 +913,13 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-TheBabyBedProduct/Pods-TheBabyBedProduct-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/AFNetworking/AFNetworking.framework",
+				"${BUILT_PRODUCTS_DIR}/BAButton/BAButton.framework",
 				"${BUILT_PRODUCTS_DIR}/IQKeyboardManager/IQKeyboardManager.framework",
 				"${BUILT_PRODUCTS_DIR}/JSONModel/JSONModel.framework",
 				"${BUILT_PRODUCTS_DIR}/MBProgressHUD/MBProgressHUD.framework",
 				"${BUILT_PRODUCTS_DIR}/MJRefresh/MJRefresh.framework",
 				"${BUILT_PRODUCTS_DIR}/Masonry/Masonry.framework",
+				"${BUILT_PRODUCTS_DIR}/QMUIKit/QMUIKit.framework",
 				"${BUILT_PRODUCTS_DIR}/ReactiveObjC/ReactiveObjC.framework",
 				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
 				"${BUILT_PRODUCTS_DIR}/YYModel/YYModel.framework",
@@ -795,11 +928,13 @@
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AFNetworking.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/BAButton.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManager.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JSONModel.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MBProgressHUD.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MJRefresh.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Masonry.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/QMUIKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ReactiveObjC.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/YYModel.framework",
@@ -851,11 +986,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				22CFD3D22067C3120004186D /* ConsoleTemperatureViewController.m in Sources */,
+				574C6CD92069262000F5BF55 /* BBLoginRegistHeaderView.m in Sources */,
 				574C6CBA2069254200F5BF55 /* PPTextfield.m in Sources */,
+				574C6CE62069272700F5BF55 /* UIImageView+EasilyMake.m in Sources */,
 				22CFD3AE206401780004186D /* PXYview.m in Sources */,
 				22CFD3B6206532F20004186D /* DateChooseView.m in Sources */,
 				22CFD3CF2066A07A0004186D /* RoomTemperatureChartViewController.m in Sources */,
 				22CFD39D2062ADB30004186D /* TemperatureChartView.m in Sources */,
+				574C6CE82069272700F5BF55 /* UIFont+BB.m in Sources */,
 				84DD47562068DB7B00D154B5 /* ThresholdTableViewCell.m in Sources */,
 				574C6CBD2069254200F5BF55 /* JKCountDownButton.m in Sources */,
 				22CFD3AC206401780004186D /* PXChartBackgroundView.m in Sources */,
@@ -864,15 +1002,21 @@
 				22CFD3E92067FD650004186D /* CryingThresholdSettingViewController.m in Sources */,
 				22CFD3F32067FDAF0004186D /* KickQulitThresholdSettingViewController.m in Sources */,
 				8449AC0E2062283300526935 /* NetWorkRequestManager.m in Sources */,
+				574C6CD72069262000F5BF55 /* BBRegistView.m in Sources */,
 				22CFD38D20614C3F0004186D /* MyViewController.m in Sources */,
 				22CFD3B3206402BF0004186D /* PointItem.m in Sources */,
+				574C6CD52069262000F5BF55 /* BBUser.m in Sources */,
+				574C6CE92069272700F5BF55 /* UITableView+EasilyMake.m in Sources */,
+				574C6CD42069262000F5BF55 /* BBMyHeaderView.m in Sources */,
 				22CFD38120614AE90004186D /* HomePageViewController.m in Sources */,
 				8449AC152062354000526935 /* LaunchConfiguration.m in Sources */,
 				8449AC18206239F900526935 /* GlobalUtility.m in Sources */,
 				2266C1B720692D73004F653A /* UIFont+YX_Font.m in Sources */,
+				574C6CEA2069272700F5BF55 /* UIButton+EasilyMake.m in Sources */,
 				22CFD39120614C820004186D /* LoginAndRegisterViewController.m in Sources */,
 				574C6CB92069254200F5BF55 /* NSMutableAttributedString+KeywordHignlight.m in Sources */,
 				8449AC0820620CB300526935 /* BaseResultModel.m in Sources */,
+				574C6CDA2069262000F5BF55 /* BBSettingViewController.m in Sources */,
 				8449AC0B20620D1B00526935 /* BaseViewModel.m in Sources */,
 				22CFD38920614C180004186D /* EarlyEducationViewController.m in Sources */,
 				22CFD3AD206401780004186D /* PXXview.m in Sources */,
@@ -881,6 +1025,8 @@
 				22CFD3DA2067D5B10004186D /* ConsoleRoomTemperatureViewController.m in Sources */,
 				22CFD3C3206652B70004186D /* ConsoleRateView.m in Sources */,
 				2266C1BD20694A85004F653A /* CryingChartViewController.m in Sources */,
+				574C6CE72069272700F5BF55 /* UITableViewCell+EasilyMake.m in Sources */,
+				574C6CD82069262000F5BF55 /* BBLoginAndRegistViewController.m in Sources */,
 				22CFD375206146370004186D /* BaseViewController.m in Sources */,
 				22CFD37B2061476C0004186D /* BaseNavigationViewController.m in Sources */,
 				574C6CBB2069254200F5BF55 /* PPBaseTextField.m in Sources */,
@@ -893,11 +1039,13 @@
 				2266C1BA20694A61004F653A /* CryingChartView.m in Sources */,
 				22CFD3EE2067FD8C0004186D /* WettingThresholdSettingViewController.m in Sources */,
 				8449AC1B20623ACC00526935 /* GlobalTool.m in Sources */,
+				574C6CED20693D2400F5BF55 /* UILabel+EasilyMake.m in Sources */,
 				574C6CBE2069254200F5BF55 /* PPLabel.m in Sources */,
 				84DD475D2068FC7600D154B5 /* WettingChartViewController.m in Sources */,
 				22CFD378206146AF0004186D /* BaseTabBarViewController.m in Sources */,
 				22CFD3B9206545040004186D /* ConsoleHeaderView.m in Sources */,
 				84DD475A2068F04000D154B5 /* RoomTemperatureView.m in Sources */,
+				574C6CD62069262000F5BF55 /* BBLoginView.m in Sources */,
 				574C6CBC2069254200F5BF55 /* NSString+PPTextField.m in Sources */,
 				22CFD3B0206401780004186D /* PXLineChartView.m in Sources */,
 				22CFD347206141080004186D /* main.m in Sources */,

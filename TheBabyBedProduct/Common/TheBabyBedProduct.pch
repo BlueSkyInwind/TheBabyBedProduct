@@ -25,6 +25,9 @@
 #import "AppDelegate.h"
 #import "UIFont+YX_Font.h"
 
+#import <QMUIKit/QMUIKit.h>
+#import "BBMacros.h"
+
 //#import "TheBabyBedProduct-Swift.h"
 
 

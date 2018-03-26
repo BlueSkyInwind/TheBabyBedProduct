@@ -25,8 +25,15 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
 // 设置三原色
 #define rgb(r,g,b,a) [UIColor colorWithRed:r/255.0f green:g/255.0f blue:b/255.0f alpha:a]
 
+#define k_color_515151    rgb(51,51,51,1)
+#define k_color_153153153 rgb(153,153,153,1)
+
 #define _k_w           [UIScreen mainScreen].bounds.size.width
 #define _k_h           [UIScreen mainScreen].bounds.size.height
+
+//weak strong
+#define BBWeakSelf(type)  __weak typeof(type) weak##type = type;
+#define BBStrongSelf(type)  __strong typeof(type) type = weak##type;
 
 
 #define UI_IS_IPHONE            ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone)
