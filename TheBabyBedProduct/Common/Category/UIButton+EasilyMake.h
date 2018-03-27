@@ -18,3 +18,19 @@
 +(instancetype)bb_btMakeWithSuperV:(UIView *)superV
                          imageName:(NSString *)imageName;
 @end
+
+
+@interface UIButton (EasilyConfigure)
+/**
+ 设置btn Normal和Highlighted下的image 【相同】
+ */
+-(void)bb_btSetImageWithImgName:(NSString *)imgName;
+/**
+ 设置btn Normal和Highlighted下的TitleColor 【相同】
+ */
+-(void)bb_btSetTitleColor:(UIColor *)titleColor;
+/**
+ 设置btn Normal和Highlighted下的Title 【相同】
+ */
+-(void)bb_btSetTitle:(NSString *)title;
+@end

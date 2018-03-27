@@ -35,3 +35,12 @@ static UILabel *creatLB(UIView *superV,NSString *text,CGFloat fontSize,NSTextAli
     return lb;
 }
 @end
+
+@implementation UILabel (CalculateSize)
++(CGFloat)bb_calculateWidthWithFont:(UIFont *)font height:(CGFloat)height text:(NSString *)text
+{
+    CGSize containerSize = CGSizeMake(MAXFLOAT, height);
+    CGSize textSize = [text boundingRectWithSize:containerSize options:NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading attributes:@{NSFontAttributeName:font} context:nil].size;
+    return textSize.width;
+}
+@end
