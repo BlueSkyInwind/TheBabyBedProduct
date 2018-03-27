@@ -60,7 +60,7 @@
     UIView * view = self.superview.superview;   //获取曲线的第二层view
     CGFloat labelWidth = elementSize.width;
     CGFloat labelHeight = elementSize.height;
-    unitLabel.frame = CGRectMake(CGRectGetWidth(view.frame) - labelWidth,CGRectGetHeight(view.frame) - labelHeight,labelWidth,labelHeight);
+    unitLabel.frame = CGRectMake(CGRectGetWidth(view.frame) - labelWidth + 5,CGRectGetHeight(view.frame) - labelHeight ,labelWidth,labelHeight);
     [view addSubview:unitLabel];
     
     if (self.axisAttributes[yAxisColor]) {
