@@ -55,8 +55,21 @@
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    NSArray *imgs = @[
+                      @"gliwu",
+                      @"gwenjian",
+                      @"gshezhi"
+                      ];
+    
+    NSArray *titles = @[
+                        @"任务奖励",
+                        @"帮助意见",
+                        @"设置"
+                        ];
     BBMyListCell *cell = [BBMyListCell bb_cellMakeWithTableView:tableView];
-    [cell setupCellWithRow:indexPath.row];
+    if (imgs.count > indexPath.row) {
+        [cell setupCellWithImgName:imgs[indexPath.row] title:titles[indexPath.row]];
+    }
     return cell;
 }
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath

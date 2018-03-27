@@ -7,9 +7,15 @@
 //
 
 #import "BBSettingViewController.h"
+#import "UITableView+EasilyMake.h"
+#import "UITableViewCell+EasilyMake.h"
+#import "BBMyListCell.h"
+#import "BBMyListSubTitleCell.h"
+#import "BBMyListOnlySubtitleCell.h"
+#import "BBUser.h"
 
-@interface BBSettingViewController ()
-
+@interface BBSettingViewController ()<UITableViewDelegate,UITableViewDataSource>
+@property(nonatomic,strong) UITableView *tableView;
 @end
 
 @implementation BBSettingViewController
@@ -21,22 +27,88 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    self.view.backgroundColor = k_color_vcBg;
+    
+    [self creatUI];
+    
+}
+-(void)creatUI
+{
+    self.tableView = [UITableView bb_tableVMakeWithSuperV:self.view frame:self.view.bounds delegate:self bgColor:k_color_vcBg style:UITableViewStylePlain];
+    
+    if (!BBUserHelpers.hasLogined) {
+        UIView *foterV = [[UIView alloc]initWithFrame:CGRectFlatMake(0, 50, _k_w, 200)];
+        foterV.backgroundColor = [UIColor redColor];
+        self.tableView.tableFooterView = foterV;
+    }
+}
+-(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    return 2;
+}
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    if (section == 0) {
+        return 2;
+    }
+    return 4;
+}
+-(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+{
+    return 10;
+}
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 47;
+}
+-(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+{
+    UIView *v = [[UIView alloc]initWithFrame:CGRectMake(0, 0, _k_w, 10)];
+    v.backgroundColor = [UIColor clearColor];
+    return v;
+}
+-(CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
+{
+    return 0.0001;
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (indexPath.section == 0) {
+        if (indexPath.row == 0) {
+            BBMyListCell *cell = [BBMyListCell bb_cellMakeWithTableView:tableView];
+            [cell setupCellWithImgName:@"setmine" title:@"账户信息"];
+            return cell;
+        }else{
+            BBMyListOnlySubtitleCell *cell = [BBMyListOnlySubtitleCell bb_cellMakeWithTableView:tableView];
+            [cell setupCellWithImgName:@"setupgrade" title:@"固件升级" subTitle:@"检测"];
+            return cell;
+        }
+    }else{
+        if (indexPath.row == 0) {
+            BBMyListCell *cell = [BBMyListCell bb_cellMakeWithTableView:tableView];
+            [cell setupCellWithImgName:@"setinform" title:@"通知设置"];
+            return cell;
+        }else if (indexPath.row == 1){
+            BBMyListSubTitleCell *cell = [BBMyListSubTitleCell bb_cellMakeWithTableView:tableView];
+            [cell setupCellWithImgName:@"setsweep" title:@"清理缓存" subTitle:@"1.75MB"];
+            return cell;
+        }else if (indexPath.row == 2){
+            BBMyListCell *cell = [BBMyListCell bb_cellMakeWithTableView:tableView];
+            [cell setupCellWithImgName:@"setmine" title:@"关于我们"];
+            return cell;
+        }else{
+            BBMyListSubTitleCell *cell = [BBMyListSubTitleCell bb_cellMakeWithTableView:tableView];
+            [cell setupCellWithImgName:@"setupdate" title:@"检测更新" subTitle:@"当前已是最新版本"];
+            return cell;
+        }
+    }
+}
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
-/*
-#pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

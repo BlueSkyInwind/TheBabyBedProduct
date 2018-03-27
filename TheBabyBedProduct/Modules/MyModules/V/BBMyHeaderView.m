@@ -71,10 +71,10 @@
     CGFloat arrowY = (oneH-arrowH)/2;
     CGFloat imgY = (oneH-60)/2;
     self.avatarImgV.frame = CGRectMake(margin, imgY, 60, 60);
-    arrowImgV.frame = CGRectMake(realyBgV.qmui_width-margin-arrowW, arrowY,arrowW, arrowH);
-    CGFloat lbW = arrowImgV.qmui_left-self.avatarImgV.qmui_right-10-8;
-    self.userNameLB.frame = CGRectMake(self.avatarImgV.qmui_right+10, imgY+8, lbW, 24);
-    self.babyDaysLB.frame = CGRectMake(self.userNameLB.qmui_left, imgY+8+24, lbW, 20);
+    arrowImgV.frame = CGRectMake(realyBgV.width-margin-arrowW, arrowY,arrowW, arrowH);
+    CGFloat lbW = arrowImgV.left-self.avatarImgV.right-10-8;
+    self.userNameLB.frame = CGRectMake(self.avatarImgV.right+10, imgY+8, lbW, 24);
+    self.babyDaysLB.frame = CGRectMake(self.userNameLB.left, imgY+8+24, lbW, 20);
     
     self.userNameLB.text = @"跳跳的爸爸";
     self.babyDaysLB.text = @"您的宝贝493天了";
@@ -87,7 +87,7 @@
         bt.spacingBetweenImageAndTitle = 3;
         [realyBgV addSubview:bt];
         bt.tag = 110+i;
-        CGFloat btw = (realyBgV.qmui_width-60)/3;
+        CGFloat btw = (realyBgV.width-60)/3;
         bt.frame = CGRectMake(30+btw*i, 110, btw, 60);
         [bt bb_btSetTitle:titles[i]];
         [bt bb_btSetTitleColor:k_color_515151];

@@ -12,6 +12,8 @@
 /** 保存警报铃声选择的是哪个 */
 @property(nonatomic,strong) NSNumber *selectedRingIndex;
 
+
 +(void)bb_saveSettingManager:(BBSettingManager *)manager;
 +(BBSettingManager *)bb_getSettingManager;
 @end
+

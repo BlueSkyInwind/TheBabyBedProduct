@@ -9,5 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface BBMyListCell : UITableViewCell
--(void)setupCellWithRow:(NSInteger)row;
+-(void)setupCellWithImgName:(NSString *)imgName title:(NSString *)title;
 @end
+
+

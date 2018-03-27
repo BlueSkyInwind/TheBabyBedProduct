@@ -99,7 +99,7 @@
     self.registBT.fillColor = rgb(255, 236, 183, 0.5);
     self.registBT.titleTextColor = k_color_515151;
     [self.registBT setTitle:@"登录" forState:UIControlStateNormal];
-    self.registBT.frame = CGRectMake(leftMargin, self.passwordTF.qmui_bottom+45, _k_w-leftMargin*2, 47);
+    self.registBT.frame = CGRectMake(leftMargin, self.passwordTF.bottom+45, _k_w-leftMargin*2, 47);
     self.registBT.userInteractionEnabled = NO;
     [self.registBT addTarget:self action:@selector(registAction) forControlEvents:UIControlEventTouchUpInside];
     
@@ -113,12 +113,12 @@
     CGFloat protocolMargin = (_k_w-btnAndLbW)/2;
     
     self.agreeProtocolBT = [UIButton bb_btMakeWithSuperV:self imageName:@"pitchon"];
-    self.agreeProtocolBT.frame = CGRectMake(protocolMargin, self.registBT.qmui_bottom+5, btnW, btnW);
+    self.agreeProtocolBT.frame = CGRectMake(protocolMargin, self.registBT.bottom+5, btnW, btnW);
     [self.agreeProtocolBT setImageEdgeInsets:UIEdgeInsetsMake(4.5, 4.5, 4.5, 4.5)];
     [self.agreeProtocolBT addTarget:self action:@selector(agreeProtocolAction) forControlEvents:UIControlEventTouchUpInside];
     _isAgree = YES;
     
-    UILabel *agreeProtocolLB = [[UILabel alloc]initWithFrame:CGRectMake(self.agreeProtocolBT.qmui_right, self.agreeProtocolBT.qmui_top, protocolIntroW, btnW)];
+    UILabel *agreeProtocolLB = [[UILabel alloc]initWithFrame:CGRectMake(self.agreeProtocolBT.right, self.agreeProtocolBT.top, protocolIntroW, btnW)];
     [self addSubview:agreeProtocolLB];
     NSMutableAttributedString *mutStr = [[NSMutableAttributedString alloc]initWithString:protocolIntro];
     [mutStr pp_setFont:[UIFont systemFontOfSize:12]];
@@ -127,7 +127,7 @@
     agreeProtocolLB.attributedText = mutStr;
     
     UIButton *tempBT = [UIButton bb_btMakeWithSuperV:self imageName:nil];
-    tempBT.frame = CGRectFlatMake(agreeProtocolLB.qmui_left+protocolIntroW/2-15, agreeProtocolLB.qmui_top, protocolIntroW/2+15, btnW);
+    tempBT.frame = CGRectFlatMake(agreeProtocolLB.left+protocolIntroW/2-15, agreeProtocolLB.top, protocolIntroW/2+15, btnW);
     [tempBT addTarget:self action:@selector(clickProtocolAction) forControlEvents:UIControlEventTouchUpInside];
     
 }

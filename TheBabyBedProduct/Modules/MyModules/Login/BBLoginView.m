@@ -104,10 +104,10 @@
     [self addSubview:leftLine];
     
     UILabel *thirdLoginLB = [UILabel bb_lbMakeWithSuperV:self fontSize:12 alignment:NSTextAlignmentCenter textColor:k_color_153153153];
-    thirdLoginLB.frame = CGRectMake(leftLine.qmui_right, leftLine.qmui_top-9.5, thirdLoginLBW, 20);
+    thirdLoginLB.frame = CGRectMake(leftLine.right, leftLine.top-9.5, thirdLoginLBW, 20);
     thirdLoginLB.text = @"第三方登录";
     
-    UIView *rightLine = [[UIView alloc]initWithFrame:CGRectMake(thirdLoginLB.qmui_right, lineY, lineW, 1)];
+    UIView *rightLine = [[UIView alloc]initWithFrame:CGRectMake(thirdLoginLB.right, lineY, lineW, 1)];
     rightLine.backgroundColor = k_color_153153153;
     [self addSubview:rightLine];
     
@@ -122,7 +122,7 @@
     for (int i = 0; i<imgNames.count; i++) {
         UIButton *bt = [UIButton bb_btMakeWithSuperV:self imageName:imgNames[i]];
         bt.tag = 1000+i;
-        bt.frame = CGRectMake(margin3+oneItemW*i, thirdLoginLB.qmui_bottom+5, oneItemW, oneItemW);
+        bt.frame = CGRectMake(margin3+oneItemW*i, thirdLoginLB.bottom+5, oneItemW, oneItemW);
         CGFloat margin4 = (oneItemW-40)/2;
         [bt setImageEdgeInsets:UIEdgeInsetsMake(margin4, margin4, margin4, margin4)];
         [bt addTarget:self action:@selector(thirdLoginAction:) forControlEvents:UIControlEventTouchUpInside];

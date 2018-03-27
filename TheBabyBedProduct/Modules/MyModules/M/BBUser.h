@@ -8,6 +8,19 @@
 
 #import <Foundation/Foundation.h>
 
-@interface BBUser : NSObject
+#define BBUserHelpers [BBUserHelper shareInstance]
 
+@interface BBUser : NSObject<NSCoding>
+/** 是否登录 */
+@property(nonatomic,assign) BOOL hasLogined;
+
++(BBUser *)bb_getUser;
++(void)bb_saveUser:(BBUser *)user;
+@end
+
+
+@interface BBUserHelper : NSObject
++(instancetype)shareInstance;
+/** 是否登录 */
+@property(nonatomic,assign,readonly) BOOL hasLogined;
 @end
