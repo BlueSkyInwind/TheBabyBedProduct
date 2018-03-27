@@ -59,6 +59,8 @@
 		5726F33B206A2FB2008EED75 /* BBWarningRingSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5726F337206A2FB2008EED75 /* BBWarningRingSettingViewController.m */; };
 		5726F33C206A2FB2008EED75 /* BBWarningRingListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5726F33A206A2FB2008EED75 /* BBWarningRingListCell.m */; };
 		5726F33F206A3185008EED75 /* PPTextfield+EasilyMake.m in Sources */ = {isa = PBXBuildFile; fileRef = 5726F33E206A3185008EED75 /* PPTextfield+EasilyMake.m */; };
+		5726F342206A391B008EED75 /* BBMyListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5726F341206A391B008EED75 /* BBMyListCell.m */; };
+		5726F345206A3F1C008EED75 /* BBSettingManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 5726F344206A3F1B008EED75 /* BBSettingManager.m */; };
 		574C6CB82069254200F5BF55 /* NSMutableAttributedString+PPTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 574C6CAB2069254200F5BF55 /* NSMutableAttributedString+PPTextField.m */; };
 		574C6CB92069254200F5BF55 /* NSMutableAttributedString+KeywordHignlight.m in Sources */ = {isa = PBXBuildFile; fileRef = 574C6CAC2069254200F5BF55 /* NSMutableAttributedString+KeywordHignlight.m */; };
 		574C6CBA2069254200F5BF55 /* PPTextfield.m in Sources */ = {isa = PBXBuildFile; fileRef = 574C6CAF2069254200F5BF55 /* PPTextfield.m */; };
@@ -213,6 +215,10 @@
 		5726F33A206A2FB2008EED75 /* BBWarningRingListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBWarningRingListCell.m; sourceTree = "<group>"; };
 		5726F33D206A3184008EED75 /* PPTextfield+EasilyMake.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "PPTextfield+EasilyMake.h"; sourceTree = "<group>"; };
 		5726F33E206A3185008EED75 /* PPTextfield+EasilyMake.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "PPTextfield+EasilyMake.m"; sourceTree = "<group>"; };
+		5726F340206A391B008EED75 /* BBMyListCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BBMyListCell.h; sourceTree = "<group>"; };
+		5726F341206A391B008EED75 /* BBMyListCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BBMyListCell.m; sourceTree = "<group>"; };
+		5726F343206A3F1B008EED75 /* BBSettingManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBSettingManager.h; sourceTree = "<group>"; };
+		5726F344206A3F1B008EED75 /* BBSettingManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBSettingManager.m; sourceTree = "<group>"; };
 		574C6CA72069254200F5BF55 /* PPTextfield.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPTextfield.h; sourceTree = "<group>"; };
 		574C6CA92069254200F5BF55 /* NSMutableAttributedString+PPTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableAttributedString+PPTextField.h"; sourceTree = "<group>"; };
 		574C6CAA2069254200F5BF55 /* NSMutableAttributedString+KeywordHignlight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableAttributedString+KeywordHignlight.h"; sourceTree = "<group>"; };
@@ -669,8 +675,10 @@
 		574C6CBF2069262000F5BF55 /* V */ = {
 			isa = PBXGroup;
 			children = (
-				574C6CC02069262000F5BF55 /* BBMyHeaderView.m */,
 				574C6CC12069262000F5BF55 /* BBMyHeaderView.h */,
+				574C6CC02069262000F5BF55 /* BBMyHeaderView.m */,
+				5726F340206A391B008EED75 /* BBMyListCell.h */,
+				5726F341206A391B008EED75 /* BBMyListCell.m */,
 			);
 			path = V;
 			sourceTree = "<group>";
@@ -678,6 +686,8 @@
 		574C6CC22069262000F5BF55 /* M */ = {
 			isa = PBXGroup;
 			children = (
+				5726F343206A3F1B008EED75 /* BBSettingManager.h */,
+				5726F344206A3F1B008EED75 /* BBSettingManager.m */,
 				574C6CC32069262000F5BF55 /* BBUser.h */,
 				574C6CC42069262000F5BF55 /* BBUser.m */,
 			);
@@ -1035,6 +1045,7 @@
 				22CFD39120614C820004186D /* LoginAndRegisterViewController.m in Sources */,
 				574C6CB92069254200F5BF55 /* NSMutableAttributedString+KeywordHignlight.m in Sources */,
 				5726F33C206A2FB2008EED75 /* BBWarningRingListCell.m in Sources */,
+				5726F345206A3F1C008EED75 /* BBSettingManager.m in Sources */,
 				5726F33B206A2FB2008EED75 /* BBWarningRingSettingViewController.m in Sources */,
 				8449AC0820620CB300526935 /* BaseResultModel.m in Sources */,
 				574C6CDA2069262000F5BF55 /* BBSettingViewController.m in Sources */,
@@ -1071,6 +1082,7 @@
 				574C6CBC2069254200F5BF55 /* NSString+PPTextField.m in Sources */,
 				22CFD3B0206401780004186D /* PXLineChartView.m in Sources */,
 				22CFD347206141080004186D /* main.m in Sources */,
+				5726F342206A391B008EED75 /* BBMyListCell.m in Sources */,
 				22CFD3BE206548000004186D /* ConsoleBodyView.m in Sources */,
 				22CFD339206141080004186D /* AppDelegate.m in Sources */,
 				22CFD3D52067C58B0004186D /* ThermometerView.m in Sources */,

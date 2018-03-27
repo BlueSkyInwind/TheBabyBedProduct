@@ -15,4 +15,7 @@ typedef NS_ENUM(NSInteger,BBThirdLoginType) {
     BBThirdLoginTypeWeiBo
 };
 
+#define k_bb_settingManager @"KBBSETTINGMANAGER"
+
+
 #endif /* BBMacros_h */
