@@ -10,4 +10,11 @@
 
 @interface TemperatureThresholdSettingViewController : BaseViewController
 
+@property (weak, nonatomic) IBOutlet UITextField *lowerTemperatureTextfield;
+
+@property (weak, nonatomic) IBOutlet UITextField *highTemperatureTextfield;
+
+@property (weak, nonatomic) IBOutlet UIButton *saveBtn;
+
+
 @end

@@ -24,5 +24,5 @@ typedef void (^ChooseDateBlock) (NSTimeInterval chooseInterval);
 
 @property (nonatomic,copy)ChooseDateBlock chooseDateBlock;
 
-+(instancetype)initFrame:(CGRect)frame mainColor:(UIColor *)color;
++(instancetype)initFrame:(CGRect)frame mainColor:(UIColor *)color leftImage:(NSString *)leftImage rightImage:(NSString *)rightImage;
 @end

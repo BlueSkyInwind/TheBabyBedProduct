@@ -16,6 +16,7 @@
 #import "KickQulitThresholdSettingViewController.h"
 #import "WettingChartViewController.h"
 #import "CryingChartViewController.h"
+#import "KickQulitChartViewController.h"
 
 @interface ConsoleRateViewController (){
     
@@ -44,6 +45,7 @@
 }
 -(void)initVcData{
     
+    currentColor = rgb(69, 207, 229, 1);
     switch (self.rateType) {
         case BabyCryType:{
             self.title = @"哭闹";
@@ -53,7 +55,6 @@
         case BabyKickType:{
             self.title = @"踢被";
             currentImage = [UIImage imageNamed:@"babyQulit_normal_Icon"];
-            currentColor = rgb(69, 207, 229, 1);
         }
             break;
         case BabyWetType:{
@@ -96,7 +97,7 @@
     _rateView = [ConsoleRateView initWithFrame:CGRectMake(15, 0, _k_w - 30, _k_w - 30) image:currentImage circleColor:currentColor title:self.title];
     [backView addSubview:_rateView];
     
-    [_rateView updateProgressWithNumber:0];
+    [_rateView updateProgressWithNumber:50];
     
     ConsoleRateBottonView * bottomView = [[ConsoleRateBottonView alloc]initWithFrame:CGRectZero];
     bottomView.historyBtnClick = ^(UIButton *button) {
@@ -120,7 +121,8 @@
         }
             break;
         case BabyKickType:{
-            
+            KickQulitChartViewController * kickQulitVC = [[KickQulitChartViewController alloc]init];
+            [self.navigationController pushViewController:kickQulitVC animated:true];
             
         }
             break;
@@ -159,7 +161,7 @@
 
 -(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
     
-    [_rateView updateProgressWithNumber:50];
+    [_rateView updateProgressWithNumber:100];
     
 }
 

@@ -31,11 +31,21 @@
         make.edges.equalTo(_foreheadThermometerView);
     }];
     
+    UITapGestureRecognizer * tap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(pushHistoryCruveClick)];
+    [self.historyView addGestureRecognizer:tap];
+    
 
 }
 
 - (IBAction)switchBtnClick:(id)sender {
+    UIButton * button = sender;
+    button.selected = !button.selected;
     
+}
+-(void)pushHistoryCruveClick{
+    if (self.historyChartClick) {
+        self.historyChartClick();
+    }
     
 }
 

@@ -8,6 +8,15 @@
 
 #import <UIKit/UIKit.h>
 
+
+typedef void (^GlobalPopViewClick)(NSInteger index);
+
 @interface GlobalPopView : UIView
+
++(void)initWithTitle:(NSString *)title content:(NSString *)content cancelTitle:(NSString *)cancelTitle sureTitle:(NSString *)sureTitle clickcompletion:(GlobalPopViewClick)globalPopClickBlock;
+
+-(void)show;
+
+-(void)dismiss;
 
 @end

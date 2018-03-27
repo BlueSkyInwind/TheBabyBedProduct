@@ -8,7 +8,6 @@
 
 #import "GlobalPopView.h"
 
-typedef void (^GlobalPopViewClick)(NSInteger index);
 
 @interface GlobalPopView(){
     
@@ -23,6 +22,10 @@ typedef void (^GlobalPopViewClick)(NSInteger index);
 @property (nonatomic,strong)UIButton  * cancelBtn;
 /**确定button*/
 @property (nonatomic,strong)UIButton  * sureBtn;
+/**弹窗View*/
+@property (nonatomic,strong)UIView * alertView;
+/**关闭的btn*/
+@property (nonatomic,strong)UIButton * closeBtn;
 
 @property (nonatomic,copy)GlobalPopViewClick  globalPopViewClick;
 
@@ -32,29 +35,50 @@ typedef void (^GlobalPopViewClick)(NSInteger index);
 @implementation GlobalPopView
 
 
-+(void)initWithSuperVC:(UIViewController *)vc title:(NSString *)title content:(NSString *)content cancelTitle:(NSString *)cancelTitle sureTitle:(NSString *)sureTitle clickcompletion:(GlobalPopViewClick)globalPopClickBlock{
-    
-    CGRect frame = CGRectMake(0, 0, 298, 170);
-    CGSize contentSize = CGSizeMake(frame.size.width - 10, 1000);
-    NSDictionary *dic = @{NSFontAttributeName : [UIFont systemFontOfSize:14.f ]};
-    CGRect contentRect = [content boundingRectWithSize:contentSize options:NSStringDrawingUsesLineFragmentOrigin attributes:dic context:nil];
-    frame.size.height = contentRect.size.height + 105;
-    
-    UIView * backView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, _k_w, _k_h)];
-    backView.backgroundColor = [UIColor grayColor];
-    backView.alpha =  0.8;
-    [[UIApplication sharedApplication].keyWindow addSubview:backView];
-    
-    GlobalPopView * popView = [[GlobalPopView alloc]initWithFrame:frame];
-    popView.center = CGPointMake(_k_w / 2, _k_h / 2);
++(void)initWithTitle:(NSString *)title content:(NSString *)content cancelTitle:(NSString *)cancelTitle sureTitle:(NSString *)sureTitle clickcompletion:(GlobalPopViewClick)globalPopClickBlock{
+
+    GlobalPopView * popView = [[GlobalPopView alloc]initWithFrame:[UIScreen mainScreen].bounds];
     globalPopClickBlock = popView.globalPopViewClick;
-    [backView addSubview:popView];
+    popView.titleLabel.text = title;
+    popView.contentLabel.text = content;
+    [popView.cancelBtn setTitle:cancelTitle forState:UIControlStateNormal];
+    [popView.cancelBtn setTitle:sureTitle forState:UIControlStateNormal];
     
+    CGSize contentSize = CGSizeMake(popView.alertView.frame.size.width - 10, 1000);
+    NSDictionary *dic = @{NSFontAttributeName : [UIFont systemFontOfSize:14.f ]};
+    CGRect contentRect = [content boundingRectWithSize:contentSize options:NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading attributes:dic context:nil];
+    CGFloat height = contentRect.size.height + 105;
+    [popView.alertView mas_updateConstraints:^(MASConstraintMaker *make) {
+        make.height.equalTo(@(height));
+    }];
+}
+
+-(void)show{
+    
+    [[UIApplication sharedApplication].keyWindow addSubview:self];
+    [[UIApplication sharedApplication].keyWindow bringSubviewToFront:self];
+    self.alertView.transform = CGAffineTransformMakeScale(1.21, 1.21);
+    self.alertView.alpha = 0;
+    [UIView animateWithDuration:1 animations:^{
+        self.alertView.transform = CGAffineTransformMakeScale(1, 1);
+        self.alertView.alpha = 1;
+    } completion:nil];
+}
+
+-(void)dismiss{
+    [UIView animateWithDuration:1 animations:^{
+        self.alertView.transform = CGAffineTransformMakeScale(1, 1);
+        self.alertView.alpha = 1;
+        self.alpha = 0;
+    } completion:^(BOOL finished) {
+        [self removeFromSuperview];
+    }];
 }
 
 -(instancetype)initWithFrame:(CGRect)frame{
     self = [super initWithFrame:frame];
     if (self) {
+        self.backgroundColor = rgb(0, 0, 0, 0.8);
         [self configureView];
     }
     return  self;
@@ -71,17 +95,48 @@ typedef void (^GlobalPopViewClick)(NSInteger index);
     }
 }
 
+-(void)CloseBtnClick:(id)sender{
+    [self dismiss];
+}
+
 -(void)configureView{
+    
+    
+    _alertView = [[UIView alloc]init];
+    _alertView.backgroundColor = [UIColor whiteColor];
+    _alertView.layer.cornerRadius = 5;
+    _alertView.clipsToBounds = true;
+    _alertView.layer.borderWidth = 1;
+    _alertView.layer.borderColor = rgb(255, 155, 57, 1).CGColor;
+    [self addSubview:_alertView];
+    [_alertView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.center.equalTo(self);
+        make.height.equalTo(@298);
+        make.width.equalTo(@170);
+    }];
     
     _titleLabel = [[UILabel alloc]init];
     _titleLabel.font = [UIFont systemFontOfSize:14];
     _titleLabel.textColor = [UIColor blackColor];
     _titleLabel.textAlignment = NSTextAlignmentCenter;
-    [self addSubview:_titleLabel];
+    [_alertView addSubview:_titleLabel];
     [_titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.mas_top).with.offset(10);
-        make.left.right.equalTo(self);
+        make.top.equalTo(_alertView.mas_top).with.offset(10);
+        make.left.right.equalTo(_alertView);
         make.height.equalTo(@20);
+    }];
+    
+    _closeBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    [_closeBtn setImage:[UIImage imageNamed:@"popClose_Icon"] forState:UIControlStateNormal];
+    _closeBtn.layer.cornerRadius = 3;
+    _closeBtn.clipsToBounds = true;
+    [_closeBtn addTarget:self action:@selector(CloseBtnClick:) forControlEvents:UIControlEventTouchUpInside];
+    [_alertView addSubview:_closeBtn];
+    [_closeBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.centerX.equalTo(_alertView.mas_centerX).with.offset(-50);
+        make.bottom.equalTo(_alertView.mas_bottom).offset(-20);
+        make.width.equalTo(@88);
+        make.height.equalTo(@35);
     }];
     
     _cancelBtn = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -91,10 +146,10 @@ typedef void (^GlobalPopViewClick)(NSInteger index);
     _cancelBtn.layer.cornerRadius = 3;
     _cancelBtn.clipsToBounds = true;
     [_cancelBtn addTarget:self action:@selector(CancelBtnClick:) forControlEvents:UIControlEventTouchUpInside];
-    [self addSubview:_cancelBtn];
+    [_alertView addSubview:_cancelBtn];
     [_cancelBtn mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.centerX.equalTo(self.mas_centerX).with.offset(-50);
-        make.bottom.equalTo(self.mas_bottom).offset(-20);
+        make.centerX.equalTo(_alertView.mas_centerX).with.offset(-50);
+        make.bottom.equalTo(_alertView.mas_bottom).offset(-20);
         make.width.equalTo(@88);
         make.height.equalTo(@35);
     }];
@@ -106,10 +161,10 @@ typedef void (^GlobalPopViewClick)(NSInteger index);
     _sureBtn.layer.cornerRadius = 3;
     _sureBtn.clipsToBounds = true;
     [_sureBtn addTarget:self action:@selector(SureBtnClick:) forControlEvents:UIControlEventTouchUpInside];
-    [self addSubview:_sureBtn];
+    [_alertView addSubview:_sureBtn];
     [_sureBtn mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.centerX.equalTo(self.mas_centerX).with.offset(50);
-        make.bottom.equalTo(self.mas_bottom).offset(-20);
+        make.centerX.equalTo(_alertView.mas_centerX).with.offset(50);
+        make.bottom.equalTo(_alertView.mas_bottom).offset(-20);
         make.width.equalTo(@88);
         make.height.equalTo(@35);
     }];
@@ -118,16 +173,15 @@ typedef void (^GlobalPopViewClick)(NSInteger index);
     _contentLabel.font = [UIFont systemFontOfSize:14];
     _contentLabel.textColor = [UIColor blackColor];
     _contentLabel.textAlignment = NSTextAlignmentCenter;
-    [self addSubview:_contentLabel];
+    [_alertView addSubview:_contentLabel];
     [_contentLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(_titleLabel.mas_top).with.offset(5);
-        make.left.equalTo(self.mas_left).with.offset(5);
-        make.right.equalTo(self.mas_right).with.offset(-5);
-        make.bottom.equalTo(self.mas_top).with.offset(-15);
+        make.left.equalTo(_alertView.mas_left).with.offset(5);
+        make.right.equalTo(_alertView.mas_right).with.offset(-5);
+        make.bottom.equalTo(_alertView.mas_top).with.offset(-15);
     }];
     
-    
-    
+
 }
 
 

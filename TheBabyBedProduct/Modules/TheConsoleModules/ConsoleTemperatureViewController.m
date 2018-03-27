@@ -9,6 +9,8 @@
 #import "ConsoleTemperatureViewController.h"
 #import "ThermometerView.h"
 #import "ConsoleHeaderView.h"
+#import "TemperatureThresholdSettingViewController.h"
+#import "HistoryFeverViewController.h"
 
 @interface ConsoleTemperatureViewController ()
 
@@ -40,12 +42,14 @@
     
     __weak typeof (self) weakSelf = self;
     _headerView = [[NSBundle mainBundle]loadNibNamed:@"ConsoleHeaderView" owner:self options:nil].lastObject;
+    _headerView.consoleHeaderLabel.text = self.title;
     [self.view addSubview:_headerView];
     _headerView.backButtonClick = ^(UIButton *button) {
         [weakSelf.navigationController popViewControllerAnimated:true];
     };
     _headerView.settingButtonClick = ^(UIButton *button) {
-    
+        TemperatureThresholdSettingViewController * temperatureSetVC = [[TemperatureThresholdSettingViewController alloc]init];
+        [weakSelf.navigationController pushViewController:temperatureSetVC animated:true];
     };
     [_headerView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.left.right.equalTo(@0);
@@ -59,6 +63,12 @@
         make.top.equalTo(self.headerView.mas_bottom).with.offset(5);
         make.height.equalTo(@(_k_h - 210));
     }];
+    _thermometerView.historyChartClick = ^{
+        
+        HistoryFeverViewController * historyFeverVC = [[HistoryFeverViewController alloc]init];
+        [weakSelf.navigationController pushViewController:historyFeverVC animated:true];
+    };
+    
     
     
 }

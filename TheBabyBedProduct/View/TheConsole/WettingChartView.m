@@ -37,7 +37,7 @@
 
 -(void)configureView{
     
-    _dateChooseView = [DateChooseView initFrame:CGRectMake(0, 0, _k_w, 47) mainColor:rgb(72, 189, 255, 1)];
+    _dateChooseView = [DateChooseView initFrame:CGRectMake(0, 0, _k_w, 47) mainColor:rgb(72, 189, 255, 1) leftImage:@"wettingChooseDate_left_Icon" rightImage:@"wettingChooseDate_right_Icon"];
     [self addSubview:_dateChooseView];
     _dateChooseView.chooseDateBlock = ^(NSTimeInterval chooseInterval) {
         //选择日期的时间戳
