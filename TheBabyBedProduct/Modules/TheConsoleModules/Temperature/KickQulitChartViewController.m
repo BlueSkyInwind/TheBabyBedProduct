@@ -1,27 +1,34 @@
 //
-//  TemperatureThresholdSettingViewController.m
+//  KickQulitChartViewController.m
 //  TheBabyBedProduct
 //
-//  Created by Wangyongxin on 2018/3/25.
+//  Created by admin on 2018/3/27.
 //  Copyright © 2018年 Wangyongxin. All rights reserved.
 //
 
-#import "TemperatureThresholdSettingViewController.h"
+#import "KickQulitChartViewController.h"
+#import "KickQulitChartView.h"
 
-@interface TemperatureThresholdSettingViewController ()
+@interface KickQulitChartViewController ()
+
+@property(nonatomic,strong)KickQulitChartView * kickQulitChartView;
 
 @end
 
-@implementation TemperatureThresholdSettingViewController
+@implementation KickQulitChartViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
-    self.title = @"阈值设定";
-    
+    // Do any additional setup after loading the view.
+    self.title = @"踢被";
+    [self configureView];
 }
+
 -(void)configureView{
     
+    _kickQulitChartView = [[KickQulitChartView alloc]initWithFrame:CGRectMake(0, NaviBarHeight, _k_w, _k_h / 2)];
+    _kickQulitChartView.backgroundColor = [UIColor whiteColor];
+    [self.view addSubview:_kickQulitChartView];
     
 }
 - (void)didReceiveMemoryWarning {

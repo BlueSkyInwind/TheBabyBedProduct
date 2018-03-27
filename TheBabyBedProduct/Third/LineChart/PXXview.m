@@ -48,14 +48,20 @@
 - (void)reloadXaxis {
     [self.subviews makeObjectsPerformSelector:@selector(removeFromSuperview)];
     [self reset];
+    
     //单位
     UILabel * unitLabel = [[UILabel alloc]init];
     NSDictionary *attr = @{NSFontAttributeName : [UIFont systemFontOfSize:12]};
-    unitLabel.textColor = UI_MAIN_COLOR;
+    unitLabel.textColor = rgb(255, 155, 57, 1);
     unitLabel.text = self.xElementUnit;
+    unitLabel.font = [UIFont systemFontOfSize:12];
+    unitLabel.backgroundColor = [UIColor whiteColor];
     CGSize elementSize = [unitLabel.text sizeWithAttributes:attr];
-    unitLabel.frame = CGRectMake(_k_w - elementSize.width-20,CGRectGetHeight(self.frame)-elementSize.height - 5,elementSize.width+20,elementSize.height + 5);
-    [self addSubview:unitLabel];
+    UIView * view = self.superview.superview;   //获取曲线的第二层view
+    CGFloat labelWidth = elementSize.width;
+    CGFloat labelHeight = elementSize.height;
+    unitLabel.frame = CGRectMake(CGRectGetWidth(view.frame) - labelWidth + 5,CGRectGetHeight(view.frame) - labelHeight ,labelWidth,labelHeight);
+    [view addSubview:unitLabel];
     
     if (self.axisAttributes[yAxisColor]) {
         self.xlineView.backgroundColor = self.axisAttributes[yAxisColor];

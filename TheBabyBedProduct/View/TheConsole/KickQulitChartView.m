@@ -1,26 +1,25 @@
 //
-//  CryingChartView.m
+//  KickQulitChartView.m
 //  TheBabyBedProduct
 //
-//  Created by Wangyongxin on 2018/3/26.
+//  Created by admin on 2018/3/27.
 //  Copyright © 2018年 Wangyongxin. All rights reserved.
 //
 
-#import "CryingChartView.h"
+#import "KickQulitChartView.h"
 #import "PointItem.h"
 
-@interface CryingChartView()<PXLineChartViewDelegate>{
-    
+@interface KickQulitChartView()<PXLineChartViewDelegate>{
     NSArray * xArr;
     NSArray * yArr;
-    
 }
 @property (nonatomic,strong)PXLineChartView * lineChartView;
 @property (nonatomic,strong)DateChooseView * dateChooseView;
 @property (nonatomic, strong) NSArray *lines;//line count
-
 @end
-@implementation CryingChartView
+
+@implementation KickQulitChartView
+
 -(instancetype)initWithFrame:(CGRect)frame{
     self = [super initWithFrame:frame];
     if (self) {
@@ -54,7 +53,7 @@
     [backView addSubview:_lineChartView];
     _lineChartView.delegate = self;
     xArr = [NSArray arrayWithObjects:@"1:00",@"2:00",@"3:00",@"4:00",@"5:00",@"6:00",@"7:00",@"8:00",@"9:00",@"10:00",@"11:00",@"12:00",@"13:00",@"14:00",@"15:00",@"16:00",@"17:00",@"18:00",@"19:00",@"20:00",@"21:00",@"22:00",@"23:00",@"24:00", nil];
-    yArr = [NSArray arrayWithObjects:@"0",@"5",@"10",@"15",@"20",@"25",@"30",@"35", nil];
+    yArr = [NSArray arrayWithObjects:@"32",@"34",@"36",@"38",@"40", nil];
     self.lines = [self lines:true];
     
 }
@@ -161,8 +160,6 @@
     NSLog(@"%@",[NSString stringWithFormat:@"x：%@ \ny：%@",xTitle,yTitle]);
     
 }
-
-
 /*
 // Only override drawRect: if you perform custom drawing.
 // An empty implementation adversely affects performance during animation.

@@ -30,14 +30,12 @@
     
     self.title = @"室内温度";
     _roomTemperatureView.mainColor = rgb(173, 229, 69, 1);
-    _roomTemperatureView.fillColor = rgb(69, 207, 229, 1);
     _roomTemperatureView.fillColor = rgb(173, 229, 69, 0.45);
     if (self.isOutside) {
         self.title = @"室外温度";
         _roomTemperatureView.mainColor = rgb(69, 207, 229, 1);
         _roomTemperatureView.fillColor = rgb(69, 207, 229, 0.45);
     }
-    
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
