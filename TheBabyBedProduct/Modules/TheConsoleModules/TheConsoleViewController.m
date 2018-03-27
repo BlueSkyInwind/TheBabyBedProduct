@@ -20,6 +20,7 @@
 @property (nonatomic,strong)ConsoleHeaderView * headerView;
 @property (nonatomic,strong)ConsoleBodyView * bodyView;
 
+
 @end
 
 @implementation TheConsoleViewController
@@ -95,9 +96,6 @@
         
     };
 }
-
-
-
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

@@ -36,7 +36,6 @@
         _roomTemperatureView.mainColor = rgb(69, 207, 229, 1);
         _roomTemperatureView.fillColor = rgb(69, 207, 229, 0.45);
     }
-    
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
