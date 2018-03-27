@@ -43,12 +43,12 @@
     CGFloat nameLBW = _k_w-leftMargin-rightMargin*2-imgW;
     
     self.ringNameLB = [UILabel bb_lbMakeWithSuperV:self.contentView fontSize:16 alignment:NSTextAlignmentLeft textColor:k_color_515151];
-    self.ringNameLB.frame = CGRectMake(leftMargin, 0, nameLBW, self.qmui_height);
+    self.ringNameLB.frame = CGRectMake(leftMargin, 0, nameLBW, self.height);
     
     self.selectedStatusImgV = [UIImageView bb_imgVMakeWithSuperV:self.contentView];
     self.selectedStatusImgV.frame = CGRectFlatMake(_k_w-rightMargin-imgW, imgMargin, imgW, imgW);
     
-    self.line = [[UIView alloc]initWithFrame:CGRectFlatMake(leftMargin, self.qmui_height-0.5, _k_w-leftMargin-rightMargin, 0.5)];
+    self.line = [[UIView alloc]initWithFrame:CGRectFlatMake(leftMargin, self.height-0.5, _k_w-leftMargin-rightMargin, 0.5)];
     [self.contentView addSubview:self.line];
 }
 @end

@@ -59,6 +59,11 @@
 		5726F33B206A2FB2008EED75 /* BBWarningRingSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5726F337206A2FB2008EED75 /* BBWarningRingSettingViewController.m */; };
 		5726F33C206A2FB2008EED75 /* BBWarningRingListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5726F33A206A2FB2008EED75 /* BBWarningRingListCell.m */; };
 		5726F33F206A3185008EED75 /* PPTextfield+EasilyMake.m in Sources */ = {isa = PBXBuildFile; fileRef = 5726F33E206A3185008EED75 /* PPTextfield+EasilyMake.m */; };
+		5726F342206A391B008EED75 /* BBMyListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5726F341206A391B008EED75 /* BBMyListCell.m */; };
+		5726F345206A3F1C008EED75 /* BBSettingManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 5726F344206A3F1B008EED75 /* BBSettingManager.m */; };
+		5726F349206A8428008EED75 /* BBMyListSubTitleCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5726F348206A8428008EED75 /* BBMyListSubTitleCell.m */; };
+		5726F34C206A857F008EED75 /* BBMyListOnlySubtitleCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5726F34B206A857F008EED75 /* BBMyListOnlySubtitleCell.m */; };
+		5726F34F206A8DC3008EED75 /* UIView+PP_Frame.m in Sources */ = {isa = PBXBuildFile; fileRef = 5726F34D206A8DC2008EED75 /* UIView+PP_Frame.m */; };
 		574C6CB82069254200F5BF55 /* NSMutableAttributedString+PPTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 574C6CAB2069254200F5BF55 /* NSMutableAttributedString+PPTextField.m */; };
 		574C6CB92069254200F5BF55 /* NSMutableAttributedString+KeywordHignlight.m in Sources */ = {isa = PBXBuildFile; fileRef = 574C6CAC2069254200F5BF55 /* NSMutableAttributedString+KeywordHignlight.m */; };
 		574C6CBA2069254200F5BF55 /* PPTextfield.m in Sources */ = {isa = PBXBuildFile; fileRef = 574C6CAF2069254200F5BF55 /* PPTextfield.m */; };
@@ -214,6 +219,16 @@
 		5726F33A206A2FB2008EED75 /* BBWarningRingListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBWarningRingListCell.m; sourceTree = "<group>"; };
 		5726F33D206A3184008EED75 /* PPTextfield+EasilyMake.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "PPTextfield+EasilyMake.h"; sourceTree = "<group>"; };
 		5726F33E206A3185008EED75 /* PPTextfield+EasilyMake.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "PPTextfield+EasilyMake.m"; sourceTree = "<group>"; };
+		5726F340206A391B008EED75 /* BBMyListCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BBMyListCell.h; sourceTree = "<group>"; };
+		5726F341206A391B008EED75 /* BBMyListCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BBMyListCell.m; sourceTree = "<group>"; };
+		5726F343206A3F1B008EED75 /* BBSettingManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBSettingManager.h; sourceTree = "<group>"; };
+		5726F344206A3F1B008EED75 /* BBSettingManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBSettingManager.m; sourceTree = "<group>"; };
+		5726F347206A8428008EED75 /* BBMyListSubTitleCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BBMyListSubTitleCell.h; sourceTree = "<group>"; };
+		5726F348206A8428008EED75 /* BBMyListSubTitleCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BBMyListSubTitleCell.m; sourceTree = "<group>"; };
+		5726F34A206A857F008EED75 /* BBMyListOnlySubtitleCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BBMyListOnlySubtitleCell.h; sourceTree = "<group>"; };
+		5726F34B206A857F008EED75 /* BBMyListOnlySubtitleCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BBMyListOnlySubtitleCell.m; sourceTree = "<group>"; };
+		5726F34D206A8DC2008EED75 /* UIView+PP_Frame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+PP_Frame.m"; sourceTree = "<group>"; };
+		5726F34E206A8DC3008EED75 /* UIView+PP_Frame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+PP_Frame.h"; sourceTree = "<group>"; };
 		574C6CA72069254200F5BF55 /* PPTextfield.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPTextfield.h; sourceTree = "<group>"; };
 		574C6CA92069254200F5BF55 /* NSMutableAttributedString+PPTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableAttributedString+PPTextField.h"; sourceTree = "<group>"; };
 		574C6CAA2069254200F5BF55 /* NSMutableAttributedString+KeywordHignlight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableAttributedString+KeywordHignlight.h"; sourceTree = "<group>"; };
@@ -673,8 +688,14 @@
 		574C6CBF2069262000F5BF55 /* V */ = {
 			isa = PBXGroup;
 			children = (
-				574C6CC02069262000F5BF55 /* BBMyHeaderView.m */,
 				574C6CC12069262000F5BF55 /* BBMyHeaderView.h */,
+				574C6CC02069262000F5BF55 /* BBMyHeaderView.m */,
+				5726F340206A391B008EED75 /* BBMyListCell.h */,
+				5726F341206A391B008EED75 /* BBMyListCell.m */,
+				5726F347206A8428008EED75 /* BBMyListSubTitleCell.h */,
+				5726F348206A8428008EED75 /* BBMyListSubTitleCell.m */,
+				5726F34A206A857F008EED75 /* BBMyListOnlySubtitleCell.h */,
+				5726F34B206A857F008EED75 /* BBMyListOnlySubtitleCell.m */,
 			);
 			path = V;
 			sourceTree = "<group>";
@@ -682,6 +703,8 @@
 		574C6CC22069262000F5BF55 /* M */ = {
 			isa = PBXGroup;
 			children = (
+				5726F343206A3F1B008EED75 /* BBSettingManager.h */,
+				5726F344206A3F1B008EED75 /* BBSettingManager.m */,
 				574C6CC32069262000F5BF55 /* BBUser.h */,
 				574C6CC42069262000F5BF55 /* BBUser.m */,
 			);
@@ -715,8 +738,8 @@
 		574C6CD02069262000F5BF55 /* C */ = {
 			isa = PBXGroup;
 			children = (
-				574C6CD12069262000F5BF55 /* BBSettingViewController.m */,
 				574C6CD22069262000F5BF55 /* BBSettingViewController.h */,
+				574C6CD12069262000F5BF55 /* BBSettingViewController.m */,
 			);
 			path = C;
 			sourceTree = "<group>";
@@ -724,6 +747,8 @@
 		574C6CDB2069272700F5BF55 /* Category */ = {
 			isa = PBXGroup;
 			children = (
+				5726F34E206A8DC3008EED75 /* UIView+PP_Frame.h */,
+				5726F34D206A8DC2008EED75 /* UIView+PP_Frame.m */,
 				574C6CDC2069272700F5BF55 /* UIImageView+EasilyMake.h */,
 				574C6CDD2069272700F5BF55 /* UITableView+EasilyMake.h */,
 				574C6CDF2069272700F5BF55 /* UITableViewCell+EasilyMake.h */,
@@ -1029,6 +1054,7 @@
 				84DD47562068DB7B00D154B5 /* ThresholdTableViewCell.m in Sources */,
 				574C6CBD2069254200F5BF55 /* JKCountDownButton.m in Sources */,
 				22CFD3AC206401780004186D /* PXChartBackgroundView.m in Sources */,
+				5726F349206A8428008EED75 /* BBMyListSubTitleCell.m in Sources */,
 				22CFD3FA2067FE060004186D /* TemperatureThresholdSettingViewController.m in Sources */,
 				22CFD3C920667B250004186D /* ConsoleRateBottonView.m in Sources */,
 				22CFD3E92067FD650004186D /* CryingThresholdSettingViewController.m in Sources */,
@@ -1049,6 +1075,7 @@
 				22CFD39120614C820004186D /* LoginAndRegisterViewController.m in Sources */,
 				574C6CB92069254200F5BF55 /* NSMutableAttributedString+KeywordHignlight.m in Sources */,
 				5726F33C206A2FB2008EED75 /* BBWarningRingListCell.m in Sources */,
+				5726F345206A3F1C008EED75 /* BBSettingManager.m in Sources */,
 				5726F33B206A2FB2008EED75 /* BBWarningRingSettingViewController.m in Sources */,
 				8449AC0820620CB300526935 /* BaseResultModel.m in Sources */,
 				574C6CDA2069262000F5BF55 /* BBSettingViewController.m in Sources */,
@@ -1058,6 +1085,7 @@
 				22CFD370206143AA0004186D /* GlobalConfig.m in Sources */,
 				22CFD38520614B420004186D /* TheConsoleViewController.m in Sources */,
 				22CFD3DA2067D5B10004186D /* ConsoleRoomTemperatureViewController.m in Sources */,
+				5726F34C206A857F008EED75 /* BBMyListOnlySubtitleCell.m in Sources */,
 				22CFD3C3206652B70004186D /* ConsoleRateView.m in Sources */,
 				2266C1BD20694A85004F653A /* CryingChartViewController.m in Sources */,
 				574C6CE72069272700F5BF55 /* UITableViewCell+EasilyMake.m in Sources */,
@@ -1070,6 +1098,7 @@
 				84DD47602068FCD600D154B5 /* WettingChartView.m in Sources */,
 				22CFD3C6206659AD0004186D /* ConsoleRateViewController.m in Sources */,
 				8449AC122062338F00526935 /* MBPAlertView.m in Sources */,
+				5726F34F206A8DC3008EED75 /* UIView+PP_Frame.m in Sources */,
 				22CFD3AF206401780004186D /* PXLineChartConst.m in Sources */,
 				22CFD3972062A78C0004186D /* HistoryFeverViewController.m in Sources */,
 				2266C1BA20694A61004F653A /* CryingChartView.m in Sources */,
@@ -1085,6 +1114,7 @@
 				574C6CBC2069254200F5BF55 /* NSString+PPTextField.m in Sources */,
 				22CFD3B0206401780004186D /* PXLineChartView.m in Sources */,
 				22CFD347206141080004186D /* main.m in Sources */,
+				5726F342206A391B008EED75 /* BBMyListCell.m in Sources */,
 				22CFD3BE206548000004186D /* ConsoleBodyView.m in Sources */,
 				22CFD339206141080004186D /* AppDelegate.m in Sources */,
 				22CFD3D52067C58B0004186D /* ThermometerView.m in Sources */,

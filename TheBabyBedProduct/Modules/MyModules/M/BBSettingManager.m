@@ -1,15 +1,15 @@
 //
-//  BBUser.m
+//  BBSettingManager.m
 //  TheBabyBedProduct
 //
-//  Created by ╰莪呮想好好宠Nǐつ on 2018/3/25.
+//  Created by ╰莪呮想好好宠Nǐつ on 2018/3/27.
 //  Copyright © 2018年 Wangyongxin. All rights reserved.
 //
 
-#import "BBUser.h"
+#import "BBSettingManager.h"
 #import <objc/runtime.h>
 
-@implementation BBUser
+@implementation BBSettingManager
 -(void)encodeWithCoder:(NSCoder *)aCoder
 {
     //归档
@@ -37,42 +37,24 @@
     return self;
 }
 
-+(BBUser *)bb_getUser
++(BBSettingManager *)bb_getSettingManager
 {
-    return toGetUser();
+    return toGetManager();
 }
-+(void)bb_saveUser:(BBUser *)user
++(void)bb_saveSettingManager:(BBSettingManager *)manager
 {
-    toSaveUser(user);
+    toSaveManager(manager);
 }
 
-static void toSaveUser(BBUser *user){
-    NSData *data = [NSKeyedArchiver archivedDataWithRootObject:user];
-    [[NSUserDefaults standardUserDefaults] setObject:data forKey:k_bb_saveUserMessage];
+static void toSaveManager(BBSettingManager *manager){
+    NSData *data = [NSKeyedArchiver archivedDataWithRootObject:manager];
+    [[NSUserDefaults standardUserDefaults] setObject:data forKey:k_bb_settingManager];
     [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
-static BBUser * toGetUser(){
-    NSData *data = [[NSUserDefaults standardUserDefaults] objectForKey:k_bb_saveUserMessage];
-    BBUser *user = (BBUser *)[NSKeyedUnarchiver unarchiveObjectWithData:data];
-    return user;
-}
-@end
-
-
-@implementation BBUserHelper
-+(instancetype)shareInstance
-{
-    static BBUserHelper *helper = nil;
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        helper = [[BBUserHelper alloc]init];
-    });
-    return helper;
-}
--(BOOL)hasLogined
-{
-    BBUser *user = [BBUser bb_getUser];
-    return user.hasLogined;
+static BBSettingManager * toGetManager(){
+    NSData *data = [[NSUserDefaults standardUserDefaults] objectForKey:k_bb_settingManager];
+    BBSettingManager *manager = (BBSettingManager *)[NSKeyedUnarchiver unarchiveObjectWithData:data];
+    return manager;
 }
 @end
