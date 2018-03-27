@@ -50,3 +50,35 @@
     return bt;
 }
 @end
+
+@implementation UIButton (EasilyConfigure)
+#pragma mark --- 设置btn Normal和Highlighted下的image 【相同】
+-(void)bb_btSetImageWithImgName:(NSString *)imgName
+{
+    if (imgName.length == 0 ) {
+        return;
+    }
+    [self setImage:[UIImage imageNamed:imgName] forState:UIControlStateNormal];
+    [self setImage:[UIImage imageNamed:imgName] forState:UIControlStateHighlighted];
+}
+
+#pragma mark --- 设置btn Normal和Highlighted下的titleColor 【相同】
+-(void)bb_btSetTitleColor:(UIColor *)titleColor
+{
+    if (!titleColor) {
+        return;
+    }
+    [self setTitleColor:titleColor forState:UIControlStateNormal];
+    [self setTitleColor:titleColor forState:UIControlStateHighlighted];
+}
+
+#pragma mark --- 设置btn Normal和Highlighted下的title 【相同】
+-(void)bb_btSetTitle:(NSString *)title
+{
+    if (!title || title.length == 0) {
+        return;
+    }
+    [self setTitle:title forState:UIControlStateNormal];
+    [self setTitle:title forState:UIControlStateHighlighted];
+}
+@end

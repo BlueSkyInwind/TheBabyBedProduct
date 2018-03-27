@@ -8,6 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@interface BBRegistView : UIView
-
+@interface BBRegistView : UIScrollView
+@property(nonatomic,copy) void(^getCodeBlock)(void);
+@property(nonatomic,copy) void(^registBlock)(NSString *phone,NSString *code,NSString *password);
+@property(nonatomic,copy) void(^agreeProtocolBlock)(BOOL isAgree);
+@property(nonatomic,copy) void(^clickProtocolBlock)(void);
 @end
+

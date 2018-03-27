@@ -56,6 +56,9 @@
 		22CFD3FA2067FE060004186D /* TemperatureThresholdSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22CFD3F82067FE060004186D /* TemperatureThresholdSettingViewController.m */; };
 		22CFD3FB2067FE060004186D /* TemperatureThresholdSettingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22CFD3F92067FE060004186D /* TemperatureThresholdSettingViewController.xib */; };
 		347E55C5AB34C5F0659DAE6B /* Pods_TheBabyBedProduct.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 884698C1D52FC8383E4B1BCF /* Pods_TheBabyBedProduct.framework */; };
+		5726F33B206A2FB2008EED75 /* BBWarningRingSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5726F337206A2FB2008EED75 /* BBWarningRingSettingViewController.m */; };
+		5726F33C206A2FB2008EED75 /* BBWarningRingListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5726F33A206A2FB2008EED75 /* BBWarningRingListCell.m */; };
+		5726F33F206A3185008EED75 /* PPTextfield+EasilyMake.m in Sources */ = {isa = PBXBuildFile; fileRef = 5726F33E206A3185008EED75 /* PPTextfield+EasilyMake.m */; };
 		574C6CB82069254200F5BF55 /* NSMutableAttributedString+PPTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 574C6CAB2069254200F5BF55 /* NSMutableAttributedString+PPTextField.m */; };
 		574C6CB92069254200F5BF55 /* NSMutableAttributedString+KeywordHignlight.m in Sources */ = {isa = PBXBuildFile; fileRef = 574C6CAC2069254200F5BF55 /* NSMutableAttributedString+KeywordHignlight.m */; };
 		574C6CBA2069254200F5BF55 /* PPTextfield.m in Sources */ = {isa = PBXBuildFile; fileRef = 574C6CAF2069254200F5BF55 /* PPTextfield.m */; };
@@ -204,6 +207,12 @@
 		22CFD3F82067FE060004186D /* TemperatureThresholdSettingViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TemperatureThresholdSettingViewController.m; sourceTree = "<group>"; };
 		22CFD3F92067FE060004186D /* TemperatureThresholdSettingViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TemperatureThresholdSettingViewController.xib; sourceTree = "<group>"; };
 		2F6F434F00B680C952F3C9BF /* Pods-TheBabyBedProduct.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TheBabyBedProduct.release.xcconfig"; path = "Pods/Target Support Files/Pods-TheBabyBedProduct/Pods-TheBabyBedProduct.release.xcconfig"; sourceTree = "<group>"; };
+		5726F337206A2FB2008EED75 /* BBWarningRingSettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBWarningRingSettingViewController.m; sourceTree = "<group>"; };
+		5726F338206A2FB2008EED75 /* BBWarningRingListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBWarningRingListCell.h; sourceTree = "<group>"; };
+		5726F339206A2FB2008EED75 /* BBWarningRingSettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBWarningRingSettingViewController.h; sourceTree = "<group>"; };
+		5726F33A206A2FB2008EED75 /* BBWarningRingListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBWarningRingListCell.m; sourceTree = "<group>"; };
+		5726F33D206A3184008EED75 /* PPTextfield+EasilyMake.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "PPTextfield+EasilyMake.h"; sourceTree = "<group>"; };
+		5726F33E206A3185008EED75 /* PPTextfield+EasilyMake.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "PPTextfield+EasilyMake.m"; sourceTree = "<group>"; };
 		574C6CA72069254200F5BF55 /* PPTextfield.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPTextfield.h; sourceTree = "<group>"; };
 		574C6CA92069254200F5BF55 /* NSMutableAttributedString+PPTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableAttributedString+PPTextField.h"; sourceTree = "<group>"; };
 		574C6CAA2069254200F5BF55 /* NSMutableAttributedString+KeywordHignlight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableAttributedString+KeywordHignlight.h"; sourceTree = "<group>"; };
@@ -601,6 +610,17 @@
 			path = ThresholdSetting;
 			sourceTree = "<group>";
 		};
+		5726F336206A2FB2008EED75 /* WarningRingSetting */ = {
+			isa = PBXGroup;
+			children = (
+				5726F337206A2FB2008EED75 /* BBWarningRingSettingViewController.m */,
+				5726F338206A2FB2008EED75 /* BBWarningRingListCell.h */,
+				5726F339206A2FB2008EED75 /* BBWarningRingSettingViewController.h */,
+				5726F33A206A2FB2008EED75 /* BBWarningRingListCell.m */,
+			);
+			path = WarningRingSetting;
+			sourceTree = "<group>";
+		};
 		574C6CA62069254200F5BF55 /* PPTextField */ = {
 			isa = PBXGroup;
 			children = (
@@ -618,6 +638,8 @@
 		574C6CA82069254200F5BF55 /* Category */ = {
 			isa = PBXGroup;
 			children = (
+				5726F33D206A3184008EED75 /* PPTextfield+EasilyMake.h */,
+				5726F33E206A3185008EED75 /* PPTextfield+EasilyMake.m */,
 				574C6CA92069254200F5BF55 /* NSMutableAttributedString+PPTextField.h */,
 				574C6CAA2069254200F5BF55 /* NSMutableAttributedString+KeywordHignlight.h */,
 				574C6CAB2069254200F5BF55 /* NSMutableAttributedString+PPTextField.m */,
@@ -680,18 +702,10 @@
 		574C6CCE2069262000F5BF55 /* Setting */ = {
 			isa = PBXGroup;
 			children = (
-				574C6CCF2069262000F5BF55 /* M */,
+				5726F336206A2FB2008EED75 /* WarningRingSetting */,
 				574C6CD02069262000F5BF55 /* C */,
-				574C6CD32069262000F5BF55 /* V */,
 			);
 			path = Setting;
-			sourceTree = "<group>";
-		};
-		574C6CCF2069262000F5BF55 /* M */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = M;
 			sourceTree = "<group>";
 		};
 		574C6CD02069262000F5BF55 /* C */ = {
@@ -701,13 +715,6 @@
 				574C6CD22069262000F5BF55 /* BBSettingViewController.h */,
 			);
 			path = C;
-			sourceTree = "<group>";
-		};
-		574C6CD32069262000F5BF55 /* V */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = V;
 			sourceTree = "<group>";
 		};
 		574C6CDB2069272700F5BF55 /* Category */ = {
@@ -1003,6 +1010,7 @@
 				22CFD3B6206532F20004186D /* DateChooseView.m in Sources */,
 				22CFD3CF2066A07A0004186D /* RoomTemperatureChartViewController.m in Sources */,
 				22CFD39D2062ADB30004186D /* TemperatureChartView.m in Sources */,
+				5726F33F206A3185008EED75 /* PPTextfield+EasilyMake.m in Sources */,
 				574C6CE82069272700F5BF55 /* UIFont+BB.m in Sources */,
 				84DD47562068DB7B00D154B5 /* ThresholdTableViewCell.m in Sources */,
 				574C6CBD2069254200F5BF55 /* JKCountDownButton.m in Sources */,
@@ -1026,6 +1034,8 @@
 				574C6CEA2069272700F5BF55 /* UIButton+EasilyMake.m in Sources */,
 				22CFD39120614C820004186D /* LoginAndRegisterViewController.m in Sources */,
 				574C6CB92069254200F5BF55 /* NSMutableAttributedString+KeywordHignlight.m in Sources */,
+				5726F33C206A2FB2008EED75 /* BBWarningRingListCell.m in Sources */,
+				5726F33B206A2FB2008EED75 /* BBWarningRingSettingViewController.m in Sources */,
 				8449AC0820620CB300526935 /* BaseResultModel.m in Sources */,
 				574C6CDA2069262000F5BF55 /* BBSettingViewController.m in Sources */,
 				8449AC0B20620D1B00526935 /* BaseViewModel.m in Sources */,
@@ -1212,6 +1222,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = GP8N54644M;
 				GCC_PREFIX_HEADER = TheBabyBedProduct/Common/TheBabyBedProduct.pch;
 				INFOPLIST_FILE = "$(SRCROOT)/TheBabyBedProduct/Support/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
@@ -1230,6 +1241,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = GP8N54644M;
 				GCC_PREFIX_HEADER = TheBabyBedProduct/Common/TheBabyBedProduct.pch;
 				INFOPLIST_FILE = "$(SRCROOT)/TheBabyBedProduct/Support/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;

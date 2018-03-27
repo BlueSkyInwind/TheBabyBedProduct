@@ -14,3 +14,12 @@
                       alignment:(NSTextAlignment)alignment
                       textColor:(UIColor *)textColor;
 @end
+
+
+
+@interface UILabel (CalculateSize)
++(CGFloat)bb_calculateWidthWithFont:(UIFont *)font
+                             height:(CGFloat)height
+                               text:(NSString *)text;
+@end
+
