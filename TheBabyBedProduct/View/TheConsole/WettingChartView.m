@@ -64,7 +64,6 @@
     explainLabel.textAlignment = NSTextAlignmentCenter;
     [lineBackView addSubview:explainLabel];
     
-    
     _lineChartView = [[PXLineChartView alloc]initWithFrame:CGRectMake(-10, 40, self.frame.size.width - 10, 260)];
     [lineBackView addSubview:_lineChartView];
     _lineChartView.delegate = self;

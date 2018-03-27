@@ -1,38 +1,36 @@
 //
-//  HistoryFeverViewController.m
+//  KickQulitChartViewController.m
 //  TheBabyBedProduct
 //
-//  Created by Wangyongxin on 2018/3/21.
+//  Created by admin on 2018/3/27.
 //  Copyright © 2018年 Wangyongxin. All rights reserved.
 //
 
-#import "HistoryFeverViewController.h"
-#import "TemperatureChartView.h"
+#import "KickQulitChartViewController.h"
+#import "KickQulitChartView.h"
 
-@interface HistoryFeverViewController ()
+@interface KickQulitChartViewController ()
 
-
-@property(nonatomic,strong)TemperatureChartView * temChartView;
+@property(nonatomic,strong)KickQulitChartView * kickQulitChartView;
 
 @end
 
-@implementation HistoryFeverViewController
+@implementation KickQulitChartViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.title = @"历史体温";
+    self.title = @"踢被";
     [self configureView];
-    
-}
--(void)configureView{
-    
-    _temChartView = [[TemperatureChartView alloc]initWithFrame:CGRectMake(0, NaviBarHeight, _k_w, _k_h / 2)];
-    _temChartView.backgroundColor = [UIColor whiteColor];
-    [self.view addSubview:_temChartView];
-    
 }
 
+-(void)configureView{
+    
+    _kickQulitChartView = [[KickQulitChartView alloc]initWithFrame:CGRectMake(0, NaviBarHeight, _k_w, _k_h / 2)];
+    _kickQulitChartView.backgroundColor = [UIColor whiteColor];
+    [self.view addSubview:_kickQulitChartView];
+    
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
