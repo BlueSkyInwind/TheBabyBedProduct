@@ -7,6 +7,7 @@
 //
 
 #import "HomePageViewController.h"
+#import "HomeLeftItemView.h"
 
 @interface HomePageViewController ()
 
@@ -17,7 +18,30 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    [self configureView];
 }
+
+-(void)configureView{
+    
+    HomeLeftItemView * leftItemView = [[HomeLeftItemView alloc]initWithFrame:CGRectMake(0, 0, 100, 35)];
+    leftItemView.nameLabel.text = @"欧阳马克";
+    leftItemView.homeHeaderClick = ^(UIButton *button) {
+         
+    };
+
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]initWithCustomView:leftItemView];
+    
+    UIBarButtonItem * rightButton = [[UIBarButtonItem alloc]initWithImage:[[UIImage imageNamed:@"home_message_Icon"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] style:UIBarButtonItemStylePlain target:self action:@selector(rightButtonItemClick)];
+    self.navigationItem.rightBarButtonItem = rightButton;
+    
+}
+
+-(void)rightButtonItemClick{
+    
+    
+}
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

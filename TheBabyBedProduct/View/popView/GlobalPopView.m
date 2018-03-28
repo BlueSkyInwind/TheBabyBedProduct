@@ -38,7 +38,7 @@
 +(void)initWithTitle:(NSString *)title content:(NSString *)content cancelTitle:(NSString *)cancelTitle sureTitle:(NSString *)sureTitle clickcompletion:(GlobalPopViewClick)globalPopClickBlock{
 
     GlobalPopView * popView = [[GlobalPopView alloc]initWithFrame:[UIScreen mainScreen].bounds];
-    globalPopClickBlock = popView.globalPopViewClick;
+    popView.globalPopViewClick = globalPopClickBlock;
     popView.titleLabel.text = title;
     popView.contentLabel.text = content;
     [popView.cancelBtn setTitle:cancelTitle forState:UIControlStateNormal];

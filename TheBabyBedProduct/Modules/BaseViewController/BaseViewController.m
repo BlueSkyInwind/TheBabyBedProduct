@@ -24,7 +24,6 @@
 //    [self.navigationController.navigationBar setBackgroundColor:UI_MAIN_COLOR];
     [self.navigationController.navigationBar setBackgroundImage:[[GlobalTool share] imageWithColor:UI_MAIN_COLOR] forBarMetrics:UIBarMetricsDefault];
     self.navigationController.navigationBar.translucent = true;
-    
     self.view.backgroundColor = [UIColor whiteColor];
     
 }
