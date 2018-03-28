@@ -30,6 +30,8 @@
 - (void)pp_setColor:(nullable UIColor *)color;
 - (void)pp_setColor:(nullable UIColor *)color range:(NSRange)range;
 
+-(void)pp_setLineSpacing:(CGFloat)lineSpacing;
+
 
 @end
 

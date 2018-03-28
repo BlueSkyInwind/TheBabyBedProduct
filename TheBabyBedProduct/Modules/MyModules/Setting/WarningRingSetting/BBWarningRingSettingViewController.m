@@ -57,6 +57,8 @@
         return;
     }
     _selecteIndex = [NSNumber numberWithInteger:indexPath.row];
+    [self.tableView reloadData];
+
 #warning toDo
     //此处应该还要播放下选中的警告铃声
 }

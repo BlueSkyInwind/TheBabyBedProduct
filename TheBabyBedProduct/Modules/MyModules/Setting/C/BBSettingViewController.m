@@ -14,6 +14,8 @@
 #import "BBMyListOnlySubtitleCell.h"
 #import "BBUser.h"
 
+#import "BBNotificationSettingViewController.h"
+
 @interface BBSettingViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property(nonatomic,strong) UITableView *tableView;
 @end
@@ -36,11 +38,23 @@
 {
     self.tableView = [UITableView bb_tableVMakeWithSuperV:self.view frame:self.view.bounds delegate:self bgColor:k_color_vcBg style:UITableViewStylePlain];
     
-    if (!BBUserHelpers.hasLogined) {
-        UIView *foterV = [[UIView alloc]initWithFrame:CGRectFlatMake(0, 50, _k_w, 200)];
-        foterV.backgroundColor = [UIColor redColor];
-        self.tableView.tableFooterView = foterV;
+    
+}
+-(CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
+{
+    if (!BBUserHelpers.hasLogined && section == 1){
+        return 200;
     }
+    return 0.001;
+}
+-(UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section
+{
+    if (!BBUserHelpers.hasLogined && section == 1) {
+        UIView *foterV = [[UIView alloc]initWithFrame:CGRectFlatMake(0, 50, _k_w, 200)];
+        foterV.backgroundColor = [UIColor clearColor];
+        return foterV;
+    }
+    return [UIView new];
 }
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
@@ -53,24 +67,22 @@
     }
     return 4;
 }
--(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
-{
-    return 10;
-}
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     return 47;
 }
+-(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+{
+    return 10;
+}
+
 -(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
     UIView *v = [[UIView alloc]initWithFrame:CGRectMake(0, 0, _k_w, 10)];
     v.backgroundColor = [UIColor clearColor];
     return v;
 }
--(CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
-{
-    return 0.0001;
-}
+
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -107,6 +119,16 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
+    if (indexPath.section == 0) {
+        //
+    }else{
+        if (indexPath.row == 0) {
+            BBNotificationSettingViewController *notificationSettingVC = [[BBNotificationSettingViewController alloc]init];
+            [self.navigationController pushViewController:notificationSettingVC animated:YES];
+        }
+    }
+    
 }
 
 

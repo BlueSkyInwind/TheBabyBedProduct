@@ -64,6 +64,8 @@
 		5726F349206A8428008EED75 /* BBMyListSubTitleCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5726F348206A8428008EED75 /* BBMyListSubTitleCell.m */; };
 		5726F34C206A857F008EED75 /* BBMyListOnlySubtitleCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5726F34B206A857F008EED75 /* BBMyListOnlySubtitleCell.m */; };
 		5726F34F206A8DC3008EED75 /* UIView+PP_Frame.m in Sources */ = {isa = PBXBuildFile; fileRef = 5726F34D206A8DC2008EED75 /* UIView+PP_Frame.m */; };
+		5726F353206B257A008EED75 /* BBNotificationSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5726F352206B257A008EED75 /* BBNotificationSettingViewController.m */; };
+		5726F356206B2B62008EED75 /* BBNotificationSettingListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5726F355206B2B62008EED75 /* BBNotificationSettingListCell.m */; };
 		574C6CB82069254200F5BF55 /* NSMutableAttributedString+PPTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 574C6CAB2069254200F5BF55 /* NSMutableAttributedString+PPTextField.m */; };
 		574C6CB92069254200F5BF55 /* NSMutableAttributedString+KeywordHignlight.m in Sources */ = {isa = PBXBuildFile; fileRef = 574C6CAC2069254200F5BF55 /* NSMutableAttributedString+KeywordHignlight.m */; };
 		574C6CBA2069254200F5BF55 /* PPTextfield.m in Sources */ = {isa = PBXBuildFile; fileRef = 574C6CAF2069254200F5BF55 /* PPTextfield.m */; };
@@ -229,6 +231,10 @@
 		5726F34B206A857F008EED75 /* BBMyListOnlySubtitleCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BBMyListOnlySubtitleCell.m; sourceTree = "<group>"; };
 		5726F34D206A8DC2008EED75 /* UIView+PP_Frame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+PP_Frame.m"; sourceTree = "<group>"; };
 		5726F34E206A8DC3008EED75 /* UIView+PP_Frame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+PP_Frame.h"; sourceTree = "<group>"; };
+		5726F351206B257A008EED75 /* BBNotificationSettingViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BBNotificationSettingViewController.h; sourceTree = "<group>"; };
+		5726F352206B257A008EED75 /* BBNotificationSettingViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BBNotificationSettingViewController.m; sourceTree = "<group>"; };
+		5726F354206B2B62008EED75 /* BBNotificationSettingListCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BBNotificationSettingListCell.h; sourceTree = "<group>"; };
+		5726F355206B2B62008EED75 /* BBNotificationSettingListCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BBNotificationSettingListCell.m; sourceTree = "<group>"; };
 		574C6CA72069254200F5BF55 /* PPTextfield.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPTextfield.h; sourceTree = "<group>"; };
 		574C6CA92069254200F5BF55 /* NSMutableAttributedString+PPTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableAttributedString+PPTextField.h"; sourceTree = "<group>"; };
 		574C6CAA2069254200F5BF55 /* NSMutableAttributedString+KeywordHignlight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableAttributedString+KeywordHignlight.h"; sourceTree = "<group>"; };
@@ -632,12 +638,23 @@
 		5726F336206A2FB2008EED75 /* WarningRingSetting */ = {
 			isa = PBXGroup;
 			children = (
+				5726F339206A2FB2008EED75 /* BBWarningRingSettingViewController.h */,
 				5726F337206A2FB2008EED75 /* BBWarningRingSettingViewController.m */,
 				5726F338206A2FB2008EED75 /* BBWarningRingListCell.h */,
-				5726F339206A2FB2008EED75 /* BBWarningRingSettingViewController.h */,
 				5726F33A206A2FB2008EED75 /* BBWarningRingListCell.m */,
 			);
 			path = WarningRingSetting;
+			sourceTree = "<group>";
+		};
+		5726F350206B2560008EED75 /* NotificationSetting */ = {
+			isa = PBXGroup;
+			children = (
+				5726F351206B257A008EED75 /* BBNotificationSettingViewController.h */,
+				5726F352206B257A008EED75 /* BBNotificationSettingViewController.m */,
+				5726F354206B2B62008EED75 /* BBNotificationSettingListCell.h */,
+				5726F355206B2B62008EED75 /* BBNotificationSettingListCell.m */,
+			);
+			path = NotificationSetting;
 			sourceTree = "<group>";
 		};
 		574C6CA62069254200F5BF55 /* PPTextField */ = {
@@ -659,10 +676,10 @@
 			children = (
 				5726F33D206A3184008EED75 /* PPTextfield+EasilyMake.h */,
 				5726F33E206A3185008EED75 /* PPTextfield+EasilyMake.m */,
-				574C6CA92069254200F5BF55 /* NSMutableAttributedString+PPTextField.h */,
 				574C6CAA2069254200F5BF55 /* NSMutableAttributedString+KeywordHignlight.h */,
-				574C6CAB2069254200F5BF55 /* NSMutableAttributedString+PPTextField.m */,
 				574C6CAC2069254200F5BF55 /* NSMutableAttributedString+KeywordHignlight.m */,
+				574C6CA92069254200F5BF55 /* NSMutableAttributedString+PPTextField.h */,
+				574C6CAB2069254200F5BF55 /* NSMutableAttributedString+PPTextField.m */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -729,6 +746,7 @@
 		574C6CCE2069262000F5BF55 /* Setting */ = {
 			isa = PBXGroup;
 			children = (
+				5726F350206B2560008EED75 /* NotificationSetting */,
 				5726F336206A2FB2008EED75 /* WarningRingSetting */,
 				574C6CD02069262000F5BF55 /* C */,
 			);
@@ -752,9 +770,9 @@
 				574C6CDC2069272700F5BF55 /* UIImageView+EasilyMake.h */,
 				574C6CDD2069272700F5BF55 /* UITableView+EasilyMake.h */,
 				574C6CDF2069272700F5BF55 /* UITableViewCell+EasilyMake.h */,
+				574C6CE22069272700F5BF55 /* UITableViewCell+EasilyMake.m */,
 				574C6CE02069272700F5BF55 /* UIButton+EasilyMake.h */,
 				574C6CE12069272700F5BF55 /* UIImageView+EasilyMake.m */,
-				574C6CE22069272700F5BF55 /* UITableViewCell+EasilyMake.m */,
 				574C6CDE2069272700F5BF55 /* UIFont+BB.h */,
 				574C6CE32069272700F5BF55 /* UIFont+BB.m */,
 				574C6CE42069272700F5BF55 /* UITableView+EasilyMake.m */,
@@ -1064,6 +1082,7 @@
 				22CFD38D20614C3F0004186D /* MyViewController.m in Sources */,
 				22CFD3B3206402BF0004186D /* PointItem.m in Sources */,
 				574C6CD52069262000F5BF55 /* BBUser.m in Sources */,
+				5726F353206B257A008EED75 /* BBNotificationSettingViewController.m in Sources */,
 				84BE5EB22069F114007A001D /* KickQulitChartViewController.m in Sources */,
 				574C6CE92069272700F5BF55 /* UITableView+EasilyMake.m in Sources */,
 				574C6CD42069262000F5BF55 /* BBMyHeaderView.m in Sources */,
@@ -1074,6 +1093,7 @@
 				574C6CEA2069272700F5BF55 /* UIButton+EasilyMake.m in Sources */,
 				22CFD39120614C820004186D /* LoginAndRegisterViewController.m in Sources */,
 				574C6CB92069254200F5BF55 /* NSMutableAttributedString+KeywordHignlight.m in Sources */,
+				5726F356206B2B62008EED75 /* BBNotificationSettingListCell.m in Sources */,
 				5726F33C206A2FB2008EED75 /* BBWarningRingListCell.m in Sources */,
 				5726F345206A3F1C008EED75 /* BBSettingManager.m in Sources */,
 				5726F33B206A2FB2008EED75 /* BBWarningRingSettingViewController.m in Sources */,

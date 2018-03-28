@@ -32,7 +32,7 @@
     if (ringName.length > 0) {
         self.ringNameLB.text = ringName;
     }
-    self.imageView.image = [UIImage imageNamed:(isSelected?@"pitchon":@"unchecked")];
+    self.selectedStatusImgV.image = [UIImage imageNamed:(isSelected?@"pitchon":@"unchecked")];
 }
 -(void)creatCellUI
 {
@@ -43,12 +43,13 @@
     CGFloat nameLBW = _k_w-leftMargin-rightMargin*2-imgW;
     
     self.ringNameLB = [UILabel bb_lbMakeWithSuperV:self.contentView fontSize:16 alignment:NSTextAlignmentLeft textColor:k_color_515151];
-    self.ringNameLB.frame = CGRectMake(leftMargin, 0, nameLBW, self.height);
+    self.ringNameLB.frame = CGRectMake(leftMargin, 0, nameLBW, self.qmui_height);
     
     self.selectedStatusImgV = [UIImageView bb_imgVMakeWithSuperV:self.contentView];
-    self.selectedStatusImgV.frame = CGRectFlatMake(_k_w-rightMargin-imgW, imgMargin, imgW, imgW);
+    self.selectedStatusImgV.frame = CGRectMake(_k_w-rightMargin-imgW, imgMargin, imgW, imgW);
     
-    self.line = [[UIView alloc]initWithFrame:CGRectFlatMake(leftMargin, self.height-0.5, _k_w-leftMargin-rightMargin, 0.5)];
+    self.line = [[UIView alloc]initWithFrame:CGRectFlatMake(leftMargin, 47, _k_w-leftMargin-rightMargin, 0.5)];
+    self.line.backgroundColor = kUIColorFromRGB(0xe0e0e0);
     [self.contentView addSubview:self.line];
 }
 @end

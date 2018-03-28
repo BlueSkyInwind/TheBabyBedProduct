@@ -40,6 +40,13 @@
     [self setAttribute:NSForegroundColorAttributeName value:color range:range];
 }
 
+-(void)pp_setLineSpacing:(CGFloat)lineSpacing
+{
+    NSMutableParagraphStyle *paraStyle = [[NSMutableParagraphStyle alloc] init];
+    paraStyle.lineSpacing = lineSpacing;
+    [self setAttribute:NSParagraphStyleAttributeName value:paraStyle range:NSMakeRange(0, self.length)];
+}
+
 #pragma mark --- 通用的设置属性
 - (void)setAttribute:(NSString *)name value:(id)value range:(NSRange)range {
     if (!name || [NSNull isEqual:name]){
