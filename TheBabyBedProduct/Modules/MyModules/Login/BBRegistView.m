@@ -14,12 +14,13 @@
 #import "UIImageView+EasilyMake.h"
 #import "PPTextfield+EasilyMake.h"
 #import "UILabel+EasilyMake.h"
-
+#import "JKCountDownButton.h"
 @interface BBRegistView ()
 {
     BOOL _isAgree;
 }
 @property(nonatomic,strong) PPTextfield *phoneTF;
+@property(nonatomic,strong) JKCountDownButton *getCodeBT;
 @property(nonatomic,strong) PPTextfield *codeTF;
 @property(nonatomic,strong) PPTextfield *passwordTF;
 @property(nonatomic,strong) QMUIFillButton *registBT;
@@ -39,12 +40,12 @@
 }
 -(void)creatUI
 {
-    CGFloat leftMargin = 40;
+    CGFloat leftMargin = 20;
     CGFloat totalH = 50;
     
     CGFloat imgW = 15;
     CGFloat imgH = 18;
-    CGFloat tfL = 67.5;
+    CGFloat tfL = 40;
     CGFloat tfW = _k_w-leftMargin-tfL;
     
     //手机号
@@ -52,14 +53,32 @@
     phoneImgV.frame = CGRectMake(leftMargin, 28+16, imgW, imgH);
     self.phoneTF = [PPTextfield pp_tfMakeWithSuperV:self tag:401 fontSize:16 textColor:k_color_515151 attributedPlaceholderText:@"请输入手机号码" attributedPlaceholderFontSize:16 attributedPlaceholderTextColor:k_color_153153153];
     self.phoneTF.isPhoneNumber = YES;
-    self.phoneTF.frame = CGRectMake(tfL, 28, tfW, totalH);
+    self.phoneTF.frame = CGRectMake(tfL, 28, tfW-82-6, totalH);
     BBWeakSelf(self)
     self.phoneTF.ppTextfieldTextChangedBlock = ^(PPTextfield *tf) {
         BBStrongSelf(self)
         [self textFieldTextDidChange:tf];
     };
+    
+    self.getCodeBT = [JKCountDownButton buttonWithType:UIButtonTypeCustom];
+    self.getCodeBT.frame = CGRectMake(self.phoneTF.right+6, 28+10, 82, 30);
+    [self addSubview:self.getCodeBT];
+    self.getCodeBT.titleLabel.font = [UIFont systemFontOfSize:12];
+    self.getCodeBT.layer.masksToBounds = YES;
+    self.getCodeBT.layer.borderWidth = 1;
+    self.getCodeBT.layer.borderColor = rgb(255, 155, 57, 1).CGColor;
+    self.getCodeBT.layer.cornerRadius = 4;
+    [self.getCodeBT setTitle:@"获取验证码" forState:UIControlStateNormal];
+    [self.getCodeBT setTitle:@"获取验证码" forState:UIControlStateHighlighted];
+    [self.getCodeBT setTitleColor:rgb(255, 155, 57, 1) forState:UIControlStateNormal];
+    [self.getCodeBT setTitleColor:rgb(255, 155, 57, 1) forState:UIControlStateHighlighted];
+    [self.getCodeBT countDownButtonHandler:^(JKCountDownButton *countDownButton, NSInteger tag) {
+        countDownButton.enabled = NO;
+        [self getVerifyCodeRequest:countDownButton];
+    }];
+    
     UIView *phoneLine = [[UIView alloc]initWithFrame:CGRectMake(leftMargin, 28+49.2, _k_w-leftMargin*2, 0.8)];
-    phoneLine.backgroundColor = k_color_153153153;
+    phoneLine.backgroundColor = K_color_line;
     [self addSubview:phoneLine];
     
     //验证码
@@ -74,7 +93,7 @@
         [self textFieldTextDidChange:tf];
     };
     UIView *codeLine = [[UIView alloc]initWithFrame:CGRectMake(leftMargin, 28+99.2, _k_w-leftMargin*2, 0.8)];
-    codeLine.backgroundColor = k_color_153153153;
+    codeLine.backgroundColor = K_color_line;
     [self addSubview:codeLine];
     
     //密码
@@ -89,7 +108,7 @@
         [self textFieldTextDidChange:tf];
     };
     UIView *passwordLine = [[UIView alloc]initWithFrame:CGRectMake(leftMargin, 28+149.2, _k_w-leftMargin*2, 0.8)];
-    passwordLine.backgroundColor = k_color_153153153;
+    passwordLine.backgroundColor = K_color_line;
     [self addSubview:passwordLine];
     
     //注册
@@ -98,7 +117,7 @@
     self.registBT.titleLabel.font = [UIFont systemFontOfSize:18];
     self.registBT.fillColor = rgb(255, 236, 183, 0.5);
     self.registBT.titleTextColor = k_color_515151;
-    [self.registBT setTitle:@"登录" forState:UIControlStateNormal];
+    [self.registBT setTitle:@"注  册" forState:UIControlStateNormal];
     self.registBT.frame = CGRectMake(leftMargin, self.passwordTF.bottom+45, _k_w-leftMargin*2, 47);
     self.registBT.userInteractionEnabled = NO;
     [self.registBT addTarget:self action:@selector(registAction) forControlEvents:UIControlEventTouchUpInside];
@@ -129,6 +148,34 @@
     UIButton *tempBT = [UIButton bb_btMakeWithSuperV:self imageName:nil];
     tempBT.frame = CGRectFlatMake(agreeProtocolLB.left+protocolIntroW/2-15, agreeProtocolLB.top, protocolIntroW/2+15, btnW);
     [tempBT addTarget:self action:@selector(clickProtocolAction) forControlEvents:UIControlEventTouchUpInside];
+    
+}
+
+#pragma mark --- "获取验证码"点击事件
+-(void)getVerifyCodeRequest:(JKCountDownButton *)btn
+{
+    [btn countDownChanging:^NSString *(JKCountDownButton *countDownButton,NSUInteger second) {
+        NSString *title = [NSString stringWithFormat:@"%zd秒",second];
+        countDownButton.enabled = NO;
+        return title;
+    }];
+    [btn countDownFinished:^NSString *(JKCountDownButton *countDownButton, NSUInteger second) {
+        countDownButton.enabled = YES;
+        return @"重新获取";
+        
+    }];
+    
+    NSString *phoneStr = [self.phoneTF.text stringByReplacingOccurrencesOfString:@" " withString:@""];
+    if (![GlobalTool isMobileNumber:phoneStr]){
+        [QMUITips showWithText:@"手机号格式不正确" inView:self.superview hideAfterDelay:2];
+        [btn stopCountDown];
+        btn.enabled = YES;
+        return;
+    }
+    
+    if (self.getCodeBlock) {
+        self.getCodeBlock();
+    }
     
 }
 -(void)clickProtocolAction

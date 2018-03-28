@@ -28,6 +28,7 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
 #define k_color_vcBg      rgb(247,249,251,1)
 #define k_color_515151    rgb(51,51,51,1)
 #define k_color_153153153 rgb(153,153,153,1)
+#define K_color_line      rgb(229,229,229,1)
 
 #define _k_w           [UIScreen mainScreen].bounds.size.width
 #define _k_h           [UIScreen mainScreen].bounds.size.height

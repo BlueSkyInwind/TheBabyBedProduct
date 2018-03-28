@@ -33,12 +33,12 @@
 }
 -(void)creatUI
 {
-    CGFloat leftMargin = 40;
+    CGFloat leftMargin = 20;
     CGFloat totalH = 50;
     
     CGFloat imgW = 15;
     CGFloat imgH = 18;
-    CGFloat tfL = 67.5;
+    CGFloat tfL = 40;
     CGFloat tfW = _k_w-leftMargin-tfL;
     
     //手机号
@@ -53,7 +53,7 @@
         [self textFieldTextDidChange:tf];
     };
     UIView *phoneLine = [[UIView alloc]initWithFrame:CGRectMake(leftMargin, 28+49.2, _k_w-leftMargin*2, 0.8)];
-    phoneLine.backgroundColor = k_color_153153153;
+    phoneLine.backgroundColor = K_color_line;
     [self addSubview:phoneLine];
     
     //密码
@@ -68,7 +68,7 @@
         [self textFieldTextDidChange:tf];
     };
     UIView *passwordLine = [[UIView alloc]initWithFrame:CGRectMake(leftMargin, 28+99.2, _k_w-leftMargin*2, 0.8)];
-    passwordLine.backgroundColor = k_color_153153153;
+    passwordLine.backgroundColor = K_color_line;
     [self addSubview:passwordLine];
     
     //忘记密码
@@ -83,7 +83,7 @@
     self.loginBT.titleLabel.font = [UIFont systemFontOfSize:18];
     self.loginBT.fillColor = rgb(255, 236, 183, 0.5);
     self.loginBT.titleTextColor = k_color_515151;
-    [self.loginBT setTitle:@"登录" forState:UIControlStateNormal];
+    [self.loginBT setTitle:@"登  录" forState:UIControlStateNormal];
     self.loginBT.frame = CGRectMake(leftMargin, CGRectGetMaxY(forgetPasswordBT.frame), _k_w-leftMargin*2, 47);
     self.loginBT.userInteractionEnabled = NO;
     [self.loginBT addTarget:self action:@selector(loginAction) forControlEvents:UIControlEventTouchUpInside];
