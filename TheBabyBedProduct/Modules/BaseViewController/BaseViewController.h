@@ -10,4 +10,7 @@
 
 @interface BaseViewController : UIViewController
 
+//返回按钮
+- (void)addBackItem;
+
 @end

@@ -14,9 +14,11 @@ static double interval = 86400;
 @implementation DateChooseView
 
 
-+(instancetype)initFrame:(CGRect)frame mainColor:(UIColor *)color{
++(instancetype)initFrame:(CGRect)frame mainColor:(UIColor *)color leftImage:(NSString *)leftImage rightImage:(NSString *)rightImage{
     DateChooseView * dateView = [[DateChooseView alloc]initWithFrame:frame];
     dateView.dateDisplayLabel.textColor = color;
+    [dateView.leftButton setImage:[UIImage imageNamed:leftImage] forState:UIControlStateNormal];
+    [dateView.rightButton setImage:[UIImage imageNamed:rightImage] forState:UIControlStateNormal];
     return dateView;
 }
 
@@ -40,7 +42,6 @@ static double interval = 86400;
     }];
     
     _leftButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    _leftButton.backgroundColor = [UIColor redColor];
     [_leftButton addTarget:self action:@selector(leftButtonClick:) forControlEvents:UIControlEventTouchUpInside];
     [self addSubview:_leftButton];
     [_leftButton mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -51,7 +52,6 @@ static double interval = 86400;
     }];
     
     _rightButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    _rightButton.backgroundColor = [UIColor redColor];
     [_rightButton addTarget:self action:@selector(rightButtonClick:) forControlEvents:UIControlEventTouchUpInside];
     [self addSubview:_rightButton];
     

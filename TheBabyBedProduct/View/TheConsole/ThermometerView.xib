@@ -39,34 +39,46 @@
                                 <constraint firstAttribute="width" secondItem="4J2-9U-daF" secondAttribute="height" multiplier="70:293" id="Tr7-XC-g0r"/>
                             </constraints>
                         </view>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="curve_Icon" translatesAutoresizingMaskIntoConstraints="NO" id="7tt-pU-KIk">
-                            <rect key="frame" x="81.5" y="368" width="23" height="23"/>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Czj-gQ-882">
+                            <rect key="frame" x="54" y="363" width="80" height="50"/>
+                            <subviews>
+                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="curve_Icon" translatesAutoresizingMaskIntoConstraints="NO" id="7tt-pU-KIk">
+                                    <rect key="frame" x="28.5" y="5" width="23" height="23"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="23" id="Ibf-43-m9M"/>
+                                        <constraint firstAttribute="width" constant="23" id="hRN-dJ-aU8"/>
+                                    </constraints>
+                                </imageView>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="历史曲线" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UPE-ts-d13">
+                                    <rect key="frame" x="8" y="33" width="65.5" height="19.5"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
-                                <constraint firstAttribute="height" constant="23" id="Imz-ie-AIx"/>
-                                <constraint firstAttribute="width" constant="23" id="tJT-Cv-RHn"/>
+                                <constraint firstItem="7tt-pU-KIk" firstAttribute="centerX" secondItem="Czj-gQ-882" secondAttribute="centerX" id="8D4-r6-4It"/>
+                                <constraint firstAttribute="height" constant="50" id="Yg2-uD-9mM"/>
+                                <constraint firstItem="UPE-ts-d13" firstAttribute="top" secondItem="7tt-pU-KIk" secondAttribute="bottom" constant="5" id="bJb-9H-jTy"/>
+                                <constraint firstItem="7tt-pU-KIk" firstAttribute="top" secondItem="Czj-gQ-882" secondAttribute="top" constant="5" id="bSz-mv-08k"/>
+                                <constraint firstItem="UPE-ts-d13" firstAttribute="centerX" secondItem="Czj-gQ-882" secondAttribute="centerX" id="nAm-Uj-SbL"/>
+                                <constraint firstAttribute="width" constant="80" id="wRX-bC-QVh"/>
                             </constraints>
-                        </imageView>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="历史曲线" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UPE-ts-d13">
-                            <rect key="frame" x="61" y="398" width="65.5" height="19.5"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                            <nil key="textColor"/>
-                            <nil key="highlightedColor"/>
-                        </label>
+                        </view>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
-                        <constraint firstItem="UPE-ts-d13" firstAttribute="top" secondItem="7tt-pU-KIk" secondAttribute="bottom" constant="7" id="61o-QI-3pY"/>
                         <constraint firstItem="jkb-N3-R65" firstAttribute="centerX" secondItem="bFA-eX-sBP" secondAttribute="centerX" id="Cai-Lx-d7e"/>
-                        <constraint firstItem="UPE-ts-d13" firstAttribute="centerX" secondItem="bFA-eX-sBP" secondAttribute="centerX" id="E36-x6-SNl"/>
                         <constraint firstItem="4J2-9U-daF" firstAttribute="centerX" secondItem="bFA-eX-sBP" secondAttribute="centerX" id="IDY-Nn-axe"/>
+                        <constraint firstItem="Czj-gQ-882" firstAttribute="centerX" secondItem="bFA-eX-sBP" secondAttribute="centerX" id="LNw-uO-lnO"/>
                         <constraint firstItem="4J2-9U-daF" firstAttribute="leading" secondItem="bFA-eX-sBP" secondAttribute="leading" constant="58" id="PF9-Yq-AAN"/>
                         <constraint firstItem="91E-mi-VNY" firstAttribute="top" secondItem="bFA-eX-sBP" secondAttribute="top" constant="11" id="S4A-Bq-Ngi"/>
                         <constraint firstItem="91E-mi-VNY" firstAttribute="centerX" secondItem="bFA-eX-sBP" secondAttribute="centerX" id="VoN-Jy-PpB"/>
                         <constraint firstItem="jkb-N3-R65" firstAttribute="top" secondItem="91E-mi-VNY" secondAttribute="bottom" constant="5" id="XgJ-ii-kO6"/>
                         <constraint firstAttribute="trailing" secondItem="4J2-9U-daF" secondAttribute="trailing" constant="59.5" id="aWT-Xf-hOc"/>
                         <constraint firstItem="4J2-9U-daF" firstAttribute="top" secondItem="jkb-N3-R65" secondAttribute="bottom" constant="8" id="j7y-om-po6"/>
-                        <constraint firstItem="7tt-pU-KIk" firstAttribute="centerX" secondItem="bFA-eX-sBP" secondAttribute="centerX" id="kB0-lY-oY9"/>
-                        <constraint firstItem="7tt-pU-KIk" firstAttribute="top" secondItem="4J2-9U-daF" secondAttribute="bottom" constant="11" id="vAN-Dp-FaN"/>
+                        <constraint firstItem="Czj-gQ-882" firstAttribute="top" secondItem="4J2-9U-daF" secondAttribute="bottom" constant="6" id="rJo-17-6ve"/>
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CU8-Xt-9up">
@@ -181,6 +193,7 @@
                 <outlet property="alarThermometerView" destination="4J2-9U-daF" id="xxR-Jc-bS0"/>
                 <outlet property="foreheadTemLabel" destination="m8G-Sz-hVb" id="dcG-oO-1PL"/>
                 <outlet property="foreheadThermometerView" destination="f25-0p-6Ok" id="jqg-fy-pq9"/>
+                <outlet property="historyView" destination="Czj-gQ-882" id="J64-Tf-JTF"/>
                 <outlet property="switchBtn" destination="dhl-ML-X2B" id="Mo4-s2-Sye"/>
             </connections>
             <point key="canvasLocation" x="34.5" y="-63"/>

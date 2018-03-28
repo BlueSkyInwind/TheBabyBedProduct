@@ -7,7 +7,6 @@
 //
 
 #import "TheConsoleViewController.h"
-#import "HistoryFeverViewController.h"
 #import "ConsoleHeaderView.h"
 #import "ConsoleBodyView.h"
 #import "ConsoleRateViewController.h"
@@ -62,11 +61,9 @@
     __weak typeof (self) weakSelf = self;
     _bodyView.bobyTemperatureBtnClick = ^(UIButton *button) {
         
-//        ConsoleTemperatureViewController * temVC = [[ConsoleTemperatureViewController alloc]init];
-//        [weakSelf.navigationController pushViewController:temVC animated:true];
+        ConsoleTemperatureViewController * temVC = [[ConsoleTemperatureViewController alloc]init];
+        [weakSelf.navigationController pushViewController:temVC animated:true];
 
-        HistoryFeverViewController * historyFeverVC = [[HistoryFeverViewController alloc]init];
-        [weakSelf.navigationController pushViewController:historyFeverVC animated:true];
     };
     
     _bodyView.roomTemperatureBtnClick = ^(UIButton *button) {

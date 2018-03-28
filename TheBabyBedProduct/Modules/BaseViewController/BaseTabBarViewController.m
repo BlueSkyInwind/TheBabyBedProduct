@@ -35,7 +35,6 @@
     NSArray *seleteimageArr = @[@"home_select",@"console_select",@"earlyEdu_select",@"my_select"];
     
     NSMutableArray *ncArr = [NSMutableArray array];
-    
     for (int i = 0; i < _vcNameArr.count; i++) {
         //将字符串转化成类
         Class vc = NSClassFromString([_vcNameArr objectAtIndex:i]);

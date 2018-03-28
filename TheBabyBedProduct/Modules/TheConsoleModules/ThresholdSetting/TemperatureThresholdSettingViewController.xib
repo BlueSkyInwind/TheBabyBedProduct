@@ -11,6 +11,9 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TemperatureThresholdSettingViewController">
             <connections>
+                <outlet property="highTemperatureTextfield" destination="jZJ-RA-lWA" id="oVe-qC-hfY"/>
+                <outlet property="lowerTemperatureTextfield" destination="bja-wp-9rn" id="h2y-6t-09o"/>
+                <outlet property="saveBtn" destination="T9l-kM-GoA" id="FWp-96-pDi"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -18,7 +21,115 @@
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="请设置正常温度" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g2V-et-eI4">
+                    <rect key="frame" x="130.5" y="122" width="114.5" height="19.5"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wsZ-at-KeB">
+                    <rect key="frame" x="0.0" y="171.5" width="375" height="40"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="最低温度" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U7Y-IW-Dcm">
+                            <rect key="frame" x="25" y="10" width="65.5" height="19.5"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="请输入分贝值" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bja-wp-9rn">
+                            <rect key="frame" x="100.5" y="0.0" width="239.5" height="40"/>
+                            <nil key="textColor"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                        </textField>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="trailing" secondItem="bja-wp-9rn" secondAttribute="trailing" constant="35" id="PAs-sz-bUB"/>
+                        <constraint firstItem="U7Y-IW-Dcm" firstAttribute="leading" secondItem="wsZ-at-KeB" secondAttribute="leading" constant="25" id="a7S-36-MNw"/>
+                        <constraint firstAttribute="bottom" secondItem="bja-wp-9rn" secondAttribute="bottom" id="avh-wY-RXP"/>
+                        <constraint firstItem="U7Y-IW-Dcm" firstAttribute="centerY" secondItem="wsZ-at-KeB" secondAttribute="centerY" id="hfr-0D-VWH"/>
+                        <constraint firstItem="bja-wp-9rn" firstAttribute="leading" secondItem="U7Y-IW-Dcm" secondAttribute="trailing" constant="10" id="kLF-8S-hu1"/>
+                        <constraint firstAttribute="height" constant="40" id="tsM-lu-5Fe"/>
+                        <constraint firstItem="bja-wp-9rn" firstAttribute="top" secondItem="wsZ-at-KeB" secondAttribute="top" id="uPf-aj-dfb"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="blR-Yc-Pin">
+                    <rect key="frame" x="0.0" y="229.5" width="375" height="40"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="最高温度" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MZj-zx-ote">
+                            <rect key="frame" x="25" y="10" width="65.5" height="19.5"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="请输入分贝值" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jZJ-RA-lWA">
+                            <rect key="frame" x="100.5" y="0.0" width="239.5" height="40"/>
+                            <nil key="textColor"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                        </textField>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstItem="jZJ-RA-lWA" firstAttribute="top" secondItem="blR-Yc-Pin" secondAttribute="top" id="Tgt-HA-trP"/>
+                        <constraint firstItem="MZj-zx-ote" firstAttribute="centerY" secondItem="blR-Yc-Pin" secondAttribute="centerY" id="dcW-na-Jts"/>
+                        <constraint firstItem="jZJ-RA-lWA" firstAttribute="leading" secondItem="MZj-zx-ote" secondAttribute="trailing" constant="10" id="qqY-Je-p93"/>
+                        <constraint firstItem="MZj-zx-ote" firstAttribute="leading" secondItem="blR-Yc-Pin" secondAttribute="leading" constant="25" id="r1X-6t-Pvp"/>
+                        <constraint firstAttribute="bottom" secondItem="jZJ-RA-lWA" secondAttribute="bottom" id="tWe-fB-vU1"/>
+                        <constraint firstAttribute="height" constant="40" id="uyW-nN-eW7"/>
+                        <constraint firstAttribute="trailing" secondItem="jZJ-RA-lWA" secondAttribute="trailing" constant="35" id="xBZ-hS-8UT"/>
+                    </constraints>
+                </view>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="T9l-kM-GoA">
+                    <rect key="frame" x="35" y="506" width="305" height="45"/>
+                    <color key="backgroundColor" red="0.99607843139999996" green="0.92156862750000001" blue="0.72941176470000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="45" id="LyA-fE-U4f"/>
+                    </constraints>
+                    <state key="normal" title="保存">
+                        <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </state>
+                    <connections>
+                        <action selector="saveBtnClick:" destination="-1" eventType="touchUpInside" id="ubJ-MM-bnb"/>
+                    </connections>
+                </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rKv-VS-Ips">
+                    <rect key="frame" x="70" y="445" width="234.5" height="41"/>
+                    <string key="text">医疗标准35.5-37度是正常体温
+超过正常值会报警</string>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="T9l-kM-GoA" secondAttribute="trailing" constant="35" id="013-Cv-usB"/>
+                <constraint firstItem="T9l-kM-GoA" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="35" id="1KR-av-Fdh"/>
+                <constraint firstItem="g2V-et-eI4" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="122" id="6vO-pk-lpC"/>
+                <constraint firstItem="T9l-kM-GoA" firstAttribute="top" secondItem="rKv-VS-Ips" secondAttribute="bottom" constant="20" id="Iaa-BI-AWP"/>
+                <constraint firstItem="blR-Yc-Pin" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="WGf-Tt-jzN"/>
+                <constraint firstAttribute="trailing" secondItem="blR-Yc-Pin" secondAttribute="trailing" id="a7V-nS-z5Y"/>
+                <constraint firstItem="blR-Yc-Pin" firstAttribute="top" secondItem="wsZ-at-KeB" secondAttribute="bottom" constant="18" id="cI2-Kf-pt3"/>
+                <constraint firstItem="wsZ-at-KeB" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="cbg-et-eYO"/>
+                <constraint firstAttribute="bottom" secondItem="T9l-kM-GoA" secondAttribute="bottom" constant="116" id="cmW-Xr-cjz"/>
+                <constraint firstItem="g2V-et-eI4" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="iIs-I1-01K"/>
+                <constraint firstItem="wsZ-at-KeB" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="iTm-BT-l2g"/>
+                <constraint firstAttribute="trailing" secondItem="wsZ-at-KeB" secondAttribute="trailing" id="jeP-w2-qmy"/>
+                <constraint firstItem="wsZ-at-KeB" firstAttribute="top" secondItem="g2V-et-eI4" secondAttribute="bottom" constant="30" id="opj-at-DJH"/>
+                <constraint firstItem="rKv-VS-Ips" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="sgk-Zi-XPI"/>
+            </constraints>
+            <point key="canvasLocation" x="33.5" y="56.5"/>
         </view>
+        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" id="oxQ-LC-lcY">
+            <rect key="frame" x="0.0" y="0.0" width="97" height="30"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <nil key="textColor"/>
+            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+            <textInputTraits key="textInputTraits"/>
+            <point key="canvasLocation" x="253" y="400"/>
+        </textField>
     </objects>
 </document>
