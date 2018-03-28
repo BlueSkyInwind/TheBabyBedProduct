@@ -8,9 +8,25 @@
 
 #import "HomePageViewController.h"
 #import "HomeLeftItemView.h"
+#import "HomeTableViewCell.h"
+#import "HomeHeaderView.h"
+#import "ConsoleTemperatureViewController.h"
+#import "ConsoleRateViewController.h"
+#import "ConsoleRoomTemperatureViewController.h"
+#import "MessageViewController.h"
 
-@interface HomePageViewController ()
+@interface HomePageViewController ()<UITableViewDelegate,UITableViewDataSource>{
+    
+    NSArray * imgArr;
+    NSArray * titleArr;
+}
 
+@property (nonatomic,strong)UITableView * homeTableView;
+/* cell*/
+@property(nonatomic,strong)HomeTableViewCell * homeCell;
+
+/* 头部视图*/
+@property(nonatomic,strong)HomeHeaderView * headerView;
 @end
 
 @implementation HomePageViewController
@@ -24,24 +40,99 @@
 
 -(void)configureView{
     
+    imgArr = @[@"home_room_Icon",@"home_temperature_Icon",@"home_wetting_Icon",@"home_kickqulit_Icon"];
+    titleArr = @[@"室内外温度",@"体温",@"尿湿状态",@"踢被状态"];
+
     HomeLeftItemView * leftItemView = [[HomeLeftItemView alloc]initWithFrame:CGRectMake(0, 0, 100, 35)];
     leftItemView.nameLabel.text = @"欧阳马克";
     leftItemView.homeHeaderClick = ^(UIButton *button) {
          
     };
-
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]initWithCustomView:leftItemView];
     
-    UIBarButtonItem * rightButton = [[UIBarButtonItem alloc]initWithImage:[[UIImage imageNamed:@"home_message_Icon"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] style:UIBarButtonItemStylePlain target:self action:@selector(rightButtonItemClick)];
+    UIBarButtonItem * rightButton = [[UIBarButtonItem alloc]initWithImage:[[[UIImage imageNamed:@"home_message_Icon"] TransformtoSize:CGSizeMake(32, 32)] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] style:UIBarButtonItemStylePlain target:self action:@selector(rightButtonItemClick)];
     self.navigationItem.rightBarButtonItem = rightButton;
     
+    
+    _homeTableView = [[UITableView alloc]init];
+    _homeTableView.delegate = self;
+    _homeTableView.dataSource = self;
+    _homeTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    _homeTableView.scrollEnabled = false;
+    _homeTableView.backgroundColor = rgb(247, 249, 251, 1);
+    [self.view addSubview:_homeTableView];
+    [_homeTableView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.edges.equalTo(self.view);
+    }];
+    
+    [_homeTableView registerClass:[HomeTableViewCell class] forCellReuseIdentifier:@"HomeTableViewCell"];
+    
+    _headerView = [HomeHeaderView initWithBabyStatus:@[@"home_crystatus_Icon",@"home_happystatus_Icon",@"home_histroy_Icon"]];
+    _homeTableView.tableHeaderView = _headerView;
+    
+    
 }
-
 -(void)rightButtonItemClick{
     
-    
+    MessageViewController * messageVC = [[MessageViewController alloc]init];
+    [self.navigationController pushViewController:messageVC animated:true];
+
 }
 
+#pragma mark - tableViewDelegate
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    return 4;
+}
+
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    return 47;
+}
+-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    _homeCell = [tableView dequeueReusableCellWithIdentifier:@"HomeTableViewCell" forIndexPath:indexPath];
+    if (!_homeCell) {
+        _homeCell = [[HomeTableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"HomeTableViewCell"];
+    }
+    [_homeCell setIcon:imgArr[indexPath.row] title:titleArr[indexPath.row] content:@"正常"];
+    return _homeCell;
+}
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    [tableView deselectRowAtIndexPath:indexPath animated:true];
+    switch (indexPath.row) {
+        case 0:{
+            ConsoleRoomTemperatureViewController * consoleRoomTemperature = [[ConsoleRoomTemperatureViewController alloc]init];
+            [self.navigationController pushViewController:consoleRoomTemperature animated:true];
+        }
+            break;
+        case 1:{
+            ConsoleTemperatureViewController * temVC = [[ConsoleTemperatureViewController alloc]init];
+            [self.navigationController pushViewController:temVC animated:true];
+        }
+            break;
+        case 2:{
+            ConsoleRateViewController * rateVC = [[ConsoleRateViewController alloc]init];
+            rateVC.rateType = BabyWetType;
+            [self.navigationController pushViewController:rateVC animated:true];
+        }
+            break;
+        case 3:{
+            ConsoleRateViewController * rateVC = [[ConsoleRateViewController alloc]init];
+            rateVC.rateType = BabyKickType;
+            [self.navigationController pushViewController:rateVC animated:true];
+        }
+            break;
+        default:
+            break;
+    }
+}
+-(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
+    return 11;
+}
+-(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
+    UIView * view = [[UIView alloc]init];
+    view.backgroundColor = rgb(247, 249, 251, 1);
+    return view;
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

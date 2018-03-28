@@ -24,6 +24,7 @@
 #import <Masonry/Masonry.h>
 #import "AppDelegate.h"
 #import "UIFont+YX_Font.h"
+#import "UIImage+category.h"
 
 #import <QMUIKit/QMUIKit.h>
 #import "BBMacros.h"
