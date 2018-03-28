@@ -49,7 +49,7 @@
     self.selectedStatusImgV.frame = CGRectMake(_k_w-rightMargin-imgW, imgMargin, imgW, imgW);
     
     self.line = [[UIView alloc]initWithFrame:CGRectFlatMake(leftMargin, 47, _k_w-leftMargin-rightMargin, 0.5)];
-    self.line.backgroundColor = kUIColorFromRGB(0xe0e0e0);
+    self.line.backgroundColor = K_color_line;
     [self.contentView addSubview:self.line];
 }
 @end

@@ -13,7 +13,6 @@
 #import "UILabel+EasilyMake.h"
 #import "BBWarningRingSettingViewController.h"
 #import "NSMutableAttributedString+PPTextField.h"
-
 @interface BBNotificationSettingViewController ()<UITableViewDataSource,UITableViewDelegate>
 @property(nonatomic,strong) UITableView *tableView;
 @property(nonatomic,strong) NSArray *titles;

@@ -15,6 +15,7 @@
 #import "BBUser.h"
 
 #import "BBNotificationSettingViewController.h"
+#import "BBAboutUsViewController.h"
 
 @interface BBSettingViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property(nonatomic,strong) UITableView *tableView;
@@ -30,7 +31,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = k_color_vcBg;
-    
+    self.title = @"设置";
     [self creatUI];
     
 }
@@ -126,6 +127,11 @@
         if (indexPath.row == 0) {
             BBNotificationSettingViewController *notificationSettingVC = [[BBNotificationSettingViewController alloc]init];
             [self.navigationController pushViewController:notificationSettingVC animated:YES];
+        }else if (indexPath.row == 1){
+            
+        }else if (indexPath.row == 2){
+            BBAboutUsViewController *aboutUsVC = [[BBAboutUsViewController alloc]init];
+            [self.navigationController pushViewController:aboutUsVC animated:YES];
         }
     }
     

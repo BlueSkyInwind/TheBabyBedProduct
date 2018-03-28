@@ -7,6 +7,8 @@
 //
 
 #import "BaseViewController.h"
+#import "BBLoginAndRegistViewController.h"
+#import "BaseNavigationViewController.h"
 
 @interface BaseViewController ()
 
@@ -69,6 +71,13 @@
 -(void)viewWillDisappear:(BOOL)animated{
     [super viewWillDisappear:animated];
     
+}
+
+-(void)goLoginRegistVc
+{
+    BBLoginAndRegistViewController *loginRegistVC = [[BBLoginAndRegistViewController alloc]init];
+    BaseNavigationViewController *navVC = [[BaseNavigationViewController alloc]initWithRootViewController:loginRegistVC];
+    [self presentViewController:navVC animated:YES completion:nil];
 }
 
 /*

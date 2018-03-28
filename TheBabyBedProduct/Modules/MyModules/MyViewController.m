@@ -13,6 +13,8 @@
 #import "BBMyHeaderView.h"
 #import "BBLoginAndRegistViewController.h"
 #import "BBSettingViewController.h"
+#import "BBHelpAndSuggestionViewController.h"
+
 @interface MyViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property(nonatomic,strong) UITableView *tableView;
 @end
@@ -34,6 +36,11 @@
 
     BBMyHeaderView *headerV = [[BBMyHeaderView alloc]initWithFrame:CGRectMake(0, -20, _k_w, 264+20) user:nil];
     [self.view addSubview:headerV];
+    
+    headerV.loginOrRegistBlock = ^{
+        //登录/注册
+        [self goLoginRegistVc];
+    };
 
     self.tableView = [UITableView bb_tableVMakeWithSuperV:self.view frame:CGRectMake(0, 264, _k_w, _k_h-49-264) delegate:self bgColor:k_color_vcBg style:UITableViewStylePlain];
     self.tableView.scrollEnabled = NO;
@@ -77,7 +84,9 @@
     if (indexPath.row == 0) {
         //
     }else if (indexPath.row == 1){
-        //
+        //帮助建议
+        BBHelpAndSuggestionViewController *helpSuggestionVC = [[BBHelpAndSuggestionViewController alloc]init];
+        [self.navigationController pushViewController:helpSuggestionVC animated:YES];
     }else{
        //设置
         BBSettingViewController *settingVC = [[BBSettingViewController alloc]init];

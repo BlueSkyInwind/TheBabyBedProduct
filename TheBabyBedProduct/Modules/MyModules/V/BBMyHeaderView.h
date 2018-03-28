@@ -10,6 +10,9 @@
 @class BBUser;
 
 @interface BBMyHeaderView : UIView
+/** 登录or注册 */
+@property(nonatomic,copy) void(^loginOrRegistBlock)(void);
+
 -(instancetype)initWithFrame:(CGRect)frame
                         user:(BBUser *)user;
 @end

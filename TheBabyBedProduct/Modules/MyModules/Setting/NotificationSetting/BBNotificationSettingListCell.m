@@ -68,7 +68,7 @@
     
     self.line = [[UIView alloc]initWithFrame:CGRectFlatMake(leftMargin, 47, _k_w-leftMargin, 0.5)];
     [self.contentView addSubview:self.line];
-    self.line.backgroundColor = kUIColorFromRGB(0xe0e0e0);
+    self.line.backgroundColor = K_color_line;
 }
 
 -(void)switchAction:(UISwitch *)s

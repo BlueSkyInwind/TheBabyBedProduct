@@ -62,6 +62,16 @@
     
     self.userNameLB = [UILabel bb_lbMakeWithSuperV:realyBgV fontSize:19 alignment:NSTextAlignmentLeft textColor:k_color_515151];
     self.babyDaysLB = [UILabel bb_lbMakeWithSuperV:realyBgV fontSize:12 alignment:NSTextAlignmentLeft textColor:rgb(158, 158, 158, 1)];
+    
+    self.loginOrRegistBT = [UIButton bb_btMakeWithSuperV:realyBgV imageName:nil];
+    [self.loginOrRegistBT bb_btSetTitle:@"登录/注册"];
+    [self.loginOrRegistBT bb_btSetTitleColor:k_color_515151];
+    [self.loginOrRegistBT setTitleEdgeInsets:UIEdgeInsetsMake(0, 10, 0, 0)];
+    self.loginOrRegistBT.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
+
+    self.loginOrRegistBT.titleLabel.font = [UIFont systemFontOfSize:20];
+    [self.loginOrRegistBT addTarget:self action:@selector(loginOrRegistAction) forControlEvents:UIControlEventTouchUpInside];
+
     UIImageView *arrowImgV = [UIImageView bb_imgVMakeWithSuperV:realyBgV imgName:@"youyi"];
     
     CGFloat margin = 20;
@@ -76,8 +86,7 @@
     self.userNameLB.frame = CGRectMake(self.avatarImgV.right+10, imgY+8, lbW, 24);
     self.babyDaysLB.frame = CGRectMake(self.userNameLB.left, imgY+8+24, lbW, 20);
     
-    self.userNameLB.text = @"跳跳的爸爸";
-    self.babyDaysLB.text = @"您的宝贝493天了";
+    self.loginOrRegistBT.frame = CGRectMake(self.avatarImgV.right+10, imgY+8, realyBgV.width-self.avatarImgV.right-10, 44);
     
     NSArray *imgs = @[@"gshebei",@"gjiating",@"gwode"];
     NSArray *titles = @[@"我的账户",@"我的设备",@"家庭成员"];
@@ -93,6 +102,25 @@
         [bt bb_btSetTitleColor:k_color_515151];
         [bt bb_btSetImageWithImgName:imgs[i]];
         bt.titleLabel.font = [UIFont systemFontOfSize:12];
+    }
+#warning todo
+    if (BBUserHelpers.hasLogined) {
+        self.userNameLB.text = @"跳跳的爸爸";
+        self.babyDaysLB.text = @"您的宝贝493天了";
+        self.userNameLB.hidden = NO;
+        self.babyDaysLB.hidden = NO;
+        self.loginOrRegistBT.hidden = YES;
+    }else{
+        self.userNameLB.hidden = YES;
+        self.babyDaysLB.hidden = YES;
+        self.loginOrRegistBT.hidden = NO;
+    }
+}
+
+-(void)loginOrRegistAction
+{
+    if (self.loginOrRegistBlock) {
+        self.loginOrRegistBlock();
     }
 }
 

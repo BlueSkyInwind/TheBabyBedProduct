@@ -13,4 +13,5 @@
 //返回按钮
 - (void)addBackItem;
 
+-(void)goLoginRegistVc;
 @end

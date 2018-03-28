@@ -52,6 +52,8 @@
 }
 -(void)closeAction
 {
+    [self endEditing:YES];
+    
     if (self.closeBlock) {
         self.closeBlock();
     }
