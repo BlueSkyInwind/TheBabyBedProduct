@@ -57,8 +57,8 @@
     [self addSubview:rightImageView];
     [rightImageView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.right.equalTo(self.mas_right).with.offset(-15);
-        make.width.equalTo(@8);
-        make.height.equalTo(@15);
+        make.width.equalTo(@7);
+        make.height.equalTo(@13);
         make.centerY.equalTo(self.mas_centerY);
     }];
     
