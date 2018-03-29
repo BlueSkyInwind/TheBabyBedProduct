@@ -8,12 +8,13 @@
 
 #import "MyViewController.h"
 #import "BBMyListCell.h"
-#import "UITableView+EasilyMake.h"
-#import "UITableViewCell+EasilyMake.h"
 #import "BBMyHeaderView.h"
 #import "BBLoginAndRegistViewController.h"
 #import "BBSettingViewController.h"
 #import "BBHelpAndSuggestionViewController.h"
+#import "BBMyDeviceViewController.h"
+#import "BBAccountNumberViewController.h"
+#import "BBFamilyMemberViewController.h"
 
 @interface MyViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property(nonatomic,strong) UITableView *tableView;
@@ -41,16 +42,42 @@
         //登录/注册
         [self goLoginRegistVc];
     };
+    
+    headerV.funcBlock = ^(BBMyHeaderViewFuncType funcType) {
+        [self handleFuncAction:funcType];
+    };
+    
 
     self.tableView = [UITableView bb_tableVMakeWithSuperV:self.view frame:CGRectMake(0, 264, _k_w, _k_h-49-264) delegate:self bgColor:k_color_vcBg style:UITableViewStylePlain];
     self.tableView.scrollEnabled = NO;
     
 }
--(void)btnAction
+-(void)handleFuncAction:(BBMyHeaderViewFuncType)funcType
 {
-    BBLoginAndRegistViewController *loginRegistVC = [[BBLoginAndRegistViewController alloc]init];
-    [self presentViewController:loginRegistVC animated:YES completion:nil];
+    switch (funcType) {
+        case BBMyHeaderViewFuncTypeMyAccount:
+        {
+            BBAccountNumberViewController *accountNumberVC = [[BBAccountNumberViewController alloc] init];
+            [self.navigationController pushViewController:accountNumberVC animated:YES];
+        }
+            break;
+            case BBMyHeaderViewFuncTypeMyDevice:
+        {
+            BBMyDeviceViewController *deviceVC = [[BBMyDeviceViewController alloc]init];
+            [self.navigationController pushViewController:deviceVC animated:YES];
+        }
+            break;
+            case BBMyHeaderViewFuncTypeFamilyMember:
+        {
+            BBFamilyMemberViewController *familyMemberVC = [[BBFamilyMemberViewController alloc]init];
+            [self.navigationController pushViewController:familyMemberVC animated:YES];
+        }
+            
+        default:
+            break;
+    }
 }
+
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     return 3;

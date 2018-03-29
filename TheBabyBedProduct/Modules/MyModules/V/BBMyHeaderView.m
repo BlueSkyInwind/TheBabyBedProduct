@@ -8,10 +8,6 @@
 
 #import "BBMyHeaderView.h"
 #import "BBUser.h"
-#import "BAButton.h"
-#import "UIImageView+EasilyMake.h"
-#import "UILabel+EasilyMake.h"
-#import "UIButton+EasilyMake.h"
 
 @interface BBMyHeaderView ()
 @property(nonatomic,strong) BBUser *user;
@@ -102,6 +98,7 @@
         [bt bb_btSetTitleColor:k_color_515151];
         [bt bb_btSetImageWithImgName:imgs[i]];
         bt.titleLabel.font = [UIFont systemFontOfSize:12];
+        [bt addTarget:self action:@selector(funcAction:) forControlEvents:UIControlEventTouchUpInside];
     }
 #warning todo
     if (BBUserHelpers.hasLogined) {
@@ -117,6 +114,12 @@
     }
 }
 
+-(void)funcAction:(QMUIButton *)bt
+{
+    if (self.funcBlock) {
+        self.funcBlock(bt.tag-110);
+    }
+}
 -(void)loginOrRegistAction
 {
     if (self.loginOrRegistBlock) {

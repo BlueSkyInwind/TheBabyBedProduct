@@ -8,9 +8,7 @@
 
 #import "BBEarlyEducationHeaderView.h"
 #import "SDCycleScrollView.h"
-#import "UIImageView+EasilyMake.h"
-#import "UIButton+EasilyMake.h"
-#import "UILabel+EasilyMake.h"
+
 
 @interface BBEarlyEducationHeaderView()<SDCycleScrollViewDelegate>
 /** banner  */

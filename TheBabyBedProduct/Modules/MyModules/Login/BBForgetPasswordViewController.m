@@ -9,9 +9,7 @@
 #import "BBForgetPasswordViewController.h"
 #import "PPTextfield.h"
 #import "PPTextfield+EasilyMake.h"
-#import "UIImageView+EasilyMake.h"
 #import "JKCountDownButton.h"
-#import "UIButton+EasilyMake.h"
 
 @interface BBForgetPasswordViewController ()
 @property(nonatomic,strong) PPTextfield *phoneTF;

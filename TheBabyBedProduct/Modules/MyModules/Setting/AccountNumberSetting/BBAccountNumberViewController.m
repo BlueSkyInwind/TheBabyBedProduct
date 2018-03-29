@@ -7,10 +7,8 @@
 //
 
 #import "BBAccountNumberViewController.h"
-#import "UITableView+EasilyMake.h"
 #import "BBAcountNumberListCell.h"
-#import "UITableViewCell+EasilyMake.h"
-#import "UILabel+EasilyMake.h"
+
 @interface BBAccountNumberViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property(nonatomic,strong) UITableView *tableView;
 @property(nonatomic,strong) NSArray *settings;

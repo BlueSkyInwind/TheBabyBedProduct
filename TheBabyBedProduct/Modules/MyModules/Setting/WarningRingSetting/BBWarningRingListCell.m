@@ -7,8 +7,7 @@
 //
 
 #import "BBWarningRingListCell.h"
-#import "UILabel+EasilyMake.h"
-#import "UIImageView+EasilyMake.h"
+
 
 @interface BBWarningRingListCell ()
 @property(nonatomic,strong) UILabel *ringNameLB;

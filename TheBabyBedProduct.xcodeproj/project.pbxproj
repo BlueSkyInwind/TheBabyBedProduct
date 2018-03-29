@@ -127,6 +127,22 @@
 		574C6CE92069272700F5BF55 /* UITableView+EasilyMake.m in Sources */ = {isa = PBXBuildFile; fileRef = 574C6CE42069272700F5BF55 /* UITableView+EasilyMake.m */; };
 		574C6CEA2069272700F5BF55 /* UIButton+EasilyMake.m in Sources */ = {isa = PBXBuildFile; fileRef = 574C6CE52069272700F5BF55 /* UIButton+EasilyMake.m */; };
 		574C6CED20693D2400F5BF55 /* UILabel+EasilyMake.m in Sources */ = {isa = PBXBuildFile; fileRef = 574C6CEC20693D2400F5BF55 /* UILabel+EasilyMake.m */; };
+		57585ABA206D116C001BB202 /* BBMyDeviceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 57585AB9206D116C001BB202 /* BBMyDeviceViewController.m */; };
+		57585ABE206D17CA001BB202 /* BBFamilyMemberViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 57585ABD206D17CA001BB202 /* BBFamilyMemberViewController.m */; };
+		57585AC2206D1AE8001BB202 /* BBFamilyMemberListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 57585AC1206D1AE8001BB202 /* BBFamilyMemberListCell.m */; };
+		57585ACF206D4428001BB202 /* LWShareButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 57585AC8206D4428001BB202 /* LWShareButton.m */; };
+		57585AD1206D4428001BB202 /* LWShareSheetView.m in Sources */ = {isa = PBXBuildFile; fileRef = 57585ACA206D4428001BB202 /* LWShareSheetView.m */; };
+		57585AD2206D4428001BB202 /* LWShareService.m in Sources */ = {isa = PBXBuildFile; fileRef = 57585ACB206D4428001BB202 /* LWShareService.m */; };
+		57585AD3206D4428001BB202 /* LWShareContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 57585ACC206D4428001BB202 /* LWShareContentView.m */; };
+		57585AD4206D4428001BB202 /* LWShareCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 57585ACD206D4428001BB202 /* LWShareCollectionViewCell.m */; };
+		57585AE7206D4839001BB202 /* share_weibo@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 57585AE5206D4839001BB202 /* share_weibo@3x.png */; };
+		57585AE8206D4839001BB202 /* share_weibo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 57585AE6206D4839001BB202 /* share_weibo@2x.png */; };
+		57585AEB206D4843001BB202 /* share_wechat@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 57585AE9206D4843001BB202 /* share_wechat@3x.png */; };
+		57585AEC206D4843001BB202 /* share_wechat@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 57585AEA206D4843001BB202 /* share_wechat@2x.png */; };
+		57585AEF206D4850001BB202 /* share_timeline@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 57585AED206D4850001BB202 /* share_timeline@2x.png */; };
+		57585AF0206D4850001BB202 /* share_timeline@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 57585AEE206D4850001BB202 /* share_timeline@3x.png */; };
+		57585AF3206D485C001BB202 /* share_qq@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 57585AF1206D485B001BB202 /* share_qq@3x.png */; };
+		57585AF4206D485C001BB202 /* share_qq@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 57585AF2206D485B001BB202 /* share_qq@2x.png */; };
 		842D9CED206B94C90020C3C2 /* HomeLeftItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = 842D9CEC206B94C90020C3C2 /* HomeLeftItemView.m */; };
 		8449AC0820620CB300526935 /* BaseResultModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8449AC0720620CB300526935 /* BaseResultModel.m */; };
 		8449AC0B20620D1B00526935 /* BaseViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8449AC0A20620D1B00526935 /* BaseViewModel.m */; };
@@ -381,6 +397,30 @@
 		574C6CEB20693D2400F5BF55 /* UILabel+EasilyMake.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UILabel+EasilyMake.h"; sourceTree = "<group>"; };
 		574C6CEC20693D2400F5BF55 /* UILabel+EasilyMake.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UILabel+EasilyMake.m"; sourceTree = "<group>"; };
 		574C6CEE206943B500F5BF55 /* BBMacros.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BBMacros.h; sourceTree = "<group>"; };
+		57585AB8206D116C001BB202 /* BBMyDeviceViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BBMyDeviceViewController.h; sourceTree = "<group>"; };
+		57585AB9206D116C001BB202 /* BBMyDeviceViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BBMyDeviceViewController.m; sourceTree = "<group>"; };
+		57585ABC206D17CA001BB202 /* BBFamilyMemberViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BBFamilyMemberViewController.h; sourceTree = "<group>"; };
+		57585ABD206D17CA001BB202 /* BBFamilyMemberViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BBFamilyMemberViewController.m; sourceTree = "<group>"; };
+		57585AC0206D1AE8001BB202 /* BBFamilyMemberListCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BBFamilyMemberListCell.h; sourceTree = "<group>"; };
+		57585AC1206D1AE8001BB202 /* BBFamilyMemberListCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BBFamilyMemberListCell.m; sourceTree = "<group>"; };
+		57585AC4206D4428001BB202 /* LWShareCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWShareCollectionViewCell.h; sourceTree = "<group>"; };
+		57585AC5206D4428001BB202 /* LWShareContentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWShareContentView.h; sourceTree = "<group>"; };
+		57585AC6206D4428001BB202 /* LWShareService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWShareService.h; sourceTree = "<group>"; };
+		57585AC7206D4428001BB202 /* LWShareSheetView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWShareSheetView.h; sourceTree = "<group>"; };
+		57585AC8206D4428001BB202 /* LWShareButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWShareButton.m; sourceTree = "<group>"; };
+		57585ACA206D4428001BB202 /* LWShareSheetView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWShareSheetView.m; sourceTree = "<group>"; };
+		57585ACB206D4428001BB202 /* LWShareService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWShareService.m; sourceTree = "<group>"; };
+		57585ACC206D4428001BB202 /* LWShareContentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWShareContentView.m; sourceTree = "<group>"; };
+		57585ACD206D4428001BB202 /* LWShareCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWShareCollectionViewCell.m; sourceTree = "<group>"; };
+		57585ACE206D4428001BB202 /* LWShareButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWShareButton.h; sourceTree = "<group>"; };
+		57585AE5206D4839001BB202 /* share_weibo@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "share_weibo@3x.png"; sourceTree = "<group>"; };
+		57585AE6206D4839001BB202 /* share_weibo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "share_weibo@2x.png"; sourceTree = "<group>"; };
+		57585AE9206D4843001BB202 /* share_wechat@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "share_wechat@3x.png"; sourceTree = "<group>"; };
+		57585AEA206D4843001BB202 /* share_wechat@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "share_wechat@2x.png"; sourceTree = "<group>"; };
+		57585AED206D4850001BB202 /* share_timeline@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "share_timeline@2x.png"; sourceTree = "<group>"; };
+		57585AEE206D4850001BB202 /* share_timeline@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "share_timeline@3x.png"; sourceTree = "<group>"; };
+		57585AF1206D485B001BB202 /* share_qq@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "share_qq@3x.png"; sourceTree = "<group>"; };
+		57585AF2206D485B001BB202 /* share_qq@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "share_qq@2x.png"; sourceTree = "<group>"; };
 		764BC6823587F5E7CC72C6C4 /* Pods-TheBabyBedProduct.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TheBabyBedProduct.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TheBabyBedProduct/Pods-TheBabyBedProduct.debug.xcconfig"; sourceTree = "<group>"; };
 		842D9CEB206B94C90020C3C2 /* HomeLeftItemView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeLeftItemView.h; sourceTree = "<group>"; };
 		842D9CEC206B94C90020C3C2 /* HomeLeftItemView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeLeftItemView.m; sourceTree = "<group>"; };
@@ -630,6 +670,8 @@
 		22CFD38A20614C230004186D /* MyModules */ = {
 			isa = PBXGroup;
 			children = (
+				57585ABB206D17B4001BB202 /* FamilyMember */,
+				57585AB7206D1151001BB202 /* MyDevice */,
 				5726F3A7206B851D008EED75 /* HelpAndSuggestion */,
 				574C6CC52069262000F5BF55 /* Login */,
 				574C6CC22069262000F5BF55 /* M */,
@@ -731,6 +773,7 @@
 		22CFD39E2064015D0004186D /* Third */ = {
 			isa = PBXGroup;
 			children = (
+				57585AC3206D4428001BB202 /* LWShareView */,
 				5726F399206B8332008EED75 /* WSTableViewTree */,
 				5726F35A206B70C5008EED75 /* MOBSDK */,
 				574C6CB22069254200F5BF55 /* JKCountDownButton */,
@@ -1087,6 +1130,51 @@
 			path = Category;
 			sourceTree = "<group>";
 		};
+		57585AB7206D1151001BB202 /* MyDevice */ = {
+			isa = PBXGroup;
+			children = (
+				57585AB8206D116C001BB202 /* BBMyDeviceViewController.h */,
+				57585AB9206D116C001BB202 /* BBMyDeviceViewController.m */,
+			);
+			path = MyDevice;
+			sourceTree = "<group>";
+		};
+		57585ABB206D17B4001BB202 /* FamilyMember */ = {
+			isa = PBXGroup;
+			children = (
+				57585ABC206D17CA001BB202 /* BBFamilyMemberViewController.h */,
+				57585ABD206D17CA001BB202 /* BBFamilyMemberViewController.m */,
+				57585AC0206D1AE8001BB202 /* BBFamilyMemberListCell.h */,
+				57585AC1206D1AE8001BB202 /* BBFamilyMemberListCell.m */,
+			);
+			path = FamilyMember;
+			sourceTree = "<group>";
+		};
+		57585AC3206D4428001BB202 /* LWShareView */ = {
+			isa = PBXGroup;
+			children = (
+				57585AF2206D485B001BB202 /* share_qq@2x.png */,
+				57585AF1206D485B001BB202 /* share_qq@3x.png */,
+				57585AED206D4850001BB202 /* share_timeline@2x.png */,
+				57585AEE206D4850001BB202 /* share_timeline@3x.png */,
+				57585AEA206D4843001BB202 /* share_wechat@2x.png */,
+				57585AE9206D4843001BB202 /* share_wechat@3x.png */,
+				57585AE6206D4839001BB202 /* share_weibo@2x.png */,
+				57585AE5206D4839001BB202 /* share_weibo@3x.png */,
+				57585AC4206D4428001BB202 /* LWShareCollectionViewCell.h */,
+				57585AC5206D4428001BB202 /* LWShareContentView.h */,
+				57585AC6206D4428001BB202 /* LWShareService.h */,
+				57585ACB206D4428001BB202 /* LWShareService.m */,
+				57585AC7206D4428001BB202 /* LWShareSheetView.h */,
+				57585AC8206D4428001BB202 /* LWShareButton.m */,
+				57585ACA206D4428001BB202 /* LWShareSheetView.m */,
+				57585ACC206D4428001BB202 /* LWShareContentView.m */,
+				57585ACD206D4428001BB202 /* LWShareCollectionViewCell.m */,
+				57585ACE206D4428001BB202 /* LWShareButton.h */,
+			);
+			path = LWShareView;
+			sourceTree = "<group>";
+		};
 		8449AC032062031F00526935 /* NetWorkModules */ = {
 			isa = PBXGroup;
 			children = (
@@ -1250,8 +1338,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				57585AF4206D485C001BB202 /* share_qq@2x.png in Resources */,
+				57585AE8206D4839001BB202 /* share_weibo@2x.png in Resources */,
+				57585AF3206D485C001BB202 /* share_qq@3x.png in Resources */,
+				57585AEF206D4850001BB202 /* share_timeline@2x.png in Resources */,
 				22CFD3DF2067D82E0004186D /* RoomIndicatorView.xib in Resources */,
 				22CFD341206141080004186D /* Assets.xcassets in Resources */,
+				57585AEB206D4843001BB202 /* share_wechat@3x.png in Resources */,
 				5726F382206B70C5008EED75 /* ShareSDKUI.bundle in Resources */,
 				22CFD3C0206548100004186D /* ConsoleBodyView.xib in Resources */,
 				22CFD3BB2065451D0004186D /* ConsoleHeaderView.xib in Resources */,
@@ -1259,9 +1352,12 @@
 				84DD47572068DB7B00D154B5 /* ThresholdTableViewCell.xib in Resources */,
 				22CFD3EF2067FD8C0004186D /* WettingThresholdSettingViewController.xib in Resources */,
 				5726F3AE206B8D82008EED75 /* expandableImage.png in Resources */,
+				57585AF0206D4850001BB202 /* share_timeline@3x.png in Resources */,
 				5726F386206B70C5008EED75 /* ShareSDKConfigFile.bundle in Resources */,
+				57585AE7206D4839001BB202 /* share_weibo@3x.png in Resources */,
 				22CFD3FB2067FE060004186D /* TemperatureThresholdSettingViewController.xib in Resources */,
 				5726F3AD206B8D82008EED75 /* expandableImage@2x.png in Resources */,
+				57585AEC206D4843001BB202 /* share_wechat@2x.png in Resources */,
 				5726F37B206B70C5008EED75 /* WeiboSDK.bundle in Resources */,
 				22CFD3EA2067FD650004186D /* CryingThresholdSettingViewController.xib in Resources */,
 				5726F381206B70C5008EED75 /* ShareSDK.bundle in Resources */,
@@ -1371,6 +1467,7 @@
 			files = (
 				5726F3AA206B8537008EED75 /* BBHelpAndSuggestionViewController.m in Sources */,
 				22CFD3D22067C3120004186D /* ConsoleTemperatureViewController.m in Sources */,
+				57585AD2206D4428001BB202 /* LWShareService.m in Sources */,
 				574C6CD92069262000F5BF55 /* BBLoginRegistHeaderView.m in Sources */,
 				574C6CBA2069254200F5BF55 /* PPTextfield.m in Sources */,
 				574C6CE62069272700F5BF55 /* UIImageView+EasilyMake.m in Sources */,
@@ -1389,6 +1486,7 @@
 				22CFD3C920667B250004186D /* ConsoleRateBottonView.m in Sources */,
 				22CFD3E92067FD650004186D /* CryingThresholdSettingViewController.m in Sources */,
 				22CFD3F32067FDAF0004186D /* KickQulitThresholdSettingViewController.m in Sources */,
+				57585AC2206D1AE8001BB202 /* BBFamilyMemberListCell.m in Sources */,
 				8449AC0E2062283300526935 /* NetWorkRequestManager.m in Sources */,
 				574C6CD72069262000F5BF55 /* BBRegistView.m in Sources */,
 				22CFD38D20614C3F0004186D /* MyViewController.m in Sources */,
@@ -1416,7 +1514,9 @@
 				5726F33B206A2FB2008EED75 /* BBWarningRingSettingViewController.m in Sources */,
 				5726F3A4206B8332008EED75 /* WSTableViewCell.m in Sources */,
 				8449AC0820620CB300526935 /* BaseResultModel.m in Sources */,
+				57585ACF206D4428001BB202 /* LWShareButton.m in Sources */,
 				574C6CDA2069262000F5BF55 /* BBSettingViewController.m in Sources */,
+				57585ABA206D116C001BB202 /* BBMyDeviceViewController.m in Sources */,
 				8449AC0B20620D1B00526935 /* BaseViewModel.m in Sources */,
 				22CFD38920614C180004186D /* EarlyEducationViewController.m in Sources */,
 				22CFD3AD206401780004186D /* PXXview.m in Sources */,
@@ -1434,6 +1534,7 @@
 				22CFD375206146370004186D /* BaseViewController.m in Sources */,
 				22CFD37B2061476C0004186D /* BaseNavigationViewController.m in Sources */,
 				574C6CBB2069254200F5BF55 /* PPBaseTextField.m in Sources */,
+				57585ABE206D17CA001BB202 /* BBFamilyMemberViewController.m in Sources */,
 				574C6CB82069254200F5BF55 /* NSMutableAttributedString+PPTextField.m in Sources */,
 				5726F3A5206B8332008EED75 /* WSTableviewDataModel.m in Sources */,
 				84DD47602068FCD600D154B5 /* WettingChartView.m in Sources */,
@@ -1449,12 +1550,15 @@
 				8449AC1B20623ACC00526935 /* GlobalTool.m in Sources */,
 				574C6CED20693D2400F5BF55 /* UILabel+EasilyMake.m in Sources */,
 				574C6CBE2069254200F5BF55 /* PPLabel.m in Sources */,
+				57585AD4206D4428001BB202 /* LWShareCollectionViewCell.m in Sources */,
 				84DD475D2068FC7600D154B5 /* WettingChartViewController.m in Sources */,
 				22CFD378206146AF0004186D /* BaseTabBarViewController.m in Sources */,
+				57585AD1206D4428001BB202 /* LWShareSheetView.m in Sources */,
 				22CFD3B9206545040004186D /* ConsoleHeaderView.m in Sources */,
 				84DD475A2068F04000D154B5 /* RoomTemperatureView.m in Sources */,
 				5726F3BE206C7F3B008EED75 /* BBEarlyEducationHeaderView.m in Sources */,
 				574C6CD62069262000F5BF55 /* BBLoginView.m in Sources */,
+				57585AD3206D4428001BB202 /* LWShareContentView.m in Sources */,
 				2263B8ED206BE81B005BB15E /* UIImage+category.m in Sources */,
 				574C6CBC2069254200F5BF55 /* NSString+PPTextField.m in Sources */,
 				22CFD3B0206401780004186D /* PXLineChartView.m in Sources */,

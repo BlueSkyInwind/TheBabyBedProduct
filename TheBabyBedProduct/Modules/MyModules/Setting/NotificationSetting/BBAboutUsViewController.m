@@ -7,7 +7,7 @@
 //
 
 #import "BBAboutUsViewController.h"
-#import "UILabel+EasilyMake.h"
+
 @interface BBAboutUsViewController ()
 
 @end

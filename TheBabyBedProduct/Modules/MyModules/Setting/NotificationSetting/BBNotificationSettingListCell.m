@@ -7,8 +7,6 @@
 //
 
 #import "BBNotificationSettingListCell.h"
-#import "UILabel+EasilyMake.h"
-#import "UIImageView+EasilyMake.h"
 
 @interface BBNotificationSettingListCell ()
 @property(nonatomic,strong) UILabel *textLB;

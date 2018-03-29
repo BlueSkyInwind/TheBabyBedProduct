@@ -7,8 +7,6 @@
 //
 
 #import "BBAcountNumberListCell.h"
-#import "UILabel+EasilyMake.h"
-#import "UIImageView+EasilyMake.h"
 
 @interface BBAcountNumberListCell ()
 @property(nonatomic,strong) UILabel *textLB;
