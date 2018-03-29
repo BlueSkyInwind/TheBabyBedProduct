@@ -99,6 +99,8 @@
 		5726F3AE206B8D82008EED75 /* expandableImage.png in Resources */ = {isa = PBXBuildFile; fileRef = 5726F3AC206B8D81008EED75 /* expandableImage.png */; };
 		5726F3B1206B9988008EED75 /* BBSubmitSuggestionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5726F3B0206B9988008EED75 /* BBSubmitSuggestionViewController.m */; };
 		5726F3B4206B99D7008EED75 /* BBAboutUsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5726F3B3206B99D7008EED75 /* BBAboutUsViewController.m */; };
+		5726F3B8206BDE5F008EED75 /* BBAccountNumberViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5726F3B7206BDE5F008EED75 /* BBAccountNumberViewController.m */; };
+		5726F3BB206BE46F008EED75 /* BBAcountNumberListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5726F3BA206BE46F008EED75 /* BBAcountNumberListCell.m */; };
 		574C6CB82069254200F5BF55 /* NSMutableAttributedString+PPTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 574C6CAB2069254200F5BF55 /* NSMutableAttributedString+PPTextField.m */; };
 		574C6CB92069254200F5BF55 /* NSMutableAttributedString+KeywordHignlight.m in Sources */ = {isa = PBXBuildFile; fileRef = 574C6CAC2069254200F5BF55 /* NSMutableAttributedString+KeywordHignlight.m */; };
 		574C6CBA2069254200F5BF55 /* PPTextfield.m in Sources */ = {isa = PBXBuildFile; fileRef = 574C6CAF2069254200F5BF55 /* PPTextfield.m */; };
@@ -316,6 +318,10 @@
 		5726F3B0206B9988008EED75 /* BBSubmitSuggestionViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BBSubmitSuggestionViewController.m; sourceTree = "<group>"; };
 		5726F3B2206B99D7008EED75 /* BBAboutUsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BBAboutUsViewController.h; sourceTree = "<group>"; };
 		5726F3B3206B99D7008EED75 /* BBAboutUsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BBAboutUsViewController.m; sourceTree = "<group>"; };
+		5726F3B6206BDE5F008EED75 /* BBAccountNumberViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BBAccountNumberViewController.h; sourceTree = "<group>"; };
+		5726F3B7206BDE5F008EED75 /* BBAccountNumberViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BBAccountNumberViewController.m; sourceTree = "<group>"; };
+		5726F3B9206BE46F008EED75 /* BBAcountNumberListCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BBAcountNumberListCell.h; sourceTree = "<group>"; };
+		5726F3BA206BE46F008EED75 /* BBAcountNumberListCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BBAcountNumberListCell.m; sourceTree = "<group>"; };
 		574C6CA72069254200F5BF55 /* PPTextfield.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPTextfield.h; sourceTree = "<group>"; };
 		574C6CA92069254200F5BF55 /* NSMutableAttributedString+PPTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableAttributedString+PPTextField.h"; sourceTree = "<group>"; };
 		574C6CAA2069254200F5BF55 /* NSMutableAttributedString+KeywordHignlight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableAttributedString+KeywordHignlight.h"; sourceTree = "<group>"; };
@@ -909,6 +915,17 @@
 			path = HelpAndSuggestion;
 			sourceTree = "<group>";
 		};
+		5726F3B5206BDE3A008EED75 /* AccountNumberSetting */ = {
+			isa = PBXGroup;
+			children = (
+				5726F3B6206BDE5F008EED75 /* BBAccountNumberViewController.h */,
+				5726F3B7206BDE5F008EED75 /* BBAccountNumberViewController.m */,
+				5726F3B9206BE46F008EED75 /* BBAcountNumberListCell.h */,
+				5726F3BA206BE46F008EED75 /* BBAcountNumberListCell.m */,
+			);
+			path = AccountNumberSetting;
+			sourceTree = "<group>";
+		};
 		574C6CA62069254200F5BF55 /* PPTextField */ = {
 			isa = PBXGroup;
 			children = (
@@ -1000,6 +1017,7 @@
 		574C6CCE2069262000F5BF55 /* Setting */ = {
 			isa = PBXGroup;
 			children = (
+				5726F3B5206BDE3A008EED75 /* AccountNumberSetting */,
 				5726F350206B2560008EED75 /* NotificationSetting */,
 				5726F336206A2FB2008EED75 /* WarningRingSetting */,
 				574C6CD02069262000F5BF55 /* C */,
@@ -1343,6 +1361,7 @@
 				574C6CD72069262000F5BF55 /* BBRegistView.m in Sources */,
 				22CFD38D20614C3F0004186D /* MyViewController.m in Sources */,
 				22CFD3B3206402BF0004186D /* PointItem.m in Sources */,
+				5726F3B8206BDE5F008EED75 /* BBAccountNumberViewController.m in Sources */,
 				574C6CD52069262000F5BF55 /* BBUser.m in Sources */,
 				5726F353206B257A008EED75 /* BBNotificationSettingViewController.m in Sources */,
 				5726F3A3206B8332008EED75 /* WSTableViewCellIndicator.m in Sources */,
@@ -1392,6 +1411,7 @@
 				22CFD3972062A78C0004186D /* HistoryFeverViewController.m in Sources */,
 				2266C1BA20694A61004F653A /* CryingChartView.m in Sources */,
 				22CFD3EE2067FD8C0004186D /* WettingThresholdSettingViewController.m in Sources */,
+				5726F3BB206BE46F008EED75 /* BBAcountNumberListCell.m in Sources */,
 				8449AC1B20623ACC00526935 /* GlobalTool.m in Sources */,
 				574C6CED20693D2400F5BF55 /* UILabel+EasilyMake.m in Sources */,
 				574C6CBE2069254200F5BF55 /* PPLabel.m in Sources */,

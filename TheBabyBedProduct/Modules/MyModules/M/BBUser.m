@@ -75,4 +75,19 @@ static BBUser * toGetUser(){
     BBUser *user = [BBUser bb_getUser];
     return user.hasLogined;
 }
+-(BOOL)hasQQBinding
+{
+    BBUser *user = [BBUser bb_getUser];
+    return user.hasQQBinding;
+}
+-(BOOL)isHasWeiXinBinding
+{
+    BBUser *user = [BBUser bb_getUser];
+    return user.hasWeiXinBinding;
+}
+-(BOOL)hasWeiBoBinding
+{
+    BBUser *user = [BBUser bb_getUser];
+    return user.hasWeiBoBinding;
+}
 @end

@@ -16,6 +16,7 @@
 
 #import "BBNotificationSettingViewController.h"
 #import "BBAboutUsViewController.h"
+#import "BBAccountNumberViewController.h"
 
 @interface BBSettingViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property(nonatomic,strong) UITableView *tableView;
@@ -122,7 +123,11 @@
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
     if (indexPath.section == 0) {
-        //
+        //账户设置
+        if (indexPath.row == 0) {
+            BBAccountNumberViewController *accountNumberVC = [[BBAccountNumberViewController alloc]init];
+            [self.navigationController pushViewController:accountNumberVC animated:YES];
+        }
     }else{
         if (indexPath.row == 0) {
             BBNotificationSettingViewController *notificationSettingVC = [[BBNotificationSettingViewController alloc]init];
