@@ -126,6 +126,8 @@
 		574C6CEA2069272700F5BF55 /* UIButton+EasilyMake.m in Sources */ = {isa = PBXBuildFile; fileRef = 574C6CE52069272700F5BF55 /* UIButton+EasilyMake.m */; };
 		574C6CED20693D2400F5BF55 /* UILabel+EasilyMake.m in Sources */ = {isa = PBXBuildFile; fileRef = 574C6CEC20693D2400F5BF55 /* UILabel+EasilyMake.m */; };
 		842D9CED206B94C90020C3C2 /* HomeLeftItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = 842D9CEC206B94C90020C3C2 /* HomeLeftItemView.m */; };
+		84332C9D206CE6F5009A9121 /* MessageTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 84332C9B206CE6F5009A9121 /* MessageTableViewCell.m */; };
+		84332C9E206CE6F5009A9121 /* MessageTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84332C9C206CE6F5009A9121 /* MessageTableViewCell.xib */; };
 		8449AC0820620CB300526935 /* BaseResultModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8449AC0720620CB300526935 /* BaseResultModel.m */; };
 		8449AC0B20620D1B00526935 /* BaseViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8449AC0A20620D1B00526935 /* BaseViewModel.m */; };
 		8449AC0E2062283300526935 /* NetWorkRequestManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8449AC0D2062283300526935 /* NetWorkRequestManager.m */; };
@@ -378,6 +380,9 @@
 		764BC6823587F5E7CC72C6C4 /* Pods-TheBabyBedProduct.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TheBabyBedProduct.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TheBabyBedProduct/Pods-TheBabyBedProduct.debug.xcconfig"; sourceTree = "<group>"; };
 		842D9CEB206B94C90020C3C2 /* HomeLeftItemView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeLeftItemView.h; sourceTree = "<group>"; };
 		842D9CEC206B94C90020C3C2 /* HomeLeftItemView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeLeftItemView.m; sourceTree = "<group>"; };
+		84332C9A206CE6F5009A9121 /* MessageTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MessageTableViewCell.h; sourceTree = "<group>"; };
+		84332C9B206CE6F5009A9121 /* MessageTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MessageTableViewCell.m; sourceTree = "<group>"; };
+		84332C9C206CE6F5009A9121 /* MessageTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MessageTableViewCell.xib; sourceTree = "<group>"; };
 		8449AC0620620CB300526935 /* BaseResultModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseResultModel.h; sourceTree = "<group>"; };
 		8449AC0720620CB300526935 /* BaseResultModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BaseResultModel.m; sourceTree = "<group>"; };
 		8449AC0920620D1B00526935 /* BaseViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseViewModel.h; sourceTree = "<group>"; };
@@ -676,6 +681,9 @@
 				2263B8E1206BCBB9005BB15E /* HomeTableViewCell.m */,
 				2263B8E5206BD901005BB15E /* HomeHeaderView.h */,
 				2263B8E6206BD901005BB15E /* HomeHeaderView.m */,
+				84332C9A206CE6F5009A9121 /* MessageTableViewCell.h */,
+				84332C9B206CE6F5009A9121 /* MessageTableViewCell.m */,
+				84332C9C206CE6F5009A9121 /* MessageTableViewCell.xib */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -1253,6 +1261,7 @@
 				22CFD3FB2067FE060004186D /* TemperatureThresholdSettingViewController.xib in Resources */,
 				5726F3AD206B8D82008EED75 /* expandableImage@2x.png in Resources */,
 				5726F37B206B70C5008EED75 /* WeiboSDK.bundle in Resources */,
+				84332C9E206CE6F5009A9121 /* MessageTableViewCell.xib in Resources */,
 				22CFD3EA2067FD650004186D /* CryingThresholdSettingViewController.xib in Resources */,
 				5726F381206B70C5008EED75 /* ShareSDK.bundle in Resources */,
 				5726F37D206B70C5008EED75 /* README.txt in Resources */,
@@ -1395,6 +1404,7 @@
 				2266C1B720692D73004F653A /* UIFont+YX_Font.m in Sources */,
 				574C6CEA2069272700F5BF55 /* UIButton+EasilyMake.m in Sources */,
 				842D9CED206B94C90020C3C2 /* HomeLeftItemView.m in Sources */,
+				84332C9D206CE6F5009A9121 /* MessageTableViewCell.m in Sources */,
 				22CFD39120614C820004186D /* LoginAndRegisterViewController.m in Sources */,
 				574C6CB92069254200F5BF55 /* NSMutableAttributedString+KeywordHignlight.m in Sources */,
 				5726F356206B2B62008EED75 /* BBNotificationSettingListCell.m in Sources */,

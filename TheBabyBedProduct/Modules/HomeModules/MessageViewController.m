@@ -18,7 +18,13 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.title = @"消息中心";
+    
+    
+    
+    
+    
 }
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
