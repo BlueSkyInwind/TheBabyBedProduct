@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2263B8E3206BCBB9005BB15E /* HomeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2263B8E1206BCBB9005BB15E /* HomeTableViewCell.m */; };
+		2263B8E7206BD901005BB15E /* HomeHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2263B8E6206BD901005BB15E /* HomeHeaderView.m */; };
+		2263B8EA206BE604005BB15E /* MessageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2263B8E9206BE604005BB15E /* MessageViewController.m */; };
+		2263B8ED206BE81B005BB15E /* UIImage+category.m in Sources */ = {isa = PBXBuildFile; fileRef = 2263B8EC206BE81B005BB15E /* UIImage+category.m */; };
 		2266C1B720692D73004F653A /* UIFont+YX_Font.m in Sources */ = {isa = PBXBuildFile; fileRef = 2266C1B620692D72004F653A /* UIFont+YX_Font.m */; };
 		2266C1BA20694A61004F653A /* CryingChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2266C1B920694A61004F653A /* CryingChartView.m */; };
 		2266C1BD20694A85004F653A /* CryingChartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2266C1BC20694A85004F653A /* CryingChartViewController.m */; };
@@ -157,6 +161,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2263B8E0206BCBB9005BB15E /* HomeTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeTableViewCell.h; sourceTree = "<group>"; };
+		2263B8E1206BCBB9005BB15E /* HomeTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeTableViewCell.m; sourceTree = "<group>"; };
+		2263B8E5206BD901005BB15E /* HomeHeaderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeHeaderView.h; sourceTree = "<group>"; };
+		2263B8E6206BD901005BB15E /* HomeHeaderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeHeaderView.m; sourceTree = "<group>"; };
+		2263B8E8206BE604005BB15E /* MessageViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MessageViewController.h; sourceTree = "<group>"; };
+		2263B8E9206BE604005BB15E /* MessageViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MessageViewController.m; sourceTree = "<group>"; };
+		2263B8EB206BE81B005BB15E /* UIImage+category.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIImage+category.h"; sourceTree = "<group>"; };
+		2263B8EC206BE81B005BB15E /* UIImage+category.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIImage+category.m"; sourceTree = "<group>"; };
 		2266C1B520692D72004F653A /* UIFont+YX_Font.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIFont+YX_Font.h"; sourceTree = "<group>"; };
 		2266C1B620692D72004F653A /* UIFont+YX_Font.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIFont+YX_Font.m"; sourceTree = "<group>"; };
 		2266C1B820694A61004F653A /* CryingChartView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CryingChartView.h; sourceTree = "<group>"; };
@@ -573,6 +585,8 @@
 			children = (
 				22CFD37F20614AE90004186D /* HomePageViewController.h */,
 				22CFD38020614AE90004186D /* HomePageViewController.m */,
+				2263B8E8206BE604005BB15E /* MessageViewController.h */,
+				2263B8E9206BE604005BB15E /* MessageViewController.m */,
 			);
 			path = HomeModules;
 			sourceTree = "<group>";
@@ -658,6 +672,10 @@
 			children = (
 				842D9CEB206B94C90020C3C2 /* HomeLeftItemView.h */,
 				842D9CEC206B94C90020C3C2 /* HomeLeftItemView.m */,
+				2263B8E0206BCBB9005BB15E /* HomeTableViewCell.h */,
+				2263B8E1206BCBB9005BB15E /* HomeTableViewCell.m */,
+				2263B8E5206BD901005BB15E /* HomeHeaderView.h */,
+				2263B8E6206BD901005BB15E /* HomeHeaderView.m */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -1053,6 +1071,8 @@
 				574C6CEC20693D2400F5BF55 /* UILabel+EasilyMake.m */,
 				2266C1B520692D72004F653A /* UIFont+YX_Font.h */,
 				2266C1B620692D72004F653A /* UIFont+YX_Font.m */,
+				2263B8EB206BE81B005BB15E /* UIImage+category.h */,
+				2263B8EC206BE81B005BB15E /* UIImage+category.m */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -1371,6 +1391,7 @@
 				22CFD38120614AE90004186D /* HomePageViewController.m in Sources */,
 				8449AC152062354000526935 /* LaunchConfiguration.m in Sources */,
 				8449AC18206239F900526935 /* GlobalUtility.m in Sources */,
+				2263B8EA206BE604005BB15E /* MessageViewController.m in Sources */,
 				2266C1B720692D73004F653A /* UIFont+YX_Font.m in Sources */,
 				574C6CEA2069272700F5BF55 /* UIButton+EasilyMake.m in Sources */,
 				842D9CED206B94C90020C3C2 /* HomeLeftItemView.m in Sources */,
@@ -1420,12 +1441,15 @@
 				22CFD3B9206545040004186D /* ConsoleHeaderView.m in Sources */,
 				84DD475A2068F04000D154B5 /* RoomTemperatureView.m in Sources */,
 				574C6CD62069262000F5BF55 /* BBLoginView.m in Sources */,
+				2263B8ED206BE81B005BB15E /* UIImage+category.m in Sources */,
 				574C6CBC2069254200F5BF55 /* NSString+PPTextField.m in Sources */,
 				22CFD3B0206401780004186D /* PXLineChartView.m in Sources */,
 				22CFD347206141080004186D /* main.m in Sources */,
 				5726F342206A391B008EED75 /* BBMyListCell.m in Sources */,
 				22CFD3BE206548000004186D /* ConsoleBodyView.m in Sources */,
 				22CFD339206141080004186D /* AppDelegate.m in Sources */,
+				2263B8E7206BD901005BB15E /* HomeHeaderView.m in Sources */,
+				2263B8E3206BCBB9005BB15E /* HomeTableViewCell.m in Sources */,
 				22CFD3D52067C58B0004186D /* ThermometerView.m in Sources */,
 				22CFD3DD2067D8160004186D /* RoomIndicatorView.m in Sources */,
 				5726F3A6206B8332008EED75 /* WSTableView.m in Sources */,

@@ -25,18 +25,45 @@
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="AMa-Fh-Dmu">
-                    <rect key="frame" x="67" y="123" width="240" height="32"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AMa-Fh-Dmu">
+                    <rect key="frame" x="30" y="134.5" width="315" height="35"/>
+                    <subviews>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="down_arrow_Icon" translatesAutoresizingMaskIntoConstraints="NO" id="8DK-bv-Xyo">
+                            <rect key="frame" x="280" y="8.5" width="25" height="18"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="25" id="T9W-45-HHz"/>
+                                <constraint firstAttribute="height" constant="18" id="cyQ-4Y-MmR"/>
+                            </constraints>
+                        </imageView>
+                    </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstItem="8DK-bv-Xyo" firstAttribute="centerY" secondItem="AMa-Fh-Dmu" secondAttribute="centerY" id="3XK-Dm-4mI"/>
+                        <constraint firstAttribute="trailing" secondItem="8DK-bv-Xyo" secondAttribute="trailing" constant="10" id="ULu-Ac-EP5"/>
+                        <constraint firstAttribute="height" constant="35" id="Y2G-gv-KZl"/>
+                    </constraints>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="color" keyPath="qmui_borderColor">
+                            <color key="value" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="number" keyPath="qmui_borderWidth">
+                            <real key="value" value="1"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
                 </view>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
+                <constraint firstItem="AMa-Fh-Dmu" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="30" id="3Va-XR-MWX"/>
+                <constraint firstItem="AMa-Fh-Dmu" firstAttribute="top" secondItem="y0O-50-8C9" secondAttribute="bottom" constant="25" id="Nbs-LO-GOa"/>
+                <constraint firstAttribute="trailing" secondItem="AMa-Fh-Dmu" secondAttribute="trailing" constant="30" id="Tql-Zw-HwJ"/>
                 <constraint firstItem="y0O-50-8C9" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="90" id="XA8-N5-VwW"/>
                 <constraint firstItem="y0O-50-8C9" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="dHB-eH-2Xe"/>
             </constraints>
             <point key="canvasLocation" x="34.5" y="54.5"/>
         </view>
     </objects>
+    <resources>
+        <image name="down_arrow_Icon" width="18" height="11"/>
+    </resources>
 </document>
