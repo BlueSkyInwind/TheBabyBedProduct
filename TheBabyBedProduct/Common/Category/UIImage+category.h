@@ -12,4 +12,6 @@
 
 -(UIImage *)TransformtoSize:(CGSize)Newsize;
 
++(UIImage *)bb_imageWithColor:(UIColor *)color;
++(UIImage *)bb_imageWithColor:(UIColor *)color size:(CGSize)size;
 @end
