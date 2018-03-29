@@ -9,5 +9,9 @@
 #import <UIKit/UIKit.h>
 
 @interface WettingThresholdSettingViewController : BaseViewController
+@property (weak, nonatomic) IBOutlet UITextField *contentTextField;
+@property (weak, nonatomic) IBOutlet UITableView *displayTableView;
+@property (weak, nonatomic) IBOutlet UIButton *saveButton;
+@property (weak, nonatomic) IBOutlet UILabel *explainLabel;
 
 @end

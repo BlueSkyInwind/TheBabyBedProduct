@@ -21,27 +21,27 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Okq-Cj-N3H">
                         <rect key="frame" x="50" y="0.0" width="270" height="44"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" verticalCompressionResistancePriority="751" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="62h-hO-APu">
-                                <rect key="frame" x="0.0" y="0.0" width="39.5" height="19.5"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" verticalCompressionResistancePriority="751" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="62h-hO-APu">
+                                <rect key="frame" x="0.0" y="5" width="39.5" height="19.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MSx-JZ-hyW">
-                                <rect key="frame" x="0.0" y="23" width="37.5" height="16"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MSx-JZ-hyW">
+                                <rect key="frame" x="0.0" y="28" width="37.5" height="11"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <color key="textColor" red="0.65098039215686276" green="0.65098039215686276" blue="0.65098039215686276" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mVI-TN-gyr">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mVI-TN-gyr">
                                 <rect key="frame" x="222" y="20" width="37.5" height="18"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <color key="textColor" red="0.65098039220000004" green="0.65098039220000004" blue="0.65098039220000004" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" verticalCompressionResistancePriority="751" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fks-gX-uFi">
-                                <rect key="frame" x="221" y="5.5" width="39.5" height="19.5"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" verticalCompressionResistancePriority="751" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fks-gX-uFi">
+                                <rect key="frame" x="223" y="6.5" width="37.5" height="18"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -52,7 +52,7 @@
                             <constraint firstItem="62h-hO-APu" firstAttribute="leading" secondItem="Okq-Cj-N3H" secondAttribute="leading" id="BPZ-x1-Nj7"/>
                             <constraint firstItem="MSx-JZ-hyW" firstAttribute="leading" secondItem="Okq-Cj-N3H" secondAttribute="leading" id="JHF-Kq-baV"/>
                             <constraint firstItem="MSx-JZ-hyW" firstAttribute="top" secondItem="62h-hO-APu" secondAttribute="bottom" constant="3" id="ard-0a-EK8"/>
-                            <constraint firstItem="62h-hO-APu" firstAttribute="top" secondItem="Okq-Cj-N3H" secondAttribute="top" id="cST-Jw-D3w"/>
+                            <constraint firstItem="62h-hO-APu" firstAttribute="top" secondItem="Okq-Cj-N3H" secondAttribute="top" constant="5" id="cST-Jw-D3w"/>
                             <constraint firstItem="Fks-gX-uFi" firstAttribute="centerY" secondItem="Okq-Cj-N3H" secondAttribute="centerY" constant="-7" id="gdu-21-tSz"/>
                             <constraint firstAttribute="trailing" secondItem="mVI-TN-gyr" secondAttribute="trailing" constant="10" id="r0K-PI-8hy"/>
                             <constraint firstAttribute="trailing" secondItem="Fks-gX-uFi" secondAttribute="trailing" constant="10" id="wG1-aU-9k8"/>
@@ -65,7 +65,11 @@
                             <constraint firstAttribute="width" constant="19" id="Vo6-cD-q3k"/>
                             <constraint firstAttribute="height" constant="19" id="sN1-tD-nbW"/>
                         </constraints>
-                        <state key="normal" title="Button" image="Home_check_Icon"/>
+                        <state key="normal" title="Button" image="Home_uncheck_Icon"/>
+                        <state key="selected" image="Home_check_Icon"/>
+                        <connections>
+                            <action selector="selectButtonClick:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="cKe-lu-8z9"/>
+                        </connections>
                     </button>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aMf-mM-wdd">
                         <rect key="frame" x="10" y="18.5" width="7" height="7"/>
@@ -87,9 +91,19 @@
                     <constraint firstItem="aMf-mM-wdd" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="to1-12-tfY"/>
                 </constraints>
             </tableViewCellContentView>
+            <connections>
+                <outlet property="contentLabel" destination="MSx-JZ-hyW" id="IEW-eo-aTc"/>
+                <outlet property="dateLabel" destination="Fks-gX-uFi" id="Mg2-YM-xm1"/>
+                <outlet property="leftContentConstraint" destination="jUb-3O-dgY" id="zs6-U4-Vqd"/>
+                <outlet property="selelctBtn" destination="5UM-8p-oM5" id="6Wv-Ej-CxE"/>
+                <outlet property="timeLabel" destination="mVI-TN-gyr" id="l7E-ID-rXF"/>
+                <outlet property="titleLabel" destination="62h-hO-APu" id="kSh-wL-M6v"/>
+                <outlet property="unreadStatusView" destination="aMf-mM-wdd" id="1f9-zC-uKF"/>
+            </connections>
         </tableViewCell>
     </objects>
     <resources>
         <image name="Home_check_Icon" width="38" height="38"/>
+        <image name="Home_uncheck_Icon" width="40" height="40"/>
     </resources>
 </document>
