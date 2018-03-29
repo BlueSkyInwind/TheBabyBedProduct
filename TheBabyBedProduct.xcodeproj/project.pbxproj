@@ -105,6 +105,8 @@
 		5726F3B4206B99D7008EED75 /* BBAboutUsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5726F3B3206B99D7008EED75 /* BBAboutUsViewController.m */; };
 		5726F3B8206BDE5F008EED75 /* BBAccountNumberViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5726F3B7206BDE5F008EED75 /* BBAccountNumberViewController.m */; };
 		5726F3BB206BE46F008EED75 /* BBAcountNumberListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5726F3BA206BE46F008EED75 /* BBAcountNumberListCell.m */; };
+		5726F3BE206C7F3B008EED75 /* BBEarlyEducationHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5726F3BD206C7F3B008EED75 /* BBEarlyEducationHeaderView.m */; };
+		5726F3C1206C8F13008EED75 /* BBEarlyEducationCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5726F3C0206C8F13008EED75 /* BBEarlyEducationCell.m */; };
 		574C6CB82069254200F5BF55 /* NSMutableAttributedString+PPTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 574C6CAB2069254200F5BF55 /* NSMutableAttributedString+PPTextField.m */; };
 		574C6CB92069254200F5BF55 /* NSMutableAttributedString+KeywordHignlight.m in Sources */ = {isa = PBXBuildFile; fileRef = 574C6CAC2069254200F5BF55 /* NSMutableAttributedString+KeywordHignlight.m */; };
 		574C6CBA2069254200F5BF55 /* PPTextfield.m in Sources */ = {isa = PBXBuildFile; fileRef = 574C6CAF2069254200F5BF55 /* PPTextfield.m */; };
@@ -336,6 +338,10 @@
 		5726F3B7206BDE5F008EED75 /* BBAccountNumberViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BBAccountNumberViewController.m; sourceTree = "<group>"; };
 		5726F3B9206BE46F008EED75 /* BBAcountNumberListCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BBAcountNumberListCell.h; sourceTree = "<group>"; };
 		5726F3BA206BE46F008EED75 /* BBAcountNumberListCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BBAcountNumberListCell.m; sourceTree = "<group>"; };
+		5726F3BC206C7F3B008EED75 /* BBEarlyEducationHeaderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BBEarlyEducationHeaderView.h; sourceTree = "<group>"; };
+		5726F3BD206C7F3B008EED75 /* BBEarlyEducationHeaderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BBEarlyEducationHeaderView.m; sourceTree = "<group>"; };
+		5726F3BF206C8F13008EED75 /* BBEarlyEducationCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BBEarlyEducationCell.h; sourceTree = "<group>"; };
+		5726F3C0206C8F13008EED75 /* BBEarlyEducationCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BBEarlyEducationCell.m; sourceTree = "<group>"; };
 		574C6CA72069254200F5BF55 /* PPTextfield.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPTextfield.h; sourceTree = "<group>"; };
 		574C6CA92069254200F5BF55 /* NSMutableAttributedString+PPTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableAttributedString+PPTextField.h"; sourceTree = "<group>"; };
 		574C6CAA2069254200F5BF55 /* NSMutableAttributedString+KeywordHignlight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableAttributedString+KeywordHignlight.h"; sourceTree = "<group>"; };
@@ -618,6 +624,10 @@
 			children = (
 				22CFD38720614C180004186D /* EarlyEducationViewController.h */,
 				22CFD38820614C180004186D /* EarlyEducationViewController.m */,
+				5726F3BC206C7F3B008EED75 /* BBEarlyEducationHeaderView.h */,
+				5726F3BD206C7F3B008EED75 /* BBEarlyEducationHeaderView.m */,
+				5726F3BF206C8F13008EED75 /* BBEarlyEducationCell.h */,
+				5726F3C0206C8F13008EED75 /* BBEarlyEducationCell.m */,
 			);
 			path = EarlyEducationModules;
 			sourceTree = "<group>";
@@ -1302,6 +1312,7 @@
 				"${BUILT_PRODUCTS_DIR}/Masonry/Masonry.framework",
 				"${BUILT_PRODUCTS_DIR}/QMUIKit/QMUIKit.framework",
 				"${BUILT_PRODUCTS_DIR}/ReactiveObjC/ReactiveObjC.framework",
+				"${BUILT_PRODUCTS_DIR}/SDCycleScrollView/SDCycleScrollView.framework",
 				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
 				"${BUILT_PRODUCTS_DIR}/YYModel/YYModel.framework",
 				"${BUILT_PRODUCTS_DIR}/pop/pop.framework",
@@ -1317,6 +1328,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Masonry.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/QMUIKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ReactiveObjC.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDCycleScrollView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/YYModel.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/pop.framework",
@@ -1437,6 +1449,7 @@
 				84DD47602068FCD600D154B5 /* WettingChartView.m in Sources */,
 				22CFD3C6206659AD0004186D /* ConsoleRateViewController.m in Sources */,
 				8449AC122062338F00526935 /* MBPAlertView.m in Sources */,
+				5726F3C1206C8F13008EED75 /* BBEarlyEducationCell.m in Sources */,
 				5726F34F206A8DC3008EED75 /* UIView+PP_Frame.m in Sources */,
 				22CFD3AF206401780004186D /* PXLineChartConst.m in Sources */,
 				22CFD3972062A78C0004186D /* HistoryFeverViewController.m in Sources */,
@@ -1450,6 +1463,7 @@
 				22CFD378206146AF0004186D /* BaseTabBarViewController.m in Sources */,
 				22CFD3B9206545040004186D /* ConsoleHeaderView.m in Sources */,
 				84DD475A2068F04000D154B5 /* RoomTemperatureView.m in Sources */,
+				5726F3BE206C7F3B008EED75 /* BBEarlyEducationHeaderView.m in Sources */,
 				574C6CD62069262000F5BF55 /* BBLoginView.m in Sources */,
 				2263B8ED206BE81B005BB15E /* UIImage+category.m in Sources */,
 				574C6CBC2069254200F5BF55 /* NSString+PPTextField.m in Sources */,
