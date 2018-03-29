@@ -11,6 +11,10 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="WettingThresholdSettingViewController">
             <connections>
+                <outlet property="contentTextField" destination="kv0-KA-hxC" id="XeY-dR-Fg9"/>
+                <outlet property="displayTableView" destination="MXW-us-djp" id="kdO-ZG-qda"/>
+                <outlet property="explainLabel" destination="wgn-V8-fr1" id="1cy-Zt-bzW"/>
+                <outlet property="saveButton" destination="bQ6-U0-41X" id="c9V-Ua-8fl"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -26,39 +30,83 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AMa-Fh-Dmu">
-                    <rect key="frame" x="30" y="134.5" width="315" height="35"/>
+                    <rect key="frame" x="35" y="134.5" width="305" height="35"/>
                     <subviews>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="down_arrow_Icon" translatesAutoresizingMaskIntoConstraints="NO" id="8DK-bv-Xyo">
-                            <rect key="frame" x="280" y="8.5" width="25" height="18"/>
+                            <rect key="frame" x="270" y="10" width="25" height="15"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="25" id="T9W-45-HHz"/>
-                                <constraint firstAttribute="height" constant="18" id="cyQ-4Y-MmR"/>
+                                <constraint firstAttribute="height" constant="15" id="cyQ-4Y-MmR"/>
                             </constraints>
                         </imageView>
+                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kv0-KA-hxC">
+                            <rect key="frame" x="0.0" y="3" width="265" height="30"/>
+                            <nil key="textColor"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <textInputTraits key="textInputTraits"/>
+                        </textField>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
                         <constraint firstItem="8DK-bv-Xyo" firstAttribute="centerY" secondItem="AMa-Fh-Dmu" secondAttribute="centerY" id="3XK-Dm-4mI"/>
+                        <constraint firstItem="kv0-KA-hxC" firstAttribute="leading" secondItem="AMa-Fh-Dmu" secondAttribute="leading" id="7EY-4J-NPA"/>
+                        <constraint firstItem="8DK-bv-Xyo" firstAttribute="leading" secondItem="kv0-KA-hxC" secondAttribute="trailing" constant="5" id="Fsj-4c-FqM"/>
+                        <constraint firstAttribute="bottom" secondItem="kv0-KA-hxC" secondAttribute="bottom" constant="2" id="PBN-sP-DBG"/>
                         <constraint firstAttribute="trailing" secondItem="8DK-bv-Xyo" secondAttribute="trailing" constant="10" id="ULu-Ac-EP5"/>
                         <constraint firstAttribute="height" constant="35" id="Y2G-gv-KZl"/>
+                        <constraint firstItem="kv0-KA-hxC" firstAttribute="top" secondItem="AMa-Fh-Dmu" secondAttribute="top" constant="3" id="ghk-up-tpk"/>
                     </constraints>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="color" keyPath="qmui_borderColor">
-                            <color key="value" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="value" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         </userDefinedRuntimeAttribute>
                         <userDefinedRuntimeAttribute type="number" keyPath="qmui_borderWidth">
                             <real key="value" value="1"/>
                         </userDefinedRuntimeAttribute>
                     </userDefinedRuntimeAttributes>
                 </view>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bQ6-U0-41X">
+                    <rect key="frame" x="36" y="583" width="303" height="45"/>
+                    <color key="backgroundColor" red="0.99607843139999996" green="0.92156862750000001" blue="0.72941176470000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="45" id="AR2-p1-FDt"/>
+                    </constraints>
+                    <state key="normal" title="保存">
+                        <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </state>
+                </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wgn-V8-fr1">
+                    <rect key="frame" x="131" y="485.5" width="112" height="57.5"/>
+                    <string key="text">1 代表什么湿度
+2 代表什么湿度
+3 代表什么湿度</string>
+                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="MXW-us-djp">
+                    <rect key="frame" x="0.0" y="194.5" width="375" height="210"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="210" id="zwA-IE-j9o"/>
+                    </constraints>
+                </tableView>
             </subviews>
-            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color key="backgroundColor" red="0.96862745098039216" green="0.97647058823529409" blue="0.98431372549019602" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="AMa-Fh-Dmu" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="30" id="3Va-XR-MWX"/>
+                <constraint firstItem="AMa-Fh-Dmu" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="35" id="3Va-XR-MWX"/>
+                <constraint firstItem="wgn-V8-fr1" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="4La-g8-Eyb"/>
+                <constraint firstItem="bQ6-U0-41X" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="36" id="6MB-By-vU6"/>
+                <constraint firstItem="MXW-us-djp" firstAttribute="top" secondItem="AMa-Fh-Dmu" secondAttribute="bottom" constant="25" id="DAe-qC-Wn1"/>
                 <constraint firstItem="AMa-Fh-Dmu" firstAttribute="top" secondItem="y0O-50-8C9" secondAttribute="bottom" constant="25" id="Nbs-LO-GOa"/>
-                <constraint firstAttribute="trailing" secondItem="AMa-Fh-Dmu" secondAttribute="trailing" constant="30" id="Tql-Zw-HwJ"/>
+                <constraint firstAttribute="trailing" secondItem="AMa-Fh-Dmu" secondAttribute="trailing" constant="35" id="Tql-Zw-HwJ"/>
                 <constraint firstItem="y0O-50-8C9" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="90" id="XA8-N5-VwW"/>
+                <constraint firstItem="bQ6-U0-41X" firstAttribute="top" secondItem="wgn-V8-fr1" secondAttribute="bottom" constant="40" id="acP-Xf-N4X"/>
+                <constraint firstAttribute="bottom" secondItem="bQ6-U0-41X" secondAttribute="bottom" constant="39" id="bha-7D-Jqd"/>
+                <constraint firstItem="MXW-us-djp" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="bq1-2g-neg"/>
                 <constraint firstItem="y0O-50-8C9" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="dHB-eH-2Xe"/>
+                <constraint firstAttribute="trailing" secondItem="bQ6-U0-41X" secondAttribute="trailing" constant="36" id="wag-Yk-3Er"/>
+                <constraint firstAttribute="trailing" secondItem="MXW-us-djp" secondAttribute="trailing" id="xTC-b8-hvp"/>
             </constraints>
             <point key="canvasLocation" x="34.5" y="54.5"/>
         </view>
