@@ -8,11 +8,7 @@
 
 #import "BBLoginView.h"
 #import "PPTextfield.h"
-#import <QMUIKit/QMUIButton.h>
-#import "NSMutableAttributedString+PPTextField.h"
-#import "UIImageView+EasilyMake.h"
-#import "UIButton+EasilyMake.h"
-#import "UILabel+EasilyMake.h"
+
 
 @interface BBLoginView ()
 @property(nonatomic,strong) PPTextfield *phoneTF;

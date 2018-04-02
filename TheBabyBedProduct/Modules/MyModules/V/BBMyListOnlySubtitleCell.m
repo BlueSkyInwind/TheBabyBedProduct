@@ -7,8 +7,6 @@
 //
 
 #import "BBMyListOnlySubtitleCell.h"
-#import "UILabel+EasilyMake.h"
-#import "UIImageView+EasilyMake.h"
 
 @interface BBMyListOnlySubtitleCell ()
 @property(nonatomic,strong) UIImageView *imgV;

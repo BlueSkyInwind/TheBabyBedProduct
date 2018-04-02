@@ -8,8 +8,7 @@
 
 #import "BBWarningRingSettingViewController.h"
 #import "BBWarningRingListCell.h"
-#import "UITableView+EasilyMake.h"
-#import "UITableViewCell+EasilyMake.h"
+
 
 @interface BBWarningRingSettingViewController ()<UITableViewDelegate,UITableViewDataSource>
 {

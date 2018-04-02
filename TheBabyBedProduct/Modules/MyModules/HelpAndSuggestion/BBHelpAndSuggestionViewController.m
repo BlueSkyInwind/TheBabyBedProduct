@@ -8,9 +8,8 @@
 
 #import "BBHelpAndSuggestionViewController.h"
 #import "WSTableviewTree.h"
-#import "UIButton+EasilyMake.h"
-#import "UILabel+EasilyMake.h"
 #import "BBSubmitSuggestionViewController.h"
+
 @interface BBHelpAndSuggestionViewController ()<WSTableViewDelegate>
 @property(nonatomic,strong) WSTableView *tableView;
 @property(nonatomic,strong) NSArray *firstLevelTitles;

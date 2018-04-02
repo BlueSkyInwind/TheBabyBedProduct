@@ -7,8 +7,6 @@
 //
 
 #import "BBLoginRegistHeaderView.h"
-#import "UIImageView+EasilyMake.h"
-#import "UIButton+EasilyMake.h"
 
 @interface BBLoginRegistHeaderView ()
 @property(nonatomic,strong) UIImageView *bgImgV;

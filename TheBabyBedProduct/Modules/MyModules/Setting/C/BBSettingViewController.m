@@ -7,13 +7,10 @@
 //
 
 #import "BBSettingViewController.h"
-#import "UITableView+EasilyMake.h"
-#import "UITableViewCell+EasilyMake.h"
 #import "BBMyListCell.h"
 #import "BBMyListSubTitleCell.h"
 #import "BBMyListOnlySubtitleCell.h"
 #import "BBUser.h"
-
 #import "BBNotificationSettingViewController.h"
 #import "BBAboutUsViewController.h"
 #import "BBAccountNumberViewController.h"

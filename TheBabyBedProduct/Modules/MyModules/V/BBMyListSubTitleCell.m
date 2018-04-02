@@ -7,8 +7,6 @@
 //
 
 #import "BBMyListSubTitleCell.h"
-#import "UILabel+EasilyMake.h"
-#import "UIImageView+EasilyMake.h"
 
 @interface BBMyListSubTitleCell ()
 @property(nonatomic,strong) UIImageView *imgV;

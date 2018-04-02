@@ -7,6 +7,11 @@
 //
 
 #import "UIView+PP_Frame.h"
+#import <objc/runtime.h>
+static char pp_kActionHandlerTapBlockKey;
+static char pp_kActionHandlerTapGestureKey;
+static char pp_kActionHandlerLongPressBlockKey;
+static char pp_kActionHandlerLongPressGestureKey;
 
 @implementation UIView (PP_Frame)
 
@@ -105,4 +110,53 @@
     frame.size = size;
     self.frame = frame;
 }
+@end
+
+@implementation UIView (PPGesture)
+
+- (void)pp_addTapActionWithBlock:(PPGestureActionBlock)block
+{
+    UITapGestureRecognizer *gesture = objc_getAssociatedObject(self, &pp_kActionHandlerTapGestureKey);
+    if (!gesture)
+    {
+        gesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(pp_handleActionForTapGesture:)];
+        [self addGestureRecognizer:gesture];
+        objc_setAssociatedObject(self, &pp_kActionHandlerTapGestureKey, gesture, OBJC_ASSOCIATION_RETAIN);
+    }
+    objc_setAssociatedObject(self, &pp_kActionHandlerTapBlockKey, block, OBJC_ASSOCIATION_COPY);
+}
+- (void)pp_handleActionForTapGesture:(UITapGestureRecognizer*)gesture
+{
+    if (gesture.state == UIGestureRecognizerStateRecognized)
+    {
+        PPGestureActionBlock block = objc_getAssociatedObject(self, &pp_kActionHandlerTapBlockKey);
+        if (block)
+        {
+            block(gesture);
+        }
+    }
+}
+- (void)jr_addLongPressActionWithBlock:(PPGestureActionBlock)block
+{
+    UILongPressGestureRecognizer *gesture = objc_getAssociatedObject(self, &pp_kActionHandlerLongPressGestureKey);
+    if (!gesture)
+    {
+        gesture = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(jk_handleActionForLongPressGesture:)];
+        [self addGestureRecognizer:gesture];
+        objc_setAssociatedObject(self, &pp_kActionHandlerLongPressGestureKey, gesture, OBJC_ASSOCIATION_RETAIN);
+    }
+    objc_setAssociatedObject(self, &pp_kActionHandlerLongPressBlockKey, block, OBJC_ASSOCIATION_COPY);
+}
+- (void)jk_handleActionForLongPressGesture:(UITapGestureRecognizer*)gesture
+{
+    if (gesture.state == UIGestureRecognizerStateRecognized)
+    {
+        PPGestureActionBlock block = objc_getAssociatedObject(self, &pp_kActionHandlerLongPressBlockKey);
+        if (block)
+        {
+            block(gesture);
+        }
+    }
+}
+
 @end

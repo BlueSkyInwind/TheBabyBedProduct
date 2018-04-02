@@ -9,12 +9,8 @@
 #import "BBRegistView.h"
 #import "PPTextfield.h"
 #import "PPTextfield+EasilyMake.h"
-#import "NSMutableAttributedString+PPTextField.h"
-#import "UIButton+EasilyMake.h"
-#import "UIImageView+EasilyMake.h"
-#import "PPTextfield+EasilyMake.h"
-#import "UILabel+EasilyMake.h"
 #import "JKCountDownButton.h"
+
 @interface BBRegistView ()
 {
     BOOL _isAgree;

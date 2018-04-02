@@ -22,3 +22,17 @@
 @property (nonatomic) CGSize  size;        ///< Shortcut for frame.size.
 
 @end
+
+
+typedef void (^PPGestureActionBlock)(UIGestureRecognizer *gestureRecoginzer);
+
+@interface UIView (PPGesture)
+/**
+ *  @brief  添加tap手势
+ */
+- (void)pp_addTapActionWithBlock:(PPGestureActionBlock)block;
+/**
+ *  @brief  添加长按手势
+ */
+- (void)pp_addLongPressActionWithBlock:(PPGestureActionBlock)block;
+@end

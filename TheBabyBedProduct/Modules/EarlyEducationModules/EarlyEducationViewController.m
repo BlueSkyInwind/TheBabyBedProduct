@@ -8,7 +8,6 @@
 
 #import "EarlyEducationViewController.h"
 #import "UIImage+category.h"
-#import "UILabel+EasilyMake.h"
 #import "BBEarlyEducationHeaderView.h"
 #import "BBEarlyEducationCell.h"
 

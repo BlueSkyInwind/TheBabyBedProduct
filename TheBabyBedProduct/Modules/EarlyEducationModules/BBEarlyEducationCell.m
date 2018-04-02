@@ -7,8 +7,7 @@
 //
 
 #import "BBEarlyEducationCell.h"
-#import "UIImageView+EasilyMake.h"
-#import "UILabel+EasilyMake.h"
+
 
 @implementation BBEarlyEducationCell
 
