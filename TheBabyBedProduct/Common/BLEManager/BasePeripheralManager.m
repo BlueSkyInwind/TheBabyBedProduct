@@ -17,13 +17,11 @@
         //do something to init
         
     }
-    
     return self;
 }
 
 -(void)startRealtimeTempNotify{}
 -(void)stopRealtimeTempNotify{}
-
 
 -(BOOL)hasHistoryData{
     return NO;

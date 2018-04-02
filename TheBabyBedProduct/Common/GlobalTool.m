@@ -9,7 +9,6 @@
 #import "GlobalTool.h"
 
 @implementation GlobalTool
-
 static GlobalTool * shareTool = nil;
 +(GlobalTool *)share{
     static dispatch_once_t onceToken;
@@ -116,7 +115,6 @@ static GlobalTool * shareTool = nil;
 
 /**
  生成对应颜色的图片
-
  @param color 色值
  @return 图片
  */

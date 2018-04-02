@@ -9,6 +9,10 @@
 #import "AppDelegate.h"
 #import "LaunchConfiguration.h"
 
+#import "JPUSHService.h"
+#ifdef NSFoundationVersionNumber_iOS_9_x_Max
+#import <UserNotifications/UserNotifications.h>
+#endif
 
 #import <ShareSDK/ShareSDK.h>
 #import <ShareSDKConnector/ShareSDKConnector.h>
@@ -20,12 +24,13 @@
 //新浪微博SDK头文件
 #import "WeiboSDK.h"
 
-@interface AppDelegate ()
+
+
+@interface AppDelegate ()<JPUSHRegisterDelegate,UNUserNotificationCenterDelegate>
 
 @end
 
 @implementation AppDelegate
-
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
@@ -112,6 +117,25 @@
     });
 }
 
+-(void)initJPush:(NSDictionary *)launchOptions{
+    
+    JPUSHRegisterEntity * entity = [[JPUSHRegisterEntity alloc] init];
+    entity.types = JPAuthorizationOptionAlert|JPAuthorizationOptionBadge|JPAuthorizationOptionSound;
+    if ([[UIDevice currentDevice].systemVersion floatValue] >= 8.0) {
+        // 可以添加 定义categories
+        // NSSet<UNNotificationCategory *> *categories for iOS10 or later
+        // NSSet<UIUserNotificationCategory *> *categories for iOS8 and iOS9
+    }
+    [JPUSHService registerForRemoteNotificationConfig:entity delegate:self];
+    
+    [JPUSHService setupWithOption:launchOptions appKey:appKey
+                          channel:channel
+                 apsForProduction:isProduction
+            advertisingIdentifier:nil];
+    
+ 
+}
+
 
 
 - (void)applicationWillResignActive:(UIApplication *)application {
@@ -133,12 +157,78 @@
 
 - (void)applicationDidBecomeActive:(UIApplication *)application {
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+    [[UIApplication sharedApplication] cancelAllLocalNotifications];
+    [[UIApplication sharedApplication] setApplicationIconBadgeNumber:0];
+    //清除激光推送JPush服务器中存储的badge值
+    [JPUSHService resetBadge];
 }
 
 
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
+
+
+#pragma mark- JPUSHRegisterDelegate
+- (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken{
+    
+    [UIUserNotificationSettings settingsForTypes:UIUserNotificationTypeAlert|UIUserNotificationTypeBadge|UIUserNotificationTypeNone categories:nil];
+    [JPUSHService registerDeviceToken:deviceToken];
+}
+
+- (void)application:(UIApplication *)application didFailToRegisterForRemoteNotificationsWithError:(NSError *)error {
+    //Optional
+    DLog(@"did Fail To Register For Remote Notifications With Error: %@", error);
+}
+- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler {
+    _notificationContentInfo= userInfo;
+    // Required, iOS 7 Support
+    if (application.applicationState == UIApplicationStateActive ){
+        
+    }else if(application.applicationState == UIApplicationStateBackground){
+        
+    }else if(application.applicationState == UIApplicationStateInactive){
+        
+    }
+    [JPUSHService handleRemoteNotification:userInfo];
+    completionHandler(UIBackgroundFetchResultNewData);
+}
+#ifdef NSFoundationVersionNumber_iOS_9_x_Max
+// iOS 10 Support
+- (void)jpushNotificationCenter:(UNUserNotificationCenter *)center willPresentNotification:(UNNotification *)notification withCompletionHandler:(void (^)(NSInteger))completionHandler {
+    // Required
+    NSDictionary * userInfo = notification.request.content.userInfo;
+    _notificationContentInfo = notification.request.content.userInfo;
+    //    [self NotificationJump:notificationContentInfo];
+    if([notification.request.trigger isKindOfClass:[UNPushNotificationTrigger class]]) {
+        [JPUSHService handleRemoteNotification:userInfo];
+    }
+    completionHandler(UNNotificationPresentationOptionAlert); // 需要执行这个方法，选择是否提醒用户，有Badge、Sound、Alert三种类型可以选择设置
+}
+
+// iOS 10 Support
+- (void)jpushNotificationCenter:(UNUserNotificationCenter *)center didReceiveNotificationResponse:(UNNotificationResponse *)response withCompletionHandler:(void (^)())completionHandler {
+    // Required
+    _notificationContentInfo = response.notification.request.content.userInfo;
+    [self NotificationJump:_notificationContentInfo];
+    if([response.notification.request.trigger isKindOfClass:[UNPushNotificationTrigger class]]) {
+        [JPUSHService handleRemoteNotification:_notificationContentInfo];
+    }
+    completionHandler();  // 系统要求执行这个方法
+}
+#endif
+
+-(void)NotificationJump:(NSDictionary *)contentInfo{
+ 
+    
+    
+    
+}
+- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo {
+    // Required,For systems with less than or equal to iOS6
+    [JPUSHService handleRemoteNotification:userInfo];
+}
+
 
 
 @end
