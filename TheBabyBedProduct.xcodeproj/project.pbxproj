@@ -21,6 +21,10 @@
 		22CF355B2073C99700707F8A /* BBEditInformationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22CF35582073C99700707F8A /* BBEditInformationViewController.m */; };
 		22CF355C2073C99700707F8A /* BBMyAccountViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22CF35592073C99700707F8A /* BBMyAccountViewController.m */; };
 		22CF355F2073C9D700707F8A /* BBPermissionManageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22CF355E2073C9D700707F8A /* BBPermissionManageViewController.m */; };
+		22CF35632073CCAB00707F8A /* ScanDeviceCodeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22CF35612073CCAB00707F8A /* ScanDeviceCodeViewController.m */; };
+		22CF35642073CCAB00707F8A /* ScanDeviceCodeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22CF35622073CCAB00707F8A /* ScanDeviceCodeViewController.xib */; };
+		22CF35682073DB1500707F8A /* QRScanView.m in Sources */ = {isa = PBXBuildFile; fileRef = 22CF35672073DB1500707F8A /* QRScanView.m */; };
+		22CF356B2073E17300707F8A /* noticeMusic.wav in Resources */ = {isa = PBXBuildFile; fileRef = 22CF356A2073E17300707F8A /* noticeMusic.wav */; };
 		22CFD339206141080004186D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 22CFD338206141080004186D /* AppDelegate.m */; };
 		22CFD341206141080004186D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 22CFD340206141080004186D /* Assets.xcassets */; };
 		22CFD347206141080004186D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 22CFD346206141080004186D /* main.m */; };
@@ -233,6 +237,12 @@
 		22CF35592073C99700707F8A /* BBMyAccountViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBMyAccountViewController.m; sourceTree = "<group>"; };
 		22CF355D2073C9D700707F8A /* BBPermissionManageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBPermissionManageViewController.h; sourceTree = "<group>"; };
 		22CF355E2073C9D700707F8A /* BBPermissionManageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBPermissionManageViewController.m; sourceTree = "<group>"; };
+		22CF35602073CCAB00707F8A /* ScanDeviceCodeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ScanDeviceCodeViewController.h; sourceTree = "<group>"; };
+		22CF35612073CCAB00707F8A /* ScanDeviceCodeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ScanDeviceCodeViewController.m; sourceTree = "<group>"; };
+		22CF35622073CCAB00707F8A /* ScanDeviceCodeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ScanDeviceCodeViewController.xib; sourceTree = "<group>"; };
+		22CF35662073DB1500707F8A /* QRScanView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QRScanView.h; sourceTree = "<group>"; };
+		22CF35672073DB1500707F8A /* QRScanView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QRScanView.m; sourceTree = "<group>"; };
+		22CF356A2073E17300707F8A /* noticeMusic.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = noticeMusic.wav; sourceTree = "<group>"; };
 		22CFD334206141080004186D /* TheBabyBedProduct.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TheBabyBedProduct.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		22CFD337206141080004186D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		22CFD338206141080004186D /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -634,6 +644,23 @@
 			path = MyAccount;
 			sourceTree = "<group>";
 		};
+		22CF35652073DAEA00707F8A /* QRscanView */ = {
+			isa = PBXGroup;
+			children = (
+				22CF35662073DB1500707F8A /* QRScanView.h */,
+				22CF35672073DB1500707F8A /* QRScanView.m */,
+			);
+			path = QRscanView;
+			sourceTree = "<group>";
+		};
+		22CF35692073E15900707F8A /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				22CF356A2073E17300707F8A /* noticeMusic.wav */,
+			);
+			path = Source;
+			sourceTree = "<group>";
+		};
 		22CFD32B206141080004186D = {
 			isa = PBXGroup;
 			children = (
@@ -669,6 +696,7 @@
 				8449AC042062051C00526935 /* ViewModel */,
 				8449AC052062052800526935 /* Model */,
 				22CFD340206141080004186D /* Assets.xcassets */,
+				22CF35692073E15900707F8A /* Source */,
 				22CFD371206144BF0004186D /* Support */,
 			);
 			path = TheBabyBedProduct;
@@ -836,6 +864,7 @@
 		22CFD3982062AC480004186D /* View */ = {
 			isa = PBXGroup;
 			children = (
+				22CF35652073DAEA00707F8A /* QRscanView */,
 				84BE5EB3206A4863007A001D /* popView */,
 				22CFD39A2062AC810004186D /* TheConsole */,
 				22CFD3992062AC6B0004186D /* Home */,
@@ -1371,6 +1400,9 @@
 				84D5BDC6207354010025C757 /* bluetoothPairingViewController.m */,
 				84D5BDC82073560F0025C757 /* DeviceConnectingViewController.h */,
 				84D5BDC92073560F0025C757 /* DeviceConnectingViewController.m */,
+				22CF35602073CCAB00707F8A /* ScanDeviceCodeViewController.h */,
+				22CF35612073CCAB00707F8A /* ScanDeviceCodeViewController.m */,
+				22CF35622073CCAB00707F8A /* ScanDeviceCodeViewController.xib */,
 			);
 			path = BLEModules;
 			sourceTree = "<group>";
@@ -1499,6 +1531,7 @@
 				57585AEF206D4850001BB202 /* share_timeline@2x.png in Resources */,
 				22CFD3DF2067D82E0004186D /* RoomIndicatorView.xib in Resources */,
 				22CFD341206141080004186D /* Assets.xcassets in Resources */,
+				22CF356B2073E17300707F8A /* noticeMusic.wav in Resources */,
 				57585AEB206D4843001BB202 /* share_wechat@3x.png in Resources */,
 				5726F382206B70C5008EED75 /* ShareSDKUI.bundle in Resources */,
 				22CFD3C0206548100004186D /* ConsoleBodyView.xib in Resources */,
@@ -1513,6 +1546,7 @@
 				22CFD3FB2067FE060004186D /* TemperatureThresholdSettingViewController.xib in Resources */,
 				5726F3AD206B8D82008EED75 /* expandableImage@2x.png in Resources */,
 				57585AEC206D4843001BB202 /* share_wechat@2x.png in Resources */,
+				22CF35642073CCAB00707F8A /* ScanDeviceCodeViewController.xib in Resources */,
 				5726F37B206B70C5008EED75 /* WeiboSDK.bundle in Resources */,
 				84332C9E206CE6F5009A9121 /* MessageTableViewCell.xib in Resources */,
 				22CFD3EA2067FD650004186D /* CryingThresholdSettingViewController.xib in Resources */,
@@ -1647,6 +1681,7 @@
 				57585AC2206D1AE8001BB202 /* BBFamilyMemberListCell.m in Sources */,
 				8449AC0E2062283300526935 /* NetWorkRequestManager.m in Sources */,
 				574C6CD72069262000F5BF55 /* BBRegistView.m in Sources */,
+				22CF35682073DB1500707F8A /* QRScanView.m in Sources */,
 				22CFD38D20614C3F0004186D /* MyViewController.m in Sources */,
 				22CFD3B3206402BF0004186D /* PointItem.m in Sources */,
 				22CF355F2073C9D700707F8A /* BBPermissionManageViewController.m in Sources */,
@@ -1660,6 +1695,7 @@
 				22CFD38120614AE90004186D /* HomePageViewController.m in Sources */,
 				8449AC152062354000526935 /* LaunchConfiguration.m in Sources */,
 				8449AC18206239F900526935 /* GlobalUtility.m in Sources */,
+				22CF35632073CCAB00707F8A /* ScanDeviceCodeViewController.m in Sources */,
 				2263B8EA206BE604005BB15E /* MessageViewController.m in Sources */,
 				2266C1B720692D73004F653A /* UIFont+YX_Font.m in Sources */,
 				574C6CEA2069272700F5BF55 /* UIButton+EasilyMake.m in Sources */,
@@ -1886,7 +1922,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = GP8N54644M;
+				DEVELOPMENT_TEAM = 6W7BW6GZZR;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/TheBabyBedProduct/Third/MOBSDK/ShareSDK/Support/PlatformSDK/QQSDK",
@@ -1948,7 +1984,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = GP8N54644M;
+				DEVELOPMENT_TEAM = 6W7BW6GZZR;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/TheBabyBedProduct/Third/MOBSDK/ShareSDK/Support/PlatformSDK/QQSDK",
