@@ -18,7 +18,6 @@
 @protocol BasePeripheralManagerDelegate <NSObject>
 
 @optional
-
 /*!
  *  @method onFinishedGettingInfoForPeripheral:
  *
