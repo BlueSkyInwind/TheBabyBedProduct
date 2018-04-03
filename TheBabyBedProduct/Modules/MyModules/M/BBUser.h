@@ -17,6 +17,8 @@
 @property(nonatomic,assign) BOOL hasWeiBoBinding;
 @property(nonatomic,assign) BOOL hasQQBinding;
 
+
+
 +(BBUser *)bb_getUser;
 +(void)bb_saveUser:(BBUser *)user;
 @end

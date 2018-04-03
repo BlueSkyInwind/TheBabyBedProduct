@@ -25,6 +25,7 @@
 		22CF35642073CCAB00707F8A /* ScanDeviceCodeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22CF35622073CCAB00707F8A /* ScanDeviceCodeViewController.xib */; };
 		22CF35682073DB1500707F8A /* QRScanView.m in Sources */ = {isa = PBXBuildFile; fileRef = 22CF35672073DB1500707F8A /* QRScanView.m */; };
 		22CF356B2073E17300707F8A /* noticeMusic.wav in Resources */ = {isa = PBXBuildFile; fileRef = 22CF356A2073E17300707F8A /* noticeMusic.wav */; };
+
 		22CFD339206141080004186D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 22CFD338206141080004186D /* AppDelegate.m */; };
 		22CFD341206141080004186D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 22CFD340206141080004186D /* Assets.xcassets */; };
 		22CFD347206141080004186D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 22CFD346206141080004186D /* main.m */; };
@@ -71,6 +72,12 @@
 		22CFD3FA2067FE060004186D /* TemperatureThresholdSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22CFD3F82067FE060004186D /* TemperatureThresholdSettingViewController.m */; };
 		22CFD3FB2067FE060004186D /* TemperatureThresholdSettingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22CFD3F92067FE060004186D /* TemperatureThresholdSettingViewController.xib */; };
 		347E55C5AB34C5F0659DAE6B /* Pods_TheBabyBedProduct.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 884698C1D52FC8383E4B1BCF /* Pods_TheBabyBedProduct.framework */; };
+		57210BFB2073B3F80039D8D5 /* BBPermissionManageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 57210BFA2073B3F80039D8D5 /* BBPermissionManageViewController.m */; };
+		57210C782073B4A50039D8D5 /* BBEditInfoAvatarCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 57210C752073B4A50039D8D5 /* BBEditInfoAvatarCell.m */; };
+		57210C792073B4A50039D8D5 /* BBEditInformationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 57210C762073B4A50039D8D5 /* BBEditInformationViewController.m */; };
+		57210C7E2073B4B80039D8D5 /* BBMyRewardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 57210C7C2073B4B80039D8D5 /* BBMyRewardViewController.m */; };
+		57210C812073BB600039D8D5 /* BBMyAccountExpenceRecordListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 57210C802073BB600039D8D5 /* BBMyAccountExpenceRecordListCell.m */; };
+		57210C862073CF260039D8D5 /* BBMyAccountViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 57210C852073CF260039D8D5 /* BBMyAccountViewController.m */; };
 		5726F33B206A2FB2008EED75 /* BBWarningRingSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5726F337206A2FB2008EED75 /* BBWarningRingSettingViewController.m */; };
 		5726F33C206A2FB2008EED75 /* BBWarningRingListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5726F33A206A2FB2008EED75 /* BBWarningRingListCell.m */; };
 		5726F33F206A3185008EED75 /* PPTextfield+EasilyMake.m in Sources */ = {isa = PBXBuildFile; fileRef = 5726F33E206A3185008EED75 /* PPTextfield+EasilyMake.m */; };
@@ -228,14 +235,9 @@
 		2266C1BB20694A85004F653A /* CryingChartViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CryingChartViewController.h; sourceTree = "<group>"; };
 		2266C1BC20694A85004F653A /* CryingChartViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CryingChartViewController.m; sourceTree = "<group>"; };
 		22CF35502073C98300707F8A /* BBMyRewardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBMyRewardViewController.m; sourceTree = "<group>"; };
-		22CF35512073C98300707F8A /* BBMyRewardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBMyRewardViewController.h; sourceTree = "<group>"; };
-		22CF35542073C99700707F8A /* BBEditInfoAvatarCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBEditInfoAvatarCell.h; sourceTree = "<group>"; };
-		22CF35552073C99700707F8A /* BBMyAccountViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBMyAccountViewController.h; sourceTree = "<group>"; };
-		22CF35562073C99700707F8A /* BBEditInformationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBEditInformationViewController.h; sourceTree = "<group>"; };
 		22CF35572073C99700707F8A /* BBEditInfoAvatarCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBEditInfoAvatarCell.m; sourceTree = "<group>"; };
 		22CF35582073C99700707F8A /* BBEditInformationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBEditInformationViewController.m; sourceTree = "<group>"; };
 		22CF35592073C99700707F8A /* BBMyAccountViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBMyAccountViewController.m; sourceTree = "<group>"; };
-		22CF355D2073C9D700707F8A /* BBPermissionManageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBPermissionManageViewController.h; sourceTree = "<group>"; };
 		22CF355E2073C9D700707F8A /* BBPermissionManageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBPermissionManageViewController.m; sourceTree = "<group>"; };
 		22CF35602073CCAB00707F8A /* ScanDeviceCodeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ScanDeviceCodeViewController.h; sourceTree = "<group>"; };
 		22CF35612073CCAB00707F8A /* ScanDeviceCodeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ScanDeviceCodeViewController.m; sourceTree = "<group>"; };
@@ -331,6 +333,18 @@
 		22CFD3F82067FE060004186D /* TemperatureThresholdSettingViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TemperatureThresholdSettingViewController.m; sourceTree = "<group>"; };
 		22CFD3F92067FE060004186D /* TemperatureThresholdSettingViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TemperatureThresholdSettingViewController.xib; sourceTree = "<group>"; };
 		2F6F434F00B680C952F3C9BF /* Pods-TheBabyBedProduct.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TheBabyBedProduct.release.xcconfig"; path = "Pods/Target Support Files/Pods-TheBabyBedProduct/Pods-TheBabyBedProduct.release.xcconfig"; sourceTree = "<group>"; };
+		57210BF92073B3F80039D8D5 /* BBPermissionManageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBPermissionManageViewController.h; sourceTree = "<group>"; };
+		57210BFA2073B3F80039D8D5 /* BBPermissionManageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBPermissionManageViewController.m; sourceTree = "<group>"; };
+		57210C722073B4A50039D8D5 /* BBEditInfoAvatarCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBEditInfoAvatarCell.h; sourceTree = "<group>"; };
+		57210C742073B4A50039D8D5 /* BBEditInformationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBEditInformationViewController.h; sourceTree = "<group>"; };
+		57210C752073B4A50039D8D5 /* BBEditInfoAvatarCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBEditInfoAvatarCell.m; sourceTree = "<group>"; };
+		57210C762073B4A50039D8D5 /* BBEditInformationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBEditInformationViewController.m; sourceTree = "<group>"; };
+		57210C7C2073B4B80039D8D5 /* BBMyRewardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBMyRewardViewController.m; sourceTree = "<group>"; };
+		57210C7D2073B4B80039D8D5 /* BBMyRewardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBMyRewardViewController.h; sourceTree = "<group>"; };
+		57210C7F2073BB600039D8D5 /* BBMyAccountExpenceRecordListCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BBMyAccountExpenceRecordListCell.h; sourceTree = "<group>"; };
+		57210C802073BB600039D8D5 /* BBMyAccountExpenceRecordListCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BBMyAccountExpenceRecordListCell.m; sourceTree = "<group>"; };
+		57210C842073CF260039D8D5 /* BBMyAccountViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBMyAccountViewController.h; sourceTree = "<group>"; };
+		57210C852073CF260039D8D5 /* BBMyAccountViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBMyAccountViewController.m; sourceTree = "<group>"; };
 		5726F337206A2FB2008EED75 /* BBWarningRingSettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBWarningRingSettingViewController.m; sourceTree = "<group>"; };
 		5726F338206A2FB2008EED75 /* BBWarningRingListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBWarningRingListCell.h; sourceTree = "<group>"; };
 		5726F339206A2FB2008EED75 /* BBWarningRingSettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBWarningRingSettingViewController.h; sourceTree = "<group>"; };
@@ -661,6 +675,7 @@
 			path = Source;
 			sourceTree = "<group>";
 		};
+
 		22CFD32B206141080004186D = {
 			isa = PBXGroup;
 			children = (
@@ -670,6 +685,7 @@
 				22CFD335206141080004186D /* Products */,
 				EA9F0AC7DB5AD08E71A8DDDA /* Pods */,
 				08647956D283325F7A1D56FF /* Frameworks */,
+				57210C832073CC910039D8D5 /* Recovered References */,
 			);
 			sourceTree = "<group>";
 		};
@@ -820,8 +836,8 @@
 		22CFD38A20614C230004186D /* MyModules */ = {
 			isa = PBXGroup;
 			children = (
-				22CF35532073C99700707F8A /* MyAccount */,
-				22CF354F2073C98300707F8A /* MyReward */,
+				57210C7B2073B4B80039D8D5 /* MyReward */,
+				57210C712073B4A50039D8D5 /* MyAccount */,
 				57585ABB206D17B4001BB202 /* FamilyMember */,
 				57585AB7206D1151001BB202 /* MyDevice */,
 				5726F3A7206B851D008EED75 /* HelpAndSuggestion */,
@@ -981,6 +997,42 @@
 				22CFD3F92067FE060004186D /* TemperatureThresholdSettingViewController.xib */,
 			);
 			path = ThresholdSetting;
+			sourceTree = "<group>";
+		};
+		57210C712073B4A50039D8D5 /* MyAccount */ = {
+			isa = PBXGroup;
+			children = (
+				57210C842073CF260039D8D5 /* BBMyAccountViewController.h */,
+				57210C852073CF260039D8D5 /* BBMyAccountViewController.m */,
+				57210C722073B4A50039D8D5 /* BBEditInfoAvatarCell.h */,
+				57210C752073B4A50039D8D5 /* BBEditInfoAvatarCell.m */,
+				57210C742073B4A50039D8D5 /* BBEditInformationViewController.h */,
+				57210C762073B4A50039D8D5 /* BBEditInformationViewController.m */,
+				57210C7F2073BB600039D8D5 /* BBMyAccountExpenceRecordListCell.h */,
+				57210C802073BB600039D8D5 /* BBMyAccountExpenceRecordListCell.m */,
+			);
+			path = MyAccount;
+			sourceTree = "<group>";
+		};
+		57210C7B2073B4B80039D8D5 /* MyReward */ = {
+			isa = PBXGroup;
+			children = (
+				57210C7C2073B4B80039D8D5 /* BBMyRewardViewController.m */,
+				57210C7D2073B4B80039D8D5 /* BBMyRewardViewController.h */,
+			);
+			path = MyReward;
+			sourceTree = "<group>";
+		};
+		57210C832073CC910039D8D5 /* Recovered References */ = {
+			isa = PBXGroup;
+			children = (
+				22CF35592073C99700707F8A /* BBMyAccountViewController.m */,
+				22CF355E2073C9D700707F8A /* BBPermissionManageViewController.m */,
+				22CF35572073C99700707F8A /* BBEditInfoAvatarCell.m */,
+				22CF35502073C98300707F8A /* BBMyRewardViewController.m */,
+				22CF35582073C99700707F8A /* BBEditInformationViewController.m */,
+			);
+			name = "Recovered References";
 			sourceTree = "<group>";
 		};
 		5726F336206A2FB2008EED75 /* WarningRingSetting */ = {
@@ -1303,8 +1355,8 @@
 		57585ABB206D17B4001BB202 /* FamilyMember */ = {
 			isa = PBXGroup;
 			children = (
-				22CF355D2073C9D700707F8A /* BBPermissionManageViewController.h */,
-				22CF355E2073C9D700707F8A /* BBPermissionManageViewController.m */,
+				57210BF92073B3F80039D8D5 /* BBPermissionManageViewController.h */,
+				57210BFA2073B3F80039D8D5 /* BBPermissionManageViewController.m */,
 				57585ABC206D17CA001BB202 /* BBFamilyMemberViewController.h */,
 				57585ABD206D17CA001BB202 /* BBFamilyMemberViewController.m */,
 				57585AC0206D1AE8001BB202 /* BBFamilyMemberListCell.h */,
@@ -1671,21 +1723,21 @@
 				84DD47562068DB7B00D154B5 /* ThresholdTableViewCell.m in Sources */,
 				574C6CBD2069254200F5BF55 /* JKCountDownButton.m in Sources */,
 				22CFD3AC206401780004186D /* PXChartBackgroundView.m in Sources */,
-				22CF355C2073C99700707F8A /* BBMyAccountViewController.m in Sources */,
 				84D5BDC7207354010025C757 /* bluetoothPairingViewController.m in Sources */,
 				5726F349206A8428008EED75 /* BBMyListSubTitleCell.m in Sources */,
 				22CFD3FA2067FE060004186D /* TemperatureThresholdSettingViewController.m in Sources */,
 				22CFD3C920667B250004186D /* ConsoleRateBottonView.m in Sources */,
 				22CFD3E92067FD650004186D /* CryingThresholdSettingViewController.m in Sources */,
 				22CFD3F32067FDAF0004186D /* KickQulitThresholdSettingViewController.m in Sources */,
+				57210BFB2073B3F80039D8D5 /* BBPermissionManageViewController.m in Sources */,
 				57585AC2206D1AE8001BB202 /* BBFamilyMemberListCell.m in Sources */,
 				8449AC0E2062283300526935 /* NetWorkRequestManager.m in Sources */,
 				574C6CD72069262000F5BF55 /* BBRegistView.m in Sources */,
 				22CF35682073DB1500707F8A /* QRScanView.m in Sources */,
 				22CFD38D20614C3F0004186D /* MyViewController.m in Sources */,
 				22CFD3B3206402BF0004186D /* PointItem.m in Sources */,
-				22CF355F2073C9D700707F8A /* BBPermissionManageViewController.m in Sources */,
 				5726F3B8206BDE5F008EED75 /* BBAccountNumberViewController.m in Sources */,
+				57210C782073B4A50039D8D5 /* BBEditInfoAvatarCell.m in Sources */,
 				574C6CD52069262000F5BF55 /* BBUser.m in Sources */,
 				5726F353206B257A008EED75 /* BBNotificationSettingViewController.m in Sources */,
 				5726F3A3206B8332008EED75 /* WSTableViewCellIndicator.m in Sources */,
@@ -1726,6 +1778,8 @@
 				22CFD3C3206652B70004186D /* ConsoleRateView.m in Sources */,
 				2263B8F220709EA2005BB15E /* BaseCentralManager.m in Sources */,
 				2266C1BD20694A85004F653A /* CryingChartViewController.m in Sources */,
+				57210C7E2073B4B80039D8D5 /* BBMyRewardViewController.m in Sources */,
+				57210C792073B4A50039D8D5 /* BBEditInformationViewController.m in Sources */,
 				574C6CE72069272700F5BF55 /* UITableViewCell+EasilyMake.m in Sources */,
 				574C6CD82069262000F5BF55 /* BBLoginAndRegistViewController.m in Sources */,
 				84BE5EAF2069EE75007A001D /* KickQulitChartView.m in Sources */,
@@ -1737,6 +1791,7 @@
 				574C6CB82069254200F5BF55 /* NSMutableAttributedString+PPTextField.m in Sources */,
 				5726F3A5206B8332008EED75 /* WSTableviewDataModel.m in Sources */,
 				84DD47602068FCD600D154B5 /* WettingChartView.m in Sources */,
+				57210C862073CF260039D8D5 /* BBMyAccountViewController.m in Sources */,
 				22CFD3C6206659AD0004186D /* ConsoleRateViewController.m in Sources */,
 				8449AC122062338F00526935 /* MBPAlertView.m in Sources */,
 				5726F3C1206C8F13008EED75 /* BBEarlyEducationCell.m in Sources */,
@@ -1760,12 +1815,9 @@
 				574C6CD62069262000F5BF55 /* BBLoginView.m in Sources */,
 				57585AD3206D4428001BB202 /* LWShareContentView.m in Sources */,
 				2263B8ED206BE81B005BB15E /* UIImage+category.m in Sources */,
-				22CF355A2073C99700707F8A /* BBEditInfoAvatarCell.m in Sources */,
-				22CF35522073C98300707F8A /* BBMyRewardViewController.m in Sources */,
 				574C6CBC2069254200F5BF55 /* NSString+PPTextField.m in Sources */,
 				22CFD3B0206401780004186D /* PXLineChartView.m in Sources */,
 				22CFD347206141080004186D /* main.m in Sources */,
-				22CF355B2073C99700707F8A /* BBEditInformationViewController.m in Sources */,
 				5726F342206A391B008EED75 /* BBMyListCell.m in Sources */,
 				22CFD3BE206548000004186D /* ConsoleBodyView.m in Sources */,
 				22CFD339206141080004186D /* AppDelegate.m in Sources */,
@@ -1775,6 +1827,7 @@
 				22CFD3DD2067D8160004186D /* RoomIndicatorView.m in Sources */,
 				84D5BDCD2073579A0025C757 /* AddDeviceView.m in Sources */,
 				5726F3A6206B8332008EED75 /* WSTableView.m in Sources */,
+				57210C812073BB600039D8D5 /* BBMyAccountExpenceRecordListCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

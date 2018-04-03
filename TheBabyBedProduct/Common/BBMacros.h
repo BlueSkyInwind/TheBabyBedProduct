@@ -18,7 +18,7 @@ typedef NS_ENUM(NSInteger,BBThirdLoginType) {
 #define k_bb_settingManager  @"KBBSETTINGMANAGER"
 #define k_bb_saveUserMessage @"KBBSAVEUSERMESSAGE"
 
-
+ 
 #import "UIView+PP_Frame.h"
 #import "UILabel+EasilyMake.h"
 #import "UITableView+EasilyMake.h"
