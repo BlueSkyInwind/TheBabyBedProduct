@@ -34,24 +34,42 @@
 
 @implementation GlobalPopView
 
-
-+(void)initWithTitle:(NSString *)title content:(NSString *)content cancelTitle:(NSString *)cancelTitle sureTitle:(NSString *)sureTitle clickcompletion:(GlobalPopViewClick)globalPopClickBlock{
++(instancetype)initWithTitle:(NSString *)title content:(NSString *)content cancelTitle:(NSString *)cancelTitle sureTitle:(NSString *)sureTitle clickcompletion:(GlobalPopViewClick)globalPopClickBlock{
 
     GlobalPopView * popView = [[GlobalPopView alloc]initWithFrame:[UIScreen mainScreen].bounds];
     popView.globalPopViewClick = globalPopClickBlock;
     popView.titleLabel.text = title;
     popView.contentLabel.text = content;
     [popView.cancelBtn setTitle:cancelTitle forState:UIControlStateNormal];
-    [popView.cancelBtn setTitle:sureTitle forState:UIControlStateNormal];
+    [popView.sureBtn setTitle:sureTitle forState:UIControlStateNormal];
     
-    CGSize contentSize = CGSizeMake(popView.alertView.frame.size.width - 10, 1000);
+    CGFloat minHeight = 170;
+    if (title == nil) {
+        minHeight  = 140;
+        [popView.contentLabel mas_remakeConstraints:^(MASConstraintMaker *make) {
+            make.top.equalTo(popView.alertView.mas_top).with.offset(35);
+            make.left.equalTo(popView.alertView.mas_left).with.offset(5);
+            make.right.equalTo(popView.alertView.mas_right).with.offset(-5);
+            make.bottom.equalTo(popView.sureBtn.mas_top).with.offset(-5);
+        }];
+    }
+    
+    [popView adaptationPopViewHeight:content minHeight:minHeight];
+
+    return popView;
+}
+
+-(void)adaptationPopViewHeight:(NSString *)content minHeight:(CGFloat)height{
+    
+    CGSize contentSize = CGSizeMake(self.alertView.frame.size.width - 10, 1000);
     NSDictionary *dic = @{NSFontAttributeName : [UIFont systemFontOfSize:14.f ]};
     CGRect contentRect = [content boundingRectWithSize:contentSize options:NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading attributes:dic context:nil];
-    CGFloat height = contentRect.size.height + 105;
-    [popView.alertView mas_updateConstraints:^(MASConstraintMaker *make) {
-        make.height.equalTo(@(height));
+    CGFloat resultheight = (contentRect.size.height + 105) < height ? height : contentRect.size.height + 105;
+    [self.alertView mas_updateConstraints:^(MASConstraintMaker *make) {
+        make.height.equalTo(@(resultheight));
     }];
 }
+
 
 -(void)show{
     
@@ -59,14 +77,14 @@
     [[UIApplication sharedApplication].keyWindow bringSubviewToFront:self];
     self.alertView.transform = CGAffineTransformMakeScale(1.21, 1.21);
     self.alertView.alpha = 0;
-    [UIView animateWithDuration:1 animations:^{
+    [UIView animateWithDuration:0.5 animations:^{
         self.alertView.transform = CGAffineTransformMakeScale(1, 1);
         self.alertView.alpha = 1;
     } completion:nil];
 }
 
 -(void)dismiss{
-    [UIView animateWithDuration:1 animations:^{
+    [UIView animateWithDuration:0.5 animations:^{
         self.alertView.transform = CGAffineTransformMakeScale(1, 1);
         self.alertView.alpha = 1;
         self.alpha = 0;
@@ -101,18 +119,17 @@
 
 -(void)configureView{
     
-    
     _alertView = [[UIView alloc]init];
     _alertView.backgroundColor = [UIColor whiteColor];
-    _alertView.layer.cornerRadius = 5;
+    _alertView.layer.cornerRadius = 10;
     _alertView.clipsToBounds = true;
     _alertView.layer.borderWidth = 1;
     _alertView.layer.borderColor = rgb(255, 155, 57, 1).CGColor;
     [self addSubview:_alertView];
     [_alertView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.center.equalTo(self);
-        make.height.equalTo(@298);
-        make.width.equalTo(@170);
+        make.height.equalTo(@170);
+        make.width.equalTo(@298);
     }];
     
     _titleLabel = [[UILabel alloc]init];
@@ -121,7 +138,7 @@
     _titleLabel.textAlignment = NSTextAlignmentCenter;
     [_alertView addSubview:_titleLabel];
     [_titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(_alertView.mas_top).with.offset(10);
+        make.top.equalTo(_alertView.mas_top).with.offset(20);
         make.left.right.equalTo(_alertView);
         make.height.equalTo(@20);
     }];
@@ -133,10 +150,10 @@
     [_closeBtn addTarget:self action:@selector(CloseBtnClick:) forControlEvents:UIControlEventTouchUpInside];
     [_alertView addSubview:_closeBtn];
     [_closeBtn mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.centerX.equalTo(_alertView.mas_centerX).with.offset(-50);
-        make.bottom.equalTo(_alertView.mas_bottom).offset(-20);
-        make.width.equalTo(@88);
-        make.height.equalTo(@35);
+        make.top.equalTo(_alertView.mas_top).with.offset(12);
+        make.right.equalTo(_alertView.mas_right).offset(-12);
+        make.width.equalTo(@20);
+        make.height.equalTo(@20);
     }];
     
     _cancelBtn = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -148,23 +165,23 @@
     [_cancelBtn addTarget:self action:@selector(CancelBtnClick:) forControlEvents:UIControlEventTouchUpInside];
     [_alertView addSubview:_cancelBtn];
     [_cancelBtn mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.centerX.equalTo(_alertView.mas_centerX).with.offset(-50);
-        make.bottom.equalTo(_alertView.mas_bottom).offset(-20);
+        make.centerX.equalTo(_alertView.mas_centerX).with.offset(-75);
+        make.bottom.equalTo(_alertView.mas_bottom).offset(-25);
         make.width.equalTo(@88);
-        make.height.equalTo(@35);
+        make.height.equalTo(@33);
     }];
     
     _sureBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     [_sureBtn setTitle:@"确定" forState:UIControlStateNormal];
-    _sureBtn.backgroundColor = rgb(153, 153, 153, 1);
+    _sureBtn.backgroundColor = rgb(255, 155, 57, 1);
     [_sureBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     _sureBtn.layer.cornerRadius = 3;
     _sureBtn.clipsToBounds = true;
     [_sureBtn addTarget:self action:@selector(SureBtnClick:) forControlEvents:UIControlEventTouchUpInside];
     [_alertView addSubview:_sureBtn];
     [_sureBtn mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.centerX.equalTo(_alertView.mas_centerX).with.offset(50);
-        make.bottom.equalTo(_alertView.mas_bottom).offset(-20);
+        make.centerX.equalTo(_alertView.mas_centerX).with.offset(75);
+        make.bottom.equalTo(_alertView.mas_bottom).offset(-25);
         make.width.equalTo(@88);
         make.height.equalTo(@35);
     }];
@@ -173,17 +190,15 @@
     _contentLabel.font = [UIFont systemFontOfSize:14];
     _contentLabel.textColor = [UIColor blackColor];
     _contentLabel.textAlignment = NSTextAlignmentCenter;
+    _contentLabel.numberOfLines = 0;
     [_alertView addSubview:_contentLabel];
     [_contentLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(_titleLabel.mas_top).with.offset(5);
+        make.top.equalTo(_titleLabel.mas_bottom).with.offset(5);
         make.left.equalTo(_alertView.mas_left).with.offset(5);
         make.right.equalTo(_alertView.mas_right).with.offset(-5);
-        make.bottom.equalTo(_alertView.mas_top).with.offset(-15);
+        make.bottom.equalTo(_sureBtn.mas_top).with.offset(-15);
     }];
-    
-
 }
-
 
 
 /*

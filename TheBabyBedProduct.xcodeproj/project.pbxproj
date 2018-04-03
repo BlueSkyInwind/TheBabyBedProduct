@@ -170,6 +170,9 @@
 		84BE5EAF2069EE75007A001D /* KickQulitChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = 84BE5EAE2069EE75007A001D /* KickQulitChartView.m */; };
 		84BE5EB22069F114007A001D /* KickQulitChartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84BE5EB12069F114007A001D /* KickQulitChartViewController.m */; };
 		84BE5EB6206A48B5007A001D /* GlobalPopView.m in Sources */ = {isa = PBXBuildFile; fileRef = 84BE5EB5206A48B5007A001D /* GlobalPopView.m */; };
+		84D5BDC7207354010025C757 /* bluetoothPairingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84D5BDC6207354010025C757 /* bluetoothPairingViewController.m */; };
+		84D5BDCA2073560F0025C757 /* DeviceConnectingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84D5BDC92073560F0025C757 /* DeviceConnectingViewController.m */; };
+		84D5BDCD2073579A0025C757 /* AddDeviceView.m in Sources */ = {isa = PBXBuildFile; fileRef = 84D5BDCC2073579A0025C757 /* AddDeviceView.m */; };
 		84DD47562068DB7B00D154B5 /* ThresholdTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 84DD47542068DB7B00D154B5 /* ThresholdTableViewCell.m */; };
 		84DD47572068DB7B00D154B5 /* ThresholdTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84DD47552068DB7B00D154B5 /* ThresholdTableViewCell.xib */; };
 		84DD475A2068F04000D154B5 /* RoomTemperatureView.m in Sources */ = {isa = PBXBuildFile; fileRef = 84DD47592068F04000D154B5 /* RoomTemperatureView.m */; };
@@ -481,6 +484,12 @@
 		84BE5EB12069F114007A001D /* KickQulitChartViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KickQulitChartViewController.m; sourceTree = "<group>"; };
 		84BE5EB4206A48B5007A001D /* GlobalPopView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GlobalPopView.h; sourceTree = "<group>"; };
 		84BE5EB5206A48B5007A001D /* GlobalPopView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GlobalPopView.m; sourceTree = "<group>"; };
+		84D5BDC5207354010025C757 /* bluetoothPairingViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = bluetoothPairingViewController.h; sourceTree = "<group>"; };
+		84D5BDC6207354010025C757 /* bluetoothPairingViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = bluetoothPairingViewController.m; sourceTree = "<group>"; };
+		84D5BDC82073560F0025C757 /* DeviceConnectingViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DeviceConnectingViewController.h; sourceTree = "<group>"; };
+		84D5BDC92073560F0025C757 /* DeviceConnectingViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DeviceConnectingViewController.m; sourceTree = "<group>"; };
+		84D5BDCB2073579A0025C757 /* AddDeviceView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AddDeviceView.h; sourceTree = "<group>"; };
+		84D5BDCC2073579A0025C757 /* AddDeviceView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AddDeviceView.m; sourceTree = "<group>"; };
 		84DD47532068DB7B00D154B5 /* ThresholdTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ThresholdTableViewCell.h; sourceTree = "<group>"; };
 		84DD47542068DB7B00D154B5 /* ThresholdTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ThresholdTableViewCell.m; sourceTree = "<group>"; };
 		84DD47552068DB7B00D154B5 /* ThresholdTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ThresholdTableViewCell.xib; sourceTree = "<group>"; };
@@ -646,6 +655,7 @@
 		22CFD369206142060004186D /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				84D5BDC4207353C40025C757 /* BLEModules */,
 				22CFD37E20614ABD0004186D /* HomeModules */,
 				22CFD38220614B0D0004186D /* TheConsoleModules */,
 				22CFD38620614BD80004186D /* EarlyEducationModules */,
@@ -803,6 +813,8 @@
 				84332C9A206CE6F5009A9121 /* MessageTableViewCell.h */,
 				84332C9B206CE6F5009A9121 /* MessageTableViewCell.m */,
 				84332C9C206CE6F5009A9121 /* MessageTableViewCell.xib */,
+				84D5BDCB2073579A0025C757 /* AddDeviceView.h */,
+				84D5BDCC2073579A0025C757 /* AddDeviceView.m */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -1306,6 +1318,17 @@
 			path = popView;
 			sourceTree = "<group>";
 		};
+		84D5BDC4207353C40025C757 /* BLEModules */ = {
+			isa = PBXGroup;
+			children = (
+				84D5BDC5207354010025C757 /* bluetoothPairingViewController.h */,
+				84D5BDC6207354010025C757 /* bluetoothPairingViewController.m */,
+				84D5BDC82073560F0025C757 /* DeviceConnectingViewController.h */,
+				84D5BDC92073560F0025C757 /* DeviceConnectingViewController.m */,
+			);
+			path = BLEModules;
+			sourceTree = "<group>";
+		};
 		EA9F0AC7DB5AD08E71A8DDDA /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -1568,6 +1591,7 @@
 				84DD47562068DB7B00D154B5 /* ThresholdTableViewCell.m in Sources */,
 				574C6CBD2069254200F5BF55 /* JKCountDownButton.m in Sources */,
 				22CFD3AC206401780004186D /* PXChartBackgroundView.m in Sources */,
+				84D5BDC7207354010025C757 /* bluetoothPairingViewController.m in Sources */,
 				5726F349206A8428008EED75 /* BBMyListSubTitleCell.m in Sources */,
 				22CFD3FA2067FE060004186D /* TemperatureThresholdSettingViewController.m in Sources */,
 				22CFD3C920667B250004186D /* ConsoleRateBottonView.m in Sources */,
@@ -1613,6 +1637,7 @@
 				22CFD38520614B420004186D /* TheConsoleViewController.m in Sources */,
 				22CFD3DA2067D5B10004186D /* ConsoleRoomTemperatureViewController.m in Sources */,
 				5726F34C206A857F008EED75 /* BBMyListOnlySubtitleCell.m in Sources */,
+				84D5BDCA2073560F0025C757 /* DeviceConnectingViewController.m in Sources */,
 				5726F3B1206B9988008EED75 /* BBSubmitSuggestionViewController.m in Sources */,
 				22CFD3C3206652B70004186D /* ConsoleRateView.m in Sources */,
 				2263B8F220709EA2005BB15E /* BaseCentralManager.m in Sources */,
@@ -1660,6 +1685,7 @@
 				2263B8E3206BCBB9005BB15E /* HomeTableViewCell.m in Sources */,
 				22CFD3D52067C58B0004186D /* ThermometerView.m in Sources */,
 				22CFD3DD2067D8160004186D /* RoomIndicatorView.m in Sources */,
+				84D5BDCD2073579A0025C757 /* AddDeviceView.m in Sources */,
 				5726F3A6206B8332008EED75 /* WSTableView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1808,7 +1834,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = GP8N54644M;
+				DEVELOPMENT_TEAM = 6W7BW6GZZR;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/TheBabyBedProduct/Third/MOBSDK/ShareSDK/Support/PlatformSDK/QQSDK",
@@ -1870,7 +1896,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = GP8N54644M;
+				DEVELOPMENT_TEAM = 6W7BW6GZZR;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/TheBabyBedProduct/Third/MOBSDK/ShareSDK/Support/PlatformSDK/QQSDK",
