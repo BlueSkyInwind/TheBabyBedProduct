@@ -55,13 +55,16 @@
     self.submitBT.titleTextColor = k_color_515151;
     [self.submitBT setTitle:@"提  交" forState:UIControlStateNormal];
     self.submitBT.frame = CGRectMake(40, self.textView.bottom+90, _k_w-80, 44);
-    self.submitBT.userInteractionEnabled = NO;
     [self.submitBT addTarget:self action:@selector(submitAction) forControlEvents:UIControlEventTouchUpInside];
 }
 -(void)submitAction
 {
 #warning to
     DLog(@"点击去提交意见");
+    if (self.textView.text.length == 0) {
+        [QMUITips showWithText:@"亲，请先输入您的问题或意见" inView:self.view hideAfterDelay:2.0];
+        return;
+    }
 }
 
 - (void)textView:(QMUITextView *)textView didPreventTextChangeInRange:(NSRange)range replacementText:(NSString *)replacementText {

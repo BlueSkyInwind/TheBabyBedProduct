@@ -15,6 +15,7 @@ typedef NS_ENUM(NSInteger,BBMyHeaderViewFuncType) {
 };
 
 @interface BBMyHeaderView : UIView
+@property(nonatomic,copy) void(^avatarClickedBlock)(void);
 /** 登录or注册 */
 @property(nonatomic,copy) void(^loginOrRegistBlock)(void);
 

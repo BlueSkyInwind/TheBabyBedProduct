@@ -40,7 +40,7 @@
     self.arrowImgV = [UIImageView bb_imgVMakeWithSuperV:self.contentView imgName:@"youyi"];
     
     CGFloat totalH = 47;
-    CGFloat leftMargin = 20;
+    CGFloat leftMargin = 10;
     CGFloat imgW = 19;
     CGFloat imgY = (totalH-19)/2;
     self.imgV.frame = CGRectMake(leftMargin, imgY, imgW, imgW);

@@ -55,6 +55,10 @@
     self.avatarImgV = [UIImageView bb_imgVMakeWithSuperV:realyBgV imgName:@"touxianggg"];
     self.avatarImgV.layer.masksToBounds = YES;
     self.avatarImgV.layer.cornerRadius = 30;
+    self.avatarImgV.userInteractionEnabled = YES;
+    [self.avatarImgV pp_addTapActionWithBlock:^(UIGestureRecognizer *gestureRecoginzer) {
+        [self handelAvatarTapAction];
+    }];
     
     self.userNameLB = [UILabel bb_lbMakeWithSuperV:realyBgV fontSize:19 alignment:NSTextAlignmentLeft textColor:k_color_515151];
     self.babyDaysLB = [UILabel bb_lbMakeWithSuperV:realyBgV fontSize:12 alignment:NSTextAlignmentLeft textColor:rgb(158, 158, 158, 1)];
@@ -111,6 +115,12 @@
         self.userNameLB.hidden = YES;
         self.babyDaysLB.hidden = YES;
         self.loginOrRegistBT.hidden = NO;
+    }
+}
+-(void)handelAvatarTapAction
+{
+    if (self.avatarClickedBlock) {
+        self.avatarClickedBlock();
     }
 }
 

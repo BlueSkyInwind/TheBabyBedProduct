@@ -26,6 +26,7 @@ typedef NS_ENUM(NSInteger,BBThirdLoginType) {
 #import "UIButton+EasilyMake.h"
 #import "NSMutableAttributedString+PPTextField.h"
 #import "UIImageView+EasilyMake.h"
+#import "UIAlertController+EasilyMake.h"
 #import "BBUser.h"
 
 #endif /* BBMacros_h */

@@ -145,6 +145,12 @@
 		57585AF0206D4850001BB202 /* share_timeline@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 57585AEE206D4850001BB202 /* share_timeline@3x.png */; };
 		57585AF3206D485C001BB202 /* share_qq@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 57585AF1206D485B001BB202 /* share_qq@3x.png */; };
 		57585AF4206D485C001BB202 /* share_qq@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 57585AF2206D485B001BB202 /* share_qq@2x.png */; };
+		57CECE3D2073749000E9A876 /* BBMyRewardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 57CECE342073749000E9A876 /* BBMyRewardViewController.m */; };
+		57CECE3E2073749000E9A876 /* BBEditInfoAvatarCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 57CECE3A2073749000E9A876 /* BBEditInfoAvatarCell.m */; };
+		57CECE3F2073749000E9A876 /* BBEditInformationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 57CECE3B2073749000E9A876 /* BBEditInformationViewController.m */; };
+		57CECE402073749000E9A876 /* BBMyAccountViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 57CECE3C2073749000E9A876 /* BBMyAccountViewController.m */; };
+		57CECE43207374DC00E9A876 /* UIAlertController+EasilyMake.m in Sources */ = {isa = PBXBuildFile; fileRef = 57CECE41207374DC00E9A876 /* UIAlertController+EasilyMake.m */; };
+		57CECE462073757D00E9A876 /* BBPermissionManageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 57CECE442073757D00E9A876 /* BBPermissionManageViewController.m */; };
 		84114B4320722BF6005A1DC9 /* jpush-ios-3.0.8.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 84114B4020722BF6005A1DC9 /* jpush-ios-3.0.8.a */; };
 		84114B4420722BF7005A1DC9 /* jcore-ios-1.1.8.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 84114B4220722BF6005A1DC9 /* jcore-ios-1.1.8.a */; };
 		84114B4620722C6F005A1DC9 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84114B4520722C6F005A1DC9 /* CFNetwork.framework */; };
@@ -445,6 +451,18 @@
 		57585AEE206D4850001BB202 /* share_timeline@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "share_timeline@3x.png"; sourceTree = "<group>"; };
 		57585AF1206D485B001BB202 /* share_qq@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "share_qq@3x.png"; sourceTree = "<group>"; };
 		57585AF2206D485B001BB202 /* share_qq@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "share_qq@2x.png"; sourceTree = "<group>"; };
+		57CECE342073749000E9A876 /* BBMyRewardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBMyRewardViewController.m; sourceTree = "<group>"; };
+		57CECE352073749000E9A876 /* BBMyRewardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBMyRewardViewController.h; sourceTree = "<group>"; };
+		57CECE372073749000E9A876 /* BBEditInfoAvatarCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBEditInfoAvatarCell.h; sourceTree = "<group>"; };
+		57CECE382073749000E9A876 /* BBMyAccountViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBMyAccountViewController.h; sourceTree = "<group>"; };
+		57CECE392073749000E9A876 /* BBEditInformationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBEditInformationViewController.h; sourceTree = "<group>"; };
+		57CECE3A2073749000E9A876 /* BBEditInfoAvatarCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBEditInfoAvatarCell.m; sourceTree = "<group>"; };
+		57CECE3B2073749000E9A876 /* BBEditInformationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBEditInformationViewController.m; sourceTree = "<group>"; };
+		57CECE3C2073749000E9A876 /* BBMyAccountViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBMyAccountViewController.m; sourceTree = "<group>"; };
+		57CECE41207374DC00E9A876 /* UIAlertController+EasilyMake.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIAlertController+EasilyMake.m"; sourceTree = "<group>"; };
+		57CECE42207374DC00E9A876 /* UIAlertController+EasilyMake.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIAlertController+EasilyMake.h"; sourceTree = "<group>"; };
+		57CECE442073757D00E9A876 /* BBPermissionManageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BBPermissionManageViewController.m; path = ../../../../../../../PPBB/TheBabyBedProduct/TheBabyBedProduct/Modules/MyModules/FamilyMember/BBPermissionManageViewController.m; sourceTree = "<group>"; };
+		57CECE452073757D00E9A876 /* BBPermissionManageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BBPermissionManageViewController.h; path = ../../../../../../../PPBB/TheBabyBedProduct/TheBabyBedProduct/Modules/MyModules/FamilyMember/BBPermissionManageViewController.h; sourceTree = "<group>"; };
 		764BC6823587F5E7CC72C6C4 /* Pods-TheBabyBedProduct.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TheBabyBedProduct.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TheBabyBedProduct/Pods-TheBabyBedProduct.debug.xcconfig"; sourceTree = "<group>"; };
 		84114B4020722BF6005A1DC9 /* jpush-ios-3.0.8.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "jpush-ios-3.0.8.a"; sourceTree = "<group>"; };
 		84114B4120722BF6005A1DC9 /* JPUSHService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JPUSHService.h; sourceTree = "<group>"; };
@@ -752,6 +770,8 @@
 		22CFD38A20614C230004186D /* MyModules */ = {
 			isa = PBXGroup;
 			children = (
+				57CECE362073749000E9A876 /* MyAccount */,
+				57CECE332073749000E9A876 /* MyReward */,
 				57585ABB206D17B4001BB202 /* FamilyMember */,
 				57585AB7206D1151001BB202 /* MyDevice */,
 				5726F3A7206B851D008EED75 /* HelpAndSuggestion */,
@@ -1196,6 +1216,8 @@
 		574C6CDB2069272700F5BF55 /* Category */ = {
 			isa = PBXGroup;
 			children = (
+				57CECE42207374DC00E9A876 /* UIAlertController+EasilyMake.h */,
+				57CECE41207374DC00E9A876 /* UIAlertController+EasilyMake.m */,
 				5726F34E206A8DC3008EED75 /* UIView+PP_Frame.h */,
 				5726F34D206A8DC2008EED75 /* UIView+PP_Frame.m */,
 				574C6CDC2069272700F5BF55 /* UIImageView+EasilyMake.h */,
@@ -1230,6 +1252,8 @@
 		57585ABB206D17B4001BB202 /* FamilyMember */ = {
 			isa = PBXGroup;
 			children = (
+				57CECE452073757D00E9A876 /* BBPermissionManageViewController.h */,
+				57CECE442073757D00E9A876 /* BBPermissionManageViewController.m */,
 				57585ABC206D17CA001BB202 /* BBFamilyMemberViewController.h */,
 				57585ABD206D17CA001BB202 /* BBFamilyMemberViewController.m */,
 				57585AC0206D1AE8001BB202 /* BBFamilyMemberListCell.h */,
@@ -1261,6 +1285,30 @@
 				57585ACE206D4428001BB202 /* LWShareButton.h */,
 			);
 			path = LWShareView;
+			sourceTree = "<group>";
+		};
+		57CECE332073749000E9A876 /* MyReward */ = {
+			isa = PBXGroup;
+			children = (
+				57CECE342073749000E9A876 /* BBMyRewardViewController.m */,
+				57CECE352073749000E9A876 /* BBMyRewardViewController.h */,
+			);
+			name = MyReward;
+			path = ../../../../../../PPBB/TheBabyBedProduct/TheBabyBedProduct/Modules/MyModules/MyReward;
+			sourceTree = "<group>";
+		};
+		57CECE362073749000E9A876 /* MyAccount */ = {
+			isa = PBXGroup;
+			children = (
+				57CECE372073749000E9A876 /* BBEditInfoAvatarCell.h */,
+				57CECE382073749000E9A876 /* BBMyAccountViewController.h */,
+				57CECE392073749000E9A876 /* BBEditInformationViewController.h */,
+				57CECE3A2073749000E9A876 /* BBEditInfoAvatarCell.m */,
+				57CECE3B2073749000E9A876 /* BBEditInformationViewController.m */,
+				57CECE3C2073749000E9A876 /* BBMyAccountViewController.m */,
+			);
+			name = MyAccount;
+			path = ../../../../../../PPBB/TheBabyBedProduct/TheBabyBedProduct/Modules/MyModules/MyAccount;
 			sourceTree = "<group>";
 		};
 		84114B3F20722BD0005A1DC9 /* JPush */ = {
@@ -1603,6 +1651,7 @@
 				22CFD38D20614C3F0004186D /* MyViewController.m in Sources */,
 				22CFD3B3206402BF0004186D /* PointItem.m in Sources */,
 				5726F3B8206BDE5F008EED75 /* BBAccountNumberViewController.m in Sources */,
+				57CECE462073757D00E9A876 /* BBPermissionManageViewController.m in Sources */,
 				574C6CD52069262000F5BF55 /* BBUser.m in Sources */,
 				5726F353206B257A008EED75 /* BBNotificationSettingViewController.m in Sources */,
 				5726F3A3206B8332008EED75 /* WSTableViewCellIndicator.m in Sources */,
@@ -1611,6 +1660,7 @@
 				574C6CD42069262000F5BF55 /* BBMyHeaderView.m in Sources */,
 				22CFD38120614AE90004186D /* HomePageViewController.m in Sources */,
 				8449AC152062354000526935 /* LaunchConfiguration.m in Sources */,
+				57CECE402073749000E9A876 /* BBMyAccountViewController.m in Sources */,
 				8449AC18206239F900526935 /* GlobalUtility.m in Sources */,
 				2263B8EA206BE604005BB15E /* MessageViewController.m in Sources */,
 				2266C1B720692D73004F653A /* UIFont+YX_Font.m in Sources */,
@@ -1647,6 +1697,7 @@
 				84BE5EAF2069EE75007A001D /* KickQulitChartView.m in Sources */,
 				5726F3B4206B99D7008EED75 /* BBAboutUsViewController.m in Sources */,
 				22CFD375206146370004186D /* BaseViewController.m in Sources */,
+				57CECE3F2073749000E9A876 /* BBEditInformationViewController.m in Sources */,
 				22CFD37B2061476C0004186D /* BaseNavigationViewController.m in Sources */,
 				574C6CBB2069254200F5BF55 /* PPBaseTextField.m in Sources */,
 				57585ABE206D17CA001BB202 /* BBFamilyMemberViewController.m in Sources */,
@@ -1654,6 +1705,7 @@
 				5726F3A5206B8332008EED75 /* WSTableviewDataModel.m in Sources */,
 				84DD47602068FCD600D154B5 /* WettingChartView.m in Sources */,
 				22CFD3C6206659AD0004186D /* ConsoleRateViewController.m in Sources */,
+				57CECE3D2073749000E9A876 /* BBMyRewardViewController.m in Sources */,
 				8449AC122062338F00526935 /* MBPAlertView.m in Sources */,
 				5726F3C1206C8F13008EED75 /* BBEarlyEducationCell.m in Sources */,
 				5726F34F206A8DC3008EED75 /* UIView+PP_Frame.m in Sources */,
@@ -1661,6 +1713,7 @@
 				22CFD3972062A78C0004186D /* HistoryFeverViewController.m in Sources */,
 				2266C1BA20694A61004F653A /* CryingChartView.m in Sources */,
 				22CFD3EE2067FD8C0004186D /* WettingThresholdSettingViewController.m in Sources */,
+				57CECE43207374DC00E9A876 /* UIAlertController+EasilyMake.m in Sources */,
 				5726F3BB206BE46F008EED75 /* BBAcountNumberListCell.m in Sources */,
 				8449AC1B20623ACC00526935 /* GlobalTool.m in Sources */,
 				574C6CED20693D2400F5BF55 /* UILabel+EasilyMake.m in Sources */,
@@ -1676,6 +1729,7 @@
 				57585AD3206D4428001BB202 /* LWShareContentView.m in Sources */,
 				2263B8ED206BE81B005BB15E /* UIImage+category.m in Sources */,
 				574C6CBC2069254200F5BF55 /* NSString+PPTextField.m in Sources */,
+				57CECE3E2073749000E9A876 /* BBEditInfoAvatarCell.m in Sources */,
 				22CFD3B0206401780004186D /* PXLineChartView.m in Sources */,
 				22CFD347206141080004186D /* main.m in Sources */,
 				5726F342206A391B008EED75 /* BBMyListCell.m in Sources */,
@@ -1834,7 +1888,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = 6W7BW6GZZR;
+				DEVELOPMENT_TEAM = GP8N54644M;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/TheBabyBedProduct/Third/MOBSDK/ShareSDK/Support/PlatformSDK/QQSDK",
@@ -1896,7 +1950,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = 6W7BW6GZZR;
+				DEVELOPMENT_TEAM = GP8N54644M;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/TheBabyBedProduct/Third/MOBSDK/ShareSDK/Support/PlatformSDK/QQSDK",
