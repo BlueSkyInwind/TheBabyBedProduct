@@ -72,6 +72,7 @@
 		57210C792073B4A50039D8D5 /* BBEditInformationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 57210C762073B4A50039D8D5 /* BBEditInformationViewController.m */; };
 		57210C7E2073B4B80039D8D5 /* BBMyRewardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 57210C7C2073B4B80039D8D5 /* BBMyRewardViewController.m */; };
 		57210C812073BB600039D8D5 /* BBMyAccountExpenceRecordListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 57210C802073BB600039D8D5 /* BBMyAccountExpenceRecordListCell.m */; };
+		57210C862073CF260039D8D5 /* BBMyAccountViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 57210C852073CF260039D8D5 /* BBMyAccountViewController.m */; };
 		5726F33B206A2FB2008EED75 /* BBWarningRingSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5726F337206A2FB2008EED75 /* BBWarningRingSettingViewController.m */; };
 		5726F33C206A2FB2008EED75 /* BBWarningRingListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5726F33A206A2FB2008EED75 /* BBWarningRingListCell.m */; };
 		5726F33F206A3185008EED75 /* PPTextfield+EasilyMake.m in Sources */ = {isa = PBXBuildFile; fileRef = 5726F33E206A3185008EED75 /* PPTextfield+EasilyMake.m */; };
@@ -331,6 +332,8 @@
 		57210C7D2073B4B80039D8D5 /* BBMyRewardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBMyRewardViewController.h; sourceTree = "<group>"; };
 		57210C7F2073BB600039D8D5 /* BBMyAccountExpenceRecordListCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BBMyAccountExpenceRecordListCell.h; sourceTree = "<group>"; };
 		57210C802073BB600039D8D5 /* BBMyAccountExpenceRecordListCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BBMyAccountExpenceRecordListCell.m; sourceTree = "<group>"; };
+		57210C842073CF260039D8D5 /* BBMyAccountViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBMyAccountViewController.h; sourceTree = "<group>"; };
+		57210C852073CF260039D8D5 /* BBMyAccountViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBMyAccountViewController.m; sourceTree = "<group>"; };
 		5726F337206A2FB2008EED75 /* BBWarningRingSettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBWarningRingSettingViewController.m; sourceTree = "<group>"; };
 		5726F338206A2FB2008EED75 /* BBWarningRingListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBWarningRingListCell.h; sourceTree = "<group>"; };
 		5726F339206A2FB2008EED75 /* BBWarningRingSettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBWarningRingSettingViewController.h; sourceTree = "<group>"; };
@@ -946,6 +949,8 @@
 		57210C712073B4A50039D8D5 /* MyAccount */ = {
 			isa = PBXGroup;
 			children = (
+				57210C842073CF260039D8D5 /* BBMyAccountViewController.h */,
+				57210C852073CF260039D8D5 /* BBMyAccountViewController.m */,
 				57210C722073B4A50039D8D5 /* BBEditInfoAvatarCell.h */,
 				57210C752073B4A50039D8D5 /* BBEditInfoAvatarCell.m */,
 				57210C742073B4A50039D8D5 /* BBEditInformationViewController.h */,
@@ -1728,6 +1733,7 @@
 				574C6CB82069254200F5BF55 /* NSMutableAttributedString+PPTextField.m in Sources */,
 				5726F3A5206B8332008EED75 /* WSTableviewDataModel.m in Sources */,
 				84DD47602068FCD600D154B5 /* WettingChartView.m in Sources */,
+				57210C862073CF260039D8D5 /* BBMyAccountViewController.m in Sources */,
 				22CFD3C6206659AD0004186D /* ConsoleRateViewController.m in Sources */,
 				8449AC122062338F00526935 /* MBPAlertView.m in Sources */,
 				5726F3C1206C8F13008EED75 /* BBEarlyEducationCell.m in Sources */,
