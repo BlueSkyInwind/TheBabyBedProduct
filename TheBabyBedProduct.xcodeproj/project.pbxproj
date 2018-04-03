@@ -70,7 +70,6 @@
 		57210BFB2073B3F80039D8D5 /* BBPermissionManageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 57210BFA2073B3F80039D8D5 /* BBPermissionManageViewController.m */; };
 		57210C782073B4A50039D8D5 /* BBEditInfoAvatarCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 57210C752073B4A50039D8D5 /* BBEditInfoAvatarCell.m */; };
 		57210C792073B4A50039D8D5 /* BBEditInformationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 57210C762073B4A50039D8D5 /* BBEditInformationViewController.m */; };
-		57210C7A2073B4A50039D8D5 /* BBMyAccountViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 57210C772073B4A50039D8D5 /* BBMyAccountViewController.m */; };
 		57210C7E2073B4B80039D8D5 /* BBMyRewardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 57210C7C2073B4B80039D8D5 /* BBMyRewardViewController.m */; };
 		57210C812073BB600039D8D5 /* BBMyAccountExpenceRecordListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 57210C802073BB600039D8D5 /* BBMyAccountExpenceRecordListCell.m */; };
 		5726F33B206A2FB2008EED75 /* BBWarningRingSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5726F337206A2FB2008EED75 /* BBWarningRingSettingViewController.m */; };
@@ -230,14 +229,9 @@
 		2266C1BB20694A85004F653A /* CryingChartViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CryingChartViewController.h; sourceTree = "<group>"; };
 		2266C1BC20694A85004F653A /* CryingChartViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CryingChartViewController.m; sourceTree = "<group>"; };
 		22CF35502073C98300707F8A /* BBMyRewardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBMyRewardViewController.m; sourceTree = "<group>"; };
-		22CF35512073C98300707F8A /* BBMyRewardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBMyRewardViewController.h; sourceTree = "<group>"; };
-		22CF35542073C99700707F8A /* BBEditInfoAvatarCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBEditInfoAvatarCell.h; sourceTree = "<group>"; };
-		22CF35552073C99700707F8A /* BBMyAccountViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBMyAccountViewController.h; sourceTree = "<group>"; };
-		22CF35562073C99700707F8A /* BBEditInformationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBEditInformationViewController.h; sourceTree = "<group>"; };
 		22CF35572073C99700707F8A /* BBEditInfoAvatarCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBEditInfoAvatarCell.m; sourceTree = "<group>"; };
 		22CF35582073C99700707F8A /* BBEditInformationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBEditInformationViewController.m; sourceTree = "<group>"; };
 		22CF35592073C99700707F8A /* BBMyAccountViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBMyAccountViewController.m; sourceTree = "<group>"; };
-		22CF355D2073C9D700707F8A /* BBPermissionManageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBPermissionManageViewController.h; sourceTree = "<group>"; };
 		22CF355E2073C9D700707F8A /* BBPermissionManageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBPermissionManageViewController.m; sourceTree = "<group>"; };
 		22CFD334206141080004186D /* TheBabyBedProduct.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TheBabyBedProduct.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		22CFD337206141080004186D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -330,11 +324,9 @@
 		57210BF92073B3F80039D8D5 /* BBPermissionManageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBPermissionManageViewController.h; sourceTree = "<group>"; };
 		57210BFA2073B3F80039D8D5 /* BBPermissionManageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBPermissionManageViewController.m; sourceTree = "<group>"; };
 		57210C722073B4A50039D8D5 /* BBEditInfoAvatarCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBEditInfoAvatarCell.h; sourceTree = "<group>"; };
-		57210C732073B4A50039D8D5 /* BBMyAccountViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBMyAccountViewController.h; sourceTree = "<group>"; };
 		57210C742073B4A50039D8D5 /* BBEditInformationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBEditInformationViewController.h; sourceTree = "<group>"; };
 		57210C752073B4A50039D8D5 /* BBEditInfoAvatarCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBEditInfoAvatarCell.m; sourceTree = "<group>"; };
 		57210C762073B4A50039D8D5 /* BBEditInformationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBEditInformationViewController.m; sourceTree = "<group>"; };
-		57210C772073B4A50039D8D5 /* BBMyAccountViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBMyAccountViewController.m; sourceTree = "<group>"; };
 		57210C7C2073B4B80039D8D5 /* BBMyRewardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBMyRewardViewController.m; sourceTree = "<group>"; };
 		57210C7D2073B4B80039D8D5 /* BBMyRewardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBMyRewardViewController.h; sourceTree = "<group>"; };
 		57210C7F2073BB600039D8D5 /* BBMyAccountExpenceRecordListCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BBMyAccountExpenceRecordListCell.h; sourceTree = "<group>"; };
@@ -630,28 +622,6 @@
 			path = BLEManager;
 			sourceTree = "<group>";
 		};
-		22CF354F2073C98300707F8A /* MyReward */ = {
-			isa = PBXGroup;
-			children = (
-				22CF35502073C98300707F8A /* BBMyRewardViewController.m */,
-				22CF35512073C98300707F8A /* BBMyRewardViewController.h */,
-			);
-			path = MyReward;
-			sourceTree = "<group>";
-		};
-		22CF35532073C99700707F8A /* MyAccount */ = {
-			isa = PBXGroup;
-			children = (
-				22CF35542073C99700707F8A /* BBEditInfoAvatarCell.h */,
-				22CF35552073C99700707F8A /* BBMyAccountViewController.h */,
-				22CF35562073C99700707F8A /* BBEditInformationViewController.h */,
-				22CF35572073C99700707F8A /* BBEditInfoAvatarCell.m */,
-				22CF35582073C99700707F8A /* BBEditInformationViewController.m */,
-				22CF35592073C99700707F8A /* BBMyAccountViewController.m */,
-			);
-			path = MyAccount;
-			sourceTree = "<group>";
-		};
 		22CFD32B206141080004186D = {
 			isa = PBXGroup;
 			children = (
@@ -661,6 +631,7 @@
 				22CFD335206141080004186D /* Products */,
 				EA9F0AC7DB5AD08E71A8DDDA /* Pods */,
 				08647956D283325F7A1D56FF /* Frameworks */,
+				57210C832073CC910039D8D5 /* Recovered References */,
 			);
 			sourceTree = "<group>";
 		};
@@ -975,8 +946,6 @@
 		57210C712073B4A50039D8D5 /* MyAccount */ = {
 			isa = PBXGroup;
 			children = (
-				57210C732073B4A50039D8D5 /* BBMyAccountViewController.h */,
-				57210C772073B4A50039D8D5 /* BBMyAccountViewController.m */,
 				57210C722073B4A50039D8D5 /* BBEditInfoAvatarCell.h */,
 				57210C752073B4A50039D8D5 /* BBEditInfoAvatarCell.m */,
 				57210C742073B4A50039D8D5 /* BBEditInformationViewController.h */,
@@ -994,6 +963,18 @@
 				57210C7D2073B4B80039D8D5 /* BBMyRewardViewController.h */,
 			);
 			path = MyReward;
+			sourceTree = "<group>";
+		};
+		57210C832073CC910039D8D5 /* Recovered References */ = {
+			isa = PBXGroup;
+			children = (
+				22CF35592073C99700707F8A /* BBMyAccountViewController.m */,
+				22CF355E2073C9D700707F8A /* BBPermissionManageViewController.m */,
+				22CF35572073C99700707F8A /* BBEditInfoAvatarCell.m */,
+				22CF35502073C98300707F8A /* BBMyRewardViewController.m */,
+				22CF35582073C99700707F8A /* BBEditInformationViewController.m */,
+			);
+			name = "Recovered References";
 			sourceTree = "<group>";
 		};
 		5726F336206A2FB2008EED75 /* WarningRingSetting */ = {
@@ -1762,7 +1743,6 @@
 				574C6CBE2069254200F5BF55 /* PPLabel.m in Sources */,
 				57585AD4206D4428001BB202 /* LWShareCollectionViewCell.m in Sources */,
 				84DD475D2068FC7600D154B5 /* WettingChartViewController.m in Sources */,
-				57210C7A2073B4A50039D8D5 /* BBMyAccountViewController.m in Sources */,
 				22CFD378206146AF0004186D /* BaseTabBarViewController.m in Sources */,
 				57585AD1206D4428001BB202 /* LWShareSheetView.m in Sources */,
 				22CFD3B9206545040004186D /* ConsoleHeaderView.m in Sources */,
