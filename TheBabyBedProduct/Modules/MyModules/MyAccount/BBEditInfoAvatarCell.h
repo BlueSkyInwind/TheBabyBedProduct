@@ -11,3 +11,5 @@
 @interface BBEditInfoAvatarCell : UITableViewCell
 -(void)setupCellAvatar:(NSString *)avatarUrl;
 @end
+
+
