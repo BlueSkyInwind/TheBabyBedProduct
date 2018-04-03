@@ -14,12 +14,17 @@
 #import "ConsoleRateViewController.h"
 #import "ConsoleRoomTemperatureViewController.h"
 #import "MessageViewController.h"
+#import "AddDeviceView.h"
 
 @interface HomePageViewController ()<UITableViewDelegate,UITableViewDataSource>{
     
     NSArray * imgArr;
     NSArray * titleArr;
+    GlobalPopView * popView;
 }
+
+/**<#Description#>*/
+@property (nonatomic,strong)AddDeviceView  * addDeviceView;
 
 @property (nonatomic,strong)UITableView * homeTableView;
 /* cell*/
@@ -27,15 +32,29 @@
 
 /* 头部视图*/
 @property(nonatomic,strong)HomeHeaderView * headerView;
+
 @end
 
 @implementation HomePageViewController
 
 - (void)viewDidLoad {
-    [super viewDidLoad];
+    [super viewDidLoad]; 
     // Do any additional setup after loading the view.
-    
+//    [self configureAddDeviceView];
     [self configureView];
+}
+
+-(void)configureAddDeviceView{
+    _addDeviceView = [[AddDeviceView alloc]initWithFrame:CGRectZero];
+    [self.view addSubview:_addDeviceView];
+    _addDeviceView.addDeviceClick = ^{
+      //添加设备点击
+        
+        
+    };
+    [_addDeviceView mas_remakeConstraints:^(MASConstraintMaker *make) {
+        make.edges.equalTo(self.view);
+    }];
 }
 
 -(void)configureView{
@@ -43,16 +62,16 @@
     imgArr = @[@"home_room_Icon",@"home_temperature_Icon",@"home_wetting_Icon",@"home_kickqulit_Icon"];
     titleArr = @[@"室内外温度",@"体温",@"尿湿状态",@"踢被状态"];
 
+    __weak typeof (self) weakSelf = self;
     HomeLeftItemView * leftItemView = [[HomeLeftItemView alloc]initWithFrame:CGRectMake(0, 0, 100, 35)];
     leftItemView.nameLabel.text = @"欧阳马克";
     leftItemView.homeHeaderClick = ^(UIButton *button) {
-         
+        [weakSelf popAlertView];
     };
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]initWithCustomView:leftItemView];
     
     UIBarButtonItem * rightButton = [[UIBarButtonItem alloc]initWithImage:[[[UIImage imageNamed:@"home_message_Icon"] TransformtoSize:CGSizeMake(32, 32)] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] style:UIBarButtonItemStylePlain target:self action:@selector(rightButtonItemClick)];
     self.navigationItem.rightBarButtonItem = rightButton;
-    
     
     _homeTableView = [[UITableView alloc]init];
     _homeTableView.delegate = self;
@@ -69,7 +88,6 @@
     
     _headerView = [HomeHeaderView initWithBabyStatus:@[@"home_crystatus_Icon",@"home_happystatus_Icon",@"home_histroy_Icon"]];
     _homeTableView.tableHeaderView = _headerView;
-    
     
 }
 -(void)rightButtonItemClick{
@@ -96,6 +114,7 @@
     [_homeCell setIcon:imgArr[indexPath.row] title:titleArr[indexPath.row] content:@"正常"];
     return _homeCell;
 }
+
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [tableView deselectRowAtIndexPath:indexPath animated:true];
     switch (indexPath.row) {
@@ -138,6 +157,17 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+-(void)popAlertView{
+    
+      popView =  [GlobalPopView initWithTitle:nil content:@"谨防骗子，提高警惕，这是一个app，嘻嘻嘻嘻" cancelTitle:@"取消" sureTitle:@"确定" clickcompletion:^(NSInteger index) {
+      
+      [popView dismiss];
+    }];
+    [popView show];
+}
+
+
 
 /*
 #pragma mark - Navigation

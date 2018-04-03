@@ -17,11 +17,15 @@
 
 @implementation BBAccountNumberViewController
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [self.navigationController setNavigationBarHidden:NO animated:animated];
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.view.backgroundColor = k_color_vcBg;
-    
+    self.title = @"账号设置";
     [self creatUI];
 }
 -(void)creatUI
@@ -43,7 +47,6 @@
         signOutBT.titleTextColor = k_color_515151;
         [signOutBT setTitle:@"退出登录" forState:UIControlStateNormal];
         signOutBT.frame = CGRectMake(40, 20+5, _k_w-80, 44);
-        signOutBT.userInteractionEnabled = NO;
         [signOutBT addTarget:self action:@selector(signOutAction) forControlEvents:UIControlEventTouchUpInside];
         fotterV.frame = CGRectMake(0, 0, _k_w, 20+44+5);
 
@@ -53,7 +56,7 @@
 }
 -(void)signOutAction
 {
-    
+#warning todo 
 }
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {

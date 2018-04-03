@@ -13,7 +13,7 @@ typedef void (^GlobalPopViewClick)(NSInteger index);
 
 @interface GlobalPopView : UIView
 
-+(void)initWithTitle:(NSString *)title content:(NSString *)content cancelTitle:(NSString *)cancelTitle sureTitle:(NSString *)sureTitle clickcompletion:(GlobalPopViewClick)globalPopClickBlock;
++(instancetype)initWithTitle:(NSString *)title content:(NSString *)content cancelTitle:(NSString *)cancelTitle sureTitle:(NSString *)sureTitle clickcompletion:(GlobalPopViewClick)globalPopClickBlock;
 
 -(void)show;
 
