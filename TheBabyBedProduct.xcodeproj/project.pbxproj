@@ -16,11 +16,6 @@
 		2266C1B720692D73004F653A /* UIFont+YX_Font.m in Sources */ = {isa = PBXBuildFile; fileRef = 2266C1B620692D72004F653A /* UIFont+YX_Font.m */; };
 		2266C1BA20694A61004F653A /* CryingChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2266C1B920694A61004F653A /* CryingChartView.m */; };
 		2266C1BD20694A85004F653A /* CryingChartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2266C1BC20694A85004F653A /* CryingChartViewController.m */; };
-		22CF35522073C98300707F8A /* BBMyRewardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22CF35502073C98300707F8A /* BBMyRewardViewController.m */; };
-		22CF355A2073C99700707F8A /* BBEditInfoAvatarCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 22CF35572073C99700707F8A /* BBEditInfoAvatarCell.m */; };
-		22CF355B2073C99700707F8A /* BBEditInformationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22CF35582073C99700707F8A /* BBEditInformationViewController.m */; };
-		22CF355C2073C99700707F8A /* BBMyAccountViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22CF35592073C99700707F8A /* BBMyAccountViewController.m */; };
-		22CF355F2073C9D700707F8A /* BBPermissionManageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22CF355E2073C9D700707F8A /* BBPermissionManageViewController.m */; };
 		22CFD339206141080004186D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 22CFD338206141080004186D /* AppDelegate.m */; };
 		22CFD341206141080004186D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 22CFD340206141080004186D /* Assets.xcassets */; };
 		22CFD347206141080004186D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 22CFD346206141080004186D /* main.m */; };
@@ -1665,7 +1660,6 @@
 				84DD47562068DB7B00D154B5 /* ThresholdTableViewCell.m in Sources */,
 				574C6CBD2069254200F5BF55 /* JKCountDownButton.m in Sources */,
 				22CFD3AC206401780004186D /* PXChartBackgroundView.m in Sources */,
-				22CF355C2073C99700707F8A /* BBMyAccountViewController.m in Sources */,
 				84D5BDC7207354010025C757 /* bluetoothPairingViewController.m in Sources */,
 				5726F349206A8428008EED75 /* BBMyListSubTitleCell.m in Sources */,
 				22CFD3FA2067FE060004186D /* TemperatureThresholdSettingViewController.m in Sources */,
@@ -1678,7 +1672,6 @@
 				574C6CD72069262000F5BF55 /* BBRegistView.m in Sources */,
 				22CFD38D20614C3F0004186D /* MyViewController.m in Sources */,
 				22CFD3B3206402BF0004186D /* PointItem.m in Sources */,
-				22CF355F2073C9D700707F8A /* BBPermissionManageViewController.m in Sources */,
 				5726F3B8206BDE5F008EED75 /* BBAccountNumberViewController.m in Sources */,
 				57210C782073B4A50039D8D5 /* BBEditInfoAvatarCell.m in Sources */,
 				574C6CD52069262000F5BF55 /* BBUser.m in Sources */,
@@ -1757,12 +1750,9 @@
 				574C6CD62069262000F5BF55 /* BBLoginView.m in Sources */,
 				57585AD3206D4428001BB202 /* LWShareContentView.m in Sources */,
 				2263B8ED206BE81B005BB15E /* UIImage+category.m in Sources */,
-				22CF355A2073C99700707F8A /* BBEditInfoAvatarCell.m in Sources */,
-				22CF35522073C98300707F8A /* BBMyRewardViewController.m in Sources */,
 				574C6CBC2069254200F5BF55 /* NSString+PPTextField.m in Sources */,
 				22CFD3B0206401780004186D /* PXLineChartView.m in Sources */,
 				22CFD347206141080004186D /* main.m in Sources */,
-				22CF355B2073C99700707F8A /* BBEditInformationViewController.m in Sources */,
 				5726F342206A391B008EED75 /* BBMyListCell.m in Sources */,
 				22CFD3BE206548000004186D /* ConsoleBodyView.m in Sources */,
 				22CFD339206141080004186D /* AppDelegate.m in Sources */,
