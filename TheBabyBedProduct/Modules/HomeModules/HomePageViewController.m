@@ -15,6 +15,7 @@
 #import "ConsoleRoomTemperatureViewController.h"
 #import "MessageViewController.h"
 #import "AddDeviceView.h"
+#import "ScanDeviceCodeViewController.h"
 
 @interface HomePageViewController ()<UITableViewDelegate,UITableViewDataSource>{
     
@@ -40,16 +41,18 @@
 - (void)viewDidLoad {
     [super viewDidLoad]; 
     // Do any additional setup after loading the view.
-//    [self configureAddDeviceView];
-    [self configureView];
+    [self configureAddDeviceView];
+//    [self configureView];
 }
 
 -(void)configureAddDeviceView{
+    __weak typeof (self) weakSelf = self;
     _addDeviceView = [[AddDeviceView alloc]initWithFrame:CGRectZero];
     [self.view addSubview:_addDeviceView];
     _addDeviceView.addDeviceClick = ^{
       //添加设备点击
-        
+        ScanDeviceCodeViewController * scanDeviceCodeVC = [[ScanDeviceCodeViewController alloc]init];
+        [weakSelf.navigationController pushViewController:scanDeviceCodeVC animated:true];
         
     };
     [_addDeviceView mas_remakeConstraints:^(MASConstraintMaker *make) {
