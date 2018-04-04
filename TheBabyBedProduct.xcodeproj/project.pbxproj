@@ -73,6 +73,18 @@
 		57210C812073BB600039D8D5 /* BBMyAccountExpenceRecordListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 57210C802073BB600039D8D5 /* BBMyAccountExpenceRecordListCell.m */; };
 		57210C862073CF260039D8D5 /* BBMyAccountViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 57210C852073CF260039D8D5 /* BBMyAccountViewController.m */; };
 		57210C892073D3770039D8D5 /* BBMyDevieceCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 57210C882073D3770039D8D5 /* BBMyDevieceCell.m */; };
+		57210CA52074C2DE0039D8D5 /* ZFPlayerModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 57210C8B2074C2DE0039D8D5 /* ZFPlayerModel.m */; };
+		57210CA62074C2DE0039D8D5 /* UIWindow+CurrentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 57210C942074C2DE0039D8D5 /* UIWindow+CurrentViewController.m */; };
+		57210CA72074C2DE0039D8D5 /* UIView+CustomControlView.m in Sources */ = {isa = PBXBuildFile; fileRef = 57210C952074C2DE0039D8D5 /* UIView+CustomControlView.m */; };
+		57210CA82074C2DE0039D8D5 /* UIImageView+ZFCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 57210C962074C2DE0039D8D5 /* UIImageView+ZFCache.m */; };
+		57210CA92074C2DE0039D8D5 /* UIViewController+ZFPlayerRotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 57210C972074C2DE0039D8D5 /* UIViewController+ZFPlayerRotation.m */; };
+		57210CAA2074C2DE0039D8D5 /* ZFBrightnessView.m in Sources */ = {isa = PBXBuildFile; fileRef = 57210C9C2074C2DE0039D8D5 /* ZFBrightnessView.m */; };
+		57210CAB2074C2DE0039D8D5 /* ZFPlayer.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 57210C9D2074C2DE0039D8D5 /* ZFPlayer.bundle */; };
+		57210CAC2074C2DE0039D8D5 /* ASValuePopUpView.m in Sources */ = {isa = PBXBuildFile; fileRef = 57210C9F2074C2DE0039D8D5 /* ASValuePopUpView.m */; };
+		57210CAD2074C2DE0039D8D5 /* ZFPlayerControlView.m in Sources */ = {isa = PBXBuildFile; fileRef = 57210CA02074C2DE0039D8D5 /* ZFPlayerControlView.m */; };
+		57210CAE2074C2DE0039D8D5 /* ZFPlayerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 57210CA12074C2DE0039D8D5 /* ZFPlayerView.m */; };
+		57210CAF2074C2DE0039D8D5 /* MMMaterialDesignSpinner.m in Sources */ = {isa = PBXBuildFile; fileRef = 57210CA22074C2DE0039D8D5 /* MMMaterialDesignSpinner.m */; };
+		57210CB02074C2DE0039D8D5 /* ASValueTrackingSlider.m in Sources */ = {isa = PBXBuildFile; fileRef = 57210CA42074C2DE0039D8D5 /* ASValueTrackingSlider.m */; };
 		5726F33B206A2FB2008EED75 /* BBWarningRingSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5726F337206A2FB2008EED75 /* BBWarningRingSettingViewController.m */; };
 		5726F33C206A2FB2008EED75 /* BBWarningRingListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5726F33A206A2FB2008EED75 /* BBWarningRingListCell.m */; };
 		5726F33F206A3185008EED75 /* PPTextfield+EasilyMake.m in Sources */ = {isa = PBXBuildFile; fileRef = 5726F33E206A3185008EED75 /* PPTextfield+EasilyMake.m */; };
@@ -342,6 +354,31 @@
 		57210C852073CF260039D8D5 /* BBMyAccountViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBMyAccountViewController.m; sourceTree = "<group>"; };
 		57210C872073D3770039D8D5 /* BBMyDevieceCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BBMyDevieceCell.h; sourceTree = "<group>"; };
 		57210C882073D3770039D8D5 /* BBMyDevieceCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BBMyDevieceCell.m; sourceTree = "<group>"; };
+		57210C8B2074C2DE0039D8D5 /* ZFPlayerModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZFPlayerModel.m; sourceTree = "<group>"; };
+		57210C8C2074C2DE0039D8D5 /* ZFPlayerControlViewDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZFPlayerControlViewDelegate.h; sourceTree = "<group>"; };
+		57210C8D2074C2DE0039D8D5 /* ZFPlayerControlView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZFPlayerControlView.h; sourceTree = "<group>"; };
+		57210C8E2074C2DE0039D8D5 /* ASValuePopUpView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASValuePopUpView.h; sourceTree = "<group>"; };
+		57210C902074C2DE0039D8D5 /* UIWindow+CurrentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIWindow+CurrentViewController.h"; sourceTree = "<group>"; };
+		57210C912074C2DE0039D8D5 /* UIView+CustomControlView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+CustomControlView.h"; sourceTree = "<group>"; };
+		57210C922074C2DE0039D8D5 /* UIViewController+ZFPlayerRotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+ZFPlayerRotation.h"; sourceTree = "<group>"; };
+		57210C932074C2DE0039D8D5 /* UIImageView+ZFCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+ZFCache.h"; sourceTree = "<group>"; };
+		57210C942074C2DE0039D8D5 /* UIWindow+CurrentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIWindow+CurrentViewController.m"; sourceTree = "<group>"; };
+		57210C952074C2DE0039D8D5 /* UIView+CustomControlView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+CustomControlView.m"; sourceTree = "<group>"; };
+		57210C962074C2DE0039D8D5 /* UIImageView+ZFCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+ZFCache.m"; sourceTree = "<group>"; };
+		57210C972074C2DE0039D8D5 /* UIViewController+ZFPlayerRotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+ZFPlayerRotation.m"; sourceTree = "<group>"; };
+		57210C982074C2DE0039D8D5 /* MMMaterialDesignSpinner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMMaterialDesignSpinner.h; sourceTree = "<group>"; };
+		57210C992074C2DE0039D8D5 /* ZFPlayerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZFPlayerView.h; sourceTree = "<group>"; };
+		57210C9A2074C2DE0039D8D5 /* ASValueTrackingSlider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASValueTrackingSlider.h; sourceTree = "<group>"; };
+		57210C9B2074C2DE0039D8D5 /* ZFPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZFPlayer.h; sourceTree = "<group>"; };
+		57210C9C2074C2DE0039D8D5 /* ZFBrightnessView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZFBrightnessView.m; sourceTree = "<group>"; };
+		57210C9D2074C2DE0039D8D5 /* ZFPlayer.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = ZFPlayer.bundle; sourceTree = "<group>"; };
+		57210C9E2074C2DE0039D8D5 /* ZFPlayerModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZFPlayerModel.h; sourceTree = "<group>"; };
+		57210C9F2074C2DE0039D8D5 /* ASValuePopUpView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASValuePopUpView.m; sourceTree = "<group>"; };
+		57210CA02074C2DE0039D8D5 /* ZFPlayerControlView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZFPlayerControlView.m; sourceTree = "<group>"; };
+		57210CA12074C2DE0039D8D5 /* ZFPlayerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZFPlayerView.m; sourceTree = "<group>"; };
+		57210CA22074C2DE0039D8D5 /* MMMaterialDesignSpinner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMMaterialDesignSpinner.m; sourceTree = "<group>"; };
+		57210CA32074C2DE0039D8D5 /* ZFBrightnessView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZFBrightnessView.h; sourceTree = "<group>"; };
+		57210CA42074C2DE0039D8D5 /* ASValueTrackingSlider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASValueTrackingSlider.m; sourceTree = "<group>"; };
 		5726F337206A2FB2008EED75 /* BBWarningRingSettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBWarningRingSettingViewController.m; sourceTree = "<group>"; };
 		5726F338206A2FB2008EED75 /* BBWarningRingListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBWarningRingListCell.h; sourceTree = "<group>"; };
 		5726F339206A2FB2008EED75 /* BBWarningRingSettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBWarningRingSettingViewController.h; sourceTree = "<group>"; };
@@ -921,6 +958,7 @@
 		22CFD39E2064015D0004186D /* Third */ = {
 			isa = PBXGroup;
 			children = (
+				57210C8A2074C2DE0039D8D5 /* ZFPlayer */,
 				84114B3F20722BD0005A1DC9 /* JPush */,
 				57585AC3206D4428001BB202 /* LWShareView */,
 				5726F399206B8332008EED75 /* WSTableViewTree */,
@@ -1007,6 +1045,46 @@
 				22CF35582073C99700707F8A /* BBEditInformationViewController.m */,
 			);
 			name = "Recovered References";
+			sourceTree = "<group>";
+		};
+		57210C8A2074C2DE0039D8D5 /* ZFPlayer */ = {
+			isa = PBXGroup;
+			children = (
+				57210C8B2074C2DE0039D8D5 /* ZFPlayerModel.m */,
+				57210C8C2074C2DE0039D8D5 /* ZFPlayerControlViewDelegate.h */,
+				57210C8D2074C2DE0039D8D5 /* ZFPlayerControlView.h */,
+				57210C8E2074C2DE0039D8D5 /* ASValuePopUpView.h */,
+				57210C8F2074C2DE0039D8D5 /* Category */,
+				57210C982074C2DE0039D8D5 /* MMMaterialDesignSpinner.h */,
+				57210C992074C2DE0039D8D5 /* ZFPlayerView.h */,
+				57210C9A2074C2DE0039D8D5 /* ASValueTrackingSlider.h */,
+				57210C9B2074C2DE0039D8D5 /* ZFPlayer.h */,
+				57210C9C2074C2DE0039D8D5 /* ZFBrightnessView.m */,
+				57210C9D2074C2DE0039D8D5 /* ZFPlayer.bundle */,
+				57210C9E2074C2DE0039D8D5 /* ZFPlayerModel.h */,
+				57210C9F2074C2DE0039D8D5 /* ASValuePopUpView.m */,
+				57210CA02074C2DE0039D8D5 /* ZFPlayerControlView.m */,
+				57210CA12074C2DE0039D8D5 /* ZFPlayerView.m */,
+				57210CA22074C2DE0039D8D5 /* MMMaterialDesignSpinner.m */,
+				57210CA32074C2DE0039D8D5 /* ZFBrightnessView.h */,
+				57210CA42074C2DE0039D8D5 /* ASValueTrackingSlider.m */,
+			);
+			path = ZFPlayer;
+			sourceTree = "<group>";
+		};
+		57210C8F2074C2DE0039D8D5 /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				57210C902074C2DE0039D8D5 /* UIWindow+CurrentViewController.h */,
+				57210C912074C2DE0039D8D5 /* UIView+CustomControlView.h */,
+				57210C922074C2DE0039D8D5 /* UIViewController+ZFPlayerRotation.h */,
+				57210C932074C2DE0039D8D5 /* UIImageView+ZFCache.h */,
+				57210C942074C2DE0039D8D5 /* UIWindow+CurrentViewController.m */,
+				57210C952074C2DE0039D8D5 /* UIView+CustomControlView.m */,
+				57210C962074C2DE0039D8D5 /* UIImageView+ZFCache.m */,
+				57210C972074C2DE0039D8D5 /* UIViewController+ZFPlayerRotation.m */,
+			);
+			path = Category;
 			sourceTree = "<group>";
 		};
 		5726F336206A2FB2008EED75 /* WarningRingSetting */ = {
@@ -1566,6 +1644,7 @@
 				22CFD3BB2065451D0004186D /* ConsoleHeaderView.xib in Resources */,
 				22CFD3D72067C69B0004186D /* ThermometerView.xib in Resources */,
 				84DD47572068DB7B00D154B5 /* ThresholdTableViewCell.xib in Resources */,
+				57210CAB2074C2DE0039D8D5 /* ZFPlayer.bundle in Resources */,
 				22CFD3EF2067FD8C0004186D /* WettingThresholdSettingViewController.xib in Resources */,
 				5726F3AE206B8D82008EED75 /* expandableImage.png in Resources */,
 				57585AF0206D4850001BB202 /* share_timeline@3x.png in Resources */,
@@ -1684,6 +1763,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5726F3AA206B8537008EED75 /* BBHelpAndSuggestionViewController.m in Sources */,
+				57210CAA2074C2DE0039D8D5 /* ZFBrightnessView.m in Sources */,
 				22CFD3D22067C3120004186D /* ConsoleTemperatureViewController.m in Sources */,
 				57585AD2206D4428001BB202 /* LWShareService.m in Sources */,
 				574C6CD92069262000F5BF55 /* BBLoginRegistHeaderView.m in Sources */,
@@ -1699,6 +1779,7 @@
 				84DD47562068DB7B00D154B5 /* ThresholdTableViewCell.m in Sources */,
 				574C6CBD2069254200F5BF55 /* JKCountDownButton.m in Sources */,
 				22CFD3AC206401780004186D /* PXChartBackgroundView.m in Sources */,
+				57210CA52074C2DE0039D8D5 /* ZFPlayerModel.m in Sources */,
 				84D5BDC7207354010025C757 /* bluetoothPairingViewController.m in Sources */,
 				5726F349206A8428008EED75 /* BBMyListSubTitleCell.m in Sources */,
 				22CFD3FA2067FE060004186D /* TemperatureThresholdSettingViewController.m in Sources */,
@@ -1722,6 +1803,7 @@
 				574C6CD42069262000F5BF55 /* BBMyHeaderView.m in Sources */,
 				22CFD38120614AE90004186D /* HomePageViewController.m in Sources */,
 				8449AC152062354000526935 /* LaunchConfiguration.m in Sources */,
+				57210CAC2074C2DE0039D8D5 /* ASValuePopUpView.m in Sources */,
 				8449AC18206239F900526935 /* GlobalUtility.m in Sources */,
 				22CF35632073CCAB00707F8A /* ScanDeviceCodeViewController.m in Sources */,
 				2263B8EA206BE604005BB15E /* MessageViewController.m in Sources */,
@@ -1735,13 +1817,17 @@
 				5726F359206B437D008EED75 /* BBForgetPasswordViewController.m in Sources */,
 				5726F33C206A2FB2008EED75 /* BBWarningRingListCell.m in Sources */,
 				5726F345206A3F1C008EED75 /* BBSettingManager.m in Sources */,
+				57210CA72074C2DE0039D8D5 /* UIView+CustomControlView.m in Sources */,
 				2263B8F52070A27A005BB15E /* BasePeripheralManager.m in Sources */,
+				57210CAD2074C2DE0039D8D5 /* ZFPlayerControlView.m in Sources */,
 				5726F33B206A2FB2008EED75 /* BBWarningRingSettingViewController.m in Sources */,
+				57210CA92074C2DE0039D8D5 /* UIViewController+ZFPlayerRotation.m in Sources */,
 				5726F3A4206B8332008EED75 /* WSTableViewCell.m in Sources */,
 				8449AC0820620CB300526935 /* BaseResultModel.m in Sources */,
 				57585ACF206D4428001BB202 /* LWShareButton.m in Sources */,
 				574C6CDA2069262000F5BF55 /* BBSettingViewController.m in Sources */,
 				57585ABA206D116C001BB202 /* BBMyDeviceViewController.m in Sources */,
+				57210CA62074C2DE0039D8D5 /* UIWindow+CurrentViewController.m in Sources */,
 				8449AC0B20620D1B00526935 /* BaseViewModel.m in Sources */,
 				22CFD38920614C180004186D /* EarlyEducationViewController.m in Sources */,
 				22CFD3AD206401780004186D /* PXXview.m in Sources */,
@@ -1757,6 +1843,7 @@
 				57210C7E2073B4B80039D8D5 /* BBMyRewardViewController.m in Sources */,
 				57210C792073B4A50039D8D5 /* BBEditInformationViewController.m in Sources */,
 				574C6CE72069272700F5BF55 /* UITableViewCell+EasilyMake.m in Sources */,
+				57210CA82074C2DE0039D8D5 /* UIImageView+ZFCache.m in Sources */,
 				574C6CD82069262000F5BF55 /* BBLoginAndRegistViewController.m in Sources */,
 				84BE5EAF2069EE75007A001D /* KickQulitChartView.m in Sources */,
 				5726F3B4206B99D7008EED75 /* BBAboutUsViewController.m in Sources */,
@@ -1769,6 +1856,7 @@
 				84DD47602068FCD600D154B5 /* WettingChartView.m in Sources */,
 				57210C862073CF260039D8D5 /* BBMyAccountViewController.m in Sources */,
 				22CFD3C6206659AD0004186D /* ConsoleRateViewController.m in Sources */,
+				57210CB02074C2DE0039D8D5 /* ASValueTrackingSlider.m in Sources */,
 				8449AC122062338F00526935 /* MBPAlertView.m in Sources */,
 				5726F3C1206C8F13008EED75 /* BBEarlyEducationCell.m in Sources */,
 				5726F34F206A8DC3008EED75 /* UIView+PP_Frame.m in Sources */,
@@ -1781,6 +1869,7 @@
 				8449AC1B20623ACC00526935 /* GlobalTool.m in Sources */,
 				574C6CED20693D2400F5BF55 /* UILabel+EasilyMake.m in Sources */,
 				574C6CBE2069254200F5BF55 /* PPLabel.m in Sources */,
+				57210CAF2074C2DE0039D8D5 /* MMMaterialDesignSpinner.m in Sources */,
 				57585AD4206D4428001BB202 /* LWShareCollectionViewCell.m in Sources */,
 				84DD475D2068FC7600D154B5 /* WettingChartViewController.m in Sources */,
 				22CFD378206146AF0004186D /* BaseTabBarViewController.m in Sources */,
@@ -1800,6 +1889,7 @@
 				22CFD339206141080004186D /* AppDelegate.m in Sources */,
 				2263B8E7206BD901005BB15E /* HomeHeaderView.m in Sources */,
 				2263B8E3206BCBB9005BB15E /* HomeTableViewCell.m in Sources */,
+				57210CAE2074C2DE0039D8D5 /* ZFPlayerView.m in Sources */,
 				22CFD3D52067C58B0004186D /* ThermometerView.m in Sources */,
 				22CFD3DD2067D8160004186D /* RoomIndicatorView.m in Sources */,
 				84D5BDCD2073579A0025C757 /* AddDeviceView.m in Sources */,
