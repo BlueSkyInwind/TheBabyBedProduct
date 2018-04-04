@@ -50,7 +50,6 @@
     _addDeviceView.addDeviceClick = ^{
       //添加设备点击
         
-        
     };
     [_addDeviceView mas_remakeConstraints:^(MASConstraintMaker *make) {
         make.edges.equalTo(self.view);
@@ -166,8 +165,6 @@
     }];
     [popView show];
 }
-
-
 
 /*
 #pragma mark - Navigation
