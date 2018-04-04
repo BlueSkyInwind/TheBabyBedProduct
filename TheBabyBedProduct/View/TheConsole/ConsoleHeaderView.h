@@ -18,6 +18,7 @@ typedef void (^SettingButtonClick)(UIButton * button);
 @property (weak, nonatomic) IBOutlet UILabel *statusLabel;
 @property (weak, nonatomic) IBOutlet UIButton *backBtn;
 
+@property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 
 @property (copy, nonatomic)BackButtonClick backButtonClick;
 @property (copy, nonatomic)SettingButtonClick settingButtonClick;

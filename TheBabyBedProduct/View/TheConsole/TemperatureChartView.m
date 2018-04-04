@@ -60,16 +60,16 @@
 }
 
 - (NSArray *)lines:(BOOL)fill {
-    NSArray *pointsArr = @[                           @{@"xValue" : @"1:00", @"yValue" : @"39"},
-                                                      @{@"xValue" : @"2:00", @"yValue" : @"37"},
-                                                      @{@"xValue" : @"3:00", @"yValue" : @"39.5"},
-                                                      @{@"xValue" : @"5:00", @"yValue" : @"38"},
-                                                      @{@"xValue" : @"6:00", @"yValue" : @"36"}];
+    NSArray *pointsArr = @[                           @{@"xValue" : @"1:00", @"yValue" : @"34"},
+                                                      @{@"xValue" : @"2:00", @"yValue" : @"33"},
+                                                      @{@"xValue" : @"3:00", @"yValue" : @"34.5"},
+                                                      @{@"xValue" : @"5:00", @"yValue" : @"32"},
+                                                      @{@"xValue" : @"6:00", @"yValue" : @"33"}];
     
     NSArray *pointsArr1 = @[
-                            @{@"xValue" : @"12:00", @"yValue" : @"37"},
-                            @{@"xValue" : @"13:00", @"yValue" : @"38"},
-                            @{@"xValue" : @"14:00", @"yValue" : @"40"}];
+                            @{@"xValue" : @"12:00", @"yValue" : @"31"},
+                            @{@"xValue" : @"13:00", @"yValue" : @"32"},
+                            @{@"xValue" : @"14:00", @"yValue" : @"33.6"}];
     
     NSMutableArray *points = @[].mutableCopy;
     for (int i = 0; i < pointsArr.count; i++) {
@@ -106,7 +106,7 @@
 #pragma mark PXLineChartViewDelegate
 //通用设置
 - (NSDictionary<NSString*, id> *)lineChartViewAxisAttributes {
-    return @{yElementInterval : @"40",
+    return @{yElementInterval : @"35",
              xElementInterval : @"40",
              yMargin : @"50",
              xMargin : @"25",

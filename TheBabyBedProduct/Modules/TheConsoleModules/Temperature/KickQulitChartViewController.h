@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface KickQulitChartViewController : UIViewController
+@interface KickQulitChartViewController : BaseViewController
 
 @end
