@@ -169,11 +169,11 @@
     }];
     [popView show];
 }
+
+
 -(void)pushScanVC{
-    
     ScanDeviceCodeViewController *  scanDeviceCodeVC = [[ScanDeviceCodeViewController alloc]init];
     [self.navigationController pushViewController:scanDeviceCodeVC animated:true];
-    
 }
 
 /*

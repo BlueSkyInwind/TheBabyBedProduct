@@ -179,11 +179,14 @@
 		8449AC152062354000526935 /* LaunchConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = 8449AC142062354000526935 /* LaunchConfiguration.m */; };
 		8449AC18206239F900526935 /* GlobalUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = 8449AC17206239F900526935 /* GlobalUtility.m */; };
 		8449AC1B20623ACC00526935 /* GlobalTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 8449AC1A20623ACC00526935 /* GlobalTool.m */; };
+		8490CFBF20747CFC00D416C1 /* ConfigurationWifiViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8490CFBD20747CFC00D416C1 /* ConfigurationWifiViewController.m */; };
+		8490CFC020747CFC00D416C1 /* ConfigurationWifiViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8490CFBE20747CFC00D416C1 /* ConfigurationWifiViewController.xib */; };
+		8490CFC3207480C200D416C1 /* DeviceConnectingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8490CFC2207480C200D416C1 /* DeviceConnectingViewController.m */; };
+		8490CFC72074814200D416C1 /* DeviceConnectAnimationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8490CFC62074814200D416C1 /* DeviceConnectAnimationView.m */; };
 		84BE5EAF2069EE75007A001D /* KickQulitChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = 84BE5EAE2069EE75007A001D /* KickQulitChartView.m */; };
 		84BE5EB22069F114007A001D /* KickQulitChartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84BE5EB12069F114007A001D /* KickQulitChartViewController.m */; };
 		84BE5EB6206A48B5007A001D /* GlobalPopView.m in Sources */ = {isa = PBXBuildFile; fileRef = 84BE5EB5206A48B5007A001D /* GlobalPopView.m */; };
 		84D5BDC7207354010025C757 /* bluetoothPairingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84D5BDC6207354010025C757 /* bluetoothPairingViewController.m */; };
-		84D5BDCA2073560F0025C757 /* DeviceConnectingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84D5BDC92073560F0025C757 /* DeviceConnectingViewController.m */; };
 		84D5BDCD2073579A0025C757 /* AddDeviceView.m in Sources */ = {isa = PBXBuildFile; fileRef = 84D5BDCC2073579A0025C757 /* AddDeviceView.m */; };
 		84DD47562068DB7B00D154B5 /* ThresholdTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 84DD47542068DB7B00D154B5 /* ThresholdTableViewCell.m */; };
 		84DD47572068DB7B00D154B5 /* ThresholdTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84DD47552068DB7B00D154B5 /* ThresholdTableViewCell.xib */; };
@@ -517,6 +520,13 @@
 		8449AC17206239F900526935 /* GlobalUtility.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GlobalUtility.m; sourceTree = "<group>"; };
 		8449AC1920623ACC00526935 /* GlobalTool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GlobalTool.h; sourceTree = "<group>"; };
 		8449AC1A20623ACC00526935 /* GlobalTool.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GlobalTool.m; sourceTree = "<group>"; };
+		8490CFBC20747CFC00D416C1 /* ConfigurationWifiViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ConfigurationWifiViewController.h; sourceTree = "<group>"; };
+		8490CFBD20747CFC00D416C1 /* ConfigurationWifiViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ConfigurationWifiViewController.m; sourceTree = "<group>"; };
+		8490CFBE20747CFC00D416C1 /* ConfigurationWifiViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ConfigurationWifiViewController.xib; sourceTree = "<group>"; };
+		8490CFC1207480C200D416C1 /* DeviceConnectingViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DeviceConnectingViewController.h; sourceTree = "<group>"; };
+		8490CFC2207480C200D416C1 /* DeviceConnectingViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DeviceConnectingViewController.m; sourceTree = "<group>"; };
+		8490CFC52074814200D416C1 /* DeviceConnectAnimationView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DeviceConnectAnimationView.h; sourceTree = "<group>"; };
+		8490CFC62074814200D416C1 /* DeviceConnectAnimationView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DeviceConnectAnimationView.m; sourceTree = "<group>"; };
 		84BE5EAD2069EE75007A001D /* KickQulitChartView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KickQulitChartView.h; sourceTree = "<group>"; };
 		84BE5EAE2069EE75007A001D /* KickQulitChartView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KickQulitChartView.m; sourceTree = "<group>"; };
 		84BE5EB02069F114007A001D /* KickQulitChartViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KickQulitChartViewController.h; sourceTree = "<group>"; };
@@ -525,8 +535,6 @@
 		84BE5EB5206A48B5007A001D /* GlobalPopView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GlobalPopView.m; sourceTree = "<group>"; };
 		84D5BDC5207354010025C757 /* bluetoothPairingViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = bluetoothPairingViewController.h; sourceTree = "<group>"; };
 		84D5BDC6207354010025C757 /* bluetoothPairingViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = bluetoothPairingViewController.m; sourceTree = "<group>"; };
-		84D5BDC82073560F0025C757 /* DeviceConnectingViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DeviceConnectingViewController.h; sourceTree = "<group>"; };
-		84D5BDC92073560F0025C757 /* DeviceConnectingViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DeviceConnectingViewController.m; sourceTree = "<group>"; };
 		84D5BDCB2073579A0025C757 /* AddDeviceView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AddDeviceView.h; sourceTree = "<group>"; };
 		84D5BDCC2073579A0025C757 /* AddDeviceView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AddDeviceView.m; sourceTree = "<group>"; };
 		84DD47532068DB7B00D154B5 /* ThresholdTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ThresholdTableViewCell.h; sourceTree = "<group>"; };
@@ -854,6 +862,7 @@
 		22CFD3982062AC480004186D /* View */ = {
 			isa = PBXGroup;
 			children = (
+				8490CFC42074811E00D416C1 /* BLE */,
 				22CF35652073DAEA00707F8A /* QRscanView */,
 				84BE5EB3206A4863007A001D /* popView */,
 				22CFD39A2062AC810004186D /* TheConsole */,
@@ -1412,6 +1421,15 @@
 			path = costom;
 			sourceTree = "<group>";
 		};
+		8490CFC42074811E00D416C1 /* BLE */ = {
+			isa = PBXGroup;
+			children = (
+				8490CFC52074814200D416C1 /* DeviceConnectAnimationView.h */,
+				8490CFC62074814200D416C1 /* DeviceConnectAnimationView.m */,
+			);
+			path = BLE;
+			sourceTree = "<group>";
+		};
 		84BE5EB3206A4863007A001D /* popView */ = {
 			isa = PBXGroup;
 			children = (
@@ -1426,11 +1444,14 @@
 			children = (
 				84D5BDC5207354010025C757 /* bluetoothPairingViewController.h */,
 				84D5BDC6207354010025C757 /* bluetoothPairingViewController.m */,
-				84D5BDC82073560F0025C757 /* DeviceConnectingViewController.h */,
-				84D5BDC92073560F0025C757 /* DeviceConnectingViewController.m */,
 				22CF35602073CCAB00707F8A /* ScanDeviceCodeViewController.h */,
 				22CF35612073CCAB00707F8A /* ScanDeviceCodeViewController.m */,
 				22CF35622073CCAB00707F8A /* ScanDeviceCodeViewController.xib */,
+				8490CFBC20747CFC00D416C1 /* ConfigurationWifiViewController.h */,
+				8490CFBD20747CFC00D416C1 /* ConfigurationWifiViewController.m */,
+				8490CFBE20747CFC00D416C1 /* ConfigurationWifiViewController.xib */,
+				8490CFC1207480C200D416C1 /* DeviceConnectingViewController.h */,
+				8490CFC2207480C200D416C1 /* DeviceConnectingViewController.m */,
 			);
 			path = BLEModules;
 			sourceTree = "<group>";
@@ -1556,6 +1577,7 @@
 				57585AF4206D485C001BB202 /* share_qq@2x.png in Resources */,
 				57585AE8206D4839001BB202 /* share_weibo@2x.png in Resources */,
 				57585AF3206D485C001BB202 /* share_qq@3x.png in Resources */,
+				8490CFC020747CFC00D416C1 /* ConfigurationWifiViewController.xib in Resources */,
 				57585AEF206D4850001BB202 /* share_timeline@2x.png in Resources */,
 				22CFD3DF2067D82E0004186D /* RoomIndicatorView.xib in Resources */,
 				22CFD341206141080004186D /* Assets.xcassets in Resources */,
@@ -1723,6 +1745,7 @@
 				22CFD38120614AE90004186D /* HomePageViewController.m in Sources */,
 				8449AC152062354000526935 /* LaunchConfiguration.m in Sources */,
 				8449AC18206239F900526935 /* GlobalUtility.m in Sources */,
+				8490CFC72074814200D416C1 /* DeviceConnectAnimationView.m in Sources */,
 				22CF35632073CCAB00707F8A /* ScanDeviceCodeViewController.m in Sources */,
 				2263B8EA206BE604005BB15E /* MessageViewController.m in Sources */,
 				2266C1B720692D73004F653A /* UIFont+YX_Font.m in Sources */,
@@ -1749,7 +1772,6 @@
 				22CFD38520614B420004186D /* TheConsoleViewController.m in Sources */,
 				22CFD3DA2067D5B10004186D /* ConsoleRoomTemperatureViewController.m in Sources */,
 				5726F34C206A857F008EED75 /* BBMyListOnlySubtitleCell.m in Sources */,
-				84D5BDCA2073560F0025C757 /* DeviceConnectingViewController.m in Sources */,
 				5726F3B1206B9988008EED75 /* BBSubmitSuggestionViewController.m in Sources */,
 				22CFD3C3206652B70004186D /* ConsoleRateView.m in Sources */,
 				2263B8F220709EA2005BB15E /* BaseCentralManager.m in Sources */,
@@ -1773,6 +1795,7 @@
 				5726F3C1206C8F13008EED75 /* BBEarlyEducationCell.m in Sources */,
 				5726F34F206A8DC3008EED75 /* UIView+PP_Frame.m in Sources */,
 				22CFD3AF206401780004186D /* PXLineChartConst.m in Sources */,
+				8490CFC3207480C200D416C1 /* DeviceConnectingViewController.m in Sources */,
 				22CFD3972062A78C0004186D /* HistoryFeverViewController.m in Sources */,
 				2266C1BA20694A61004F653A /* CryingChartView.m in Sources */,
 				22CFD3EE2067FD8C0004186D /* WettingThresholdSettingViewController.m in Sources */,
@@ -1793,6 +1816,7 @@
 				57585AD3206D4428001BB202 /* LWShareContentView.m in Sources */,
 				2263B8ED206BE81B005BB15E /* UIImage+category.m in Sources */,
 				574C6CBC2069254200F5BF55 /* NSString+PPTextField.m in Sources */,
+				8490CFBF20747CFC00D416C1 /* ConfigurationWifiViewController.m in Sources */,
 				22CFD3B0206401780004186D /* PXLineChartView.m in Sources */,
 				22CFD347206141080004186D /* main.m in Sources */,
 				5726F342206A391B008EED75 /* BBMyListCell.m in Sources */,
@@ -1950,9 +1974,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = 6W7BW6GZZR;
+				DEVELOPMENT_TEAM = WB5UAUH8M2;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/TheBabyBedProduct/Third/MOBSDK/ShareSDK/Support/PlatformSDK/QQSDK",
@@ -2000,8 +2025,10 @@
 					"\"pop\"",
 					"-ObjC",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.yadeanTest;
+				PRODUCT_BUNDLE_IDENTIFIER = com.bb.adeanTest;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -2012,9 +2039,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = 6W7BW6GZZR;
+				DEVELOPMENT_TEAM = WB5UAUH8M2;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/TheBabyBedProduct/Third/MOBSDK/ShareSDK/Support/PlatformSDK/QQSDK",
@@ -2062,8 +2090,10 @@
 					"\"pop\"",
 					"-ObjC",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.yadeanTest;
+				PRODUCT_BUNDLE_IDENTIFIER = com.bb.adeanTest;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;

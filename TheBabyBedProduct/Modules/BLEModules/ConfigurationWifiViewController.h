@@ -1,5 +1,5 @@
 //
-//  DeviceConnectingViewController.h
+//  ConfigurationWifiViewController.h
 //  TheBabyBedProduct
 //
 //  Created by admin on 2018/4/4.
@@ -8,6 +8,6 @@
 
 #import "BaseViewController.h"
 
-@interface DeviceConnectingViewController : BaseViewController
+@interface ConfigurationWifiViewController : BaseViewController
 
 @end

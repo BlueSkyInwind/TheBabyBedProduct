@@ -1,24 +1,23 @@
 //
-//  DeviceConnectingViewController.m
+//  ConfigurationWifiViewController.m
 //  TheBabyBedProduct
 //
 //  Created by admin on 2018/4/4.
 //  Copyright © 2018年 Wangyongxin. All rights reserved.
 //
 
-#import "DeviceConnectingViewController.h"
+#import "ConfigurationWifiViewController.h"
 
-@interface DeviceConnectingViewController ()
+@interface ConfigurationWifiViewController ()
 
 @end
 
-@implementation DeviceConnectingViewController
+@implementation ConfigurationWifiViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
-    self.title = @"设备链接";
-    
+    // Do any additional setup after loading the view from its nib.
+    self.title = @"配置";
     
 }
 
