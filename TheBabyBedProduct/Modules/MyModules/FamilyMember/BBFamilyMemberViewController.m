@@ -11,6 +11,7 @@
 #import <ShareSDK/ShareSDK.h>
 #import <ShareSDKUI/ShareSDK+SSUI.h>
 #import "LWShareService.h"
+#import "BBPermissionManageViewController.h"
 
 @interface BBFamilyMemberViewController ()<UITableViewDelegate,UITableViewDataSource>
 {
@@ -125,7 +126,17 @@
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     BBFamilyMemberListCell *cell = [BBFamilyMemberListCell bb_cellMakeWithTableView:tableView];
-    [cell setupCellWithUser:nil];
+    [cell setupCellWithUser:nil isleft:_isLeft];
+    cell.setOrCancelBlock = ^{
+        if (_isLeft) {
+            BBPermissionManageViewController *permissionManagVC = [[BBPermissionManageViewController alloc]init];
+            [self.navigationController pushViewController:permissionManagVC animated:YES];
+        }
+    };
+    
+    cell.refuseBlock = ^{
+#warning todo 拒绝
+    };
     return cell;
 }
 
@@ -138,6 +149,8 @@
     [_bingingBT bb_btSetTitleColor:k_color_appOrange];
     [_applyRecordBT bb_btSetTitleColor:k_color_515151];
     _isLeft = YES;
+    
+    [self.tableView reloadData];
 }
 -(void)applyRecordActin
 {
@@ -147,6 +160,8 @@
     [_bingingBT bb_btSetTitleColor:k_color_515151];
     [_applyRecordBT bb_btSetTitleColor:k_color_appOrange];
     _isLeft = NO;
+    
+     [self.tableView reloadData];
 }
 
 -(NSMutableArray *)bindingedUsers

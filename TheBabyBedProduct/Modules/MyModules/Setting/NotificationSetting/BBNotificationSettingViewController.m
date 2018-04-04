@@ -21,7 +21,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.view.backgroundColor = k_color_vcBg;
-    
+    self.title = @"通知设置";
     [self creatUI];
 }
 -(void)creatUI

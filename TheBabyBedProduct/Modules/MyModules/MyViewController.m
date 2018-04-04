@@ -13,8 +13,10 @@
 #import "BBSettingViewController.h"
 #import "BBHelpAndSuggestionViewController.h"
 #import "BBMyDeviceViewController.h"
-#import "BBAccountNumberViewController.h"
+#import "BBMyAccountViewController.h"
 #import "BBFamilyMemberViewController.h"
+#import "BBMyRewardViewController.h"
+#import "BBEditInformationViewController.h"
 
 @interface MyViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property(nonatomic,strong) UITableView *tableView;
@@ -38,6 +40,11 @@
     BBMyHeaderView *headerV = [[BBMyHeaderView alloc]initWithFrame:CGRectMake(0, -20, _k_w, 264+20) user:nil];
     [self.view addSubview:headerV];
     
+    headerV.avatarClickedBlock = ^{
+        BBEditInformationViewController *editVC = [[BBEditInformationViewController alloc]init];
+        [self.navigationController pushViewController:editVC animated:YES];
+    };
+    
     headerV.loginOrRegistBlock = ^{
         //登录/注册
         [self goLoginRegistVc];
@@ -57,8 +64,8 @@
     switch (funcType) {
         case BBMyHeaderViewFuncTypeMyAccount:
         {
-            BBAccountNumberViewController *accountNumberVC = [[BBAccountNumberViewController alloc] init];
-            [self.navigationController pushViewController:accountNumberVC animated:YES];
+            BBMyAccountViewController *myAccountVC = [[BBMyAccountViewController alloc] init];
+            [self.navigationController pushViewController:myAccountVC animated:YES];
         }
             break;
             case BBMyHeaderViewFuncTypeMyDevice:
@@ -109,7 +116,9 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (indexPath.row == 0) {
-        //
+        //任务奖励
+        BBMyRewardViewController *myRewardVC = [[BBMyRewardViewController alloc]init];
+        [self.navigationController pushViewController:myRewardVC animated:YES];
     }else if (indexPath.row == 1){
         //帮助建议
         BBHelpAndSuggestionViewController *helpSuggestionVC = [[BBHelpAndSuggestionViewController alloc]init];

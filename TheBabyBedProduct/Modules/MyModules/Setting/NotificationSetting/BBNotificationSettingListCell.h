@@ -10,9 +10,11 @@
 
 typedef NS_ENUM(NSInteger,BBNotificationSettingListCellStyle) {
     BBNotificationSettingListCellStyleSwitch = 0,
-    BBNotificationSettingListCellStyleArrow
+    BBNotificationSettingListCellStyleArrow,
+    BBNotificationSettingListCellStyleEditInformation
 };
 
 @interface BBNotificationSettingListCell : UITableViewCell
+@property(nonatomic,strong) UILabel *subTextLB; //此处共用了，放到外层去处理对应信息变化
 -(void)setupCellStyle:(BBNotificationSettingListCellStyle)cellStyle title:(NSString *)title;
 @end

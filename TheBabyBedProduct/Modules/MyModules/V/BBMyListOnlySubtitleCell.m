@@ -42,7 +42,7 @@
     self.subTextLB = [UILabel bb_lbMakeWithSuperV:self.contentView fontSize:16 alignment:NSTextAlignmentRight textColor:k_color_515151];
     
     CGFloat totalH = 47;
-    CGFloat leftMargin = 20;
+    CGFloat leftMargin = 10;
     CGFloat imgW = 19;
     CGFloat imgY = (totalH-19)/2;
     self.imgV.frame = CGRectMake(leftMargin, imgY, imgW, imgW);

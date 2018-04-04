@@ -11,6 +11,7 @@
 
 @interface BBFamilyMemberListCell : UITableViewCell
 @property(nonatomic,copy) void(^setOrCancelBlock)(void);
+@property(nonatomic,copy) void(^refuseBlock)(void);
 
--(void)setupCellWithUser:(BBUser *)user;
+-(void)setupCellWithUser:(BBUser *)user isleft:(BOOL)isLeft;
 @end
