@@ -16,6 +16,7 @@
 #import "MessageViewController.h"
 #import "AddDeviceView.h"
 #import "ScanDeviceCodeViewController.h"
+#import "ScanDeviceCodeViewController.h"
 
 @interface HomePageViewController ()<UITableViewDelegate,UITableViewDataSource>{
     
@@ -41,8 +42,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad]; 
     // Do any additional setup after loading the view.
-    [self configureAddDeviceView];
-//    [self configureView];
+//    [self configureAddDeviceView];
+    [self configureView];
 }
 
 -(void)configureAddDeviceView{
@@ -53,7 +54,6 @@
       //添加设备点击
         ScanDeviceCodeViewController * scanDeviceCodeVC = [[ScanDeviceCodeViewController alloc]init];
         [weakSelf.navigationController pushViewController:scanDeviceCodeVC animated:true];
-        
     };
     [_addDeviceView mas_remakeConstraints:^(MASConstraintMaker *make) {
         make.edges.equalTo(self.view);
@@ -162,15 +162,19 @@
 }
 
 -(void)popAlertView{
-    
-      popView =  [GlobalPopView initWithTitle:nil content:@"谨防骗子，提高警惕，这是一个app，嘻嘻嘻嘻" cancelTitle:@"取消" sureTitle:@"确定" clickcompletion:^(NSInteger index) {
-      
+    __weak typeof (self) weakSelf = self;
+      popView =  [GlobalPopView initWithTitle:@"扫一扫" content:@"扫描设备二维码入口，这是一个app，嘻嘻嘻嘻" cancelTitle:@"取消" sureTitle:@"确定" clickcompletion:^(NSInteger index) {
+          [weakSelf pushScanVC];
       [popView dismiss];
     }];
     [popView show];
 }
 
 
+-(void)pushScanVC{
+    ScanDeviceCodeViewController *  scanDeviceCodeVC = [[ScanDeviceCodeViewController alloc]init];
+    [self.navigationController pushViewController:scanDeviceCodeVC animated:true];
+}
 
 /*
 #pragma mark - Navigation

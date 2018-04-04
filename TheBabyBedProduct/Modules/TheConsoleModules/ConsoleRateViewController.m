@@ -72,7 +72,7 @@
     
     __weak typeof (self) weakSelf = self;
     _headerView = [[NSBundle mainBundle]loadNibNamed:@"ConsoleHeaderView" owner:self options:nil].lastObject;
-    _headerView.consoleHeaderLabel.text = self.title;
+    _headerView.titleLabel.text = self.title;
     [self.view addSubview:_headerView];
     _headerView.backButtonClick = ^(UIButton *button) {
         [weakSelf.navigationController popViewControllerAnimated:true];

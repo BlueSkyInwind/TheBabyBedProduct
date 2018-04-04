@@ -33,8 +33,8 @@
     [self addSubview:addview];
     [addview mas_remakeConstraints:^(MASConstraintMaker *make) {
         make.centerX.equalTo(self.mas_centerX);
-        make.top.equalTo(self.mas_top).with.offset(64);
-        make.width.height.equalTo(@80);
+        make.top.equalTo(self.mas_top).with.offset(130);
+        make.width.height.equalTo(@60);
     }];
     
     _addbutton = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -44,8 +44,8 @@
     [_addbutton mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerX.equalTo(addview.mas_centerX);
         make.top.equalTo(addview.mas_top).offset(5);
-        make.width.equalTo(@28);
-        make.height.equalTo(@28);
+        make.width.equalTo(@30);
+        make.height.equalTo(@30);
     }];
     
     UILabel * displayLabel = [[UILabel alloc]init];

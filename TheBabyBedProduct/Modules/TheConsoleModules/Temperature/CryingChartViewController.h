@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface CryingChartViewController : UIViewController
+@interface CryingChartViewController : BaseViewController
 
 @end
