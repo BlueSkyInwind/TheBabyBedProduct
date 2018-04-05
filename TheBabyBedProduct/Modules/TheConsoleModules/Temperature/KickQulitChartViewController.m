@@ -21,6 +21,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.title = @"踢被";
+    [self addBackItem];
     [self configureView];
 }
 

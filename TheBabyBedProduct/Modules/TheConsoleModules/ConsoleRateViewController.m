@@ -33,6 +33,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    [self addBackItem];
+
     [self initVcData];
 }
 -(void)viewWillAppear:(BOOL)animated{

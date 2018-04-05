@@ -89,7 +89,7 @@
     
     [_homeTableView registerClass:[HomeTableViewCell class] forCellReuseIdentifier:@"HomeTableViewCell"];
     
-    _headerView = [HomeHeaderView initWithBabyStatus:@[@"home_crystatus_Icon",@"home_happystatus_Icon",@"home_histroy_Icon"]];
+    _headerView = [HomeHeaderView initWithBabyStatus:@[@"home_histroy_Icon",@"home_crystatus_Icon",@"home_happystatus_Icon"]];
     _homeTableView.tableHeaderView = _headerView;
     
 }
