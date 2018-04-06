@@ -24,6 +24,7 @@
 //新浪微博SDK头文件
 #import "WeiboSDK.h"
 
+#import "NetWorkRequestManager.h"
 
 
 @interface AppDelegate ()<JPUSHRegisterDelegate,UNUserNotificationCenterDelegate>
@@ -35,6 +36,24 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+//    NSMutableDictionary *dict = [NSMutableDictionary dictionary];
+//    [dict setValue:@"13127682098" forKey:@"phone"];
+//    [dict setValue:@0 forKey:@"type"];
+//    [dict setValue:@"123456" forKey:@"password"];
+//    [[NetWorkRequestManager sharedNetWorkManager] PostWithURL:@"http://114.55.129.5:8788/api/login" isNeedNetStatus:NO isNeedWait:YES parameters:dict finished:^(EnumServerStatus status, id object) {
+//        
+//    } failure:^(EnumServerStatus status, id object) {
+//        
+//        
+//    }];
+    
+    [BBRequestTool bb_requestLoginWithPhone:@"13127682098" password:@"123456" loginType:BBLoginTypeDefault uid:nil openid:nil successBlock:^(EnumServerStatus status, id object) {
+        NSLog(@"success %@",object);
+    } failureBlock:^(EnumServerStatus status, id object) {
+        NSLog(@"filed %@",object);
+    }];
+    
+    
     /**初始化ShareSDK应用
      
      @param activePlatforms

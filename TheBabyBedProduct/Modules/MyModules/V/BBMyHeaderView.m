@@ -31,6 +31,13 @@
     }
     return self;
 }
+-(void)updateUserMess
+{
+    BBUser *user = [BBUser bb_getUser];
+    [self judgeItemShowOrHidden];
+    self.userNameLB.text = user.username;
+
+}
 
 -(void)creatUI
 {
@@ -104,6 +111,11 @@
         bt.titleLabel.font = [UIFont systemFontOfSize:12];
         [bt addTarget:self action:@selector(funcAction:) forControlEvents:UIControlEventTouchUpInside];
     }
+
+    [self judgeItemShowOrHidden];
+}
+-(void)judgeItemShowOrHidden
+{
 #warning todo
     if (BBUserHelpers.hasLogined) {
         self.userNameLB.text = @"跳跳的爸爸";
@@ -133,7 +145,7 @@
 -(void)loginOrRegistAction
 {
     if (self.loginOrRegistBlock) {
-        self.loginOrRegistBlock();
+        self.loginOrRegistBlock(self);
     }
 }
 

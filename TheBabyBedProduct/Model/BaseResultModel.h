@@ -7,11 +7,20 @@
 //
 
 #import <Foundation/Foundation.h>
+@class BBUser;
 
 @interface BaseResultModel : JSONModel
 
 @property (nonatomic, strong)NSString<Optional> *msg;
-@property (nonatomic, strong)NSString<Optional> * code;
-@property (nonatomic, strong)id<Optional> data;
+//@property (nonatomic, strong)NSString<Optional> * code;
+//@property (nonatomic, strong)id<Optional> data;
+@property(nonatomic,assign) int code;
 
 @end
+
+//------- login start ----
+@interface BBLoginResultModel : BaseResultModel
+@property(nonatomic,strong) BBUser *data;
+@end
+
+//------- login end ----

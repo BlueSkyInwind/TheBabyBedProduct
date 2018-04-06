@@ -85,6 +85,8 @@
 		57210CAE2074C2DE0039D8D5 /* ZFPlayerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 57210CA12074C2DE0039D8D5 /* ZFPlayerView.m */; };
 		57210CAF2074C2DE0039D8D5 /* MMMaterialDesignSpinner.m in Sources */ = {isa = PBXBuildFile; fileRef = 57210CA22074C2DE0039D8D5 /* MMMaterialDesignSpinner.m */; };
 		57210CB02074C2DE0039D8D5 /* ASValueTrackingSlider.m in Sources */ = {isa = PBXBuildFile; fileRef = 57210CA42074C2DE0039D8D5 /* ASValueTrackingSlider.m */; };
+		57210D09207736040039D8D5 /* NetWorkRequestManager+BBRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 57210D08207736040039D8D5 /* NetWorkRequestManager+BBRequest.m */; };
+		57210D0C207744780039D8D5 /* GlobalTool+BBHandleCode.m in Sources */ = {isa = PBXBuildFile; fileRef = 57210D0B207744780039D8D5 /* GlobalTool+BBHandleCode.m */; };
 		5726F33B206A2FB2008EED75 /* BBWarningRingSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5726F337206A2FB2008EED75 /* BBWarningRingSettingViewController.m */; };
 		5726F33C206A2FB2008EED75 /* BBWarningRingListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5726F33A206A2FB2008EED75 /* BBWarningRingListCell.m */; };
 		5726F33F206A3185008EED75 /* PPTextfield+EasilyMake.m in Sources */ = {isa = PBXBuildFile; fileRef = 5726F33E206A3185008EED75 /* PPTextfield+EasilyMake.m */; };
@@ -382,6 +384,11 @@
 		57210CA22074C2DE0039D8D5 /* MMMaterialDesignSpinner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMMaterialDesignSpinner.m; sourceTree = "<group>"; };
 		57210CA32074C2DE0039D8D5 /* ZFBrightnessView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZFBrightnessView.h; sourceTree = "<group>"; };
 		57210CA42074C2DE0039D8D5 /* ASValueTrackingSlider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASValueTrackingSlider.m; sourceTree = "<group>"; };
+		57210D06207734960039D8D5 /* BBRequestUrlMacros.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BBRequestUrlMacros.h; sourceTree = "<group>"; };
+		57210D07207736040039D8D5 /* NetWorkRequestManager+BBRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NetWorkRequestManager+BBRequest.h"; sourceTree = "<group>"; };
+		57210D08207736040039D8D5 /* NetWorkRequestManager+BBRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NetWorkRequestManager+BBRequest.m"; sourceTree = "<group>"; };
+		57210D0A207744780039D8D5 /* GlobalTool+BBHandleCode.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "GlobalTool+BBHandleCode.h"; sourceTree = "<group>"; };
+		57210D0B207744780039D8D5 /* GlobalTool+BBHandleCode.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "GlobalTool+BBHandleCode.m"; sourceTree = "<group>"; };
 		5726F337206A2FB2008EED75 /* BBWarningRingSettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBWarningRingSettingViewController.m; sourceTree = "<group>"; };
 		5726F338206A2FB2008EED75 /* BBWarningRingListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBWarningRingListCell.h; sourceTree = "<group>"; };
 		5726F339206A2FB2008EED75 /* BBWarningRingSettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBWarningRingSettingViewController.h; sourceTree = "<group>"; };
@@ -798,6 +805,9 @@
 				8449AC1920623ACC00526935 /* GlobalTool.h */,
 				8449AC1A20623ACC00526935 /* GlobalTool.m */,
 				574C6CEE206943B500F5BF55 /* BBMacros.h */,
+				57210D06207734960039D8D5 /* BBRequestUrlMacros.h */,
+				57210D0A207744780039D8D5 /* GlobalTool+BBHandleCode.h */,
+				57210D0B207744780039D8D5 /* GlobalTool+BBHandleCode.m */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -1468,6 +1478,8 @@
 			children = (
 				8449AC0C2062283300526935 /* NetWorkRequestManager.h */,
 				8449AC0D2062283300526935 /* NetWorkRequestManager.m */,
+				57210D07207736040039D8D5 /* NetWorkRequestManager+BBRequest.h */,
+				57210D08207736040039D8D5 /* NetWorkRequestManager+BBRequest.m */,
 			);
 			path = NetWorkModules;
 			sourceTree = "<group>";
@@ -1714,6 +1726,7 @@
 				"${BUILT_PRODUCTS_DIR}/IQKeyboardManager/IQKeyboardManager.framework",
 				"${BUILT_PRODUCTS_DIR}/JSONModel/JSONModel.framework",
 				"${BUILT_PRODUCTS_DIR}/MBProgressHUD/MBProgressHUD.framework",
+				"${BUILT_PRODUCTS_DIR}/MJExtension/MJExtension.framework",
 				"${BUILT_PRODUCTS_DIR}/MJRefresh/MJRefresh.framework",
 				"${BUILT_PRODUCTS_DIR}/Masonry/Masonry.framework",
 				"${BUILT_PRODUCTS_DIR}/QMUIKit/QMUIKit.framework",
@@ -1730,6 +1743,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManager.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JSONModel.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MBProgressHUD.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MJExtension.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MJRefresh.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Masonry.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/QMUIKit.framework",
@@ -1838,6 +1852,7 @@
 				574C6CB92069254200F5BF55 /* NSMutableAttributedString+KeywordHignlight.m in Sources */,
 				5726F356206B2B62008EED75 /* BBNotificationSettingListCell.m in Sources */,
 				5726F359206B437D008EED75 /* BBForgetPasswordViewController.m in Sources */,
+				57210D09207736040039D8D5 /* NetWorkRequestManager+BBRequest.m in Sources */,
 				5726F33C206A2FB2008EED75 /* BBWarningRingListCell.m in Sources */,
 				5726F345206A3F1C008EED75 /* BBSettingManager.m in Sources */,
 				57210CA72074C2DE0039D8D5 /* UIView+CustomControlView.m in Sources */,
@@ -1877,6 +1892,7 @@
 				5726F3A5206B8332008EED75 /* WSTableviewDataModel.m in Sources */,
 				84DD47602068FCD600D154B5 /* WettingChartView.m in Sources */,
 				57210C862073CF260039D8D5 /* BBMyAccountViewController.m in Sources */,
+				57210D0C207744780039D8D5 /* GlobalTool+BBHandleCode.m in Sources */,
 				22CFD3C6206659AD0004186D /* ConsoleRateViewController.m in Sources */,
 				57210CB02074C2DE0039D8D5 /* ASValueTrackingSlider.m in Sources */,
 				8449AC122062338F00526935 /* MBPAlertView.m in Sources */,
@@ -2067,7 +2083,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = WB5UAUH8M2;
+				DEVELOPMENT_TEAM = GP8N54644M;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/TheBabyBedProduct/Third/MOBSDK/ShareSDK/Support/PlatformSDK/QQSDK",
@@ -2132,7 +2148,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = WB5UAUH8M2;
+				DEVELOPMENT_TEAM = GP8N54644M;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/TheBabyBedProduct/Third/MOBSDK/ShareSDK/Support/PlatformSDK/QQSDK",

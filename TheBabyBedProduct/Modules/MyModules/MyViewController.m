@@ -45,9 +45,13 @@
         [self.navigationController pushViewController:editVC animated:YES];
     };
     
-    headerV.loginOrRegistBlock = ^{
+    headerV.loginOrRegistBlock = ^(BBMyHeaderView *headerV) {
         //登录/注册
-        [self goLoginRegistVc];
+        [self bb_goLoginRegistVC:^(BOOL isSuccess) {
+            if (isSuccess) {
+                [headerV updateUserMess];
+            }
+        }];
     };
     
     headerV.funcBlock = ^(BBMyHeaderViewFuncType funcType) {

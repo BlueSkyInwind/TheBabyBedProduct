@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
+#define GlobalTools [GlobalTool share]
+
 @interface GlobalTool : NSObject
 
 +(GlobalTool *)share;

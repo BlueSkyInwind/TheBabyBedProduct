@@ -18,6 +18,14 @@
 @property(nonatomic,assign) BOOL hasQQBinding;
 
 
+/** 令牌 */
+@property(nonatomic,copy) NSString *token;
+/** 用户信息是否填写完整   false 不完整  true 完整 */
+@property(nonatomic,assign) BOOL reg;
+/** 用户名 */
+@property(nonatomic,copy) NSString *username;
+/** 当前用户是否有绑定婴儿床设备  false 没有绑定  true 已绑定 */
+@property(nonatomic,assign) BOOL bind;
 
 +(BBUser *)bb_getUser;
 +(void)bb_saveUser:(BBUser *)user;

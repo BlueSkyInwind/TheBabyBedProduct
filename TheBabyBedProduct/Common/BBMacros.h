@@ -9,10 +9,11 @@
 #ifndef BBMacros_h
 #define BBMacros_h
 
-typedef NS_ENUM(NSInteger,BBThirdLoginType) {
-    BBThirdLoginTypeQQ = 0,
-    BBThirdLoginTypeWeiXin,
-    BBThirdLoginTypeWeiBo
+typedef NS_ENUM(NSInteger,BBLoginType) {
+    BBLoginTypeDefault = 0,
+    BBLoginTypeWeiXin,
+    BBLoginTypeQQ,
+    BBLoginTypeWeiBo
 };
 
 #define k_bb_settingManager  @"KBBSETTINGMANAGER"
@@ -28,5 +29,7 @@ typedef NS_ENUM(NSInteger,BBThirdLoginType) {
 #import "UIImageView+EasilyMake.h"
 #import "UIAlertController+EasilyMake.h"
 #import "BBUser.h"
+#import "NetWorkRequestManager+BBRequest.h"
+#import "MJExtension.h"
 
 #endif /* BBMacros_h */

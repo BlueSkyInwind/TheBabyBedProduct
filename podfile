@@ -16,5 +16,7 @@ target 'TheBabyBedProduct' do
     pod 'BAButton', '~> 2.6.5'
     pod 'QMUIKit', '~> 2.4.0'
     pod 'SDCycleScrollView', '~> 1.75'
-
+    
+    pod 'MJExtension', '~> 3.0.13'
+    
 end

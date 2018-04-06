@@ -11,6 +11,6 @@
 @interface BBLoginView : UIView
 @property(nonatomic,copy) void(^forgetPasswordBlock)(void);
 @property(nonatomic,copy) void(^loginBlock)(NSString *phone,NSString *password);
-@property(nonatomic,copy) void(^thirdLoginBlock)(BBThirdLoginType type);
+@property(nonatomic,copy) void(^thirdLoginBlock)(BBLoginType type);
 
 @end
