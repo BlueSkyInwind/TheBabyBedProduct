@@ -24,6 +24,8 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.title = @"消息中心";
+    [self addBackItem];
+
     [self configureview];
 }
 
@@ -92,7 +94,7 @@
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{
     if(isedit){
-        return 150;
+        return 90;
     }else{
         return 0;
     }

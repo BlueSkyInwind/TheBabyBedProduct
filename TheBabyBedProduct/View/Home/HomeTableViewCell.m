@@ -26,11 +26,12 @@
 -(void)configureView{
     
     _iconImageView = [[UIImageView alloc]init];
+    _iconImageView.contentMode = UIViewContentModeCenter;
     [self addSubview:_iconImageView];
     [_iconImageView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self.mas_left).with.offset(15);
-        make.top.equalTo(self.mas_top).with.offset(10);
-        make.bottom.equalTo(self.mas_bottom).with.offset(-10);
+        make.centerY.equalTo(self.mas_centerY);
+        make.height.width.equalTo(@24);
     }];
     
     _titleLabel = [[UILabel alloc]init];
@@ -77,15 +78,15 @@
 -(void)setIcon:(NSString *)imageName title:(NSString *)title content:(NSString *)content{
     
     UIImage * image = [UIImage imageNamed:imageName];
-    CGSize size = image.size;
-    CGFloat height = 24;
-    CGFloat width = 24 * size.width / size.height;
-    [_iconImageView mas_remakeConstraints:^(MASConstraintMaker *make) {
-        make.width.equalTo(@(width));
-        make.height.equalTo(@(height));
-        make.left.equalTo(self.mas_left).with.offset(15);
-        make.centerY.equalTo(self.mas_centerY);
-    }];
+//    CGSize size = image.size;
+//    CGFloat height = 24;
+//    CGFloat width = 24 * size.width / size.height;
+//    [_iconImageView mas_remakeConstraints:^(MASConstraintMaker *make) {
+//        make.width.equalTo(@(width));
+//        make.height.equalTo(@(height));
+//        make.left.equalTo(self.mas_left).with.offset(15);
+//        make.centerY.equalTo(self.mas_centerY);
+//    }];
     
     self.iconImageView.image = image;
     self.titleLabel.text = title;

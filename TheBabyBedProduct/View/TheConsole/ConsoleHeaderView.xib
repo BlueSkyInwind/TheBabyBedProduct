@@ -47,13 +47,13 @@
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RDa-QW-xW7">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RDa-QW-xW7">
                     <rect key="frame" x="15" y="41.5" width="20" height="20"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="20" id="cjS-1T-YjC"/>
                         <constraint firstAttribute="height" constant="20" id="dJC-14-4ic"/>
                     </constraints>
-                    <state key="normal" title="Button"/>
+                    <state key="normal" image="return"/>
                     <connections>
                         <action selector="backBtnClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="WLJ-N9-Igt"/>
                     </connections>
@@ -106,5 +106,6 @@
         <image name="consoleSet_Icon" width="40" height="40"/>
         <image name="console_baby_Icon" width="128" height="128"/>
         <image name="console_header_Icon" width="750" height="436"/>
+        <image name="return" width="13" height="22"/>
     </resources>
 </document>

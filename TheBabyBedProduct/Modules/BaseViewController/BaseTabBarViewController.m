@@ -22,6 +22,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    [self.tabBar setBackgroundImage:[[GlobalTool share] imageWithColor:[UIColor whiteColor]]];
+    [self.tabBar setShadowImage:[[GlobalTool share] imageWithColor:[UIColor whiteColor]]];
     [self setTabbarCon];
     self.delegate = self;
 }
