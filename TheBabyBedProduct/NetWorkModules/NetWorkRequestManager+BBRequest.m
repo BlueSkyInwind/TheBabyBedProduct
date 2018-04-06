@@ -45,4 +45,16 @@
     
     [BBRequestTool PostWithURL:url isNeedNetStatus:NO isNeedWait:NO parameters:param finished:successBlock failure:failureBlock];
 }
+/**
+ 意见反馈 get
+ 
+ @param content 提交的内容
+ */
+-(void)bb_requestSubmitSuggestionWithContent:(NSString *)content
+                                successBlock:(SuccessBlock)successBlock
+                                failureBlock:(FailureBlock)failureBlock
+{
+    NSString *url = [NSString stringWithFormat:@"%@%@",K_Url_BBBase,K_Url_Suggestion];
+    [BBRequestTool PostWithURL:url isNeedNetStatus:NO isNeedWait:NO parameters:@{@"content":content} finished:successBlock failure:failureBlock];
+}
 @end

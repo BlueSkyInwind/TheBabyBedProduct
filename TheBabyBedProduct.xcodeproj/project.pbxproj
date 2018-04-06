@@ -87,6 +87,7 @@
 		57210CB02074C2DE0039D8D5 /* ASValueTrackingSlider.m in Sources */ = {isa = PBXBuildFile; fileRef = 57210CA42074C2DE0039D8D5 /* ASValueTrackingSlider.m */; };
 		57210D09207736040039D8D5 /* NetWorkRequestManager+BBRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 57210D08207736040039D8D5 /* NetWorkRequestManager+BBRequest.m */; };
 		57210D0C207744780039D8D5 /* GlobalTool+BBHandleCode.m in Sources */ = {isa = PBXBuildFile; fileRef = 57210D0B207744780039D8D5 /* GlobalTool+BBHandleCode.m */; };
+		57210D0F207777960039D8D5 /* AppDelegate+BBConfigure.m in Sources */ = {isa = PBXBuildFile; fileRef = 57210D0E207777960039D8D5 /* AppDelegate+BBConfigure.m */; };
 		5726F33B206A2FB2008EED75 /* BBWarningRingSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5726F337206A2FB2008EED75 /* BBWarningRingSettingViewController.m */; };
 		5726F33C206A2FB2008EED75 /* BBWarningRingListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5726F33A206A2FB2008EED75 /* BBWarningRingListCell.m */; };
 		5726F33F206A3185008EED75 /* PPTextfield+EasilyMake.m in Sources */ = {isa = PBXBuildFile; fileRef = 5726F33E206A3185008EED75 /* PPTextfield+EasilyMake.m */; };
@@ -389,6 +390,8 @@
 		57210D08207736040039D8D5 /* NetWorkRequestManager+BBRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NetWorkRequestManager+BBRequest.m"; sourceTree = "<group>"; };
 		57210D0A207744780039D8D5 /* GlobalTool+BBHandleCode.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "GlobalTool+BBHandleCode.h"; sourceTree = "<group>"; };
 		57210D0B207744780039D8D5 /* GlobalTool+BBHandleCode.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "GlobalTool+BBHandleCode.m"; sourceTree = "<group>"; };
+		57210D0D207777960039D8D5 /* AppDelegate+BBConfigure.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AppDelegate+BBConfigure.h"; sourceTree = "<group>"; };
+		57210D0E207777960039D8D5 /* AppDelegate+BBConfigure.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "AppDelegate+BBConfigure.m"; sourceTree = "<group>"; };
 		5726F337206A2FB2008EED75 /* BBWarningRingSettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBWarningRingSettingViewController.m; sourceTree = "<group>"; };
 		5726F338206A2FB2008EED75 /* BBWarningRingListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBWarningRingListCell.h; sourceTree = "<group>"; };
 		5726F339206A2FB2008EED75 /* BBWarningRingSettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBWarningRingSettingViewController.h; sourceTree = "<group>"; };
@@ -730,6 +733,8 @@
 			children = (
 				22CFD337206141080004186D /* AppDelegate.h */,
 				22CFD338206141080004186D /* AppDelegate.m */,
+				57210D0D207777960039D8D5 /* AppDelegate+BBConfigure.h */,
+				57210D0E207777960039D8D5 /* AppDelegate+BBConfigure.m */,
 				22CFD39E2064015D0004186D /* Third */,
 				22CFD36B206142850004186D /* Common */,
 				8449AC032062031F00526935 /* NetWorkModules */,
@@ -1851,6 +1856,7 @@
 				22CFD39120614C820004186D /* LoginAndRegisterViewController.m in Sources */,
 				574C6CB92069254200F5BF55 /* NSMutableAttributedString+KeywordHignlight.m in Sources */,
 				5726F356206B2B62008EED75 /* BBNotificationSettingListCell.m in Sources */,
+				57210D0F207777960039D8D5 /* AppDelegate+BBConfigure.m in Sources */,
 				5726F359206B437D008EED75 /* BBForgetPasswordViewController.m in Sources */,
 				57210D09207736040039D8D5 /* NetWorkRequestManager+BBRequest.m in Sources */,
 				5726F33C206A2FB2008EED75 /* BBWarningRingListCell.m in Sources */,

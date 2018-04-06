@@ -39,4 +39,5 @@
 @property(nonatomic,assign,readonly) BOOL hasWeiXinBinding;
 @property(nonatomic,assign,readonly) BOOL hasWeiBoBinding;
 @property(nonatomic,assign,readonly) BOOL hasQQBinding;
+@property(nonatomic,copy,readonly) NSString *token;
 @end

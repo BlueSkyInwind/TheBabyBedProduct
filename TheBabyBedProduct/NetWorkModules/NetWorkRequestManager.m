@@ -99,8 +99,8 @@
  */
 -(void)setHttpHeaderInfo:(AFHTTPSessionManager *)manager{
     
-    if ([GlobalUtility sharedUtility].token != nil) {
-        [manager.requestSerializer setValue:[GlobalUtility sharedUtility].token forHTTPHeaderField:@"x-auth-token"];
+    if (BBUserHelpers.token) {
+        [manager.requestSerializer setValue:BBUserHelpers.token forHTTPHeaderField:@"x-auth-token"];
     }
 }
 

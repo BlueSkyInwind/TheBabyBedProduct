@@ -11,7 +11,7 @@
 @interface NetWorkRequestManager (BBRequest)
 
 /**
- 登录
+ 登录 post
  
  @param phone 手机号
  @param password 密码
@@ -26,4 +26,15 @@
                          openid:(NSString *)openid
                    successBlock:(SuccessBlock)successBlock
                    failureBlock:(FailureBlock)failureBlock;
+
+
+/**
+ 意见反馈 get
+
+ @param content 提交的内容
+ */
+-(void)bb_requestSubmitSuggestionWithContent:(NSString *)content
+                                successBlock:(SuccessBlock)successBlock
+                                failureBlock:(FailureBlock)failureBlock;
+
 @end

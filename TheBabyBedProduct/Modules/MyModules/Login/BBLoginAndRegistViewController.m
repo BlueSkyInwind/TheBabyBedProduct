@@ -95,9 +95,14 @@
                 if (self.BBLoginOrRegistResultBlock) {
                     self.BBLoginOrRegistResultBlock(YES);
                 }
+            }else{
+                [QMUITips showWithText:loginResultM.msg inView:self.view hideAfterDelay:1.5];
+                return ;
             }
         } failureBlock:^(EnumServerStatus status, id object) {
             NSLog(@"filed %@",object);
+            [QMUITips showWithText:@"登录失败" inView:self.view hideAfterDelay:1.2];
+            return ;
         }];
     }
 //    [SSEThirdPartyLoginHelper loginByPlatform:SSDKPlatformTypeQQ
