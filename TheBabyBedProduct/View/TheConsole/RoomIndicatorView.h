@@ -47,5 +47,6 @@ typedef void (^OutdoorTemperatureCurveClick)();
 -(void)setInDoorIndcatorScale:(CGFloat)value;
 -(void)setOutDoorIndcatorScale:(CGFloat)value;
 
+
 @end
 
