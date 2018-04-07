@@ -24,9 +24,28 @@ typedef void (^OutdoorTemperatureCurveClick)();
 
 @property (weak, nonatomic) IBOutlet UIView *roomTemperatureCurveView;
 @property (weak, nonatomic) IBOutlet UIView *outdoorTemperatureCurveView;
+@property (weak, nonatomic) IBOutlet UIImageView *indoorImageView;
 
+@property (weak, nonatomic) IBOutlet UIImageView *outDoorImageView;
+
+/* 室内温度显示*/
+@property(nonatomic,strong)UILabel * inDoorLabel;
+
+/* 室内温度显示*/
+@property(nonatomic,strong)UILabel * outDoorLabel;
+
+/* <#Description#>*/
+@property(nonatomic,strong)CAShapeLayer * inDoorIndcatorLayer;
+
+/* <#Description#>*/
+@property(nonatomic,strong)CAShapeLayer * outDoorIndcatorLayer;
 
 @property (nonatomic,copy)RoomTemperatureCurveClick roomTemperatureCurveClick;
 @property (nonatomic,copy)OutdoorTemperatureCurveClick outdoorTemperatureCurveClick;
 
+
+-(void)setInDoorIndcatorScale:(CGFloat)value;
+-(void)setOutDoorIndcatorScale:(CGFloat)value;
+
 @end
+

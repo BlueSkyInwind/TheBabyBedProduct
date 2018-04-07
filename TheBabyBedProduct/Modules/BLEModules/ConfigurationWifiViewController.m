@@ -7,6 +7,7 @@
 //
 
 #import "ConfigurationWifiViewController.h"
+#import "DeviceConnectingViewController.h"
 
 @interface ConfigurationWifiViewController ()
 
@@ -19,8 +20,37 @@
     // Do any additional setup after loading the view from its nib.
     self.title = @"配置";
     [self addBackItem];
-
+    [self configureView];
+    
 }
+
+-(void)configureView{
+    
+    self.view.backgroundColor = rgb(247, 249, 251, 1);
+    
+    self.chooseView.layer.cornerRadius = 5;
+    self.chooseView.clipsToBounds = YES;
+    self.chooseView.layer.borderWidth = 1;
+    self.chooseView.qmui_borderColor = rgb(150, 150, 150, 1);
+    
+    self.inputView.layer.cornerRadius = self.inputView.frame.size.height / 2;
+    self.inputView.clipsToBounds = YES;
+    
+    self.sureButton.layer.cornerRadius = self.sureButton.frame.size.height / 2;
+    self.sureButton.clipsToBounds = YES;
+}
+
+- (IBAction)chooseButtonClick:(id)sender {
+    
+    
+}
+
+- (IBAction)sureButtonClick:(id)sender {
+    
+    DeviceConnectingViewController * connectVC = [[DeviceConnectingViewController alloc]init];
+    [self.navigationController pushViewController:connectVC animated:true];
+}
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

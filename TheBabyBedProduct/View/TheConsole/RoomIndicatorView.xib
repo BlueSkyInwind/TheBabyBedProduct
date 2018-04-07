@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -34,9 +34,20 @@
                         </label>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9Rk-Ff-yHb">
                             <rect key="frame" x="19" y="107" width="150" height="163"/>
-                            <color key="backgroundColor" red="0.0" green="0.97680455450000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <subviews>
+                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="roomTheperature_Icon" translatesAutoresizingMaskIntoConstraints="NO" id="Pyl-0p-OS4">
+                                    <rect key="frame" x="0.0" y="13" width="150" height="150"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" secondItem="Pyl-0p-OS4" secondAttribute="height" multiplier="1:1" id="h9x-Z7-Kfg"/>
+                                    </constraints>
+                                </imageView>
+                            </subviews>
+                            <color key="backgroundColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <constraints>
+                                <constraint firstItem="Pyl-0p-OS4" firstAttribute="leading" secondItem="9Rk-Ff-yHb" secondAttribute="leading" id="BzA-L5-Psn"/>
                                 <constraint firstAttribute="width" secondItem="9Rk-Ff-yHb" secondAttribute="height" multiplier="150:163" id="SIy-kx-mh6"/>
+                                <constraint firstAttribute="trailing" secondItem="Pyl-0p-OS4" secondAttribute="trailing" id="aLn-33-cXq"/>
+                                <constraint firstAttribute="bottom" secondItem="Pyl-0p-OS4" secondAttribute="bottom" id="vFk-fl-gJZ"/>
                             </constraints>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CNZ-7m-bER">
@@ -98,9 +109,20 @@
                         </label>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nTd-ar-LdP">
                             <rect key="frame" x="19" y="107" width="150" height="163"/>
-                            <color key="backgroundColor" red="0.0" green="0.97680455450000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <subviews>
+                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="roomTheperature_Icon" translatesAutoresizingMaskIntoConstraints="NO" id="EhW-O7-U48">
+                                    <rect key="frame" x="0.0" y="13" width="150" height="150"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" secondItem="EhW-O7-U48" secondAttribute="height" multiplier="1:1" id="Ydx-Ua-0M4"/>
+                                    </constraints>
+                                </imageView>
+                            </subviews>
+                            <color key="backgroundColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <constraints>
                                 <constraint firstAttribute="width" secondItem="nTd-ar-LdP" secondAttribute="height" multiplier="150:163" id="Kfu-bT-c5a"/>
+                                <constraint firstAttribute="trailing" secondItem="EhW-O7-U48" secondAttribute="trailing" id="a0R-RV-r6k"/>
+                                <constraint firstItem="EhW-O7-U48" firstAttribute="leading" secondItem="nTd-ar-LdP" secondAttribute="leading" id="dqh-nI-zEP"/>
+                                <constraint firstAttribute="bottom" secondItem="EhW-O7-U48" secondAttribute="bottom" id="n9r-5o-kjd"/>
                             </constraints>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ps7-Va-Kqw">
@@ -168,6 +190,8 @@
             <nil key="simulatedTopBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
+                <outlet property="indoorImageView" destination="Pyl-0p-OS4" id="E3P-aQ-2Pt"/>
+                <outlet property="outDoorImageView" destination="EhW-O7-U48" id="GMh-WO-Tro"/>
                 <outlet property="outdoorIndicatorView" destination="nTd-ar-LdP" id="U04-5i-vkH"/>
                 <outlet property="outdoorTemperatureCurveView" destination="ps7-Va-Kqw" id="k4S-7k-Rk0"/>
                 <outlet property="outdoortemperatureNumLabel" destination="xcT-vc-sgh" id="4ZR-c0-5e0"/>
@@ -180,5 +204,6 @@
     </objects>
     <resources>
         <image name="curve_Icon" width="23" height="23"/>
+        <image name="roomTheperature_Icon" width="188" height="188"/>
     </resources>
 </document>

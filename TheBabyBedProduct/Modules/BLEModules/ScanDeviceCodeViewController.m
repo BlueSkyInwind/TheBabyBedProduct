@@ -8,6 +8,7 @@
 
 #import "ScanDeviceCodeViewController.h"
 #import "QRScanView.h"
+#import "ConfigurationWifiViewController.h"
 
 @interface ScanDeviceCodeViewController ()<UITextFieldDelegate>{
     CGRect qrFrame;
@@ -28,6 +29,10 @@
 
     [self configrueView];
     
+}
+- (IBAction)sureButtonClick:(id)sender {
+    
+    [self pushConfigurationWifiVC];
 }
 
 -(void)viewDidLayoutSubviews{
@@ -52,7 +57,6 @@
     self.SerialNumberTextField.layer.borderColor = rgb(145, 145, 145, 1).CGColor;
     self.SerialNumberTextField.layer.borderWidth = 0.8;
     
-
 }
 
 - (void)reStartScan
@@ -81,6 +85,15 @@
     
     
 }
+
+
+-(void)pushConfigurationWifiVC {
+    
+    ConfigurationWifiViewController * configurationVC = [[ConfigurationWifiViewController alloc]init];
+    [self.navigationController pushViewController:configurationVC animated:true];
+    
+}
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

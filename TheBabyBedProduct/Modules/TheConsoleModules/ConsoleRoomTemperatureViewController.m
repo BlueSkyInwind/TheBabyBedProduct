@@ -58,9 +58,11 @@
     _indicatorView = [[NSBundle mainBundle]loadNibNamed:@"RoomIndicatorView" owner:self options:nil].lastObject;
     [self.view addSubview:_indicatorView];
     _indicatorView.roomTemperatureCurveClick = ^{
-        RoomTemperatureChartViewController * roomTemPeratureChartVC = [[RoomTemperatureChartViewController alloc]init];
-        roomTemPeratureChartVC.isOutside = false;
-        [weakSelf.navigationController pushViewController:roomTemPeratureChartVC animated:true];
+        
+        [weakSelf.indicatorView setInDoorIndcatorScale:0.3];
+//        RoomTemperatureChartViewController * roomTemPeratureChartVC = [[RoomTemperatureChartViewController alloc]init];
+//        roomTemPeratureChartVC.isOutside = false;
+//        [weakSelf.navigationController pushViewController:roomTemPeratureChartVC animated:true];
     };
     _indicatorView.outdoorTemperatureCurveClick = ^{
         RoomTemperatureChartViewController * roomTemPeratureChartVC = [[RoomTemperatureChartViewController alloc]init];
@@ -73,6 +75,7 @@
         make.height.equalTo(@(_k_h - 210));
     }];
 }
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

@@ -38,7 +38,7 @@
     }];
     
     _addbutton = [UIButton buttonWithType:UIButtonTypeCustom];
-    [_addbutton setImage:[UIImage imageNamed:@"console_baby_Icon"] forState:UIControlStateNormal];
+    [_addbutton setImage:[UIImage imageNamed:@"addDevice_Icon"] forState:UIControlStateNormal];
     [_addbutton addTarget:self action:@selector(addBtnClick:) forControlEvents:UIControlEventTouchUpInside];
     [addview addSubview:_addbutton];
     [_addbutton mas_makeConstraints:^(MASConstraintMaker *make) {
