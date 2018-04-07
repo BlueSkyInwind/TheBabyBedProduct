@@ -40,4 +40,7 @@
 @property(nonatomic,assign,readonly) BOOL hasWeiBoBinding;
 @property(nonatomic,assign,readonly) BOOL hasQQBinding;
 @property(nonatomic,copy,readonly) NSString *token;
+
+/** 记录我的界面headerview的登录状态 */
+@property(nonatomic,assign) BOOL myHeaderVHasLogined;
 @end

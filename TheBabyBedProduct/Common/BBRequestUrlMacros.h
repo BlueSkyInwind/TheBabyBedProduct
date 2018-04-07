@@ -11,7 +11,7 @@
 
 #define BBIsAPPStore 0    //APPStore环境(正式1，测试0)
 
-#if JRIsAPPStore
+#if BBIsAPPStore
 #define K_Url_BBBase            @"http://114.55.129.5:8788"
 #else
 #define K_Url_BBBase            @"http://114.55.129.5:8788"
@@ -28,7 +28,7 @@
 //修改密码
 #define K_Url_ModifyPassword    @"/api/user/cpass"
 //获取用户信息
-#define K_Url_UserInfo          @"/api/user/userinfo"
+#define K_Url_UserInfo          @"/api/user/userInfo"
 //编辑用户资料
 #define K_Url_EditUserInfo      @"api/user/editinfo"
 //意见反馈

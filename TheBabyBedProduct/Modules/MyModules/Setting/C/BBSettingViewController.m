@@ -122,13 +122,21 @@
     if (indexPath.section == 0) {
         //账户设置
         if (indexPath.row == 0) {
-            BBAccountNumberViewController *accountNumberVC = [[BBAccountNumberViewController alloc]init];
-            [self.navigationController pushViewController:accountNumberVC animated:YES];
+            if (BBUserHelpers.hasLogined) {
+                BBAccountNumberViewController *accountNumberVC = [[BBAccountNumberViewController alloc]init];
+                [self.navigationController pushViewController:accountNumberVC animated:YES];
+            }else{
+                [self goLoginRegistVc];
+            }
         }
     }else{
         if (indexPath.row == 0) {
-            BBNotificationSettingViewController *notificationSettingVC = [[BBNotificationSettingViewController alloc]init];
-            [self.navigationController pushViewController:notificationSettingVC animated:YES];
+            if (BBUserHelpers.hasLogined) {
+                BBNotificationSettingViewController *notificationSettingVC = [[BBNotificationSettingViewController alloc]init];
+                [self.navigationController pushViewController:notificationSettingVC animated:YES];
+            }else{
+                [self goLoginRegistVc];
+            }
         }else if (indexPath.row == 1){
             
         }else if (indexPath.row == 2){

@@ -7,7 +7,13 @@
 //
 
 #import "BaseViewController.h"
+typedef NS_ENUM(NSInteger,BBEditInformationVCComesFrom) {
+    BBEditInformationVCComesFromRegistSuccess = 0,   //注册成功
+    BBEditInformationViewControllerMyVC
+};
 
 @interface BBEditInformationViewController : BaseViewController
+@property(nonatomic,assign) BBEditInformationVCComesFrom comesFrom;
+@property(nonatomic,copy) void(^skipBlock)(void);
 
 @end

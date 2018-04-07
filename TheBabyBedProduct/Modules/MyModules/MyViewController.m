@@ -19,6 +19,9 @@
 #import "BBEditInformationViewController.h"
 
 @interface MyViewController ()<UITableViewDelegate,UITableViewDataSource>
+{
+    BBMyHeaderView *_headerV;
+}
 @property(nonatomic,strong) UITableView *tableView;
 @end
 
@@ -32,12 +35,15 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
+    BBUserHelpers.myHeaderVHasLogined = BBUserHelpers.hasLogined;
+    
     [self creatUI];
 }
 -(void)creatUI
 {
 
     BBMyHeaderView *headerV = [[BBMyHeaderView alloc]initWithFrame:CGRectMake(0, -20, _k_w, 264+20) user:nil];
+    _headerV = headerV;
     [self.view addSubview:headerV];
     
     headerV.avatarClickedBlock = ^{
@@ -136,6 +142,11 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     [self.navigationController setNavigationBarHidden:YES animated:animated];
+    
+    if (BBUserHelpers.myHeaderVHasLogined && !BBUserHelpers.hasLogined) {
+        //退出登录后返回我的页面
+        [_headerV updateUserMess];
+    }
 }
 
 - (void)viewWillDisappear:(BOOL)animated {

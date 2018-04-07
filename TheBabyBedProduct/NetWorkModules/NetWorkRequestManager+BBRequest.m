@@ -9,6 +9,17 @@
 #import "NetWorkRequestManager+BBRequest.h"
 
 @implementation NetWorkRequestManager (BBRequest)
+
+static void postRequest(NSString *url,id param,SuccessBlock successBlock,FailureBlock failureBlock){
+    NSString *requestUrl = @"";
+    if ([url containsString:K_Url_BBBase]) {
+        requestUrl = url;
+    }else{
+        requestUrl = [NSString stringWithFormat:@"%@%@",K_Url_BBBase,url];
+    }
+    [BBRequestTool PostWithURL:requestUrl isNeedNetStatus:NO isNeedWait:NO parameters:param finished:successBlock failure:failureBlock];
+}
+
 /**
  登录
  
@@ -29,8 +40,6 @@
     NSParameterAssert(phone.length > 0);
     NSParameterAssert(password.length > 0);
     
-    NSString *url = [NSString stringWithFormat:@"%@%@",K_Url_BBBase,K_Url_Login];
-    
     NSMutableDictionary *param = [NSMutableDictionary dictionary];
     [param setValue:phone forKey:@"phone"];
     [param setValue:password forKey:@"password"];
@@ -43,7 +52,7 @@
         [param setValue:openid forKey:@"openid"];
     }
     
-    [BBRequestTool PostWithURL:url isNeedNetStatus:NO isNeedWait:NO parameters:param finished:successBlock failure:failureBlock];
+    postRequest(K_Url_Login, param, successBlock, failureBlock);
 }
 /**
  意见反馈 get
@@ -54,7 +63,39 @@
                                 successBlock:(SuccessBlock)successBlock
                                 failureBlock:(FailureBlock)failureBlock
 {
-    NSString *url = [NSString stringWithFormat:@"%@%@",K_Url_BBBase,K_Url_Suggestion];
-    [BBRequestTool PostWithURL:url isNeedNetStatus:NO isNeedWait:NO parameters:@{@"content":content} finished:successBlock failure:failureBlock];
+    postRequest(K_Url_Suggestion, @{@"content":content}, successBlock, failureBlock);
 }
+/**
+ 获取验证码 post
+ 
+ @param phone 手机号
+ @param codeType 登录or注册or忘记密码等才获取验证码
+ */
+-(void)bb_requestGetCodeWithPhone:(NSString *)phone
+                         codeType:(BBGetCodeType)codeType
+                     successBlock:(SuccessBlock)successBlock
+                     failureBlock:(FailureBlock)failureBlock
+{
+    NSDictionary *param = @{@"phone":phone,@"type":[NSNumber numberWithInteger:codeType]};
+    postRequest(K_Url_GetCode, param, successBlock, failureBlock);
+}
+
+/**
+ 注册 post
+ */
+-(void)bb_requestRegistWithPhone:(NSString *)phone
+                            code:(NSString *)code
+                        password:(NSString *)password
+                    successBlock:(SuccessBlock)successBlock
+                    failureBlock:(FailureBlock)failureBlock
+{
+    NSDictionary *param = @{
+                            @"phone":phone,
+                            @"code":code,
+                            @"password":password
+                            };
+    postRequest(K_Url_Regist, param, successBlock, failureBlock);
+    ;
+}
+
 @end

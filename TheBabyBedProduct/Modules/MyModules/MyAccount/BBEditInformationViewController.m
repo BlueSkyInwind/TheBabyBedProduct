@@ -34,6 +34,16 @@
 }
 -(void)creatUI
 {
+    if (self.comesFrom == BBEditInformationVCComesFromRegistSuccess) {
+        UIButton *skipBt = [UIButton bb_btMakeWithSuperV:nil bgColor:nil titleColor:k_color_appOrange titleFontSize:12 title:@"跳过"];
+        skipBt.layer.masksToBounds = YES;
+        skipBt.frame = CGRectMake(0, 0, 35, 35);
+        skipBt.layer.cornerRadius = 17.5;
+        skipBt.layer.borderWidth = 1.2;
+        skipBt.layer.borderColor = k_color_appOrange.CGColor;
+        self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithCustomView:skipBt];
+        [skipBt addTarget:self action:@selector(skipAction) forControlEvents:UIControlEventTouchUpInside];
+    }
     self.tableView = [UITableView bb_tableVMakeWithSuperV:self.view frame:self.view.bounds delegate:self bgColor:k_color_vcBg style:UITableViewStylePlain];
     
     UIView *v = [[UIView alloc]initWithFrame:CGRectMake(0, 0, _k_w, 87)];
@@ -48,6 +58,14 @@
     saveBT.titleTextColor = k_color_515151;
     [saveBT setTitle:@"保  存" forState:UIControlStateNormal];
     [saveBT addTarget:self action:@selector(saveAction) forControlEvents:UIControlEventTouchUpInside];
+}
+-(void)skipAction
+{
+    [self.navigationController popViewControllerAnimated:YES];
+    
+    if (self.skipBlock) {
+        self.skipBlock();
+    }
 }
 -(void)saveAction
 {

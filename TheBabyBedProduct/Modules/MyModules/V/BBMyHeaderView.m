@@ -100,7 +100,7 @@
     for (int i = 0; i<imgs.count; i++) {
         QMUIButton *bt = [[QMUIButton alloc]init];
         bt.imagePosition = QMUIButtonImagePositionTop;// 将图片位置改为在文字上方
-        bt.spacingBetweenImageAndTitle = 3;
+        bt.spacingBetweenImageAndTitle = 6;
         [realyBgV addSubview:bt];
         bt.tag = 110+i;
         CGFloat btw = (realyBgV.width-60)/3;
@@ -113,10 +113,12 @@
     }
 
     [self judgeItemShowOrHidden];
+    
+
 }
+
 -(void)judgeItemShowOrHidden
 {
-#warning todo
     if (BBUserHelpers.hasLogined) {
         self.userNameLB.text = @"跳跳的爸爸";
         self.babyDaysLB.text = @"您的宝贝493天了";
@@ -128,6 +130,7 @@
         self.babyDaysLB.hidden = YES;
         self.loginOrRegistBT.hidden = NO;
     }
+    BBUserHelpers.myHeaderVHasLogined = BBUserHelpers.hasLogined;
 }
 -(void)handelAvatarTapAction
 {

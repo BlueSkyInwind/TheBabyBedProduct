@@ -39,7 +39,7 @@
     currentVersionLB.text = [NSString stringWithFormat:@"当前版本%@",[GlobalTool getAppVersion]];
     currentVersionLB.frame = CGRectMake(0, 0, _k_w, 20);
     
-    if (!BBUserHelpers.hasLogined) {
+    if (BBUserHelpers.hasLogined) {
         QMUIFillButton *signOutBT = [QMUIFillButton buttonWithType:UIButtonTypeCustom];
         [fotterV addSubview:signOutBT];
         signOutBT.titleLabel.font = [UIFont systemFontOfSize:18];
@@ -56,7 +56,20 @@
 }
 -(void)signOutAction
 {
-#warning todo 
+    UIAlertController *alertC = [UIAlertController bb_alertControllerMakeForAlertCancelAndOKWithTitle:@"您真的要退出登录？" message:nil OKHandler:^(UIAlertAction *action) {
+        
+        //退出登录，只需要本地清空token即可
+        BBUser *emptyUser = [[BBUser alloc]init];
+        emptyUser.hasLogined = NO;  //保险起见，还是加上
+        [BBUser bb_saveUser:emptyUser];
+        
+        [self.tableView reloadData];
+        [QMUITips showLoading:@"您已退出登录" inView:self.view];
+        
+        [self.navigationController popViewControllerAnimated:YES];
+    }];
+    [self presentViewController:alertC animated:YES completion:nil];
+  
 }
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
