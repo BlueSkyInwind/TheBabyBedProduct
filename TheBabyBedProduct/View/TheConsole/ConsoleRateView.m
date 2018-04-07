@@ -51,9 +51,7 @@
     _imageView.image = _centerImage;
     [self addSubview:_imageView];
     
-    
     CGFloat radius = self.frame.size.width * 0.83 / 2;
-
     //灰色环
     _circleLayer = [CAShapeLayer layer];
     UIBezierPath * path = [UIBezierPath bezierPathWithOvalInRect:CGRectMake(self.center.x - radius, self.center.y - radius, radius * 2, radius * 2)];
@@ -99,6 +97,7 @@
         self.progressLayer.strokeColor = rgb(255, 108, 140, 1).CGColor;
     }
 }
+
 
 /*
 // Only override drawRect: if you perform custom drawing.

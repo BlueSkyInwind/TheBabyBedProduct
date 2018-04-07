@@ -10,4 +10,22 @@
 
 @interface ConfigurationWifiViewController : BaseViewController
 
+@property (weak, nonatomic) IBOutlet UIView *chooseView;
+
+@property (weak, nonatomic) IBOutlet UITextField *chooseTextField;
+@property (weak, nonatomic) IBOutlet UIButton *chooseButton;
+@property (weak, nonatomic) IBOutlet UIView *inputView;
+
+@property (weak, nonatomic) IBOutlet UITextField *inputTextfield;
+
+@property (weak, nonatomic) IBOutlet UIButton *sureButton;
+
+
+
+
+
+
+
+
+
 @end

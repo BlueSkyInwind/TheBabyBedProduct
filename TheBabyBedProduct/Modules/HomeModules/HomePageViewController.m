@@ -22,7 +22,7 @@
     
     NSArray * imgArr;
     NSArray * titleArr;
-    GlobalPopView * popView;
+    
 }
 
 /**<#Description#>*/
@@ -42,8 +42,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad]; 
     // Do any additional setup after loading the view.
-//    [self configureAddDeviceView];
-    [self configureView];
+    [self configureAddDeviceView];
+//    [self configureView];
 }
 
 -(void)configureAddDeviceView{
@@ -52,9 +52,8 @@
     [self.view addSubview:_addDeviceView];
     _addDeviceView.addDeviceClick = ^{
       //添加设备点击
-        ScanDeviceCodeViewController * scanDeviceCodeVC = [[ScanDeviceCodeViewController alloc]init];
-        [weakSelf.navigationController pushViewController:scanDeviceCodeVC animated:true];
-    };
+        [weakSelf popAddDeviceAlertView];
+      };
     [_addDeviceView mas_remakeConstraints:^(MASConstraintMaker *make) {
         make.edges.equalTo(self.view);
     }];
@@ -69,7 +68,10 @@
     HomeLeftItemView * leftItemView = [[HomeLeftItemView alloc]initWithFrame:CGRectMake(0, 0, 100, 35)];
     leftItemView.nameLabel.text = @"欧阳马克";
     leftItemView.homeHeaderClick = ^(UIButton *button) {
-        [weakSelf popAlertView];
+        //婴儿头像的点击回调
+        
+        
+        
     };
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]initWithCustomView:leftItemView];
     
@@ -161,15 +163,15 @@
     // Dispose of any resources that can be recreated.
 }
 
--(void)popAlertView{
+-(void)popAddDeviceAlertView{
     __weak typeof (self) weakSelf = self;
-      popView =  [GlobalPopView initWithTitle:@"扫一扫" content:@"扫描设备二维码入口，这是一个app，嘻嘻嘻嘻" cancelTitle:@"取消" sureTitle:@"确定" clickcompletion:^(NSInteger index) {
-          [weakSelf pushScanVC];
-      [popView dismiss];
+    [[GlobalAlertViewManager shareInstance] promptsPopViewWithtitle:nil content:@"请绑定您的婴儿床" cancelTitle:@"取消" sureTitle:@"确定" completion:^(NSInteger index) {
+        if (index == 1) {
+            // 进入设备扫描
+            [self pushScanVC];
+        }
     }];
-    [popView show];
 }
-
 
 -(void)pushScanVC{
     ScanDeviceCodeViewController *  scanDeviceCodeVC = [[ScanDeviceCodeViewController alloc]init];

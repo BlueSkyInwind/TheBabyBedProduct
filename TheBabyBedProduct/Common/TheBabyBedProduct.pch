@@ -25,7 +25,7 @@
 #import "AppDelegate.h"
 #import "UIFont+YX_Font.h"
 #import "UIImage+category.h"
-#import "GlobalPopView.h"
+#import "GlobalAlertViewManager.h"
 
 #import <QMUIKit/QMUIKit.h>
 #import "BBMacros.h"

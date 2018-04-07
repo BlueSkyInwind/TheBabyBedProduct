@@ -20,6 +20,10 @@
 		22CF35642073CCAB00707F8A /* ScanDeviceCodeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22CF35622073CCAB00707F8A /* ScanDeviceCodeViewController.xib */; };
 		22CF35682073DB1500707F8A /* QRScanView.m in Sources */ = {isa = PBXBuildFile; fileRef = 22CF35672073DB1500707F8A /* QRScanView.m */; };
 		22CF356B2073E17300707F8A /* noticeMusic.wav in Resources */ = {isa = PBXBuildFile; fileRef = 22CF356A2073E17300707F8A /* noticeMusic.wav */; };
+		22CF356E20764F6300707F8A /* GlobalAlertViewManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 22CF356D20764F6300707F8A /* GlobalAlertViewManager.m */; };
+		22CF357220775B9A00707F8A /* BLEPairingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22CF357120775B9A00707F8A /* BLEPairingViewController.m */; };
+		22CF357620775D4700707F8A /* deviceListTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 22CF357420775D4700707F8A /* deviceListTableViewCell.m */; };
+		22CF357720775D4700707F8A /* deviceListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22CF357520775D4700707F8A /* deviceListTableViewCell.xib */; };
 		22CFD339206141080004186D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 22CFD338206141080004186D /* AppDelegate.m */; };
 		22CFD341206141080004186D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 22CFD340206141080004186D /* Assets.xcassets */; };
 		22CFD347206141080004186D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 22CFD346206141080004186D /* main.m */; };
@@ -259,6 +263,13 @@
 		22CF35662073DB1500707F8A /* QRScanView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QRScanView.h; sourceTree = "<group>"; };
 		22CF35672073DB1500707F8A /* QRScanView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QRScanView.m; sourceTree = "<group>"; };
 		22CF356A2073E17300707F8A /* noticeMusic.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = noticeMusic.wav; sourceTree = "<group>"; };
+		22CF356C20764F6300707F8A /* GlobalAlertViewManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GlobalAlertViewManager.h; sourceTree = "<group>"; };
+		22CF356D20764F6300707F8A /* GlobalAlertViewManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GlobalAlertViewManager.m; sourceTree = "<group>"; };
+		22CF357020775B9A00707F8A /* BLEPairingViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BLEPairingViewController.h; sourceTree = "<group>"; };
+		22CF357120775B9A00707F8A /* BLEPairingViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BLEPairingViewController.m; sourceTree = "<group>"; };
+		22CF357320775D4700707F8A /* deviceListTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = deviceListTableViewCell.h; sourceTree = "<group>"; };
+		22CF357420775D4700707F8A /* deviceListTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = deviceListTableViewCell.m; sourceTree = "<group>"; };
+		22CF357520775D4700707F8A /* deviceListTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = deviceListTableViewCell.xib; sourceTree = "<group>"; };
 		22CFD334206141080004186D /* TheBabyBedProduct.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TheBabyBedProduct.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		22CFD337206141080004186D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		22CFD338206141080004186D /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -1517,6 +1528,8 @@
 			children = (
 				8449AC102062338F00526935 /* MBPAlertView.h */,
 				8449AC112062338F00526935 /* MBPAlertView.m */,
+				22CF356C20764F6300707F8A /* GlobalAlertViewManager.h */,
+				22CF356D20764F6300707F8A /* GlobalAlertViewManager.m */,
 			);
 			path = costom;
 			sourceTree = "<group>";
@@ -1526,6 +1539,9 @@
 			children = (
 				8490CFC52074814200D416C1 /* DeviceConnectAnimationView.h */,
 				8490CFC62074814200D416C1 /* DeviceConnectAnimationView.m */,
+				22CF357320775D4700707F8A /* deviceListTableViewCell.h */,
+				22CF357420775D4700707F8A /* deviceListTableViewCell.m */,
+				22CF357520775D4700707F8A /* deviceListTableViewCell.xib */,
 			);
 			path = BLE;
 			sourceTree = "<group>";
@@ -1552,6 +1568,8 @@
 				8490CFBE20747CFC00D416C1 /* ConfigurationWifiViewController.xib */,
 				8490CFC1207480C200D416C1 /* DeviceConnectingViewController.h */,
 				8490CFC2207480C200D416C1 /* DeviceConnectingViewController.m */,
+				22CF357020775B9A00707F8A /* BLEPairingViewController.h */,
+				22CF357120775B9A00707F8A /* BLEPairingViewController.m */,
 			);
 			path = BLEModules;
 			sourceTree = "<group>";
@@ -1689,6 +1707,7 @@
 				22CFD3D72067C69B0004186D /* ThermometerView.xib in Resources */,
 				84DD47572068DB7B00D154B5 /* ThresholdTableViewCell.xib in Resources */,
 				57210CAB2074C2DE0039D8D5 /* ZFPlayer.bundle in Resources */,
+				22CF357720775D4700707F8A /* deviceListTableViewCell.xib in Resources */,
 				22CFD3EF2067FD8C0004186D /* WettingThresholdSettingViewController.xib in Resources */,
 				5726F3AE206B8D82008EED75 /* expandableImage.png in Resources */,
 				57585AF0206D4850001BB202 /* share_timeline@3x.png in Resources */,
@@ -1817,6 +1836,7 @@
 				574C6CE62069272700F5BF55 /* UIImageView+EasilyMake.m in Sources */,
 				22CFD3AE206401780004186D /* PXYview.m in Sources */,
 				22CFD3B6206532F20004186D /* DateChooseView.m in Sources */,
+				22CF357620775D4700707F8A /* deviceListTableViewCell.m in Sources */,
 				22CFD3CF2066A07A0004186D /* RoomTemperatureChartViewController.m in Sources */,
 				84BE5EB6206A48B5007A001D /* GlobalPopView.m in Sources */,
 				22CFD39D2062ADB30004186D /* TemperatureChartView.m in Sources */,
@@ -1906,6 +1926,7 @@
 				57210C862073CF260039D8D5 /* BBMyAccountViewController.m in Sources */,
 				57210D0C207744780039D8D5 /* GlobalTool+BBHandleCode.m in Sources */,
 				22CFD3C6206659AD0004186D /* ConsoleRateViewController.m in Sources */,
+				22CF357220775B9A00707F8A /* BLEPairingViewController.m in Sources */,
 				57210CB02074C2DE0039D8D5 /* ASValueTrackingSlider.m in Sources */,
 				8449AC122062338F00526935 /* MBPAlertView.m in Sources */,
 				5726F3C1206C8F13008EED75 /* BBEarlyEducationCell.m in Sources */,
@@ -1934,6 +1955,7 @@
 				2263B8ED206BE81B005BB15E /* UIImage+category.m in Sources */,
 				574C6CBC2069254200F5BF55 /* NSString+PPTextField.m in Sources */,
 				8490CFBF20747CFC00D416C1 /* ConfigurationWifiViewController.m in Sources */,
+				22CF356E20764F6300707F8A /* GlobalAlertViewManager.m in Sources */,
 				22CFD3B0206401780004186D /* PXLineChartView.m in Sources */,
 				22CFD347206141080004186D /* main.m in Sources */,
 				5726F342206A391B008EED75 /* BBMyListCell.m in Sources */,

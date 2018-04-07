@@ -8,10 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
-@interface DeviceConnectAnimationView : UIView
+@interface DeviceConnectAnimationView : UIView{
+    
+    CAReplicatorLayer *_containerLayer2;
+}
 
 
 /**<#Description#>*/
 @property (nonatomic,strong)UIView  * backView;
-
+- (void)beginAnimation;
 @end
