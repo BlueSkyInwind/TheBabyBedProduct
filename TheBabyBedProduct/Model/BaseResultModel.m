@@ -11,3 +11,9 @@
 @implementation BaseResultModel
 
 @end
+
+//------- login start ----
+@implementation BBLoginResultModel
+
+@end
+//------- login end ----

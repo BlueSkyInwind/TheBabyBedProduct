@@ -7,6 +7,7 @@
 //
 
 #import "BBSubmitSuggestionViewController.h"
+#import "BaseResultModel.h"
 
 @interface BBSubmitSuggestionViewController ()<QMUITextViewDelegate>
 @property(nonatomic,strong) QMUITextView *textView;
@@ -59,12 +60,30 @@
 }
 -(void)submitAction
 {
-#warning to
-    DLog(@"点击去提交意见");
     if (self.textView.text.length == 0) {
         [QMUITips showWithText:@"亲，请先输入您的问题或意见" inView:self.view hideAfterDelay:2.0];
         return;
     }
+    
+    [BBRequestTool bb_requestSubmitSuggestionWithContent:self.textView.text successBlock:^(EnumServerStatus status, id object) {
+        BaseResultModel *resultM = [BaseResultModel mj_objectWithKeyValues:object];
+        if (resultM.code == 0) {
+            [QMUITips showSucceed:@"提交成功"];
+            [self.navigationController popViewControllerAnimated:YES];
+            return ;
+        }else{
+            if (resultM.msg.length > 0) {
+                [QMUITips showError:resultM.msg];
+                return;
+            }else{
+                [QMUITips showError:@"提交失败"];
+                return;
+            }
+        }
+    } failureBlock:^(EnumServerStatus status, id object) {
+        [QMUITips showError:@"提交失败"];
+        return;
+    }];
 }
 
 - (void)textView:(QMUITextView *)textView didPreventTextChangeInRange:(NSRange)range replacementText:(NSString *)replacementText {

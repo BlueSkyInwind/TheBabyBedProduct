@@ -9,5 +9,6 @@
 #import "BaseViewController.h"
 
 @interface BBLoginAndRegistViewController : BaseViewController
-
+/** 登录or注册结果block */
+@property(nonatomic,copy) void(^BBLoginOrRegistResultBlock)(BOOL isSuccess);
 @end

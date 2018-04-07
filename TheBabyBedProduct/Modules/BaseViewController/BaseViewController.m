@@ -79,6 +79,15 @@
     BaseNavigationViewController *navVC = [[BaseNavigationViewController alloc]initWithRootViewController:loginRegistVC];
     [self presentViewController:navVC animated:YES completion:nil];
 }
+-(void)bb_goLoginRegistVC:(BBLoginRegistResultBlock)resultBlock
+{
+    BBLoginAndRegistViewController *loginRegistVC = [[BBLoginAndRegistViewController alloc]init];
+    BaseNavigationViewController *navVC = [[BaseNavigationViewController alloc]initWithRootViewController:loginRegistVC];
+    loginRegistVC.BBLoginOrRegistResultBlock = ^(BOOL isSuccess) {
+        resultBlock(isSuccess);
+    };
+    [self presentViewController:navVC animated:YES completion:nil];
+}
 
 /*
 #pragma mark - Navigation

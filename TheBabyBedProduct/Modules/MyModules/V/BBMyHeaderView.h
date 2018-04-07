@@ -17,11 +17,13 @@ typedef NS_ENUM(NSInteger,BBMyHeaderViewFuncType) {
 @interface BBMyHeaderView : UIView
 @property(nonatomic,copy) void(^avatarClickedBlock)(void);
 /** 登录or注册 */
-@property(nonatomic,copy) void(^loginOrRegistBlock)(void);
+@property(nonatomic,copy) void(^loginOrRegistBlock)(BBMyHeaderView *headerV);
 
 @property(nonatomic,copy) void(^funcBlock)(BBMyHeaderViewFuncType funcType);
 
 
 -(instancetype)initWithFrame:(CGRect)frame
                         user:(BBUser *)user;
+
+-(void)updateUserMess;
 @end

@@ -7,6 +7,9 @@
 //
 
 #import <Foundation/Foundation.h>
+
+#define BBRequestTool [NetWorkRequestManager sharedNetWorkManager]
+
 //连接状态
 typedef enum {
     ///返回数据正确
@@ -20,14 +23,13 @@ typedef enum {
     
 } EnumServerStatus;
 
-typedef void (^SuccessFinishedBlock)(EnumServerStatus status, id object);
+typedef void (^SuccessBlock)(EnumServerStatus status, id object);
 typedef void (^FailureBlock)(EnumServerStatus status, id object);
 
 @interface NetWorkRequestManager : NSObject
 
 + (NetWorkRequestManager *)sharedNetWorkManager;
-- (void)PostWithURL:(NSString *)strURL isNeedNetStatus:(BOOL)isNeedNetStatus isNeedWait:(BOOL)isNeedWait parameters:(id)parameters finished:(SuccessFinishedBlock)finished failure:(FailureBlock)failure;
-- (void)GetWithURL:(NSString *)strURL isNeedNetStatus:(BOOL)isNeedNetStatus isNeedWait:(BOOL)isNeedWait parameters:(id)parameters finished:(SuccessFinishedBlock)finished failure:(FailureBlock)failure;
-
+- (void)PostWithURL:(NSString *)strURL isNeedNetStatus:(BOOL)isNeedNetStatus isNeedWait:(BOOL)isNeedWait parameters:(id)parameters finished:(SuccessBlock)finished failure:(FailureBlock)failure;
+- (void)GetWithURL:(NSString *)strURL isNeedNetStatus:(BOOL)isNeedNetStatus isNeedWait:(BOOL)isNeedWait parameters:(id)parameters finished:(SuccessBlock)finished failure:(FailureBlock)failure;
 
 @end

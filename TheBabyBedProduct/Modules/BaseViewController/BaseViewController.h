@@ -7,11 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+typedef void (^BBLoginRegistResultBlock)(BOOL isSuccess);
 
 @interface BaseViewController : UIViewController
+
 
 //返回按钮
 - (void)addBackItem;
 
 -(void)goLoginRegistVc;
+-(void)bb_goLoginRegistVC:(BBLoginRegistResultBlock)resultBlock;
 @end

@@ -126,8 +126,14 @@
 }
 -(void)thirdLoginAction:(UIButton *)bt
 {
+    BBLoginType loginType = BBLoginTypeQQ;
+    if (bt.tag == 1001) {
+        loginType = BBLoginTypeWeiXin;
+    }else if (bt.tag == 1002){
+        loginType = BBLoginTypeWeiBo;
+    }
     if (self.thirdLoginBlock) {
-        self.thirdLoginBlock(bt.tag-1000);
+        self.thirdLoginBlock(loginType);
     }
 }
 

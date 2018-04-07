@@ -11,9 +11,8 @@
 #import "BBLoginView.h"
 #import "BBRegistView.h"
 #import "BBForgetPasswordViewController.h"
-
 #import <ShareSDKExtension/SSEThirdPartyLoginHelper.h>
-
+#import "BaseResultModel.h"
 
 @interface BBLoginAndRegistViewController ()
 {
@@ -30,23 +29,21 @@
     [super viewWillAppear:animated];
     [self.navigationController setNavigationBarHidden:YES animated:NO];
 }
-//-(void)viewWillDisappear:(BOOL)animated
-//{
-//    [super viewWillAppear:animated];
-//    [self.navigationController setNavigationBarHidden:NO animated:NO];
-//}
 
 - (UIStatusBarStyle)preferredStatusBarStyle {
     return UIStatusBarStyleLightContent;
 }
+//-(void)loadView
+//{
+//    UIScrollView *scrollV = [UIScrollView new];
+//    self.view = scrollV;
+//}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     _currentIsLogin = YES;
     [self creatUI];
-    
-    
 }
 -(void)creatUI
 {
@@ -65,8 +62,10 @@
     };
     self.loginV.loginBlock = ^(NSString *phone, NSString *password) {
         DLog(@"点登录按钮 %@--%@",phone,password);
+        BBStrongSelf(self)
+        [self goToThirdWithType:BBLoginTypeDefault];
     };
-    self.loginV.thirdLoginBlock = ^(BBThirdLoginType type) {
+    self.loginV.thirdLoginBlock = ^(BBLoginType type) {
         DLog(@"第三方登录方式 %ld",(long)type);
         BBStrongSelf(self)
         [self goToThirdWithType:type];
@@ -76,8 +75,36 @@
     [self.view addSubview:self.registV];
     
 }
--(void)goToThirdWithType:(BBThirdLoginType)type
+-(void)goToThirdWithType:(BBLoginType)type
 {
+    //账号密码登录
+    if (type == BBLoginTypeDefault) {
+        [BBRequestTool bb_requestLoginWithPhone:@"13127682098" password:@"123456" loginType:BBLoginTypeDefault uid:nil openid:nil successBlock:^(EnumServerStatus status, id object) {
+            NSLog(@"success %@",object);
+            BBLoginResultModel *loginResultM = [BBLoginResultModel mj_objectWithKeyValues:object];
+            if (loginResultM.code == 0) {
+                [QMUITips showSucceed:@"登录成功"];
+                
+                BBUser *user = loginResultM.data;
+                user.hasLogined = YES;
+                [BBUser bb_saveUser:user];
+                
+                [self dismissViewControllerAnimated:YES completion:^{
+                    
+                }];
+                if (self.BBLoginOrRegistResultBlock) {
+                    self.BBLoginOrRegistResultBlock(YES);
+                }
+            }else{
+                [QMUITips showWithText:loginResultM.msg inView:self.view hideAfterDelay:1.5];
+                return ;
+            }
+        } failureBlock:^(EnumServerStatus status, id object) {
+            NSLog(@"filed %@",object);
+            [QMUITips showWithText:@"登录失败" inView:self.view hideAfterDelay:1.2];
+            return ;
+        }];
+    }
 //    [SSEThirdPartyLoginHelper loginByPlatform:SSDKPlatformTypeQQ
 //                                   onUserSync:^(SSDKUser *user, SSEUserAssociateHandler associateHandler) {
 //
@@ -96,7 +123,7 @@
 //
 //                                }];
     
-    if (type == BBThirdLoginTypeWeiXin) {
+    if (type == BBLoginTypeWeiXin) {
         [SSEThirdPartyLoginHelper loginByPlatform:SSDKPlatformTypeWechat onUserSync:^(SSDKUser *user, SSEUserAssociateHandler associateHandler) {
             //成功走这里
             DLog(@"233");

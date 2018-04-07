@@ -72,22 +72,22 @@ static BBUser * toGetUser(){
 }
 -(BOOL)hasLogined
 {
-    BBUser *user = [BBUser bb_getUser];
-    return user.hasLogined;
+    return [BBUser bb_getUser].hasLogined;
 }
 -(BOOL)hasQQBinding
 {
-    BBUser *user = [BBUser bb_getUser];
-    return user.hasQQBinding;
+    return [BBUser bb_getUser].hasQQBinding;
 }
 -(BOOL)isHasWeiXinBinding
 {
-    BBUser *user = [BBUser bb_getUser];
-    return user.hasWeiXinBinding;
+    return [BBUser bb_getUser].hasWeiXinBinding;
 }
 -(BOOL)hasWeiBoBinding
 {
-    BBUser *user = [BBUser bb_getUser];
-    return user.hasWeiBoBinding;
+    return [BBUser bb_getUser].hasWeiBoBinding;
+}
+-(NSString *)token
+{
+    return [BBUser bb_getUser].token;
 }
 @end

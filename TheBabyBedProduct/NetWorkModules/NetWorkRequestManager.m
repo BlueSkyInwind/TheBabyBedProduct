@@ -22,11 +22,11 @@
 
 #pragma mark - 发起请求
 
-- (void)PostWithURL:(NSString *)strURL isNeedNetStatus:(BOOL)isNeedNetStatus isNeedWait:(BOOL)isNeedWait parameters:(id)parameters finished:(SuccessFinishedBlock)finished failure:(FailureBlock)failure
+- (void)PostWithURL:(NSString *)strURL isNeedNetStatus:(BOOL)isNeedNetStatus isNeedWait:(BOOL)isNeedWait parameters:(id)parameters finished:(SuccessBlock)finished failure:(FailureBlock)failure
 {
     [self obtainDataWithUrl:strURL method:@"POST" parameters:parameters requestTime:30 isNeedNetStatus:isNeedNetStatus isNeedWait:isNeedWait uploadProgress:nil downloadProgress:nil finished:finished failure:failure];
 }
-- (void)GetWithURL:(NSString *)strURL isNeedNetStatus:(BOOL)isNeedNetStatus isNeedWait:(BOOL)isNeedWait parameters:(id)parameters finished:(SuccessFinishedBlock)finished failure:(FailureBlock)failure
+- (void)GetWithURL:(NSString *)strURL isNeedNetStatus:(BOOL)isNeedNetStatus isNeedWait:(BOOL)isNeedWait parameters:(id)parameters finished:(SuccessBlock)finished failure:(FailureBlock)failure
 {
     [self obtainDataWithUrl:strURL method:@"GET" parameters:parameters requestTime:30 isNeedNetStatus:isNeedNetStatus isNeedWait:isNeedWait uploadProgress:nil downloadProgress:nil finished:finished failure:failure];
 }
@@ -39,7 +39,7 @@
               isNeedWait:(BOOL)isNeedWait
           uploadProgress:(nullable void (^)(NSProgress *uploadProgress)) uploadProgress
         downloadProgress:(nullable void (^)(NSProgress *downloadProgress)) downloadProgress
-                finished:(SuccessFinishedBlock)finished
+                finished:(SuccessBlock)finished
                  failure:(FailureBlock)failure{
     
     // 网络判断
@@ -99,8 +99,8 @@
  */
 -(void)setHttpHeaderInfo:(AFHTTPSessionManager *)manager{
     
-    if ([GlobalUtility sharedUtility].token != nil) {
-        [manager.requestSerializer setValue:[GlobalUtility sharedUtility].token forHTTPHeaderField:@"x-auth-token"];
+    if (BBUserHelpers.token) {
+        [manager.requestSerializer setValue:BBUserHelpers.token forHTTPHeaderField:@"x-auth-token"];
     }
 }
 
