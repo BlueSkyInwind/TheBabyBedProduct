@@ -92,6 +92,7 @@
 		57210D09207736040039D8D5 /* NetWorkRequestManager+BBRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 57210D08207736040039D8D5 /* NetWorkRequestManager+BBRequest.m */; };
 		57210D0C207744780039D8D5 /* GlobalTool+BBHandleCode.m in Sources */ = {isa = PBXBuildFile; fileRef = 57210D0B207744780039D8D5 /* GlobalTool+BBHandleCode.m */; };
 		57210D0F207777960039D8D5 /* AppDelegate+BBConfigure.m in Sources */ = {isa = PBXBuildFile; fileRef = 57210D0E207777960039D8D5 /* AppDelegate+BBConfigure.m */; };
+		57210D1220789A0E0039D8D5 /* NSString+Verify.m in Sources */ = {isa = PBXBuildFile; fileRef = 57210D1120789A0E0039D8D5 /* NSString+Verify.m */; };
 		5726F33B206A2FB2008EED75 /* BBWarningRingSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5726F337206A2FB2008EED75 /* BBWarningRingSettingViewController.m */; };
 		5726F33C206A2FB2008EED75 /* BBWarningRingListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5726F33A206A2FB2008EED75 /* BBWarningRingListCell.m */; };
 		5726F33F206A3185008EED75 /* PPTextfield+EasilyMake.m in Sources */ = {isa = PBXBuildFile; fileRef = 5726F33E206A3185008EED75 /* PPTextfield+EasilyMake.m */; };
@@ -403,6 +404,8 @@
 		57210D0B207744780039D8D5 /* GlobalTool+BBHandleCode.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "GlobalTool+BBHandleCode.m"; sourceTree = "<group>"; };
 		57210D0D207777960039D8D5 /* AppDelegate+BBConfigure.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AppDelegate+BBConfigure.h"; sourceTree = "<group>"; };
 		57210D0E207777960039D8D5 /* AppDelegate+BBConfigure.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "AppDelegate+BBConfigure.m"; sourceTree = "<group>"; };
+		57210D1020789A0E0039D8D5 /* NSString+Verify.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSString+Verify.h"; sourceTree = "<group>"; };
+		57210D1120789A0E0039D8D5 /* NSString+Verify.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSString+Verify.m"; sourceTree = "<group>"; };
 		5726F337206A2FB2008EED75 /* BBWarningRingSettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBWarningRingSettingViewController.m; sourceTree = "<group>"; };
 		5726F338206A2FB2008EED75 /* BBWarningRingListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBWarningRingListCell.h; sourceTree = "<group>"; };
 		5726F339206A2FB2008EED75 /* BBWarningRingSettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBWarningRingSettingViewController.h; sourceTree = "<group>"; };
@@ -1426,6 +1429,8 @@
 				2266C1B620692D72004F653A /* UIFont+YX_Font.m */,
 				2263B8EB206BE81B005BB15E /* UIImage+category.h */,
 				2263B8EC206BE81B005BB15E /* UIImage+category.m */,
+				57210D1020789A0E0039D8D5 /* NSString+Verify.h */,
+				57210D1120789A0E0039D8D5 /* NSString+Verify.m */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -1847,6 +1852,7 @@
 				22CFD3C920667B250004186D /* ConsoleRateBottonView.m in Sources */,
 				22CFD3E92067FD650004186D /* CryingThresholdSettingViewController.m in Sources */,
 				22CFD3F32067FDAF0004186D /* KickQulitThresholdSettingViewController.m in Sources */,
+				57210D1220789A0E0039D8D5 /* NSString+Verify.m in Sources */,
 				57210BFB2073B3F80039D8D5 /* BBPermissionManageViewController.m in Sources */,
 				57585AC2206D1AE8001BB202 /* BBFamilyMemberListCell.m in Sources */,
 				8449AC0E2062283300526935 /* NetWorkRequestManager.m in Sources */,

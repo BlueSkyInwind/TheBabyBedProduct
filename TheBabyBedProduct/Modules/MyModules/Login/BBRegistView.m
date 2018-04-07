@@ -158,11 +158,10 @@
     [btn countDownFinished:^NSString *(JKCountDownButton *countDownButton, NSUInteger second) {
         countDownButton.enabled = YES;
         return @"重新获取";
-        
     }];
     
     NSString *phoneStr = [self.phoneTF.text stringByReplacingOccurrencesOfString:@" " withString:@""];
-    if (![GlobalTool isMobileNumber:phoneStr]){
+    if (![phoneStr bb_isPhoneNumber]){
         [QMUITips showWithText:@"手机号格式不正确" inView:self.superview hideAfterDelay:2];
         [btn stopCountDown];
         btn.enabled = YES;
@@ -170,7 +169,7 @@
     }
     
     if (self.getCodeBlock) {
-        self.getCodeBlock();
+        self.getCodeBlock(self.phoneTF.text,self.getCodeBT);
     }
     
 }

@@ -7,9 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+@class JKCountDownButton;
 
 @interface BBRegistView : UIScrollView
-@property(nonatomic,copy) void(^getCodeBlock)(void);
+@property(nonatomic,copy) void(^getCodeBlock)(NSString *phone,JKCountDownButton *countDownBT);
 @property(nonatomic,copy) void(^registBlock)(NSString *phone,NSString *code,NSString *password);
 @property(nonatomic,copy) void(^agreeProtocolBlock)(BOOL isAgree);
 @property(nonatomic,copy) void(^clickProtocolBlock)(void);
