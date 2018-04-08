@@ -8,7 +8,7 @@
 
 #import "BaseViewController.h"
 typedef NS_ENUM(NSInteger,BBEditInformationVCComesFrom) {
-    BBEditInformationVCComesFromRegistSuccess = 0,   //注册成功
+    BBEditInformationVCComesFromRegistSuccess = 1,   //注册成功
     BBEditInformationViewControllerMyVC
 };
 

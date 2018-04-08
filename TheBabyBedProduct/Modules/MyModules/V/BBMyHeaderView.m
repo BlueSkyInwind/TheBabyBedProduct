@@ -15,6 +15,8 @@
 @property(nonatomic,strong) UILabel *userNameLB;
 @property(nonatomic,strong) UILabel *babyDaysLB;
 @property(nonatomic,strong) UIButton*loginOrRegistBT;
+/** 上半部分可点击 */
+@property(nonatomic,strong) UIView *clickedTempView;
 @end
 
 @implementation BBMyHeaderView
@@ -63,9 +65,7 @@
     self.avatarImgV.layer.masksToBounds = YES;
     self.avatarImgV.layer.cornerRadius = 30;
     self.avatarImgV.userInteractionEnabled = YES;
-    [self.avatarImgV pp_addTapActionWithBlock:^(UIGestureRecognizer *gestureRecoginzer) {
-        [self handelAvatarTapAction];
-    }];
+   
     
     self.userNameLB = [UILabel bb_lbMakeWithSuperV:realyBgV fontSize:19 alignment:NSTextAlignmentLeft textColor:k_color_515151];
     self.babyDaysLB = [UILabel bb_lbMakeWithSuperV:realyBgV fontSize:12 alignment:NSTextAlignmentLeft textColor:rgb(158, 158, 158, 1)];
@@ -114,7 +114,12 @@
 
     [self judgeItemShowOrHidden];
     
-
+    self.clickedTempView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, realyBgV.width, 100)];
+    [realyBgV addSubview:self.clickedTempView];
+    self.clickedTempView.backgroundColor = [UIColor clearColor];
+    [self.clickedTempView pp_addTapActionWithBlock:^(UIGestureRecognizer *gestureRecoginzer) {
+        [self handelAvatarTapAction];
+    }];
 }
 
 -(void)judgeItemShowOrHidden
