@@ -27,6 +27,7 @@
 }
 
 -(void)configureView{
+    self.backgroundColor = rgb(247, 249, 251, 1);
     
     UIView * addview =  [[UIView alloc]init];
     addview.backgroundColor = [UIColor whiteColor];

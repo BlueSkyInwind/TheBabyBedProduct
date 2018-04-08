@@ -61,7 +61,6 @@ static const CGFloat kCircleSize = 48;
 
 - (void)beginAnimation {
     
-    
     CALayer *subLayer2 = [CALayer layer];
     subLayer2.backgroundColor = rgb(255, 155, 57, 1).CGColor;
     subLayer2.frame = CGRectMake((kCircleContainerSize - kCircleSize) / 2, 0, kCircleSize, kCircleSize);
