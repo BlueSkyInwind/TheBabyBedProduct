@@ -47,17 +47,16 @@
     [self.view addSubview:headerV];
     
     headerV.avatarClickedBlock = ^{
-        BBEditInformationViewController *editVC = [[BBEditInformationViewController alloc]init];
-        [self.navigationController pushViewController:editVC animated:YES];
+        if (BBUserHelpers.hasLogined) {
+            BBEditInformationViewController *editVC = [[BBEditInformationViewController alloc]init];
+            [self.navigationController pushViewController:editVC animated:YES];
+        }else{
+            [self goToLoginAndRegistWithHeaderV:_headerV];
+        }
     };
     
     headerV.loginOrRegistBlock = ^(BBMyHeaderView *headerV) {
-        //登录/注册
-        [self bb_goLoginRegistVC:^(BOOL isSuccess) {
-            if (isSuccess) {
-                [headerV updateUserMess];
-            }
-        }];
+        [self goToLoginAndRegistWithHeaderV:headerV];
     };
     
     headerV.funcBlock = ^(BBMyHeaderViewFuncType funcType) {
@@ -68,6 +67,15 @@
     self.tableView = [UITableView bb_tableVMakeWithSuperV:self.view frame:CGRectMake(0, 264, _k_w, _k_h-49-264) delegate:self bgColor:k_color_vcBg style:UITableViewStylePlain];
     self.tableView.scrollEnabled = NO;
     
+}
+-(void)goToLoginAndRegistWithHeaderV:(BBMyHeaderView *)headerV
+{
+    //登录/注册
+    [self bb_goLoginRegistVC:^(BOOL isSuccess) {
+        if (isSuccess) {
+            [headerV updateUserMess];
+        }
+    }];
 }
 -(void)handleFuncAction:(BBMyHeaderViewFuncType)funcType
 {

@@ -11,7 +11,6 @@
 
 @interface BBEditInfoAvatarCell ()
 @property(nonatomic,strong) UILabel *userNameLB;
-@property(nonatomic,strong) UIImageView *avatarImgV;
 @property(nonatomic,strong) UIImageView *arrowImgV;
 @end
 

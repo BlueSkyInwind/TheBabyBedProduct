@@ -18,5 +18,6 @@ target 'TheBabyBedProduct' do
     pod 'SDCycleScrollView', '~> 1.75'
     
     pod 'MJExtension', '~> 3.0.13'
+    pod 'TZImagePickerController', '~> 2.0.0.9'
     
 end
