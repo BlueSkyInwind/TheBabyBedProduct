@@ -40,6 +40,11 @@
 
 -(void)configureView{
     
+    CGFloat headerHeight = 190;
+    if (UI_IS_IPHONE6P) {
+        headerHeight = 220;
+    }
+    
     _headerView = [[NSBundle mainBundle]loadNibNamed:@"ConsoleHeaderView" owner:self options:nil].lastObject;
     _headerView.backBtn.hidden = true;
     _headerView.settingBtn.hidden = true;
@@ -47,15 +52,15 @@
     [self.view addSubview:_headerView];
     [_headerView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.left.right.equalTo(@0);
-        make.height.equalTo(@190);
+        make.height.equalTo(@(headerHeight));
     }];
     
     _bodyView = [[NSBundle mainBundle]loadNibNamed:@"ConsoleBodyView" owner:self options:nil].lastObject;
     [self.view addSubview:_bodyView];
     [_bodyView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.right.equalTo(@0);
-        make.top.equalTo(self.headerView.mas_bottom).with.offset(5);
-        make.height.equalTo(@(_k_h - 190));
+        make.top.equalTo(self.headerView.mas_bottom).with.offset(10);
+        make.height.equalTo(@(_k_h - headerHeight));
     }];
     
     __weak typeof (self) weakSelf = self;

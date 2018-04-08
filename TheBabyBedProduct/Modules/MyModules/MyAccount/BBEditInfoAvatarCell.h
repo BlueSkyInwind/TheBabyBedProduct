@@ -9,6 +9,8 @@
 #import <UIKit/UIKit.h>
 
 @interface BBEditInfoAvatarCell : UITableViewCell
+@property(nonatomic,strong) UIImageView *avatarImgV;
+
 -(void)setupCellAvatar:(NSString *)avatarUrl;
 @end
 

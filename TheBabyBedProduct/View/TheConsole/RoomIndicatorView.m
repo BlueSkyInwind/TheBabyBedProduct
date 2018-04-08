@@ -19,6 +19,10 @@
     UITapGestureRecognizer * outdoorTap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(outdoorTemperatureCurveViewTap)];
     [self.outdoorTemperatureCurveView addGestureRecognizer:outdoorTap];
     
+}
+
+-(void)layoutSubviews{
+    [super layoutSubviews];
     [self configureView];
 }
 
@@ -34,9 +38,7 @@
     }
 }
 
-
 -(void)configureView{
-    
     
     _inDoorLabel = [[UILabel alloc]init];
     _inDoorLabel.text = @"26.0";
@@ -51,7 +53,7 @@
     _outDoorLabel.textAlignment = NSTextAlignmentCenter;
     _outDoorLabel.center = CGPointMake(self.outDoorImageView.bounds.size.width / 2, self.outDoorImageView.bounds.size.height / 2);
     [self.outDoorImageView addSubview:_outDoorLabel];
-   
+    
     CAShapeLayer * inDoorLayer = [CAShapeLayer layer];
     inDoorLayer.name = @"inDoorradius";
     UIBezierPath * inDoorPath = [UIBezierPath bezierPath];
@@ -67,7 +69,6 @@
     inDoorLayer.lineCap = kCGLineCapButt;
     inDoorLayer.path = inDoorPath.CGPath;
     [self.indoorImageView.layer addSublayer:inDoorLayer];
-    
     
     CAShapeLayer * outDoorLayer = [CAShapeLayer layer];
     outDoorLayer.name = @"outDoorradius";
@@ -103,7 +104,6 @@
     _inDoorIndcatorLayer.anchorPoint = CGPointMake(1, 1);
     _inDoorIndcatorLayer.position = CGPointMake(self.indoorImageView.bounds.size.width / 2, self.indoorImageView.bounds.size.height / 2);
     
-        
     _outDoorIndcatorLayer = [CAShapeLayer layer];
     _outDoorIndcatorLayer.name = @"indicator";
     CGPoint startPoint1 = CGPointMake(self.outDoorImageView.bounds.size.width / 2, self.outDoorImageView.bounds.size.height / 2);
