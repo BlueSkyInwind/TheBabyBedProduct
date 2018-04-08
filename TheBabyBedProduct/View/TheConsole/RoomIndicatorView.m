@@ -89,24 +89,36 @@
     _inDoorIndcatorLayer.name = @"indicator";
     CGPoint startPoint = CGPointMake(self.indoorImageView.bounds.size.width / 2, self.indoorImageView.bounds.size.height / 2);
     CGFloat indcatorRadius = self.indoorImageView.bounds.size.width / 2 * 0.66;
-    _inDoorIndcatorLayer.frame = CGRectMake(startPoint.x - indcatorRadius, startPoint.y - 1.5, indcatorRadius - 20, 3);
-    _inDoorIndcatorLayer.backgroundColor = rgb(109, 109, 109, 1).CGColor;
+    _inDoorIndcatorLayer.frame = CGRectMake(startPoint.x - indcatorRadius, startPoint.y - 1.5, indcatorRadius, 3);
+    
+    CAShapeLayer * layer = [CAShapeLayer layer];
+    layer.frame = CGRectMake(0, 0, indcatorRadius / 3, 3);
+    layer.backgroundColor = rgb(109, 109, 109, 1).CGColor;
+    [_inDoorIndcatorLayer addSublayer:layer];
+    
+    _inDoorIndcatorLayer.backgroundColor = [UIColor clearColor].CGColor;
     _inDoorIndcatorLayer.transform = CATransform3DMakeRotation(-M_PI_4 , 0, 0, 1);
     _inDoorIndcatorLayer.lineCap = kCGLineCapButt;
     [self.indoorImageView.layer addSublayer:_inDoorIndcatorLayer];
     _inDoorIndcatorLayer.anchorPoint = CGPointMake(1, 1);
     _inDoorIndcatorLayer.position = CGPointMake(self.indoorImageView.bounds.size.width / 2, self.indoorImageView.bounds.size.height / 2);
     
-    
+        
     _outDoorIndcatorLayer = [CAShapeLayer layer];
     _outDoorIndcatorLayer.name = @"indicator";
     CGPoint startPoint1 = CGPointMake(self.outDoorImageView.bounds.size.width / 2, self.outDoorImageView.bounds.size.height / 2);
     CGFloat indcatorRadius1 = self.outDoorImageView.bounds.size.width / 2 * 0.66;
-    _outDoorIndcatorLayer.frame = CGRectMake(startPoint1.x - indcatorRadius1, startPoint1.y - 1.5, indcatorRadius1 - 20, 3);
-    _outDoorIndcatorLayer.backgroundColor = rgb(109, 109, 109, 1).CGColor;
+    _outDoorIndcatorLayer.frame = CGRectMake(startPoint1.x - indcatorRadius1, startPoint1.y - 1.5, indcatorRadius, 3);
+    
+    CAShapeLayer * layer1 = [CAShapeLayer layer];
+    layer1.frame = CGRectMake(0, 0, indcatorRadius1 / 3, 3);
+    layer1.backgroundColor = rgb(109, 109, 109, 1).CGColor;
+    [_outDoorIndcatorLayer addSublayer:layer1];
+    
+    _outDoorIndcatorLayer.backgroundColor = [UIColor clearColor].CGColor;
     _outDoorIndcatorLayer.transform = CATransform3DMakeRotation(-M_PI_4 , 0, 0, 1);
     _outDoorIndcatorLayer.lineCap = kCGLineCapButt;
-    [self.indoorImageView.layer addSublayer:_outDoorIndcatorLayer];
+    [self.outDoorImageView.layer addSublayer:_outDoorIndcatorLayer];
     _outDoorIndcatorLayer.anchorPoint = CGPointMake(1, 1);
     _outDoorIndcatorLayer.position = CGPointMake(self.outDoorImageView.bounds.size.width / 2, self.outDoorImageView.bounds.size.height / 2);
     
@@ -144,9 +156,7 @@
     // Drawing code
     
 
-    
-    
-    
+
 }
 
 
