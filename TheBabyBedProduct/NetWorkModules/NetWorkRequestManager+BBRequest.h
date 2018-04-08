@@ -64,4 +64,20 @@ typedef NS_ENUM(NSInteger,BBGetCodeType) {
                         password:(NSString *)password
                     successBlock:(SuccessBlock)successBlock
                     failureBlock:(FailureBlock)failureBlock;
+
+
+/**
+ 忘记密码 post
+ */
+-(void)bb_requestForgetPasswordWithPhone:(NSString *)phone
+                                    code:(NSString *)code
+                                password:(NSString *)password
+                            successBlock:(SuccessBlock)successBlock
+                            failureBlock:(FailureBlock)failureBlock;
+
+/**
+ 获取用户信息 get
+ */
+-(void)bb_requestGetUserInfoWithSuccessBlock:(SuccessBlock)successBlock
+                                failureBlock:(FailureBlock)failureBlock;
 @end

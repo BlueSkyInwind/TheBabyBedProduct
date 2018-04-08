@@ -10,6 +10,7 @@
 #import "PPTextfield.h"
 #import "PPTextfield+EasilyMake.h"
 #import "JKCountDownButton.h"
+#import "BaseResultModel.h"
 
 @interface BBForgetPasswordViewController ()
 @property(nonatomic,strong) PPTextfield *phoneTF;
@@ -29,14 +30,20 @@
 }
 -(void)creatUI
 {
-    UIImageView *topImgV = [UIImageView bb_imgVMakeWithSuperV:self.view imgName:nil];
-    topImgV.backgroundColor = [UIColor purpleColor];
-    topImgV.frame = CGRectMake(0, 0, _k_w, 180);
+    UIImageView *topImgV = [UIImageView bb_imgVMakeWithSuperV:self.view imgName:@"console_header_Icon"];
+    topImgV.backgroundColor = [UIColor whiteColor];
+    topImgV.frame = CGRectMake(0, 0, _k_w, 218);
     topImgV.userInteractionEnabled = YES;
     
-    UIButton *closeBT = [UIButton bb_btMakeWithSuperV:topImgV imageName:@"close"];
+    UIImageView *avatarImgV = [UIImageView bb_imgVMakeWithSuperV:topImgV imgName:@"home_baby_header_Icon"];
+    CGFloat avatarW = 64;
+    CGFloat avatarX = (_k_w-avatarW)/2;
+    CGFloat avatarY = (topImgV.height-20-avatarW)/2;
+    avatarImgV.frame = CGRectFlatMake(avatarX, avatarY, avatarW, avatarW);
+    
+    UIButton *closeBT = [UIButton bb_btMakeWithSuperV:topImgV imageName:@"return"];
     closeBT.frame = CGRectMake(0, 20, 54, 54);
-    [closeBT setImageEdgeInsets:UIEdgeInsetsMake(4, 16, 28, 16)];
+    [closeBT setImageEdgeInsets:UIEdgeInsetsMake(12, 16, 20, 16)];
     [closeBT addTarget:self action:@selector(closeAction) forControlEvents:UIControlEventTouchUpInside];
     
     [self creatTFUI];
@@ -56,7 +63,7 @@
     CGFloat tfL = 40;
     CGFloat tfW = _k_w-leftMargin-tfL;
     
-    CGFloat tfY = 210;
+    CGFloat tfY = 248;
     CGFloat codeW = 82;
     
     //手机号
@@ -122,13 +129,13 @@
     passwordLine.backgroundColor = K_color_line;
     [self.view addSubview:passwordLine];
     
-    //注册
+    //提交
     self.submitBT = [QMUIFillButton buttonWithType:UIButtonTypeCustom];
     [self.view addSubview:self.submitBT];
     self.submitBT.titleLabel.font = [UIFont systemFontOfSize:18];
     self.submitBT.fillColor = rgb(255, 236, 183, 0.5);
     self.submitBT.titleTextColor = k_color_515151;
-    [self.submitBT setTitle:@"登录" forState:UIControlStateNormal];
+    [self.submitBT setTitle:@"提 交" forState:UIControlStateNormal];
     self.submitBT.frame = CGRectMake(leftMargin, self.passwordTF.bottom+45, _k_w-leftMargin*2, 47);
     self.submitBT.userInteractionEnabled = NO;
     [self.submitBT addTarget:self action:@selector(submitAction) forControlEvents:UIControlEventTouchUpInside];
@@ -138,7 +145,11 @@
 #pragma mark --- "获取验证码"点击事件
 -(void)getVerifyCodeRequest:(JKCountDownButton *)btn
 {
-    [self.view endEditing:YES];
+    if (![self.phoneTF.text bb_isPhoneNumber]) {
+        [QMUITips showWithText:@"请输入正确的手机号"];
+        btn.enabled = YES;
+        return;
+    }
     
     [btn countDownChanging:^NSString *(JKCountDownButton *countDownButton,NSUInteger second) {
         NSString *title = [NSString stringWithFormat:@"%zd秒",second];
@@ -158,14 +169,46 @@
         return;
     }
     
-#warning todo
+    [BBRequestTool bb_requestGetCodeWithPhone:self.phoneTF.text codeType:BBGetCodeTypeRegist successBlock:^(EnumServerStatus status, id object) {
+        BBLoginResultModel *getCodeResultM = [BBLoginResultModel mj_objectWithKeyValues:object];
+        if (getCodeResultM.code == 0) {
+            [QMUITips showSucceed:@"验证码发送成功"];
+            btn.enabled = NO;
+            [btn startCountDownWithSecond:60];
+        }else{
+            [QMUITips showError:@"验证码发送失败"];
+            [btn stopCountDown];
+            btn.enabled = YES;
+        }
+    } failureBlock:^(EnumServerStatus status, id object) {
+        [QMUITips showError:@"验证码发送失败"];
+        [btn stopCountDown];
+        btn.enabled = YES;
+    }];
     
 }
 #pragma mark --- 提交点击事件
 -(void)submitAction
 {
-#warning to
-    DLog(@"提交点击");
+    [self.view endEditing:YES];
+
+    [BBRequestTool bb_requestForgetPasswordWithPhone:self.phoneTF.text code:self.codeTF.text password:self.passwordTF.text successBlock:^(EnumServerStatus status, id object) {
+        BBLoginResultModel *forgetPasswordRM = [BBLoginResultModel mj_objectWithKeyValues:object];
+        if (forgetPasswordRM.code == 0) {
+            //找回密码成功
+            [QMUITips showSucceed:@"您已成功找回密码" inView:self.view hideAfterDelay:1.5];
+            [self.navigationController popViewControllerAnimated:YES];
+            
+            BBUser *user = forgetPasswordRM.data;
+            [BBUser bb_saveUser:user];
+        }else{
+            [QMUITips showError:forgetPasswordRM.msg inView:self.view hideAfterDelay:1.5];
+            return ;
+        }
+    } failureBlock:^(EnumServerStatus status, id object) {
+        [QMUITips showError:@"找回密码失败，请稍后再试！" inView:self.view hideAfterDelay:1.5];
+        return ;
+    }];
 }
 -(void)textFieldTextDidChange:(PPTextfield *)tf
 {

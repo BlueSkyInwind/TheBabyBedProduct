@@ -15,6 +15,12 @@ typedef NS_ENUM(NSInteger,BBLoginType) {
     BBLoginTypeQQ,
     BBLoginTypeWeiBo
 };
+typedef NS_ENUM(NSInteger,BBUserGenderType) {
+    BBUserGenderTypeMan = 0,      //男
+    BBUserGenderTypeWoman,        //女
+    BBUserGenderTypeSecrect,      //保密
+    BBUserGenderTypeUnknow        //未知
+};
 
 #define k_bb_settingManager  @"KBBSETTINGMANAGER"
 #define k_bb_saveUserMessage @"KBBSAVEUSERMESSAGE"

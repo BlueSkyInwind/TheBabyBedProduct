@@ -93,6 +93,7 @@
 		57210D0C207744780039D8D5 /* GlobalTool+BBHandleCode.m in Sources */ = {isa = PBXBuildFile; fileRef = 57210D0B207744780039D8D5 /* GlobalTool+BBHandleCode.m */; };
 		57210D0F207777960039D8D5 /* AppDelegate+BBConfigure.m in Sources */ = {isa = PBXBuildFile; fileRef = 57210D0E207777960039D8D5 /* AppDelegate+BBConfigure.m */; };
 		57210D1220789A0E0039D8D5 /* NSString+Verify.m in Sources */ = {isa = PBXBuildFile; fileRef = 57210D1120789A0E0039D8D5 /* NSString+Verify.m */; };
+		57210D1B207A48F60039D8D5 /* BBModifyPasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 57210D1A207A48F60039D8D5 /* BBModifyPasswordViewController.m */; };
 		5726F33B206A2FB2008EED75 /* BBWarningRingSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5726F337206A2FB2008EED75 /* BBWarningRingSettingViewController.m */; };
 		5726F33C206A2FB2008EED75 /* BBWarningRingListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5726F33A206A2FB2008EED75 /* BBWarningRingListCell.m */; };
 		5726F33F206A3185008EED75 /* PPTextfield+EasilyMake.m in Sources */ = {isa = PBXBuildFile; fileRef = 5726F33E206A3185008EED75 /* PPTextfield+EasilyMake.m */; };
@@ -406,6 +407,8 @@
 		57210D0E207777960039D8D5 /* AppDelegate+BBConfigure.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "AppDelegate+BBConfigure.m"; sourceTree = "<group>"; };
 		57210D1020789A0E0039D8D5 /* NSString+Verify.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSString+Verify.h"; sourceTree = "<group>"; };
 		57210D1120789A0E0039D8D5 /* NSString+Verify.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSString+Verify.m"; sourceTree = "<group>"; };
+		57210D19207A48F60039D8D5 /* BBModifyPasswordViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BBModifyPasswordViewController.h; sourceTree = "<group>"; };
+		57210D1A207A48F60039D8D5 /* BBModifyPasswordViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BBModifyPasswordViewController.m; sourceTree = "<group>"; };
 		5726F337206A2FB2008EED75 /* BBWarningRingSettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBWarningRingSettingViewController.m; sourceTree = "<group>"; };
 		5726F338206A2FB2008EED75 /* BBWarningRingListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBWarningRingListCell.h; sourceTree = "<group>"; };
 		5726F339206A2FB2008EED75 /* BBWarningRingSettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBWarningRingSettingViewController.h; sourceTree = "<group>"; };
@@ -1402,6 +1405,8 @@
 			children = (
 				574C6CD22069262000F5BF55 /* BBSettingViewController.h */,
 				574C6CD12069262000F5BF55 /* BBSettingViewController.m */,
+				57210D19207A48F60039D8D5 /* BBModifyPasswordViewController.h */,
+				57210D1A207A48F60039D8D5 /* BBModifyPasswordViewController.m */,
 			);
 			path = C;
 			sourceTree = "<group>";
@@ -1895,6 +1900,7 @@
 				5726F33B206A2FB2008EED75 /* BBWarningRingSettingViewController.m in Sources */,
 				57210CA92074C2DE0039D8D5 /* UIViewController+ZFPlayerRotation.m in Sources */,
 				5726F3A4206B8332008EED75 /* WSTableViewCell.m in Sources */,
+				57210D1B207A48F60039D8D5 /* BBModifyPasswordViewController.m in Sources */,
 				8449AC0820620CB300526935 /* BaseResultModel.m in Sources */,
 				57585ACF206D4428001BB202 /* LWShareButton.m in Sources */,
 				574C6CDA2069262000F5BF55 /* BBSettingViewController.m in Sources */,

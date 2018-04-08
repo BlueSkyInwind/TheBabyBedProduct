@@ -24,3 +24,7 @@
 @end
 
 //------- login end ----
+
+@interface BaseDictResultModel : BaseResultModel
+@property(nonatomic,strong) NSDictionary *data;
+@end

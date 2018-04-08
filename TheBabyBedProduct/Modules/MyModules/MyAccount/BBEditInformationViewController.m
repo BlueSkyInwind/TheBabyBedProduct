@@ -16,6 +16,8 @@
 #import "TZImageManager.h"
 #import "TZLocationManager.h"
 
+#import "BaseResultModel.h"
+
 @interface BBEditInformationViewController ()<UITableViewDelegate,UITableViewDataSource,UIImagePickerControllerDelegate,UINavigationControllerDelegate>
 {
     NSString *_babayName;
@@ -61,7 +63,29 @@
     self.view.backgroundColor = k_color_vcBg;
     self.title = @"编辑资料";
 
+    [self getUserInfo];
+    
     [self creatUI];
+}
+-(void)getUserInfo
+{
+    //只处理请求成功的情况
+    [BBRequestTool bb_requestGetUserInfoWithSuccessBlock:^(EnumServerStatus status, id object) {
+        BaseDictResultModel *resultM = [BaseDictResultModel mj_objectWithKeyValues:object];
+        if (resultM.code == 0) {
+            BBUser *savedUser = [BBUser bb_getUser];
+            NSDictionary *savedUserDict = [savedUser mj_keyValues];
+            NSMutableDictionary *mutDict = [[NSMutableDictionary alloc]initWithDictionary:savedUserDict];
+            [mutDict addEntriesFromDictionary:resultM.data];
+            
+            BBUser *latestUser = [BBUser mj_objectWithKeyValues:mutDict];
+            [BBUser bb_saveUser:latestUser];
+            
+            [self.tableView reloadData];
+        }
+    } failureBlock:^(EnumServerStatus status, id object) {
+        
+    }];
 }
 -(void)creatUI
 {
@@ -77,13 +101,13 @@
     }
     self.tableView = [UITableView bb_tableVMakeWithSuperV:self.view frame:self.view.bounds delegate:self bgColor:k_color_vcBg style:UITableViewStylePlain];
     
-    UIView *v = [[UIView alloc]initWithFrame:CGRectMake(0, 0, _k_w, 87)];
+    UIView *v = [[UIView alloc]initWithFrame:CGRectMake(0, 0, _k_w, 60+87)];
     self.tableView.tableFooterView = v;
     v.backgroundColor = [UIColor clearColor];
 
     QMUIFillButton *saveBT = [QMUIFillButton buttonWithType:UIButtonTypeCustom];
     [v addSubview:saveBT];
-    saveBT.frame = CGRectMake(40, 20, _k_w-80, 47);
+    saveBT.frame = CGRectMake(40, 60+20, _k_w-80, 47);
     saveBT.titleLabel.font = [UIFont systemFontOfSize:18];
     saveBT.fillColor = rgb(255, 236, 183, 1);
     saveBT.titleTextColor = k_color_515151;
@@ -301,11 +325,12 @@
     imagePickerVc.showSelectBtn = NO;
     imagePickerVc.allowCrop = YES;
     imagePickerVc.needCircleCrop = YES;
+    imagePickerVc.circleCropRadius = (_k_w-40)/2;
     // 设置竖屏下的裁剪尺寸
-    NSInteger left = 30;
-    NSInteger widthHeight = self.view.width - 2 * left;
-    NSInteger top = (self.view.height - widthHeight) / 2;
-    imagePickerVc.cropRect = CGRectMake(left, top, widthHeight, widthHeight);
+//    NSInteger left = 30;
+//    NSInteger widthHeight = self.view.width - 2 * left;
+//    NSInteger top = (self.view.height - widthHeight) / 2;
+//    imagePickerVc.cropRect = CGRectMake(left, top, widthHeight, widthHeight);
     // 设置横屏下的裁剪尺寸
     // imagePickerVc.cropRectLandscape = CGRectMake((self.view.tz_height - widthHeight) / 2, left, widthHeight, widthHeight);
     /*
