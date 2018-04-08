@@ -105,7 +105,6 @@ static void getRequest(NSString *url,id param,SuccessBlock successBlock,FailureB
                             @"password":password
                             };
     postRequest(K_Url_Regist, param, successBlock, failureBlock);
-    ;
 }
 
 /*
@@ -139,4 +138,29 @@ static void getRequest(NSString *url,id param,SuccessBlock successBlock,FailureB
     ;
 }
 
+/**
+ 忘记密码 post
+ */
+-(void)bb_requestForgetPasswordWithPhone:(NSString *)phone
+                                    code:(NSString *)code
+                                password:(NSString *)password
+                            successBlock:(SuccessBlock)successBlock
+                            failureBlock:(FailureBlock)failureBlock
+{
+    NSDictionary *param = @{
+                            @"phone":phone,
+                            @"code":code,
+                            @"password":password
+                            };
+    postRequest(K_Url_ForgetPassword, param, successBlock, failureBlock);
+}
+
+/**
+ 获取用户信息 get
+ */
+-(void)bb_requestGetUserInfoWithSuccessBlock:(SuccessBlock)successBlock
+                                failureBlock:(FailureBlock)failureBlock
+{
+    [[NetWorkRequestManager sharedNetWorkManager]GetWithURL:[K_Url_BBBase stringByAppendingString:K_Url_GetUserInfo] isNeedNetStatus:NO isNeedWait:NO parameters:nil finished:successBlock failure:failureBlock];
+}
 @end

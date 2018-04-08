@@ -17,3 +17,7 @@
 
 @end
 //------- login end ----
+
+@implementation BaseDictResultModel
+
+@end

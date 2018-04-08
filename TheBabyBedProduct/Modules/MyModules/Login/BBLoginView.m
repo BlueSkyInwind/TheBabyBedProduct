@@ -91,11 +91,11 @@
     
     //第三方登录
     CGFloat thirdLoginLBW = 80;
-    CGFloat margin2 = 50;
-    CGFloat lineW = _k_w-margin2*2-thirdLoginLBW*2;
+    CGFloat margin2 = 40;
+    CGFloat lineW = (_k_w-margin2*2-thirdLoginLBW)/2;
     
     CGFloat lineY = CGRectGetMaxY(recommenderLB.frame)+50;
-    UIView *leftLine = [[UIView alloc]initWithFrame:CGRectMake(margin2, lineY, lineW, 1)];
+    UIView *leftLine = [[UIView alloc]initWithFrame:CGRectMake(margin2, lineY, lineW, 0.5)];
     leftLine.backgroundColor = k_color_153153153;
     [self addSubview:leftLine];
     
@@ -103,7 +103,7 @@
     thirdLoginLB.frame = CGRectMake(leftLine.right, leftLine.top-9.5, thirdLoginLBW, 20);
     thirdLoginLB.text = @"第三方登录";
     
-    UIView *rightLine = [[UIView alloc]initWithFrame:CGRectMake(thirdLoginLB.right, lineY, lineW, 1)];
+    UIView *rightLine = [[UIView alloc]initWithFrame:CGRectMake(thirdLoginLB.right, lineY, lineW, 0.5)];
     rightLine.backgroundColor = k_color_153153153;
     [self addSubview:rightLine];
     

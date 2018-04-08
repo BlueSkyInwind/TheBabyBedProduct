@@ -19,7 +19,9 @@
         objc_property_t property = propertys[i];
         const char * propertyName = property_getName(property);
         NSString *name = [NSString stringWithUTF8String:propertyName];
-        [aCoder encodeObject:[self valueForKeyPath: name] forKey: name];
+        if ([self valueForKeyPath: name]) {
+            [aCoder encodeObject:[self valueForKeyPath: name] forKey: name];
+        }
     }
 }
 
@@ -32,7 +34,10 @@
         objc_property_t property = propertys[i];
         const char * propertyName = property_getName(property);
         NSString *name = [NSString stringWithUTF8String:propertyName];
-        [self setValue:[aDecoder decodeObjectForKey:name] forKey:name];
+        if ([aDecoder decodeObjectForKey:name]) {
+            [self setValue:[aDecoder decodeObjectForKey:name] forKey:name];
+        }
+        
     }
     return self;
 }
@@ -76,18 +81,22 @@ static BBUser * toGetUser(){
 }
 -(BOOL)hasQQBinding
 {
-    return [BBUser bb_getUser].hasQQBinding;
+    return [BBUser bb_getUser].bindQQ;
 }
 -(BOOL)isHasWeiXinBinding
 {
-    return [BBUser bb_getUser].hasWeiXinBinding;
+    return [BBUser bb_getUser].bindWX;
 }
 -(BOOL)hasWeiBoBinding
 {
-    return [BBUser bb_getUser].hasWeiBoBinding;
+    return [BBUser bb_getUser].bindWB;
 }
 -(NSString *)token
 {
     return [BBUser bb_getUser].token;
+}
+-(NSString *)password
+{
+    return [BBUser bb_getUser].password;
 }
 @end
