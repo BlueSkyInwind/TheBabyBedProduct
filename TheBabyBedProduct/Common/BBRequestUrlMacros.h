@@ -34,4 +34,11 @@
 //意见反馈
 #define K_Url_Suggestion        @"/api/user/sendSugister"
 
+
+//消息列表
+#define K_Url_MessageList        @"/api/msg/list"
+//消息编辑
+#define K_Url_MessageEidt        @"/api/msg/edit"
+
+
 #endif /* BBRequestUrlMacros_h */

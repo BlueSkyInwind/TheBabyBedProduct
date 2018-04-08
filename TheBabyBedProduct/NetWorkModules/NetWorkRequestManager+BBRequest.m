@@ -20,6 +20,16 @@ static void postRequest(NSString *url,id param,SuccessBlock successBlock,Failure
     [BBRequestTool PostWithURL:requestUrl isNeedNetStatus:NO isNeedWait:NO parameters:param finished:successBlock failure:failureBlock];
 }
 
+static void getRequest(NSString *url,id param,SuccessBlock successBlock,FailureBlock failureBlock){
+    NSString *requestUrl = @"";
+    if ([url containsString:K_Url_BBBase]) {
+        requestUrl = url;
+    }else{
+        requestUrl = [NSString stringWithFormat:@"%@%@",K_Url_BBBase,url];
+    }
+    [BBRequestTool GetWithURL:requestUrl isNeedNetStatus:NO isNeedWait:NO parameters:param finished:successBlock failure:failureBlock];
+}
+
 /**
  登录
  
@@ -95,6 +105,37 @@ static void postRequest(NSString *url,id param,SuccessBlock successBlock,Failure
                             @"password":password
                             };
     postRequest(K_Url_Regist, param, successBlock, failureBlock);
+    ;
+}
+
+/*
+ 获取消息列表的数据
+ */
+-(void)getMessageListWith:(int)page
+             successBlock:(SuccessBlock)successBlock
+             failureBlock:(FailureBlock)failureBlock{
+    NSDictionary *param = @{
+                            @"pageNo":@(page),
+                            @"pageSize":@(10),
+                            };
+    getRequest(K_Url_MessageList, param, successBlock, failureBlock);
+}
+
+/**
+ 编辑消息列表
+ editOrReaded 操作动作  0 删除消息 1 将消息标记为已读
+ messageIds 多个id 用 逗号隔开
+ */
+-(void)editMessageListWith:(NSString *)editOrReaded
+                            messageIds:(NSString *)messageIds
+                    successBlock:(SuccessBlock)successBlock
+                    failureBlock:(FailureBlock)failureBlock
+{
+    NSDictionary *param = @{
+                            @"op":editOrReaded,
+                            @"ids":messageIds
+                            };
+    postRequest(K_Url_MessageEidt, param, successBlock, failureBlock);
     ;
 }
 

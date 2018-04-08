@@ -16,6 +16,7 @@
 		2266C1B720692D73004F653A /* UIFont+YX_Font.m in Sources */ = {isa = PBXBuildFile; fileRef = 2266C1B620692D72004F653A /* UIFont+YX_Font.m */; };
 		2266C1BA20694A61004F653A /* CryingChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2266C1B920694A61004F653A /* CryingChartView.m */; };
 		2266C1BD20694A85004F653A /* CryingChartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2266C1BC20694A85004F653A /* CryingChartViewController.m */; };
+		22833BF9207A5E6800A70247 /* MessageModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 22833BF8207A5E6800A70247 /* MessageModel.m */; };
 		22CF35632073CCAB00707F8A /* ScanDeviceCodeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22CF35612073CCAB00707F8A /* ScanDeviceCodeViewController.m */; };
 		22CF35642073CCAB00707F8A /* ScanDeviceCodeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22CF35622073CCAB00707F8A /* ScanDeviceCodeViewController.xib */; };
 		22CF35682073DB1500707F8A /* QRScanView.m in Sources */ = {isa = PBXBuildFile; fileRef = 22CF35672073DB1500707F8A /* QRScanView.m */; };
@@ -252,6 +253,8 @@
 		2266C1B920694A61004F653A /* CryingChartView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CryingChartView.m; sourceTree = "<group>"; };
 		2266C1BB20694A85004F653A /* CryingChartViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CryingChartViewController.h; sourceTree = "<group>"; };
 		2266C1BC20694A85004F653A /* CryingChartViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CryingChartViewController.m; sourceTree = "<group>"; };
+		22833BF7207A5E6800A70247 /* MessageModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MessageModel.h; sourceTree = "<group>"; };
+		22833BF8207A5E6800A70247 /* MessageModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MessageModel.m; sourceTree = "<group>"; };
 		22CF35502073C98300707F8A /* BBMyRewardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBMyRewardViewController.m; sourceTree = "<group>"; };
 		22CF35572073C99700707F8A /* BBEditInfoAvatarCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBEditInfoAvatarCell.m; sourceTree = "<group>"; };
 		22CF35582073C99700707F8A /* BBEditInformationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBEditInformationViewController.m; sourceTree = "<group>"; };
@@ -1519,6 +1522,8 @@
 			children = (
 				8449AC0620620CB300526935 /* BaseResultModel.h */,
 				8449AC0720620CB300526935 /* BaseResultModel.m */,
+				22833BF7207A5E6800A70247 /* MessageModel.h */,
+				22833BF8207A5E6800A70247 /* MessageModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1850,6 +1855,7 @@
 				57210CA52074C2DE0039D8D5 /* ZFPlayerModel.m in Sources */,
 				84D5BDC7207354010025C757 /* bluetoothPairingViewController.m in Sources */,
 				5726F349206A8428008EED75 /* BBMyListSubTitleCell.m in Sources */,
+				22833BF9207A5E6800A70247 /* MessageModel.m in Sources */,
 				22CFD3FA2067FE060004186D /* TemperatureThresholdSettingViewController.m in Sources */,
 				22CFD3C920667B250004186D /* ConsoleRateBottonView.m in Sources */,
 				22CFD3E92067FD650004186D /* CryingThresholdSettingViewController.m in Sources */,

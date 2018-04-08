@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
+
+typedef void (^MessageCellSelectStatus)(BOOL isSelected);
 @interface MessageTableViewCell : UITableViewCell
 
 
@@ -22,5 +24,10 @@
 
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *leftContentConstraint;
 
+@property (copy, nonatomic)MessageCellSelectStatus selectStatus;
+
 -(void)isEidtMode:(BOOL)isEidt;
+
+
+
 @end

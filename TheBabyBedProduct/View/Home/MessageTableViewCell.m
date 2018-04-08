@@ -23,8 +23,9 @@
 - (IBAction)selectButtonClick:(id)sender {
     UIButton * button = (UIButton *)sender;
     button.selected = !button.selected;
-    
-    
+//    if (self.selectStatus) {
+//        self.selectStatus(button.selected);
+//    }
 }
 
 -(void)isEidtMode:(BOOL)isEidt{
@@ -36,16 +37,9 @@
         }else{
             self.leftContentConstraint.constant = 27;
             self.selelctBtn.hidden = true;
-
         }
     } completion:nil];
 }
-
-
-
-
-
-
 
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
