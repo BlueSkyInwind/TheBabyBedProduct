@@ -13,7 +13,6 @@ static const CGFloat kCircleContainerSize = 200;
 static const NSInteger kCircleCount = 8;
 static const CGFloat kCircleSize = 48;
 
-
 @implementation DeviceConnectAnimationView
 
 -(instancetype)initWithFrame:(CGRect)frame{
@@ -23,7 +22,6 @@ static const CGFloat kCircleSize = 48;
     }
     return self;
 }
-
 
 -(void)configurevView{
     
