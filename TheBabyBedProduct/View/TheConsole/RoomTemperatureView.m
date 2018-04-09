@@ -20,11 +20,10 @@
 @end
 @implementation RoomTemperatureView
 
-
 -(instancetype)initWithFrame:(CGRect)frame{
     self = [super initWithFrame:frame];
     if (self) {
-        [self configureView];
+        
     }
     return self;
 }
@@ -58,6 +57,7 @@
     self.lines = [self lines:true];
     
 }
+
 - (NSArray *)lines:(BOOL)fill {
     NSArray *pointsArr = @[                           @{@"xValue" : @"1:00", @"yValue" : @"34"},
                                                       @{@"xValue" : @"2:00", @"yValue" : @"33"},
@@ -79,9 +79,8 @@
         item.chartLineColor = self.mainColor;
         item.chartPointColor = self.mainColor;
         item.pointValueColor = self.mainColor;
-        item.chartFillColor = rgb(173, 229, 69, 0.45);
+        item.chartFillColor = self.fillColor;
         item.chartFill = YES;
-        
         [points addObject:item];
     }
     

@@ -83,7 +83,6 @@
             [self.messageTableView reloadData];
         }
     }];
-    
 }
 
 #pragma mark - tableViewDelegate

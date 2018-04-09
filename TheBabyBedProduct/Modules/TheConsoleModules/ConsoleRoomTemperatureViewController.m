@@ -66,7 +66,7 @@
     };
     _indicatorView.outdoorTemperatureCurveClick = ^{
         RoomTemperatureChartViewController * roomTemPeratureChartVC = [[RoomTemperatureChartViewController alloc]init];
-        roomTemPeratureChartVC.isOutside = true;
+        roomTemPeratureChartVC.isOutside = false;
         [weakSelf.navigationController pushViewController:roomTemPeratureChartVC animated:true];
     };
     [_indicatorView mas_makeConstraints:^(MASConstraintMaker *make) {
