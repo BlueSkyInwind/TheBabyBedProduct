@@ -23,7 +23,6 @@
     // Do any additional setup after loading the view.
     self.title = @"历史体温";
     [self addBackItem];
-
     [self configureView];
     
 }

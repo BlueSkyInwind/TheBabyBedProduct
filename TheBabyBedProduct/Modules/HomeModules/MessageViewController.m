@@ -32,7 +32,6 @@
 -(void)configureview{
     isedit = false;
     
-    
     UIButton * editButton = [UIButton buttonWithType:UIButtonTypeCustom];
     [editButton setTitle:@"编辑" forState:UIControlStateNormal];
         [editButton setTitle:@"完成" forState:UIControlStateSelected];
@@ -49,8 +48,6 @@
     [_messageTableView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.edges.equalTo(self.view);
     }];
-    
-
 
 }
 -(void)rightButtonClick:(id)sender{
