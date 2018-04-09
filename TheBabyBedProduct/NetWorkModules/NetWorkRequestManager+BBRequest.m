@@ -20,6 +20,16 @@ static void postRequest(NSString *url,id param,SuccessBlock successBlock,Failure
     [BBRequestTool PostWithURL:requestUrl isNeedNetStatus:NO isNeedWait:NO parameters:param finished:successBlock failure:failureBlock];
 }
 
+static void getRequest(NSString *url,id param,SuccessBlock successBlock,FailureBlock failureBlock){
+    NSString *requestUrl = @"";
+    if ([url containsString:K_Url_BBBase]) {
+        requestUrl = url;
+    }else{
+        requestUrl = [NSString stringWithFormat:@"%@%@",K_Url_BBBase,url];
+    }
+    [BBRequestTool GetWithURL:requestUrl isNeedNetStatus:NO isNeedWait:NO parameters:param finished:successBlock failure:failureBlock];
+}
+
 /**
  登录
  
@@ -95,7 +105,109 @@ static void postRequest(NSString *url,id param,SuccessBlock successBlock,Failure
                             @"password":password
                             };
     postRequest(K_Url_Regist, param, successBlock, failureBlock);
+}
+
+/*
+ 获取消息列表的数据
+ */
+-(void)getMessageListWith:(int)page
+             successBlock:(SuccessBlock)successBlock
+             failureBlock:(FailureBlock)failureBlock{
+    NSDictionary *param = @{
+                            @"pageNo":@(page),
+                            @"pageSize":@(10),
+                            };
+    getRequest(K_Url_MessageList, param, successBlock, failureBlock);
+}
+
+/**
+ 编辑消息列表
+ editOrReaded 操作动作  0 删除消息 1 将消息标记为已读
+ messageIds 多个id 用 逗号隔开
+ */
+-(void)editMessageListWith:(NSString *)editOrReaded
+                            messageIds:(NSString *)messageIds
+                    successBlock:(SuccessBlock)successBlock
+                    failureBlock:(FailureBlock)failureBlock
+{
+    NSDictionary *param = @{
+                            @"op":editOrReaded,
+                            @"ids":messageIds
+                            };
+    postRequest(K_Url_MessageEidt, param, successBlock, failureBlock);
     ;
 }
+
+/**
+ 忘记密码 post
+ */
+-(void)bb_requestForgetPasswordWithPhone:(NSString *)phone
+                                    code:(NSString *)code
+                                password:(NSString *)password
+                            successBlock:(SuccessBlock)successBlock
+                            failureBlock:(FailureBlock)failureBlock
+{
+    NSDictionary *param = @{
+                            @"phone":phone,
+                            @"code":code,
+                            @"password":password
+                            };
+    postRequest(K_Url_ForgetPassword, param, successBlock, failureBlock);
+}
+
+/**
+ 获取用户信息 get
+ */
+-(void)bb_requestGetUserInfoWithSuccessBlock:(SuccessBlock)successBlock
+                                failureBlock:(FailureBlock)failureBlock
+{
+    [[NetWorkRequestManager sharedNetWorkManager]GetWithURL:[K_Url_BBBase stringByAppendingString:K_Url_GetUserInfo] isNeedNetStatus:NO isNeedWait:NO parameters:nil finished:successBlock failure:failureBlock];
+}
+
+/**
+ 阈值设定
+ @param deviceType 设备类型  0 室内外温度传感器数据
+ 1  声音传感器数据（哭闹）
+ 2 体温传感器 （额头传感器，腋下传感器）
+ 3 湿度传感器（有没有尿湿）
+ 4 踢被传感器数据
+ @param minValue 最小值
+ @param maxValue 最大值
+ @param deviceId 设备id
+ */
+-(void)SetThresholdValueDeviceType:(NSString *)deviceType minValue:(NSString *)minValue maxValue:(NSString *)maxValue deviceId:(NSString *)deviceId successBlock:(SuccessBlock)successBlock failureBlock:(FailureBlock)failureBlock{
+    
+    NSDictionary *param = @{
+                            @"deviceType":deviceType,
+                            @"minVal":minValue,
+                            @"maxVal":maxValue,
+                            @"deviceId":deviceId
+                            };
+    postRequest(K_Url_SetThreshold, param, successBlock, failureBlock);
+    
+}
+/*  获取阈值  */
+-(void)GetThresholdValueDeviceType:(NSString *)deviceType deviceId:(NSString *)deviceId successBlock:(SuccessBlock)successBlock failureBlock:(FailureBlock)failureBlock{
+    
+    NSDictionary *param = @{
+                            @"deviceType":deviceType,
+                            @"deviceId":deviceId
+                            };
+    getRequest(K_Url_GetThreshold, param, successBlock, failureBlock);
+    
+}
+
+/*  获取曲线数据  */
+-(void)GetStatisticsDataDeviceType:(NSString *)deviceType deviceId:(NSString *)deviceId successBlock:(SuccessBlock)successBlock failureBlock:(FailureBlock)failureBlock{
+    
+    NSString * urlStr = [NSString stringWithFormat:@"%@%@",K_Url_GetSensorData,deviceId];
+    
+    NSDictionary * param = @{
+                            @"deviceType":deviceType,
+                            };
+    getRequest(urlStr, param, successBlock, failureBlock);
+
+}
+
 
 @end

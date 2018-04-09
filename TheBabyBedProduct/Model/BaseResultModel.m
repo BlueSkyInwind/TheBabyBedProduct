@@ -10,6 +10,10 @@
 
 @implementation BaseResultModel
 
+-(void)setValue:(id)value forUndefinedKey:(NSString *)key{
+    NSLog(@"%@",key);
+}
+
 @end
 
 //------- login start ----
@@ -17,3 +21,7 @@
 
 @end
 //------- login end ----
+
+@implementation BaseDictResultModel
+
+@end

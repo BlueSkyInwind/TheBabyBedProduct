@@ -28,10 +28,24 @@
 //修改密码
 #define K_Url_ModifyPassword    @"/api/user/cpass"
 //获取用户信息
-#define K_Url_UserInfo          @"/api/user/userInfo"
+#define K_Url_GetUserInfo       @"/api/user/userInfo"
 //编辑用户资料
 #define K_Url_EditUserInfo      @"api/user/editinfo"
 //意见反馈
 #define K_Url_Suggestion        @"/api/user/sendSugister"
+
+
+//消息列表
+#define K_Url_MessageList        @"/api/msg/list"
+//消息编辑
+#define K_Url_MessageEidt        @"/api/msg/edit"
+//阈值设定
+#define K_Url_SetThreshold       @"api/waringsetting/setting"
+//获取阈值  api/waringsetting/setting/{id}
+#define K_Url_GetThreshold       @"api/waringsetting/setting"
+//传感器数据获取  api/statistics/{deviceId}
+#define K_Url_GetSensorData       @"api/statistics/"
+
+
 
 #endif /* BBRequestUrlMacros_h */

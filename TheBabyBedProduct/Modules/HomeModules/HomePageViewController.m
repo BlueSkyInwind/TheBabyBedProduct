@@ -42,8 +42,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad]; 
     // Do any additional setup after loading the view.
-    [self configureAddDeviceView];
-//    [self configureView];
+//    [self configureAddDeviceView];
+    [self configureView];
 }
 
 -(void)configureAddDeviceView{
@@ -98,8 +98,8 @@
 -(void)rightButtonItemClick{
     
     MessageViewController * messageVC = [[MessageViewController alloc]init];
+    messageVC.hidesBottomBarWhenPushed = true;
     [self.navigationController pushViewController:messageVC animated:true];
-
 }
 
 #pragma mark - tableViewDelegate

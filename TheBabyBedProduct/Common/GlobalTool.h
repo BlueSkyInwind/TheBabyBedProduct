@@ -14,7 +14,6 @@
 
 +(GlobalTool *)share;
 
-
 //系统版本号
 + (float)getIOSVersion;
 //app版本号
@@ -35,7 +34,6 @@
 
 /**
  生成对应颜色的图片
- 
  @param color 色值
  @return 图片
  */
@@ -53,6 +51,7 @@
 + (NSTimeInterval)timeToTimestamp:(NSString *)timeStr;
 //时间戳转换为时间
 + (NSString *)timestampToTime:(NSTimeInterval)timestamp;
-
+//时间戳转换为24H时间制
++ (NSString *)timestampTo24HTime:(NSTimeInterval)timestamp;
 
 @end

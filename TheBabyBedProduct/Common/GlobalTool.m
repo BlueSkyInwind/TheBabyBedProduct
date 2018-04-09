@@ -160,6 +160,17 @@ static GlobalTool * shareTool = nil;
     formatter = nil;
     return timeStr;
 }
+//时间戳转换为24H时间制
++ (NSString *)timestampTo24HTime:(NSTimeInterval)timestamp
+{
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:@"HH:mm:ss"];
+    NSDate *date = nil;
+    date = [NSDate dateWithTimeIntervalSince1970:timestamp];
+    NSString *timeStr = [formatter stringFromDate:date];
+    formatter = nil;
+    return timeStr;
+}
 
 
 @end

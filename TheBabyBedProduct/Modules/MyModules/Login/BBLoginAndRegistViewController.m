@@ -62,17 +62,20 @@
         //
         DLog(@"点击忘记密码");
         BBStrongSelf(self)
+        [self.view endEditing:YES];
         BBForgetPasswordViewController *forgerPasswordVC = [[BBForgetPasswordViewController alloc]init];
         [self.navigationController pushViewController:forgerPasswordVC animated:YES];
     };
     self.loginV.loginBlock = ^(NSString *phone, NSString *password) {
         DLog(@"点登录按钮 %@--%@",phone,password);
         BBStrongSelf(self)
+        [self.view endEditing:YES];
         [self goToThirdWithType:BBLoginTypeDefault];
     };
     self.loginV.thirdLoginBlock = ^(BBLoginType type) {
         DLog(@"第三方登录方式 %ld",(long)type);
         BBStrongSelf(self)
+        [self.view endEditing:YES];
         [self goToThirdWithType:type];
     };
     
@@ -87,14 +90,18 @@
     
     self.registV.registBlock = ^(NSString *phone, NSString *code, NSString *password) {
         BBStrongSelf(self)
+        [self.view endEditing:YES];
         [self registRequest:phone code:code password:password];
     };
     
     self.registV.agreeProtocolBlock = ^(BOOL isAgree) {
+        BBStrongSelf(self)
         _isAgreeRegistProtocol = isAgree;
+        [self.view endEditing:YES];
     };
     self.registV.clickProtocolBlock = ^{
-        
+        BBStrongSelf(self)
+        [self.view endEditing:YES];
     };
     
 }
