@@ -28,6 +28,8 @@ typedef void (^OutdoorTemperatureCurveClick)();
 
 @property (weak, nonatomic) IBOutlet UIImageView *outDoorImageView;
 
+
+
 /* 室内温度显示*/
 @property(nonatomic,strong)UILabel * inDoorLabel;
 

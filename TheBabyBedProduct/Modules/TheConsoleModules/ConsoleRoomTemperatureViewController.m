@@ -27,29 +27,36 @@
     // Do any additional setup after loading the view.
     self.title = @"环境温度";
     [self addBackItem];
-
     [self configureView];
+    
 }
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     self.navigationController.navigationBar.hidden = true;
 }
+
 -(void)viewWillDisappear:(BOOL)animated{
     [super viewWillDisappear:animated];
     self.navigationController.navigationBar.hidden = false;
 }
+
 -(void)configureView{
     
     __weak typeof (self) weakSelf = self;
     _headerView = [[NSBundle mainBundle]loadNibNamed:@"ConsoleHeaderView" owner:self options:nil].lastObject;
     _headerView.titleLabel.text = self.title;
+    [_headerView resetConsoleSettingBtn:20];
+    [_headerView.settingBtn setImage:[UIImage imageNamed:@"location_Icon"] forState:UIControlStateNormal];
+    _headerView.locationLabel.text = @"苏州";
     [self.view addSubview:_headerView];
     _headerView.backButtonClick = ^(UIButton *button) {
         [weakSelf.navigationController popViewControllerAnimated:true];
     };
     _headerView.settingButtonClick = ^(UIButton *button) {
         
+        
     };
+    
     [_headerView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.left.right.equalTo(@0);
         make.height.equalTo(@210);
@@ -64,17 +71,20 @@
 //        roomTemPeratureChartVC.isOutside = false;
 //        [weakSelf.navigationController pushViewController:roomTemPeratureChartVC animated:true];
     };
+    
     _indicatorView.outdoorTemperatureCurveClick = ^{
         RoomTemperatureChartViewController * roomTemPeratureChartVC = [[RoomTemperatureChartViewController alloc]init];
         roomTemPeratureChartVC.isOutside = false;
         [weakSelf.navigationController pushViewController:roomTemPeratureChartVC animated:true];
     };
+    
     [_indicatorView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.right.equalTo(@0);
         make.top.equalTo(self.headerView.mas_bottom).with.offset(5);
         make.height.equalTo(@(_k_h - 210));
     }];
 }
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
