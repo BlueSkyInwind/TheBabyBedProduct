@@ -41,9 +41,13 @@
 @property(nonatomic,assign) BOOL bindQQ;
 /** 身份 */
 @property(nonatomic,copy) NSString *identity;
+/** 宝宝姓名 */
+@property(nonatomic,copy) NSString *babyName;
 
 /** 密码 */
 @property(nonatomic,copy) NSString *password;
+
+
 
 +(BBUser *)bb_getUser;
 +(void)bb_saveUser:(BBUser *)user;

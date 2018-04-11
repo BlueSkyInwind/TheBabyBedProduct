@@ -10,6 +10,7 @@
 #import "UIImage+category.h"
 #import "BBEarlyEducationHeaderView.h"
 #import "BBEarlyEducationCell.h"
+#import "BBEarlyEducationMusicListViewController.h"
 
 static NSString * const kEarlyEducationCellIdentifier = @"EarlyEducationCellIdentifier";
 static NSString * const kEarlyEducationHeaderViewIdentifier = @"EarlyEducationHeaderViewIdentifier";
@@ -115,6 +116,11 @@ static NSString * const kEarlyEducationHeaderViewIdentifier = @"EarlyEducationHe
     
     headerV.itemClickedBlock = ^(BBEarlyEducationItemType itemType) {
         DLog(@"点击item");
+        NSArray * titleArrs = @[@"胎教音乐",@"经典童话",@"睡前故事",@"音乐启蒙",
+                                @"诗歌美文",@"经典音乐",@"钢琴曲",@"古典音乐"];
+        BBEarlyEducationMusicListViewController *musicListVC = [[BBEarlyEducationMusicListViewController alloc]init];
+        musicListVC.titleStr = titleArrs[itemType];
+        [self.navigationController pushViewController:musicListVC animated:YES];
     };
     
     headerV.lookMoreBlock = ^{

@@ -94,6 +94,10 @@
 		57210D0F207777960039D8D5 /* AppDelegate+BBConfigure.m in Sources */ = {isa = PBXBuildFile; fileRef = 57210D0E207777960039D8D5 /* AppDelegate+BBConfigure.m */; };
 		57210D1220789A0E0039D8D5 /* NSString+Verify.m in Sources */ = {isa = PBXBuildFile; fileRef = 57210D1120789A0E0039D8D5 /* NSString+Verify.m */; };
 		57210D1B207A48F60039D8D5 /* BBModifyPasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 57210D1A207A48F60039D8D5 /* BBModifyPasswordViewController.m */; };
+		57210D1E207B05650039D8D5 /* BBEarlyEducationMusicListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 57210D1D207B05650039D8D5 /* BBEarlyEducationMusicListViewController.m */; };
+		57210DD5207CA37F0039D8D5 /* BBEEMusicListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 57210DD4207CA37F0039D8D5 /* BBEEMusicListCell.m */; };
+		57210DDB207D15F40039D8D5 /* BBUploadImageResultModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 57210DDA207D15F40039D8D5 /* BBUploadImageResultModel.m */; };
+		57210DDE207D1A6D0039D8D5 /* BBEditUserInfoItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 57210DDD207D1A6D0039D8D5 /* BBEditUserInfoItem.m */; };
 		5726F33B206A2FB2008EED75 /* BBWarningRingSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5726F337206A2FB2008EED75 /* BBWarningRingSettingViewController.m */; };
 		5726F33C206A2FB2008EED75 /* BBWarningRingListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5726F33A206A2FB2008EED75 /* BBWarningRingListCell.m */; };
 		5726F33F206A3185008EED75 /* PPTextfield+EasilyMake.m in Sources */ = {isa = PBXBuildFile; fileRef = 5726F33E206A3185008EED75 /* PPTextfield+EasilyMake.m */; };
@@ -409,6 +413,14 @@
 		57210D1120789A0E0039D8D5 /* NSString+Verify.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSString+Verify.m"; sourceTree = "<group>"; };
 		57210D19207A48F60039D8D5 /* BBModifyPasswordViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BBModifyPasswordViewController.h; sourceTree = "<group>"; };
 		57210D1A207A48F60039D8D5 /* BBModifyPasswordViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BBModifyPasswordViewController.m; sourceTree = "<group>"; };
+		57210D1C207B05650039D8D5 /* BBEarlyEducationMusicListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BBEarlyEducationMusicListViewController.h; sourceTree = "<group>"; };
+		57210D1D207B05650039D8D5 /* BBEarlyEducationMusicListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BBEarlyEducationMusicListViewController.m; sourceTree = "<group>"; };
+		57210DD3207CA37F0039D8D5 /* BBEEMusicListCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BBEEMusicListCell.h; sourceTree = "<group>"; };
+		57210DD4207CA37F0039D8D5 /* BBEEMusicListCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BBEEMusicListCell.m; sourceTree = "<group>"; };
+		57210DD9207D15F40039D8D5 /* BBUploadImageResultModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BBUploadImageResultModel.h; sourceTree = "<group>"; };
+		57210DDA207D15F40039D8D5 /* BBUploadImageResultModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BBUploadImageResultModel.m; sourceTree = "<group>"; };
+		57210DDC207D1A6D0039D8D5 /* BBEditUserInfoItem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BBEditUserInfoItem.h; sourceTree = "<group>"; };
+		57210DDD207D1A6D0039D8D5 /* BBEditUserInfoItem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BBEditUserInfoItem.m; sourceTree = "<group>"; };
 		5726F337206A2FB2008EED75 /* BBWarningRingSettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBWarningRingSettingViewController.m; sourceTree = "<group>"; };
 		5726F338206A2FB2008EED75 /* BBWarningRingListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBWarningRingListCell.h; sourceTree = "<group>"; };
 		5726F339206A2FB2008EED75 /* BBWarningRingSettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBWarningRingSettingViewController.h; sourceTree = "<group>"; };
@@ -880,6 +892,10 @@
 				5726F3BD206C7F3B008EED75 /* BBEarlyEducationHeaderView.m */,
 				5726F3BF206C8F13008EED75 /* BBEarlyEducationCell.h */,
 				5726F3C0206C8F13008EED75 /* BBEarlyEducationCell.m */,
+				57210D1C207B05650039D8D5 /* BBEarlyEducationMusicListViewController.h */,
+				57210D1D207B05650039D8D5 /* BBEarlyEducationMusicListViewController.m */,
+				57210DD3207CA37F0039D8D5 /* BBEEMusicListCell.h */,
+				57210DD4207CA37F0039D8D5 /* BBEEMusicListCell.m */,
 			);
 			path = EarlyEducationModules;
 			sourceTree = "<group>";
@@ -1063,6 +1079,10 @@
 				57210C762073B4A50039D8D5 /* BBEditInformationViewController.m */,
 				57210C7F2073BB600039D8D5 /* BBMyAccountExpenceRecordListCell.h */,
 				57210C802073BB600039D8D5 /* BBMyAccountExpenceRecordListCell.m */,
+				57210DD9207D15F40039D8D5 /* BBUploadImageResultModel.h */,
+				57210DDA207D15F40039D8D5 /* BBUploadImageResultModel.m */,
+				57210DDC207D1A6D0039D8D5 /* BBEditUserInfoItem.h */,
+				57210DDD207D1A6D0039D8D5 /* BBEditUserInfoItem.m */,
 			);
 			path = MyAccount;
 			sourceTree = "<group>";
@@ -1883,6 +1903,7 @@
 				22CF35632073CCAB00707F8A /* ScanDeviceCodeViewController.m in Sources */,
 				2263B8EA206BE604005BB15E /* MessageViewController.m in Sources */,
 				2266C1B720692D73004F653A /* UIFont+YX_Font.m in Sources */,
+				57210DD5207CA37F0039D8D5 /* BBEEMusicListCell.m in Sources */,
 				574C6CEA2069272700F5BF55 /* UIButton+EasilyMake.m in Sources */,
 				842D9CED206B94C90020C3C2 /* HomeLeftItemView.m in Sources */,
 				84332C9D206CE6F5009A9121 /* MessageTableViewCell.m in Sources */,
@@ -1904,6 +1925,7 @@
 				8449AC0820620CB300526935 /* BaseResultModel.m in Sources */,
 				57585ACF206D4428001BB202 /* LWShareButton.m in Sources */,
 				574C6CDA2069262000F5BF55 /* BBSettingViewController.m in Sources */,
+				57210DDB207D15F40039D8D5 /* BBUploadImageResultModel.m in Sources */,
 				57585ABA206D116C001BB202 /* BBMyDeviceViewController.m in Sources */,
 				57210CA62074C2DE0039D8D5 /* UIWindow+CurrentViewController.m in Sources */,
 				8449AC0B20620D1B00526935 /* BaseViewModel.m in Sources */,
@@ -1917,6 +1939,7 @@
 				22CFD3C3206652B70004186D /* ConsoleRateView.m in Sources */,
 				2263B8F220709EA2005BB15E /* BaseCentralManager.m in Sources */,
 				2266C1BD20694A85004F653A /* CryingChartViewController.m in Sources */,
+				57210DDE207D1A6D0039D8D5 /* BBEditUserInfoItem.m in Sources */,
 				57210C7E2073B4B80039D8D5 /* BBMyRewardViewController.m in Sources */,
 				57210C792073B4A50039D8D5 /* BBEditInformationViewController.m in Sources */,
 				574C6CE72069272700F5BF55 /* UITableViewCell+EasilyMake.m in Sources */,
@@ -1943,6 +1966,7 @@
 				8490CFC3207480C200D416C1 /* DeviceConnectingViewController.m in Sources */,
 				22CFD3972062A78C0004186D /* HistoryFeverViewController.m in Sources */,
 				2266C1BA20694A61004F653A /* CryingChartView.m in Sources */,
+				57210D1E207B05650039D8D5 /* BBEarlyEducationMusicListViewController.m in Sources */,
 				22CFD3EE2067FD8C0004186D /* WettingThresholdSettingViewController.m in Sources */,
 				57CECE43207374DC00E9A876 /* UIAlertController+EasilyMake.m in Sources */,
 				5726F3BB206BE46F008EED75 /* BBAcountNumberListCell.m in Sources */,
@@ -2125,7 +2149,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = WB5UAUH8M2;
+				DEVELOPMENT_TEAM = GP8N54644M;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/TheBabyBedProduct/Third/MOBSDK/ShareSDK/Support/PlatformSDK/QQSDK",
@@ -2190,7 +2214,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = WB5UAUH8M2;
+				DEVELOPMENT_TEAM = GP8N54644M;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/TheBabyBedProduct/Third/MOBSDK/ShareSDK/Support/PlatformSDK/QQSDK",

@@ -27,8 +27,9 @@ typedef NS_ENUM(NSInteger,BBEarlyEducationItemType) {
 
 //注意：此处主要是因为切图给的尺寸不对，所以自己处理，因为时间紧，再等切图就麻烦，此版本请自动忽略代码质量！！！
 @interface BBItemButton : UIView
--(instancetype)initWithFrame:(CGRect)frame imgName:(NSString *)imgName text:(NSString *)text;
-@property(nonatomic,strong) UIImageView *topImgV;
-@property(nonatomic,strong) UILabel *bottomTextLB;
-@property(nonatomic,strong) UIButton *tempBT;
+
+@property(nonatomic,copy) void(^itemClickedBlcok)(BBEarlyEducationItemType itemType);
+
+-(instancetype)initWithFrame:(CGRect)frame imgName:(NSString *)imgName text:(NSString *)text tag:(NSInteger)tag;
+
 @end

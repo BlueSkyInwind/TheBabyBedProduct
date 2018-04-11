@@ -80,4 +80,24 @@ typedef NS_ENUM(NSInteger,BBGetCodeType) {
  */
 -(void)bb_requestGetUserInfoWithSuccessBlock:(SuccessBlock)successBlock
                                 failureBlock:(FailureBlock)failureBlock;
+
+/**
+ 上传用户图像 post
+ */
+-(void)bb_requestUploadImageWithImage:(UIImage *)img
+                         successBlock:(SuccessBlock)successBlock
+                         failureBlock:(FailureBlock)failureBlock;
+
+/**
+ 编辑资料
+ @param avatarId 用户头像资料
+ */
+-(void)bb_requestEditUserInfoWithAvatarId:(NSString *)avatarId
+                                 babyName:(NSString *)babyName
+                                   gender:(NSString *)gender
+                                     city:(NSString *)city
+                                 birthday:(NSString *)birthday
+                                 identity:(NSString *)identity
+                             successBlock:(SuccessBlock)successBlock
+                             failureBlock:(FailureBlock)failureBlock;
 @end

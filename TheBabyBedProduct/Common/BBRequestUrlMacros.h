@@ -17,7 +17,7 @@
 #define K_Url_BBBase            @"http://114.55.129.5:8788"
 #endif
 
-//登录
+//登录 👌
 #define K_Url_Login             @"/api/login"
 //注册
 #define K_Url_Regist            @"/api/reg"
@@ -27,11 +27,14 @@
 #define K_Url_ForgetPassword    @"/api/forgetpass"
 //修改密码
 #define K_Url_ModifyPassword    @"/api/user/cpass"
-//获取用户信息
+//获取用户信息 🆗
 #define K_Url_GetUserInfo       @"/api/user/userInfo"
-//编辑用户资料
-#define K_Url_EditUserInfo      @"api/user/editinfo"
-//意见反馈
+//编辑用户资料 👌
+#define K_Url_EditUserInfo      @"/api/user/editinfo"
+//意见反馈 🆗
 #define K_Url_Suggestion        @"/api/user/sendSugister"
+//上传图片 👌
+#define K_Url_UploadImage       @"/api/upload"
+
 
 #endif /* BBRequestUrlMacros_h */
