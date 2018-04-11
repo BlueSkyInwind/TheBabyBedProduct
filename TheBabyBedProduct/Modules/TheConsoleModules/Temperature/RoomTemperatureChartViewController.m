@@ -14,6 +14,7 @@
 
 @end
 
+
 @implementation RoomTemperatureChartViewController
 
 - (void)viewDidLoad {
@@ -21,14 +22,13 @@
     // Do any additional setup after loading the view.
     [self addBackItem];
     [self configureView];
-
 }
+
 -(void)configureView{
     
     _roomTemperatureView = [[RoomTemperatureView alloc]initWithFrame:CGRectMake(0, NaviBarHeight, _k_w, _k_h / 2)];
-    _roomTemperatureView.backgroundColor = [UIColor whiteColor];
     [self.view addSubview:_roomTemperatureView];
-    
+    _roomTemperatureView.backgroundColor = [UIColor whiteColor];
     self.title = @"室内温度";
     _roomTemperatureView.mainColor = rgb(173, 229, 69, 1);
     _roomTemperatureView.fillColor = rgb(173, 229, 69, 0.45);
@@ -37,7 +37,10 @@
         _roomTemperatureView.mainColor = rgb(69, 207, 229, 1);
         _roomTemperatureView.fillColor = rgb(69, 207, 229, 0.45);
     }
+    [_roomTemperatureView configureView];
+    
 }
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

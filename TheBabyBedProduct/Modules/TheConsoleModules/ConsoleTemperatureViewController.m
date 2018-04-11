@@ -71,8 +71,7 @@
         [weakSelf.navigationController pushViewController:historyFeverVC animated:true];
     };
     
-    
-    
+
 }
 
 

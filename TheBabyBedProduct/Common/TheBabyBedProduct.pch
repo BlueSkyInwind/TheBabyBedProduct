@@ -26,6 +26,8 @@
 #import "UIFont+YX_Font.h"
 #import "UIImage+category.h"
 #import "GlobalAlertViewManager.h"
+#import <MJRefresh/MJRefresh.h>
+#import "BaseResultModel.h"
 
 #import <QMUIKit/QMUIKit.h>
 #import "BBMacros.h"

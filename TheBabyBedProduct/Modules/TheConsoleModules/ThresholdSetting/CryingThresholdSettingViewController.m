@@ -53,9 +53,7 @@
 - (IBAction)saveButtonClick:(id)sender {
     
     
-    
 }
-
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     return  42;
 }
@@ -92,6 +90,21 @@
     // Dispose of any resources that can be recreated.
 }
 
+#pragma mark --- 网络请求 ----
+-(void)SetCryingThresholdValueComplication:(void(^)(BOOL isSuccess))finish{
+    [BBRequestTool SetThresholdValueDeviceType:@"1" minValue:@"" maxValue:self.decibelTextField.text deviceId:@"" successBlock:^(EnumServerStatus status, id object) {
+        BaseResultModel *resultM = [[BaseResultModel alloc] initWithDictionary:object error:nil];
+        if (resultM.code == 0) {
+            
+            finish(true);
+        }else{
+            [QMUITips showWithText:resultM.msg inView:self.view hideAfterDelay:0.5];
+            finish(false);
+        }
+    } failureBlock:^(EnumServerStatus status, id object) {
+        finish(false);
+    }];
+}
 /*
 #pragma mark - Navigation
 

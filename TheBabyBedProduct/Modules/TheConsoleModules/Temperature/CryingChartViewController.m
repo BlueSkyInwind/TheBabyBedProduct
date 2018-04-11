@@ -21,14 +21,15 @@
     // Do any additional setup after loading the view.
     self.title = @"哭闹";
     [self addBackItem];
-
-    
+    [self configureView];
 }
 
 -(void)configureView{
+    
     _cryingChartView = [[CryingChartView alloc]initWithFrame:CGRectMake(0, NaviBarHeight, _k_w, _k_h / 2)];
     _cryingChartView.backgroundColor = [UIColor whiteColor];
     [self.view addSubview:_cryingChartView];
+    
 }
 
 - (void)didReceiveMemoryWarning {

@@ -10,7 +10,12 @@
 
 @implementation ConsoleHeaderView
 
+-(void)resetConsoleSettingBtn:(CGFloat)constant{
+    self.settingBtnConstraint.constant = constant;
+}
+
 - (IBAction)consoleHeaderClick:(id)sender {
+    
     
     
 }
@@ -19,14 +24,12 @@
     if (self.settingButtonClick) {
         self.settingButtonClick(sender);
     }
-    
 }
 
 - (IBAction)backBtnClick:(id)sender {
     if (self.backButtonClick) {
         self.backButtonClick(sender);
     }
-
 }
 
 /*

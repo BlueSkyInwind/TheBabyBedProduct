@@ -51,6 +51,7 @@
 
 +(BBUser *)bb_getUser;
 +(void)bb_saveUser:(BBUser *)user;
+
 @end
 
 
@@ -66,4 +67,5 @@
 
 /** 记录我的界面headerview的登录状态 */
 @property(nonatomic,assign) BOOL myHeaderVHasLogined;
+
 @end

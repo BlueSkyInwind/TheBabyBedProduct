@@ -17,6 +17,17 @@
 
 -(void)configureView{
     
+    //灰色环
+//    CAShapeLayer * fillLayer = [CAShapeLayer layer];
+//    UIBezierPath * path = [UIBezierPath bezierPath];
+//    
+//    fillLayer.strokeColor = [UIColor lightGrayColor].CGColor;
+//    fillLayer.lineWidth = 15;
+//    fillLayer.fillColor =  [UIColor clearColor].CGColor;
+//    fillLayer.lineCap = kCALineCapRound;
+//    fillLayer.path = path.CGPath;
+//    [self.layer addSublayer:fillLayer];
+    
     _alarTemImageView = [[UIImageView alloc]init];
     _alarTemImageView.image = [UIImage imageNamed:@"bobyThermometer_left_Icon"];
     [_alarThermometerView addSubview:_alarTemImageView];

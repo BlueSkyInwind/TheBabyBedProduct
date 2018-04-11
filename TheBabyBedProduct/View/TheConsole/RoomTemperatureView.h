@@ -14,5 +14,12 @@
 @property (nonatomic,strong)UIColor * mainColor;
 @property (nonatomic,strong)UIColor * fillColor;
 
+/**<#Description#>*/
+@property (nonatomic,strong)NSArray  * pointsArr;
+
+
+
+
+-(void)configureView;
 
 @end

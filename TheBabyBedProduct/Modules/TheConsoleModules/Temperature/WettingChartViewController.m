@@ -11,7 +11,6 @@
 
 @interface WettingChartViewController ()
 
-
 @property(nonatomic,strong)WettingChartView * wettingChartView;
 
 @end
@@ -23,9 +22,9 @@
     // Do any additional setup after loading the view.
     self.title = @"尿湿";
     [self addBackItem];
-
     [self configureView];
 }
+
 
 -(void)configureView{
     
@@ -34,6 +33,7 @@
     [self.view addSubview:_wettingChartView];
 
 }
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

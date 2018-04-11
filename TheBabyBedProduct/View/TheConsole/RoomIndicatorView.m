@@ -18,11 +18,11 @@
     
     UITapGestureRecognizer * outdoorTap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(outdoorTemperatureCurveViewTap)];
     [self.outdoorTemperatureCurveView addGestureRecognizer:outdoorTap];
-    
 }
 
 -(void)layoutSubviews{
     [super layoutSubviews];
+    [self layoutIfNeeded];
     [self configureView];
 }
 
@@ -145,9 +145,6 @@
     [_outDoorIndcatorLayer addAnimation:animation forKey:@"transform.rotation.z"];
     
 }
-
-
-
 
 
 // Only override drawRect: if you perform custom drawing.

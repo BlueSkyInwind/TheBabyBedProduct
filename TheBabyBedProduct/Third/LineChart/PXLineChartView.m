@@ -66,8 +66,6 @@
     [self.scrollView addSubview:_xAxisView];
     [self.scrollView addSubview:_chartBackgroundView];
     
- 
-    
 }
 
 - (void)layoutSubviews {
@@ -186,7 +184,6 @@
             [self.scrollView setContentOffset:CGPointMake(0,0)];
             
         } completion:^(BOOL finished) {
-            
         }];
     }
 }
