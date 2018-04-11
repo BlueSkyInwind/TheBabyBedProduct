@@ -85,9 +85,11 @@ static char OperationKey;
     }
     if (!isGridHide) {//
         NSUInteger gridCon = yCon;
-        if ([_axisAttributes[firstYAsOrigin] boolValue]) {
-            gridCon = yCon > 0 ? yCon - 1 : 0;
-        }
+//        if ([_axisAttributes[firstYAsOrigin] boolValue]) {
+//            gridCon = yCon > 0 ? yCon - 1 : 0;
+//        }
+        gridCon = yCon > 0 ? yCon - 1 : 0;
+
         for (int i = 0; i < gridCon; i++) {
             UILabel *yElementlab = [_delegate elementWithAxisType:AxisTypeY index:i];
             CGFloat guidHeight = 0;
@@ -108,6 +110,17 @@ static char OperationKey;
                         }else{
                             [fillcolor setFill];
                         }
+                        
+                        // 踢被曲线定制
+                        if ([_axisAttributes[yAxisdisplaystyle] boolValue]) {
+                            NSUInteger centerCon = (gridCon + 1) / 2;
+                            if ( centerCon == i ) {
+                                [fillcolor setFill];
+                            }else{
+                                [[UIColor clearColor] setFill];
+                            }
+                        }
+                        
                     }else{
                         if (i % 2 == 0) {
                             [[UIColor clearColor] setFill];
@@ -115,12 +128,10 @@ static char OperationKey;
                             [fillcolor setFill];
                         }
                     }
-                    
-                }
+                 }
                 UIBezierPath *rectPath = [UIBezierPath bezierPathWithRect:newRect];
                 [rectPath fill];
             }
-            
         }
     }
     
@@ -171,10 +182,12 @@ static char OperationKey;
                 pointXvalue = [pointItem px_pointXvalue];
                 pointCenterX = [_xAxisView pointOfXcoordinate:pointXvalue];
             }
+            
             if ([pointItem respondsToSelector:@selector(px_pointYvalue)]) {
                 pointYvalue = [pointItem px_pointYvalue];
                 pointCenterY = [_yAxisView pointOfYcoordinate:pointYvalue];
             }
+            
             UIButton *pointButton = nil;
             __weak typeof(self) weakSelf = self;
             if (!isPointHide) {

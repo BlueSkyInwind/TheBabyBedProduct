@@ -32,7 +32,7 @@
 
 -(void)configureView{
     
-    _dateChooseView = [DateChooseView initFrame:CGRectMake(0, 0, _k_w, 47) mainColor:self.mainColor leftImage:@"cryingChooseDate_left_Icon" rightImage:@"cryingChooseDate_left_Icon"];
+    _dateChooseView = [DateChooseView initFrame:CGRectMake(0, 0, _k_w, 47) mainColor:rgb(255, 108, 140, 1) leftImage:@"cryingChooseDate_left_Icon" rightImage:@"cryingChooseDate_right_Icon"];
     [self addSubview:_dateChooseView];
     _dateChooseView.chooseDateBlock = ^(NSTimeInterval chooseInterval) {
         //选择日期的时间戳
@@ -53,13 +53,7 @@
     
     _lineChartView = [[PXLineChartView alloc]initWithFrame:CGRectMake(-10, 1, self.frame.size.width - 10, 310)];
     [backView addSubview:_lineChartView];
-    
-    for (UIView * view in _lineChartView.subviews) {
-        if ([view isKindOfClass:[PXYview class]]) {
-            [self configureViewY:view];
-        }
-    }
-    
+
     _lineChartView.delegate = self;
     xArr = [NSArray arrayWithObjects:@"1:00",@"2:00",@"3:00",@"4:00",@"5:00",@"6:00",@"7:00",@"8:00",@"9:00",@"10:00",@"11:00",@"12:00",@"13:00",@"14:00",@"15:00",@"16:00",@"17:00",@"18:00",@"19:00",@"20:00",@"21:00",@"22:00",@"23:00",@"24:00", nil];
     yArr = [NSArray arrayWithObjects:@"0",@"5",@"10",@"15",@"20",@"25",@"30",@"35", nil];
@@ -86,10 +80,10 @@
         NSDictionary *itemDic = pointsArr[i];
         item.price = itemDic[@"yValue"];
         item.time = itemDic[@"xValue"];
-        item.chartLineColor = self.mainColor;
-        item.chartPointColor = self.mainColor;
-        item.pointValueColor = self.mainColor;
-        item.chartFillColor = rgb(173, 229, 69, 0.45);
+        item.chartLineColor = rgb(255, 108, 140, 1);
+        item.chartPointColor = rgb(255, 108, 140, 1);
+        item.pointValueColor = rgb(255, 108, 140, 1);;
+        item.chartFillColor = rgb(255, 108, 140, 0.45);
         item.chartFill = YES;
         [points addObject:item];
     }
@@ -100,47 +94,15 @@
         NSDictionary *itemDic = pointsArr1[i];
         item.price = itemDic[@"yValue"];
         item.time = itemDic[@"xValue"];
-        item.chartLineColor = self.mainColor;
-        item.chartPointColor = self.mainColor;
-        item.pointValueColor = self.mainColor;
-        item.chartFillColor = self.fillColor;
+        item.chartLineColor = rgb(255, 108, 140, 1);
+        item.chartPointColor = rgb(255, 108, 140, 1);
+        item.pointValueColor = rgb(255, 108, 140, 1);
+        item.chartFillColor = rgb(255, 108, 140, 0.45);
         item.chartFill = YES;
         [pointss addObject:item];
     }
     //两条line
     return @[pointss,points];
-}
-
--(void)configureViewY:(UIView *)superView{
-    
-    UIView * view = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 30, 30)];
-    view.backgroundColor = [UIColor redColor];
-    [superView addSubview:view];
-//    [view mas_makeConstraints:^(MASConstraintMaker *make) {
-//        make.edges.equalTo(superView);
-//    }];
-    
-    UILabel * topLabel = [[UILabel alloc]init];
-    topLabel.center = CGPointMake(view.frame.size.width / 2, view.frame.size.height / 4);
-    topLabel.text = @"哭闹";
-    topLabel.textAlignment = NSTextAlignmentLeft;
-    topLabel.font = [UIFont systemFontOfSize:15];
-    [view addSubview:topLabel];
-    [topLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.right.equalTo(view);
-        make.centerY.equalTo(view.mas_centerY).with.offset(-30);
-    }];
-    
-    UILabel * bottomLabel = [[UILabel alloc]init];
-    bottomLabel.center = CGPointMake(view.frame.size.width / 2, view.frame.size.height / 4);
-    bottomLabel.text = @"安静";
-    bottomLabel.textAlignment = NSTextAlignmentLeft;
-    bottomLabel.font = [UIFont systemFontOfSize:15];
-    [view addSubview:bottomLabel];
-    [bottomLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.right.equalTo(view);
-        make.centerY.equalTo(view.mas_centerY).with.offset(30);
-    }];
 }
 
 #pragma mark PXLineChartViewDelegate
@@ -151,6 +113,7 @@
              yMargin : @"50",
              xMargin : @"25",
              yElementsUnit : @"度",
+             yAxisdisplaystyle: @"1",
              xElementsUnit : @"时间",
              yElementMax: @"40",
              yElementMaxPointColor: [UIColor redColor],

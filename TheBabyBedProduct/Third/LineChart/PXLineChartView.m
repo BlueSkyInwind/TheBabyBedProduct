@@ -184,7 +184,6 @@
             [self.scrollView setContentOffset:CGPointMake(0,0)];
             
         } completion:^(BOOL finished) {
-            
         }];
     }
 }

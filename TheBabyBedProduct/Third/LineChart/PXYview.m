@@ -81,6 +81,7 @@
             [ytexts addObject:elementView.text];
         }
     }
+    
     NSArray *ytextsCopy = ytexts.copy;
     NSMutableArray *ySpacevales = @[].mutableCopy;
     if ([ytextsCopy count] > 2) {
@@ -91,6 +92,7 @@
         }
         _minSpaceValue=[ySpacevales valueForKeyPath:@"@min.self"];
     }
+    
     UIView *lastElementView = nil;
     NSUInteger firstIndex = 1;
     for (int i = 0; i < elementCons; i++) {
@@ -98,6 +100,7 @@
         if (_delegate && [_delegate respondsToSelector:@selector(elementWithAxisType:index:)]) {
             elementView = (UILabel *)[_delegate elementWithAxisType:AxisTypeY index:i];
         }
+        
         NSDictionary *attr = @{NSFontAttributeName : elementView.font};
         CGSize elementSize = [@"y" sizeWithAttributes:attr];
         if ([_axisAttributes[firstYAsOrigin] boolValue]) {
@@ -119,12 +122,37 @@
         [self addSubview:elementView];
         lastElementView = elementView;
     }
+    
     self.ylineView.frame = CGRectMake(CGRectGetWidth(self.frame) - 1, CGRectGetMinY(lastElementView.frame), 1, CGRectGetHeight(self.frame)-CGRectGetMinY(lastElementView.frame));
     if ([_firstYvalue length] && [_lastYvalue length]) {
         if (_lastYvalue.floatValue && _firstYvalue.floatValue >=0 && (_lastYvalue.floatValue > _firstYvalue.floatValue)) {
             if (_minSpaceValue) {
                 _perPixelOfYvalue = _yElementInterval*((_lastYvalue.floatValue - _firstYvalue.floatValue)/_minSpaceValue.floatValue)/(_lastYvalue.floatValue - _firstYvalue.floatValue);
             }
+        }
+    }
+    
+    if (self.axisAttributes[yAxisdisplaystyle]) {
+        NSString * str = self.axisAttributes[yAxisdisplaystyle];
+        if ([str isEqualToString:@"1"]) {
+            
+            UIView * view = [[UIView alloc]initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.frame),CGRectGetHeight(self.frame) + 20)];
+            view.backgroundColor = [UIColor whiteColor];
+            [self addSubview:view];
+            
+            UILabel * topLabel = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.frame), 20)];
+            topLabel.center = CGPointMake(view.frame.size.width / 2, view.frame.size.height / 4);
+            topLabel.text = @"哭闹";
+            topLabel.textAlignment = NSTextAlignmentRight;
+            topLabel.font = [UIFont systemFontOfSize:15];
+            [view addSubview:topLabel];
+            
+            UILabel * bottomLabel = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.frame), 20)];
+            bottomLabel.center = CGPointMake(view.frame.size.width / 2, view.frame.size.height * 3 / 4);
+            bottomLabel.text = @"安静";
+            bottomLabel.textAlignment = NSTextAlignmentRight;
+            bottomLabel.font = [UIFont systemFontOfSize:15];
+            [view addSubview:bottomLabel];
         }
     }
 }

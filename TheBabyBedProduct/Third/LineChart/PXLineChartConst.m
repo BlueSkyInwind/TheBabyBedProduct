@@ -43,3 +43,8 @@ NSString *const firstYAsOrigin = @"firstYAsOrigin";
 NSString *const scrollAnimation = @"scrollAnimation"; //
 
 NSString *const scrollAnimationDuration = @"scrollAnimationDuration"; //
+
+NSString *const yAxisdisplaystyle = @"yAxisdisplaystyle"; //
+
+
+
