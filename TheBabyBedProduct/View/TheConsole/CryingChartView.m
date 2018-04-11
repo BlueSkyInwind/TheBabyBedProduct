@@ -8,6 +8,7 @@
 
 #import "CryingChartView.h"
 #import "PointItem.h"
+#import "PXYview.h"
 
 @interface CryingChartView()<PXLineChartViewDelegate>{
     
@@ -52,13 +53,22 @@
     
     _lineChartView = [[PXLineChartView alloc]initWithFrame:CGRectMake(-10, 1, self.frame.size.width - 10, 310)];
     [backView addSubview:_lineChartView];
+    
+    for (UIView * view in _lineChartView.subviews) {
+        if ([view isKindOfClass:[PXYview class]]) {
+            [self configureViewY:view];
+        }
+    }
+    
     _lineChartView.delegate = self;
     xArr = [NSArray arrayWithObjects:@"1:00",@"2:00",@"3:00",@"4:00",@"5:00",@"6:00",@"7:00",@"8:00",@"9:00",@"10:00",@"11:00",@"12:00",@"13:00",@"14:00",@"15:00",@"16:00",@"17:00",@"18:00",@"19:00",@"20:00",@"21:00",@"22:00",@"23:00",@"24:00", nil];
     yArr = [NSArray arrayWithObjects:@"0",@"5",@"10",@"15",@"20",@"25",@"30",@"35", nil];
     self.lines = [self lines:true];
-    
+
 }
+
 - (NSArray *)lines:(BOOL)fill {
+    
     NSArray *pointsArr = @[                           @{@"xValue" : @"1:00", @"yValue" : @"34"},
                                                       @{@"xValue" : @"2:00", @"yValue" : @"33"},
                                                       @{@"xValue" : @"3:00", @"yValue" : @"34.5"},
@@ -81,7 +91,6 @@
         item.pointValueColor = self.mainColor;
         item.chartFillColor = rgb(173, 229, 69, 0.45);
         item.chartFill = YES;
-        
         [points addObject:item];
     }
     
@@ -100,6 +109,38 @@
     }
     //两条line
     return @[pointss,points];
+}
+
+-(void)configureViewY:(UIView *)superView{
+    
+    UIView * view = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 30, 30)];
+    view.backgroundColor = [UIColor redColor];
+    [superView addSubview:view];
+//    [view mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.edges.equalTo(superView);
+//    }];
+    
+    UILabel * topLabel = [[UILabel alloc]init];
+    topLabel.center = CGPointMake(view.frame.size.width / 2, view.frame.size.height / 4);
+    topLabel.text = @"哭闹";
+    topLabel.textAlignment = NSTextAlignmentLeft;
+    topLabel.font = [UIFont systemFontOfSize:15];
+    [view addSubview:topLabel];
+    [topLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.right.equalTo(view);
+        make.centerY.equalTo(view.mas_centerY).with.offset(-30);
+    }];
+    
+    UILabel * bottomLabel = [[UILabel alloc]init];
+    bottomLabel.center = CGPointMake(view.frame.size.width / 2, view.frame.size.height / 4);
+    bottomLabel.text = @"安静";
+    bottomLabel.textAlignment = NSTextAlignmentLeft;
+    bottomLabel.font = [UIFont systemFontOfSize:15];
+    [view addSubview:bottomLabel];
+    [bottomLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.right.equalTo(view);
+        make.centerY.equalTo(view.mas_centerY).with.offset(30);
+    }];
 }
 
 #pragma mark PXLineChartViewDelegate
@@ -123,6 +164,7 @@
              scrollAnimation : @1,
              scrollAnimationDuration : @"2"};
 }
+
 //line count
 - (NSUInteger)numberOfChartlines {
     return self.lines.count;

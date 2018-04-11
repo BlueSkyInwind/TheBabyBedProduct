@@ -208,6 +208,7 @@
 		84BE5EAF2069EE75007A001D /* KickQulitChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = 84BE5EAE2069EE75007A001D /* KickQulitChartView.m */; };
 		84BE5EB22069F114007A001D /* KickQulitChartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84BE5EB12069F114007A001D /* KickQulitChartViewController.m */; };
 		84BE5EB6206A48B5007A001D /* GlobalPopView.m in Sources */ = {isa = PBXBuildFile; fileRef = 84BE5EB5206A48B5007A001D /* GlobalPopView.m */; };
+		84C7921D207C566600B63796 /* HistoryTemperatureListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84C7921C207C566600B63796 /* HistoryTemperatureListViewController.m */; };
 		84D5BDC7207354010025C757 /* bluetoothPairingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84D5BDC6207354010025C757 /* bluetoothPairingViewController.m */; };
 		84D5BDCD2073579A0025C757 /* AddDeviceView.m in Sources */ = {isa = PBXBuildFile; fileRef = 84D5BDCC2073579A0025C757 /* AddDeviceView.m */; };
 		84DD47562068DB7B00D154B5 /* ThresholdTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 84DD47542068DB7B00D154B5 /* ThresholdTableViewCell.m */; };
@@ -600,6 +601,8 @@
 		84BE5EB12069F114007A001D /* KickQulitChartViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KickQulitChartViewController.m; sourceTree = "<group>"; };
 		84BE5EB4206A48B5007A001D /* GlobalPopView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GlobalPopView.h; sourceTree = "<group>"; };
 		84BE5EB5206A48B5007A001D /* GlobalPopView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GlobalPopView.m; sourceTree = "<group>"; };
+		84C7921B207C566600B63796 /* HistoryTemperatureListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HistoryTemperatureListViewController.h; sourceTree = "<group>"; };
+		84C7921C207C566600B63796 /* HistoryTemperatureListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HistoryTemperatureListViewController.m; sourceTree = "<group>"; };
 		84D5BDC5207354010025C757 /* bluetoothPairingViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = bluetoothPairingViewController.h; sourceTree = "<group>"; };
 		84D5BDC6207354010025C757 /* bluetoothPairingViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = bluetoothPairingViewController.m; sourceTree = "<group>"; };
 		84D5BDCB2073579A0025C757 /* AddDeviceView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AddDeviceView.h; sourceTree = "<group>"; };
@@ -866,6 +869,8 @@
 				22CFD3C5206659AD0004186D /* ConsoleRateViewController.m */,
 				22CFD3D02067C3120004186D /* ConsoleTemperatureViewController.h */,
 				22CFD3D12067C3120004186D /* ConsoleTemperatureViewController.m */,
+				84C7921B207C566600B63796 /* HistoryTemperatureListViewController.h */,
+				84C7921C207C566600B63796 /* HistoryTemperatureListViewController.m */,
 				22CFD3D82067D5B10004186D /* ConsoleRoomTemperatureViewController.h */,
 				22CFD3D92067D5B10004186D /* ConsoleRoomTemperatureViewController.m */,
 				22CFD3E02067FCC50004186D /* ThresholdSetting */,
@@ -1976,6 +1981,7 @@
 				22CFD3BE206548000004186D /* ConsoleBodyView.m in Sources */,
 				22CFD339206141080004186D /* AppDelegate.m in Sources */,
 				2263B8E7206BD901005BB15E /* HomeHeaderView.m in Sources */,
+				84C7921D207C566600B63796 /* HistoryTemperatureListViewController.m in Sources */,
 				2263B8E3206BCBB9005BB15E /* HomeTableViewCell.m in Sources */,
 				57210CAE2074C2DE0039D8D5 /* ZFPlayerView.m in Sources */,
 				22CFD3D52067C58B0004186D /* ThermometerView.m in Sources */,

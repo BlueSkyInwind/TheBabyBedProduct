@@ -12,15 +12,18 @@
 
 
 @interface MessageViewController ()<UITableViewDelegate,UITableViewDataSource>{
+    
     BOOL isedit;
     int page;
     NSMutableArray * messageLists;
     NSMutableArray * selectMessageList;
+    
 }
 
 @property (nonatomic,strong)UITableView * messageTableView;
 
 @property (nonatomic,strong)MessageTableViewCell * messageCell;
+
 @end
 
 @implementation MessageViewController
@@ -132,7 +135,7 @@
 
 -(CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{
     if(isedit){
-        return 0;
+        return 90;
     }else{
         return 0 ;
     }

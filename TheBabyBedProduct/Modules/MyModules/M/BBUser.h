@@ -62,4 +62,5 @@
 
 /** 记录我的界面headerview的登录状态 */
 @property(nonatomic,assign) BOOL myHeaderVHasLogined;
+
 @end

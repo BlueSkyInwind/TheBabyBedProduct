@@ -66,8 +66,6 @@
     [self.scrollView addSubview:_xAxisView];
     [self.scrollView addSubview:_chartBackgroundView];
     
- 
-    
 }
 
 - (void)layoutSubviews {

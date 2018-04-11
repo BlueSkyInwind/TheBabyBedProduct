@@ -125,7 +125,6 @@
             if (_minSpaceValue) {
                 _perPixelOfYvalue = _yElementInterval*((_lastYvalue.floatValue - _firstYvalue.floatValue)/_minSpaceValue.floatValue)/(_lastYvalue.floatValue - _firstYvalue.floatValue);
             }
-            
         }
     }
 }
