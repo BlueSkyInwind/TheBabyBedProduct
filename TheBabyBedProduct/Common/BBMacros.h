@@ -23,7 +23,9 @@ typedef NS_ENUM(NSInteger,BBUserGenderType) {
 };
 
 #define k_bb_settingManager  @"KBBSETTINGMANAGER"
-#define k_bb_saveUserMessage @"KBBSAVEUSERMESSAGE"
+
+#define k_bb_saveUserMessage @"KBBSAVEUSERMESSAGE"                //用户
+#define k_bb_saveUserDeviceMessage @"KBBSAVEUSERDEVICEMESSAGE"    //用户设备
 
  
 #import "UIView+PP_Frame.h"

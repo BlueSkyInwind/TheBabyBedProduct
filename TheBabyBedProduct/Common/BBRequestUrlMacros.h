@@ -35,7 +35,17 @@
 #define K_Url_Suggestion        @"/api/user/sendSugister"
 //上传图片 👌
 #define K_Url_UploadImage       @"/api/upload"
+//设备信息 👌
+#define K_Url_DeviceInfo        @"/api/deviceInfo"
+//帮助list
+#define K_Url_HelpList          @"/api/help/list"
 
+//签到
+#define K_Url_SignIn            @"/api/user/signin"
+//分享视频获取分钟奖励(有点问题)
+#define K_Url_ShareVideo        @"/api/user/share"
+//签到列表
+#define K_Url_SignInList        @"/api/user/shareList"
 
 
 //消息列表

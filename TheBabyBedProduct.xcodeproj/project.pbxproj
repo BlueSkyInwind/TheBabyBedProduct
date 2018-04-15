@@ -183,6 +183,7 @@
 		57585AF3206D485C001BB202 /* share_qq@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 57585AF1206D485B001BB202 /* share_qq@3x.png */; };
 		57585AF4206D485C001BB202 /* share_qq@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 57585AF2206D485B001BB202 /* share_qq@2x.png */; };
 		57CECE43207374DC00E9A876 /* UIAlertController+EasilyMake.m in Sources */ = {isa = PBXBuildFile; fileRef = 57CECE41207374DC00E9A876 /* UIAlertController+EasilyMake.m */; };
+		57DF59B420835527002D2CED /* BBUserDevice.m in Sources */ = {isa = PBXBuildFile; fileRef = 57DF59B320835527002D2CED /* BBUserDevice.m */; };
 		84114B4320722BF6005A1DC9 /* jpush-ios-3.0.8.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 84114B4020722BF6005A1DC9 /* jpush-ios-3.0.8.a */; };
 		84114B4420722BF7005A1DC9 /* jcore-ios-1.1.8.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 84114B4220722BF6005A1DC9 /* jcore-ios-1.1.8.a */; };
 		84114B4620722C6F005A1DC9 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84114B4520722C6F005A1DC9 /* CFNetwork.framework */; };
@@ -567,6 +568,8 @@
 		57585AF2206D485B001BB202 /* share_qq@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "share_qq@2x.png"; sourceTree = "<group>"; };
 		57CECE41207374DC00E9A876 /* UIAlertController+EasilyMake.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIAlertController+EasilyMake.m"; sourceTree = "<group>"; };
 		57CECE42207374DC00E9A876 /* UIAlertController+EasilyMake.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIAlertController+EasilyMake.h"; sourceTree = "<group>"; };
+		57DF59B220835527002D2CED /* BBUserDevice.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BBUserDevice.h; sourceTree = "<group>"; };
+		57DF59B320835527002D2CED /* BBUserDevice.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BBUserDevice.m; sourceTree = "<group>"; };
 		764BC6823587F5E7CC72C6C4 /* Pods-TheBabyBedProduct.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TheBabyBedProduct.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TheBabyBedProduct/Pods-TheBabyBedProduct.debug.xcconfig"; sourceTree = "<group>"; };
 		84114B4020722BF6005A1DC9 /* jpush-ios-3.0.8.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "jpush-ios-3.0.8.a"; sourceTree = "<group>"; };
 		84114B4120722BF6005A1DC9 /* JPUSHService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JPUSHService.h; sourceTree = "<group>"; };
@@ -1396,6 +1399,8 @@
 				5726F344206A3F1B008EED75 /* BBSettingManager.m */,
 				574C6CC32069262000F5BF55 /* BBUser.h */,
 				574C6CC42069262000F5BF55 /* BBUser.m */,
+				57DF59B220835527002D2CED /* BBUserDevice.h */,
+				57DF59B320835527002D2CED /* BBUserDevice.m */,
 			);
 			path = M;
 			sourceTree = "<group>";
@@ -1954,6 +1959,7 @@
 				57210C7E2073B4B80039D8D5 /* BBMyRewardViewController.m in Sources */,
 				57210C792073B4A50039D8D5 /* BBEditInformationViewController.m in Sources */,
 				574C6CE72069272700F5BF55 /* UITableViewCell+EasilyMake.m in Sources */,
+				57DF59B420835527002D2CED /* BBUserDevice.m in Sources */,
 				57210CA82074C2DE0039D8D5 /* UIImageView+ZFCache.m in Sources */,
 				574C6CD82069262000F5BF55 /* BBLoginAndRegistViewController.m in Sources */,
 				84BE5EAF2069EE75007A001D /* KickQulitChartView.m in Sources */,

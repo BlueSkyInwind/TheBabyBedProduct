@@ -87,6 +87,14 @@ typedef NS_ENUM(NSInteger,BBGetCodeType) {
                             failureBlock:(FailureBlock)failureBlock;
 
 /**
+ 修改密码 post
+ @param currentP 最新的密码
+ */
+-(void)bb_requestModifyPasswordWhihCurrentP:(NSString *)currentP
+                               successBlock:(SuccessBlock)successBlock
+                               failureBlock:(FailureBlock)failureBlock;
+
+/**
  获取用户信息 get
  */
 -(void)bb_requestGetUserInfoWithSuccessBlock:(SuccessBlock)successBlock
@@ -111,6 +119,31 @@ typedef NS_ENUM(NSInteger,BBGetCodeType) {
                                  identity:(NSString *)identity
                              successBlock:(SuccessBlock)successBlock
                              failureBlock:(FailureBlock)failureBlock;
+
+/**
+ 获取用户设备信息 get
+ */
+-(void)bb_requestGetDeviceInfoWithSuccessBlock:(SuccessBlock)successBlock
+                                  failureBlock:(FailureBlock)failureBlock;
+
+/**
+ 帮助list get
+ */
+-(void)bb_requestGetHelpListWithSuccessBlock:(SuccessBlock)successBlock
+                                failureBlock:(FailureBlock)failureBlock;
+
+/**
+ 签到 post
+ */
+-(void)bb_requestSignInWithSuccessBlock:(SuccessBlock)successBlock
+                           failureBlock:(FailureBlock)failureBlock;
+
+/**
+ 签到列表 post
+ */
+-(void)bb_requestSignInListWithSuccessBlock:(SuccessBlock)successBlock
+                               failureBlock:(FailureBlock)failureBlock;
+
 /**
  阈值设定
  @param deviceType 设备类型  0 室内外温度传感器数据

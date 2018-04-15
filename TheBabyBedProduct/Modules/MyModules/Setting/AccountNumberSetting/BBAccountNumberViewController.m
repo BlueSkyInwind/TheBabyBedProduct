@@ -8,6 +8,8 @@
 
 #import "BBAccountNumberViewController.h"
 #import "BBAcountNumberListCell.h"
+#import "BBModifyPasswordViewController.h"
+#import <ShareSDKExtension/SSEThirdPartyLoginHelper.h>
 
 @interface BBAccountNumberViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property(nonatomic,strong) UITableView *tableView;
@@ -54,6 +56,7 @@
         fotterV.frame = CGRectMake(0, 0, _k_w, 20);
     }
 }
+
 -(void)signOutAction
 {
     UIAlertController *alertC = [UIAlertController bb_alertControllerMakeForAlertCancelAndOKWithTitle:@"您真的要退出登录？" message:nil OKHandler:^(UIAlertAction *action) {
@@ -124,6 +127,57 @@
         [cell setupCellWithTitle:self.accountNumbers[indexPath.row]];
     }
     return cell;
+}
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    if (indexPath.section == 0) {
+        if (indexPath.row == 1) {
+            //登录密码
+            BBModifyPasswordViewController *modigyPasswordVC = [[BBModifyPasswordViewController alloc]init];
+            [self.navigationController pushViewController:modigyPasswordVC animated:YES];
+        }
+    }else{
+        if (indexPath.row == 0) {
+            if (!BBUserHelpers.hasWeiXinBinding) {
+                [self bindinggWX];
+            }
+        }else if (indexPath.row == 1){
+            if (!BBUserHelpers.hasQQBinding) {
+                [self bindingQQ];
+            }
+        }else{
+            if (!BBUserHelpers.hasWeiBoBinding) {
+                [self bindingWB];
+            }
+        }
+    }
+}
+-(void)bindinggWX
+{
+    [SSEThirdPartyLoginHelper loginByPlatform:SSDKPlatformTypeWechat onUserSync:^(SSDKUser *user, SSEUserAssociateHandler associateHandler) {
+        //成功走这里
+        [QMUITips showSucceed:@"微信绑定成功" inView:self.view hideAfterDelay:2];
+        [self.tableView reloadData];
+    } onLoginResult:^(SSDKResponseState state, SSEBaseUser *user, NSError *error) {
+        //失败走这里
+        DLog(@"微信3登录结果 %lu",(unsigned long)state);
+        NSString *resultStr = @"微信登录授权失败";
+        if (state == SSDKResponseStateCancel) {
+            resultStr = @"您已取消微信登录";
+        }
+        [QMUITips showWithText:resultStr inView:self.view hideAfterDelay:2];
+    }];
+}
+-(void)bindingQQ
+{
+#warning to
+
+}
+-(void)bindingWB
+{
+#warning to
+
 }
 
 

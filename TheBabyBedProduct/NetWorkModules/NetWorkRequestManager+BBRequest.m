@@ -156,6 +156,20 @@ static void getRequest(NSString *url,id param,SuccessBlock successBlock,FailureB
 }
 
 /**
+ 修改密码 post
+ @param currentP 最新的密码
+ */
+-(void)bb_requestModifyPasswordWhihCurrentP:(NSString *)currentP
+                               successBlock:(SuccessBlock)successBlock
+                               failureBlock:(FailureBlock)failureBlock
+{
+    NSDictionary *param = @{
+                            
+                            };
+    postRequest(K_Url_ModifyPassword, param, successBlock, failureBlock);
+}
+
+/**
  获取用户信息 get
  */
 -(void)bb_requestGetUserInfoWithSuccessBlock:(SuccessBlock)successBlock
@@ -223,6 +237,40 @@ static void getRequest(NSString *url,id param,SuccessBlock successBlock,FailureB
     }
     
     postRequest(K_Url_EditUserInfo, param, successBlock, failureBlock);
+}
+/**
+ 获取用户设备信息 get
+ */
+-(void)bb_requestGetDeviceInfoWithSuccessBlock:(SuccessBlock)successBlock
+                                  failureBlock:(FailureBlock)failureBlock
+{
+    getRequest(K_Url_DeviceInfo, nil, successBlock, failureBlock);
+}
+
+/**
+ 帮助list get
+ */
+-(void)bb_requestGetHelpListWithSuccessBlock:(SuccessBlock)successBlock
+                                failureBlock:(FailureBlock)failureBlock
+{
+     getRequest(K_Url_HelpList, nil, successBlock, failureBlock);
+}
+
+/**
+ 签到 post
+ */
+-(void)bb_requestSignInWithSuccessBlock:(SuccessBlock)successBlock
+                           failureBlock:(FailureBlock)failureBlock
+{
+    postRequest(K_Url_SignIn, nil, successBlock, failureBlock);
+}
+/**
+ 签到列表 post
+ */
+-(void)bb_requestSignInListWithSuccessBlock:(SuccessBlock)successBlock
+                               failureBlock:(FailureBlock)failureBlock
+{
+    postRequest(K_Url_SignInList, nil, successBlock, failureBlock);
 }
 
 /**

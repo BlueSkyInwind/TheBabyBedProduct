@@ -81,4 +81,12 @@
                           }
                       }];
 }
+-(void)bb_signInAction
+{
+    [BBRequestTool bb_requestSignInWithSuccessBlock:^(EnumServerStatus status, id object) {
+        NSLog(@"签到成功 %@",object);
+    } failureBlock:^(EnumServerStatus status, id object) {
+        NSLog(@"签到shibai  %@",object);
+    }];
+}
 @end

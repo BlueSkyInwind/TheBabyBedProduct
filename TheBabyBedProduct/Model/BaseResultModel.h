@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 @class BBUser;
+@class BBUserDevice;
 
 @interface BaseResultModel : JSONModel
 
@@ -27,4 +28,8 @@
 
 @interface BaseDictResultModel : BaseResultModel
 @property(nonatomic,strong) NSDictionary *data;
+@end
+
+@interface BBUserDeviceResultModel : BaseResultModel
+@property(nonatomic,strong) BBUserDevice *data;
 @end

@@ -46,6 +46,8 @@
 
 /** 密码 */
 @property(nonatomic,copy) NSString *password;
+/** 绑定的设备id */
+@property(nonatomic,copy) NSString *deviceId;
 
 
 
@@ -64,6 +66,7 @@
 @property(nonatomic,assign,readonly) BOOL hasQQBinding;
 @property(nonatomic,copy,readonly) NSString *token;
 @property(nonatomic,copy,readonly) NSString *password;
+@property(nonatomic,copy,readonly) NSString *deviceId;
 
 /** 记录我的界面headerview的登录状态 */
 @property(nonatomic,assign) BOOL myHeaderVHasLogined;

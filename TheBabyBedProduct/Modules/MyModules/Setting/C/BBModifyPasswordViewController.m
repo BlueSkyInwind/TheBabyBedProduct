@@ -61,7 +61,7 @@
     
     NSArray *leftTitles = @[@"当前密码",@"新密码",@"确认密码"];
     NSArray *placeholders = @[@"请输入当前密码",@"请输入新密码（至少6位）",@"请再次输入新密码"];
-    for (int i = 0; i < leftTitles.count-1; i++) {
+    for (int i = 0; i < leftTitles.count; i++) {
         [self creatUIOnTFBgV:tfBgV leftTitle:leftTitles[i] placeholder:placeholders[i] index:i];
     }
 }
@@ -74,6 +74,8 @@
     PPTextfield *tf = [PPTextfield pp_tfMakeWithSuperV:tfBgV tag:index fontSize:16 textColor:k_color_515151 attributedPlaceholderText:placeholder attributedPlaceholderFontSize:16 attributedPlaceholderTextColor:k_color_153153153];
     tf.isPassword = YES;
     tf.maxTextLength = 20;
+    tf.frame = CGRectMake(leftLB.right+5, 5+50*index, _k_w-leftLB.right-20, 40);
+    
     if (index == 0) {
         self.oldPasswordTF = tf;
     }else if (index == 1){
@@ -81,6 +83,10 @@
     }else{
         self.okNewPasswordTF = tf;
     }
+    
+    UIView *line = [[UIView alloc]initWithFrame:CGRectMake(0, 49.5, _k_w, 0.5)];
+    line.backgroundColor = K_color_line;
+    [tfBgV addSubview:line];
 
 }
 
@@ -108,6 +114,7 @@
         [QMUITips showError:@"新密码前后不一样哦"];
         return;
     }
+    
     
 }
 

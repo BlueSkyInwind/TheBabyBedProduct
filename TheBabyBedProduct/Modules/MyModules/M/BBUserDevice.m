@@ -1,15 +1,16 @@
 //
-//  BBUser.m
+//  BBUserDevice.m
 //  TheBabyBedProduct
 //
-//  Created by ╰莪呮想好好宠Nǐつ on 2018/3/25.
+//  Created by ╰莪呮想好好宠Nǐつ on 2018/4/15.
 //  Copyright © 2018年 Wangyongxin. All rights reserved.
 //
 
-#import "BBUser.h"
+#import "BBUserDevice.h"
 #import <objc/runtime.h>
 
-@implementation BBUser
+@implementation BBUserDevice
+
 -(void)encodeWithCoder:(NSCoder *)aCoder
 {
     //归档
@@ -42,69 +43,72 @@
     return self;
 }
 
-+(BBUser *)bb_getUser
++(BBUserDevice *)bb_getUserDevice
 {
-    return toGetUser();
+    return toGetUserDevice();
 }
-+(void)bb_saveUser:(BBUser *)user
++(void)bb_saveUserDevice:(BBUserDevice *)device
 {
-    toSaveUser(user);
+    toSaveUserDevice(device);
 }
 
-static void toSaveUser(BBUser *user){
-    NSData *data = [NSKeyedArchiver archivedDataWithRootObject:user];
-    [[NSUserDefaults standardUserDefaults] setObject:data forKey:k_bb_saveUserMessage];
+static void toSaveUserDevice(BBUserDevice *userDevice){
+    NSData *data = [NSKeyedArchiver archivedDataWithRootObject:userDevice];
+    [[NSUserDefaults standardUserDefaults] setObject:data forKey:k_bb_saveUserDeviceMessage];
     [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
-static BBUser * toGetUser(){
-    NSData *data = [[NSUserDefaults standardUserDefaults] objectForKey:k_bb_saveUserMessage];
-    BBUser *user = (BBUser *)[NSKeyedUnarchiver unarchiveObjectWithData:data];
-    return user;
+static BBUserDevice * toGetUserDevice(){
+    NSData *data = [[NSUserDefaults standardUserDefaults] objectForKey:k_bb_saveUserDeviceMessage];
+    BBUserDevice *userDevice = (BBUserDevice *)[NSKeyedUnarchiver unarchiveObjectWithData:data];
+    return userDevice;
 }
 @end
 
 
-@implementation BBUserHelper
+@implementation BBUserDeviceHelper
 +(instancetype)shareInstance
 {
-    static BBUserHelper *helper = nil;
+    static BBUserDeviceHelper *helper = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        helper = [[BBUserHelper alloc]init];
+        helper = [[BBUserDeviceHelper alloc]init];
     });
     return helper;
 }
--(BOOL)hasLogined
-{
-    return _aUser().hasLogined;
-}
--(BOOL)hasQQBinding
-{
-    return _aUser().bindQQ;
-}
--(BOOL)isHasWeiXinBinding
-{
-    return _aUser().bindWX;
-}
--(BOOL)hasWeiBoBinding
-{
-    return _aUser().bindWB;
-}
--(NSString *)token
-{
-    return _aUser().token;
-}
 -(NSString *)deviceId
 {
-    return _aUser().deviceId;
+    return _aUserDevice().deviceId;
 }
--(NSString *)password
+-(NSString *)deviceType
 {
-    return _aUser().password;
+    return _aUserDevice().deviceType;
 }
-static inline BBUser *_aUser(){
-    return [BBUser bb_getUser];
+-(NSString *)deviceStatus
+{
+    return _aUserDevice().deviceStatus;
+}
+-(NSString *)deviceVersion
+{
+    return _aUserDevice().deviceVersion;
+}
+-(BOOL)hasBindWD
+{
+    return _aUserDevice().bindWD.length > 0;
+}
+-(BOOL)hasBindTW
+{
+    return _aUserDevice().bindTW.length > 0;
+}
+-(BOOL)hasBindTB
+{
+    return _aUserDevice().bindTB.length > 0;
+}
+static inline BBUserDevice *_aUserDevice(){
+    return [BBUserDevice bb_getUserDevice];
 }
 
 @end
+
+
+
