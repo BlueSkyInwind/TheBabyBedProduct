@@ -19,5 +19,5 @@ target 'TheBabyBedProduct' do
     
     pod 'MJExtension', '~> 3.0.13'
     pod 'TZImagePickerController', '~> 2.0.0.9'
-    
+    pod 'CocoaAsyncSocket'
 end

@@ -17,6 +17,8 @@
 		2266C1BA20694A61004F653A /* CryingChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2266C1B920694A61004F653A /* CryingChartView.m */; };
 		2266C1BD20694A85004F653A /* CryingChartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2266C1BC20694A85004F653A /* CryingChartViewController.m */; };
 		22833BF9207A5E6800A70247 /* MessageModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 22833BF8207A5E6800A70247 /* MessageModel.m */; };
+		229FF0A72084E2C2005BA4A6 /* JMAirKissShareTools.m in Sources */ = {isa = PBXBuildFile; fileRef = 229FF0A42084DA00005BA4A6 /* JMAirKissShareTools.m */; };
+		229FF0AC2084EB65005BA4A6 /* JMAirKiss.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 229FF0AB2084EB65005BA4A6 /* JMAirKiss.framework */; };
 		22CF35632073CCAB00707F8A /* ScanDeviceCodeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22CF35612073CCAB00707F8A /* ScanDeviceCodeViewController.m */; };
 		22CF35642073CCAB00707F8A /* ScanDeviceCodeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22CF35622073CCAB00707F8A /* ScanDeviceCodeViewController.xib */; };
 		22CF35682073DB1500707F8A /* QRScanView.m in Sources */ = {isa = PBXBuildFile; fileRef = 22CF35672073DB1500707F8A /* QRScanView.m */; };
@@ -197,7 +199,6 @@
 		84114B5420722CCD005A1DC9 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84114B5320722CCD005A1DC9 /* UIKit.framework */; };
 		84114B5620722CE0005A1DC9 /* UserNotifications.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84114B5520722CE0005A1DC9 /* UserNotifications.framework */; };
 		84114B5820722CF4005A1DC9 /* libresolv.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 84114B5720722CF4005A1DC9 /* libresolv.tbd */; };
-		842C027B2084914700033F4A /* JMAirKiss.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 842C027A2084914600033F4A /* JMAirKiss.framework */; };
 		842D9CED206B94C90020C3C2 /* HomeLeftItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = 842D9CEC206B94C90020C3C2 /* HomeLeftItemView.m */; };
 		84332C9D206CE6F5009A9121 /* MessageTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 84332C9B206CE6F5009A9121 /* MessageTableViewCell.m */; };
 		84332C9E206CE6F5009A9121 /* MessageTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84332C9C206CE6F5009A9121 /* MessageTableViewCell.xib */; };
@@ -264,6 +265,9 @@
 		2266C1BC20694A85004F653A /* CryingChartViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CryingChartViewController.m; sourceTree = "<group>"; };
 		22833BF7207A5E6800A70247 /* MessageModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MessageModel.h; sourceTree = "<group>"; };
 		22833BF8207A5E6800A70247 /* MessageModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MessageModel.m; sourceTree = "<group>"; };
+		229FF0A32084D9FF005BA4A6 /* JMAirKissShareTools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JMAirKissShareTools.h; sourceTree = "<group>"; };
+		229FF0A42084DA00005BA4A6 /* JMAirKissShareTools.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JMAirKissShareTools.m; sourceTree = "<group>"; };
+		229FF0AB2084EB65005BA4A6 /* JMAirKiss.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = JMAirKiss.framework; sourceTree = "<group>"; };
 		22CF35502073C98300707F8A /* BBMyRewardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBMyRewardViewController.m; sourceTree = "<group>"; };
 		22CF35572073C99700707F8A /* BBEditInfoAvatarCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBEditInfoAvatarCell.m; sourceTree = "<group>"; };
 		22CF35582073C99700707F8A /* BBEditInformationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBEditInformationViewController.m; sourceTree = "<group>"; };
@@ -588,7 +592,6 @@
 		84114B5320722CCD005A1DC9 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		84114B5520722CE0005A1DC9 /* UserNotifications.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotifications.framework; path = System/Library/Frameworks/UserNotifications.framework; sourceTree = SDKROOT; };
 		84114B5720722CF4005A1DC9 /* libresolv.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libresolv.tbd; path = usr/lib/libresolv.tbd; sourceTree = SDKROOT; };
-		842C027A2084914600033F4A /* JMAirKiss.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = JMAirKiss.framework; sourceTree = "<group>"; };
 		842D9CEB206B94C90020C3C2 /* HomeLeftItemView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeLeftItemView.h; sourceTree = "<group>"; };
 		842D9CEC206B94C90020C3C2 /* HomeLeftItemView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeLeftItemView.m; sourceTree = "<group>"; };
 		84332C9A206CE6F5009A9121 /* MessageTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MessageTableViewCell.h; sourceTree = "<group>"; };
@@ -672,7 +675,7 @@
 				84114B4320722BF6005A1DC9 /* jpush-ios-3.0.8.a in Frameworks */,
 				5726F380206B70C5008EED75 /* ShareSDKConnector.framework in Frameworks */,
 				5726F384206B70C5008EED75 /* ShareSDKExtension.framework in Frameworks */,
-				842C027B2084914700033F4A /* JMAirKiss.framework in Frameworks */,
+				229FF0AC2084EB65005BA4A6 /* JMAirKiss.framework in Frameworks */,
 				5726F37C206B70C5008EED75 /* libWeiboSDK.a in Frameworks */,
 				5726F37E206B70C5008EED75 /* libWeChatSDK.a in Frameworks */,
 				5726F387206B70C5008EED75 /* QQConnector.framework in Frameworks */,
@@ -1544,7 +1547,9 @@
 		842C02792084913600033F4A /* AirKiss */ = {
 			isa = PBXGroup;
 			children = (
-				842C027A2084914600033F4A /* JMAirKiss.framework */,
+				229FF0A32084D9FF005BA4A6 /* JMAirKissShareTools.h */,
+				229FF0A42084DA00005BA4A6 /* JMAirKissShareTools.m */,
+				229FF0AB2084EB65005BA4A6 /* JMAirKiss.framework */,
 			);
 			path = AirKiss;
 			sourceTree = "<group>";
@@ -1809,6 +1814,7 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-TheBabyBedProduct/Pods-TheBabyBedProduct-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/AFNetworking/AFNetworking.framework",
 				"${BUILT_PRODUCTS_DIR}/BAButton/BAButton.framework",
+				"${BUILT_PRODUCTS_DIR}/CocoaAsyncSocket/CocoaAsyncSocket.framework",
 				"${BUILT_PRODUCTS_DIR}/IQKeyboardManager/IQKeyboardManager.framework",
 				"${BUILT_PRODUCTS_DIR}/JSONModel/JSONModel.framework",
 				"${BUILT_PRODUCTS_DIR}/MBProgressHUD/MBProgressHUD.framework",
@@ -1827,6 +1833,7 @@
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AFNetworking.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/BAButton.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CocoaAsyncSocket.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManager.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JSONModel.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MBProgressHUD.framework",
@@ -1886,6 +1893,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				229FF0A72084E2C2005BA4A6 /* JMAirKissShareTools.m in Sources */,
 				5726F3AA206B8537008EED75 /* BBHelpAndSuggestionViewController.m in Sources */,
 				57210CAA2074C2DE0039D8D5 /* ZFBrightnessView.m in Sources */,
 				22CFD3D22067C3120004186D /* ConsoleTemperatureViewController.m in Sources */,
@@ -2185,7 +2193,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = GP8N54644M;
+				DEVELOPMENT_TEAM = WB5UAUH8M2;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/TheBabyBedProduct/Third/MOBSDK/ShareSDK/Support/PlatformSDK/QQSDK",
@@ -2206,6 +2214,7 @@
 					"$(PROJECT_DIR)/TheBabyBedProduct/Third/MOBSDK/ShareSDK/Support/PlatformSDK/WeChatSDK",
 					"$(PROJECT_DIR)/TheBabyBedProduct/Third/JPush",
 				);
+				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-framework",
@@ -2251,7 +2260,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = GP8N54644M;
+				DEVELOPMENT_TEAM = WB5UAUH8M2;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/TheBabyBedProduct/Third/MOBSDK/ShareSDK/Support/PlatformSDK/QQSDK",
@@ -2272,6 +2281,7 @@
 					"$(PROJECT_DIR)/TheBabyBedProduct/Third/MOBSDK/ShareSDK/Support/PlatformSDK/WeChatSDK",
 					"$(PROJECT_DIR)/TheBabyBedProduct/Third/JPush",
 				);
+				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-framework",

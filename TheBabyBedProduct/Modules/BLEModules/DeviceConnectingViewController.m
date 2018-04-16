@@ -9,11 +9,14 @@
 #import "DeviceConnectingViewController.h"
 #import "DeviceConnectAnimationView.h"
 #import "BLEPairingViewController.h"
+#import <JMAirKiss/JMAirKiss.h>
+
 
 @interface DeviceConnectingViewController ()
 /* <#Description#>*/
 @property(nonatomic,strong)DeviceConnectAnimationView * animationView;
-
+/**<#Description#>*/
+@property (nonatomic,strong)JMAirKissConnection  * airKissConnection;
 @end
 
 @implementation DeviceConnectingViewController
@@ -23,11 +26,31 @@
     // Do any additional setup after loading the view.
     self.title = @"设备链接";
     [self addBackItem];
-
-    [self addConnectAnimationView];
+    [self connectAirkiss];
     
-
 }
+-(void)connectAirkiss{
+    
+    if (self.airKissConnection != nil) {
+        return;
+    }
+    __weak typeof (self) weakSelf = self;
+    [self addConnectAnimationView];
+    self.airKissConnection = [[JMAirKissConnection alloc]init];
+    self.airKissConnection.connectionSuccess = ^() {
+        [weakSelf dismissAnimationView];
+        [weakSelf showConnectSuccessPopView];
+    };
+    
+    self.airKissConnection.connectionFailure = ^() {
+        [weakSelf dismissAnimationView];
+        [weakSelf showConnectFailPopView];
+    };
+    
+    [self.airKissConnection connectAirKissWithSSID:_ssid
+                                          password:_wifiPassword];
+}
+
 -(void)addConnectAnimationView{
     
     _animationView = [[DeviceConnectAnimationView alloc]initWithFrame:CGRectMake(0, 0, _k_w, _k_h - 300)];
@@ -36,9 +59,14 @@
     
 }
 
--(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
-//    [self showConnectSuccessPopView];
-    [self showConnectFailPopView];
+-(void)dismissAnimationView{
+    
+    [UIView animateWithDuration:0.2 animations:^{
+        _animationView.alpha = 0;
+    } completion:^(BOOL finished) {
+        [_animationView removeFromSuperview];
+        _animationView = nil;
+    }];
 }
 
 -(void)showConnectSuccessPopView{
@@ -64,7 +92,7 @@
             [self.navigationController pushViewController:blePairingVC animated:true];
         }else if (index == 1){
             //再试一次
-            
+            [self.navigationController popViewControllerAnimated:true];
         }
     }];
     

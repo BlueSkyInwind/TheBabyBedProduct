@@ -53,5 +53,5 @@
 + (NSString *)timestampToTime:(NSTimeInterval)timestamp;
 //时间戳转换为24H时间制
 + (NSString *)timestampTo24HTime:(NSTimeInterval)timestamp;
-
++ (void)openSystemSetting;
 @end
