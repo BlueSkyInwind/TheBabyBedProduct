@@ -22,6 +22,10 @@
 @end
 //------- login end ----
 
-@implementation BaseDictResultModel
 
+@implementation BaseDictResultModel
+@end
+
+
+@implementation BBUserDeviceResultModel
 @end

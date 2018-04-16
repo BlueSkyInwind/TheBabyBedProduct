@@ -35,6 +35,8 @@
     }
     
     [self creatUI];
+    
+    [self getHelpListData];
 }
 -(void)creatUI
 {
@@ -78,6 +80,16 @@
     
     self.tableView.tableHeaderView = topV;
     
+}
+-(void)getHelpListData
+{
+#warning todo
+    [BBRequestTool bb_requestGetHelpListWithSuccessBlock:^(EnumServerStatus status, id object) {
+        NSLog(@"help success %@",object);
+    } failureBlock:^(EnumServerStatus status, id object) {
+        NSLog(@"%@",object);
+
+    }];
 }
 -(void)topItmeAction:(QMUIButton *)bt
 {

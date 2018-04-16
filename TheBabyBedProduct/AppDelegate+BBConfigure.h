@@ -10,4 +10,5 @@
 
 @interface AppDelegate (BBConfigure)
 -(void)bb_configureShareSDK;
+-(void)bb_signInAction;
 @end

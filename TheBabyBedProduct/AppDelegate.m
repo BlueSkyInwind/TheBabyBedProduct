@@ -28,6 +28,7 @@
 {
     
     [self bb_configureShareSDK];
+    [self bb_signInAction];
     
     [[LaunchConfiguration shared] InitializeAppConfiguration];
     

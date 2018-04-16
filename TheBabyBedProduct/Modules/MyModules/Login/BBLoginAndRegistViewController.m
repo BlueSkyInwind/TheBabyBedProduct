@@ -108,31 +108,31 @@
 #pragma mark --- 获取验证码请求
 -(void)getCodeRequest:(NSString *)phone countDownBt:(JKCountDownButton *)countDownBt
 {
-    [QMUITips showSucceed:@"注册成功"];
-    BBEditInformationViewController *editInfoVC = [[BBEditInformationViewController alloc]init];
-    editInfoVC.comesFrom = BBEditInformationVCComesFromRegistSuccess;
-    editInfoVC.skipBlock = ^{
-        //注册成功，再次输入账号密码登录
-        [self changLoginOrRegist:YES];
-    };
-    [self.navigationController pushViewController:editInfoVC animated:YES];
+//    [QMUITips showSucceed:@"注册成功"];
+//    BBEditInformationViewController *editInfoVC = [[BBEditInformationViewController alloc]init];
+//    editInfoVC.comesFrom = BBEditInformationVCComesFromRegistSuccess;
+//    editInfoVC.skipBlock = ^{
+//        //注册成功，再次输入账号密码登录
+//        [self changLoginOrRegist:YES];
+//    };
+//    [self.navigationController pushViewController:editInfoVC animated:YES];
     
-//    [BBRequestTool bb_requestGetCodeWithPhone:phone codeType:BBGetCodeTypeRegist successBlock:^(EnumServerStatus status, id object) {
-//        BBLoginResultModel *getCodeResultM = [BBLoginResultModel mj_objectWithKeyValues:object];
-//        if (getCodeResultM.code == 0) {
-//            [QMUITips showSucceed:@"验证码发送成功"];
-//            countDownBt.enabled = NO;
-//            [countDownBt startCountDownWithSecond:60];
-//        }else{
-//            [QMUITips showError:@"验证码发送失败"];
-//            [countDownBt stopCountDown];
-//            countDownBt.enabled = YES;
-//        }
-//    } failureBlock:^(EnumServerStatus status, id object) {
-//        [QMUITips showError:@"验证码发送失败"];
-//        [countDownBt stopCountDown];
-//        countDownBt.enabled = YES;
-//    }];
+    [BBRequestTool bb_requestGetCodeWithPhone:phone codeType:BBGetCodeTypeRegist successBlock:^(EnumServerStatus status, id object) {
+        BBLoginResultModel *getCodeResultM = [BBLoginResultModel mj_objectWithKeyValues:object];
+        if (getCodeResultM.code == 0) {
+            [QMUITips showSucceed:@"验证码发送成功"];
+            countDownBt.enabled = NO;
+            [countDownBt startCountDownWithSecond:60];
+        }else{
+            [QMUITips showError:@"验证码发送失败"];
+            [countDownBt stopCountDown];
+            countDownBt.enabled = YES;
+        }
+    } failureBlock:^(EnumServerStatus status, id object) {
+        [QMUITips showError:@"验证码发送失败"];
+        [countDownBt stopCountDown];
+        countDownBt.enabled = YES;
+    }];
 }
 
 #pragma mark --- 注册点击事件
@@ -232,15 +232,11 @@
         } onLoginResult:^(SSDKResponseState state, SSEBaseUser *user, NSError *error) {
             //失败走这里
             DLog(@"微信3登录结果 %lu",(unsigned long)state);
-            NSString *resultStr = @"";
+            NSString *resultStr = @"微信登录授权失败";
             if (state == SSDKResponseStateCancel) {
                 resultStr = @"您已取消微信登录";
-            }else if (state == SSDKResponseStateFail){
-                resultStr = @"微信登录授权失败";
             }
-            if (resultStr.length > 0) {
-                [QMUITips showWithText:resultStr inView:self.view hideAfterDelay:2];
-            }
+            [QMUITips showWithText:resultStr inView:self.view hideAfterDelay:2];
         }];
     }
  

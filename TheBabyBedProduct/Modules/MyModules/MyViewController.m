@@ -135,12 +135,21 @@
 {
     if (indexPath.row == 0) {
         //任务奖励
-        BBMyRewardViewController *myRewardVC = [[BBMyRewardViewController alloc]init];
-        [self.navigationController pushViewController:myRewardVC animated:YES];
+        if (BBUserHelpers.hasLogined) {
+            BBMyRewardViewController *myRewardVC = [[BBMyRewardViewController alloc]init];
+            [self.navigationController pushViewController:myRewardVC animated:YES];
+        }else{
+            [self goLoginRegistVc];
+        }
+        
     }else if (indexPath.row == 1){
         //帮助建议
-        BBHelpAndSuggestionViewController *helpSuggestionVC = [[BBHelpAndSuggestionViewController alloc]init];
-        [self.navigationController pushViewController:helpSuggestionVC animated:YES];
+        if (BBUserHelpers.hasLogined) {
+            BBHelpAndSuggestionViewController *helpSuggestionVC = [[BBHelpAndSuggestionViewController alloc]init];
+            [self.navigationController pushViewController:helpSuggestionVC animated:YES];
+        }else{
+            [self goLoginRegistVc];
+        }
     }else{
        //设置
         BBSettingViewController *settingVC = [[BBSettingViewController alloc]init];

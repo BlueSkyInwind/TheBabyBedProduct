@@ -77,26 +77,61 @@ static BBUser * toGetUser(){
 }
 -(BOOL)hasLogined
 {
-    return [BBUser bb_getUser].hasLogined;
+    return _aUser().hasLogined;
 }
 -(BOOL)hasQQBinding
 {
-    return [BBUser bb_getUser].bindQQ;
+    return _aUser().bindQQ;
 }
 -(BOOL)isHasWeiXinBinding
 {
-    return [BBUser bb_getUser].bindWX;
+    return _aUser().bindWX;
 }
 -(BOOL)hasWeiBoBinding
 {
-    return [BBUser bb_getUser].bindWB;
+    return _aUser().bindWB;
 }
 -(NSString *)token
 {
-    return [BBUser bb_getUser].token;
+    return _aUser().token;
+}
+-(NSString *)deviceId
+{
+    return _aUser().deviceId;
 }
 -(NSString *)password
 {
-    return [BBUser bb_getUser].password;
+    return _aUser().password;
 }
+-(BOOL)hasTodaySignIn
+{
+    if ([_aUser().latestSignInDate isEqualToDate:[NSDate date]]) {
+        return YES;
+    }
+    return NO;
+}
+-(BOOL)hasTodayHomePopSignIn
+{
+    if ([_aUser().latestHomePagePopSingInDate isEqualToDate:[NSDate date]]) {
+        return YES;
+    }
+    return NO;
+}
+-(BOOL)isNeedPopSignIn
+{
+    //如果今日已经签到了，肯定不用弹出了
+    if (BBUserHelpers.hasTodaySignIn) {
+        return NO;
+    }else{
+        //我弹出了签到，但用户没有签到
+        if (BBUserHelpers.hasTodayHomePopSignIn) {
+            return NO;
+        }
+        return YES;
+    }
+}
+static inline BBUser *_aUser(){
+    return [BBUser bb_getUser];
+}
+
 @end

@@ -17,7 +17,7 @@
 #define K_Url_BBBase            @"http://114.55.129.5:8788"
 #endif
 
-//登录
+//登录 👌
 #define K_Url_Login             @"/api/login"
 //注册
 #define K_Url_Regist            @"/api/reg"
@@ -27,12 +27,25 @@
 #define K_Url_ForgetPassword    @"/api/forgetpass"
 //修改密码
 #define K_Url_ModifyPassword    @"/api/user/cpass"
-//获取用户信息
+//获取用户信息 🆗
 #define K_Url_GetUserInfo       @"/api/user/userInfo"
-//编辑用户资料
-#define K_Url_EditUserInfo      @"api/user/editinfo"
-//意见反馈
+//编辑用户资料 👌
+#define K_Url_EditUserInfo      @"/api/user/editinfo"
+//意见反馈 🆗
 #define K_Url_Suggestion        @"/api/user/sendSugister"
+//上传图片 👌
+#define K_Url_UploadImage       @"/api/upload"
+//设备信息 👌
+#define K_Url_DeviceInfo        @"/api/deviceInfo"
+//帮助list
+#define K_Url_HelpList          @"/api/help/list"
+
+//签到
+#define K_Url_SignIn            @"/api/user/signin"
+//分享视频获取分钟奖励(有点问题)
+#define K_Url_ShareVideo        @"/api/user/share"
+//签到列表
+#define K_Url_SignInList        @"/api/user/shareList"
 
 
 //消息列表
