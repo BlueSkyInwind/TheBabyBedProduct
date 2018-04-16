@@ -184,6 +184,7 @@
 		57585AF4206D485C001BB202 /* share_qq@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 57585AF2206D485B001BB202 /* share_qq@2x.png */; };
 		57CECE43207374DC00E9A876 /* UIAlertController+EasilyMake.m in Sources */ = {isa = PBXBuildFile; fileRef = 57CECE41207374DC00E9A876 /* UIAlertController+EasilyMake.m */; };
 		57DF59B420835527002D2CED /* BBUserDevice.m in Sources */ = {isa = PBXBuildFile; fileRef = 57DF59B320835527002D2CED /* BBUserDevice.m */; };
+		57DF59B720843CD7002D2CED /* BBSignInPopView.m in Sources */ = {isa = PBXBuildFile; fileRef = 57DF59B620843CD7002D2CED /* BBSignInPopView.m */; };
 		84114B4320722BF6005A1DC9 /* jpush-ios-3.0.8.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 84114B4020722BF6005A1DC9 /* jpush-ios-3.0.8.a */; };
 		84114B4420722BF7005A1DC9 /* jcore-ios-1.1.8.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 84114B4220722BF6005A1DC9 /* jcore-ios-1.1.8.a */; };
 		84114B4620722C6F005A1DC9 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84114B4520722C6F005A1DC9 /* CFNetwork.framework */; };
@@ -570,6 +571,8 @@
 		57CECE42207374DC00E9A876 /* UIAlertController+EasilyMake.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIAlertController+EasilyMake.h"; sourceTree = "<group>"; };
 		57DF59B220835527002D2CED /* BBUserDevice.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BBUserDevice.h; sourceTree = "<group>"; };
 		57DF59B320835527002D2CED /* BBUserDevice.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BBUserDevice.m; sourceTree = "<group>"; };
+		57DF59B520843CD7002D2CED /* BBSignInPopView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BBSignInPopView.h; sourceTree = "<group>"; };
+		57DF59B620843CD7002D2CED /* BBSignInPopView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BBSignInPopView.m; sourceTree = "<group>"; };
 		764BC6823587F5E7CC72C6C4 /* Pods-TheBabyBedProduct.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TheBabyBedProduct.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TheBabyBedProduct/Pods-TheBabyBedProduct.debug.xcconfig"; sourceTree = "<group>"; };
 		84114B4020722BF6005A1DC9 /* jpush-ios-3.0.8.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "jpush-ios-3.0.8.a"; sourceTree = "<group>"; };
 		84114B4120722BF6005A1DC9 /* JPUSHService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JPUSHService.h; sourceTree = "<group>"; };
@@ -871,6 +874,8 @@
 				22CFD38020614AE90004186D /* HomePageViewController.m */,
 				2263B8E8206BE604005BB15E /* MessageViewController.h */,
 				2263B8E9206BE604005BB15E /* MessageViewController.m */,
+				57DF59B520843CD7002D2CED /* BBSignInPopView.h */,
+				57DF59B620843CD7002D2CED /* BBSignInPopView.m */,
 			);
 			path = HomeModules;
 			sourceTree = "<group>";
@@ -1952,6 +1957,7 @@
 				22CFD3DA2067D5B10004186D /* ConsoleRoomTemperatureViewController.m in Sources */,
 				5726F34C206A857F008EED75 /* BBMyListOnlySubtitleCell.m in Sources */,
 				5726F3B1206B9988008EED75 /* BBSubmitSuggestionViewController.m in Sources */,
+				57DF59B720843CD7002D2CED /* BBSignInPopView.m in Sources */,
 				22CFD3C3206652B70004186D /* ConsoleRateView.m in Sources */,
 				2263B8F220709EA2005BB15E /* BaseCentralManager.m in Sources */,
 				2266C1BD20694A85004F653A /* CryingChartViewController.m in Sources */,

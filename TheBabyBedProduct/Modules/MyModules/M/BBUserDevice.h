@@ -38,7 +38,6 @@
 
 @interface BBUserDeviceHelper : NSObject
 +(instancetype)shareInstance;
-/** 是否登录 */
 @property(nonatomic,assign,readonly) BOOL hasBindWD;
 @property(nonatomic,assign,readonly) BOOL hasBindTW;
 @property(nonatomic,assign,readonly) BOOL hasBindTB;
@@ -46,7 +45,8 @@
 @property(nonatomic,copy,readonly) NSString *deviceStatus;
 @property(nonatomic,copy,readonly) NSString *deviceVersion;
 @property(nonatomic,copy,readonly) NSString *deviceType;
-
+/** 当日是否已经签到 */
+@property(nonatomic,assign,readonly) BOOL hasSignIn;
 @end
 
 

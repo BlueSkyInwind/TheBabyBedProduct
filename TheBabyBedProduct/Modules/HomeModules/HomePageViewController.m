@@ -17,6 +17,7 @@
 #import "AddDeviceView.h"
 #import "ScanDeviceCodeViewController.h"
 #import "ScanDeviceCodeViewController.h"
+#import "BBSignInPopView.h"
 
 @interface HomePageViewController ()<UITableViewDelegate,UITableViewDataSource>{
     
@@ -38,6 +39,24 @@
 @end
 
 @implementation HomePageViewController
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+//    if (BBUserHelpers.isNeedPopSignIn) {
+//
+//    }
+   
+#warning todo
+    BBSignInPopView *signInPopV = [BBSignInPopView signInPopViewWithSignInBlock:^(BBSignInPopView *popV) {
+//        [BBRequestTool bb_requestSignInWithSuccessBlock:^(EnumServerStatus status, id object) {
+//
+//        } failureBlock:^(EnumServerStatus status, id object) {
+//
+//        }];
+        [popV signInSuccess];
+    }];
+    [signInPopV show];
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad]; 
