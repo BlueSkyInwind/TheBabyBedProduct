@@ -41,8 +41,21 @@
 @property(nonatomic,assign) BOOL bindQQ;
 /** 身份 */
 @property(nonatomic,copy) NSString *identity;
+/** 宝宝姓名 */
+@property(nonatomic,copy) NSString *babyName;
+
 /** 密码 */
 @property(nonatomic,copy) NSString *password;
+/** 绑定的设备id */
+@property(nonatomic,copy) NSString *deviceId;
+
+
+//辅助，帮助判断签到信息
+/** 最新一次签到日期 */
+@property(nonatomic,strong) NSDate *latestSignInDate;
+/** 最新一次首页弹出签到框的日期 */
+@property(nonatomic,strong) NSDate *latestHomePagePopSingInDate;
+
 
 +(BBUser *)bb_getUser;
 +(void)bb_saveUser:(BBUser *)user;
@@ -59,7 +72,17 @@
 @property(nonatomic,assign,readonly) BOOL hasQQBinding;
 @property(nonatomic,copy,readonly) NSString *token;
 @property(nonatomic,copy,readonly) NSString *password;
+@property(nonatomic,copy,readonly) NSString *deviceId;
+
+/** 今日是否已经签到 */
+@property(nonatomic,assign,readonly) BOOL hasTodaySignIn;
+/** 今日首页是否已经弹出签到框 */
+@property(nonatomic,assign,readonly) BOOL hasTodayHomePopSignIn;
+/** 首页是否需要弹出签到框 */
+@property(nonatomic,assign,readonly) BOOL isNeedPopSignIn;
 
 /** 记录我的界面headerview的登录状态 */
 @property(nonatomic,assign) BOOL myHeaderVHasLogined;
+
+
 @end

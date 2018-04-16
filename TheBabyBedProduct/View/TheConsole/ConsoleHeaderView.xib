@@ -105,7 +105,7 @@
                 <outlet property="consoleHeaderLabel" destination="PcH-Md-llX" id="jt7-vp-fo4"/>
                 <outlet property="locationLabel" destination="Pxu-uL-9OL" id="bQT-Gn-bf5"/>
                 <outlet property="settingBtn" destination="t8X-q4-wRD" id="ei5-a6-F1B"/>
-                <outlet property="settingBtnConstraint" destination="hvI-2h-tzc" id="0Lz-kX-peH"/>
+                <outlet property="settingBtnConstraint" destination="XCr-TL-TjL" id="vpf-yf-bc4"/>
                 <outlet property="statusLabel" destination="1yW-hO-qiU" id="bDg-YG-9zX"/>
                 <outlet property="titleLabel" destination="Tz7-fZ-94f" id="2Zn-2x-sgT"/>
             </connections>

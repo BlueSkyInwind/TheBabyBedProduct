@@ -93,10 +93,11 @@ typedef NS_ENUM(NSUInteger, AxisType) {
  */
 - (void)elementDidClickedWithPointSuperIndex:(NSUInteger)superidnex pointSubIndex:(NSUInteger)subindex;
 
-
 @optional
 
 @end
+
+
 
 @interface PXLineChartView : UIView
 

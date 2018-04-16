@@ -156,12 +156,121 @@ static void getRequest(NSString *url,id param,SuccessBlock successBlock,FailureB
 }
 
 /**
+ 修改密码 post
+ @param currentP 最新的密码
+ */
+-(void)bb_requestModifyPasswordWhihCurrentP:(NSString *)currentP
+                               successBlock:(SuccessBlock)successBlock
+                               failureBlock:(FailureBlock)failureBlock
+{
+    NSDictionary *param = @{
+                            
+                            };
+    postRequest(K_Url_ModifyPassword, param, successBlock, failureBlock);
+}
+
+/**
  获取用户信息 get
  */
 -(void)bb_requestGetUserInfoWithSuccessBlock:(SuccessBlock)successBlock
                                 failureBlock:(FailureBlock)failureBlock
 {
     [[NetWorkRequestManager sharedNetWorkManager]GetWithURL:[K_Url_BBBase stringByAppendingString:K_Url_GetUserInfo] isNeedNetStatus:NO isNeedWait:NO parameters:nil finished:successBlock failure:failureBlock];
+}
+
+
+
+/**
+ 上传用户图像 post
+ */
+-(void)bb_requestUploadImageWithImage:(UIImage *)img
+                         successBlock:(SuccessBlock)successBlock
+                         failureBlock:(FailureBlock)failureBlock
+{
+    NSString *url = [NSString stringWithFormat:@"%@%@",K_Url_BBBase,K_Url_UploadImage];
+    url = [url stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+    manager.requestSerializer = [AFJSONRequestSerializer serializer];
+    [manager POST:url parameters:@{@"type":@"USER"} constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
+        NSData *imgData = UIImageJPEGRepresentation(img, 0.3);
+        [formData appendPartWithFileData:imgData name:@"file" fileName:@"file.jpg" mimeType:@"image/jpg"];
+    } progress:^(NSProgress * _Nonnull uploadProgress) {
+
+    } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        successBlock(Enum_SUCCESS,responseObject);
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        failureBlock(Enum_FAIL,error);
+    }];
+
+}
+/**
+ 编辑资料
+ @param avatarId 用户头像资料
+ */
+-(void)bb_requestEditUserInfoWithAvatarId:(NSString *)avatarId
+                                 babyName:(NSString *)babyName
+                                   gender:(NSString *)gender
+                                     city:(NSString *)city
+                                 birthday:(NSString *)birthday
+                                 identity:(NSString *)identity
+                             successBlock:(SuccessBlock)successBlock
+                             failureBlock:(FailureBlock)failureBlock
+{
+    NSMutableDictionary *param = [NSMutableDictionary dictionary];
+    if (avatarId && avatarId.length > 0) {
+        [param setValue:avatarId forKey:@"avatar"];
+    }
+    if (babyName && babyName.length > 0) {
+        [param setValue:babyName forKey:@"babyName"];
+    }
+    if (gender && gender.length > 0) {
+        [param setValue:gender forKey:@"gender"];
+    }
+    if (city && city.length > 0) {
+        [param setValue:city forKey:@"city"];
+    }
+    if (birthday && birthday.length > 0) {
+        [param setValue:birthday forKey:@"bothDate"];
+    }
+    if (identity && identity.length > 0) {
+        [param setValue:identity forKey:@"identity"];
+    }
+    
+    postRequest(K_Url_EditUserInfo, param, successBlock, failureBlock);
+}
+/**
+ 获取用户设备信息 get
+ */
+-(void)bb_requestGetDeviceInfoWithSuccessBlock:(SuccessBlock)successBlock
+                                  failureBlock:(FailureBlock)failureBlock
+{
+    getRequest(K_Url_DeviceInfo, nil, successBlock, failureBlock);
+}
+
+/**
+ 帮助list get
+ */
+-(void)bb_requestGetHelpListWithSuccessBlock:(SuccessBlock)successBlock
+                                failureBlock:(FailureBlock)failureBlock
+{
+     getRequest(K_Url_HelpList, nil, successBlock, failureBlock);
+}
+
+/**
+ 签到 post
+ */
+-(void)bb_requestSignInWithSuccessBlock:(SuccessBlock)successBlock
+                           failureBlock:(FailureBlock)failureBlock
+{
+    postRequest(K_Url_SignIn, nil, successBlock, failureBlock);
+}
+/**
+ 签到列表 post
+ */
+-(void)bb_requestSignInListWithSuccessBlock:(SuccessBlock)successBlock
+                               failureBlock:(FailureBlock)failureBlock
+{
+    postRequest(K_Url_SignInList, nil, successBlock, failureBlock);
 }
 
 /**
@@ -208,8 +317,6 @@ static void getRequest(NSString *url,id param,SuccessBlock successBlock,FailureB
     getRequest(urlStr, param, successBlock, failureBlock);
 
 }
-
-
 
 
 @end

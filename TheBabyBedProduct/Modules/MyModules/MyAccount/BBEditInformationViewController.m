@@ -17,15 +17,20 @@
 #import "TZLocationManager.h"
 
 #import "BaseResultModel.h"
+#import "BBUploadImageResultModel.h"
+#import "BBEditUserInfoItem.h"
 
 @interface BBEditInformationViewController ()<UITableViewDelegate,UITableViewDataSource,UIImagePickerControllerDelegate,UINavigationControllerDelegate>
 {
     NSString *_babayName;
+    
 }
 @property(nonatomic,strong) UITableView *tableView;
 @property(nonatomic,strong) NSArray<NSString *> *titles;
 @property (nonatomic, strong) UIImagePickerController *imagePickerVc;
-
+@property(nonatomic,strong) BBUploadImageResultData *aUploadImageRD;
+/** 记录当前页面用户资料信息的模型 */
+@property(nonatomic,strong) BBEditUserInfoItem *aUserInfoItem;
 @end
 
 @implementation BBEditInformationViewController
@@ -63,9 +68,21 @@
     self.view.backgroundColor = k_color_vcBg;
     self.title = @"编辑资料";
 
+    [self configureUserInfoItem];
+    
     [self getUserInfo];
     
     [self creatUI];
+}
+-(void)configureUserInfoItem
+{
+    BBUser *savedUser = [BBUser bb_getUser];
+    self.aUserInfoItem = [[BBEditUserInfoItem alloc]init];
+    self.aUserInfoItem.babyName = savedUser.babyName;
+    self.aUserInfoItem.gender = savedUser.gender;
+    self.aUserInfoItem.city = savedUser.city;
+    self.aUserInfoItem.bothDate = savedUser.both;
+    self.aUserInfoItem.identity = savedUser.identity;
 }
 -(void)getUserInfo
 {
@@ -124,7 +141,45 @@
 }
 -(void)saveAction
 {
-#warning todo 
+#warning todo
+    BBUser *currentSavedUser = [BBUser bb_getUser];
+    NSString *babyName = @"";
+    if (![self.aUserInfoItem.babyName isEqualToString:currentSavedUser.babyName]) {
+        babyName = currentSavedUser.username;
+    }
+    NSString *genderStr = @"";
+    if (self.aUserInfoItem.gender != currentSavedUser.gender) {
+        genderStr = [NSString stringWithFormat:@"%ld",(long)currentSavedUser.gender];
+    }
+    NSString *city = @"";
+    if (![self.aUserInfoItem.city isEqualToString:currentSavedUser.city]) {
+        city = currentSavedUser.city;
+    }
+    NSString *birthday = @"";
+    if (![self.aUserInfoItem.bothDate isEqualToString:currentSavedUser.both]) {
+        birthday = currentSavedUser.both;
+    }
+    NSString *identity = @"";
+    if (![self.aUserInfoItem.identity isEqualToString:currentSavedUser.identity]) {
+        identity = currentSavedUser.identity;
+    }
+    if (!self.aUploadImageRD) {
+        self.aUploadImageRD = [BBUploadImageResultData new];
+    }
+    self.aUploadImageRD.imgId = @"0cbd797529714fccbe3ee1ed23262c7f";
+    
+    [BBRequestTool bb_requestEditUserInfoWithAvatarId:self.aUploadImageRD.imgId babyName:babyName gender:genderStr city:city birthday:birthday identity:identity successBlock:^(EnumServerStatus status, id object) {
+        BaseResultModel *editUserInfoRM = [BaseResultModel mj_objectWithKeyValues:object];
+        if (editUserInfoRM.code == 0) {
+            [QMUITips showSucceed:@"您的信息更改成功！"];
+        }else{
+            [QMUITips showError:@"您的信息更改失败，请稍后再试！"];
+        }
+    } failureBlock:^(EnumServerStatus status, id object) {
+        [QMUITips showError:@"您的信息更改失败，请稍后再试！"];
+
+    }];
+    
 }
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
@@ -377,7 +432,21 @@
     
     BBEditInfoAvatarCell *cell = (BBEditInfoAvatarCell *)[self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
     cell.avatarImgV.image = photos[0];
-#warning todo
+    
+    #pragma mark --- 上传头像(此处注意data是个数组)
+    [BBRequestTool bb_requestUploadImageWithImage:photos[0] successBlock:^(EnumServerStatus status, id object) {
+        NSLog(@"upload imag success %@",object);
+        BBUploadImageResultModel *uploadImgRM = [BBUploadImageResultModel mj_objectWithKeyValues:object];
+        if (uploadImgRM.code == 0) {
+            self.aUploadImageRD = [uploadImgRM.data firstObject];
+            [QMUITips showSucceed:@"头像上传成功,记得保存哦~"];
+        }else{
+            [QMUITips showError:@"头像上传失败"];
+        }
+    } failureBlock:^(EnumServerStatus status, id object) {
+        NSLog(@"upload imag error %@",object);
+        [QMUITips showError:@"头像上传失败"];
+    }];
     
 }
 // 决定相册显示与否

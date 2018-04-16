@@ -17,6 +17,8 @@
 //新浪微博SDK头文件
 #import "WeiboSDK.h"
 
+#import "BBUserDevice.h"
+
 @implementation AppDelegate (BBConfigure)
 
 -(void)bb_configureShareSDK
@@ -80,5 +82,16 @@
                                   break;
                           }
                       }];
+}
+-(void)bb_signInAction
+{
+    if (!BBUserDeviceHelpers.hasSignIn) {
+        
+    }
+    [BBRequestTool bb_requestSignInWithSuccessBlock:^(EnumServerStatus status, id object) {
+        NSLog(@"签到成功 %@",object);
+    } failureBlock:^(EnumServerStatus status, id object) {
+        NSLog(@"签到shibai  %@",object);
+    }];
 }
 @end

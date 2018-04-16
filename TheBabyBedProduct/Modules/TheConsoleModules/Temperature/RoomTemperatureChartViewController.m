@@ -14,6 +14,7 @@
 
 @end
 
+
 @implementation RoomTemperatureChartViewController
 
 - (void)viewDidLoad {
@@ -21,8 +22,8 @@
     // Do any additional setup after loading the view.
     [self addBackItem];
     [self configureView];
-
 }
+
 -(void)configureView{
     
     _roomTemperatureView = [[RoomTemperatureView alloc]initWithFrame:CGRectMake(0, NaviBarHeight, _k_w, _k_h / 2)];
@@ -39,6 +40,7 @@
     [_roomTemperatureView configureView];
     
 }
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

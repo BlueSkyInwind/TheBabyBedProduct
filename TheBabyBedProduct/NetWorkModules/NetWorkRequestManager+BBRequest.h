@@ -87,10 +87,62 @@ typedef NS_ENUM(NSInteger,BBGetCodeType) {
                             failureBlock:(FailureBlock)failureBlock;
 
 /**
+ 修改密码 post
+ @param currentP 最新的密码
+ */
+-(void)bb_requestModifyPasswordWhihCurrentP:(NSString *)currentP
+                               successBlock:(SuccessBlock)successBlock
+                               failureBlock:(FailureBlock)failureBlock;
+
+/**
  获取用户信息 get
  */
 -(void)bb_requestGetUserInfoWithSuccessBlock:(SuccessBlock)successBlock
                                 failureBlock:(FailureBlock)failureBlock;
+
+/**
+ 上传用户图像 post
+ */
+-(void)bb_requestUploadImageWithImage:(UIImage *)img
+                         successBlock:(SuccessBlock)successBlock
+                         failureBlock:(FailureBlock)failureBlock;
+
+/**
+ 编辑资料
+ @param avatarId 用户头像资料
+ */
+-(void)bb_requestEditUserInfoWithAvatarId:(NSString *)avatarId
+                                 babyName:(NSString *)babyName
+                                   gender:(NSString *)gender
+                                     city:(NSString *)city
+                                 birthday:(NSString *)birthday
+                                 identity:(NSString *)identity
+                             successBlock:(SuccessBlock)successBlock
+                             failureBlock:(FailureBlock)failureBlock;
+
+/**
+ 获取用户设备信息 get
+ */
+-(void)bb_requestGetDeviceInfoWithSuccessBlock:(SuccessBlock)successBlock
+                                  failureBlock:(FailureBlock)failureBlock;
+
+/**
+ 帮助list get
+ */
+-(void)bb_requestGetHelpListWithSuccessBlock:(SuccessBlock)successBlock
+                                failureBlock:(FailureBlock)failureBlock;
+
+/**
+ 签到 post
+ */
+-(void)bb_requestSignInWithSuccessBlock:(SuccessBlock)successBlock
+                           failureBlock:(FailureBlock)failureBlock;
+
+/**
+ 签到列表 post
+ */
+-(void)bb_requestSignInListWithSuccessBlock:(SuccessBlock)successBlock
+                               failureBlock:(FailureBlock)failureBlock;
 
 /**
  阈值设定

@@ -57,9 +57,12 @@
         CGFloat btX = btW*column;
         CGFloat btY = verticalMargin+_bannerView.bottom+row*(btH+verticalMargin);
         CGRect btFrame = CGRectMake(btX, btY, btW, btH);
-        BBItemButton *button = [[BBItemButton alloc] initWithFrame:btFrame imgName:imageArrs[i] text:titleArrs[i]];
-        button.tag = i+100;
-        [button.tempBT addTarget:self action:@selector(itemClickedAction:) forControlEvents:UIControlEventTouchUpInside];
+        BBItemButton *button = [[BBItemButton alloc] initWithFrame:btFrame imgName:imageArrs[i] text:titleArrs[i] tag:i];
+        button.itemClickedBlcok = ^(BBEarlyEducationItemType itemType) {
+            if (self.itemClickedBlock) {
+                self.itemClickedBlock(itemType);
+            }
+        };
         [self addSubview:button];
         
     }
@@ -89,12 +92,7 @@
     
 }
 
--(void)itemClickedAction:(NSInteger)index
-{
-    if (self.itemClickedBlock) {
-        self.itemClickedBlock(index-100);
-    }
-}
+
 -(void)toLookMore
 {
     if (self.lookMoreBlock) {
@@ -130,19 +128,24 @@
 }
 @end
 
+@interface BBItemButton ()
+@property(nonatomic,strong) UIImageView *topImgV;
+@property(nonatomic,strong) UILabel *bottomTextLB;
+@property(nonatomic,strong) UIButton *tempBT;
+@end
+
 @implementation BBItemButton 
--(instancetype)initWithFrame:(CGRect)frame imgName:(NSString *)imgName text:(NSString *)text
+-(instancetype)initWithFrame:(CGRect)frame imgName:(NSString *)imgName text:(NSString *)text tag:(NSInteger)tag
 {
     self = [super initWithFrame:frame];
     if (self) {
-        [self creatUIWithImgName:imgName text:text];
+        [self creatUIWithImgName:imgName text:text tag:tag];
     }
     return self;
 }
--(void)creatUIWithImgName:(NSString *)imgName text:(NSString *)text
+-(void)creatUIWithImgName:(NSString *)imgName text:(NSString *)text tag:(NSInteger)tag
 {
     CGFloat totalW = self.width;
-    CGFloat totalH = self.height;
     CGFloat imgW = 53;
     CGFloat imgX = (totalW-imgW)/2;
     
@@ -154,8 +157,15 @@
     self.topImgV.frame = CGRectFlatMake(imgX, 8, imgW, imgW);
     self.bottomTextLB.frame = CGRectFlatMake(0, self.topImgV.bottom+8, totalW, 28);
     self.tempBT.frame = self.bounds;
-    [self.tempBT addTarget:self action:@selector(itemClickedAction) forControlEvents:UIControlEventTouchUpInside];
+    self.tempBT.tag = tag;
+    [self.tempBT addTarget:self action:@selector(itemClickedAction:) forControlEvents:UIControlEventTouchUpInside];
     
+}
+-(void)itemClickedAction:(UIButton *)bt
+{
+    if (self.itemClickedBlcok) {
+        self.itemClickedBlcok(bt.tag);
+    }
 }
 
 @end

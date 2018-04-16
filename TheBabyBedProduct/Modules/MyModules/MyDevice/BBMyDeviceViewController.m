@@ -8,6 +8,8 @@
 
 #import "BBMyDeviceViewController.h"
 #import "BBMyDevieceCell.h"
+#import "BaseResultModel.h"
+#import "BBUserDevice.h"
 
 @interface BBMyDeviceViewController ()
 @property(nonatomic,strong) UITableView *tableView;
@@ -29,6 +31,23 @@
     [self.deviceMessageTitles addObjectsFromArray:@[@"设备状态",@"设备型号",@"硬件版本",@"设备ID"]];
     
     [self creatUI];
+    
+    [self getMyDeviceData];
+}
+
+-(void)getMyDeviceData
+{
+    //获取用户设备信息，错误不处理
+    [BBRequestTool bb_requestGetDeviceInfoWithSuccessBlock:^(EnumServerStatus status, id object) {
+        NSLog(@"获取设备信息成功 %@",object);
+        BBUserDeviceResultModel *deviceRM = [BBUserDeviceResultModel mj_objectWithKeyValues:object];
+        if (deviceRM.code == 0) {
+            BBUserDevice *userDevice = deviceRM.data;
+            [BBUserDevice bb_saveUserDevice:userDevice];
+            [self.tableView reloadData];
+        }
+    } failureBlock:^(EnumServerStatus status, id object) {
+    }];
 }
 
 -(void)backAction
@@ -85,7 +104,7 @@
 }
 -(void)toToBinding
 {
-    
+#warning todo
 }
 
 -(void)toGoManagersAction
@@ -94,8 +113,10 @@
 }
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-#warning todo 没有绑定为1
-    return 2;
+    if (BBUserDeviceHelpers.hasBindTB || BBUserDeviceHelpers.hasBindTW || BBUserDeviceHelpers.hasBindWD) {
+        return 2;
+    }
+    return 1;
 }
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {

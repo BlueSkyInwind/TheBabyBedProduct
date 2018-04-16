@@ -95,6 +95,10 @@
 		57210D0F207777960039D8D5 /* AppDelegate+BBConfigure.m in Sources */ = {isa = PBXBuildFile; fileRef = 57210D0E207777960039D8D5 /* AppDelegate+BBConfigure.m */; };
 		57210D1220789A0E0039D8D5 /* NSString+Verify.m in Sources */ = {isa = PBXBuildFile; fileRef = 57210D1120789A0E0039D8D5 /* NSString+Verify.m */; };
 		57210D1B207A48F60039D8D5 /* BBModifyPasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 57210D1A207A48F60039D8D5 /* BBModifyPasswordViewController.m */; };
+		57210D1E207B05650039D8D5 /* BBEarlyEducationMusicListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 57210D1D207B05650039D8D5 /* BBEarlyEducationMusicListViewController.m */; };
+		57210DD5207CA37F0039D8D5 /* BBEEMusicListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 57210DD4207CA37F0039D8D5 /* BBEEMusicListCell.m */; };
+		57210DDB207D15F40039D8D5 /* BBUploadImageResultModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 57210DDA207D15F40039D8D5 /* BBUploadImageResultModel.m */; };
+		57210DDE207D1A6D0039D8D5 /* BBEditUserInfoItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 57210DDD207D1A6D0039D8D5 /* BBEditUserInfoItem.m */; };
 		5726F33B206A2FB2008EED75 /* BBWarningRingSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5726F337206A2FB2008EED75 /* BBWarningRingSettingViewController.m */; };
 		5726F33C206A2FB2008EED75 /* BBWarningRingListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5726F33A206A2FB2008EED75 /* BBWarningRingListCell.m */; };
 		5726F33F206A3185008EED75 /* PPTextfield+EasilyMake.m in Sources */ = {isa = PBXBuildFile; fileRef = 5726F33E206A3185008EED75 /* PPTextfield+EasilyMake.m */; };
@@ -179,6 +183,8 @@
 		57585AF3206D485C001BB202 /* share_qq@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 57585AF1206D485B001BB202 /* share_qq@3x.png */; };
 		57585AF4206D485C001BB202 /* share_qq@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 57585AF2206D485B001BB202 /* share_qq@2x.png */; };
 		57CECE43207374DC00E9A876 /* UIAlertController+EasilyMake.m in Sources */ = {isa = PBXBuildFile; fileRef = 57CECE41207374DC00E9A876 /* UIAlertController+EasilyMake.m */; };
+		57DF59B420835527002D2CED /* BBUserDevice.m in Sources */ = {isa = PBXBuildFile; fileRef = 57DF59B320835527002D2CED /* BBUserDevice.m */; };
+		57DF59B720843CD7002D2CED /* BBSignInPopView.m in Sources */ = {isa = PBXBuildFile; fileRef = 57DF59B620843CD7002D2CED /* BBSignInPopView.m */; };
 		84114B4320722BF6005A1DC9 /* jpush-ios-3.0.8.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 84114B4020722BF6005A1DC9 /* jpush-ios-3.0.8.a */; };
 		84114B4420722BF7005A1DC9 /* jcore-ios-1.1.8.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 84114B4220722BF6005A1DC9 /* jcore-ios-1.1.8.a */; };
 		84114B4620722C6F005A1DC9 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84114B4520722C6F005A1DC9 /* CFNetwork.framework */; };
@@ -191,6 +197,7 @@
 		84114B5420722CCD005A1DC9 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84114B5320722CCD005A1DC9 /* UIKit.framework */; };
 		84114B5620722CE0005A1DC9 /* UserNotifications.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84114B5520722CE0005A1DC9 /* UserNotifications.framework */; };
 		84114B5820722CF4005A1DC9 /* libresolv.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 84114B5720722CF4005A1DC9 /* libresolv.tbd */; };
+		842C027B2084914700033F4A /* JMAirKiss.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 842C027A2084914600033F4A /* JMAirKiss.framework */; };
 		842D9CED206B94C90020C3C2 /* HomeLeftItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = 842D9CEC206B94C90020C3C2 /* HomeLeftItemView.m */; };
 		84332C9D206CE6F5009A9121 /* MessageTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 84332C9B206CE6F5009A9121 /* MessageTableViewCell.m */; };
 		84332C9E206CE6F5009A9121 /* MessageTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84332C9C206CE6F5009A9121 /* MessageTableViewCell.xib */; };
@@ -208,6 +215,7 @@
 		84BE5EAF2069EE75007A001D /* KickQulitChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = 84BE5EAE2069EE75007A001D /* KickQulitChartView.m */; };
 		84BE5EB22069F114007A001D /* KickQulitChartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84BE5EB12069F114007A001D /* KickQulitChartViewController.m */; };
 		84BE5EB6206A48B5007A001D /* GlobalPopView.m in Sources */ = {isa = PBXBuildFile; fileRef = 84BE5EB5206A48B5007A001D /* GlobalPopView.m */; };
+		84C7921D207C566600B63796 /* HistoryTemperatureListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84C7921C207C566600B63796 /* HistoryTemperatureListViewController.m */; };
 		84D5BDC7207354010025C757 /* bluetoothPairingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84D5BDC6207354010025C757 /* bluetoothPairingViewController.m */; };
 		84D5BDCD2073579A0025C757 /* AddDeviceView.m in Sources */ = {isa = PBXBuildFile; fileRef = 84D5BDCC2073579A0025C757 /* AddDeviceView.m */; };
 		84DD47562068DB7B00D154B5 /* ThresholdTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 84DD47542068DB7B00D154B5 /* ThresholdTableViewCell.m */; };
@@ -412,6 +420,14 @@
 		57210D1120789A0E0039D8D5 /* NSString+Verify.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSString+Verify.m"; sourceTree = "<group>"; };
 		57210D19207A48F60039D8D5 /* BBModifyPasswordViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BBModifyPasswordViewController.h; sourceTree = "<group>"; };
 		57210D1A207A48F60039D8D5 /* BBModifyPasswordViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BBModifyPasswordViewController.m; sourceTree = "<group>"; };
+		57210D1C207B05650039D8D5 /* BBEarlyEducationMusicListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BBEarlyEducationMusicListViewController.h; sourceTree = "<group>"; };
+		57210D1D207B05650039D8D5 /* BBEarlyEducationMusicListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BBEarlyEducationMusicListViewController.m; sourceTree = "<group>"; };
+		57210DD3207CA37F0039D8D5 /* BBEEMusicListCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BBEEMusicListCell.h; sourceTree = "<group>"; };
+		57210DD4207CA37F0039D8D5 /* BBEEMusicListCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BBEEMusicListCell.m; sourceTree = "<group>"; };
+		57210DD9207D15F40039D8D5 /* BBUploadImageResultModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BBUploadImageResultModel.h; sourceTree = "<group>"; };
+		57210DDA207D15F40039D8D5 /* BBUploadImageResultModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BBUploadImageResultModel.m; sourceTree = "<group>"; };
+		57210DDC207D1A6D0039D8D5 /* BBEditUserInfoItem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BBEditUserInfoItem.h; sourceTree = "<group>"; };
+		57210DDD207D1A6D0039D8D5 /* BBEditUserInfoItem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BBEditUserInfoItem.m; sourceTree = "<group>"; };
 		5726F337206A2FB2008EED75 /* BBWarningRingSettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBWarningRingSettingViewController.m; sourceTree = "<group>"; };
 		5726F338206A2FB2008EED75 /* BBWarningRingListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBWarningRingListCell.h; sourceTree = "<group>"; };
 		5726F339206A2FB2008EED75 /* BBWarningRingSettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBWarningRingSettingViewController.h; sourceTree = "<group>"; };
@@ -554,6 +570,10 @@
 		57585AF2206D485B001BB202 /* share_qq@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "share_qq@2x.png"; sourceTree = "<group>"; };
 		57CECE41207374DC00E9A876 /* UIAlertController+EasilyMake.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIAlertController+EasilyMake.m"; sourceTree = "<group>"; };
 		57CECE42207374DC00E9A876 /* UIAlertController+EasilyMake.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIAlertController+EasilyMake.h"; sourceTree = "<group>"; };
+		57DF59B220835527002D2CED /* BBUserDevice.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BBUserDevice.h; sourceTree = "<group>"; };
+		57DF59B320835527002D2CED /* BBUserDevice.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BBUserDevice.m; sourceTree = "<group>"; };
+		57DF59B520843CD7002D2CED /* BBSignInPopView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BBSignInPopView.h; sourceTree = "<group>"; };
+		57DF59B620843CD7002D2CED /* BBSignInPopView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BBSignInPopView.m; sourceTree = "<group>"; };
 		764BC6823587F5E7CC72C6C4 /* Pods-TheBabyBedProduct.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TheBabyBedProduct.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TheBabyBedProduct/Pods-TheBabyBedProduct.debug.xcconfig"; sourceTree = "<group>"; };
 		84114B4020722BF6005A1DC9 /* jpush-ios-3.0.8.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "jpush-ios-3.0.8.a"; sourceTree = "<group>"; };
 		84114B4120722BF6005A1DC9 /* JPUSHService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JPUSHService.h; sourceTree = "<group>"; };
@@ -568,6 +588,7 @@
 		84114B5320722CCD005A1DC9 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		84114B5520722CE0005A1DC9 /* UserNotifications.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotifications.framework; path = System/Library/Frameworks/UserNotifications.framework; sourceTree = SDKROOT; };
 		84114B5720722CF4005A1DC9 /* libresolv.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libresolv.tbd; path = usr/lib/libresolv.tbd; sourceTree = SDKROOT; };
+		842C027A2084914600033F4A /* JMAirKiss.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = JMAirKiss.framework; sourceTree = "<group>"; };
 		842D9CEB206B94C90020C3C2 /* HomeLeftItemView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeLeftItemView.h; sourceTree = "<group>"; };
 		842D9CEC206B94C90020C3C2 /* HomeLeftItemView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeLeftItemView.m; sourceTree = "<group>"; };
 		84332C9A206CE6F5009A9121 /* MessageTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MessageTableViewCell.h; sourceTree = "<group>"; };
@@ -600,6 +621,8 @@
 		84BE5EB12069F114007A001D /* KickQulitChartViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KickQulitChartViewController.m; sourceTree = "<group>"; };
 		84BE5EB4206A48B5007A001D /* GlobalPopView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GlobalPopView.h; sourceTree = "<group>"; };
 		84BE5EB5206A48B5007A001D /* GlobalPopView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GlobalPopView.m; sourceTree = "<group>"; };
+		84C7921B207C566600B63796 /* HistoryTemperatureListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HistoryTemperatureListViewController.h; sourceTree = "<group>"; };
+		84C7921C207C566600B63796 /* HistoryTemperatureListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HistoryTemperatureListViewController.m; sourceTree = "<group>"; };
 		84D5BDC5207354010025C757 /* bluetoothPairingViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = bluetoothPairingViewController.h; sourceTree = "<group>"; };
 		84D5BDC6207354010025C757 /* bluetoothPairingViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = bluetoothPairingViewController.m; sourceTree = "<group>"; };
 		84D5BDCB2073579A0025C757 /* AddDeviceView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AddDeviceView.h; sourceTree = "<group>"; };
@@ -649,6 +672,7 @@
 				84114B4320722BF6005A1DC9 /* jpush-ios-3.0.8.a in Frameworks */,
 				5726F380206B70C5008EED75 /* ShareSDKConnector.framework in Frameworks */,
 				5726F384206B70C5008EED75 /* ShareSDKExtension.framework in Frameworks */,
+				842C027B2084914700033F4A /* JMAirKiss.framework in Frameworks */,
 				5726F37C206B70C5008EED75 /* libWeiboSDK.a in Frameworks */,
 				5726F37E206B70C5008EED75 /* libWeChatSDK.a in Frameworks */,
 				5726F387206B70C5008EED75 /* QQConnector.framework in Frameworks */,
@@ -853,6 +877,8 @@
 				22CFD38020614AE90004186D /* HomePageViewController.m */,
 				2263B8E8206BE604005BB15E /* MessageViewController.h */,
 				2263B8E9206BE604005BB15E /* MessageViewController.m */,
+				57DF59B520843CD7002D2CED /* BBSignInPopView.h */,
+				57DF59B620843CD7002D2CED /* BBSignInPopView.m */,
 			);
 			path = HomeModules;
 			sourceTree = "<group>";
@@ -866,6 +892,8 @@
 				22CFD3C5206659AD0004186D /* ConsoleRateViewController.m */,
 				22CFD3D02067C3120004186D /* ConsoleTemperatureViewController.h */,
 				22CFD3D12067C3120004186D /* ConsoleTemperatureViewController.m */,
+				84C7921B207C566600B63796 /* HistoryTemperatureListViewController.h */,
+				84C7921C207C566600B63796 /* HistoryTemperatureListViewController.m */,
 				22CFD3D82067D5B10004186D /* ConsoleRoomTemperatureViewController.h */,
 				22CFD3D92067D5B10004186D /* ConsoleRoomTemperatureViewController.m */,
 				22CFD3E02067FCC50004186D /* ThresholdSetting */,
@@ -883,6 +911,10 @@
 				5726F3BD206C7F3B008EED75 /* BBEarlyEducationHeaderView.m */,
 				5726F3BF206C8F13008EED75 /* BBEarlyEducationCell.h */,
 				5726F3C0206C8F13008EED75 /* BBEarlyEducationCell.m */,
+				57210D1C207B05650039D8D5 /* BBEarlyEducationMusicListViewController.h */,
+				57210D1D207B05650039D8D5 /* BBEarlyEducationMusicListViewController.m */,
+				57210DD3207CA37F0039D8D5 /* BBEEMusicListCell.h */,
+				57210DD4207CA37F0039D8D5 /* BBEEMusicListCell.m */,
 			);
 			path = EarlyEducationModules;
 			sourceTree = "<group>";
@@ -1002,6 +1034,7 @@
 		22CFD39E2064015D0004186D /* Third */ = {
 			isa = PBXGroup;
 			children = (
+				842C02792084913600033F4A /* AirKiss */,
 				57210C8A2074C2DE0039D8D5 /* ZFPlayer */,
 				84114B3F20722BD0005A1DC9 /* JPush */,
 				57585AC3206D4428001BB202 /* LWShareView */,
@@ -1066,6 +1099,10 @@
 				57210C762073B4A50039D8D5 /* BBEditInformationViewController.m */,
 				57210C7F2073BB600039D8D5 /* BBMyAccountExpenceRecordListCell.h */,
 				57210C802073BB600039D8D5 /* BBMyAccountExpenceRecordListCell.m */,
+				57210DD9207D15F40039D8D5 /* BBUploadImageResultModel.h */,
+				57210DDA207D15F40039D8D5 /* BBUploadImageResultModel.m */,
+				57210DDC207D1A6D0039D8D5 /* BBEditUserInfoItem.h */,
+				57210DDD207D1A6D0039D8D5 /* BBEditUserInfoItem.m */,
 			);
 			path = MyAccount;
 			sourceTree = "<group>";
@@ -1371,6 +1408,8 @@
 				5726F344206A3F1B008EED75 /* BBSettingManager.m */,
 				574C6CC32069262000F5BF55 /* BBUser.h */,
 				574C6CC42069262000F5BF55 /* BBUser.m */,
+				57DF59B220835527002D2CED /* BBUserDevice.h */,
+				57DF59B320835527002D2CED /* BBUserDevice.m */,
 			);
 			path = M;
 			sourceTree = "<group>";
@@ -1500,6 +1539,14 @@
 				84114B4120722BF6005A1DC9 /* JPUSHService.h */,
 			);
 			path = JPush;
+			sourceTree = "<group>";
+		};
+		842C02792084913600033F4A /* AirKiss */ = {
+			isa = PBXGroup;
+			children = (
+				842C027A2084914600033F4A /* JMAirKiss.framework */,
+			);
+			path = AirKiss;
 			sourceTree = "<group>";
 		};
 		8449AC032062031F00526935 /* NetWorkModules */ = {
@@ -1889,6 +1936,7 @@
 				22CF35632073CCAB00707F8A /* ScanDeviceCodeViewController.m in Sources */,
 				2263B8EA206BE604005BB15E /* MessageViewController.m in Sources */,
 				2266C1B720692D73004F653A /* UIFont+YX_Font.m in Sources */,
+				57210DD5207CA37F0039D8D5 /* BBEEMusicListCell.m in Sources */,
 				574C6CEA2069272700F5BF55 /* UIButton+EasilyMake.m in Sources */,
 				842D9CED206B94C90020C3C2 /* HomeLeftItemView.m in Sources */,
 				84332C9D206CE6F5009A9121 /* MessageTableViewCell.m in Sources */,
@@ -1910,6 +1958,7 @@
 				8449AC0820620CB300526935 /* BaseResultModel.m in Sources */,
 				57585ACF206D4428001BB202 /* LWShareButton.m in Sources */,
 				574C6CDA2069262000F5BF55 /* BBSettingViewController.m in Sources */,
+				57210DDB207D15F40039D8D5 /* BBUploadImageResultModel.m in Sources */,
 				57585ABA206D116C001BB202 /* BBMyDeviceViewController.m in Sources */,
 				57210CA62074C2DE0039D8D5 /* UIWindow+CurrentViewController.m in Sources */,
 				8449AC0B20620D1B00526935 /* BaseViewModel.m in Sources */,
@@ -1920,12 +1969,15 @@
 				22CFD3DA2067D5B10004186D /* ConsoleRoomTemperatureViewController.m in Sources */,
 				5726F34C206A857F008EED75 /* BBMyListOnlySubtitleCell.m in Sources */,
 				5726F3B1206B9988008EED75 /* BBSubmitSuggestionViewController.m in Sources */,
+				57DF59B720843CD7002D2CED /* BBSignInPopView.m in Sources */,
 				22CFD3C3206652B70004186D /* ConsoleRateView.m in Sources */,
 				2263B8F220709EA2005BB15E /* BaseCentralManager.m in Sources */,
 				2266C1BD20694A85004F653A /* CryingChartViewController.m in Sources */,
+				57210DDE207D1A6D0039D8D5 /* BBEditUserInfoItem.m in Sources */,
 				57210C7E2073B4B80039D8D5 /* BBMyRewardViewController.m in Sources */,
 				57210C792073B4A50039D8D5 /* BBEditInformationViewController.m in Sources */,
 				574C6CE72069272700F5BF55 /* UITableViewCell+EasilyMake.m in Sources */,
+				57DF59B420835527002D2CED /* BBUserDevice.m in Sources */,
 				57210CA82074C2DE0039D8D5 /* UIImageView+ZFCache.m in Sources */,
 				574C6CD82069262000F5BF55 /* BBLoginAndRegistViewController.m in Sources */,
 				84BE5EAF2069EE75007A001D /* KickQulitChartView.m in Sources */,
@@ -1949,6 +2001,7 @@
 				8490CFC3207480C200D416C1 /* DeviceConnectingViewController.m in Sources */,
 				22CFD3972062A78C0004186D /* HistoryFeverViewController.m in Sources */,
 				2266C1BA20694A61004F653A /* CryingChartView.m in Sources */,
+				57210D1E207B05650039D8D5 /* BBEarlyEducationMusicListViewController.m in Sources */,
 				22CFD3EE2067FD8C0004186D /* WettingThresholdSettingViewController.m in Sources */,
 				57CECE43207374DC00E9A876 /* UIAlertController+EasilyMake.m in Sources */,
 				5726F3BB206BE46F008EED75 /* BBAcountNumberListCell.m in Sources */,
@@ -1976,6 +2029,7 @@
 				22CFD3BE206548000004186D /* ConsoleBodyView.m in Sources */,
 				22CFD339206141080004186D /* AppDelegate.m in Sources */,
 				2263B8E7206BD901005BB15E /* HomeHeaderView.m in Sources */,
+				84C7921D207C566600B63796 /* HistoryTemperatureListViewController.m in Sources */,
 				2263B8E3206BCBB9005BB15E /* HomeTableViewCell.m in Sources */,
 				57210CAE2074C2DE0039D8D5 /* ZFPlayerView.m in Sources */,
 				22CFD3D52067C58B0004186D /* ThermometerView.m in Sources */,
@@ -2131,7 +2185,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = WB5UAUH8M2;
+				DEVELOPMENT_TEAM = GP8N54644M;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/TheBabyBedProduct/Third/MOBSDK/ShareSDK/Support/PlatformSDK/QQSDK",
@@ -2140,6 +2194,7 @@
 					"$(PROJECT_DIR)/TheBabyBedProduct/Third/MOBSDK/ShareSDK/Support/PlatformConnector",
 					"$(PROJECT_DIR)/TheBabyBedProduct/Third/MOBSDK/ShareSDK",
 					"$(PROJECT_DIR)/TheBabyBedProduct/Third/MOBSDK/Required",
+					"$(PROJECT_DIR)/TheBabyBedProduct/Third/AirKiss",
 				);
 				GCC_PREFIX_HEADER = TheBabyBedProduct/Common/TheBabyBedProduct.pch;
 				INFOPLIST_FILE = "$(SRCROOT)/TheBabyBedProduct/Support/Info.plist";
@@ -2196,7 +2251,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = WB5UAUH8M2;
+				DEVELOPMENT_TEAM = GP8N54644M;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/TheBabyBedProduct/Third/MOBSDK/ShareSDK/Support/PlatformSDK/QQSDK",
@@ -2205,6 +2260,7 @@
 					"$(PROJECT_DIR)/TheBabyBedProduct/Third/MOBSDK/ShareSDK/Support/PlatformConnector",
 					"$(PROJECT_DIR)/TheBabyBedProduct/Third/MOBSDK/ShareSDK",
 					"$(PROJECT_DIR)/TheBabyBedProduct/Third/MOBSDK/Required",
+					"$(PROJECT_DIR)/TheBabyBedProduct/Third/AirKiss",
 				);
 				GCC_PREFIX_HEADER = TheBabyBedProduct/Common/TheBabyBedProduct.pch;
 				INFOPLIST_FILE = "$(SRCROOT)/TheBabyBedProduct/Support/Info.plist";

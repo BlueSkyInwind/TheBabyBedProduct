@@ -11,9 +11,7 @@
 @implementation ConsoleHeaderView
 
 -(void)resetConsoleSettingBtn:(CGFloat)constant{
-    
     self.settingBtnConstraint.constant = constant;
-    
 }
 
 - (IBAction)consoleHeaderClick:(id)sender {

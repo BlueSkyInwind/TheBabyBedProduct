@@ -45,4 +45,6 @@ extern NSString *const scrollAnimation; //
 
 extern NSString *const scrollAnimationDuration; //
 
+extern NSString *const yAxisdisplaystyle;  // y轴的踢被曲线样式
+
 
