@@ -55,6 +55,7 @@
     _headerView.settingButtonClick = ^(UIButton *button) {
         
         
+        
     };
     
     [_headerView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -84,6 +85,7 @@
         make.height.equalTo(@(_k_h - 210));
     }];
 }
+
 
 
 - (void)didReceiveMemoryWarning {
