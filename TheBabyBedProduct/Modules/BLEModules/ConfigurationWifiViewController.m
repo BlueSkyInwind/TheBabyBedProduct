@@ -8,9 +8,12 @@
 
 #import "ConfigurationWifiViewController.h"
 #import "DeviceConnectingViewController.h"
+#import <JMAirKiss/JMAirKiss.h>
 
 @interface ConfigurationWifiViewController ()
 
+/**<#Description#>*/
+@property (nonatomic,strong)JMAirKissConnection  * _airKissConnection;
 @end
 
 @implementation ConfigurationWifiViewController

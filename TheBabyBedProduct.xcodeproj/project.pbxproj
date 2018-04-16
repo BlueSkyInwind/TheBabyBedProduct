@@ -191,6 +191,7 @@
 		84114B5420722CCD005A1DC9 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84114B5320722CCD005A1DC9 /* UIKit.framework */; };
 		84114B5620722CE0005A1DC9 /* UserNotifications.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84114B5520722CE0005A1DC9 /* UserNotifications.framework */; };
 		84114B5820722CF4005A1DC9 /* libresolv.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 84114B5720722CF4005A1DC9 /* libresolv.tbd */; };
+		842C027B2084914700033F4A /* JMAirKiss.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 842C027A2084914600033F4A /* JMAirKiss.framework */; };
 		842D9CED206B94C90020C3C2 /* HomeLeftItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = 842D9CEC206B94C90020C3C2 /* HomeLeftItemView.m */; };
 		84332C9D206CE6F5009A9121 /* MessageTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 84332C9B206CE6F5009A9121 /* MessageTableViewCell.m */; };
 		84332C9E206CE6F5009A9121 /* MessageTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84332C9C206CE6F5009A9121 /* MessageTableViewCell.xib */; };
@@ -569,6 +570,7 @@
 		84114B5320722CCD005A1DC9 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		84114B5520722CE0005A1DC9 /* UserNotifications.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotifications.framework; path = System/Library/Frameworks/UserNotifications.framework; sourceTree = SDKROOT; };
 		84114B5720722CF4005A1DC9 /* libresolv.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libresolv.tbd; path = usr/lib/libresolv.tbd; sourceTree = SDKROOT; };
+		842C027A2084914600033F4A /* JMAirKiss.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = JMAirKiss.framework; sourceTree = "<group>"; };
 		842D9CEB206B94C90020C3C2 /* HomeLeftItemView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeLeftItemView.h; sourceTree = "<group>"; };
 		842D9CEC206B94C90020C3C2 /* HomeLeftItemView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeLeftItemView.m; sourceTree = "<group>"; };
 		84332C9A206CE6F5009A9121 /* MessageTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MessageTableViewCell.h; sourceTree = "<group>"; };
@@ -652,6 +654,7 @@
 				84114B4320722BF6005A1DC9 /* jpush-ios-3.0.8.a in Frameworks */,
 				5726F380206B70C5008EED75 /* ShareSDKConnector.framework in Frameworks */,
 				5726F384206B70C5008EED75 /* ShareSDKExtension.framework in Frameworks */,
+				842C027B2084914700033F4A /* JMAirKiss.framework in Frameworks */,
 				5726F37C206B70C5008EED75 /* libWeiboSDK.a in Frameworks */,
 				5726F37E206B70C5008EED75 /* libWeChatSDK.a in Frameworks */,
 				5726F387206B70C5008EED75 /* QQConnector.framework in Frameworks */,
@@ -1007,6 +1010,7 @@
 		22CFD39E2064015D0004186D /* Third */ = {
 			isa = PBXGroup;
 			children = (
+				842C02792084913600033F4A /* AirKiss */,
 				57210C8A2074C2DE0039D8D5 /* ZFPlayer */,
 				84114B3F20722BD0005A1DC9 /* JPush */,
 				57585AC3206D4428001BB202 /* LWShareView */,
@@ -1505,6 +1509,14 @@
 				84114B4120722BF6005A1DC9 /* JPUSHService.h */,
 			);
 			path = JPush;
+			sourceTree = "<group>";
+		};
+		842C02792084913600033F4A /* AirKiss */ = {
+			isa = PBXGroup;
+			children = (
+				842C027A2084914600033F4A /* JMAirKiss.framework */,
+			);
+			path = AirKiss;
 			sourceTree = "<group>";
 		};
 		8449AC032062031F00526935 /* NetWorkModules */ = {
@@ -2146,6 +2158,7 @@
 					"$(PROJECT_DIR)/TheBabyBedProduct/Third/MOBSDK/ShareSDK/Support/PlatformConnector",
 					"$(PROJECT_DIR)/TheBabyBedProduct/Third/MOBSDK/ShareSDK",
 					"$(PROJECT_DIR)/TheBabyBedProduct/Third/MOBSDK/Required",
+					"$(PROJECT_DIR)/TheBabyBedProduct/Third/AirKiss",
 				);
 				GCC_PREFIX_HEADER = TheBabyBedProduct/Common/TheBabyBedProduct.pch;
 				INFOPLIST_FILE = "$(SRCROOT)/TheBabyBedProduct/Support/Info.plist";
@@ -2211,6 +2224,7 @@
 					"$(PROJECT_DIR)/TheBabyBedProduct/Third/MOBSDK/ShareSDK/Support/PlatformConnector",
 					"$(PROJECT_DIR)/TheBabyBedProduct/Third/MOBSDK/ShareSDK",
 					"$(PROJECT_DIR)/TheBabyBedProduct/Third/MOBSDK/Required",
+					"$(PROJECT_DIR)/TheBabyBedProduct/Third/AirKiss",
 				);
 				GCC_PREFIX_HEADER = TheBabyBedProduct/Common/TheBabyBedProduct.pch;
 				INFOPLIST_FILE = "$(SRCROOT)/TheBabyBedProduct/Support/Info.plist";
