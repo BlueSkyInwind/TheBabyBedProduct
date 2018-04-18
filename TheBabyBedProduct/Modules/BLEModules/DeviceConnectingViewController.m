@@ -11,7 +11,6 @@
 #import "BLEPairingViewController.h"
 #import <JMAirKiss/JMAirKiss.h>
 
-
 @interface DeviceConnectingViewController ()
 /* <#Description#>*/
 @property(nonatomic,strong)DeviceConnectAnimationView * animationView;
@@ -41,12 +40,10 @@
         [weakSelf dismissAnimationView];
         [weakSelf showConnectSuccessPopView];
     };
-    
     self.airKissConnection.connectionFailure = ^() {
         [weakSelf dismissAnimationView];
         [weakSelf showConnectFailPopView];
     };
-    
     [self.airKissConnection connectAirKissWithSSID:_ssid
                                           password:_wifiPassword];
 }
@@ -80,7 +77,6 @@
             
         }
     }];
-    
 }
 
 -(void)showConnectFailPopView{
@@ -97,11 +93,6 @@
     }];
     
 }
-
-
-
-
-
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
