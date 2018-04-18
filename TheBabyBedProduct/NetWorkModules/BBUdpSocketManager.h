@@ -10,4 +10,9 @@
 
 @interface BBUdpSocketManager : NSObject
 
+
++(BBUdpSocketManager *)shareInstance;
+
+-(void)createAsyncUdpSocket;
+
 @end

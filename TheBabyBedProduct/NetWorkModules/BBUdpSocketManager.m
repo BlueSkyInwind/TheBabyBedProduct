@@ -71,6 +71,7 @@
         [_udpSocket beginReceiving:&error];
     }
     
+    [self generateAddressingMessage];
 }
 
 #pragma mark - GCDAsyncUdpSocket delegate
@@ -93,6 +94,8 @@
 }
 
 -(void)sendUdpData:(NSData *)data{
+    
+    
     
     [_udpSocket sendData:data toHost:hostStr port:port withTimeout:-1 tag:1000];
     
@@ -117,15 +120,67 @@
     byteOne[0] = version&0x0f;
     byteOne[0] = (crypto&0xf0) >> 4;
     byteOne[1] = 0x0c;
+    
     NSMutableData * dataOne = [[NSMutableData alloc]initWithBytes:byteOne length:2];
     //checksum
     
     
-    // 会话id
+    // 会话id ctrlAndExt
     Byte byteTwo[4];
     short int transID = 0;
-    Byte transIDByte[2];
-    memcpy(&transIDByte,[self shortToBytes:transID], 2);
+    short int ctrlAndExt  = 0;
+//    Byte transIDByte[2];
+//    memcpy(&transIDByte,[self shortToBytes:transID], 2);
+    byteTwo[0] = ((transID >> 8) & 0xff);
+    byteTwo[1] = (transID  & 0xff);
+    byteTwo[2] = ((ctrlAndExt >> 8) & 0xff);
+    byteTwo[3] = (ctrlAndExt & 0xff);
+    NSMutableData * dataTwo = [[NSMutableData alloc]initWithBytes:byteTwo length:4];
+
+    
+    
+    // Frag Offset
+    Byte byteThree[4];
+    short int fragmentID = 0;
+    short int fragOffset  = 0;
+    byteThree[0] = ((fragmentID >> 8) & 0xff);
+    byteThree[1] = (fragmentID  & 0xff);
+    byteThree[2] = ((fragOffset >> 8) & 0xff);
+    byteThree[3] = (fragOffset & 0xff);
+    NSMutableData * dataThree = [[NSMutableData alloc]initWithBytes:byteThree length:4];
+
+    
+    //
+    Byte byteFour[4];
+    short int dataLen = 0;
+    short int reserved = 0;
+    byteFour[0] = ((dataLen >> 8) & 0xff);
+    byteFour[1] = (dataLen  & 0xff);
+    byteFour[2] = ((reserved >> 8) & 0xff);
+    byteFour[3] = (reserved & 0xff);
+    NSMutableData * datafour = [[NSMutableData alloc]initWithBytes:byteFour length:4];
+
+    
+    Byte byteFive[4];
+    short int maslen = 8;
+    byteFive[0] = 0x01;
+    byteFive[1] = 0x00;
+    byteFive[2] = ((maslen >> 8) & 0xff);
+    byteFive[3] = (maslen & 0xff);
+    NSMutableData * datafive = [[NSMutableData alloc]initWithBytes:byteFive length:4];
+
+    
+    
+    Byte bytesix[4];
+    short int CRC = 0;
+    short int random = 7;  //随机数
+    bytesix[0] = ((CRC >> 8) & 0xff);
+    bytesix[1] = (CRC  & 0xff);
+    bytesix[2] = ((random >> 8) & 0xff);
+    bytesix[3] = (random & 0xff);
+    NSMutableData * datasix = [[NSMutableData alloc]initWithBytes:bytesix length:4];
+
+    
     
 }
 
@@ -138,7 +193,7 @@
 
 #pragma mark - 基本数据类型转换
 
--(Byte)shortToBytes: (short int ) value {
+-(Byte)shortToBytes: (short int ) value{
     Byte byte[2];
     byte[0] = ((value >> 8) & 0xff);
     byte[1] = (value  & 0xff);

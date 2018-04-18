@@ -16,6 +16,7 @@
 
 #import "NetWorkRequestManager.h"
 #import "AppDelegate+BBConfigure.h"
+#import "BBUdpSocketManager.h"
 
 @interface AppDelegate ()<JPUSHRegisterDelegate,UNUserNotificationCenterDelegate>
 
@@ -38,6 +39,9 @@
     [self.window makeKeyAndVisible];
     self.tabBar = [[BaseTabBarViewController alloc]init];
     self.window.rootViewController = self.tabBar;
+    
+    
+//    [[BBUdpSocketManager shareInstance] createAsyncUdpSocket];
     
     return YES;
 }
