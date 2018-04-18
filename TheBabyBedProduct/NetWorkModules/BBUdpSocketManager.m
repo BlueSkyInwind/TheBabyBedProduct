@@ -63,7 +63,6 @@
     }
     
     _udpSocket = [[GCDAsyncUdpSocket alloc]initWithDelegate:self delegateQueue:_queue];
-    
     NSError * error = nil;
     [_udpSocket bindToPort:K_port_BBUDP error:&error];
     if (error) {
@@ -71,6 +70,7 @@
     }else {
         [_udpSocket beginReceiving:&error];
     }
+    
 }
 
 #pragma mark - GCDAsyncUdpSocket delegate
@@ -78,20 +78,16 @@
 {
     DLog(@"发送信息成功");
 }
-
 - (void)udpSocket:(GCDAsyncUdpSocket *)sock didNotSendDataWithTag:(long)tag dueToError:(NSError *)error
 {
     DLog(@"发送信息失败");
 }
-
 - (void)udpSocket:(GCDAsyncUdpSocket *)sock didReceiveData:(NSData *)data fromAddress:(NSData *)address withFilterContext:(id)filterContext
 {
     DLog(@"接收到%@的消息",address);
 }
-
 - (void)udpSocketDidClose:(GCDAsyncUdpSocket *)sock withError:(NSError *)error
 {
-    
     DLog(@"udpSocket关闭");
     _udpSocket = nil;
 }
@@ -103,9 +99,7 @@
 }
 
 -(void)createHeartData{
-    
     heartTimer = [NSTimer scheduledTimerWithTimeInterval:5 target:self selector:@selector(sendHeartData) userInfo:nil repeats:true];
-    
 }
 
 -(void)sendHeartData{
@@ -113,6 +107,67 @@
     
     
 }
+
+
+-(void)generateAddressingMessage{
+    
+    Byte byteOne[2];
+    unsigned char version = 0;    //版本
+    unsigned char crypto = 0;     //加密类型
+    byteOne[0] = version&0x0f;
+    byteOne[0] = (crypto&0xf0) >> 4;
+    byteOne[1] = 0x0c;
+    NSMutableData * dataOne = [[NSMutableData alloc]initWithBytes:byteOne length:2];
+    //checksum
+    
+    
+    // 会话id
+    Byte byteTwo[4];
+    short int transID = 0;
+    Byte transIDByte[2];
+    memcpy(&transIDByte,[self shortToBytes:transID], 2);
+    
+}
+
+-(void)version:(unsigned char)version Crypto:(unsigned char)crypto{
+    
+    
+    
+    
+}
+
+#pragma mark - 基本数据类型转换
+
+-(Byte)shortToBytes: (short int ) value {
+    Byte byte[2];
+    byte[0] = ((value >> 8) & 0xff);
+    byte[1] = (value  & 0xff);
+    return byte[2];
+}
+
+// checksum 效验
+unsigned short checksum(unsigned short * buffer,int size)
+{
+    unsigned long cksum=0;
+    while(size>1){
+        cksum += * buffer++;
+        size-=sizeof(unsigned short);
+    }
+    if(size){
+        cksum+=*(unsigned char *)buffer;
+    }
+    while (cksum>>16)
+        cksum=(cksum>>16)+(cksum &0xffff);
+    return (unsigned short) (~cksum);
+}
+
+
+
+
+
+
+
+
 
 
 

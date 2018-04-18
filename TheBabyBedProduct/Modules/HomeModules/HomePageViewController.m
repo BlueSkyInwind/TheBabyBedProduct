@@ -63,6 +63,9 @@
     // Do any additional setup after loading the view.
     [self configureAddDeviceView];
 //    [self configureView];
+    
+
+    
 }
 
 -(void)configureAddDeviceView{
