@@ -20,6 +20,8 @@
 		229FF0A72084E2C2005BA4A6 /* JMAirKissShareTools.m in Sources */ = {isa = PBXBuildFile; fileRef = 229FF0A42084DA00005BA4A6 /* JMAirKissShareTools.m */; };
 		229FF0AC2084EB65005BA4A6 /* JMAirKiss.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 229FF0AB2084EB65005BA4A6 /* JMAirKiss.framework */; };
 		229FF0AF20862EBD005BA4A6 /* BBUdpSocketManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 229FF0AE20862EBD005BA4A6 /* BBUdpSocketManager.m */; };
+		229FF0B22088EE9C005BA4A6 /* SendUdpMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 229FF0B12088EE9C005BA4A6 /* SendUdpMessage.m */; };
+		229FF0B52088EEC9005BA4A6 /* ReceiveUdpMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 229FF0B42088EEC9005BA4A6 /* ReceiveUdpMessage.m */; };
 		22CF35632073CCAB00707F8A /* ScanDeviceCodeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22CF35612073CCAB00707F8A /* ScanDeviceCodeViewController.m */; };
 		22CF35642073CCAB00707F8A /* ScanDeviceCodeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22CF35622073CCAB00707F8A /* ScanDeviceCodeViewController.xib */; };
 		22CF35682073DB1500707F8A /* QRScanView.m in Sources */ = {isa = PBXBuildFile; fileRef = 22CF35672073DB1500707F8A /* QRScanView.m */; };
@@ -272,6 +274,10 @@
 		229FF0AB2084EB65005BA4A6 /* JMAirKiss.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = JMAirKiss.framework; sourceTree = "<group>"; };
 		229FF0AD20862EBD005BA4A6 /* BBUdpSocketManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BBUdpSocketManager.h; sourceTree = "<group>"; };
 		229FF0AE20862EBD005BA4A6 /* BBUdpSocketManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BBUdpSocketManager.m; sourceTree = "<group>"; };
+		229FF0B02088EE9C005BA4A6 /* SendUdpMessage.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SendUdpMessage.h; sourceTree = "<group>"; };
+		229FF0B12088EE9C005BA4A6 /* SendUdpMessage.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SendUdpMessage.m; sourceTree = "<group>"; };
+		229FF0B32088EEC9005BA4A6 /* ReceiveUdpMessage.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ReceiveUdpMessage.h; sourceTree = "<group>"; };
+		229FF0B42088EEC9005BA4A6 /* ReceiveUdpMessage.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ReceiveUdpMessage.m; sourceTree = "<group>"; };
 		22CF35502073C98300707F8A /* BBMyRewardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBMyRewardViewController.m; sourceTree = "<group>"; };
 		22CF35572073C99700707F8A /* BBEditInfoAvatarCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBEditInfoAvatarCell.m; sourceTree = "<group>"; };
 		22CF35582073C99700707F8A /* BBEditInformationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBEditInformationViewController.m; sourceTree = "<group>"; };
@@ -1557,6 +1563,10 @@
 				8412F52B2088845700521C23 /* SocketMacros.h */,
 				229FF0AD20862EBD005BA4A6 /* BBUdpSocketManager.h */,
 				229FF0AE20862EBD005BA4A6 /* BBUdpSocketManager.m */,
+				229FF0B02088EE9C005BA4A6 /* SendUdpMessage.h */,
+				229FF0B12088EE9C005BA4A6 /* SendUdpMessage.m */,
+				229FF0B32088EEC9005BA4A6 /* ReceiveUdpMessage.h */,
+				229FF0B42088EEC9005BA4A6 /* ReceiveUdpMessage.m */,
 				8412F52820886DF500521C23 /* CRC16.h */,
 				8412F52920886DF500521C23 /* CRC16.m */,
 			);
@@ -1920,6 +1930,7 @@
 				57585AD2206D4428001BB202 /* LWShareService.m in Sources */,
 				574C6CD92069262000F5BF55 /* BBLoginRegistHeaderView.m in Sources */,
 				574C6CBA2069254200F5BF55 /* PPTextfield.m in Sources */,
+				229FF0B52088EEC9005BA4A6 /* ReceiveUdpMessage.m in Sources */,
 				574C6CE62069272700F5BF55 /* UIImageView+EasilyMake.m in Sources */,
 				22CFD3AE206401780004186D /* PXYview.m in Sources */,
 				22CFD3B6206532F20004186D /* DateChooseView.m in Sources */,
@@ -2050,6 +2061,7 @@
 				574C6CD62069262000F5BF55 /* BBLoginView.m in Sources */,
 				57585AD3206D4428001BB202 /* LWShareContentView.m in Sources */,
 				2263B8ED206BE81B005BB15E /* UIImage+category.m in Sources */,
+				229FF0B22088EE9C005BA4A6 /* SendUdpMessage.m in Sources */,
 				574C6CBC2069254200F5BF55 /* NSString+PPTextField.m in Sources */,
 				8490CFBF20747CFC00D416C1 /* ConfigurationWifiViewController.m in Sources */,
 				22CF356E20764F6300707F8A /* GlobalAlertViewManager.m in Sources */,
