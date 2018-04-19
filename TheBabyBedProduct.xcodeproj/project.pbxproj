@@ -200,6 +200,7 @@
 		84114B5420722CCD005A1DC9 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84114B5320722CCD005A1DC9 /* UIKit.framework */; };
 		84114B5620722CE0005A1DC9 /* UserNotifications.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84114B5520722CE0005A1DC9 /* UserNotifications.framework */; };
 		84114B5820722CF4005A1DC9 /* libresolv.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 84114B5720722CF4005A1DC9 /* libresolv.tbd */; };
+		8412F52A20886DF500521C23 /* CRC16.m in Sources */ = {isa = PBXBuildFile; fileRef = 8412F52920886DF500521C23 /* CRC16.m */; };
 		842D9CED206B94C90020C3C2 /* HomeLeftItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = 842D9CEC206B94C90020C3C2 /* HomeLeftItemView.m */; };
 		84332C9D206CE6F5009A9121 /* MessageTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 84332C9B206CE6F5009A9121 /* MessageTableViewCell.m */; };
 		84332C9E206CE6F5009A9121 /* MessageTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84332C9C206CE6F5009A9121 /* MessageTableViewCell.xib */; };
@@ -595,6 +596,9 @@
 		84114B5320722CCD005A1DC9 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		84114B5520722CE0005A1DC9 /* UserNotifications.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotifications.framework; path = System/Library/Frameworks/UserNotifications.framework; sourceTree = SDKROOT; };
 		84114B5720722CF4005A1DC9 /* libresolv.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libresolv.tbd; path = usr/lib/libresolv.tbd; sourceTree = SDKROOT; };
+		8412F52820886DF500521C23 /* CRC16.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CRC16.h; sourceTree = "<group>"; };
+		8412F52920886DF500521C23 /* CRC16.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CRC16.m; sourceTree = "<group>"; };
+		8412F52B2088845700521C23 /* SocketMacros.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SocketMacros.h; sourceTree = "<group>"; };
 		842D9CEB206B94C90020C3C2 /* HomeLeftItemView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeLeftItemView.h; sourceTree = "<group>"; };
 		842D9CEC206B94C90020C3C2 /* HomeLeftItemView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeLeftItemView.m; sourceTree = "<group>"; };
 		84332C9A206CE6F5009A9121 /* MessageTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MessageTableViewCell.h; sourceTree = "<group>"; };
@@ -1547,6 +1551,18 @@
 			path = JPush;
 			sourceTree = "<group>";
 		};
+		8412F52720886DDA00521C23 /* UdpSocket */ = {
+			isa = PBXGroup;
+			children = (
+				8412F52B2088845700521C23 /* SocketMacros.h */,
+				229FF0AD20862EBD005BA4A6 /* BBUdpSocketManager.h */,
+				229FF0AE20862EBD005BA4A6 /* BBUdpSocketManager.m */,
+				8412F52820886DF500521C23 /* CRC16.h */,
+				8412F52920886DF500521C23 /* CRC16.m */,
+			);
+			path = UdpSocket;
+			sourceTree = "<group>";
+		};
 		842C02792084913600033F4A /* AirKiss */ = {
 			isa = PBXGroup;
 			children = (
@@ -1564,8 +1580,7 @@
 				8449AC0D2062283300526935 /* NetWorkRequestManager.m */,
 				57210D07207736040039D8D5 /* NetWorkRequestManager+BBRequest.h */,
 				57210D08207736040039D8D5 /* NetWorkRequestManager+BBRequest.m */,
-				229FF0AD20862EBD005BA4A6 /* BBUdpSocketManager.h */,
-				229FF0AE20862EBD005BA4A6 /* BBUdpSocketManager.m */,
+				8412F52720886DDA00521C23 /* UdpSocket */,
 			);
 			path = NetWorkModules;
 			sourceTree = "<group>";
@@ -1943,6 +1958,7 @@
 				574C6CD42069262000F5BF55 /* BBMyHeaderView.m in Sources */,
 				22CFD38120614AE90004186D /* HomePageViewController.m in Sources */,
 				8449AC152062354000526935 /* LaunchConfiguration.m in Sources */,
+				8412F52A20886DF500521C23 /* CRC16.m in Sources */,
 				57210CAC2074C2DE0039D8D5 /* ASValuePopUpView.m in Sources */,
 				8449AC18206239F900526935 /* GlobalUtility.m in Sources */,
 				8490CFC72074814200D416C1 /* DeviceConnectAnimationView.m in Sources */,

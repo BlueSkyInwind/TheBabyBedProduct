@@ -28,6 +28,8 @@
 #import "GlobalAlertViewManager.h"
 #import <MJRefresh/MJRefresh.h>
 #import "BaseResultModel.h"
+#import "BBUdpSocketManager.h"
+
 
 #import <QMUIKit/QMUIKit.h>
 #import "BBMacros.h"

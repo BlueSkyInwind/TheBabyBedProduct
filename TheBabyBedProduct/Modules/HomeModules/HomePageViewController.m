@@ -64,6 +64,7 @@
     [self configureAddDeviceView];
 //    [self configureView];
     
+    [[BBUdpSocketManager shareInstance] createAsyncUdpSocket];
 
     
 }
