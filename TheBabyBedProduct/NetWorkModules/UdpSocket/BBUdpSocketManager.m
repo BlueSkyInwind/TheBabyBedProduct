@@ -97,9 +97,7 @@
 }
 
 -(void)sendUdpData:(NSData *)data{
-    
     [_udpSocket sendData:data toHost:hostStr port:port withTimeout:-1 tag:1000];
-    
 }
 
 -(void)createHeartData{

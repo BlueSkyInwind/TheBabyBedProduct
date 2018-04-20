@@ -114,7 +114,9 @@
 }
 
 -(void)CloseBtnClick:(id)sender{
-    [self dismiss];
+    if (self.globalPopViewClick) {
+        self.globalPopViewClick(0);
+    };
 }
 
 -(void)configureView{

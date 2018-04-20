@@ -41,6 +41,7 @@ static GlobalAlertViewManager * manager = nil;
         weakSelf.popView = nil;
     }];
     [_popView show];
+    
 }
 
 

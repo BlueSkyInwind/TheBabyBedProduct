@@ -86,10 +86,9 @@
 
 #pragma mark --- 网络请求 ----
 -(void)SetWettingThresholdValueComplication:(void(^)(BOOL isSuccess))finish{
-    [BBRequestTool SetThresholdValueDeviceType:@"3" minValue:@"" maxValue:self.contentTextField.text deviceId:@"" successBlock:^(EnumServerStatus status, id object) {
+    [BBRequestTool SetThresholdValueDeviceType:@"3" minValue:@"" maxValue:self.contentTextField.text deviceId:BBUserHelpers.deviceId successBlock:^(EnumServerStatus status, id object) {
         BaseResultModel *resultM = [[BaseResultModel alloc] initWithDictionary:object error:nil];
         if (resultM.code == 0) {
-            
             finish(true);
         }else{
             [QMUITips showWithText:resultM.msg inView:self.view hideAfterDelay:0.5];

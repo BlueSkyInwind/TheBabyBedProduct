@@ -11,14 +11,10 @@
 #import "SendUdpMessage.h"
 #import "SocketMacros.h"
 
-
-
 @implementation SendUdpMessage
-
 
 //寻址
 -(NSData *)generateAddressingMessage{
-    
     
     NSMutableData * dataOne = [[self generatePreambleVersion:0 preambleCrypto:0 HLEN:0x04 YdaHeaderChecksum:0] mutableCopy];
     
@@ -40,7 +36,7 @@
     NSData * bodyData = [self generateUdpBody];
     [dataOne appendData:bodyData];
     
-    dataOne = [[self setYdaHeaderDatalen:bodyData.length data:dataOne] mutableCopy];
+    dataOne = [[self setYdaHeaderDatalen:bodyData.length + 8 data:dataOne] mutableCopy];
     dataOne = [[self setYdaCtrlHeaderMsglen:bodyData.length + 8 data:dataOne] mutableCopy];
     dataOne = [[self setYdaHeaderChecksumData:dataOne] mutableCopy];
     dataOne = [[self setYdaCtrlHeaderChecksumData:dataOne] mutableCopy];
@@ -57,11 +53,6 @@
     return bodyData;
     
 }
-
-
-
-
-
 
 
 #pragma mark - YDA HEAdER
@@ -145,8 +136,8 @@
     
     Byte headerByte[data.length];
     [data getBytes:headerByte length:data.length];
-    headerByte[12] = ((Msglen >> 8) & 0xff);
-    headerByte[13] = (Msglen  & 0xff);
+    headerByte[18] = ((Msglen >> 8) & 0xff);
+    headerByte[19] = (Msglen  & 0xff);
     NSData * resultData = [[NSData alloc]initWithBytes:headerByte length:data.length];
     return resultData;
     
@@ -242,11 +233,7 @@ unsigned short checksumAndCRC(unsigned short * buffer,int size)
 }
 
 
-
-
-/*
- 
- -(void)generateAddressingMessage{
+ -(NSData *)testGenerateAddressingMessage{
  
  Byte byteOne[4];
  unsigned char version = 0;    //版本
@@ -324,18 +311,19 @@ unsigned short checksumAndCRC(unsigned short * buffer,int size)
  headerByte[18] = ((yda_maslen >> 8) & 0xff);
  headerByte[19] = (yda_maslen  & 0xff);
  
- short int num = (0x01 << 8) | 0x89;
+  short int num = (0x01 << 8) | 0x89;
  
- //    unsigned short checksumOne = checksumAndCRC(headerByte, (int)dataOne.length);
- //    headerByte[2] = ((checksumOne >> 8) & 0xff);
- //    headerByte[3] = (checksumOne  & 0xff);
- //
- //    unsigned short checksumTwo = checksumAndCRC(ctrlHeaderByte, (int)(dataOne.length - 16));
- //    headerByte[20] = ((checksumTwo >> 8) & 0xff);
- //    headerByte[21] = (checksumTwo  & 0xff);
+     unsigned short checksumOne = checksumAndCRC(headerByte, (int)dataOne.length);
+     headerByte[2] = ((checksumOne >> 8) & 0xff);
+     headerByte[3] = (checksumOne  & 0xff);
+ 
+     unsigned short checksumTwo = checksumAndCRC(ctrlHeaderByte, (int)(dataOne.length - 16));
+     headerByte[20] = ((checksumTwo >> 8) & 0xff);
+     headerByte[21] = (checksumTwo  & 0xff);
  
  NSData * resultData = [NSData dataWithBytes:headerByte length:dataOne.length];
+     return resultData;
  
  }
-*/
+
 @end

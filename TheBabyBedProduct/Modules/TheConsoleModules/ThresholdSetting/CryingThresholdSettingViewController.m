@@ -27,7 +27,6 @@
     // Do any additional setup after loading the view from its nib.
     self.title = @"阈值设定";
     [self addBackItem];
-
     [self configureView];
     
 }
@@ -92,10 +91,9 @@
 
 #pragma mark --- 网络请求 ----
 -(void)SetCryingThresholdValueComplication:(void(^)(BOOL isSuccess))finish{
-    [BBRequestTool SetThresholdValueDeviceType:@"1" minValue:@"" maxValue:self.decibelTextField.text deviceId:@"" successBlock:^(EnumServerStatus status, id object) {
+    [BBRequestTool SetThresholdValueDeviceType:@"1" minValue:@"" maxValue:self.decibelTextField.text deviceId:BBUserHelpers.deviceId successBlock:^(EnumServerStatus status, id object) {
         BaseResultModel *resultM = [[BaseResultModel alloc] initWithDictionary:object error:nil];
         if (resultM.code == 0) {
-            
             finish(true);
         }else{
             [QMUITips showWithText:resultM.msg inView:self.view hideAfterDelay:0.5];

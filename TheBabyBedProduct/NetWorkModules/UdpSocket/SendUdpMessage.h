@@ -14,5 +14,5 @@
 
 //寻址
 -(NSData *)generateAddressingMessage;
-
+-(NSData *)testGenerateAddressingMessage;
 @end
