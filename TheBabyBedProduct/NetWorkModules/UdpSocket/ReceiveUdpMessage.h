@@ -10,4 +10,7 @@
 
 @interface ReceiveUdpMessage : NSObject
 
+
+-(void)receiveUdpMessage:(NSData *)data;
+
 @end
