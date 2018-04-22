@@ -22,6 +22,7 @@
 		229FF0AF20862EBD005BA4A6 /* BBUdpSocketManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 229FF0AE20862EBD005BA4A6 /* BBUdpSocketManager.m */; };
 		229FF0B22088EE9C005BA4A6 /* SendUdpMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 229FF0B12088EE9C005BA4A6 /* SendUdpMessage.m */; };
 		229FF0B52088EEC9005BA4A6 /* ReceiveUdpMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 229FF0B42088EEC9005BA4A6 /* ReceiveUdpMessage.m */; };
+		229FF0BA208B99C0005BA4A6 /* RSA.m in Sources */ = {isa = PBXBuildFile; fileRef = 229FF0B8208B99C0005BA4A6 /* RSA.m */; };
 		22CF35632073CCAB00707F8A /* ScanDeviceCodeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22CF35612073CCAB00707F8A /* ScanDeviceCodeViewController.m */; };
 		22CF35642073CCAB00707F8A /* ScanDeviceCodeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22CF35622073CCAB00707F8A /* ScanDeviceCodeViewController.xib */; };
 		22CF35682073DB1500707F8A /* QRScanView.m in Sources */ = {isa = PBXBuildFile; fileRef = 22CF35672073DB1500707F8A /* QRScanView.m */; };
@@ -278,6 +279,8 @@
 		229FF0B12088EE9C005BA4A6 /* SendUdpMessage.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SendUdpMessage.m; sourceTree = "<group>"; };
 		229FF0B32088EEC9005BA4A6 /* ReceiveUdpMessage.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ReceiveUdpMessage.h; sourceTree = "<group>"; };
 		229FF0B42088EEC9005BA4A6 /* ReceiveUdpMessage.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ReceiveUdpMessage.m; sourceTree = "<group>"; };
+		229FF0B8208B99C0005BA4A6 /* RSA.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSA.m; sourceTree = "<group>"; };
+		229FF0B9208B99C0005BA4A6 /* RSA.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSA.h; sourceTree = "<group>"; };
 		22CF35502073C98300707F8A /* BBMyRewardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBMyRewardViewController.m; sourceTree = "<group>"; };
 		22CF35572073C99700707F8A /* BBEditInfoAvatarCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBEditInfoAvatarCell.m; sourceTree = "<group>"; };
 		22CF35582073C99700707F8A /* BBEditInformationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBEditInformationViewController.m; sourceTree = "<group>"; };
@@ -748,6 +751,15 @@
 			path = BLEManager;
 			sourceTree = "<group>";
 		};
+		229FF0B7208B99A5005BA4A6 /* RSA */ = {
+			isa = PBXGroup;
+			children = (
+				229FF0B9208B99C0005BA4A6 /* RSA.h */,
+				229FF0B8208B99C0005BA4A6 /* RSA.m */,
+			);
+			path = RSA;
+			sourceTree = "<group>";
+		};
 		22CF35652073DAEA00707F8A /* QRscanView */ = {
 			isa = PBXGroup;
 			children = (
@@ -1050,6 +1062,7 @@
 		22CFD39E2064015D0004186D /* Third */ = {
 			isa = PBXGroup;
 			children = (
+				229FF0B7208B99A5005BA4A6 /* RSA */,
 				842C02792084913600033F4A /* AirKiss */,
 				57210C8A2074C2DE0039D8D5 /* ZFPlayer */,
 				84114B3F20722BD0005A1DC9 /* JPush */,
@@ -1937,6 +1950,7 @@
 				22CF357620775D4700707F8A /* deviceListTableViewCell.m in Sources */,
 				22CFD3CF2066A07A0004186D /* RoomTemperatureChartViewController.m in Sources */,
 				84BE5EB6206A48B5007A001D /* GlobalPopView.m in Sources */,
+				229FF0BA208B99C0005BA4A6 /* RSA.m in Sources */,
 				22CFD39D2062ADB30004186D /* TemperatureChartView.m in Sources */,
 				5726F33F206A3185008EED75 /* PPTextfield+EasilyMake.m in Sources */,
 				574C6CE82069272700F5BF55 /* UIFont+BB.m in Sources */,

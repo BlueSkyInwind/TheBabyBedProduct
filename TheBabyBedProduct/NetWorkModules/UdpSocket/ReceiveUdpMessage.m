@@ -34,6 +34,7 @@
     }
 }
 
+
 #pragma mark - 寻址相应报文解析
 /**
  解析寻址响应的udp报文
@@ -61,6 +62,7 @@
     }
 }
 
+
 /**
  解析udp请求的ip类型，ip地址，端口号
 
@@ -76,6 +78,10 @@
     NSString * ipStr = [[NSString alloc]initWithData:ipData encoding:NSUTF8StringEncoding];
     DLog(@"%@:%d",ipStr,port);
 }
+
+
+
+
 
 
 
