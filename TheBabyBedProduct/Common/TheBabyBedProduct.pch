@@ -29,6 +29,7 @@
 #import <MJRefresh/MJRefresh.h>
 #import "BaseResultModel.h"
 #import "BBUdpSocketManager.h"
+#import "BaseCentralManager.h"
 
 
 #import <QMUIKit/QMUIKit.h>

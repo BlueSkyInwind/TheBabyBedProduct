@@ -12,7 +12,8 @@
 
 #define selfVersionCode @"1.0.0"
 
-@implementation BaseCentralManager{
+
+@interface BaseCentralManager(){
     
     NSMutableArray * peripheralDictionaryArray;
     
@@ -21,6 +22,13 @@
     BOOL isConnectting;
     
 }
+
+@property(nonatomic,copy,readwrite)CentralManagerStatusBlock  statusBlock;
+@property(nonatomic,copy,readwrite)BOOL    managerStatus;
+
+@end
+
+@implementation BaseCentralManager
 
 
 @synthesize manager,connectedPeripheral;
@@ -34,7 +42,6 @@ static BaseCentralManager * controller;
             controller = [[BaseCentralManager alloc] init];
         }
     }
-    
     return controller;
 }
 
@@ -135,7 +142,6 @@ static BaseCentralManager * controller;
         [connectedPeripheral clean];
         connectedPeripheral = nil;
     }
-    
     NSLog(@"Disconnect!!!");
 }
 
@@ -161,18 +167,27 @@ static BaseCentralManager * controller;
             NSLog(@"蓝牙---CBCentralManagerStateUnauthorized");
             break;
         case CBCentralManagerStatePoweredOff:
+            self.managerStatus = false;
             [self disconnect];
             NSLog(@"关闭蓝牙---CBCentralManagerStatePoweredOff！");
             break;
         case CBCentralManagerStatePoweredOn:
-
+            self.managerStatus = true;
             NSLog(@"打开蓝牙------CBCentralManagerStatePoweredOn！！");
             break;
-            
         default:
             break;
     }
 }
+-(BOOL)managerStatus{
+    [GlobalTool saveUserDefaul:[NSString stringWithFormat:@"%@",@(_managerStatus)] Key:BLE_POWER_NOTIFI];
+    return _managerStatus;
+}
+
+-(void)getCentralManagerStatus:(CentralManagerStatusBlock)managerStatus{
+    self.statusBlock = managerStatus;
+}
+
 //发现设备
 - (void)centralManager:(CBCentralManager *)central didDiscoverPeripheral:(CBPeripheral *)aPeripheral advertisementData:(NSDictionary *)advertisementData RSSI:(NSNumber *)RSSI{
     //NSLog(@"Peripheral:%@",aPeripheral);

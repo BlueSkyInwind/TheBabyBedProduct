@@ -8,14 +8,17 @@
 
 #import "BLEPairingViewController.h"
 #import "deviceListTableViewCell.h"
+#import "BaseCentralManager.h"
 
-@interface BLEPairingViewController ()<UITableViewDelegate,UITableViewDataSource>
+@interface BLEPairingViewController ()<UITableViewDelegate,UITableViewDataSource>{
+}
 
 
 /* UITAbleView*/
 @property(nonatomic,strong)UITableView * deviceTableView;
 /* <#Description#>*/
 @property(nonatomic,strong)deviceListTableViewCell * deviceListCell;
+
 @end
 
 @implementation BLEPairingViewController
@@ -23,14 +26,20 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.title = @"蓝牙配对";
+    self.title = @"设备链接";
     [self addBackItem];
-    
     [self configureView];
 }
 
--(void)configureView{
+-(void)viewWillAppear:(BOOL)animated{
     
+}
+-(void)viewWillDisappear:(BOOL)animated{
+    
+}
+
+
+-(void)configureView{
     
     _deviceImageArr = @[@"babyDed_Icon",@"babyDed_Icon",@"bluetooth_Icon"];
     _deviceNameArr = @[@"小雅智能",@"小雅智能",@"蓝牙1"];

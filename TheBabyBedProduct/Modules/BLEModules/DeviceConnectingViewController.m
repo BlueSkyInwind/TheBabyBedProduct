@@ -8,8 +8,9 @@
 
 #import "DeviceConnectingViewController.h"
 #import "DeviceConnectAnimationView.h"
-#import "BLEPairingViewController.h"
 #import <JMAirKiss/JMAirKiss.h>
+#import "BLEDeviceStatusViewController.h"
+#import "BLEScanConnectViewController.h"
 
 @interface DeviceConnectingViewController ()
 /* <#Description#>*/
@@ -84,14 +85,23 @@
     [[GlobalAlertViewManager shareInstance]promptsPopViewWithtitle:@"连接失败" content:@"请确保您的Wi-Fi密码输入正确" cancelTitle:@"蓝牙连接" sureTitle:@"再试一次" completion:^(NSInteger index) {
         if (index == 0) {
             //蓝牙连接
-            BLEPairingViewController * blePairingVC = [[BLEPairingViewController alloc]init];
-            [self.navigationController pushViewController:blePairingVC animated:true];
+            [self SetTheBluetooth];
         }else if (index == 1){
             //再试一次
             [self.navigationController popViewControllerAnimated:true];
         }
     }];
-    
+}
+
+-(void)SetTheBluetooth{
+    BOOL isOpen = [[GlobalTool getContentWithKey:BLE_POWER_NOTIFI] boolValue];
+    if (!isOpen) {
+        BLEDeviceStatusViewController * statusVC = [[BLEDeviceStatusViewController alloc]init];
+        [self.navigationController pushViewController:statusVC animated:true];
+    }else{
+        BLEScanConnectViewController * connectingVC = [[BLEScanConnectViewController alloc]init];
+        [self.navigationController pushViewController:connectingVC animated:true];
+    }
 }
 
 - (void)didReceiveMemoryWarning {

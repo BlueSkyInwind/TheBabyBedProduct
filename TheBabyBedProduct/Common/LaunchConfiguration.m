@@ -28,7 +28,7 @@
     [[IQKeyboardManager sharedManager] setToolbarManageBehaviour:IQAutoToolbarByPosition];
     [[IQKeyboardManager sharedManager]setShouldResignOnTouchOutside:true];
     [IQKeyboardManager sharedManager].shouldToolbarUsesTextFieldTintColor = true;
-    
+    [BaseCentralManager shareInstance];
     AFNetworkReachabilityManager *mgr = [AFNetworkReachabilityManager sharedManager];
     // 2.设置网络状态改变后的处理
     [mgr setReachabilityStatusChangeBlock:^(AFNetworkReachabilityStatus status) {

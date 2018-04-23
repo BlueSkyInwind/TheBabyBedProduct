@@ -183,5 +183,16 @@ static GlobalTool * shareTool = nil;
         }
     }
 }
++(void)openSystemSetting:(NSString *)setUrl{
+    NSURL *url = [NSURL URLWithString:setUrl];
+    if ([[UIApplication sharedApplication] canOpenURL:url])
+    {
+        if (@available(iOS 11.0, *)) {
+            [[UIApplication sharedApplication] openURL:url options:@{} completionHandler:nil];
+        }else{
+            [[UIApplication sharedApplication] openURL:url];
+        }
+    }
+}
 
 @end
