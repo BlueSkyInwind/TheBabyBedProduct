@@ -20,4 +20,28 @@
     NSInteger count = [regular numberOfMatchesInString:phoneNum options:NSMatchingReportCompletion range:NSMakeRange(0, phoneNum.length)];
     return count > 0;
 }
+#pragma mark --- 对字符串安全处理
+-(NSString *)bb_safe
+{
+    NSString *str = self;
+    if (isSafeStr(str)) {
+        return str;
+    }else{
+        return @"";
+    }
+}
+#pragma mark --- 判断字符串是不是安全的
+-(BOOL)bb_isSafe
+{
+    NSString *str = self;
+    return isSafeStr(str);
+}
+
+static BOOL isSafeStr(NSString *str){
+    if ([str isKindOfClass:[NSNull class]] || str == nil || str.length == 0 || [str isEqualToString:@"(null)"]  || [str isEqualToString:@"null"] || [str isEqualToString:@"NULL"] || [str isEqualToString:@"（null）"] || [str isEqualToString:@"<null>"] || [str isEqualToString:@"<NULL>"]) {
+        return NO;
+    }else{
+        return YES;
+    }
+}
 @end

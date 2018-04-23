@@ -19,7 +19,7 @@
         objc_property_t property = propertys[i];
         const char * propertyName = property_getName(property);
         NSString *name = [NSString stringWithUTF8String:propertyName];
-        if ([self valueForKeyPath: name]) {
+        if ([self valueForKeyPath: name] && ![name isEqualToString:@"properties"]) {
             [aCoder encodeObject:[self valueForKeyPath: name] forKey: name];
         }
     }
@@ -34,7 +34,7 @@
         objc_property_t property = propertys[i];
         const char * propertyName = property_getName(property);
         NSString *name = [NSString stringWithUTF8String:propertyName];
-        if ([aDecoder decodeObjectForKey:name]) {
+        if ([aDecoder decodeObjectForKey:name] && ![name isEqualToString:@"properties"]) {
             [self setValue:[aDecoder decodeObjectForKey:name] forKey:name];
         }
         
@@ -61,6 +61,50 @@ static BBUser * toGetUser(){
     NSData *data = [[NSUserDefaults standardUserDefaults] objectForKey:k_bb_saveUserMessage];
     BBUser *user = (BBUser *)[NSKeyedUnarchiver unarchiveObjectWithData:data];
     return user;
+}
+@end
+
+@implementation BBUser (AllProperty)
+-(NSArray *)properties
+{
+    NSMutableArray *properties = [NSMutableArray array];
+    unsigned int propertyCount = 0;
+    objc_property_t *propertys = class_copyPropertyList([self class], &propertyCount);
+    for (int i = 0; i < propertyCount; i ++) {
+        objc_property_t property = propertys[i];
+        const char * propertyName = property_getName(property);
+        NSString *name = [NSString stringWithUTF8String:propertyName];
+        [properties addObject:name];
+    }
+    return properties;
+}
+@end
+
+
+@implementation BBUser (Handler)
+-(NSString *)bb_userGenderHandle
+{
+    if (self.gender == BBUserGenderTypeMan) {
+        return @"男";
+    }else if (self.gender == BBUserGenderTypeWoman){
+        return @"女";
+    }else if (self.gender == BBUserGenderTypeSecrect){
+        return @"保密";
+    }else{
+        return @"未知";
+    }
+}
++(BBUserGenderType)bb_genderTypeWithStr:(NSString *)genderStr
+{
+    if ([genderStr isEqualToString:@"男"]) {
+        return BBUserGenderTypeMan;
+    }else if ([genderStr isEqualToString:@"女"]){
+        return BBUserGenderTypeWoman;
+    }else if ([genderStr isEqualToString:@"保密"]){
+        return BBUserGenderTypeSecrect;
+    }else{
+        return BBUserGenderTypeUnknow;
+    }
 }
 @end
 

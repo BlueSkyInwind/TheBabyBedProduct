@@ -115,6 +115,24 @@
         return;
     }
     
+    [BBRequestTool bb_requestEditUserInfoWithAvatarId:nil babyName:nil gender:nil city:nil birthday:nil identity:nil password:oldPasswordStr rePassword:self.latestPasswordTF.text successBlock:^(EnumServerStatus status, id object) {
+        BBLoginResultModel *resultM = [BBLoginResultModel mj_objectWithKeyValues:object];
+        if (resultM.code == 0) {
+            [QMUITips showSucceed:@"密码修改成功"];
+
+            BBUser *aUer = resultM.data;
+            BBUser *user = [BBUser bb_getUser];
+            user.password = self.latestPasswordTF.text;
+            user.token = aUer.token;
+            [BBUser bb_saveUser:user];
+            [self.navigationController popViewControllerAnimated:YES];
+        }else{
+            [QMUITips showSucceed:resultM.msg];
+        }
+        
+    } failureBlock:^(EnumServerStatus status, id object) {
+        [QMUITips showError:@"密码修改失败"];
+    }];
     
 }
 

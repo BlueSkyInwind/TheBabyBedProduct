@@ -22,6 +22,7 @@
 		229FF0AF20862EBD005BA4A6 /* BBUdpSocketManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 229FF0AE20862EBD005BA4A6 /* BBUdpSocketManager.m */; };
 		229FF0B22088EE9C005BA4A6 /* SendUdpMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 229FF0B12088EE9C005BA4A6 /* SendUdpMessage.m */; };
 		229FF0B52088EEC9005BA4A6 /* ReceiveUdpMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 229FF0B42088EEC9005BA4A6 /* ReceiveUdpMessage.m */; };
+		229FF0BA208B99C0005BA4A6 /* RSA.m in Sources */ = {isa = PBXBuildFile; fileRef = 229FF0B8208B99C0005BA4A6 /* RSA.m */; };
 		22CF35632073CCAB00707F8A /* ScanDeviceCodeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22CF35612073CCAB00707F8A /* ScanDeviceCodeViewController.m */; };
 		22CF35642073CCAB00707F8A /* ScanDeviceCodeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22CF35622073CCAB00707F8A /* ScanDeviceCodeViewController.xib */; };
 		22CF35682073DB1500707F8A /* QRScanView.m in Sources */ = {isa = PBXBuildFile; fileRef = 22CF35672073DB1500707F8A /* QRScanView.m */; };
@@ -76,6 +77,7 @@
 		22CFD3FA2067FE060004186D /* TemperatureThresholdSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22CFD3F82067FE060004186D /* TemperatureThresholdSettingViewController.m */; };
 		22CFD3FB2067FE060004186D /* TemperatureThresholdSettingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22CFD3F92067FE060004186D /* TemperatureThresholdSettingViewController.xib */; };
 		347E55C5AB34C5F0659DAE6B /* Pods_TheBabyBedProduct.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 884698C1D52FC8383E4B1BCF /* Pods_TheBabyBedProduct.framework */; };
+		570A1C1E208C6E5200B13EB5 /* NSDate+BB.m in Sources */ = {isa = PBXBuildFile; fileRef = 570A1C1D208C6E5200B13EB5 /* NSDate+BB.m */; };
 		57210BFB2073B3F80039D8D5 /* BBPermissionManageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 57210BFA2073B3F80039D8D5 /* BBPermissionManageViewController.m */; };
 		57210C782073B4A50039D8D5 /* BBEditInfoAvatarCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 57210C752073B4A50039D8D5 /* BBEditInfoAvatarCell.m */; };
 		57210C792073B4A50039D8D5 /* BBEditInformationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 57210C762073B4A50039D8D5 /* BBEditInformationViewController.m */; };
@@ -278,6 +280,8 @@
 		229FF0B12088EE9C005BA4A6 /* SendUdpMessage.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SendUdpMessage.m; sourceTree = "<group>"; };
 		229FF0B32088EEC9005BA4A6 /* ReceiveUdpMessage.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ReceiveUdpMessage.h; sourceTree = "<group>"; };
 		229FF0B42088EEC9005BA4A6 /* ReceiveUdpMessage.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ReceiveUdpMessage.m; sourceTree = "<group>"; };
+		229FF0B8208B99C0005BA4A6 /* RSA.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSA.m; sourceTree = "<group>"; };
+		229FF0B9208B99C0005BA4A6 /* RSA.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSA.h; sourceTree = "<group>"; };
 		22CF35502073C98300707F8A /* BBMyRewardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBMyRewardViewController.m; sourceTree = "<group>"; };
 		22CF35572073C99700707F8A /* BBEditInfoAvatarCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBEditInfoAvatarCell.m; sourceTree = "<group>"; };
 		22CF35582073C99700707F8A /* BBEditInformationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBEditInformationViewController.m; sourceTree = "<group>"; };
@@ -384,6 +388,8 @@
 		22CFD3F82067FE060004186D /* TemperatureThresholdSettingViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TemperatureThresholdSettingViewController.m; sourceTree = "<group>"; };
 		22CFD3F92067FE060004186D /* TemperatureThresholdSettingViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TemperatureThresholdSettingViewController.xib; sourceTree = "<group>"; };
 		2F6F434F00B680C952F3C9BF /* Pods-TheBabyBedProduct.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TheBabyBedProduct.release.xcconfig"; path = "Pods/Target Support Files/Pods-TheBabyBedProduct/Pods-TheBabyBedProduct.release.xcconfig"; sourceTree = "<group>"; };
+		570A1C1C208C6E5200B13EB5 /* NSDate+BB.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSDate+BB.h"; sourceTree = "<group>"; };
+		570A1C1D208C6E5200B13EB5 /* NSDate+BB.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSDate+BB.m"; sourceTree = "<group>"; };
 		57210BF92073B3F80039D8D5 /* BBPermissionManageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBPermissionManageViewController.h; sourceTree = "<group>"; };
 		57210BFA2073B3F80039D8D5 /* BBPermissionManageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBPermissionManageViewController.m; sourceTree = "<group>"; };
 		57210C722073B4A50039D8D5 /* BBEditInfoAvatarCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBEditInfoAvatarCell.h; sourceTree = "<group>"; };
@@ -748,6 +754,15 @@
 			path = BLEManager;
 			sourceTree = "<group>";
 		};
+		229FF0B7208B99A5005BA4A6 /* RSA */ = {
+			isa = PBXGroup;
+			children = (
+				229FF0B9208B99C0005BA4A6 /* RSA.h */,
+				229FF0B8208B99C0005BA4A6 /* RSA.m */,
+			);
+			path = RSA;
+			sourceTree = "<group>";
+		};
 		22CF35652073DAEA00707F8A /* QRscanView */ = {
 			isa = PBXGroup;
 			children = (
@@ -1050,6 +1065,7 @@
 		22CFD39E2064015D0004186D /* Third */ = {
 			isa = PBXGroup;
 			children = (
+				229FF0B7208B99A5005BA4A6 /* RSA */,
 				842C02792084913600033F4A /* AirKiss */,
 				57210C8A2074C2DE0039D8D5 /* ZFPlayer */,
 				84114B3F20722BD0005A1DC9 /* JPush */,
@@ -1494,6 +1510,8 @@
 				2263B8EC206BE81B005BB15E /* UIImage+category.m */,
 				57210D1020789A0E0039D8D5 /* NSString+Verify.h */,
 				57210D1120789A0E0039D8D5 /* NSString+Verify.m */,
+				570A1C1C208C6E5200B13EB5 /* NSDate+BB.h */,
+				570A1C1D208C6E5200B13EB5 /* NSDate+BB.m */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -1687,7 +1705,6 @@
 				22CFD331206141080004186D /* Frameworks */,
 				22CFD332206141080004186D /* Resources */,
 				0EF6D12AADA72849A9392AD1 /* [CP] Embed Pods Frameworks */,
-				6C7F17439B7A65599D1BD1F3 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -1844,6 +1861,7 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-TheBabyBedProduct/Pods-TheBabyBedProduct-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/AFNetworking/AFNetworking.framework",
 				"${BUILT_PRODUCTS_DIR}/BAButton/BAButton.framework",
+				"${BUILT_PRODUCTS_DIR}/BRPickerView/BRPickerView.framework",
 				"${BUILT_PRODUCTS_DIR}/CocoaAsyncSocket/CocoaAsyncSocket.framework",
 				"${BUILT_PRODUCTS_DIR}/IQKeyboardManager/IQKeyboardManager.framework",
 				"${BUILT_PRODUCTS_DIR}/JSONModel/JSONModel.framework",
@@ -1863,6 +1881,7 @@
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AFNetworking.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/BAButton.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/BRPickerView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CocoaAsyncSocket.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManager.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JSONModel.framework",
@@ -1881,21 +1900,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TheBabyBedProduct/Pods-TheBabyBedProduct-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		6C7F17439B7A65599D1BD1F3 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TheBabyBedProduct/Pods-TheBabyBedProduct-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		948485BEB3ECA9FB983F5306 /* [CP] Check Pods Manifest.lock */ = {
@@ -1937,6 +1941,7 @@
 				22CF357620775D4700707F8A /* deviceListTableViewCell.m in Sources */,
 				22CFD3CF2066A07A0004186D /* RoomTemperatureChartViewController.m in Sources */,
 				84BE5EB6206A48B5007A001D /* GlobalPopView.m in Sources */,
+				229FF0BA208B99C0005BA4A6 /* RSA.m in Sources */,
 				22CFD39D2062ADB30004186D /* TemperatureChartView.m in Sources */,
 				5726F33F206A3185008EED75 /* PPTextfield+EasilyMake.m in Sources */,
 				574C6CE82069272700F5BF55 /* UIFont+BB.m in Sources */,
@@ -2076,6 +2081,7 @@
 				57210CAE2074C2DE0039D8D5 /* ZFPlayerView.m in Sources */,
 				22CFD3D52067C58B0004186D /* ThermometerView.m in Sources */,
 				22CFD3DD2067D8160004186D /* RoomIndicatorView.m in Sources */,
+				570A1C1E208C6E5200B13EB5 /* NSDate+BB.m in Sources */,
 				84D5BDCD2073579A0025C757 /* AddDeviceView.m in Sources */,
 				5726F3A6206B8332008EED75 /* WSTableView.m in Sources */,
 				57210C812073BB600039D8D5 /* BBMyAccountExpenceRecordListCell.m in Sources */,
@@ -2282,6 +2288,7 @@
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = 1;
+				USER_HEADER_SEARCH_PATHS = "$(PODS_ROOT)/**";
 			};
 			name = Debug;
 		};
@@ -2349,6 +2356,7 @@
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = 1;
+				USER_HEADER_SEARCH_PATHS = "$(PODS_ROOT)/**";
 			};
 			name = Release;
 		};

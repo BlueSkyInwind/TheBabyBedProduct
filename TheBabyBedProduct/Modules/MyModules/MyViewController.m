@@ -42,7 +42,7 @@
 -(void)creatUI
 {
 
-    BBMyHeaderView *headerV = [[BBMyHeaderView alloc]initWithFrame:CGRectMake(0, -20, _k_w, 264+20) user:nil];
+    BBMyHeaderView *headerV = [[BBMyHeaderView alloc]initWithFrame:CGRectMake(0, -20, _k_w, 264+20)];
     _headerV = headerV;
     [self.view addSubview:headerV];
     

@@ -11,6 +11,7 @@
 #import "CRC16.h"
 #import "SocketMacros.h"
 #import "SendUdpMessage.h"
+#import "ReceiveUdpMessage.h"
 
 @interface BBUdpSocketManager()<GCDAsyncUdpSocketDelegate>{
     
@@ -89,6 +90,8 @@
 - (void)udpSocket:(GCDAsyncUdpSocket *)sock didReceiveData:(NSData *)data fromAddress:(NSData *)address withFilterContext:(id)filterContext
 {
     DLog(@"接收到%@的消息",address);
+    ReceiveUdpMessage * receiveUdpMessage = [[ReceiveUdpMessage alloc]init];
+    [receiveUdpMessage receiveUdpMessage:data];
 }
 - (void)udpSocketDidClose:(GCDAsyncUdpSocket *)sock withError:(NSError *)error
 {

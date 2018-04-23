@@ -8,6 +8,7 @@
 
 #import "BBMyHeaderView.h"
 #import "BBUser.h"
+#import "UIImageView+WebCache.h"
 
 @interface BBMyHeaderView ()
 @property(nonatomic,strong) BBUser *user;
@@ -21,13 +22,11 @@
 
 @implementation BBMyHeaderView
 
--(instancetype)initWithFrame:(CGRect)frame user:(BBUser *)user
+-(instancetype)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
     if (self) {
-        if (user) {
-            self.user = user;
-        }
+        self.user = [BBUser bb_getUser];
         [self creatUI];
         self.backgroundColor = [UIColor redColor];
     }
@@ -35,10 +34,8 @@
 }
 -(void)updateUserMess
 {
-    BBUser *user = [BBUser bb_getUser];
+    self.user = [BBUser bb_getUser];
     [self judgeItemShowOrHidden];
-    self.userNameLB.text = user.username;
-
 }
 
 -(void)creatUI
@@ -125,15 +122,17 @@
 -(void)judgeItemShowOrHidden
 {
     if (BBUserHelpers.hasLogined) {
-        self.userNameLB.text = @"跳跳的爸爸";
-        self.babyDaysLB.text = @"您的宝贝493天了";
+        self.userNameLB.text = self.user.username;
+        self.babyDaysLB.text = [NSString stringWithFormat:@"您的宝宝%lu天了",(unsigned long)[self.user.both bb_timeIntervalFromTimestamp]];
         self.userNameLB.hidden = NO;
         self.babyDaysLB.hidden = NO;
         self.loginOrRegistBT.hidden = YES;
+        [self.avatarImgV sd_setImageWithURL:[NSURL URLWithString:[K_Url_GetImg stringByAppendingString:self.user.avatar]] placeholderImage:[UIImage imageNamed:@"touxianggg"]];
     }else{
         self.userNameLB.hidden = YES;
         self.babyDaysLB.hidden = YES;
         self.loginOrRegistBT.hidden = NO;
+        self.avatarImgV.image = [UIImage imageNamed:@"touxianggg"];
     }
     BBUserHelpers.myHeaderVHasLogined = BBUserHelpers.hasLogined;
 }

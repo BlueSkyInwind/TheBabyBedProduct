@@ -47,6 +47,19 @@
         self.settingSwitch.hidden = YES;
         self.arrowImgV.hidden = NO;
         self.arrowImgV.frame = CGRectMake(_k_w-10-6, 18, 6, 11);
+        
+        BBUser *user = [BBUser bb_getUser];
+        if ([title isEqualToString:@"宝宝姓名"]) {
+            self.subTextLB.text = [user.nickName bb_safe];
+        }else if ([title isEqualToString:@"性别"]){
+            self.subTextLB.text = [user bb_userGenderHandle];
+        }else if ([title isEqualToString:@"所在地"]){
+            self.subTextLB.text = [user.city bb_safe];
+        }else if ([title isEqualToString:@"出生日期"]){
+            self.subTextLB.text = [[user.both bb_dateFromTimestampForyyyyMMdd] bb_safe];
+        }else if ([title isEqualToString:@"身份"]){
+            self.subTextLB.text = [user.identity bb_safe];
+        }
     }
 }
 -(void)creatCellUI

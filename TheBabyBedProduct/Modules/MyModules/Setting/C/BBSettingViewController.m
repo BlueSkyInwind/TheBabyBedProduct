@@ -64,7 +64,7 @@
     if (section == 0) {
         return 2;
     }
-    return 4;
+    return 3;
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -104,13 +104,9 @@
             BBMyListSubTitleCell *cell = [BBMyListSubTitleCell bb_cellMakeWithTableView:tableView];
             [cell setupCellWithImgName:@"setsweep" title:@"清理缓存" subTitle:@"1.75MB"];
             return cell;
-        }else if (indexPath.row == 2){
+        }else{
             BBMyListCell *cell = [BBMyListCell bb_cellMakeWithTableView:tableView];
             [cell setupCellWithImgName:@"setmine" title:@"关于我们"];
-            return cell;
-        }else{
-            BBMyListSubTitleCell *cell = [BBMyListSubTitleCell bb_cellMakeWithTableView:tableView];
-            [cell setupCellWithImgName:@"setupdate" title:@"检测更新" subTitle:@"当前已是最新版本"];
             return cell;
         }
     }
