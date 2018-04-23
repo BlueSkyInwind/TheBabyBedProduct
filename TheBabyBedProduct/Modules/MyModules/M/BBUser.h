@@ -11,7 +11,7 @@
 #define BBUserHelpers [BBUserHelper shareInstance]
 
 @interface BBUser : NSObject<NSCoding>
-/** 是否登录 */
+/** 是否登录 my */
 @property(nonatomic,assign) BOOL hasLogined;
 
 /** 令牌 */
@@ -20,13 +20,15 @@
 @property(nonatomic,assign) BOOL reg;
 /** 用户名 */
 @property(nonatomic,copy) NSString *username;
+/** 宝宝昵称 */
+@property(nonatomic,copy) NSString *nickName;
 /** 当前用户是否有绑定婴儿床设备  false 没有绑定  true 已绑定 */
 @property(nonatomic,assign) BOOL bind;
 
 /** 头像url */
 @property(nonatomic,copy) NSString *avatar;
-/** 出生日期 如：2018-01-30T08:33:31.173Z*/
-@property(nonatomic,copy) NSString *both;
+/** 出生日期 如：1523856194*/
+@property(nonatomic,copy) NSNumber *both;
 /** 出生地 */
 @property(nonatomic,copy) NSString *city;
 /**  剩余可观看视频时间 */
@@ -60,6 +62,16 @@
 +(BBUser *)bb_getUser;
 +(void)bb_saveUser:(BBUser *)user;
 
+@end
+
+@interface BBUser  (AllProperty)
+/** 所有属性 */
+@property(nonatomic,strong,readonly) NSArray *properties;
+@end
+
+@interface BBUser (Handler)
+-(NSString *)bb_userGenderHandle;
++(BBUserGenderType)bb_genderTypeWithStr:(NSString *)genderStr;
 @end
 
 

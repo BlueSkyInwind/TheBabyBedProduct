@@ -117,6 +117,8 @@ typedef NS_ENUM(NSInteger,BBGetCodeType) {
                                      city:(NSString *)city
                                  birthday:(NSString *)birthday
                                  identity:(NSString *)identity
+                                 password:(NSString *)password
+                               rePassword:(NSString *)rePassword
                              successBlock:(SuccessBlock)successBlock
                              failureBlock:(FailureBlock)failureBlock;
 

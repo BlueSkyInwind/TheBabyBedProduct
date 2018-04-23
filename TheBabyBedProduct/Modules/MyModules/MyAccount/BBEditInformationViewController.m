@@ -20,6 +20,8 @@
 #import "BBUploadImageResultModel.h"
 #import "BBEditUserInfoItem.h"
 
+#import "BRPickerView.h"
+
 @interface BBEditInformationViewController ()<UITableViewDelegate,UITableViewDataSource,UIImagePickerControllerDelegate,UINavigationControllerDelegate>
 {
     NSString *_babayName;
@@ -70,7 +72,7 @@
 
     [self configureUserInfoItem];
     
-    [self getUserInfo];
+//    [self getUserInfo];
     
     [self creatUI];
 }
@@ -81,29 +83,29 @@
     self.aUserInfoItem.babyName = savedUser.babyName;
     self.aUserInfoItem.gender = savedUser.gender;
     self.aUserInfoItem.city = savedUser.city;
-    self.aUserInfoItem.bothDate = savedUser.both;
+    self.aUserInfoItem.bothDate = [savedUser.both bb_dateFromTimestampForyyyyMMdd];
     self.aUserInfoItem.identity = savedUser.identity;
 }
--(void)getUserInfo
-{
-    //只处理请求成功的情况
-    [BBRequestTool bb_requestGetUserInfoWithSuccessBlock:^(EnumServerStatus status, id object) {
-        BaseDictResultModel *resultM = [BaseDictResultModel mj_objectWithKeyValues:object];
-        if (resultM.code == 0) {
-            BBUser *savedUser = [BBUser bb_getUser];
-            NSDictionary *savedUserDict = [savedUser mj_keyValues];
-            NSMutableDictionary *mutDict = [[NSMutableDictionary alloc]initWithDictionary:savedUserDict];
-            [mutDict addEntriesFromDictionary:resultM.data];
-            
-            BBUser *latestUser = [BBUser mj_objectWithKeyValues:mutDict];
-            [BBUser bb_saveUser:latestUser];
-            
-            [self.tableView reloadData];
-        }
-    } failureBlock:^(EnumServerStatus status, id object) {
-        
-    }];
-}
+//-(void)getUserInfo
+//{
+//    //只处理请求成功的情况
+//    [BBRequestTool bb_requestGetUserInfoWithSuccessBlock:^(EnumServerStatus status, id object) {
+//        BaseDictResultModel *resultM = [BaseDictResultModel mj_objectWithKeyValues:object];
+//        if (resultM.code == 0) {
+//            BBUser *savedUser = [BBUser bb_getUser];
+//            NSDictionary *savedUserDict = [savedUser mj_keyValues];
+//            NSMutableDictionary *mutDict = [[NSMutableDictionary alloc]initWithDictionary:savedUserDict];
+//            [mutDict addEntriesFromDictionary:resultM.data];
+//
+//            BBUser *latestUser = [BBUser mj_objectWithKeyValues:mutDict];
+//            [BBUser bb_saveUser:latestUser];
+//
+//            [self.tableView reloadData];
+//        }
+//    } failureBlock:^(EnumServerStatus status, id object) {
+//
+//    }];
+//}
 -(void)creatUI
 {
     if (self.comesFrom == BBEditInformationVCComesFromRegistSuccess) {
@@ -145,33 +147,34 @@
     BBUser *currentSavedUser = [BBUser bb_getUser];
     NSString *babyName = @"";
     if (![self.aUserInfoItem.babyName isEqualToString:currentSavedUser.babyName]) {
-        babyName = currentSavedUser.username;
+        babyName = self.aUserInfoItem.babyName;
     }
     NSString *genderStr = @"";
     if (self.aUserInfoItem.gender != currentSavedUser.gender) {
-        genderStr = [NSString stringWithFormat:@"%ld",(long)currentSavedUser.gender];
+        genderStr = [NSString stringWithFormat:@"%ld",(long)self.aUserInfoItem.gender];
     }
     NSString *city = @"";
     if (![self.aUserInfoItem.city isEqualToString:currentSavedUser.city]) {
-        city = currentSavedUser.city;
+        city = self.aUserInfoItem.city;
     }
     NSString *birthday = @"";
-    if (![self.aUserInfoItem.bothDate isEqualToString:currentSavedUser.both]) {
-        birthday = currentSavedUser.both;
+    if (![self.aUserInfoItem.bothDate isEqualToString:[currentSavedUser.both bb_dateFromTimestampForyyyyMMdd]]) {
+        birthday = self.aUserInfoItem.bothDate;
     }
     NSString *identity = @"";
     if (![self.aUserInfoItem.identity isEqualToString:currentSavedUser.identity]) {
-        identity = currentSavedUser.identity;
+        identity = self.aUserInfoItem.identity;
     }
     if (!self.aUploadImageRD) {
         self.aUploadImageRD = [BBUploadImageResultData new];
     }
-    self.aUploadImageRD.imgId = @"0cbd797529714fccbe3ee1ed23262c7f";
     
-    [BBRequestTool bb_requestEditUserInfoWithAvatarId:self.aUploadImageRD.imgId babyName:babyName gender:genderStr city:city birthday:birthday identity:identity successBlock:^(EnumServerStatus status, id object) {
+    [BBRequestTool bb_requestEditUserInfoWithAvatarId:self.aUploadImageRD.imgId babyName:babyName gender:genderStr city:city birthday:birthday identity:identity password:nil rePassword:nil successBlock:^(EnumServerStatus status, id object) {
         BaseResultModel *editUserInfoRM = [BaseResultModel mj_objectWithKeyValues:object];
         if (editUserInfoRM.code == 0) {
             [QMUITips showSucceed:@"您的信息更改成功！"];
+            BBUser *user = [BBUser bb_getUser];
+            
         }else{
             [QMUITips showError:@"您的信息更改失败，请稍后再试！"];
         }
@@ -194,9 +197,13 @@
 }
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    BBUser *user = [BBUser bb_getUser];
+    
     if (indexPath.row == 0) {
         BBEditInfoAvatarCell *cell = [BBEditInfoAvatarCell bb_cellMakeWithTableView:tableView];
-        [cell setupCellAvatar:nil];
+        if (user) {
+            [cell setupCellAvatar:[K_Url_GetImg stringByAppendingString:user.avatar]];
+        }
         return cell;
     }else{
         BBNotificationSettingListCell *cell = [BBNotificationSettingListCell bb_cellMakeWithTableView:tableView];
@@ -234,6 +241,53 @@
             [alertC addAction:cancelAlertAction];
             [alertC addAction:OKAlertAction];
             [self presentViewController:alertC animated:YES completion:nil];
+        }
+            break;
+        case 2:
+        {
+            //性别
+            BBNotificationSettingListCell *cell = (BBNotificationSettingListCell *)[self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:2 inSection:0]];
+            [BRStringPickerView showStringPickerWithTitle:@"宝宝性别" dataSource:@[@"男", @"女", @"保密",@"未知"] defaultSelValue:cell.subTextLB.text resultBlock:^(id selectValue) {
+                cell.subTextLB.text = selectValue;
+                self.aUserInfoItem.gender = [BBUser bb_genderTypeWithStr:selectValue];
+            }];
+        }
+            break;
+        case 3:
+        {
+           //所在地
+        }
+            break;
+        case 4:
+        {
+            //出生日期
+            BBNotificationSettingListCell *cell = (BBNotificationSettingListCell *)[self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:4 inSection:0]];
+            NSDate *minDate = [NSDate setYear:1990 month:1 day:1];
+            NSDate *maxDate = [NSDate date];
+            [BRDatePickerView showDatePickerWithTitle:@"出生日期" dateType:BRDatePickerModeYMD defaultSelValue:[cell.subTextLB.text bb_safe] minDate:minDate maxDate:maxDate isAutoSelect:YES themeColor:nil resultBlock:^(NSString *selectValue) {
+                cell.subTextLB.text = selectValue;
+                self.aUserInfoItem.bothDate = selectValue;
+            } cancelBlock:^{
+                
+            }];
+        }
+            break;
+        case 5:
+        {
+            //身份
+            BBNotificationSettingListCell *cell = (BBNotificationSettingListCell *)[self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:5 inSection:0]];
+            NSArray *addresses = @[
+                                   @"爷爷",
+                                   @"奶奶",
+                                   @"爸爸",
+                                   @"妈妈"
+                                   ];
+            [BRStringPickerView showStringPickerWithTitle:@"身份" dataSource:addresses defaultSelValue:cell.subTextLB.text isAutoSelect:YES themeColor:nil resultBlock:^(id selectValue) {
+                cell.subTextLB.text = selectValue;
+                self.aUserInfoItem.identity = selectValue;
+            } cancelBlock:^{
+                
+            }];
         }
             break;
             

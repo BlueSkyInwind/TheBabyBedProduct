@@ -70,7 +70,7 @@
         DLog(@"点登录按钮 %@--%@",phone,password);
         BBStrongSelf(self)
         [self.view endEditing:YES];
-        [self goToThirdWithType:BBLoginTypeDefault];
+        [self goToLoginWithPhoneNo:phone password:password];
     };
     self.loginV.thirdLoginBlock = ^(BBLoginType type) {
         DLog(@"第三方登录方式 %ld",(long)type);
@@ -174,36 +174,81 @@
     }];
     
 }
+-(void)goToLoginWithPhoneNo:(NSString *)phoneNo password:(NSString *)password
+{
+    if (![phoneNo bb_isPhoneNumber]) {
+        [QMUITips showError:@"请填写正确手机号"];
+        return;
+    }
+    //账号密码登录
+    [BBRequestTool bb_requestLoginWithPhone:@"13127682098" password:password loginType:BBLoginTypeDefault uid:nil openid:nil successBlock:^(EnumServerStatus status, id object) {
+        NSLog(@"success %@",object);
+        BBLoginResultModel *loginResultM = [BBLoginResultModel mj_objectWithKeyValues:object];
+        if (loginResultM.code == 0) {
+            
+            BBUser *user = loginResultM.data;
+            user.password = password;
+            [BBUser bb_saveUser:user];
+            
+            //登录成功拉用户信息
+            [self getUserInfo];
+            
+        }else{
+            [QMUITips showWithText:loginResultM.msg inView:self.view hideAfterDelay:1.5];
+            return ;
+        }
+    } failureBlock:^(EnumServerStatus status, id object) {
+        NSLog(@"filed %@",object);
+        [QMUITips showWithText:@"登录失败" inView:self.view hideAfterDelay:1.2];
+        return ;
+    }];
+}
+#pragma mark --- 登录成功后要先获取用户信息
+-(void)getUserInfo
+{
+    [BBRequestTool bb_requestGetUserInfoWithSuccessBlock:^(EnumServerStatus status, id object) {
+        NSDictionary *userInfoResultDict = (NSDictionary *)object;
+        int resultCode = [[userInfoResultDict objectForKey:@"code"] intValue];
+        NSString *resultMsg = [userInfoResultDict objectForKey:@"msg"];
+        
+        
+        if (resultCode == 0) {
+            [QMUITips showSucceed:@"登录成功"];
+
+            NSDictionary *userInfoDict = [userInfoResultDict objectForKey:@"data"];
+            
+            //此处多说一点，因为登录的时候已经保存了一个
+            BBUser *user = [BBUser bb_getUser];
+            user.hasLogined = YES;
+
+            for (NSString *dictKey in userInfoDict.allKeys) {
+                if ([user.properties containsObject:dictKey]) {
+                    [user setValue:[userInfoDict objectForKey:dictKey] forKey:dictKey];
+                }
+            }
+            
+            [BBUser bb_saveUser:user];
+            
+            if (self.BBLoginOrRegistResultBlock) {
+                self.BBLoginOrRegistResultBlock(YES);
+            }
+            
+            [self dismissViewControllerAnimated:YES completion:^{
+                
+            }];
+            
+        }else{
+            [QMUITips showWithText:resultMsg inView:self.view hideAfterDelay:1.5];
+            return ;
+        }
+    } failureBlock:^(EnumServerStatus status, id object) {
+        [QMUITips showWithText:@"获取用户信息失败" inView:self.view hideAfterDelay:1.2];
+        return ;
+    }];
+}
 -(void)goToThirdWithType:(BBLoginType)type
 {
-    //账号密码登录
-    if (type == BBLoginTypeDefault) {
-        [BBRequestTool bb_requestLoginWithPhone:@"13127682098" password:@"123456" loginType:BBLoginTypeDefault uid:nil openid:nil successBlock:^(EnumServerStatus status, id object) {
-            NSLog(@"success %@",object);
-            BBLoginResultModel *loginResultM = [BBLoginResultModel mj_objectWithKeyValues:object];
-            if (loginResultM.code == 0) {
-                [QMUITips showSucceed:@"登录成功"];
-                
-                BBUser *user = loginResultM.data;
-                user.hasLogined = YES;
-                [BBUser bb_saveUser:user];
-                
-                [self dismissViewControllerAnimated:YES completion:^{
-                    
-                }];
-                if (self.BBLoginOrRegistResultBlock) {
-                    self.BBLoginOrRegistResultBlock(YES);
-                }
-            }else{
-                [QMUITips showWithText:loginResultM.msg inView:self.view hideAfterDelay:1.5];
-                return ;
-            }
-        } failureBlock:^(EnumServerStatus status, id object) {
-            NSLog(@"filed %@",object);
-            [QMUITips showWithText:@"登录失败" inView:self.view hideAfterDelay:1.2];
-            return ;
-        }];
-    }
+ 
 //    [SSEThirdPartyLoginHelper loginByPlatform:SSDKPlatformTypeQQ
 //                                   onUserSync:^(SSDKUser *user, SSEUserAssociateHandler associateHandler) {
 //

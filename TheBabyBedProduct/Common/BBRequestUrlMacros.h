@@ -11,11 +11,15 @@
 
 #define BBIsAPPStore 0    //APPStore环境(正式1，测试0)
 
+#warning todo 记得修改baseURL
 #if BBIsAPPStore
 #define K_Url_BBBase            @"http://114.55.129.5:8788"
+#define K_Url_GetImg            @"http://114.55.129.5:8081"
 #else
 #define K_Url_BBBase            @"http://114.55.129.5:8788"
+#define K_Url_GetImg            @"http://114.55.129.5:8081"
 #endif
+
 
 //登录 👌
 #define K_Url_Login             @"/api/login"
@@ -58,6 +62,7 @@
 #define K_Url_GetThreshold       @"api/waringsetting/setting"
 //传感器数据获取  api/statistics/{deviceId}
 #define K_Url_GetSensorData       @"api/statistics/"
+
 
 
 

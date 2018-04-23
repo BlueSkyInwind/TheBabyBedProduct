@@ -213,6 +213,8 @@ static void getRequest(NSString *url,id param,SuccessBlock successBlock,FailureB
                                      city:(NSString *)city
                                  birthday:(NSString *)birthday
                                  identity:(NSString *)identity
+                                 password:(NSString *)password
+                               rePassword:(NSString *)rePassword
                              successBlock:(SuccessBlock)successBlock
                              failureBlock:(FailureBlock)failureBlock
 {
@@ -234,6 +236,12 @@ static void getRequest(NSString *url,id param,SuccessBlock successBlock,FailureB
     }
     if (identity && identity.length > 0) {
         [param setValue:identity forKey:@"identity"];
+    }
+    if (password && password.length > 0) {
+        [param setValue:password forKey:@"password"];
+    }
+    if (rePassword && rePassword.length > 0) {
+        [param setValue:rePassword forKey:@"repassword"];
     }
     
     postRequest(K_Url_EditUserInfo, param, successBlock, failureBlock);

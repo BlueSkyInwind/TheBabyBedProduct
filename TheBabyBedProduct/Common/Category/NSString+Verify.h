@@ -14,4 +14,9 @@
  手机号验证 (不要出来太多，处理以后各种大王卡之类的卡)
  */
 -(BOOL)bb_isPhoneNumber;
+
+/** 对字符串安全处理 */
+-(NSString *)bb_safe;
+/** 判断字符串是不是安全的 */
+-(BOOL)bb_isSafe;
 @end

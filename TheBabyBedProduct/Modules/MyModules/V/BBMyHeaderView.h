@@ -22,9 +22,5 @@ typedef NS_ENUM(NSInteger,BBMyHeaderViewFuncType) {
 
 @property(nonatomic,copy) void(^funcBlock)(BBMyHeaderViewFuncType funcType);
 
-
--(instancetype)initWithFrame:(CGRect)frame
-                        user:(BBUser *)user;
-
 -(void)updateUserMess;
 @end
