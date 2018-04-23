@@ -26,7 +26,6 @@
     // Do any additional setup after loading the view.
     self.title = @"体温";
     [self addBackItem];
-
     [self configureView];
 
 }
