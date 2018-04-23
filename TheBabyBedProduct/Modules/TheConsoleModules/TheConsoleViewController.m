@@ -56,6 +56,7 @@
     }];
     
     _bodyView = [[NSBundle mainBundle]loadNibNamed:@"ConsoleBodyView" owner:self options:nil].lastObject;
+    _bodyView.backgroundColor = rgb(247, 248, 251, 1);
     [self.view addSubview:_bodyView];
     [_bodyView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.right.equalTo(@0);

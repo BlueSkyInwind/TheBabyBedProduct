@@ -15,9 +15,13 @@
 #if BBIsAPPStore
 #define K_Url_BBBase            @"http://114.55.129.5:8788"
 #define K_Url_GetImg            @"http://114.55.129.5:8081"
+#define K_Url_BBUDP             @"114.55.129.5"
+#define K_port_BBUDP            9999
 #else
 #define K_Url_BBBase            @"http://114.55.129.5:8788"
 #define K_Url_GetImg            @"http://114.55.129.5:8081"
+#define K_Url_BBUDP             @"114.55.129.5"
+#define K_port_BBUDP            9999
 #endif
 
 

@@ -17,6 +17,12 @@
 		2266C1BA20694A61004F653A /* CryingChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2266C1B920694A61004F653A /* CryingChartView.m */; };
 		2266C1BD20694A85004F653A /* CryingChartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2266C1BC20694A85004F653A /* CryingChartViewController.m */; };
 		22833BF9207A5E6800A70247 /* MessageModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 22833BF8207A5E6800A70247 /* MessageModel.m */; };
+		229FF0A72084E2C2005BA4A6 /* JMAirKissShareTools.m in Sources */ = {isa = PBXBuildFile; fileRef = 229FF0A42084DA00005BA4A6 /* JMAirKissShareTools.m */; };
+		229FF0AC2084EB65005BA4A6 /* JMAirKiss.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 229FF0AB2084EB65005BA4A6 /* JMAirKiss.framework */; };
+		229FF0AF20862EBD005BA4A6 /* BBUdpSocketManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 229FF0AE20862EBD005BA4A6 /* BBUdpSocketManager.m */; };
+		229FF0B22088EE9C005BA4A6 /* SendUdpMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 229FF0B12088EE9C005BA4A6 /* SendUdpMessage.m */; };
+		229FF0B52088EEC9005BA4A6 /* ReceiveUdpMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 229FF0B42088EEC9005BA4A6 /* ReceiveUdpMessage.m */; };
+		229FF0BA208B99C0005BA4A6 /* RSA.m in Sources */ = {isa = PBXBuildFile; fileRef = 229FF0B8208B99C0005BA4A6 /* RSA.m */; };
 		22CF35632073CCAB00707F8A /* ScanDeviceCodeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22CF35612073CCAB00707F8A /* ScanDeviceCodeViewController.m */; };
 		22CF35642073CCAB00707F8A /* ScanDeviceCodeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22CF35622073CCAB00707F8A /* ScanDeviceCodeViewController.xib */; };
 		22CF35682073DB1500707F8A /* QRScanView.m in Sources */ = {isa = PBXBuildFile; fileRef = 22CF35672073DB1500707F8A /* QRScanView.m */; };
@@ -198,6 +204,7 @@
 		84114B5420722CCD005A1DC9 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84114B5320722CCD005A1DC9 /* UIKit.framework */; };
 		84114B5620722CE0005A1DC9 /* UserNotifications.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84114B5520722CE0005A1DC9 /* UserNotifications.framework */; };
 		84114B5820722CF4005A1DC9 /* libresolv.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 84114B5720722CF4005A1DC9 /* libresolv.tbd */; };
+		8412F52A20886DF500521C23 /* CRC16.m in Sources */ = {isa = PBXBuildFile; fileRef = 8412F52920886DF500521C23 /* CRC16.m */; };
 		842D9CED206B94C90020C3C2 /* HomeLeftItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = 842D9CEC206B94C90020C3C2 /* HomeLeftItemView.m */; };
 		84332C9D206CE6F5009A9121 /* MessageTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 84332C9B206CE6F5009A9121 /* MessageTableViewCell.m */; };
 		84332C9E206CE6F5009A9121 /* MessageTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84332C9C206CE6F5009A9121 /* MessageTableViewCell.xib */; };
@@ -264,6 +271,17 @@
 		2266C1BC20694A85004F653A /* CryingChartViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CryingChartViewController.m; sourceTree = "<group>"; };
 		22833BF7207A5E6800A70247 /* MessageModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MessageModel.h; sourceTree = "<group>"; };
 		22833BF8207A5E6800A70247 /* MessageModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MessageModel.m; sourceTree = "<group>"; };
+		229FF0A32084D9FF005BA4A6 /* JMAirKissShareTools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JMAirKissShareTools.h; sourceTree = "<group>"; };
+		229FF0A42084DA00005BA4A6 /* JMAirKissShareTools.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JMAirKissShareTools.m; sourceTree = "<group>"; };
+		229FF0AB2084EB65005BA4A6 /* JMAirKiss.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = JMAirKiss.framework; sourceTree = "<group>"; };
+		229FF0AD20862EBD005BA4A6 /* BBUdpSocketManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BBUdpSocketManager.h; sourceTree = "<group>"; };
+		229FF0AE20862EBD005BA4A6 /* BBUdpSocketManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BBUdpSocketManager.m; sourceTree = "<group>"; };
+		229FF0B02088EE9C005BA4A6 /* SendUdpMessage.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SendUdpMessage.h; sourceTree = "<group>"; };
+		229FF0B12088EE9C005BA4A6 /* SendUdpMessage.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SendUdpMessage.m; sourceTree = "<group>"; };
+		229FF0B32088EEC9005BA4A6 /* ReceiveUdpMessage.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ReceiveUdpMessage.h; sourceTree = "<group>"; };
+		229FF0B42088EEC9005BA4A6 /* ReceiveUdpMessage.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ReceiveUdpMessage.m; sourceTree = "<group>"; };
+		229FF0B8208B99C0005BA4A6 /* RSA.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSA.m; sourceTree = "<group>"; };
+		229FF0B9208B99C0005BA4A6 /* RSA.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSA.h; sourceTree = "<group>"; };
 		22CF35502073C98300707F8A /* BBMyRewardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBMyRewardViewController.m; sourceTree = "<group>"; };
 		22CF35572073C99700707F8A /* BBEditInfoAvatarCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBEditInfoAvatarCell.m; sourceTree = "<group>"; };
 		22CF35582073C99700707F8A /* BBEditInformationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBEditInformationViewController.m; sourceTree = "<group>"; };
@@ -590,6 +608,9 @@
 		84114B5320722CCD005A1DC9 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		84114B5520722CE0005A1DC9 /* UserNotifications.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotifications.framework; path = System/Library/Frameworks/UserNotifications.framework; sourceTree = SDKROOT; };
 		84114B5720722CF4005A1DC9 /* libresolv.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libresolv.tbd; path = usr/lib/libresolv.tbd; sourceTree = SDKROOT; };
+		8412F52820886DF500521C23 /* CRC16.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CRC16.h; sourceTree = "<group>"; };
+		8412F52920886DF500521C23 /* CRC16.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CRC16.m; sourceTree = "<group>"; };
+		8412F52B2088845700521C23 /* SocketMacros.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SocketMacros.h; sourceTree = "<group>"; };
 		842D9CEB206B94C90020C3C2 /* HomeLeftItemView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeLeftItemView.h; sourceTree = "<group>"; };
 		842D9CEC206B94C90020C3C2 /* HomeLeftItemView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeLeftItemView.m; sourceTree = "<group>"; };
 		84332C9A206CE6F5009A9121 /* MessageTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MessageTableViewCell.h; sourceTree = "<group>"; };
@@ -673,6 +694,7 @@
 				84114B4320722BF6005A1DC9 /* jpush-ios-3.0.8.a in Frameworks */,
 				5726F380206B70C5008EED75 /* ShareSDKConnector.framework in Frameworks */,
 				5726F384206B70C5008EED75 /* ShareSDKExtension.framework in Frameworks */,
+				229FF0AC2084EB65005BA4A6 /* JMAirKiss.framework in Frameworks */,
 				5726F37C206B70C5008EED75 /* libWeiboSDK.a in Frameworks */,
 				5726F37E206B70C5008EED75 /* libWeChatSDK.a in Frameworks */,
 				5726F387206B70C5008EED75 /* QQConnector.framework in Frameworks */,
@@ -730,6 +752,15 @@
 				2263B8F72070A2F5005BB15E /* BLEMacro.h */,
 			);
 			path = BLEManager;
+			sourceTree = "<group>";
+		};
+		229FF0B7208B99A5005BA4A6 /* RSA */ = {
+			isa = PBXGroup;
+			children = (
+				229FF0B9208B99C0005BA4A6 /* RSA.h */,
+				229FF0B8208B99C0005BA4A6 /* RSA.m */,
+			);
+			path = RSA;
 			sourceTree = "<group>";
 		};
 		22CF35652073DAEA00707F8A /* QRscanView */ = {
@@ -1034,6 +1065,8 @@
 		22CFD39E2064015D0004186D /* Third */ = {
 			isa = PBXGroup;
 			children = (
+				229FF0B7208B99A5005BA4A6 /* RSA */,
+				842C02792084913600033F4A /* AirKiss */,
 				57210C8A2074C2DE0039D8D5 /* ZFPlayer */,
 				84114B3F20722BD0005A1DC9 /* JPush */,
 				57585AC3206D4428001BB202 /* LWShareView */,
@@ -1542,6 +1575,32 @@
 			path = JPush;
 			sourceTree = "<group>";
 		};
+		8412F52720886DDA00521C23 /* UdpSocket */ = {
+			isa = PBXGroup;
+			children = (
+				8412F52B2088845700521C23 /* SocketMacros.h */,
+				229FF0AD20862EBD005BA4A6 /* BBUdpSocketManager.h */,
+				229FF0AE20862EBD005BA4A6 /* BBUdpSocketManager.m */,
+				229FF0B02088EE9C005BA4A6 /* SendUdpMessage.h */,
+				229FF0B12088EE9C005BA4A6 /* SendUdpMessage.m */,
+				229FF0B32088EEC9005BA4A6 /* ReceiveUdpMessage.h */,
+				229FF0B42088EEC9005BA4A6 /* ReceiveUdpMessage.m */,
+				8412F52820886DF500521C23 /* CRC16.h */,
+				8412F52920886DF500521C23 /* CRC16.m */,
+			);
+			path = UdpSocket;
+			sourceTree = "<group>";
+		};
+		842C02792084913600033F4A /* AirKiss */ = {
+			isa = PBXGroup;
+			children = (
+				229FF0A32084D9FF005BA4A6 /* JMAirKissShareTools.h */,
+				229FF0A42084DA00005BA4A6 /* JMAirKissShareTools.m */,
+				229FF0AB2084EB65005BA4A6 /* JMAirKiss.framework */,
+			);
+			path = AirKiss;
+			sourceTree = "<group>";
+		};
 		8449AC032062031F00526935 /* NetWorkModules */ = {
 			isa = PBXGroup;
 			children = (
@@ -1549,6 +1608,7 @@
 				8449AC0D2062283300526935 /* NetWorkRequestManager.m */,
 				57210D07207736040039D8D5 /* NetWorkRequestManager+BBRequest.h */,
 				57210D08207736040039D8D5 /* NetWorkRequestManager+BBRequest.m */,
+				8412F52720886DDA00521C23 /* UdpSocket */,
 			);
 			path = NetWorkModules;
 			sourceTree = "<group>";
@@ -1802,6 +1862,7 @@
 				"${BUILT_PRODUCTS_DIR}/AFNetworking/AFNetworking.framework",
 				"${BUILT_PRODUCTS_DIR}/BAButton/BAButton.framework",
 				"${BUILT_PRODUCTS_DIR}/BRPickerView/BRPickerView.framework",
+				"${BUILT_PRODUCTS_DIR}/CocoaAsyncSocket/CocoaAsyncSocket.framework",
 				"${BUILT_PRODUCTS_DIR}/IQKeyboardManager/IQKeyboardManager.framework",
 				"${BUILT_PRODUCTS_DIR}/JSONModel/JSONModel.framework",
 				"${BUILT_PRODUCTS_DIR}/MBProgressHUD/MBProgressHUD.framework",
@@ -1821,6 +1882,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AFNetworking.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/BAButton.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/BRPickerView.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CocoaAsyncSocket.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManager.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JSONModel.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MBProgressHUD.framework",
@@ -1865,18 +1927,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				229FF0A72084E2C2005BA4A6 /* JMAirKissShareTools.m in Sources */,
 				5726F3AA206B8537008EED75 /* BBHelpAndSuggestionViewController.m in Sources */,
 				57210CAA2074C2DE0039D8D5 /* ZFBrightnessView.m in Sources */,
 				22CFD3D22067C3120004186D /* ConsoleTemperatureViewController.m in Sources */,
 				57585AD2206D4428001BB202 /* LWShareService.m in Sources */,
 				574C6CD92069262000F5BF55 /* BBLoginRegistHeaderView.m in Sources */,
 				574C6CBA2069254200F5BF55 /* PPTextfield.m in Sources */,
+				229FF0B52088EEC9005BA4A6 /* ReceiveUdpMessage.m in Sources */,
 				574C6CE62069272700F5BF55 /* UIImageView+EasilyMake.m in Sources */,
 				22CFD3AE206401780004186D /* PXYview.m in Sources */,
 				22CFD3B6206532F20004186D /* DateChooseView.m in Sources */,
 				22CF357620775D4700707F8A /* deviceListTableViewCell.m in Sources */,
 				22CFD3CF2066A07A0004186D /* RoomTemperatureChartViewController.m in Sources */,
 				84BE5EB6206A48B5007A001D /* GlobalPopView.m in Sources */,
+				229FF0BA208B99C0005BA4A6 /* RSA.m in Sources */,
 				22CFD39D2062ADB30004186D /* TemperatureChartView.m in Sources */,
 				5726F33F206A3185008EED75 /* PPTextfield+EasilyMake.m in Sources */,
 				574C6CE82069272700F5BF55 /* UIFont+BB.m in Sources */,
@@ -1909,6 +1974,7 @@
 				574C6CD42069262000F5BF55 /* BBMyHeaderView.m in Sources */,
 				22CFD38120614AE90004186D /* HomePageViewController.m in Sources */,
 				8449AC152062354000526935 /* LaunchConfiguration.m in Sources */,
+				8412F52A20886DF500521C23 /* CRC16.m in Sources */,
 				57210CAC2074C2DE0039D8D5 /* ASValuePopUpView.m in Sources */,
 				8449AC18206239F900526935 /* GlobalUtility.m in Sources */,
 				8490CFC72074814200D416C1 /* DeviceConnectAnimationView.m in Sources */,
@@ -1941,6 +2007,7 @@
 				57585ABA206D116C001BB202 /* BBMyDeviceViewController.m in Sources */,
 				57210CA62074C2DE0039D8D5 /* UIWindow+CurrentViewController.m in Sources */,
 				8449AC0B20620D1B00526935 /* BaseViewModel.m in Sources */,
+				229FF0AF20862EBD005BA4A6 /* BBUdpSocketManager.m in Sources */,
 				22CFD38920614C180004186D /* EarlyEducationViewController.m in Sources */,
 				22CFD3AD206401780004186D /* PXXview.m in Sources */,
 				22CFD370206143AA0004186D /* GlobalConfig.m in Sources */,
@@ -1999,6 +2066,7 @@
 				574C6CD62069262000F5BF55 /* BBLoginView.m in Sources */,
 				57585AD3206D4428001BB202 /* LWShareContentView.m in Sources */,
 				2263B8ED206BE81B005BB15E /* UIImage+category.m in Sources */,
+				229FF0B22088EE9C005BA4A6 /* SendUdpMessage.m in Sources */,
 				574C6CBC2069254200F5BF55 /* NSString+PPTextField.m in Sources */,
 				8490CFBF20747CFC00D416C1 /* ConfigurationWifiViewController.m in Sources */,
 				22CF356E20764F6300707F8A /* GlobalAlertViewManager.m in Sources */,
@@ -2165,7 +2233,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = GP8N54644M;
+				DEVELOPMENT_TEAM = WB5UAUH8M2;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/TheBabyBedProduct/Third/MOBSDK/ShareSDK/Support/PlatformSDK/QQSDK",
@@ -2174,6 +2242,7 @@
 					"$(PROJECT_DIR)/TheBabyBedProduct/Third/MOBSDK/ShareSDK/Support/PlatformConnector",
 					"$(PROJECT_DIR)/TheBabyBedProduct/Third/MOBSDK/ShareSDK",
 					"$(PROJECT_DIR)/TheBabyBedProduct/Third/MOBSDK/Required",
+					"$(PROJECT_DIR)/TheBabyBedProduct/Third/AirKiss",
 				);
 				GCC_PREFIX_HEADER = TheBabyBedProduct/Common/TheBabyBedProduct.pch;
 				INFOPLIST_FILE = "$(SRCROOT)/TheBabyBedProduct/Support/Info.plist";
@@ -2185,6 +2254,7 @@
 					"$(PROJECT_DIR)/TheBabyBedProduct/Third/MOBSDK/ShareSDK/Support/PlatformSDK/WeChatSDK",
 					"$(PROJECT_DIR)/TheBabyBedProduct/Third/JPush",
 				);
+				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-framework",
@@ -2231,7 +2301,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = GP8N54644M;
+				DEVELOPMENT_TEAM = WB5UAUH8M2;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/TheBabyBedProduct/Third/MOBSDK/ShareSDK/Support/PlatformSDK/QQSDK",
@@ -2240,6 +2310,7 @@
 					"$(PROJECT_DIR)/TheBabyBedProduct/Third/MOBSDK/ShareSDK/Support/PlatformConnector",
 					"$(PROJECT_DIR)/TheBabyBedProduct/Third/MOBSDK/ShareSDK",
 					"$(PROJECT_DIR)/TheBabyBedProduct/Third/MOBSDK/Required",
+					"$(PROJECT_DIR)/TheBabyBedProduct/Third/AirKiss",
 				);
 				GCC_PREFIX_HEADER = TheBabyBedProduct/Common/TheBabyBedProduct.pch;
 				INFOPLIST_FILE = "$(SRCROOT)/TheBabyBedProduct/Support/Info.plist";
@@ -2251,6 +2322,7 @@
 					"$(PROJECT_DIR)/TheBabyBedProduct/Third/MOBSDK/ShareSDK/Support/PlatformSDK/WeChatSDK",
 					"$(PROJECT_DIR)/TheBabyBedProduct/Third/JPush",
 				);
+				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-framework",

@@ -10,4 +10,9 @@
 
 @interface DeviceConnectingViewController : BaseViewController
 
+
+/* */
+@property(nonatomic,strong)NSString * ssid;
+@property(nonatomic,strong)NSString * wifiPassword;
+
 @end

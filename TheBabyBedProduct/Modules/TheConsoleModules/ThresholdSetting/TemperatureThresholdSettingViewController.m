@@ -19,11 +19,18 @@
     // Do any additional setup after loading the view from its nib.
     self.title = @"阈值设定";
     [self addBackItem];
-
+    [self configureView];
 }
 
 -(void)configureView{
     
+    self.saveBtn.layer.cornerRadius = self.saveBtn.frame.size.height / 2;
+    self.saveBtn.clipsToBounds = true;
+    
+    self.lowerTemperatureTextfield.layer.borderWidth = 1;
+    self.lowerTemperatureTextfield.layer.borderColor = rgb(128, 128, 128, 1).CGColor;
+    self.highTemperatureTextfield.layer.borderWidth = 1;
+    self.highTemperatureTextfield.layer.borderColor = rgb(128, 128, 128, 1).CGColor;
     
 }
 
@@ -40,10 +47,9 @@
 #pragma mark --- 网络请求 ----
 
 -(void)SetTemperatureThresholdValueComplication:(void(^)(BOOL isSuccess))finish{
-    [BBRequestTool SetThresholdValueDeviceType:@"2" minValue:self.lowerTemperatureTextfield.text maxValue:self.highTemperatureTextfield.text deviceId:@"" successBlock:^(EnumServerStatus status, id object) {
+    [BBRequestTool SetThresholdValueDeviceType:@"2" minValue:self.lowerTemperatureTextfield.text maxValue:self.highTemperatureTextfield.text deviceId:BBUserHelpers.deviceId successBlock:^(EnumServerStatus status, id object) {
         BaseResultModel *resultM = [[BaseResultModel alloc] initWithDictionary:object error:nil];
         if (resultM.code == 0) {
-            
             finish(true);
         }else{
             [QMUITips showWithText:resultM.msg inView:self.view hideAfterDelay:0.5];

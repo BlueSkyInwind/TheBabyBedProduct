@@ -114,7 +114,9 @@
 }
 
 -(void)CloseBtnClick:(id)sender{
-    [self dismiss];
+    if (self.globalPopViewClick) {
+        self.globalPopViewClick(0);
+    };
 }
 
 -(void)configureView{
@@ -165,7 +167,7 @@
     [_cancelBtn addTarget:self action:@selector(CancelBtnClick:) forControlEvents:UIControlEventTouchUpInside];
     [_alertView addSubview:_cancelBtn];
     [_cancelBtn mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.centerX.equalTo(_alertView.mas_centerX).with.offset(-75);
+        make.centerX.equalTo(_alertView.mas_centerX).with.offset(-65);
         make.bottom.equalTo(_alertView.mas_bottom).offset(-25);
         make.width.equalTo(@88);
         make.height.equalTo(@33);
@@ -180,7 +182,7 @@
     [_sureBtn addTarget:self action:@selector(SureBtnClick:) forControlEvents:UIControlEventTouchUpInside];
     [_alertView addSubview:_sureBtn];
     [_sureBtn mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.centerX.equalTo(_alertView.mas_centerX).with.offset(75);
+        make.centerX.equalTo(_alertView.mas_centerX).with.offset(65);
         make.bottom.equalTo(_alertView.mas_bottom).offset(-25);
         make.width.equalTo(@88);
         make.height.equalTo(@35);
