@@ -23,6 +23,7 @@
 		229FF0B22088EE9C005BA4A6 /* SendUdpMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 229FF0B12088EE9C005BA4A6 /* SendUdpMessage.m */; };
 		229FF0B52088EEC9005BA4A6 /* ReceiveUdpMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 229FF0B42088EEC9005BA4A6 /* ReceiveUdpMessage.m */; };
 		229FF0BA208B99C0005BA4A6 /* RSA.m in Sources */ = {isa = PBXBuildFile; fileRef = 229FF0B8208B99C0005BA4A6 /* RSA.m */; };
+		229FF0BD208E258F005BA4A6 /* BabyBedPeripheralManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 229FF0BC208E258F005BA4A6 /* BabyBedPeripheralManager.m */; };
 		22CF35632073CCAB00707F8A /* ScanDeviceCodeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22CF35612073CCAB00707F8A /* ScanDeviceCodeViewController.m */; };
 		22CF35642073CCAB00707F8A /* ScanDeviceCodeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22CF35622073CCAB00707F8A /* ScanDeviceCodeViewController.xib */; };
 		22CF35682073DB1500707F8A /* QRScanView.m in Sources */ = {isa = PBXBuildFile; fileRef = 22CF35672073DB1500707F8A /* QRScanView.m */; };
@@ -285,6 +286,8 @@
 		229FF0B42088EEC9005BA4A6 /* ReceiveUdpMessage.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ReceiveUdpMessage.m; sourceTree = "<group>"; };
 		229FF0B8208B99C0005BA4A6 /* RSA.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSA.m; sourceTree = "<group>"; };
 		229FF0B9208B99C0005BA4A6 /* RSA.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSA.h; sourceTree = "<group>"; };
+		229FF0BB208E258F005BA4A6 /* BabyBedPeripheralManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BabyBedPeripheralManager.h; sourceTree = "<group>"; };
+		229FF0BC208E258F005BA4A6 /* BabyBedPeripheralManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BabyBedPeripheralManager.m; sourceTree = "<group>"; };
 		22CF35502073C98300707F8A /* BBMyRewardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBMyRewardViewController.m; sourceTree = "<group>"; };
 		22CF35572073C99700707F8A /* BBEditInfoAvatarCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBEditInfoAvatarCell.m; sourceTree = "<group>"; };
 		22CF35582073C99700707F8A /* BBEditInformationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBEditInformationViewController.m; sourceTree = "<group>"; };
@@ -757,6 +760,8 @@
 				2263B8F120709EA2005BB15E /* BaseCentralManager.m */,
 				2263B8F32070A27A005BB15E /* BasePeripheralManager.h */,
 				2263B8F42070A27A005BB15E /* BasePeripheralManager.m */,
+				229FF0BB208E258F005BA4A6 /* BabyBedPeripheralManager.h */,
+				229FF0BC208E258F005BA4A6 /* BabyBedPeripheralManager.m */,
 				2263B8F72070A2F5005BB15E /* BLEMacro.h */,
 			);
 			path = BLEManager;
@@ -2006,6 +2011,7 @@
 				22CFD38120614AE90004186D /* HomePageViewController.m in Sources */,
 				8449AC152062354000526935 /* LaunchConfiguration.m in Sources */,
 				8412F52A20886DF500521C23 /* CRC16.m in Sources */,
+				229FF0BD208E258F005BA4A6 /* BabyBedPeripheralManager.m in Sources */,
 				57210CAC2074C2DE0039D8D5 /* ASValuePopUpView.m in Sources */,
 				8449AC18206239F900526935 /* GlobalUtility.m in Sources */,
 				8490CFC72074814200D416C1 /* DeviceConnectAnimationView.m in Sources */,

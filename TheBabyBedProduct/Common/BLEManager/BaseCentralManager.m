@@ -78,7 +78,7 @@ static BaseCentralManager * controller;
 -(void)startScan{
     [peripheralDictionaryArray removeAllObjects];
     [manager stopScan];
-    [manager scanForPeripheralsWithServices:@[[CBUUID UUIDWithString:@"FEE7"]] options:@{CBCentralManagerScanOptionAllowDuplicatesKey: @YES}];
+    [manager scanForPeripheralsWithServices:nil options:@{CBCentralManagerScanOptionAllowDuplicatesKey: @NO}];
     NSLog(@"Start Scan!!");
 }
 -(void)stopScan{
@@ -98,9 +98,7 @@ static BaseCentralManager * controller;
     }
     
     [self stopScan];
-    
     NSMutableDictionary * tmpDict = [peripheralDictionaryArray objectAtIndex:aindex];
-    
     CBPeripheral * p = tmpDict[thePeripheral];
     
     if (connectedPeripheral != nil) {
@@ -116,10 +114,8 @@ static BaseCentralManager * controller;
     if (self.delegate && [self.delegate respondsToSelector:@selector(onConnectingPeripheral:)]) {
         [self.delegate onConnectingPeripheral:p];
     }
-    
     NSLog(@"Connect!!!");
 }
-
 
 -(void)cancelConnecting{
     if (theConnectingPeripheral) {
@@ -139,7 +135,7 @@ static BaseCentralManager * controller;
         if (self.delegate && [self.delegate respondsToSelector:@selector(onDisconnectedPeripheral:)]) {
             [self.delegate onDisconnectedPeripheral:connectedPeripheral.curPeripheral];
         }
-        [connectedPeripheral clean];
+//        [connectedPeripheral clean];
         connectedPeripheral = nil;
     }
     NSLog(@"Disconnect!!!");
@@ -192,11 +188,7 @@ static BaseCentralManager * controller;
 - (void)centralManager:(CBCentralManager *)central didDiscoverPeripheral:(CBPeripheral *)aPeripheral advertisementData:(NSDictionary *)advertisementData RSSI:(NSNumber *)RSSI{
     //NSLog(@"Peripheral:%@",aPeripheral);
     
-    if (RSSI.intValue < -70 || RSSI.intValue > 0) {
-        //if signal is poor
-        return;
-    }
-    if (![aPeripheral.name hasPrefix:deviceNameOne]) {
+    if (![aPeripheral.name hasPrefix:deviceNameP]) {
         return;
     }
     
@@ -211,7 +203,6 @@ static BaseCentralManager * controller;
         if ([tmpDict[theIdentifier] isEqualToString:identifier]) {
             //if the same identifier peripheral has been exist, replace it with latest dictionary with new RSSI.
             [peripheralDictionaryArray replaceObjectAtIndex:i withObject:peripheralDictionary];
-            
             if (self.delegate && [self.delegate respondsToSelector:@selector(onScanning:)]) {
                [self.delegate onScanning:peripheralDictionaryArray];
             }
@@ -232,7 +223,7 @@ static BaseCentralManager * controller;
     NSLog(@"didConnectPeripheral:%@",aPeripheral);
     
     if ([aPeripheral.name isEqualToString:deviceNameOne]) {
-        connectedPeripheral = [[BasePeripheralManager alloc] initWithPeripheral:aPeripheral];
+        connectedPeripheral = [[BabyBedPeripheralManager alloc] initWithPeripheral:aPeripheral];
     }
 
     isConnectting = NO;
@@ -255,13 +246,10 @@ static BaseCentralManager * controller;
 - (void)centralManager:(CBCentralManager *)central didDisconnectPeripheral:(CBPeripheral *)aPeripheral error:(NSError *)error{
     NSLog(@"didDisconnectPeripheral: ---ERROR:%@  ----Peripheral:%@",error,aPeripheral);
     
-    if ([aPeripheral.name isEqualToString:deviceNameOne]) {
-        if (connectedPeripheral) {
-            [connectedPeripheral clean];
-            connectedPeripheral = nil;
-        }
+    if (connectedPeripheral) {
+        connectedPeripheral = nil;
     }
-    
+
     if (self.delegate && [self.delegate respondsToSelector:@selector(onDisconnectedPeripheral:)]) {
         [self.delegate onDisconnectedPeripheral:aPeripheral];
     }

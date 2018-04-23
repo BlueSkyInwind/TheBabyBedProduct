@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <CoreBluetooth/CoreBluetooth.h>
 #import "BasePeripheralManager.h"
+#import "BabyBedPeripheralManager.h"
 
 typedef void(^CentralManagerStatusBlock)(BOOL isOpenOrOff);
 
@@ -87,7 +88,7 @@ typedef void(^CentralManagerStatusBlock)(BOOL isOpenOrOff);
  *  @discussion 连接成功的周边管理者对象，断开连接后为nil。可根据该属性是否为nil判断是否有连接。
  *
  */
-@property(nonatomic,strong)BasePeripheralManager * connectedPeripheral;
+@property(nonatomic,strong)BabyBedPeripheralManager * connectedPeripheral;
 
 /*!
  *  @property delegate
