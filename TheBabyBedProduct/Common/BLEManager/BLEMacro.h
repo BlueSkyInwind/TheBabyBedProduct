@@ -13,7 +13,9 @@
 #endif /* BLEMacro_h */
 
 #pragma mark -----------------设备的名字---------------
-#define deviceNameOne @"Baby"
+#define deviceNameP @"DF"
+#define deviceNameOne @"DF01"
+#define deviceNameTwo @"DF02"
 
 #pragma mark -----------------扫描到的周边放在字典中的键---------------
 #define thePeripheral @"peripheral"
@@ -22,6 +24,8 @@
 #define theRSSI @"RSSI"
 
 #pragma mark -----------------事件通知---------------
+
+#define BLE_POWER_NOTIFI @"BLEPOWERNOTIFI"
 #define deviceConnected @"deviceConnected"
 #define deviceDisconnected @"deviceDisconnected"
 #define finishedGetDeviceInfo @"finishedGetDeviceInfo"

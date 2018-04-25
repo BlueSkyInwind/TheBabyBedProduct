@@ -19,4 +19,5 @@ typedef void (^GlobalPopViewClick)(NSInteger index);
 
 -(void)dismiss;
 
++(instancetype)initWithTitle:(NSString *)title superView:(UIView *)superView content:(NSString *)content cancelTitle:(NSString *)cancelTitle sureTitle:(NSString *)sureTitle clickcompletion:(GlobalPopViewClick)globalPopClickBlock;
 @end

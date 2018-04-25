@@ -55,7 +55,6 @@
     }
     
     [popView adaptationPopViewHeight:content minHeight:minHeight];
-
     return popView;
 }
 
@@ -69,7 +68,6 @@
         make.height.equalTo(@(resultheight));
     }];
 }
-
 
 -(void)show{
     
@@ -201,7 +199,57 @@
         make.bottom.equalTo(_sureBtn.mas_top).with.offset(-15);
     }];
 }
+#pragma mrak - 蓝牙模块定制弹窗
++(instancetype)initWithTitle:(NSString *)title superView:(UIView *)superView content:(NSString *)content cancelTitle:(NSString *)cancelTitle sureTitle:(NSString *)sureTitle clickcompletion:(GlobalPopViewClick)globalPopClickBlock{
+    
+    GlobalPopView * popView = [[GlobalPopView alloc]initWithFrame:superView.bounds];
+    [superView addSubview:popView];
+    popView.backgroundColor = rgb(255, 255, 255, 1);
+    popView.globalPopViewClick = globalPopClickBlock;
+    popView.titleLabel.text = title;
+    popView.contentLabel.text = content;
+    [popView.cancelBtn setTitle:cancelTitle forState:UIControlStateNormal];
+    [popView.sureBtn setTitle:sureTitle forState:UIControlStateNormal];
+    
+    CGFloat minHeight = 170;
+    if (title == nil) {
+        minHeight  = 140;
+        [popView.contentLabel mas_remakeConstraints:^(MASConstraintMaker *make) {
+            make.top.equalTo(popView.alertView.mas_top).with.offset(35);
+            make.left.equalTo(popView.alertView.mas_left).with.offset(5);
+            make.right.equalTo(popView.alertView.mas_right).with.offset(-5);
+            make.bottom.equalTo(popView.sureBtn.mas_top).with.offset(-5);
+        }];
+    }
+    
+    [popView.alertView mas_remakeConstraints:^(MASConstraintMaker *make) {
+        make.centerX.equalTo(popView.mas_centerX);
+        make.top.equalTo(popView.mas_top).with.offset(150);
+        make.height.equalTo(@170);
+        make.width.equalTo(@298);
+    }];
+    
+    [popView adaptationPopViewHeight:content minHeight:minHeight];
+    [popView addExplainLabel];
+    return popView;
+}
 
+-(void)addExplainLabel{
+    
+    UILabel  * explainLabel = [[UILabel alloc]init];
+    explainLabel.font = [UIFont systemFontOfSize:14];
+    explainLabel.textColor = rgb(255, 155, 57, 1);
+    explainLabel.textAlignment = NSTextAlignmentCenter;
+    explainLabel.text = @"减少用户麻烦，在二维码中附蓝牙链接ID";
+    explainLabel.numberOfLines = 0;
+    [self addSubview:explainLabel];
+    [explainLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(_alertView.mas_bottom).with.offset(15);
+        make.centerX.equalTo(_alertView.mas_centerX);
+    }];
+    
+    
+}
 
 /*
 // Only override drawRect: if you perform custom drawing.

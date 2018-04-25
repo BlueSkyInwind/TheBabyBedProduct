@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="BLEScanConnectViewController">
+            <connections>
+                <outlet property="qrScanView" destination="rih-Kn-JLt" id="y6A-44-Xza"/>
+                <outlet property="scanButton" destination="nq4-Ui-KN1" id="9NV-IO-DkJ"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="请扫描二维码进行蓝牙连接" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Es-BX-X72">
+                    <rect key="frame" x="83" y="139" width="208" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rih-Kn-JLt">
+                    <rect key="frame" x="67" y="180" width="241" height="241"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="rih-Kn-JLt" secondAttribute="height" multiplier="1:1" id="kLN-f2-f9E"/>
+                    </constraints>
+                </view>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nq4-Ui-KN1">
+                    <rect key="frame" x="90" y="495" width="195" height="45"/>
+                    <color key="backgroundColor" red="1" green="0.92549019610000005" blue="0.71764705880000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="45" id="eym-BQ-mOi"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                    <state key="normal" title="手动配对蓝牙">
+                        <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </state>
+                    <connections>
+                        <action selector="manualConnectBLEClick:" destination="-1" eventType="touchUpInside" id="mIL-Nh-9sI"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" red="0.96862745098039216" green="0.97647058823529409" blue="0.98431372549019602" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="rih-Kn-JLt" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="67" id="Hvb-78-LyI"/>
+                <constraint firstItem="nq4-Ui-KN1" firstAttribute="top" secondItem="rih-Kn-JLt" secondAttribute="bottom" constant="74" id="LKR-Ml-O7s"/>
+                <constraint firstItem="7Es-BX-X72" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="M0i-uj-g7A"/>
+                <constraint firstItem="nq4-Ui-KN1" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="90" id="Pa5-f0-Igs"/>
+                <constraint firstItem="7Es-BX-X72" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="139" id="esN-ze-fk7"/>
+                <constraint firstAttribute="trailing" secondItem="nq4-Ui-KN1" secondAttribute="trailing" constant="90" id="fxy-aK-tOx"/>
+                <constraint firstItem="rih-Kn-JLt" firstAttribute="top" secondItem="7Es-BX-X72" secondAttribute="bottom" constant="20" id="gxP-be-D2H"/>
+                <constraint firstItem="nq4-Ui-KN1" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="jz8-vN-p2a"/>
+                <constraint firstAttribute="trailing" secondItem="rih-Kn-JLt" secondAttribute="trailing" constant="67" id="t48-xb-HPk"/>
+            </constraints>
+            <point key="canvasLocation" x="33.5" y="53.5"/>
+        </view>
+    </objects>
+</document>

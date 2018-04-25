@@ -9,6 +9,9 @@
 #import <Foundation/Foundation.h>
 #import <CoreBluetooth/CoreBluetooth.h>
 #import "BasePeripheralManager.h"
+#import "BabyBedPeripheralManager.h"
+
+typedef void(^CentralManagerStatusBlock)(BOOL isOpenOrOff);
 
 @protocol BaseCentralManagerDelegate <NSObject>
 
@@ -72,12 +75,20 @@
 @property(nonatomic,strong)CBCentralManager * manager;
 
 /*!
+ *  @property StatusBlock
+ *
+ *  @discussion 中心设备的状态
+ *
+ */
+@property(nonatomic,copy,readonly)CentralManagerStatusBlock  statusBlock;
+@property(nonatomic,assign,readonly)BOOL managerStatus;
+/*!
  *  @property connectedPeripheral
  *
  *  @discussion 连接成功的周边管理者对象，断开连接后为nil。可根据该属性是否为nil判断是否有连接。
  *
  */
-@property(nonatomic,strong)BasePeripheralManager * connectedPeripheral;
+@property(nonatomic,strong)BabyBedPeripheralManager * connectedPeripheral;
 
 /*!
  *  @property delegate
@@ -102,7 +113,12 @@
  *
  */
 -(NSString *)getVersion;
-
+/*!
+ *  @method ManagerStatus
+ *
+ *  @discussion 中心设备蓝牙的状态
+ */
+-(void)getCentralManagerStatus:(CentralManagerStatusBlock)managerStatus;
 /*!
  *  @method startScan
  *

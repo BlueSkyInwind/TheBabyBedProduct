@@ -9,6 +9,7 @@
 #import "ConfigurationWifiViewController.h"
 #import "DeviceConnectingViewController.h"
 #import "JMAirKissShareTools.h"
+#import "BLEDeviceStatusViewController.h"
 
 @interface ConfigurationWifiViewController ()<UITextFieldDelegate>{
     
@@ -66,10 +67,12 @@
         return;
     }
     
-    DeviceConnectingViewController * connectVC = [[DeviceConnectingViewController alloc]init];
-    connectVC.ssid = _ssidStr;
-    connectVC.wifiPassword = _inputTextfield.text;
-    [self.navigationController pushViewController:connectVC animated:true];
+    BLEDeviceStatusViewController * blePairingVC = [[BLEDeviceStatusViewController alloc]init];
+    [self.navigationController pushViewController:blePairingVC animated:true];
+//    DeviceConnectingViewController * connectVC = [[DeviceConnectingViewController alloc]init];
+//    connectVC.ssid = _ssidStr;
+//    connectVC.wifiPassword = _inputTextfield.text;
+//    [self.navigationController pushViewController:connectVC animated:true];
 }
 
 -(void)getSSID{
@@ -79,7 +82,7 @@
             if (index == 0) {
                 
             }else if (index == 1){
-             [GlobalTool openSystemSetting];
+             [GlobalTool openSystemSetting:@"App-Prefs:root=WIFI"];
             }
         }];
     }else {

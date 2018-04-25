@@ -12,7 +12,8 @@
 
 #define selfVersionCode @"1.0.0"
 
-@implementation BaseCentralManager{
+
+@interface BaseCentralManager(){
     
     NSMutableArray * peripheralDictionaryArray;
     
@@ -21,6 +22,13 @@
     BOOL isConnectting;
     
 }
+
+@property(nonatomic,copy,readwrite)CentralManagerStatusBlock  statusBlock;
+@property(nonatomic,copy,readwrite)BOOL    managerStatus;
+
+@end
+
+@implementation BaseCentralManager
 
 
 @synthesize manager,connectedPeripheral;
@@ -34,7 +42,6 @@ static BaseCentralManager * controller;
             controller = [[BaseCentralManager alloc] init];
         }
     }
-    
     return controller;
 }
 
@@ -71,7 +78,7 @@ static BaseCentralManager * controller;
 -(void)startScan{
     [peripheralDictionaryArray removeAllObjects];
     [manager stopScan];
-    [manager scanForPeripheralsWithServices:@[[CBUUID UUIDWithString:@"FEE7"]] options:@{CBCentralManagerScanOptionAllowDuplicatesKey: @YES}];
+    [manager scanForPeripheralsWithServices:nil options:@{CBCentralManagerScanOptionAllowDuplicatesKey: @NO}];
     NSLog(@"Start Scan!!");
 }
 -(void)stopScan{
@@ -91,9 +98,7 @@ static BaseCentralManager * controller;
     }
     
     [self stopScan];
-    
     NSMutableDictionary * tmpDict = [peripheralDictionaryArray objectAtIndex:aindex];
-    
     CBPeripheral * p = tmpDict[thePeripheral];
     
     if (connectedPeripheral != nil) {
@@ -109,10 +114,8 @@ static BaseCentralManager * controller;
     if (self.delegate && [self.delegate respondsToSelector:@selector(onConnectingPeripheral:)]) {
         [self.delegate onConnectingPeripheral:p];
     }
-    
     NSLog(@"Connect!!!");
 }
-
 
 -(void)cancelConnecting{
     if (theConnectingPeripheral) {
@@ -132,10 +135,9 @@ static BaseCentralManager * controller;
         if (self.delegate && [self.delegate respondsToSelector:@selector(onDisconnectedPeripheral:)]) {
             [self.delegate onDisconnectedPeripheral:connectedPeripheral.curPeripheral];
         }
-        [connectedPeripheral clean];
+//        [connectedPeripheral clean];
         connectedPeripheral = nil;
     }
-    
     NSLog(@"Disconnect!!!");
 }
 
@@ -161,27 +163,32 @@ static BaseCentralManager * controller;
             NSLog(@"蓝牙---CBCentralManagerStateUnauthorized");
             break;
         case CBCentralManagerStatePoweredOff:
+            self.managerStatus = false;
             [self disconnect];
             NSLog(@"关闭蓝牙---CBCentralManagerStatePoweredOff！");
             break;
         case CBCentralManagerStatePoweredOn:
-
+            self.managerStatus = true;
             NSLog(@"打开蓝牙------CBCentralManagerStatePoweredOn！！");
             break;
-            
         default:
             break;
     }
 }
+-(BOOL)managerStatus{
+    [GlobalTool saveUserDefaul:[NSString stringWithFormat:@"%@",@(_managerStatus)] Key:BLE_POWER_NOTIFI];
+    return _managerStatus;
+}
+
+-(void)getCentralManagerStatus:(CentralManagerStatusBlock)managerStatus{
+    self.statusBlock = managerStatus;
+}
+
 //发现设备
 - (void)centralManager:(CBCentralManager *)central didDiscoverPeripheral:(CBPeripheral *)aPeripheral advertisementData:(NSDictionary *)advertisementData RSSI:(NSNumber *)RSSI{
     //NSLog(@"Peripheral:%@",aPeripheral);
     
-    if (RSSI.intValue < -70 || RSSI.intValue > 0) {
-        //if signal is poor
-        return;
-    }
-    if (![aPeripheral.name hasPrefix:deviceNameOne]) {
+    if (![aPeripheral.name hasPrefix:deviceNameP]) {
         return;
     }
     
@@ -196,7 +203,6 @@ static BaseCentralManager * controller;
         if ([tmpDict[theIdentifier] isEqualToString:identifier]) {
             //if the same identifier peripheral has been exist, replace it with latest dictionary with new RSSI.
             [peripheralDictionaryArray replaceObjectAtIndex:i withObject:peripheralDictionary];
-            
             if (self.delegate && [self.delegate respondsToSelector:@selector(onScanning:)]) {
                [self.delegate onScanning:peripheralDictionaryArray];
             }
@@ -217,7 +223,7 @@ static BaseCentralManager * controller;
     NSLog(@"didConnectPeripheral:%@",aPeripheral);
     
     if ([aPeripheral.name isEqualToString:deviceNameOne]) {
-        connectedPeripheral = [[BasePeripheralManager alloc] initWithPeripheral:aPeripheral];
+        connectedPeripheral = [[BabyBedPeripheralManager alloc] initWithPeripheral:aPeripheral];
     }
 
     isConnectting = NO;
@@ -240,13 +246,10 @@ static BaseCentralManager * controller;
 - (void)centralManager:(CBCentralManager *)central didDisconnectPeripheral:(CBPeripheral *)aPeripheral error:(NSError *)error{
     NSLog(@"didDisconnectPeripheral: ---ERROR:%@  ----Peripheral:%@",error,aPeripheral);
     
-    if ([aPeripheral.name isEqualToString:deviceNameOne]) {
-        if (connectedPeripheral) {
-            [connectedPeripheral clean];
-            connectedPeripheral = nil;
-        }
+    if (connectedPeripheral) {
+        connectedPeripheral = nil;
     }
-    
+
     if (self.delegate && [self.delegate respondsToSelector:@selector(onDisconnectedPeripheral:)]) {
         [self.delegate onDisconnectedPeripheral:aPeripheral];
     }
