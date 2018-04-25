@@ -50,14 +50,22 @@
     UIImageView *avatarImgV = [UIImageView bb_imgVMakeWithSuperV:userIntegralBgV imgName:@"touxianggg"];
     avatarImgV.frame = CGRectFlatMake(leftMargin, avatarImgY, avatarImgW, avatarImgW);
     
+    BBUser *user = [BBUser bb_getUser];
     UILabel *mesLB = [UILabel bb_lbMakeWithSuperV:userIntegralBgV fontSize:16 alignment:NSTextAlignmentLeft textColor:k_color_515151];
-    mesLB.text = @"欧阳马可  200积分";
+    mesLB.text = [NSString stringWithFormat:@"%@   %lu积分",[user.username bb_safe],(unsigned long)user.totalScore];
+    
     mesLB.frame = CGRectMake(lbX, avatarImgV.top+6, lbW, 30);
     QMUIFillButton *IntegralConvertBT = [QMUIFillButton buttonWithType:UIButtonTypeCustom];
     [userIntegralBgV addSubview:IntegralConvertBT];
     IntegralConvertBT.frame = CGRectMake(btX, btY, btW, btH);
     IntegralConvertBT.titleLabel.font = [UIFont systemFontOfSize:15];
-    IntegralConvertBT.fillColor = rgb(255, 155, 57, 1);
+    if (user.totalScore > 0) {
+        IntegralConvertBT.fillColor = rgb(255, 155, 57, 1);
+        IntegralConvertBT.userInteractionEnabled = YES;
+    }else{
+        IntegralConvertBT.fillColor = rgb(153, 153, 153, 1);
+        IntegralConvertBT.userInteractionEnabled = NO;
+    }
     IntegralConvertBT.titleTextColor = [UIColor whiteColor];
     IntegralConvertBT.cornerRadius = 6;
     [IntegralConvertBT setTitle:@"积分兑换" forState:UIControlStateNormal];
@@ -124,12 +132,21 @@
 #pragma mark --- 积分兑换
 -(void)IntegralConvertAction
 {
-    NSString *title = [NSString stringWithFormat:@"是否将积分兑换为%@观看分钟",@"40"];
+    BBUser *user = [BBUser bb_getUser];
+    NSUInteger totalMinute = user.totalScore*10;
+    NSString *title = [NSString stringWithFormat:@"是否将积分兑换为%lu观看分钟",(unsigned long)totalMinute];
     UIAlertController *alertC = [UIAlertController bb_alertControllerMakeForAlertCancelAndOKWithTitle:title message:nil OKHandler:^(UIAlertAction *action) {
-#warning todo
-        [QMUITips showSucceed:@"对换成功" inView:self.view hideAfterDelay:2];
+        [self exchangeAction];
     }];
     [self presentViewController:alertC animated:YES completion:nil];
+}
+-(void)exchangeAction
+{
+    [BBRequestTool bb_requestExchangeWithSuccessBlock:^(EnumServerStatus status, id object) {
+        NSLog(@"积分兑换 success %@",object);
+    } failureBlock:^(EnumServerStatus status, id object) {
+        NSLog(@"积分兑换 fail %@",object);
+    }];
 }
 -(void)signInAction
 {

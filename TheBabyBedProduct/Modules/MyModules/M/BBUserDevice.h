@@ -28,6 +28,8 @@
 @property(nonatomic,copy) NSString *bindTW;
 /** 绑定踢被传感器 */
 @property(nonatomic,copy) NSString *bindTB;
+/** 设备名称 */
+@property(nonatomic,copy) NSString *deviceName;
 
 +(BBUserDevice *)bb_getUserDevice;
 +(void)bb_saveUserDevice:(BBUserDevice *)device;

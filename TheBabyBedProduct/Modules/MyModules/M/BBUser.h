@@ -31,7 +31,7 @@
 @property(nonatomic,copy) NSNumber *both;
 /** 出生地 */
 @property(nonatomic,copy) NSString *city;
-/**  剩余可观看视频时间 */
+/** 剩余可观看视频时间 */
 @property(nonatomic,copy) NSString *curTime;
 /** 性别 */
 @property(nonatomic,assign) BBUserGenderType gender;
@@ -50,7 +50,8 @@
 @property(nonatomic,copy) NSString *password;
 /** 绑定的设备id */
 @property(nonatomic,copy) NSString *deviceId;
-
+/** 总积分 */
+@property(nonatomic,assign) NSUInteger totalScore;
 
 //辅助，帮助判断签到信息
 /** 最新一次签到日期 */

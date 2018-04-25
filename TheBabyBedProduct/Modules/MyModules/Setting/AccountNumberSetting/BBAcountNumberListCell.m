@@ -28,16 +28,21 @@
 }
 -(void)setupCellWithTitle:(NSString *)title
 {
+    BBUser *user = [BBUser bb_getUser];
     CGFloat totalH = 47;
     CGFloat leftMargin = 20;
     if ([title isEqualToString:@"手机号码"]) {
         self.arrowImgV.hidden = YES;
         self.subTextLB.frame = CGRectMake(self.textLB.right, 0, _k_w-leftMargin*2-100, totalH);
+        self.subTextLB.text = [self setupPhoneNumWithUser:user];
     }else{
         self.arrowImgV.hidden = NO;
         CGFloat arrowW = 6;
         CGFloat subTextLBW = _k_w-leftMargin*2-100-arrowW-5;
         self.subTextLB.frame = CGRectMake(self.textLB.right, 0, subTextLBW, totalH);
+        if (user.hasLogined) {
+            self.subTextLB.text = @"已设置";
+        }
     }
     self.textLB.text = title;
     
@@ -50,6 +55,17 @@
         self.subTextLB.text = (BBUserHelpers.hasWeiBoBinding?@"已绑定":@"去绑定");
     }
     
+}
+-(NSString *)setupPhoneNumWithUser:(BBUser *)user
+{
+    NSString *phoneNum = @"";
+    if ([user.username bb_isPhoneNumber]) {
+        phoneNum = [user.username substringToIndex:3];
+    }
+    if (phoneNum.length == 3) {
+        phoneNum = [phoneNum stringByAppendingString:@"********"];
+    }
+    return phoneNum;
 }
 -(void)creatCellUI
 {

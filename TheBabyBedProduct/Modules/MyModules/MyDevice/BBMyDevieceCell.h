@@ -8,7 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
+typedef NS_ENUM(NSInteger,BBMyDevieceCellBindingType) {
+    BBMyDevieceCellBindingTypeTW = 0,
+    BBMyDevieceCellBindingTypeTB,
+    BBMyDevieceCellBindingTypeWD
+};
+
 @interface BBMyDevieceCell : UITableViewCell
-@property(nonatomic,copy) void(^deleteSensorBlock)(void);
+@property(nonatomic,copy) void(^deleteSensorBlock)(BBMyDevieceCellBindingType bindingType);
 -(void)setupCellWithIndexPath:(NSIndexPath *)indexPath leftTitle:(NSString *)leftTitle;
 @end

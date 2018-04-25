@@ -147,6 +147,12 @@ typedef NS_ENUM(NSInteger,BBGetCodeType) {
                                failureBlock:(FailureBlock)failureBlock;
 
 /**
+ 积分兑换 post
+ */
+-(void)bb_requestExchangeWithSuccessBlock:(SuccessBlock)successBlock
+                             failureBlock:(FailureBlock)failureBlock;
+
+/**
  阈值设定
  @param deviceType 设备类型  0 室内外温度传感器数据
  1  声音传感器数据（哭闹）

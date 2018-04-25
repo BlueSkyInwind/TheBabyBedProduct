@@ -55,6 +55,9 @@
 //签到列表
 #define K_Url_SignInList        @"/api/user/shareList"
 
+//积分兑换
+#define K_Url_Exchange          @"/api/user/exchange"
+
 
 //消息列表
 #define K_Url_MessageList        @"/api/msg/list"

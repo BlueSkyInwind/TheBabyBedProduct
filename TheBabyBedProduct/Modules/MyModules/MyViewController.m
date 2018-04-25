@@ -60,7 +60,11 @@
     };
     
     headerV.funcBlock = ^(BBMyHeaderViewFuncType funcType) {
-        [self handleFuncAction:funcType];
+        if (BBUserHelpers.hasLogined) {
+            [self handleFuncAction:funcType];
+        }else{
+            [self goToLoginAndRegistWithHeaderV:headerV];
+        }
     };
     
 
@@ -86,12 +90,14 @@
             [self.navigationController pushViewController:myAccountVC animated:YES];
         }
             break;
+            
             case BBMyHeaderViewFuncTypeMyDevice:
         {
             BBMyDeviceViewController *deviceVC = [[BBMyDeviceViewController alloc]init];
             [self.navigationController pushViewController:deviceVC animated:YES];
         }
             break;
+            
             case BBMyHeaderViewFuncTypeFamilyMember:
         {
             BBFamilyMemberViewController *familyMemberVC = [[BBFamilyMemberViewController alloc]init];

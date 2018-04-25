@@ -56,6 +56,11 @@ static void toSaveUserDevice(BBUserDevice *userDevice){
     NSData *data = [NSKeyedArchiver archivedDataWithRootObject:userDevice];
     [[NSUserDefaults standardUserDefaults] setObject:data forKey:k_bb_saveUserDeviceMessage];
     [[NSUserDefaults standardUserDefaults] synchronize];
+    
+    //更新用户中的deviceid
+    BBUser *user = [BBUser bb_getUser];
+    user.deviceId = userDevice.deviceId;
+    [BBUser bb_saveUser:user];
 }
 
 static BBUserDevice * toGetUserDevice(){
@@ -94,15 +99,15 @@ static BBUserDevice * toGetUserDevice(){
 }
 -(BOOL)hasBindWD
 {
-    return _aUserDevice().bindWD.length > 0;
+    return [_aUserDevice().bindWD isEqualToString:@"1"];
 }
 -(BOOL)hasBindTW
 {
-    return _aUserDevice().bindTW.length > 0;
+    return [_aUserDevice().bindTW isEqualToString:@"1"];
 }
 -(BOOL)hasBindTB
 {
-    return _aUserDevice().bindTB.length > 0;
+    return [_aUserDevice().bindTB isEqualToString:@"1"];
 }
 static inline BBUserDevice *_aUserDevice(){
     return [BBUserDevice bb_getUserDevice];

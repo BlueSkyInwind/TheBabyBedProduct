@@ -10,6 +10,7 @@
 #import "BBMyDevieceCell.h"
 #import "BaseResultModel.h"
 #import "BBUserDevice.h"
+#import "BBDeviceHeaderBottomView.h"
 
 @interface BBMyDeviceViewController ()
 @property(nonatomic,strong) UITableView *tableView;
@@ -17,6 +18,7 @@
 @property(nonatomic,strong) NSMutableArray *deviceMessageTitles;
 /** 已连接的传感器数组 */
 @property(nonatomic,strong) NSMutableArray *sensors;
+@property(nonatomic,strong) BBDeviceHeaderBottomView *headerBottomView;
 @end
 
 @implementation BBMyDeviceViewController
@@ -32,7 +34,13 @@
     
     [self creatUI];
     
-    [self getMyDeviceData];
+    BBUserDevice *device = [BBUserDevice bb_getUserDevice];
+    if ([device.deviceId bb_isSafe]) {
+        [self.headerBottomView updateDeviceHBView];
+        [self setupSensorsWithDevice:device];
+    }else{
+        [self getMyDeviceData];
+    }
 }
 
 -(void)getMyDeviceData
@@ -44,10 +52,25 @@
         if (deviceRM.code == 0) {
             BBUserDevice *userDevice = deviceRM.data;
             [BBUserDevice bb_saveUserDevice:userDevice];
+            
+            [self setupSensorsWithDevice:userDevice];
+            [self.headerBottomView updateDeviceHBView];
             [self.tableView reloadData];
         }
     } failureBlock:^(EnumServerStatus status, id object) {
     }];
+}
+-(void)setupSensorsWithDevice:(BBUserDevice *)device
+{
+    if ([device.bindTB isEqualToString:@"1"]) {
+        [self.sensors addObject:@"踢被传感器"];
+    }
+    if ([device.bindTW isEqualToString:@"1"]) {
+        [self.sensors addObject:@"体温传感器"];
+    }
+    if ([device.bindWD isEqualToString:@"1"]) {
+        [self.sensors addObject:@"温度传感器"];
+    }
 }
 
 -(void)backAction
@@ -83,32 +106,45 @@
     bedImgV.frame = CGRectMake(bedImgX, bedImgY, bedImgW, bedImgH);
     
     //绑定设备
-    UIView *bingingDeviceBgV = [[UIView alloc]initWithFrame:CGRectMake(0, bingingDeviceY, _k_w, 58)];
-    bingingDeviceBgV.backgroundColor = [UIColor whiteColor];
-    [self.view addSubview:bingingDeviceBgV];
-    UILabel *leftBingingLB = [UILabel bb_lbMakeWithSuperV:bingingDeviceBgV fontSize:16 alignment:NSTextAlignmentLeft textColor:k_color_515151];
-    leftBingingLB.text = @"您还尚未绑定婴儿床";
-    leftBingingLB.frame = CGRectMake(10, 9, _k_w-10-10-80, 40);
+    self.headerBottomView = [[BBDeviceHeaderBottomView alloc]initWithFrame:CGRectMake(0, bingingDeviceY, _k_w, 58)];
+    self.headerBottomView.backgroundColor = [UIColor whiteColor];
+    [self.view addSubview:self.headerBottomView];
+
+    BBWeakSelf(self)
+    self.headerBottomView.bingingOrCancelBlock = ^(NSString *deviceId) {
+        if (deviceId) {
+            //已经绑定了，要解绑
+            BBStrongSelf(self)
+            [self toCancelBinding];
+        }else{
+#warning todo pp
+
+        }
+    };
     
-    QMUIFillButton *binding = [QMUIFillButton buttonWithType:UIButtonTypeCustom];
-    [bingingDeviceBgV addSubview:binding];
-    binding.frame = CGRectMake(_k_w-80-10, 16, 74, 26);
-    binding.titleLabel.font = [UIFont systemFontOfSize:16];
-    binding.fillColor = k_color_appOrange;
-    binding.titleTextColor = [UIColor whiteColor];
-    [binding setTitle:@"去绑定" forState:UIControlStateNormal];
-    [binding addTarget:self action:@selector(toToBinding) forControlEvents:UIControlEventTouchUpInside];
-    
-    CGFloat tableY = bingingDeviceBgV.bottom;
+    CGFloat tableY = self.headerBottomView.bottom;
     self.tableView = [UITableView bb_tableVMakeWithSuperV:self.view frame:CGRectMake(0, tableY, _k_w, _k_h-tableY) delegate:self bgColor:k_color_vcBg style:UITableViewStyleGrouped];
 }
--(void)toToBinding
+-(void)toCancelBinding
 {
-#warning todo
+    UIAlertController *alertC = [UIAlertController bb_alertControllerMakeForAlertCancelAndOKWithTitle:@"确定要解除已绑定设备吗？" message:nil OKHandler:^(UIAlertAction *action) {
+        
+        //退出绑定，需要本地清空设备信息
+        BBUserDevice *device = [[BBUserDevice alloc]init];
+        device.deviceId = nil;  //保险起见，还是加上
+        [BBUserDevice bb_saveUserDevice:device];
+        
+        [self.headerBottomView updateDeviceHBView];
+        [self.tableView reloadData];
+        
+        [QMUITips showWithText:@"您已解除绑定"];
+    }];
+    [self presentViewController:alertC animated:YES completion:nil];
 }
 
 -(void)toGoManagersAction
 {
+#warning todo pp
     [QMUITips showWithText:@"点击管理员"];
 }
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -137,9 +173,17 @@
     }else{
         if (self.sensors.count > indexPath.row) {
             [cell setupCellWithIndexPath:indexPath leftTitle:self.sensors[indexPath.row]];
+            cell.deleteSensorBlock = ^(BBMyDevieceCellBindingType bindingType) {
+                [self toDeleteSensor:bindingType];
+            };
         }
     }
     return cell;
+}
+-(void)toDeleteSensor:(BBMyDevieceCellBindingType)bindingType
+{
+#warning todo
+    
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
