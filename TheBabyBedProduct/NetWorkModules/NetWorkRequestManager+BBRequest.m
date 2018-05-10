@@ -314,7 +314,7 @@ static void getRequest(NSString *url,id param,SuccessBlock successBlock,FailureB
     [param setValue:signatureString forKey:@"signature"];
     [param setValue:KGCSDad_AppId forKey:@"app_id"];
     [param setValue:[UIDevice pp_UUID] forKey:@"device_id"];
-    [param setValue:[NSString pp_randomStr] forKey:@"nonce"]；
+    [param setValue:[NSString pp_randomStr] forKey:@"nonce"];
     [param setValue:[NSDate bb_strFromTimestamp] forKey:@"timestamp"];
     postRequestGCSDad(K_Url_MusicList, param, successBlock, failureBlock);
     
