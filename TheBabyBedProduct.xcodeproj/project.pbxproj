@@ -191,6 +191,7 @@
 		57585AF0206D4850001BB202 /* share_timeline@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 57585AEE206D4850001BB202 /* share_timeline@3x.png */; };
 		57585AF3206D485C001BB202 /* share_qq@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 57585AF1206D485B001BB202 /* share_qq@3x.png */; };
 		57585AF4206D485C001BB202 /* share_qq@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 57585AF2206D485B001BB202 /* share_qq@2x.png */; };
+		57CB443820A415D900268DBE /* UIDevice+GetDeviceInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 57CB443720A415D900268DBE /* UIDevice+GetDeviceInfo.m */; };
 		57CECE43207374DC00E9A876 /* UIAlertController+EasilyMake.m in Sources */ = {isa = PBXBuildFile; fileRef = 57CECE41207374DC00E9A876 /* UIAlertController+EasilyMake.m */; };
 		57DF59B420835527002D2CED /* BBUserDevice.m in Sources */ = {isa = PBXBuildFile; fileRef = 57DF59B320835527002D2CED /* BBUserDevice.m */; };
 		57DF59B720843CD7002D2CED /* BBSignInPopView.m in Sources */ = {isa = PBXBuildFile; fileRef = 57DF59B620843CD7002D2CED /* BBSignInPopView.m */; };
@@ -597,6 +598,8 @@
 		57585AEE206D4850001BB202 /* share_timeline@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "share_timeline@3x.png"; sourceTree = "<group>"; };
 		57585AF1206D485B001BB202 /* share_qq@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "share_qq@3x.png"; sourceTree = "<group>"; };
 		57585AF2206D485B001BB202 /* share_qq@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "share_qq@2x.png"; sourceTree = "<group>"; };
+		57CB443620A415D900268DBE /* UIDevice+GetDeviceInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIDevice+GetDeviceInfo.h"; sourceTree = "<group>"; };
+		57CB443720A415D900268DBE /* UIDevice+GetDeviceInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIDevice+GetDeviceInfo.m"; sourceTree = "<group>"; };
 		57CECE41207374DC00E9A876 /* UIAlertController+EasilyMake.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIAlertController+EasilyMake.m"; sourceTree = "<group>"; };
 		57CECE42207374DC00E9A876 /* UIAlertController+EasilyMake.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIAlertController+EasilyMake.h"; sourceTree = "<group>"; };
 		57DF59B220835527002D2CED /* BBUserDevice.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BBUserDevice.h; sourceTree = "<group>"; };
@@ -1504,6 +1507,7 @@
 		574C6CDB2069272700F5BF55 /* Category */ = {
 			isa = PBXGroup;
 			children = (
+				57CB443520A415D900268DBE /* UIDevice */,
 				57CECE42207374DC00E9A876 /* UIAlertController+EasilyMake.h */,
 				57CECE41207374DC00E9A876 /* UIAlertController+EasilyMake.m */,
 				5726F34E206A8DC3008EED75 /* UIView+PP_Frame.h */,
@@ -1581,6 +1585,15 @@
 				57585ACE206D4428001BB202 /* LWShareButton.h */,
 			);
 			path = LWShareView;
+			sourceTree = "<group>";
+		};
+		57CB443520A415D900268DBE /* UIDevice */ = {
+			isa = PBXGroup;
+			children = (
+				57CB443620A415D900268DBE /* UIDevice+GetDeviceInfo.h */,
+				57CB443720A415D900268DBE /* UIDevice+GetDeviceInfo.m */,
+			);
+			path = UIDevice;
 			sourceTree = "<group>";
 		};
 		84114B3F20722BD0005A1DC9 /* JPush */ = {
@@ -1969,6 +1982,7 @@
 			files = (
 				229FF0A72084E2C2005BA4A6 /* JMAirKissShareTools.m in Sources */,
 				5726F3AA206B8537008EED75 /* BBHelpAndSuggestionViewController.m in Sources */,
+				57CB443820A415D900268DBE /* UIDevice+GetDeviceInfo.m in Sources */,
 				57210CAA2074C2DE0039D8D5 /* ZFBrightnessView.m in Sources */,
 				22CFD3D22067C3120004186D /* ConsoleTemperatureViewController.m in Sources */,
 				57585AD2206D4428001BB202 /* LWShareService.m in Sources */,
