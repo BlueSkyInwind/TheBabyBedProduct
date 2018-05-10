@@ -152,6 +152,13 @@ typedef NS_ENUM(NSInteger,BBGetCodeType) {
 -(void)bb_requestExchangeWithSuccessBlock:(SuccessBlock)successBlock
                              failureBlock:(FailureBlock)failureBlock;
 
+
+/**
+ 早教列表
+ */
+-(void)bb_requestEarlyEdutionListWithSuccessBlock:(SuccessBlock)successBlock
+                                     failureBlock:(FailureBlock)failureBlock;
+
 /**
  阈值设定
  @param deviceType 设备类型  0 室内外温度传感器数据

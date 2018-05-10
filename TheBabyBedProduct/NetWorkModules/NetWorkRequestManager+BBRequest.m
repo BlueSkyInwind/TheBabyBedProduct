@@ -20,6 +20,16 @@ static void postRequest(NSString *url,id param,SuccessBlock successBlock,Failure
     [BBRequestTool PostWithURL:requestUrl isNeedNetStatus:NO isNeedWait:NO parameters:param finished:successBlock failure:failureBlock];
 }
 
+static void postRequestGCSDad(NSString *url,id param,SuccessBlock successBlock,FailureBlock failureBlock){
+    NSString *requestUrl = @"";
+    if ([url containsString:K_Url_BBBaseGCSDad]) {
+        requestUrl = url;
+    }else{
+        requestUrl = [NSString stringWithFormat:@"%@%@",K_Url_BBBaseGCSDad,url];
+    }
+    [BBRequestTool PostWithURL:requestUrl isNeedNetStatus:NO isNeedWait:NO parameters:param finished:successBlock failure:failureBlock];
+}
+
 static void getRequest(NSString *url,id param,SuccessBlock successBlock,FailureBlock failureBlock){
     NSString *requestUrl = @"";
     if ([url containsString:K_Url_BBBase]) {
@@ -288,6 +298,26 @@ static void getRequest(NSString *url,id param,SuccessBlock successBlock,FailureB
                              failureBlock:(FailureBlock)failureBlock
 {
     postRequest(K_Url_Exchange, nil, successBlock, failureBlock);
+}
+/**
+ 早教列表
+ */
+-(void)bb_requestEarlyEdutionListWithSuccessBlock:(SuccessBlock)successBlock
+                                     failureBlock:(FailureBlock)failureBlock
+{
+    NSMutableDictionary *param = [NSMutableDictionary dictionary];
+    NSMutableString *signatureStr = [[NSMutableString alloc]initWithString:KGCSDad_AppId];
+    [signatureStr appendString:KGCSDad_Secret];
+    [signatureStr appendString:[NSString pp_randomStr]];
+    NSString *signatureString = [NSString stringWithFormat:@"%@",signatureStr];
+    signatureString = [signatureString pp_sha1];
+    [param setValue:signatureString forKey:@"signature"];
+    [param setValue:KGCSDad_AppId forKey:@"app_id"];
+    [param setValue:[UIDevice pp_UUID] forKey:@"device_id"];
+    [param setValue:[NSString pp_randomStr] forKey:@"nonce"]；
+    [param setValue:[NSDate bb_strFromTimestamp] forKey:@"timestamp"];
+    postRequestGCSDad(K_Url_MusicList, param, successBlock, failureBlock);
+    
 }
 
 /**

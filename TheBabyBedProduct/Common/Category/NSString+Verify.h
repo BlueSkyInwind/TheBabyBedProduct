@@ -19,4 +19,15 @@
 -(NSString *)bb_safe;
 /** 判断字符串是不是安全的 */
 -(BOOL)bb_isSafe;
+
+
+/**
+ 随机生成一个32位的字符串
+ */
++(NSString *)pp_randomStr;
+
+/**
+ sha1加密
+ */
+-(NSString *)pp_sha1;
 @end

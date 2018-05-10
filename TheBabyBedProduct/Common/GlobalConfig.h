@@ -66,5 +66,11 @@ UIKIT_EXTERN NSString * const kLoginFlag;
 UIKIT_EXTERN NSString * const _main_url;
 
 
+//早教--工程师爸爸
+UIKIT_EXTERN NSString *const KGCSDad_AppId;
+
+UIKIT_EXTERN NSString *const KGCSDad_Secret;
+
+
 
 #endif /* GlobalConfig_h */

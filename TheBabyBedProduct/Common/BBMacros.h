@@ -41,5 +41,6 @@ typedef NS_ENUM(NSInteger,BBUserGenderType) {
 #import "MJExtension.h"
 #import "NSString+Verify.h"
 #import "NSDate+BB.h"
+#import "UIDevice+GetDeviceInfo.h"
 
 #endif /* BBMacros_h */

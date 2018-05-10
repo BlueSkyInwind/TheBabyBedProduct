@@ -7,6 +7,11 @@
 //
 
 #import "NSString+Verify.h"
+#import <CommonCrypto/CommonDigest.h>
+
+// 随机字符表
+//static const NSString *kRandomStrSet = @"abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+static const NSString *kRandomStrSet = @"abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
 @implementation NSString (Verify)
 #pragma mark --- 手机号验证
@@ -43,5 +48,38 @@ static BOOL isSafeStr(NSString *str){
     }else{
         return YES;
     }
+}
+
+/**
+ 随机生成一个32位的字符串
+ */
++(NSString *)pp_randomStr
+{
+    NSMutableString *mutStr = [[NSMutableString alloc]initWithCapacity:32];
+    for (int i = 0; i < 32; i++) {
+        NSInteger index = arc4random_uniform((uint32_t)[kRandomStrSet length]);
+        [mutStr appendString:[kRandomStrSet substringWithRange:NSMakeRange(index, 1)]];
+    }
+    return mutStr;
+}
+
+- (NSString*)pp_sha1
+{
+//    const char *cstr = [self cStringUsingEncoding:NSUTF8StringEncoding];
+    
+//    NSData *data = [NSData dataWithBytes:cstr length:self.length];
+     NSData *data = [self dataUsingEncoding:NSUTF8StringEncoding];
+    //使用对应的CC_SHA1,CC_SHA256,CC_SHA384,CC_SHA512的长度分别是20,32,48,64
+    uint8_t digest[CC_SHA1_DIGEST_LENGTH];
+    //使用对应的CC_SHA256,CC_SHA384,CC_SHA512
+    CC_SHA1(data.bytes, (unsigned int)data.length, digest);
+    
+    NSMutableString* output = [NSMutableString stringWithCapacity:CC_SHA1_DIGEST_LENGTH * 2];
+    
+    for(int i = 0; i < CC_SHA1_DIGEST_LENGTH; i++){
+        [output appendFormat:@"%02x", digest[i]];
+    }
+    
+    return output;
 }
 @end

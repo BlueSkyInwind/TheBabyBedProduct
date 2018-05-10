@@ -43,6 +43,7 @@ static NSString * const kEarlyEducationHeaderViewIdentifier = @"EarlyEducationHe
 
         //berceuse
     [self creatUI];
+    [self getEarlyEdutionList];
 }
 -(void)creatUI
 {
@@ -61,6 +62,15 @@ static NSString * const kEarlyEducationHeaderViewIdentifier = @"EarlyEducationHe
     [self.collectionView registerClass:[BBEarlyEducationCell class] forCellWithReuseIdentifier:kEarlyEducationCellIdentifier];
     [self.collectionView registerClass:[BBEarlyEducationHeaderView class] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:kEarlyEducationHeaderViewIdentifier];
     
+}
+
+-(void)getEarlyEdutionList
+{
+    [BBRequestTool bb_requestEarlyEdutionListWithSuccessBlock:^(EnumServerStatus status, id object) {
+        NSLog(@"em succes %@",object);
+    } failureBlock:^(EnumServerStatus status, id object) {
+        NSLog(@"em error %@",object);
+    }];
 }
 -(void)creatHeaderSearchUI
 {

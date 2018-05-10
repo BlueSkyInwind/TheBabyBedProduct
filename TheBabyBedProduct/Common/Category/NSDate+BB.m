@@ -9,7 +9,11 @@
 #import "NSDate+BB.h"
 
 @implementation NSDate (BB)
-
++(NSNumber *)bb_strFromTimestamp
+{
+    NSTimeInterval timeInterval = [[NSDate date] timeIntervalSince1970];
+    return [NSNumber numberWithInt:(int)timeInterval];
+}
 @end
 
 

@@ -17,11 +17,13 @@
 #define K_Url_GetImg            @"http://114.55.129.5:8081"
 #define K_Url_BBUDP             @"114.55.129.5"
 #define K_port_BBUDP            9999
+#define K_Url_BBBaseGCSDad      @"http://open.idaddy.cn"
 #else
 #define K_Url_BBBase            @"http://114.55.129.5:8788"
 #define K_Url_GetImg            @"http://114.55.129.5:8081"
 #define K_Url_BBUDP             @"114.55.129.5"
 #define K_port_BBUDP            9999
+#define K_Url_BBBaseGCSDad      @"http://open.idaddy.cn"
 #endif
 
 
@@ -68,7 +70,10 @@
 //获取阈值  api/waringsetting/setting/{id}
 #define K_Url_GetThreshold       @"api/waringsetting/setting"
 //传感器数据获取  api/statistics/{deviceId}
-#define K_Url_GetSensorData       @"api/statistics/"
+#define K_Url_GetSensorData      @"api/statistics/"
+
+//早教
+#define K_Url_MusicList          @"/audio/v2/list"
 
 
 
