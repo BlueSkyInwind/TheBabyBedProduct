@@ -63,6 +63,8 @@ static BOOL isSafeStr(NSString *str){
     return mutStr;
 }
 
+
+
 - (NSString*)pp_sha1
 {
 //    const char *cstr = [self cStringUsingEncoding:NSUTF8StringEncoding];
@@ -73,35 +75,14 @@ static BOOL isSafeStr(NSString *str){
     uint8_t digest[CC_SHA1_DIGEST_LENGTH];
     //使用对应的CC_SHA256,CC_SHA384,CC_SHA512
     CC_SHA1(data.bytes, (unsigned int)data.length, digest);
-    NSMutableString* output = [[self convertDataToHexStr:data] mutableCopy];
-    
-//    NSMutableString* output = [NSMutableString stringWithCapacity:CC_SHA1_DIGEST_LENGTH * 2];
-//    for(int i = 0; i < CC_SHA1_DIGEST_LENGTH; i++){
-//        [output appendFormat:@"%02x", digest[i]];
-//    }
+    NSMutableString* output = [NSMutableString stringWithCapacity:CC_SHA1_DIGEST_LENGTH * 2];
+    for(int i = 0; i < CC_SHA1_DIGEST_LENGTH; i++){
+        [output appendFormat:@"%02x", digest[i]];
+    }
     
     return output;
 }
 
-- (NSString *)convertDataToHexStr:(NSData *)data {
-    if (!data || [data length] == 0) {
-        return @"";
-    }
-    NSMutableString *string = [[NSMutableString alloc] initWithCapacity:[data length]];
-    
-    [data enumerateByteRangesUsingBlock:^(const void *bytes, NSRange byteRange,BOOL *stop) {
-        unsigned char *dataBytes = (unsigned char*)bytes;
-        for (NSInteger i =0; i < byteRange.length; i++) {
-            NSString *hexStr = [NSString stringWithFormat:@"%x", (dataBytes[i]) &0xff];
-            if ([hexStr length] == 2) {
-                [string appendString:hexStr];
-            } else {
-                [string appendFormat:@"0%@", hexStr];
-            }
-        }
-    }];
-    return string;
-}
 
 
 

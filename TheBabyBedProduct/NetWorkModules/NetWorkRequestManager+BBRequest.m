@@ -308,7 +308,7 @@ static void getRequest(NSString *url,id param,SuccessBlock successBlock,FailureB
     NSMutableDictionary *param = [NSMutableDictionary dictionary];
     NSMutableString *signatureStr = [[NSMutableString alloc]initWithString:KGCSDad_AppId];
     [signatureStr appendString:KGCSDad_Secret];
-    [signatureStr appendString:[NSString pp_randomStr]];
+    [signatureStr appendString:[NSString stringWithFormat:@"%@",[NSDate bb_strFromTimestamp]]];//[NSString pp_randomStr]
     NSString *signatureString = [NSString stringWithFormat:@"%@",signatureStr];
     signatureString = [signatureString pp_sha1];
     [param setValue:signatureString forKey:@"signature"];
