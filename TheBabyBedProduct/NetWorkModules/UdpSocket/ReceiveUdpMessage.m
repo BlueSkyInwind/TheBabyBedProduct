@@ -8,10 +8,18 @@
 
 #import "ReceiveUdpMessage.h"
 #import "SocketMacros.h"
+#import "RSA.h"
 
 @implementation ReceiveUdpMessage
 
 
+//加密报文进行先解密
+-(void)rsaDecryptUdpMessage:(NSData *)MessageData{
+    NSData * decryptData = [RSA decryptData:MessageData privateKey:RSA_PRIVATE_KEY];
+    [self receiveUdpMessage:decryptData];
+}
+
+//未加密报文解析或者解密过的报文解析
 -(void)receiveUdpMessage:(NSData *)data{
     
     Byte receiveByte[data.length];
@@ -61,7 +69,6 @@
     }
 }
 
-
 /**
  解析udp请求的ip类型，ip地址，端口号
 
@@ -70,12 +77,32 @@
 -(void)analysisAddress:(NSData *)addressData{
     Byte udpAddressInfoByte[20];
     [addressData getBytes:udpAddressInfoByte length:20];
+    short int ipType = (udpAddressInfoByte[0] << 8) + udpAddressInfoByte[1];
     short int port = (udpAddressInfoByte[2] << 8) + udpAddressInfoByte[3];
     Byte udpAddressIPByte[16];
     memcpy(udpAddressIPByte, udpAddressInfoByte + 4, 16);
-    NSData *ipData = [NSData dataWithBytes:udpAddressIPByte length:16];
-    NSString * ipStr = [[NSString alloc]initWithData:ipData encoding:NSUTF8StringEncoding];
-    DLog(@"%@:%d",ipStr,port);
+    //ipType 为 1是 ipv6 ， 为2 是ipv4
+    if (ipType == 1) {
+        NSData *ipData = [NSData dataWithBytes:udpAddressIPByte length:16];
+        NSString * ipv6Str = [[NSString alloc]initWithData:ipData encoding:NSUTF8StringEncoding];
+        DLog(@"%@:%d",ipv6Str,port);
+    }else{
+        Byte udpAddressIPv4Byte[4];
+        memcpy(udpAddressIPv4Byte, udpAddressIPByte, 4);
+        NSData *ipData = [NSData dataWithBytes:udpAddressIPv4Byte length:4];
+        NSString * ipv4Str;
+        for (int i = 0;i < 4; i++){
+            uint64_t length;
+            [ipData getBytes:&length range:NSMakeRange(i, 1)];
+            NSString * adrrStr = [NSString stringWithFormat:@"%llu.",length];
+            if (i == 0) {
+                ipv4Str = adrrStr;
+            }else{
+                ipv4Str =  [ipv4Str stringByAppendingString:adrrStr];
+            }
+        }
+        ipv4Str = [ipv4Str substringToIndex:ipv4Str.length - 1];
+    }
 }
 
 

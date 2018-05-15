@@ -46,8 +46,8 @@
 
 -(NSData *)generateUdpBody{
     
-    NSMutableData * bodyData = [[self generateUdpBodyUnit:130 elementID:1 dataContent:nil] mutableCopy];
-    [bodyData appendData: [self generateUdpBodyUnit:32 elementID:2 dataContent:nil]];
+    NSMutableData * bodyData = [[self generateUdpBodyUnit:134 elementID:1 dataContent:nil] mutableCopy];
+    [bodyData appendData: [self generateUdpBodyUnit:36 elementID:2 dataContent:nil]];
     [bodyData appendData: [self generateUdpBodyUnit:1 elementID:3 dataContent:nil]];
     [bodyData appendData: [self generateUdpBodyUnit:RSA_PUBLIC_KEY.length elementID:4 dataContent:RSA_PUBLIC_KEY]];
     return bodyData;
@@ -87,7 +87,7 @@
 -(NSData *)generateDiscoverRequestUdpBody{
     
     NSMutableData * bodyData = [[self generateUdpBodyUnit:134 elementID:7 dataContent:nil] mutableCopy];
-    [bodyData appendData: [self generateUdpBodyUnit:RSA_PUBLIC_KEY.length elementID:8 dataContent:RSA_PUBLIC_KEY]];
+    [bodyData appendData: [self generateUdpBodyUnit:185 elementID:8 dataContent:RSA_PUBLIC_KEY]];
     return bodyData;
     
 }
