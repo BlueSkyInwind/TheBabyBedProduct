@@ -7,7 +7,9 @@
 //
 
 #import "BaseViewController.h"
+@class BBMusicCategory;
 
 @interface BBEarlyEducationMusicListViewController : BaseViewController
 @property(nonatomic,copy) NSString *titleStr;
+@property(nonatomic,strong) BBMusicCategory *aMusicCategory;
 @end

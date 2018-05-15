@@ -154,10 +154,22 @@ typedef NS_ENUM(NSInteger,BBGetCodeType) {
 
 
 /**
- 早教列表
+ 早教列表(一级分类)
  */
 -(void)bb_requestEarlyEdutionListWithSuccessBlock:(SuccessBlock)successBlock
                                      failureBlock:(FailureBlock)failureBlock;
+/**
+ 早教列表（二级分类）
+ */
+-(void)bb_requestEarlyEdutionSubListWithCategoryIds:(NSArray *)categoryIds
+                                       SuccessBlock:(SuccessBlock)successBlock
+                                       failureBlock:(FailureBlock)failureBlock;
+
+/**
+ 早教热门推荐
+ */
+-(void)bb_requestEarlyEdutionHotRecommendWithSuccessBlock:(SuccessBlock)successBlock
+                                             failureBlock:(FailureBlock)failureBlock;
 
 /**
  阈值设定
