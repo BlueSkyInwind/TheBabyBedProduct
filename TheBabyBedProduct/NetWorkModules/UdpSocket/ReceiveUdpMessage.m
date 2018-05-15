@@ -12,7 +12,6 @@
 @implementation ReceiveUdpMessage
 
 
-
 -(void)receiveUdpMessage:(NSData *)data{
     
     Byte receiveByte[data.length];
