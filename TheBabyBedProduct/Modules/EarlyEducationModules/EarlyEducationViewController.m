@@ -11,6 +11,8 @@
 #import "BBEarlyEducationHeaderView.h"
 #import "BBEarlyEducationCell.h"
 #import "BBEarlyEducationMusicListViewController.h"
+#import "BBMusicCategory.h"
+#import "BBMusicHotRecommend.h"
 
 static NSString * const kEarlyEducationCellIdentifier = @"EarlyEducationCellIdentifier";
 static NSString * const kEarlyEducationHeaderViewIdentifier = @"EarlyEducationHeaderViewIdentifier";
@@ -19,8 +21,14 @@ static NSString * const kEarlyEducationHeaderViewIdentifier = @"EarlyEducationHe
 
 @interface EarlyEducationViewController ()<UICollectionViewDataSource,UICollectionViewDelegateFlowLayout>
 @property(nonatomic,strong)UICollectionView *collectionView;
-@property(nonatomic,strong) NSMutableArray *hotRecommendItemTitles;
-@property(nonatomic,strong) NSMutableArray *hotRecommendItemImgs;
+/** GCS music 分类 */
+@property(nonatomic,strong) NSMutableArray<BBMusicCategory *> *musicCategories;
+/** 热门推荐 */
+@property(nonatomic,strong) NSMutableArray<BBMusicHotRecommend *> *hotRecommends;
+/** 顶部items数组 */
+@property(nonatomic,strong) NSArray *titleArrs;
+/** item起始数组都加的一个模型 */
+@property(nonatomic,strong) BBMusicCategory *aTempCategory;
 @end
 
 @implementation EarlyEducationViewController
@@ -36,14 +44,13 @@ static NSString * const kEarlyEducationHeaderViewIdentifier = @"EarlyEducationHe
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
-   
-    [self.hotRecommendItemTitles addObjectsFromArray:@[@"催眠曲",@"愉快曲",@"催眠曲1",@"愉快曲1",@"催眠曲2",@"愉快曲2"]];
-    [self.hotRecommendItemImgs addObjectsFromArray:@[@"lullaby",@"berceuse",@"sleepsong",@"lullaby",@"berceuse",@"sleepsong"]];
 
-        //berceuse
     [self creatUI];
     [self getEarlyEdutionList];
+    
+    self.titleArrs = @[@"胎教音乐",@"经典童话",@"睡前故事",@"音乐启蒙",
+                       @"古诗精选",@"经典音乐",@"小提琴曲",@"古典音乐"];
+    self.aTempCategory = [[BBMusicCategory alloc]init];
 }
 -(void)creatUI
 {
@@ -63,11 +70,55 @@ static NSString * const kEarlyEducationHeaderViewIdentifier = @"EarlyEducationHe
     [self.collectionView registerClass:[BBEarlyEducationHeaderView class] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:kEarlyEducationHeaderViewIdentifier];
     
 }
-
+-(void)getAllSubCategories:(NSMutableArray *)categoryIds
+{
+    if (categoryIds.count == 0) {
+        return;
+    }
+    [BBRequestTool bb_requestEarlyEdutionSubListWithCategoryIds:categoryIds SuccessBlock:^(EnumServerStatus status, id object) {
+        NSLog(@"11em succes %@",object);
+        BBMusicCategoryResult *result = [BBMusicCategoryResult mj_objectWithKeyValues:object];
+        if (result.retcode == 0) {
+            BBMusicCategoryAudioinfos *audioInfos = result.audioinfos;
+            for (BBMusicCategory *category in audioInfos.cats) {
+                if ([self.titleArrs containsObject:category.cat_name]) {
+                    NSUInteger index = [self.titleArrs indexOfObject:category.cat_name];
+                    [self.musicCategories replaceObjectAtIndex:index withObject:category];
+                }
+            }            
+        }
+    } failureBlock:^(EnumServerStatus status, id object) {
+        NSLog(@"11em error %@",object);
+    }];
+}
 -(void)getEarlyEdutionList
 {
     [BBRequestTool bb_requestEarlyEdutionListWithSuccessBlock:^(EnumServerStatus status, id object) {
         NSLog(@"em succes %@",object);
+        BBMusicCategoryResult *result = [BBMusicCategoryResult mj_objectWithKeyValues:object];
+        if (result.retcode == 0) {
+            BBMusicCategoryAudioinfos *audioInfos = result.audioinfos;
+            NSMutableArray *categoryIds = [NSMutableArray array];
+            for (BBMusicCategory *category in audioInfos.cats) {
+                [categoryIds addObject:[NSString stringWithFormat:@"%ld",(long)category.cat_id]];
+            }
+            [self getAllSubCategories:categoryIds];
+            
+        }
+    } failureBlock:^(EnumServerStatus status, id object) {
+        
+    }];
+    
+    //6707 6708  6948 7156 7716 16815 17164 17174 17176 17466 19025
+    
+    [BBRequestTool bb_requestEarlyEdutionHotRecommendWithSuccessBlock:^(EnumServerStatus status, id object) {
+        NSLog(@"em succes %@",object);
+        BBMusicHotRecommendResult *result = [BBMusicHotRecommendResult mj_objectWithKeyValues:object];
+        if (result.retcode == 0) {
+            BBMusicHotRecommendAudioinfos *audioinfos = result.audioinfos;
+            [self.hotRecommends addObjectsFromArray:audioinfos.contents];
+            [self.collectionView reloadData];
+        }
     } failureBlock:^(EnumServerStatus status, id object) {
         NSLog(@"em error %@",object);
     }];
@@ -94,13 +145,16 @@ static NSString * const kEarlyEducationHeaderViewIdentifier = @"EarlyEducationHe
 }
 -(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-    return self.hotRecommendItemTitles.count;
+    if (self.hotRecommends.count > 6) {
+        return 6;
+    }
+    return self.hotRecommends.count;
 }
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     BBEarlyEducationCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:kEarlyEducationCellIdentifier forIndexPath:indexPath];
-    if(self.hotRecommendItemTitles.count > indexPath.item){
-        [cell setupCellWithImgName:self.hotRecommendItemImgs[indexPath.item] text:self.hotRecommendItemTitles[indexPath.item]];
+    if(self.hotRecommends.count > indexPath.item){
+        [cell setupCellWithAHotRecommend:self.hotRecommends[indexPath.item]];
     }
     return cell;
 }
@@ -126,10 +180,10 @@ static NSString * const kEarlyEducationHeaderViewIdentifier = @"EarlyEducationHe
     
     headerV.itemClickedBlock = ^(BBEarlyEducationItemType itemType) {
         DLog(@"点击item");
-        NSArray * titleArrs = @[@"胎教音乐",@"经典童话",@"睡前故事",@"音乐启蒙",
-                                @"诗歌美文",@"经典音乐",@"钢琴曲",@"古典音乐"];
+        
         BBEarlyEducationMusicListViewController *musicListVC = [[BBEarlyEducationMusicListViewController alloc]init];
-        musicListVC.titleStr = titleArrs[itemType];
+//        musicListVC.titleStr = self.titleArrs[itemType];
+        musicListVC.aMusicCategory = self.musicCategories[itemType];
         [self.navigationController pushViewController:musicListVC animated:YES];
     };
     
@@ -139,18 +193,22 @@ static NSString * const kEarlyEducationHeaderViewIdentifier = @"EarlyEducationHe
         
 }
                                         
--(NSMutableArray *)hotRecommendItemTitles
+
+-(NSMutableArray<BBMusicCategory *> *)musicCategories
 {
-    if (!_hotRecommendItemTitles) {
-        _hotRecommendItemTitles = [NSMutableArray array];
+    if (!_musicCategories) {
+        _musicCategories = [NSMutableArray array];
+        for (int i = 0; i < 8; i++) {
+            [_musicCategories addObject:_aTempCategory];
+        }
     }
-    return _hotRecommendItemTitles;
+    return _musicCategories;
 }
--(NSMutableArray *)hotRecommendItemImgs
+-(NSMutableArray<BBMusicHotRecommend *> *)hotRecommends
 {
-    if (!_hotRecommendItemImgs) {
-        _hotRecommendItemImgs = [NSMutableArray array];
+    if (!_hotRecommends) {
+        _hotRecommends = [NSMutableArray array];
     }
-    return _hotRecommendItemImgs;
+    return _hotRecommends;
 }
 @end

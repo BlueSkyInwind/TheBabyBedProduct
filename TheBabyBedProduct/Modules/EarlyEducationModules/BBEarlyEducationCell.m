@@ -7,7 +7,7 @@
 //
 
 #import "BBEarlyEducationCell.h"
-
+#import "UIImageView+WebCache.h"
 
 @implementation BBEarlyEducationCell
 
@@ -20,10 +20,11 @@
     }
     return self;
 }
--(void)setupCellWithImgName:(NSString *)imgName text:(NSString *)text
+
+-(void)setupCellWithAHotRecommend:(BBMusicHotRecommend *)aHotRecommend
 {
-    self.imgV.image = [UIImage imageNamed:imgName];
-    self.tLB.text = text;
+    [self.imgV sd_setImageWithURL:[NSURL URLWithString:aHotRecommend.icon] placeholderImage:nil];
+    self.tLB.text = aHotRecommend.name;
 }
 -(void)creatUI
 {

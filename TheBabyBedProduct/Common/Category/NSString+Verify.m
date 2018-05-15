@@ -65,24 +65,19 @@ static BOOL isSafeStr(NSString *str){
 
 
 
-- (NSString*)pp_sha1
++ (NSString*)pp_sha1:(NSString *)str
 {
-//    const char *cstr = [self cStringUsingEncoding:NSUTF8StringEncoding];
-    
-//    NSData *data = [NSData dataWithBytes:cstr length:self.length];
-     NSData *data = [self dataUsingEncoding:NSUTF8StringEncoding];
+    const char *cstr = [str UTF8String];
     //使用对应的CC_SHA1,CC_SHA256,CC_SHA384,CC_SHA512的长度分别是20,32,48,64
-    uint8_t digest[CC_SHA1_DIGEST_LENGTH];
+    unsigned char digest[CC_SHA1_DIGEST_LENGTH];
     //使用对应的CC_SHA256,CC_SHA384,CC_SHA512
-    CC_SHA1(data.bytes, (unsigned int)data.length, digest);
-    NSMutableString* output = [NSMutableString stringWithCapacity:CC_SHA1_DIGEST_LENGTH * 2];
-    for(int i = 0; i < CC_SHA1_DIGEST_LENGTH; i++){
-        [output appendFormat:@"%02x", digest[i]];
+    CC_SHA1(cstr,  (unsigned int)strlen(cstr), digest);
+    NSMutableString* result = [NSMutableString stringWithCapacity:CC_SHA1_DIGEST_LENGTH * 2];
+    for(int i = 0; i < CC_SHA1_DIGEST_LENGTH; i++) {
+        [result appendFormat:@"%02x", digest[i]];
     }
-    
-    return output;
+    return result;
 }
-
 
 
 

@@ -29,5 +29,5 @@
 /**
  sha1加密
  */
--(NSString *)pp_sha1;
++ (NSString*)pp_sha1:(NSString *)str;
 @end

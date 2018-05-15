@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 
 @interface NSDate (BB)
-+(NSNumber *)bb_strFromTimestamp;
++(NSString *)bb_strFromTimestamp;
 @end
 
 

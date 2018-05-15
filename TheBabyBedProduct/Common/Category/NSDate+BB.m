@@ -9,10 +9,12 @@
 #import "NSDate+BB.h"
 
 @implementation NSDate (BB)
-+(NSNumber *)bb_strFromTimestamp
++(NSString *)bb_strFromTimestamp
 {
-    NSTimeInterval timeInterval = [[NSDate date] timeIntervalSince1970];
-    return [NSNumber numberWithInt:(int)timeInterval];
+    //13位是毫秒，10位是秒，ios生成的是10位的。
+    NSDate* date = [NSDate dateWithTimeIntervalSinceNow:0];
+    NSTimeInterval timeSp =[date timeIntervalSince1970]*1000;
+    return [NSString stringWithFormat:@"%ld",(NSInteger)timeSp];
 }
 @end
 

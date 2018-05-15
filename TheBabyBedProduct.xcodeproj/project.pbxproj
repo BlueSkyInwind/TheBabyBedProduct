@@ -192,6 +192,11 @@
 		57585AF3206D485C001BB202 /* share_qq@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 57585AF1206D485B001BB202 /* share_qq@3x.png */; };
 		57585AF4206D485C001BB202 /* share_qq@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 57585AF2206D485B001BB202 /* share_qq@2x.png */; };
 		57CB443820A415D900268DBE /* UIDevice+GetDeviceInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 57CB443720A415D900268DBE /* UIDevice+GetDeviceInfo.m */; };
+		57CB443B20A570D700268DBE /* BBMusic.m in Sources */ = {isa = PBXBuildFile; fileRef = 57CB443A20A570D700268DBE /* BBMusic.m */; };
+		57CB443E20A5712100268DBE /* BBMusicRequestModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 57CB443D20A5712100268DBE /* BBMusicRequestModel.m */; };
+		57CB444220A59E1F00268DBE /* BBMusicCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 57CB444120A59E1F00268DBE /* BBMusicCategory.m */; };
+		57CB447E20A9DB0700268DBE /* BBMusicHotRecommend.m in Sources */ = {isa = PBXBuildFile; fileRef = 57CB447D20A9DB0700268DBE /* BBMusicHotRecommend.m */; };
+		57CB448220A9E55100268DBE /* ZXPUnicode.m in Sources */ = {isa = PBXBuildFile; fileRef = 57CB448120A9E55100268DBE /* ZXPUnicode.m */; };
 		57CECE43207374DC00E9A876 /* UIAlertController+EasilyMake.m in Sources */ = {isa = PBXBuildFile; fileRef = 57CECE41207374DC00E9A876 /* UIAlertController+EasilyMake.m */; };
 		57DF59B420835527002D2CED /* BBUserDevice.m in Sources */ = {isa = PBXBuildFile; fileRef = 57DF59B320835527002D2CED /* BBUserDevice.m */; };
 		57DF59B720843CD7002D2CED /* BBSignInPopView.m in Sources */ = {isa = PBXBuildFile; fileRef = 57DF59B620843CD7002D2CED /* BBSignInPopView.m */; };
@@ -600,6 +605,16 @@
 		57585AF2206D485B001BB202 /* share_qq@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "share_qq@2x.png"; sourceTree = "<group>"; };
 		57CB443620A415D900268DBE /* UIDevice+GetDeviceInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIDevice+GetDeviceInfo.h"; sourceTree = "<group>"; };
 		57CB443720A415D900268DBE /* UIDevice+GetDeviceInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIDevice+GetDeviceInfo.m"; sourceTree = "<group>"; };
+		57CB443920A570D700268DBE /* BBMusic.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BBMusic.h; sourceTree = "<group>"; };
+		57CB443A20A570D700268DBE /* BBMusic.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BBMusic.m; sourceTree = "<group>"; };
+		57CB443C20A5712100268DBE /* BBMusicRequestModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BBMusicRequestModel.h; sourceTree = "<group>"; };
+		57CB443D20A5712100268DBE /* BBMusicRequestModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BBMusicRequestModel.m; sourceTree = "<group>"; };
+		57CB444020A59E1F00268DBE /* BBMusicCategory.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BBMusicCategory.h; sourceTree = "<group>"; };
+		57CB444120A59E1F00268DBE /* BBMusicCategory.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BBMusicCategory.m; sourceTree = "<group>"; };
+		57CB447C20A9DB0700268DBE /* BBMusicHotRecommend.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BBMusicHotRecommend.h; sourceTree = "<group>"; };
+		57CB447D20A9DB0700268DBE /* BBMusicHotRecommend.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BBMusicHotRecommend.m; sourceTree = "<group>"; };
+		57CB448020A9E55100268DBE /* ZXPUnicode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZXPUnicode.h; sourceTree = "<group>"; };
+		57CB448120A9E55100268DBE /* ZXPUnicode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZXPUnicode.m; sourceTree = "<group>"; };
 		57CECE41207374DC00E9A876 /* UIAlertController+EasilyMake.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIAlertController+EasilyMake.m"; sourceTree = "<group>"; };
 		57CECE42207374DC00E9A876 /* UIAlertController+EasilyMake.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIAlertController+EasilyMake.h"; sourceTree = "<group>"; };
 		57DF59B220835527002D2CED /* BBUserDevice.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BBUserDevice.h; sourceTree = "<group>"; };
@@ -955,6 +970,7 @@
 		22CFD38620614BD80004186D /* EarlyEducationModules */ = {
 			isa = PBXGroup;
 			children = (
+				57CB443F20A59D1C00268DBE /* M */,
 				22CFD38720614C180004186D /* EarlyEducationViewController.h */,
 				22CFD38820614C180004186D /* EarlyEducationViewController.m */,
 				5726F3BC206C7F3B008EED75 /* BBEarlyEducationHeaderView.h */,
@@ -965,6 +981,10 @@
 				57210D1D207B05650039D8D5 /* BBEarlyEducationMusicListViewController.m */,
 				57210DD3207CA37F0039D8D5 /* BBEEMusicListCell.h */,
 				57210DD4207CA37F0039D8D5 /* BBEEMusicListCell.m */,
+				57CB443920A570D700268DBE /* BBMusic.h */,
+				57CB443A20A570D700268DBE /* BBMusic.m */,
+				57CB443C20A5712100268DBE /* BBMusicRequestModel.h */,
+				57CB443D20A5712100268DBE /* BBMusicRequestModel.m */,
 			);
 			path = EarlyEducationModules;
 			sourceTree = "<group>";
@@ -1084,6 +1104,7 @@
 		22CFD39E2064015D0004186D /* Third */ = {
 			isa = PBXGroup;
 			children = (
+				57CB447F20A9E55100268DBE /* ZXPUnicode */,
 				229FF0B7208B99A5005BA4A6 /* RSA */,
 				842C02792084913600033F4A /* AirKiss */,
 				57210C8A2074C2DE0039D8D5 /* ZFPlayer */,
@@ -1596,6 +1617,26 @@
 			path = UIDevice;
 			sourceTree = "<group>";
 		};
+		57CB443F20A59D1C00268DBE /* M */ = {
+			isa = PBXGroup;
+			children = (
+				57CB444020A59E1F00268DBE /* BBMusicCategory.h */,
+				57CB444120A59E1F00268DBE /* BBMusicCategory.m */,
+				57CB447C20A9DB0700268DBE /* BBMusicHotRecommend.h */,
+				57CB447D20A9DB0700268DBE /* BBMusicHotRecommend.m */,
+			);
+			path = M;
+			sourceTree = "<group>";
+		};
+		57CB447F20A9E55100268DBE /* ZXPUnicode */ = {
+			isa = PBXGroup;
+			children = (
+				57CB448020A9E55100268DBE /* ZXPUnicode.h */,
+				57CB448120A9E55100268DBE /* ZXPUnicode.m */,
+			);
+			path = ZXPUnicode;
+			sourceTree = "<group>";
+		};
 		84114B3F20722BD0005A1DC9 /* JPush */ = {
 			isa = PBXGroup;
 			children = (
@@ -1988,6 +2029,7 @@
 				57585AD2206D4428001BB202 /* LWShareService.m in Sources */,
 				574C6CD92069262000F5BF55 /* BBLoginRegistHeaderView.m in Sources */,
 				574C6CBA2069254200F5BF55 /* PPTextfield.m in Sources */,
+				57CB448220A9E55100268DBE /* ZXPUnicode.m in Sources */,
 				229FF0B52088EEC9005BA4A6 /* ReceiveUdpMessage.m in Sources */,
 				574C6CE62069272700F5BF55 /* UIImageView+EasilyMake.m in Sources */,
 				22CFD3AE206401780004186D /* PXYview.m in Sources */,
@@ -2013,9 +2055,11 @@
 				22CFD3F32067FDAF0004186D /* KickQulitThresholdSettingViewController.m in Sources */,
 				57210D1220789A0E0039D8D5 /* NSString+Verify.m in Sources */,
 				57210BFB2073B3F80039D8D5 /* BBPermissionManageViewController.m in Sources */,
+				57CB444220A59E1F00268DBE /* BBMusicCategory.m in Sources */,
 				57585AC2206D1AE8001BB202 /* BBFamilyMemberListCell.m in Sources */,
 				8449AC0E2062283300526935 /* NetWorkRequestManager.m in Sources */,
 				574C6CD72069262000F5BF55 /* BBRegistView.m in Sources */,
+				57CB447E20A9DB0700268DBE /* BBMusicHotRecommend.m in Sources */,
 				22CF35682073DB1500707F8A /* QRScanView.m in Sources */,
 				22CFD38D20614C3F0004186D /* MyViewController.m in Sources */,
 				22CFD3B3206402BF0004186D /* PointItem.m in Sources */,
@@ -2065,6 +2109,7 @@
 				57210CA62074C2DE0039D8D5 /* UIWindow+CurrentViewController.m in Sources */,
 				8449AC0B20620D1B00526935 /* BaseViewModel.m in Sources */,
 				229FF0AF20862EBD005BA4A6 /* BBUdpSocketManager.m in Sources */,
+				57CB443B20A570D700268DBE /* BBMusic.m in Sources */,
 				22CFD38920614C180004186D /* EarlyEducationViewController.m in Sources */,
 				22CFD3AD206401780004186D /* PXXview.m in Sources */,
 				22CFD370206143AA0004186D /* GlobalConfig.m in Sources */,
@@ -2126,6 +2171,7 @@
 				2263B8ED206BE81B005BB15E /* UIImage+category.m in Sources */,
 				229FF0B22088EE9C005BA4A6 /* SendUdpMessage.m in Sources */,
 				574C6CBC2069254200F5BF55 /* NSString+PPTextField.m in Sources */,
+				57CB443E20A5712100268DBE /* BBMusicRequestModel.m in Sources */,
 				8490CFBF20747CFC00D416C1 /* ConfigurationWifiViewController.m in Sources */,
 				22CF356E20764F6300707F8A /* GlobalAlertViewManager.m in Sources */,
 				22CFD3B0206401780004186D /* PXLineChartView.m in Sources */,

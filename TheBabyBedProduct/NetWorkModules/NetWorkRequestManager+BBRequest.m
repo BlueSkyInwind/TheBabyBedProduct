@@ -305,19 +305,70 @@ static void getRequest(NSString *url,id param,SuccessBlock successBlock,FailureB
 -(void)bb_requestEarlyEdutionListWithSuccessBlock:(SuccessBlock)successBlock
                                      failureBlock:(FailureBlock)failureBlock
 {
+    NSString *timestampStr = [NSDate bb_strFromTimestamp];
+    NSString *nonceStr = [NSString pp_randomStr];
     NSMutableDictionary *param = [NSMutableDictionary dictionary];
     NSMutableString *signatureStr = [[NSMutableString alloc]initWithString:KGCSDad_AppId];
     [signatureStr appendString:KGCSDad_Secret];
-    [signatureStr appendString:[NSString stringWithFormat:@"%@",[NSDate bb_strFromTimestamp]]];//[NSString pp_randomStr]
-    NSString *signatureString = [NSString stringWithFormat:@"%@",signatureStr];
-    signatureString = [signatureString pp_sha1];
+    [signatureStr appendString:[NSString stringWithFormat:@"%@",timestampStr]];
+    NSString *signatureString = [NSString pp_sha1:signatureStr];
     [param setValue:signatureString forKey:@"signature"];
     [param setValue:KGCSDad_AppId forKey:@"app_id"];
     [param setValue:[UIDevice pp_UUID] forKey:@"device_id"];
-    [param setValue:[NSString pp_randomStr] forKey:@"nonce"];
-    [param setValue:[NSDate bb_strFromTimestamp] forKey:@"timestamp"];
+    [param setValue:nonceStr forKey:@"nonce"];
+    [param setValue:timestampStr forKey:@"timestamp"];
+    
     postRequestGCSDad(K_Url_MusicList, param, successBlock, failureBlock);
     
+}
+/**
+ 早教列表（二级分类）
+ */
+-(void)bb_requestEarlyEdutionSubListWithCategoryIds:(NSArray *)categoryIds
+                                       SuccessBlock:(SuccessBlock)successBlock
+                                       failureBlock:(FailureBlock)failureBlock
+{
+    NSString *timestampStr = [NSDate bb_strFromTimestamp];
+    NSString *nonceStr = [NSString pp_randomStr];
+    NSMutableDictionary *param = [NSMutableDictionary dictionary];
+    NSMutableString *signatureStr = [[NSMutableString alloc]initWithString:KGCSDad_AppId];
+    [signatureStr appendString:KGCSDad_Secret];
+    [signatureStr appendString:[NSString stringWithFormat:@"%@",timestampStr]];
+    NSString *signatureString = [NSString pp_sha1:signatureStr];
+    [param setValue:signatureString forKey:@"signature"];
+    [param setValue:KGCSDad_AppId forKey:@"app_id"];
+    [param setValue:[UIDevice pp_UUID] forKey:@"device_id"];
+    [param setValue:nonceStr forKey:@"nonce"];
+    [param setValue:timestampStr forKey:@"timestamp"];
+    
+    NSMutableString *str = [[NSMutableString alloc]initWithString:@"["];
+    for (int i = 0; i < categoryIds.count-1; i++) {
+        [str appendFormat:@"%@,",categoryIds[i]];
+    }
+    [str appendFormat:@"%@]",[categoryIds lastObject]];
+    [param setValue:str forKey:@"cat_ids"];
+    postRequestGCSDad(K_Url_MusicList, param, successBlock, failureBlock);
+}
+/**
+ 早教热门推荐
+ */
+-(void)bb_requestEarlyEdutionHotRecommendWithSuccessBlock:(SuccessBlock)successBlock
+                                             failureBlock:(FailureBlock)failureBlock
+{
+    NSString *timestampStr = [NSDate bb_strFromTimestamp];
+    NSString *nonceStr = [NSString pp_randomStr];
+    NSMutableDictionary *param = [NSMutableDictionary dictionary];
+    NSMutableString *signatureStr = [[NSMutableString alloc]initWithString:KGCSDad_AppId];
+    [signatureStr appendString:KGCSDad_Secret];
+    [signatureStr appendString:[NSString stringWithFormat:@"%@",timestampStr]];
+    NSString *signatureString = [NSString pp_sha1:signatureStr];
+    [param setValue:signatureString forKey:@"signature"];
+    [param setValue:KGCSDad_AppId forKey:@"app_id"];
+    [param setValue:[UIDevice pp_UUID] forKey:@"device_id"];
+    [param setValue:nonceStr forKey:@"nonce"];
+    [param setValue:timestampStr forKey:@"timestamp"];
+    [param setValue:@"hot" forKey:@"listtype"];
+    postRequestGCSDad(K_Url_MusicList, param, successBlock, failureBlock);
 }
 
 /**

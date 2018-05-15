@@ -21,5 +21,5 @@ target 'TheBabyBedProduct' do
     pod 'TZImagePickerController', '~> 2.0.0.9'
     pod 'BRPickerView', '~> 2.2.0'
     pod 'CocoaAsyncSocket'
-    
+    pod 'HYBNetworking'
 end

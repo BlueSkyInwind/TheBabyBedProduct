@@ -33,7 +33,7 @@
     [self creatBannerUI];
     
     NSArray * titleArrs = @[@"胎教音乐",@"经典童话",@"睡前故事",@"音乐启蒙",
-                            @"诗歌美文",@"经典音乐",@"钢琴曲",@"古典音乐"];
+                            @"古诗精选",@"经典音乐",@"小提琴曲",@"古典音乐"];
     
     NSArray * imageArrs = @[
                             @"antenatal",
