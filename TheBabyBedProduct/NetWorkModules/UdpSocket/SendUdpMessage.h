@@ -15,4 +15,11 @@
 //寻址
 -(NSData *)generateAddressingMessage;
 -(NSData *)testGenerateAddressingMessage;
+
+//发现
+-(NSData *)generateDiscoverRequestMessage;
+
+
+
+
 @end

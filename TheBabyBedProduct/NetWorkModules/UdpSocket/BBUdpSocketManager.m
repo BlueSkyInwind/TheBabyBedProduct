@@ -76,6 +76,8 @@
     }
     
     [self sendAddressMessage];
+//    [self sendDiscoverRequestMessage];
+
 }
 
 #pragma mark - GCDAsyncUdpSocket delegate
@@ -90,9 +92,13 @@
 - (void)udpSocket:(GCDAsyncUdpSocket *)sock didReceiveData:(NSData *)data fromAddress:(NSData *)address withFilterContext:(id)filterContext
 {
     DLog(@"接收到%@的消息",address);
-    ReceiveUdpMessage * receiveUdpMessage = [[ReceiveUdpMessage alloc]init];
-    [receiveUdpMessage receiveUdpMessage:data];
+    [ReceiveUdpMessage initReceiveData:data complecation:^(ReceiveUdpMessageType type, id result) {
+        if (type == AddressingMessageType) {
+            [self sendDiscoverRequestMessage];
+        }
+    }];
 }
+
 - (void)udpSocketDidClose:(GCDAsyncUdpSocket *)sock withError:(NSError *)error
 {
     DLog(@"udpSocket关闭");
@@ -119,7 +125,13 @@
     [self sendUdpData:addressData];
     
 }
-
+-(void)sendDiscoverRequestMessage{
+    
+    SendUdpMessage * sendMessage = [[SendUdpMessage alloc]init];
+    NSData * discoverRequestData = [sendMessage generateDiscoverRequestMessage];
+    [self sendUdpData:discoverRequestData];
+    
+}
 
 
 

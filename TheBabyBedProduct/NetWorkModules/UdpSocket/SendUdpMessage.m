@@ -92,6 +92,44 @@
     
 }
 
+//登录
+-(NSData *)generateLoginRequestMessage{
+    
+    NSMutableData * dataOne = [[self generatePreambleVersion:0 preambleCrypto:1 HLEN:0x04 YdaHeaderChecksum:0] mutableCopy];
+    
+    NSData * dataTwo = [self generateTransID:0 ctrlAndExt:0];
+    [dataOne appendData:dataTwo];
+    
+    NSData * dataThree = [self generateFragmentID:0 FragOffset:0];
+    [dataOne appendData:dataThree];
+    
+    NSData * dataFour = [self generateDataLen:0 Reserved:0];
+    [dataOne appendData:dataFour];
+    
+    NSData * dataFive = [self generateMsgType:0x05 SeqNum:0x00 MsgLen:8];
+    [dataOne appendData:dataFive];
+    
+    NSData * dataSix = [self generateYdaCtrlHeaderChecksum:0 Random:12];
+    [dataOne appendData:dataSix];
+    
+    NSData * bodyData = [self generateDiscoverRequestUdpBody];
+    [dataOne appendData:bodyData];
+    
+    dataOne = [[self setYdaHeaderDatalen:bodyData.length + 8 data:dataOne] mutableCopy];
+    dataOne = [[self setYdaCtrlHeaderMsglen:bodyData.length + 8 data:dataOne] mutableCopy];
+    dataOne = [[self setYdaHeaderChecksumData:dataOne] mutableCopy];
+    dataOne = [[self setYdaCtrlHeaderChecksumData:dataOne] mutableCopy];
+    
+    return dataOne;
+}
+
+-(NSData *)generateLoginRequestUdpBody{
+    
+    NSMutableData * bodyData = [[self generateUdpBodyUnit:134 elementID:9 dataContent:nil] mutableCopy];
+    return bodyData;
+    
+}
+
 
 
 #pragma mark - YDA HEAdER

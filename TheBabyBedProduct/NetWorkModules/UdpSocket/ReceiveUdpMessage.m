@@ -12,6 +12,12 @@
 
 @implementation ReceiveUdpMessage
 
++(instancetype)initReceiveData:(NSData *)data complecation:(ReceiveUdpMessageResult)result{
+    ReceiveUdpMessage * message = [[ReceiveUdpMessage alloc]init];
+    message.responseResult = result;
+    [message receiveUdpMessage:data];
+    return message;
+}
 
 //加密报文进行先解密
 -(void)rsaDecryptUdpMessage:(NSData *)MessageData{
@@ -41,7 +47,6 @@
     }
 }
 
-
 #pragma mark - 寻址相应报文解析
 /**
  解析寻址响应的udp报文
@@ -64,7 +69,8 @@
             Byte addressUnitByte[20];
             memcpy(addressUnitByte, receiveUdpAddressByte + (20 * i), 20);
             NSData * addressUnitData = [NSData dataWithBytes:addressUnitByte length:20];
-            [self analysisAddress:addressUnitData];
+           NSDictionary * dic = [self analysisAddress:addressUnitData];
+           self.responseResult(AddressingMessageType, dic);
         }
     }
 }
@@ -74,17 +80,20 @@
 
  @param addressData 地址数据包
  */
--(void)analysisAddress:(NSData *)addressData{
+-(NSDictionary *)analysisAddress:(NSData *)addressData{
+    NSDictionary * resultDic = [NSDictionary dictionary];
     Byte udpAddressInfoByte[20];
     [addressData getBytes:udpAddressInfoByte length:20];
     short int ipType = (udpAddressInfoByte[0] << 8) + udpAddressInfoByte[1];
     short int port = (udpAddressInfoByte[2] << 8) + udpAddressInfoByte[3];
+    [resultDic setValue:@(port) forKey:@"port"];
     Byte udpAddressIPByte[16];
     memcpy(udpAddressIPByte, udpAddressInfoByte + 4, 16);
     //ipType 为 1是 ipv6 ， 为2 是ipv4
     if (ipType == 1) {
         NSData *ipData = [NSData dataWithBytes:udpAddressIPByte length:16];
         NSString * ipv6Str = [[NSString alloc]initWithData:ipData encoding:NSUTF8StringEncoding];
+        [resultDic setValue:ipv6Str forKey:@"ipAddress"];
         DLog(@"%@:%d",ipv6Str,port);
     }else{
         Byte udpAddressIPv4Byte[4];
@@ -102,7 +111,10 @@
             }
         }
         ipv4Str = [ipv4Str substringToIndex:ipv4Str.length - 1];
+        DLog(@"%@:%d",ipv4Str,port);
+        [resultDic setValue:ipv4Str forKey:@"ipAddress"];
     }
+    return resultDic;
 }
 
 
