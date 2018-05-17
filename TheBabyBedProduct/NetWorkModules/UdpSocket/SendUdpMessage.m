@@ -85,12 +85,11 @@
     
 }
 -(NSData *)generateDiscoverRequestUdpBody{
-    
     NSMutableData * bodyData = [[self generateUdpBodyUnit:134 elementID:7 dataContent:nil] mutableCopy];
     [bodyData appendData: [self generateUdpBodyUnit:185 elementID:8 dataContent:RSA_PUBLIC_KEY]];
     return bodyData;
-    
 }
+
 
 //登录
 -(NSData *)generateLoginRequestMessage{

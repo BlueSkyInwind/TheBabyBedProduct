@@ -10,8 +10,6 @@
 
 @interface SendUdpMessage : NSObject
 
-
-
 //寻址
 -(NSData *)generateAddressingMessage;
 -(NSData *)testGenerateAddressingMessage;

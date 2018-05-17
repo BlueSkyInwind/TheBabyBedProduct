@@ -77,7 +77,6 @@
     
     [self sendAddressMessage];
 //    [self sendDiscoverRequestMessage];
-
 }
 
 #pragma mark - GCDAsyncUdpSocket delegate
