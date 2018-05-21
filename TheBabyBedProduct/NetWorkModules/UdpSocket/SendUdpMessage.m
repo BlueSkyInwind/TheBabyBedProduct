@@ -11,6 +11,8 @@
 #import "SendUdpMessage.h"
 #import "SocketMacros.h"
 
+extern short int sendCount;
+
 @implementation SendUdpMessage
 
 //寻址
@@ -27,7 +29,7 @@
     NSData * dataFour = [self generateDataLen:0 Reserved:0];
     [dataOne appendData:dataFour];
     
-    NSData * dataFive = [self generateMsgType:0x01 SeqNum:0x00 MsgLen:8];
+    NSData * dataFive = [self generateMsgType:0x01 SeqNum:sendCount MsgLen:8];
     [dataOne appendData:dataFive];
     
     NSData * dataSix = [self generateYdaCtrlHeaderChecksum:0 Random:7];
@@ -67,7 +69,7 @@
     NSData * dataFour = [self generateDataLen:0 Reserved:0];
     [dataOne appendData:dataFour];
     
-    NSData * dataFive = [self generateMsgType:0x03 SeqNum:0x00 MsgLen:8];
+    NSData * dataFive = [self generateMsgType:0x03 SeqNum:sendCount MsgLen:8];
     [dataOne appendData:dataFive];
     
     NSData * dataSix = [self generateYdaCtrlHeaderChecksum:0 Random:12];
@@ -105,7 +107,7 @@
     NSData * dataFour = [self generateDataLen:0 Reserved:0];
     [dataOne appendData:dataFour];
     
-    NSData * dataFive = [self generateMsgType:0x05 SeqNum:0x00 MsgLen:8];
+    NSData * dataFive = [self generateMsgType:0x05 SeqNum:sendCount MsgLen:8];
     [dataOne appendData:dataFive];
     
     NSData * dataSix = [self generateYdaCtrlHeaderChecksum:0 Random:12];
@@ -124,7 +126,7 @@
 
 -(NSData *)generateLoginRequestUdpBody{
     
-    NSMutableData * bodyData = [[self generateUdpBodyUnit:134 elementID:9 dataContent:nil] mutableCopy];
+    NSMutableData * bodyData = [[self generateUdpBodyUnit:0 elementID:9 dataContent:nil] mutableCopy];
     return bodyData;
     
 }

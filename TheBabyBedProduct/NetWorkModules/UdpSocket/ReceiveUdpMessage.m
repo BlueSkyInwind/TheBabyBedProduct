@@ -50,7 +50,7 @@
             //发现相应报文
             DLog(@"发现相应报文类型 ---- %c",msgType);
            unsigned int code =  [self analysisDiscoverYDACtrlHeader:ctrlData];
-            self.responseResult(DiscoverMessageType, @(code));
+           self.responseResult(DiscoverMessageType, @(code));
         }
     }@catch (NSException * exception){
         DLog(@"解析报文出现异常%@",exception);

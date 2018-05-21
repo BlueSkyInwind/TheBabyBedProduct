@@ -8,8 +8,13 @@
 
 #import <Foundation/Foundation.h>
 
-@interface BBUdpSocketManager : NSObject
 
+@interface BBUdpSocketManager : NSObject{
+    
+
+}
+
+//short int sendCount;
 
 +(BBUdpSocketManager *)shareInstance;
 

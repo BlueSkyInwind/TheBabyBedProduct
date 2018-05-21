@@ -34,6 +34,8 @@
 
 @implementation BBUdpSocketManager
 
+short int sendCount;
+
 +(BBUdpSocketManager *)shareInstance{
     
     static BBUdpSocketManager * socketManeger = nil;
@@ -65,7 +67,7 @@
     if(_udpSocket){
         return;
     }
-    
+    sendCount = 2;
     _udpSocket = [[GCDAsyncUdpSocket alloc]initWithDelegate:self delegateQueue:self.queue];
     NSError * error = nil;
     [_udpSocket bindToPort:K_port_BBUDP error:&error];
@@ -82,6 +84,7 @@
 #pragma mark - GCDAsyncUdpSocket delegate
 - (void)udpSocket:(GCDAsyncUdpSocket *)sock didSendDataWithTag:(long)tag
 {
+    sendCount ++;
     DLog(@"发送信息成功");
 }
 - (void)udpSocket:(GCDAsyncUdpSocket *)sock didNotSendDataWithTag:(long)tag dueToError:(NSError *)error
@@ -92,9 +95,7 @@
 {
     DLog(@"接收到%@的消息",address);
     [ReceiveUdpMessage initReceiveData:data complecation:^(ReceiveUdpMessageType type, id result) {
-        if (type == AddressingMessageType) {
-            [self sendDiscoverRequestMessage];
-        }
+        [self receiveMessageData:type result:result];
     }];
 }
 
@@ -131,7 +132,35 @@
     [self sendUdpData:discoverRequestData];
     
 }
-
+-(void)sendLoginRequestMessage{
+    
+    SendUdpMessage * sendMessage = [[SendUdpMessage alloc]init];
+    NSData * discoverRequestData = [sendMessage generateLoginRequestMessage];
+    [self sendUdpData:discoverRequestData];
+    
+}
+#pragma mrak - 报文接收处理
+-(void)receiveMessageData:(ReceiveUdpMessageType)type result:(id)result{
+    
+    switch (type) {
+        case AddressingMessageType:{
+            [self sendDiscoverRequestMessage];
+        }
+            break;
+        case DiscoverMessageType:{
+            int errCode = (int)result;
+            if (errCode == 0) {
+                [self sendLoginRequestMessage];
+            }else{
+                
+            }
+        }
+        default:
+            break;
+    }
+    
+    
+}
 
 
 

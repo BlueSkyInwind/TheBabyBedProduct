@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
+
 @interface SendUdpMessage : NSObject
 
 //寻址
@@ -16,8 +17,8 @@
 
 //发现
 -(NSData *)generateDiscoverRequestMessage;
-
-
+//登陆
+-(NSData *)generateLoginRequestMessage;
 
 
 @end
