@@ -35,6 +35,7 @@
 @implementation BBUdpSocketManager
 
 short int sendCount;
+short int TransID;
 
 +(BBUdpSocketManager *)shareInstance{
     
@@ -68,6 +69,7 @@ short int sendCount;
         return;
     }
     sendCount = 2;
+    TransID = 2;
     _udpSocket = [[GCDAsyncUdpSocket alloc]initWithDelegate:self delegateQueue:self.queue];
     NSError * error = nil;
     [_udpSocket bindToPort:K_port_BBUDP error:&error];
@@ -98,7 +100,6 @@ short int sendCount;
         [self receiveMessageData:type result:result];
     }];
 }
-
 - (void)udpSocketDidClose:(GCDAsyncUdpSocket *)sock withError:(NSError *)error
 {
     DLog(@"udpSocket关闭");
@@ -110,13 +111,15 @@ short int sendCount;
 }
 
 -(void)createHeartData{
-    heartTimer = [NSTimer scheduledTimerWithTimeInterval:5 target:self selector:@selector(sendHeartData) userInfo:nil repeats:true];
+    dispatch_async(_queue, ^{
+        heartTimer = [NSTimer scheduledTimerWithTimeInterval:5 target:self selector:@selector(sendHeartData) userInfo:nil repeats:true];
+        [[NSRunLoop currentRunLoop] addTimer:heartTimer forMode:NSRunLoopCommonModes];
+        [[NSRunLoop currentRunLoop] run];
+    });
 }
-
 -(void)sendHeartData{
-    
+    [self sendHeartbeatRequestMessage];
 }
-
 #pragma mrak - 报文发送
 -(void)sendAddressMessage{
     
@@ -139,6 +142,13 @@ short int sendCount;
     [self sendUdpData:discoverRequestData];
     
 }
+-(void)sendHeartbeatRequestMessage{
+    
+    SendUdpMessage * sendMessage = [[SendUdpMessage alloc]init];
+    NSData * discoverRequestData = [sendMessage generateHeartbeatRequestMessage];
+    [self sendUdpData:discoverRequestData];
+    
+}
 #pragma mrak - 报文接收处理
 -(void)receiveMessageData:(ReceiveUdpMessageType)type result:(id)result{
     
@@ -148,12 +158,22 @@ short int sendCount;
         }
             break;
         case DiscoverMessageType:{
-            int errCode = (int)result;
+            int errCode = [result intValue];
             if (errCode == 0) {
                 [self sendLoginRequestMessage];
             }else{
                 
             }
+            break;
+        }
+        case LoginMessageType:{
+            int errCode = [result intValue];
+            if (errCode == 0) {
+                [self sendHeartbeatRequestMessage];
+            }else{
+                
+            }
+            break;
         }
         default:
             break;

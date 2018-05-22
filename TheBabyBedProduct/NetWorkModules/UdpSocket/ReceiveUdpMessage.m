@@ -10,6 +10,8 @@
 #import "SocketMacros.h"
 #import "RSA.h"
 
+extern short int TransID;
+
 @implementation ReceiveUdpMessage
 
 +(instancetype)initReceiveData:(NSData *)data complecation:(ReceiveUdpMessageResult)result{
@@ -31,6 +33,8 @@
     Byte receiveByte[data.length];
     [data getBytes:receiveByte length:data.length];
     unsigned char crypto = (receiveByte[1] & 0xf0) >> 4;
+    TransID = (receiveByte[4] << 8) + receiveByte[5];
+    //取出控制报文
     Byte ctrlHeaderByte[data.length - YDA_HAEDER_LENGTH];
     memcpy(ctrlHeaderByte, receiveByte + YDA_HAEDER_LENGTH, data.length - YDA_HAEDER_LENGTH);
     if (crypto == 1) {
@@ -51,6 +55,12 @@
             DLog(@"发现相应报文类型 ---- %c",msgType);
            unsigned int code =  [self analysisDiscoverYDACtrlHeader:ctrlData];
            self.responseResult(DiscoverMessageType, @(code));
+        }else if(msgType == 0x06){
+            //登录相应报文
+            unsigned int code =  [self analysisLoginYDACtrlHeader:ctrlData];
+            self.responseResult(LoginMessageType, @(code));
+        }else if(msgType == 0x08){
+            
         }
     }@catch (NSException * exception){
         DLog(@"解析报文出现异常%@",exception);
@@ -144,12 +154,27 @@
     memcpy(receiveUdpDiscoverByte, receivePayLoad + 4, 4);
     short int elementID = (receivePayLoad[0] << 8) + receivePayLoad[1];
     if (elementID == 0) {
-        errCode = receiveUdpDiscoverByte[0] + (receiveUdpDiscoverByte[0] << 8) + (receiveUdpDiscoverByte[0] << 16) + (receiveUdpDiscoverByte[0] << 24);
+        errCode = receiveUdpDiscoverByte[0] + (receiveUdpDiscoverByte[1] << 8) + (receiveUdpDiscoverByte[2] << 16) + (receiveUdpDiscoverByte[3] << 24);
     }
     return errCode;
 }
 
-
+#pragma mark - 登录相应报文解析
+-(unsigned int)analysisLoginYDACtrlHeader:(NSData *)ctrlHeaderData{
+    
+    unsigned int errCode;
+    Byte receiveCtrlByte[ctrlHeaderData.length];
+    Byte receivePayLoad[ctrlHeaderData.length - YDA_CTRL_HAEDER_LENGTH];
+    [ctrlHeaderData getBytes:receiveCtrlByte length:ctrlHeaderData.length];
+    memcpy(receivePayLoad, receiveCtrlByte + YDA_CTRL_HAEDER_LENGTH, ctrlHeaderData.length - YDA_CTRL_HAEDER_LENGTH);
+    Byte receiveUdpLoginByte[4];
+    memcpy(receiveUdpLoginByte, receivePayLoad + 4, 4);
+    short int elementID = (receivePayLoad[0] << 8) + receivePayLoad[1];
+    if (elementID == 0) {
+        errCode = receiveUdpLoginByte[0] + (receiveUdpLoginByte[1] << 8) + (receiveUdpLoginByte[2] << 16) + (receiveUdpLoginByte[3] << 24);
+    }
+    return errCode;
+}
 
 
 

@@ -12,6 +12,7 @@
 #import "SocketMacros.h"
 
 extern short int sendCount;
+extern short int TransID;
 
 @implementation SendUdpMessage
 
@@ -20,7 +21,7 @@ extern short int sendCount;
     
     NSMutableData * dataOne = [[self generatePreambleVersion:0 preambleCrypto:0 HLEN:0x04 YdaHeaderChecksum:0] mutableCopy];
     
-    NSData * dataTwo = [self generateTransID:0 ctrlAndExt:0];
+    NSData * dataTwo = [self generateTransID:TransID ctrlAndExt:0];
     [dataOne appendData:dataTwo];
     
     NSData * dataThree = [self generateFragmentID:0 FragOffset:0];
@@ -38,10 +39,10 @@ extern short int sendCount;
     NSData * bodyData = [self generateUdpBody];
     [dataOne appendData:bodyData];
     
-    dataOne = [[self setYdaHeaderDatalen:bodyData.length + 8 data:dataOne] mutableCopy];
+    dataOne = [[self setYdaHeaderDatalen:dataOne.length  data:dataOne] mutableCopy];
     dataOne = [[self setYdaCtrlHeaderMsglen:bodyData.length + 8 data:dataOne] mutableCopy];
-    dataOne = [[self setYdaHeaderChecksumData:dataOne] mutableCopy];
     dataOne = [[self setYdaCtrlHeaderChecksumData:dataOne] mutableCopy];
+    dataOne = [[self setYdaHeaderChecksumData:dataOne] mutableCopy];
     
     return dataOne;
 }
@@ -60,7 +61,7 @@ extern short int sendCount;
     
     NSMutableData * dataOne = [[self generatePreambleVersion:0 preambleCrypto:1 HLEN:0x04 YdaHeaderChecksum:0] mutableCopy];
     
-    NSData * dataTwo = [self generateTransID:0 ctrlAndExt:0];
+    NSData * dataTwo = [self generateTransID:TransID ctrlAndExt:0];
     [dataOne appendData:dataTwo];
     
     NSData * dataThree = [self generateFragmentID:0 FragOffset:0];
@@ -78,10 +79,10 @@ extern short int sendCount;
     NSData * bodyData = [self generateDiscoverRequestUdpBody];
     [dataOne appendData:bodyData];
     
-    dataOne = [[self setYdaHeaderDatalen:bodyData.length + 8 data:dataOne] mutableCopy];
+    dataOne = [[self setYdaHeaderDatalen:dataOne.length  data:dataOne] mutableCopy];
     dataOne = [[self setYdaCtrlHeaderMsglen:bodyData.length + 8 data:dataOne] mutableCopy];
-    dataOne = [[self setYdaHeaderChecksumData:dataOne] mutableCopy];
     dataOne = [[self setYdaCtrlHeaderChecksumData:dataOne] mutableCopy];
+    dataOne = [[self setYdaHeaderChecksumData:dataOne] mutableCopy];
     
     return dataOne;
     
@@ -98,7 +99,7 @@ extern short int sendCount;
     
     NSMutableData * dataOne = [[self generatePreambleVersion:0 preambleCrypto:1 HLEN:0x04 YdaHeaderChecksum:0] mutableCopy];
     
-    NSData * dataTwo = [self generateTransID:0 ctrlAndExt:0];
+    NSData * dataTwo = [self generateTransID:TransID ctrlAndExt:0];
     [dataOne appendData:dataTwo];
     
     NSData * dataThree = [self generateFragmentID:0 FragOffset:0];
@@ -116,10 +117,10 @@ extern short int sendCount;
     NSData * bodyData = [self generateDiscoverRequestUdpBody];
     [dataOne appendData:bodyData];
     
-    dataOne = [[self setYdaHeaderDatalen:bodyData.length + 8 data:dataOne] mutableCopy];
+    dataOne = [[self setYdaHeaderDatalen:dataOne.length  data:dataOne] mutableCopy];
     dataOne = [[self setYdaCtrlHeaderMsglen:bodyData.length + 8 data:dataOne] mutableCopy];
-    dataOne = [[self setYdaHeaderChecksumData:dataOne] mutableCopy];
     dataOne = [[self setYdaCtrlHeaderChecksumData:dataOne] mutableCopy];
+    dataOne = [[self setYdaHeaderChecksumData:dataOne] mutableCopy];
     
     return dataOne;
 }
@@ -131,6 +132,33 @@ extern short int sendCount;
     
 }
 
+//心跳
+-(NSData *)generateHeartbeatRequestMessage{
+    
+    NSMutableData * dataOne = [[self generatePreambleVersion:0 preambleCrypto:0 HLEN:0x04 YdaHeaderChecksum:0] mutableCopy];
+    
+    NSData * dataTwo = [self generateTransID:TransID ctrlAndExt:0];
+    [dataOne appendData:dataTwo];
+    
+    NSData * dataThree = [self generateFragmentID:0 FragOffset:0];
+    [dataOne appendData:dataThree];
+    
+    NSData * dataFour = [self generateDataLen:0 Reserved:0];
+    [dataOne appendData:dataFour];
+    
+    NSData * dataFive = [self generateMsgType:0x07 SeqNum:sendCount MsgLen:0];
+    [dataOne appendData:dataFive];
+    
+    NSData * dataSix = [self generateYdaCtrlHeaderChecksum:0 Random:15];
+    [dataOne appendData:dataSix];
+    
+    dataOne = [[self setYdaHeaderDatalen:dataOne.length  data:dataOne] mutableCopy];
+    dataOne = [[self setYdaCtrlHeaderMsglen:8 data:dataOne] mutableCopy];
+    dataOne = [[self setYdaCtrlHeaderChecksumData:dataOne] mutableCopy];
+    dataOne = [[self setYdaHeaderChecksumData:dataOne] mutableCopy];
+    
+    return dataOne;
+}
 
 
 #pragma mark - YDA HEAdER
@@ -148,9 +176,11 @@ extern short int sendCount;
     Byte byte[4];
     byte[0] = (((crypto << 4)&0xf0) | version);   //一个字节的高4位存储payload加密版本 ，低4位存储版本
     byte[1] = HLEN;
+    byte[2] = ((checksum >> 8) & 0xff);
+    byte[3] = (checksum & 0xff);
     NSData * data = [[NSData alloc]initWithBytes:byte length:4];
-    NSData * resultData = [self setYdaHeaderChecksumData:data];
-    return resultData;
+//    NSData * resultData = [self setYdaHeaderChecksumData:data];
+    return data;
 }
 
 -(NSData *)generateTransID:(short int)transID ctrlAndExt:(short int)ctrlAndExt{
@@ -309,9 +339,6 @@ unsigned short checksumAndCRC(unsigned short * buffer,int size)
         cksum=(cksum>>16)+(cksum &0xffff);
     return (unsigned short) (~cksum);
 }
-
-
-
 
 
  -(NSData *)testGenerateAddressingMessage{

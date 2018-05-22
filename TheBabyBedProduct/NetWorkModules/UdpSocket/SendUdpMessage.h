@@ -14,11 +14,11 @@
 //寻址
 -(NSData *)generateAddressingMessage;
 -(NSData *)testGenerateAddressingMessage;
-
 //发现
 -(NSData *)generateDiscoverRequestMessage;
 //登陆
 -(NSData *)generateLoginRequestMessage;
-
+//心跳
+-(NSData *)generateHeartbeatRequestMessage;
 
 @end
