@@ -149,6 +149,15 @@ short int TransID;
     [self sendUdpData:discoverRequestData];
     
 }
+
+-(void)sendEventNotificationRequestMessage{
+    
+    SendUdpMessage * sendMessage = [[SendUdpMessage alloc]init];
+    NSData * discoverRequestData = [sendMessage generateEventNotificationRequestMessage:@{Env_Temp_Value:@(24)}];
+    [self sendUdpData:discoverRequestData];
+    
+}
+
 #pragma mrak - 报文接收处理
 -(void)receiveMessageData:(ReceiveUdpMessageType)type result:(id)result{
     
@@ -164,8 +173,8 @@ short int TransID;
             }else{
                 
             }
-            break;
         }
+            break;
         case LoginMessageType:{
             int errCode = [result intValue];
             if (errCode == 0) {
@@ -173,8 +182,12 @@ short int TransID;
             }else{
                 
             }
-            break;
         }
+            break;
+        case HeartMessageType:{
+            [self sendEventNotificationRequestMessage];
+        }
+            break;
         default:
             break;
     }

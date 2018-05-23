@@ -60,7 +60,12 @@ extern short int TransID;
             unsigned int code =  [self analysisLoginYDACtrlHeader:ctrlData];
             self.responseResult(LoginMessageType, @(code));
         }else if(msgType == 0x08){
-            
+            //心跳相应报文
+            self.responseResult(HeartMessageType, @(0));
+        }else if(msgType == 0x0c){
+            //事件相应报文
+            unsigned int code =  [self analysisEventYDACtrlHeader:ctrlData];
+            self.responseResult(NotificationType, @(code));
         }
     }@catch (NSException * exception){
         DLog(@"解析报文出现异常%@",exception);
@@ -175,7 +180,22 @@ extern short int TransID;
     }
     return errCode;
 }
-
+#pragma mark - 事件报文相应报文解析
+-(unsigned int)analysisEventYDACtrlHeader:(NSData *)ctrlHeaderData{
+    
+    unsigned int errCode;
+    Byte receiveCtrlByte[ctrlHeaderData.length];
+    Byte receivePayLoad[ctrlHeaderData.length - YDA_CTRL_HAEDER_LENGTH];
+    [ctrlHeaderData getBytes:receiveCtrlByte length:ctrlHeaderData.length];
+    memcpy(receivePayLoad, receiveCtrlByte + YDA_CTRL_HAEDER_LENGTH, ctrlHeaderData.length - YDA_CTRL_HAEDER_LENGTH);
+    Byte receiveUdpEventByte[4];
+    memcpy(receiveUdpEventByte, receivePayLoad + 4, 4);
+    short int elementID = (receivePayLoad[0] << 8) + receivePayLoad[1];
+    if (elementID == 0x0F) {
+        errCode = receiveUdpEventByte[0] + (receiveUdpEventByte[1] << 8) + (receiveUdpEventByte[2] << 16) + (receiveUdpEventByte[3] << 24);
+    }
+    return errCode;
+}
 
 
 
