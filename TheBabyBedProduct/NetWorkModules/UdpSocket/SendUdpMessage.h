@@ -42,4 +42,6 @@ UIKIT_EXTERN NSString * const Baby_Urine_Value;
  @return 事情通知请求
  */
 -(NSData *)generateEventNotificationRequestMessage:(NSDictionary *)valueDic;
+//设备管理报文
+-(NSData *)generateEquipmentmanagementRequestMessage;
 @end

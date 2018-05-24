@@ -20,6 +20,8 @@
     
     NSTimer * heartTimer;
     
+    NSInteger heartNoResponseCount;   //未收到心跳的计数，上限为3次，未收到发起重连
+    
 }
 
 
@@ -28,6 +30,9 @@
 
 /* <#Description#>*/
 @property(nonatomic,strong)dispatch_queue_t  queue;
+
+/* */
+@property(nonatomic,strong)dispatch_queue_t  heartQueue;
 
 @end
 
@@ -63,6 +68,13 @@ short int TransID;
     return _queue;
 }
 
+-(dispatch_queue_t)heartQueue{
+    if (_heartQueue == nil){
+        _heartQueue = dispatch_queue_create("com.BB.heart", NULL);
+    }
+    return _heartQueue;
+}
+
 -(void)createAsyncUdpSocket{
     
     if(_udpSocket){
@@ -70,6 +82,8 @@ short int TransID;
     }
     sendCount = 2;
     TransID = 2;
+    heartNoResponseCount = 4;
+
     _udpSocket = [[GCDAsyncUdpSocket alloc]initWithDelegate:self delegateQueue:self.queue];
     NSError * error = nil;
     [_udpSocket bindToPort:K_port_BBUDP error:&error];
@@ -79,15 +93,19 @@ short int TransID;
         [_udpSocket beginReceiving:&error];
     }
     
-    [self sendAddressMessage];
-//    [self sendDiscoverRequestMessage];
+//    [self sendAddressMessage];
+//    [self createHeartData];
+    [self sendEventNotificationRequestMessage];
 }
 
 #pragma mark - GCDAsyncUdpSocket delegate
 - (void)udpSocket:(GCDAsyncUdpSocket *)sock didSendDataWithTag:(long)tag
 {
     sendCount ++;
-    DLog(@"发送信息成功");
+    if (tag == 1004) {
+        heartNoResponseCount ++;
+    }
+    DLog(@"发送信息成功 %ld",tag);
 }
 - (void)udpSocket:(GCDAsyncUdpSocket *)sock didNotSendDataWithTag:(long)tag dueToError:(NSError *)error
 {
@@ -106,18 +124,25 @@ short int TransID;
     _udpSocket = nil;
 }
 
--(void)sendUdpData:(NSData *)data{
-    [_udpSocket sendData:data toHost:hostStr port:port withTimeout:-1 tag:1000];
+-(void)sendUdpData:(NSData *)data tag:(long)tag{
+    [_udpSocket sendData:data toHost:hostStr port:port withTimeout:-1 tag:tag];
 }
 
 -(void)createHeartData{
-    dispatch_async(_queue, ^{
-        heartTimer = [NSTimer scheduledTimerWithTimeInterval:5 target:self selector:@selector(sendHeartData) userInfo:nil repeats:true];
+    dispatch_async(self.heartQueue, ^{
+        heartTimer = [NSTimer scheduledTimerWithTimeInterval:10 target:self selector:@selector(sendHeartData) userInfo:nil repeats:true];
         [[NSRunLoop currentRunLoop] addTimer:heartTimer forMode:NSRunLoopCommonModes];
         [[NSRunLoop currentRunLoop] run];
     });
 }
 -(void)sendHeartData{
+    //如果超过三次为收到心跳确认，重新发起上线请求
+    if (heartNoResponseCount > 3) {
+        [self sendDiscoverRequestMessage];
+        [heartTimer invalidate];
+        heartTimer = nil;
+        return;
+    }
     [self sendHeartbeatRequestMessage];
 }
 #pragma mrak - 报文发送
@@ -125,28 +150,28 @@ short int TransID;
     
     SendUdpMessage * sendMessage = [[SendUdpMessage alloc]init];
     NSData * addressData = [sendMessage generateAddressingMessage];
-    [self sendUdpData:addressData];
+    [self sendUdpData:addressData tag:1001];
     
 }
 -(void)sendDiscoverRequestMessage{
     
     SendUdpMessage * sendMessage = [[SendUdpMessage alloc]init];
     NSData * discoverRequestData = [sendMessage generateDiscoverRequestMessage];
-    [self sendUdpData:discoverRequestData];
+    [self sendUdpData:discoverRequestData tag:1002];
     
 }
 -(void)sendLoginRequestMessage{
     
     SendUdpMessage * sendMessage = [[SendUdpMessage alloc]init];
     NSData * discoverRequestData = [sendMessage generateLoginRequestMessage];
-    [self sendUdpData:discoverRequestData];
+    [self sendUdpData:discoverRequestData tag:1003];
     
 }
 -(void)sendHeartbeatRequestMessage{
     
     SendUdpMessage * sendMessage = [[SendUdpMessage alloc]init];
     NSData * discoverRequestData = [sendMessage generateHeartbeatRequestMessage];
-    [self sendUdpData:discoverRequestData];
+    [self sendUdpData:discoverRequestData tag:1004];
     
 }
 
@@ -154,10 +179,16 @@ short int TransID;
     
     SendUdpMessage * sendMessage = [[SendUdpMessage alloc]init];
     NSData * discoverRequestData = [sendMessage generateEventNotificationRequestMessage:@{Env_Temp_Value:@(24)}];
-    [self sendUdpData:discoverRequestData];
+    [self sendUdpData:discoverRequestData tag:1005];
     
 }
-
+-(void)sendEquipmentmanagementRequestMessage{
+    
+    SendUdpMessage * sendMessage = [[SendUdpMessage alloc]init];
+    NSData * discoverRequestData = [sendMessage generateEquipmentmanagementRequestMessage];
+    [self sendUdpData:discoverRequestData tag:1006];
+    
+}
 #pragma mrak - 报文接收处理
 -(void)receiveMessageData:(ReceiveUdpMessageType)type result:(id)result{
     
@@ -178,14 +209,15 @@ short int TransID;
         case LoginMessageType:{
             int errCode = [result intValue];
             if (errCode == 0) {
-                [self sendHeartbeatRequestMessage];
+                heartNoResponseCount = 0;
+                [self createHeartData];
             }else{
                 
             }
         }
             break;
         case HeartMessageType:{
-            [self sendEventNotificationRequestMessage];
+            heartNoResponseCount = heartNoResponseCount > 0 ? heartNoResponseCount -= 1 : 0;
         }
             break;
         default:

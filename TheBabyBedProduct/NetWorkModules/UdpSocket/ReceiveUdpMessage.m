@@ -57,13 +57,21 @@ extern short int TransID;
            self.responseResult(DiscoverMessageType, @(code));
         }else if(msgType == 0x06){
             //登录相应报文
+            DLog(@"登陆相应报文类型 ---- %c",msgType);
             unsigned int code =  [self analysisLoginYDACtrlHeader:ctrlData];
             self.responseResult(LoginMessageType, @(code));
         }else if(msgType == 0x08){
             //心跳相应报文
+            DLog(@"心跳相应报文类型 ---- %c",msgType);
             self.responseResult(HeartMessageType, @(0));
         }else if(msgType == 0x0c){
             //事件相应报文
+            DLog(@"事件相应报文类型 ---- %c",msgType);
+            unsigned int code =  [self analysisEventYDACtrlHeader:ctrlData];
+            self.responseResult(NotificationType, @(code));
+        }else if(msgType == 0x0e){
+            //设备管理相应报文
+            DLog(@"设备管理相应报文类型 ---- %c",msgType);
             unsigned int code =  [self analysisEventYDACtrlHeader:ctrlData];
             self.responseResult(NotificationType, @(code));
         }
