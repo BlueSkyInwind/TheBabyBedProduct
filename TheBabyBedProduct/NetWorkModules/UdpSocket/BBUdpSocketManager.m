@@ -93,9 +93,10 @@ short int TransID;
         [_udpSocket beginReceiving:&error];
     }
     
-//    [self sendAddressMessage];
+    [self sendAddressMessage];
 //    [self createHeartData];
-    [self sendEventNotificationRequestMessage];
+//    [self sendEventNotificationRequestMessage];
+//    [self sendEquipmentmanagementRequestMessage];
 }
 
 #pragma mark - GCDAsyncUdpSocket delegate
@@ -210,7 +211,8 @@ short int TransID;
             int errCode = [result intValue];
             if (errCode == 0) {
                 heartNoResponseCount = 0;
-                [self createHeartData];
+//                [self createHeartData];
+                [self sendHeartbeatRequestMessage];
             }else{
                 
             }
@@ -218,6 +220,7 @@ short int TransID;
             break;
         case HeartMessageType:{
             heartNoResponseCount = heartNoResponseCount > 0 ? heartNoResponseCount -= 1 : 0;
+//            [self sendEquipmentmanagementRequestMessage];
         }
             break;
         default:
