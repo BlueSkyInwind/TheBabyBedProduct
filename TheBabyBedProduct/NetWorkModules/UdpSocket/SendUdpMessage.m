@@ -11,6 +11,18 @@
 #import "SendUdpMessage.h"
 #import "SocketMacros.h"
 
+extern short int sendCount;
+extern short int TransID;
+
+
+NSString * const    Baby_Cry_State     =  @"Baby_Cry_State";
+NSString * const    Baby_Kick_State     =  @"Baby_Kick_State";
+NSString * const    Env_Temp_Value     =  @"Env_Temp_Value";
+NSString * const    Env_Humidity_Value     =  @"Env_Humidity_Value";
+NSString * const    Body_Temp_Value     =  @"Body_Temp_Value";
+NSString * const    Baby_Urine_Value     =  @"Baby_Urine_Value";
+
+
 @implementation SendUdpMessage
 
 //寻址
@@ -18,7 +30,7 @@
     
     NSMutableData * dataOne = [[self generatePreambleVersion:0 preambleCrypto:0 HLEN:0x04 YdaHeaderChecksum:0] mutableCopy];
     
-    NSData * dataTwo = [self generateTransID:0 ctrlAndExt:0];
+    NSData * dataTwo = [self generateTransID:TransID ctrlAndExt:0];
     [dataOne appendData:dataTwo];
     
     NSData * dataThree = [self generateFragmentID:0 FragOffset:0];
@@ -27,7 +39,7 @@
     NSData * dataFour = [self generateDataLen:0 Reserved:0];
     [dataOne appendData:dataFour];
     
-    NSData * dataFive = [self generateMsgType:0x01 SeqNum:0x00 MsgLen:8];
+    NSData * dataFive = [self generateMsgType:0x01 SeqNum:sendCount MsgLen:8];
     [dataOne appendData:dataFive];
     
     NSData * dataSix = [self generateYdaCtrlHeaderChecksum:0 Random:7];
@@ -36,20 +48,21 @@
     NSData * bodyData = [self generateUdpBody];
     [dataOne appendData:bodyData];
     
-    dataOne = [[self setYdaHeaderDatalen:bodyData.length + 8 data:dataOne] mutableCopy];
+    dataOne = [[self setYdaHeaderDatalen:dataOne.length  data:dataOne] mutableCopy];
     dataOne = [[self setYdaCtrlHeaderMsglen:bodyData.length + 8 data:dataOne] mutableCopy];
-    dataOne = [[self setYdaHeaderChecksumData:dataOne] mutableCopy];
     dataOne = [[self setYdaCtrlHeaderChecksumData:dataOne] mutableCopy];
+    dataOne = [[self setYdaHeaderChecksumData:dataOne] mutableCopy];
     
     return dataOne;
 }
 
 -(NSData *)generateUdpBody{
     
-    NSMutableData * bodyData = [[self generateUdpBodyUnit:130 elementID:1 dataContent:nil] mutableCopy];
-    [bodyData appendData: [self generateUdpBodyUnit:32 elementID:2 dataContent:nil]];
+    NSMutableData * bodyData = [[self generateUdpBodyUnit:134 elementID:1 dataContent:nil] mutableCopy];
+    [bodyData appendData: [self generateUdpBodyUnit:36 elementID:2 dataContent:nil]];
     [bodyData appendData: [self generateUdpBodyUnit:1 elementID:3 dataContent:nil]];
-    [bodyData appendData: [self generateUdpBodyUnit:RSA_PUBLIC_KEY.length elementID:4 dataContent:RSA_PUBLIC_KEY]];
+    NSData *rsaData = [RSA_PUBLIC_KEY dataUsingEncoding: NSUTF8StringEncoding];
+    [bodyData appendData: [self generateUdpBodyUnit:RSA_PUBLIC_KEY.length elementID:4 dataContent:rsaData]];
     return bodyData;
     
 }
@@ -58,7 +71,7 @@
     
     NSMutableData * dataOne = [[self generatePreambleVersion:0 preambleCrypto:1 HLEN:0x04 YdaHeaderChecksum:0] mutableCopy];
     
-    NSData * dataTwo = [self generateTransID:0 ctrlAndExt:0];
+    NSData * dataTwo = [self generateTransID:TransID ctrlAndExt:0];
     [dataOne appendData:dataTwo];
     
     NSData * dataThree = [self generateFragmentID:0 FragOffset:0];
@@ -67,7 +80,7 @@
     NSData * dataFour = [self generateDataLen:0 Reserved:0];
     [dataOne appendData:dataFour];
     
-    NSData * dataFive = [self generateMsgType:0x03 SeqNum:0x00 MsgLen:8];
+    NSData * dataFive = [self generateMsgType:0x03 SeqNum:sendCount MsgLen:8];
     [dataOne appendData:dataFive];
     
     NSData * dataSix = [self generateYdaCtrlHeaderChecksum:0 Random:12];
@@ -76,22 +89,226 @@
     NSData * bodyData = [self generateDiscoverRequestUdpBody];
     [dataOne appendData:bodyData];
     
-    dataOne = [[self setYdaHeaderDatalen:bodyData.length + 8 data:dataOne] mutableCopy];
+    dataOne = [[self setYdaHeaderDatalen:dataOne.length  data:dataOne] mutableCopy];
     dataOne = [[self setYdaCtrlHeaderMsglen:bodyData.length + 8 data:dataOne] mutableCopy];
-    dataOne = [[self setYdaHeaderChecksumData:dataOne] mutableCopy];
     dataOne = [[self setYdaCtrlHeaderChecksumData:dataOne] mutableCopy];
+    dataOne = [[self setYdaHeaderChecksumData:dataOne] mutableCopy];
     
     return dataOne;
     
 }
 -(NSData *)generateDiscoverRequestUdpBody{
-    
     NSMutableData * bodyData = [[self generateUdpBodyUnit:134 elementID:7 dataContent:nil] mutableCopy];
-    [bodyData appendData: [self generateUdpBodyUnit:RSA_PUBLIC_KEY.length elementID:8 dataContent:RSA_PUBLIC_KEY]];
+    NSData *rsaData = [RSA_PUBLIC_KEY dataUsingEncoding: NSUTF8StringEncoding];
+    [bodyData appendData: [self generateUdpBodyUnit:185 elementID:8 dataContent:rsaData]];
+    return bodyData;
+}
+
+
+//登录
+-(NSData *)generateLoginRequestMessage{
+    
+    NSMutableData * dataOne = [[self generatePreambleVersion:0 preambleCrypto:1 HLEN:0x04 YdaHeaderChecksum:0] mutableCopy];
+    
+    NSData * dataTwo = [self generateTransID:TransID ctrlAndExt:0];
+    [dataOne appendData:dataTwo];
+    
+    NSData * dataThree = [self generateFragmentID:0 FragOffset:0];
+    [dataOne appendData:dataThree];
+    
+    NSData * dataFour = [self generateDataLen:0 Reserved:0];
+    [dataOne appendData:dataFour];
+    
+    NSData * dataFive = [self generateMsgType:0x05 SeqNum:sendCount MsgLen:8];
+    [dataOne appendData:dataFive];
+    
+    NSData * dataSix = [self generateYdaCtrlHeaderChecksum:0 Random:12];
+    [dataOne appendData:dataSix];
+    
+    NSData * bodyData = [self generateDiscoverRequestUdpBody];
+    [dataOne appendData:bodyData];
+    
+    dataOne = [[self setYdaHeaderDatalen:dataOne.length  data:dataOne] mutableCopy];
+    dataOne = [[self setYdaCtrlHeaderMsglen:bodyData.length + 8 data:dataOne] mutableCopy];
+    dataOne = [[self setYdaCtrlHeaderChecksumData:dataOne] mutableCopy];
+    dataOne = [[self setYdaHeaderChecksumData:dataOne] mutableCopy];
+    
+    return dataOne;
+}
+
+-(NSData *)generateLoginRequestUdpBody{
+    
+    NSMutableData * bodyData = [[self generateUdpBodyUnit:0 elementID:9 dataContent:nil] mutableCopy];
     return bodyData;
     
 }
 
+//心跳
+-(NSData *)generateHeartbeatRequestMessage{
+    
+    NSMutableData * dataOne = [[self generatePreambleVersion:0 preambleCrypto:0 HLEN:0x04 YdaHeaderChecksum:0] mutableCopy];
+    
+    NSData * dataTwo = [self generateTransID:TransID ctrlAndExt:0];
+    [dataOne appendData:dataTwo];
+    
+    NSData * dataThree = [self generateFragmentID:0 FragOffset:0];
+    [dataOne appendData:dataThree];
+    
+    NSData * dataFour = [self generateDataLen:0 Reserved:0];
+    [dataOne appendData:dataFour];
+    
+    NSData * dataFive = [self generateMsgType:0x07 SeqNum:sendCount MsgLen:0];
+    [dataOne appendData:dataFive];
+    
+    NSData * dataSix = [self generateYdaCtrlHeaderChecksum:0 Random:15];
+    [dataOne appendData:dataSix];
+    
+    dataOne = [[self setYdaHeaderDatalen:dataOne.length  data:dataOne] mutableCopy];
+    dataOne = [[self setYdaCtrlHeaderMsglen:8 data:dataOne] mutableCopy];
+    dataOne = [[self setYdaCtrlHeaderChecksumData:dataOne] mutableCopy];
+    dataOne = [[self setYdaHeaderChecksumData:dataOne] mutableCopy];
+    
+    return dataOne;
+}
+
+/**
+ 事件通知请求
+
+ @param valueDic 值的字典 包含 key如下：
+                       Baby_Cry_State    1: Cry    0: Normal       //哭闹状态  2字节
+                       Baby_Kick_State   1: Kick   0: Normal           //踢被状态  2字节
+                       Env_Temp_Value    温度值 有符号  4字节
+                       Env_Humidity_Value   湿度值，无符号4字节
+                       Body_Temp_Value    //体温值 有符号4字节
+                       Baby_Urine_Value    //尿湿值 无符号2字节
+ @return 事情通知请求
+ */
+-(NSData *)generateEventNotificationRequestMessage:(NSDictionary *)valueDic{
+    
+    NSMutableData * dataOne = [[self generatePreambleVersion:0 preambleCrypto:0 HLEN:0x04 YdaHeaderChecksum:0] mutableCopy];
+    
+    NSData * dataTwo = [self generateTransID:TransID ctrlAndExt:0];
+    [dataOne appendData:dataTwo];
+    
+    NSData * dataThree = [self generateFragmentID:0 FragOffset:0];
+    [dataOne appendData:dataThree];
+    
+    NSData * dataFour = [self generateDataLen:0 Reserved:0];
+    [dataOne appendData:dataFour];
+    
+    NSData * dataFive = [self generateMsgType:0x11 SeqNum:sendCount MsgLen:0];
+    [dataOne appendData:dataFive];
+    
+    NSData * dataSix = [self generateYdaCtrlHeaderChecksum:0 Random:16];
+    [dataOne appendData:dataSix];
+    
+    NSData * bodyData = [self generateEventNotificationRequestRequestUdpBody:valueDic];
+    [dataOne appendData:bodyData];
+    
+    dataOne = [[self setYdaHeaderDatalen:dataOne.length  data:dataOne] mutableCopy];
+    dataOne = [[self setYdaCtrlHeaderMsglen:bodyData.length + 8 data:dataOne] mutableCopy];
+    dataOne = [[self setYdaCtrlHeaderChecksumData:dataOne] mutableCopy];
+    dataOne = [[self setYdaHeaderChecksumData:dataOne] mutableCopy];
+    
+    return dataOne;
+}
+-(NSData *)generateEventNotificationRequestRequestUdpBody:(NSDictionary *)valueDic{
+    
+    NSData * contentData = [self generateEventNotificationData:valueDic datalength:18];
+    NSMutableData * bodyData = [[self generateUdpBodyUnit:18 elementID:0x0D dataContent:contentData] mutableCopy];
+    return bodyData;
+    
+}
+
+-(NSData *)generateEventNotificationData:(NSDictionary *)dic datalength:(short int)datalength{
+    
+    Byte bodyByte[datalength];
+    short int cryState = 0;
+    short int kickState = 0;
+    int envtemp_Value = 0;
+    unsigned int  humidity_Value = 0;
+    int bodytemp_Value = 0;
+    short int urine_Value = 0;
+
+    if ([dic.allKeys containsObject:Baby_Cry_State]) {
+        NSNumber * num = (NSNumber *)dic[Baby_Cry_State];
+        cryState = num.shortValue;
+    }
+    if ([dic.allKeys containsObject:Baby_Kick_State]) {
+        NSNumber * num = (NSNumber *)dic[Baby_Kick_State];
+        kickState = num.shortValue;
+    }
+    if ([dic.allKeys containsObject:Env_Temp_Value]) {
+        NSNumber * num = (NSNumber *)dic[Env_Temp_Value];
+        envtemp_Value = num.intValue;
+    }
+    if ([dic.allKeys containsObject:Env_Humidity_Value]) {
+        NSNumber * num = (NSNumber *)dic[Env_Humidity_Value];
+        humidity_Value = num.unsignedIntValue;
+    }
+    if ([dic.allKeys containsObject:Body_Temp_Value]) {
+        NSNumber * num = (NSNumber *)dic[Body_Temp_Value];
+        bodytemp_Value = num.intValue;
+    }
+    if ([dic.allKeys containsObject:Baby_Urine_Value]) {
+        NSNumber * num = (NSNumber *)dic[Baby_Urine_Value];
+        urine_Value = num.intValue;
+    }
+    //哭闹
+    bodyByte[0] = ((cryState >> 8) & 0xff);
+    bodyByte[1] = (cryState & 0xff);
+    //踢被
+    bodyByte[2] = ((kickState >> 8) & 0xff);
+    bodyByte[3] = (kickState & 0xff);
+    //环境温度
+    bodyByte[4] = (envtemp_Value & 0xff);
+    bodyByte[5] = ((envtemp_Value >> 8) & 0xff);
+    bodyByte[6] = ((envtemp_Value >> 16) & 0xff);
+    bodyByte[7] = ((envtemp_Value >> 24) & 0xff);
+    //环境湿度
+    bodyByte[8] = (humidity_Value & 0xff);
+    bodyByte[9] = ((humidity_Value >> 8) & 0xff);
+    bodyByte[10] = ((humidity_Value >> 16) & 0xff);
+    bodyByte[11] = ((humidity_Value >> 24) & 0xff);
+    //体温值
+    bodyByte[12] = (bodytemp_Value & 0xff);
+    bodyByte[13] = ((bodytemp_Value >> 8) & 0xff);
+    bodyByte[14] = ((bodytemp_Value >> 16) & 0xff);
+    bodyByte[15] = ((bodytemp_Value >> 24) & 0xff);
+    //尿湿值
+    bodyByte[16] = (urine_Value & 0xff);
+    bodyByte[17] = ((urine_Value >> 8) & 0xff);
+    NSData * data = [[NSData alloc]initWithBytes:bodyByte length:18];
+    return data;
+}
+
+//设备管理报文
+-(NSData *)generateEquipmentmanagementRequestMessage{
+    
+    NSMutableData * dataOne = [[self generatePreambleVersion:0 preambleCrypto:0 HLEN:0x04 YdaHeaderChecksum:0] mutableCopy];
+    
+    NSData * dataTwo = [self generateTransID:TransID ctrlAndExt:0];
+    [dataOne appendData:dataTwo];
+    
+    NSData * dataThree = [self generateFragmentID:0 FragOffset:0];
+    [dataOne appendData:dataThree];
+    
+    NSData * dataFour = [self generateDataLen:0 Reserved:0];
+    [dataOne appendData:dataFour];
+    
+    NSData * dataFive = [self generateMsgType:0x0d SeqNum:sendCount MsgLen:0];
+    [dataOne appendData:dataFive];
+    
+    NSData * dataSix = [self generateYdaCtrlHeaderChecksum:0 Random:19];
+    [dataOne appendData:dataSix];
+    
+    dataOne = [[self setYdaHeaderDatalen:dataOne.length  data:dataOne] mutableCopy];
+    dataOne = [[self setYdaCtrlHeaderMsglen:8 data:dataOne] mutableCopy];
+    dataOne = [[self setYdaCtrlHeaderChecksumData:dataOne] mutableCopy];
+    dataOne = [[self setYdaHeaderChecksumData:dataOne] mutableCopy];
+    
+    return dataOne;
+}
 
 
 #pragma mark - YDA HEAdER
@@ -109,9 +326,11 @@
     Byte byte[4];
     byte[0] = (((crypto << 4)&0xf0) | version);   //一个字节的高4位存储payload加密版本 ，低4位存储版本
     byte[1] = HLEN;
+    byte[2] = ((checksum >> 8) & 0xff);
+    byte[3] = (checksum & 0xff);
     NSData * data = [[NSData alloc]initWithBytes:byte length:4];
-    NSData * resultData = [self setYdaHeaderChecksumData:data];
-    return resultData;
+//    NSData * resultData = [self setYdaHeaderChecksumData:data];
+    return data;
 }
 
 -(NSData *)generateTransID:(short int)transID ctrlAndExt:(short int)ctrlAndExt{
@@ -224,8 +443,8 @@
     return resultData;
     
 }
-
--(NSData *)generateUdpBodyUnit:(short int)length elementID:(short int)ID dataContent:(NSString *)dataContent {
+#pragma mrak - 生成报文的payload
+-(NSData *)generateUdpBodyUnit:(short int)length elementID:(short int)ID dataContent:(NSData *)dataContent {
     
     NSUInteger datalength = 2 + 2 + length;
     Byte bodyByte[datalength];
@@ -235,11 +454,8 @@
     bodyByte[1] = (elementID  & 0xff);
     bodyByte[2] = ((elementLength >> 8) & 0xff);
     bodyByte[3] = (elementLength  & 0xff);
-    if (dataContent != nil) {
-        //        NSStringEncoding enc = CFStringConvertEncodingToNSStringEncoding(NSUTF16BigEndianStringEncoding);
-        //        NSData *data = [dataContent dataUsingEncoding:enc];
-        NSData *rsaData = [dataContent dataUsingEncoding: NSUTF8StringEncoding];
-        Byte * rsaDatabyte = (Byte *)[rsaData bytes];
+    if(dataContent != nil) {
+        Byte * rsaDatabyte = (Byte *)[dataContent bytes];
         memcpy(bodyByte + 4, rsaDatabyte, length);
     }
     NSMutableData * bodyData = [[NSMutableData alloc]initWithBytes:bodyByte length:datalength];
@@ -270,9 +486,6 @@ unsigned short checksumAndCRC(unsigned short * buffer,int size)
         cksum=(cksum>>16)+(cksum &0xffff);
     return (unsigned short) (~cksum);
 }
-
-
-
 
 
  -(NSData *)testGenerateAddressingMessage{

@@ -20,6 +20,8 @@
     
     NSTimer * heartTimer;
     
+    NSInteger heartNoResponseCount;   //未收到心跳的计数，上限为3次，未收到发起重连
+    
 }
 
 
@@ -29,10 +31,16 @@
 /* <#Description#>*/
 @property(nonatomic,strong)dispatch_queue_t  queue;
 
+/* */
+@property(nonatomic,strong)dispatch_queue_t  heartQueue;
+
 @end
 
 
 @implementation BBUdpSocketManager
+
+short int sendCount;
+short int TransID;
 
 +(BBUdpSocketManager *)shareInstance{
     
@@ -60,12 +68,22 @@
     return _queue;
 }
 
+-(dispatch_queue_t)heartQueue{
+    if (_heartQueue == nil){
+        _heartQueue = dispatch_queue_create("com.BB.heart", NULL);
+    }
+    return _heartQueue;
+}
+
 -(void)createAsyncUdpSocket{
     
     if(_udpSocket){
         return;
     }
-    
+    sendCount = 2;
+    TransID = 2;
+    heartNoResponseCount = 4;
+
     _udpSocket = [[GCDAsyncUdpSocket alloc]initWithDelegate:self delegateQueue:self.queue];
     NSError * error = nil;
     [_udpSocket bindToPort:K_port_BBUDP error:&error];
@@ -75,13 +93,19 @@
         [_udpSocket beginReceiving:&error];
     }
     
-    [self sendAddressMessage];
+//    [self sendAddressMessage];
+//    [self createHeartData];
+    [self sendEventNotificationRequestMessage];
 }
 
 #pragma mark - GCDAsyncUdpSocket delegate
 - (void)udpSocket:(GCDAsyncUdpSocket *)sock didSendDataWithTag:(long)tag
 {
-    DLog(@"发送信息成功");
+    sendCount ++;
+    if (tag == 1004) {
+        heartNoResponseCount ++;
+    }
+    DLog(@"发送信息成功 %ld",tag);
 }
 - (void)udpSocket:(GCDAsyncUdpSocket *)sock didNotSendDataWithTag:(long)tag dueToError:(NSError *)error
 {
@@ -90,8 +114,9 @@
 - (void)udpSocket:(GCDAsyncUdpSocket *)sock didReceiveData:(NSData *)data fromAddress:(NSData *)address withFilterContext:(id)filterContext
 {
     DLog(@"接收到%@的消息",address);
-    ReceiveUdpMessage * receiveUdpMessage = [[ReceiveUdpMessage alloc]init];
-    [receiveUdpMessage receiveUdpMessage:data];
+    [ReceiveUdpMessage initReceiveData:data complecation:^(ReceiveUdpMessageType type, id result) {
+        [self receiveMessageData:type result:result];
+    }];
 }
 - (void)udpSocketDidClose:(GCDAsyncUdpSocket *)sock withError:(NSError *)error
 {
@@ -99,28 +124,108 @@
     _udpSocket = nil;
 }
 
--(void)sendUdpData:(NSData *)data{
-    [_udpSocket sendData:data toHost:hostStr port:port withTimeout:-1 tag:1000];
+-(void)sendUdpData:(NSData *)data tag:(long)tag{
+    [_udpSocket sendData:data toHost:hostStr port:port withTimeout:-1 tag:tag];
 }
 
 -(void)createHeartData{
-    heartTimer = [NSTimer scheduledTimerWithTimeInterval:5 target:self selector:@selector(sendHeartData) userInfo:nil repeats:true];
+    dispatch_async(self.heartQueue, ^{
+        heartTimer = [NSTimer scheduledTimerWithTimeInterval:10 target:self selector:@selector(sendHeartData) userInfo:nil repeats:true];
+        [[NSRunLoop currentRunLoop] addTimer:heartTimer forMode:NSRunLoopCommonModes];
+        [[NSRunLoop currentRunLoop] run];
+    });
 }
-
 -(void)sendHeartData{
-    
+    //如果超过三次为收到心跳确认，重新发起上线请求
+    if (heartNoResponseCount > 3) {
+        [self sendDiscoverRequestMessage];
+        [heartTimer invalidate];
+        heartTimer = nil;
+        return;
+    }
+    [self sendHeartbeatRequestMessage];
 }
-
 #pragma mrak - 报文发送
 -(void)sendAddressMessage{
     
     SendUdpMessage * sendMessage = [[SendUdpMessage alloc]init];
     NSData * addressData = [sendMessage generateAddressingMessage];
-    [self sendUdpData:addressData];
+    [self sendUdpData:addressData tag:1001];
+    
+}
+-(void)sendDiscoverRequestMessage{
+    
+    SendUdpMessage * sendMessage = [[SendUdpMessage alloc]init];
+    NSData * discoverRequestData = [sendMessage generateDiscoverRequestMessage];
+    [self sendUdpData:discoverRequestData tag:1002];
+    
+}
+-(void)sendLoginRequestMessage{
+    
+    SendUdpMessage * sendMessage = [[SendUdpMessage alloc]init];
+    NSData * discoverRequestData = [sendMessage generateLoginRequestMessage];
+    [self sendUdpData:discoverRequestData tag:1003];
+    
+}
+-(void)sendHeartbeatRequestMessage{
+    
+    SendUdpMessage * sendMessage = [[SendUdpMessage alloc]init];
+    NSData * discoverRequestData = [sendMessage generateHeartbeatRequestMessage];
+    [self sendUdpData:discoverRequestData tag:1004];
     
 }
 
-
+-(void)sendEventNotificationRequestMessage{
+    
+    SendUdpMessage * sendMessage = [[SendUdpMessage alloc]init];
+    NSData * discoverRequestData = [sendMessage generateEventNotificationRequestMessage:@{Env_Temp_Value:@(24)}];
+    [self sendUdpData:discoverRequestData tag:1005];
+    
+}
+-(void)sendEquipmentmanagementRequestMessage{
+    
+    SendUdpMessage * sendMessage = [[SendUdpMessage alloc]init];
+    NSData * discoverRequestData = [sendMessage generateEquipmentmanagementRequestMessage];
+    [self sendUdpData:discoverRequestData tag:1006];
+    
+}
+#pragma mrak - 报文接收处理
+-(void)receiveMessageData:(ReceiveUdpMessageType)type result:(id)result{
+    
+    switch (type) {
+        case AddressingMessageType:{
+            [self sendDiscoverRequestMessage];
+        }
+            break;
+        case DiscoverMessageType:{
+            int errCode = [result intValue];
+            if (errCode == 0) {
+                [self sendLoginRequestMessage];
+            }else{
+                
+            }
+        }
+            break;
+        case LoginMessageType:{
+            int errCode = [result intValue];
+            if (errCode == 0) {
+                heartNoResponseCount = 0;
+                [self createHeartData];
+            }else{
+                
+            }
+        }
+            break;
+        case HeartMessageType:{
+            heartNoResponseCount = heartNoResponseCount > 0 ? heartNoResponseCount -= 1 : 0;
+        }
+            break;
+        default:
+            break;
+    }
+    
+    
+}
 
 
 
