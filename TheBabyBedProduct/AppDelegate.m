@@ -29,6 +29,7 @@
     
     [self bb_configureShareSDK];
     [self bb_signInAction];
+
     
     [[LaunchConfiguration shared] InitializeAppConfiguration];
     
@@ -39,9 +40,28 @@
     self.tabBar = [[BaseTabBarViewController alloc]init];
     self.window.rootViewController = self.tabBar;
     
-    
+    // 初始化全局播放按钮
+    [self initPlayBtn];
     
     return YES;
+}
+
+- (void)initPlayBtn {
+    self.playBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    [self.playBtn setImage:[UIImage imageNamed:@"cm2_topbar_icn_playing1"] forState:UIControlStateNormal];
+    [self.playBtn setImage:[UIImage imageNamed:@"cm2_topbar_icn_playing1_prs"] forState:UIControlStateHighlighted];
+    [self.playBtn addTarget:self action:@selector(topbarPlayBtnClick:) forControlEvents:UIControlEventTouchUpInside];
+    [self.window addSubview:self.playBtn];
+    
+    CGRect statusBarFrame = [UIApplication sharedApplication].statusBarFrame;
+    
+    [self.playBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self.window).offset(statusBarFrame.size.height);
+        make.right.equalTo(self.window).offset(-4);
+        make.width.height.mas_equalTo(44.0f);
+    }];
+    
+    [kNotificationCenter addObserver:self selector:@selector(playStatusChanged:) name:GKWYMUSIC_PLAYSTATECHANGENOTIFICATION object:nil];
 }
 
 /**

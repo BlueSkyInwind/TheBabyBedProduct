@@ -166,6 +166,13 @@ typedef NS_ENUM(NSInteger,BBGetCodeType) {
                                        failureBlock:(FailureBlock)failureBlock;
 
 /**
+ 子类下对应的music列表
+ */
+-(void)bb_requestEarlyEdutionSubListListWithCategoryId:(NSString *)categoryId
+                                          successBlock:(SuccessBlock)successBlock
+                                          failureBlock:(FailureBlock)failureBlock;
+
+/**
  早教热门推荐
  */
 -(void)bb_requestEarlyEdutionHotRecommendWithSuccessBlock:(SuccessBlock)successBlock

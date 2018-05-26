@@ -349,6 +349,16 @@ static void getRequest(NSString *url,id param,SuccessBlock successBlock,FailureB
     [param setValue:str forKey:@"cat_ids"];
     postRequestGCSDad(K_Url_MusicList, param, successBlock, failureBlock);
 }
+
+/**
+ 子类下对应的music列表
+ */
+-(void)bb_requestEarlyEdutionSubListListWithCategoryId:(NSString *)categoryId
+                                          successBlock:(SuccessBlock)successBlock
+                                          failureBlock:(FailureBlock)failureBlock
+{
+    [self bb_requestEarlyEdutionSubListWithCategoryIds:@[categoryId] SuccessBlock:successBlock failureBlock:failureBlock];
+}
 /**
  早教热门推荐
  */

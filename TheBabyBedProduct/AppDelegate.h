@@ -18,6 +18,7 @@ static BOOL isProduction = true;
 @property (strong, nonatomic) UIWindow *window;
 @property (strong, nonatomic)BaseTabBarViewController * tabBar;
 @property (nonatomic,strong)NSDictionary * notificationContentInfo;
+@property (strong, nonatomic) UIButton  *playBtn;
 
 @end
 

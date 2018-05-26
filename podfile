@@ -21,5 +21,9 @@ target 'TheBabyBedProduct' do
     pod 'TZImagePickerController', '~> 2.0.0.9'
     pod 'BRPickerView', '~> 2.2.0'
     pod 'CocoaAsyncSocket'
-    pod 'HYBNetworking'
+#    pod 'HYBNetworking'
+    
+    pod 'FreeStreamer', '~> 3.8.3'
+    pod 'GKCover'                         # 遮罩
+
 end

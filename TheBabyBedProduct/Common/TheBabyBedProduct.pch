@@ -35,6 +35,29 @@
 #import <QMUIKit/QMUIKit.h>
 #import "BBMacros.h"
 
+/*********************************通知相关************************************/
+#define kNotificationCenter [NSNotificationCenter defaultCenter]
+
+#define GKWYMUSIC_NETWORKCHANGENOTIFICATION     @"NetworkChangeNotification"   // 网络状态改变
+#define GKWYMUSIC_PLAYSTATECHANGENOTIFICATION   @"playStateChangeNotification" // 播放状态改变
+#define GKWYMUSIC_LOVEMUSICNOTIFICATION         @"loveMusicNotification"       // 喜欢音乐
+#define GKWYMUSIC_PLAYMUSICCHANGENOTIFICATION   @"playMusicCHangeNotification" // 播放数据改变
+
+/*********************************存储相关************************************/
+#define kUserDefaults       [NSUserDefaults standardUserDefaults]
+
+#define GKWYMUSIC_USERDEFAULTSKEY_NETWORKSTATE  @"networkState"
+#define GKWYMUSIC_USERDEFAULTSKEY_PLAYSTYLE     @"playStyle"
+#define GKWYMUSIC_USERDEFAULTSKEY_LASTPLAYID    @"lastPlayId"
+
+typedef NS_ENUM(NSUInteger, GKWYPlayerPlayStyle) {
+    GKWYPlayerPlayStyleLoop,        // 循环播放
+    GKWYPlayerPlayStyleOne,         // 单曲循环
+    GKWYPlayerPlayStyleRandom       // 随机播放
+};
+
+#define kWYPlayerVC [GKWYPlayerViewController sharedInstance]
+
 //#import "TheBabyBedProduct-Swift.h"
 
 
