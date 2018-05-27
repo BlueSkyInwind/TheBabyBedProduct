@@ -25,5 +25,7 @@ target 'TheBabyBedProduct' do
     
     pod 'FreeStreamer', '~> 3.8.3'
     pod 'GKCover'                         # 遮罩
-
+    
+    pod 'DOUAudioStreamer'
+    pod 'GVUserDefaults'
 end

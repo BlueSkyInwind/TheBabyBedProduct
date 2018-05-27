@@ -15,6 +15,9 @@
 #import "BBMusicHotRecommend.h"
 #import "GKSearchBar.h"
 
+#import "GKWYMusicModel.h"
+#import "BBMusicViewController.h"
+
 static NSString * const kEarlyEducationCellIdentifier = @"EarlyEducationCellIdentifier";
 static NSString * const kEarlyEducationHeaderViewIdentifier = @"EarlyEducationHeaderViewIdentifier";
 
@@ -26,7 +29,7 @@ static NSString * const kEarlyEducationHeaderViewIdentifier = @"EarlyEducationHe
 /** GCS music 分类 */
 @property(nonatomic,strong) NSMutableArray<BBMusicCategory *> *musicCategories;
 /** 热门推荐 */
-@property(nonatomic,strong) NSMutableArray<BBMusicHotRecommend *> *hotRecommends;
+@property(nonatomic,strong) NSMutableArray<BBMusic *> *hotRecommends;
 /** 顶部items数组 */
 @property(nonatomic,strong) NSArray *titleArrs;
 /** item起始数组都加的一个模型 */
@@ -213,7 +216,32 @@ static NSString * const kEarlyEducationHeaderViewIdentifier = @"EarlyEducationHe
 }
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
+//    GKWYMusicModel *model = [GKWYMusicModel new];
+//    model.song_id       = songModel.songid;
+//    model.song_name     = songModel.songname;
+//    model.artist_name   = songModel.artistname;
+//    
+//    [kWYPlayerVC playMusicWithModel:model];
     
+    BBMusicViewController *musicVC = [BBMusicViewController sharedInstance];
+    musicVC.musicTitle = @"热门推荐";
+    musicVC.musics = self.hotRecommends;
+    musicVC.playingIndex = indexPath.item;
+    BBMusic *selectedMusic = self.hotRecommends[indexPath.item];
+    BBMusic *playingMusic = [musicVC currentPlayingMusic];
+    if (![selectedMusic.musicID isEqualToString:playingMusic.musicID]) {
+        [musicVC playMusicWithSpecialIndex:indexPath.item];
+    }
+    
+//    [self presentToMusicViewWithMusicVC:musicVC];
+    [self presentViewController:musicVC animated:YES completion:nil];
+
+//    [QMUITips showLoadingInView:self.view];
+}
+
+- (void)presentToMusicViewWithMusicVC:(BBMusicViewController *)musicVC {
+    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:musicVC];
+    [self.navigationController presentViewController:navigationController animated:YES completion:nil];
 }
                                                  
 #pragma mark --- 处理header上轮播图和板块点击跳转事件
@@ -250,7 +278,7 @@ static NSString * const kEarlyEducationHeaderViewIdentifier = @"EarlyEducationHe
     }
     return _musicCategories;
 }
--(NSMutableArray<BBMusicHotRecommend *> *)hotRecommends
+-(NSMutableArray<BBMusic *> *)hotRecommends
 {
     if (!_hotRecommends) {
         _hotRecommends = [NSMutableArray array];

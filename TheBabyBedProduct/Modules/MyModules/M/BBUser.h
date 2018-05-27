@@ -55,9 +55,9 @@
 
 //辅助，帮助判断签到信息
 /** 最新一次签到日期 */
-@property(nonatomic,strong) NSDate *latestSignInDate;
+@property(nonatomic,copy) NSString *latestSignInDate;
 /** 最新一次首页弹出签到框的日期 */
-@property(nonatomic,strong) NSDate *latestHomePagePopSingInDate;
+@property(nonatomic,copy) NSString *latestHomePagePopSingInDate;
 
 
 +(BBUser *)bb_getUser;

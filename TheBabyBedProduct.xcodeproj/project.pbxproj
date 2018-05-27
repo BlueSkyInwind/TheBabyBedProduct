@@ -227,6 +227,29 @@
 		57CB448220A9E55100268DBE /* ZXPUnicode.m in Sources */ = {isa = PBXBuildFile; fileRef = 57CB448120A9E55100268DBE /* ZXPUnicode.m */; };
 		57CECE43207374DC00E9A876 /* UIAlertController+EasilyMake.m in Sources */ = {isa = PBXBuildFile; fileRef = 57CECE41207374DC00E9A876 /* UIAlertController+EasilyMake.m */; };
 		57CF997620B31948005EB9E9 /* BBEarlyEdutionMusicListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 57CF997520B31948005EB9E9 /* BBEarlyEdutionMusicListCell.m */; };
+		57CF99F720BA7170005EB9E9 /* BBMusicViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 57CF99F620BA7170005EB9E9 /* BBMusicViewController.m */; };
+		57CF99FE20BA8551005EB9E9 /* MusicSlider.m in Sources */ = {isa = PBXBuildFile; fileRef = 57CF99F920BA8551005EB9E9 /* MusicSlider.m */; };
+		57CF99FF20BA8551005EB9E9 /* Track.m in Sources */ = {isa = PBXBuildFile; fileRef = 57CF99FA20BA8551005EB9E9 /* Track.m */; };
+		57CF9A0A20BA859F005EB9E9 /* UIView+Animations.m in Sources */ = {isa = PBXBuildFile; fileRef = 57CF9A0220BA859F005EB9E9 /* UIView+Animations.m */; };
+		57CF9A0B20BA859F005EB9E9 /* GVUserDefaults+Properties.m in Sources */ = {isa = PBXBuildFile; fileRef = 57CF9A0520BA859F005EB9E9 /* GVUserDefaults+Properties.m */; };
+		57CF9A0C20BA859F005EB9E9 /* NSString+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 57CF9A0820BA859F005EB9E9 /* NSString+Additions.m */; };
+		57CF9A1220BA8EA1005EB9E9 /* BaseHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 57CF9A0F20BA8EA1005EB9E9 /* BaseHelper.m */; };
+		57CF9A1320BA8EA1005EB9E9 /* MusicHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 57CF9A1120BA8EA1005EB9E9 /* MusicHandler.m */; };
+		57CF9A1620BA8EFD005EB9E9 /* music_slider_circle.png in Resources */ = {isa = PBXBuildFile; fileRef = 57CF9A1520BA8EFD005EB9E9 /* music_slider_circle.png */; };
+		57CF9A1820BA8F12005EB9E9 /* big_pause_button.png in Resources */ = {isa = PBXBuildFile; fileRef = 57CF9A1720BA8F12005EB9E9 /* big_pause_button.png */; };
+		57CF9A1A20BA8F1C005EB9E9 /* big_play_button.png in Resources */ = {isa = PBXBuildFile; fileRef = 57CF9A1920BA8F1B005EB9E9 /* big_play_button.png */; };
+		57CF9A1C20BA8F3D005EB9E9 /* loop_all_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 57CF9A1B20BA8F3D005EB9E9 /* loop_all_icon.png */; };
+		57CF9A1E20BA8F4A005EB9E9 /* loop_single_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 57CF9A1D20BA8F4A005EB9E9 /* loop_single_icon.png */; };
+		57CF9A2020BA8FC2005EB9E9 /* more_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 57CF9A1F20BA8FC2005EB9E9 /* more_icon.png */; };
+		57CF9A2220BA8FCF005EB9E9 /* music_lock_screen_placeholder.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 57CF9A2120BA8FCF005EB9E9 /* music_lock_screen_placeholder.jpg */; };
+		57CF9A2420BA8FDC005EB9E9 /* music_placeholder.png in Resources */ = {isa = PBXBuildFile; fileRef = 57CF9A2320BA8FDB005EB9E9 /* music_placeholder.png */; };
+		57CF9A2620BA8FE6005EB9E9 /* music_slider_circle.png in Resources */ = {isa = PBXBuildFile; fileRef = 57CF9A2520BA8FE6005EB9E9 /* music_slider_circle.png */; };
+		57CF9A2820BA8FF1005EB9E9 /* next_song.png in Resources */ = {isa = PBXBuildFile; fileRef = 57CF9A2720BA8FF1005EB9E9 /* next_song.png */; };
+		57CF9A2A20BA8FFB005EB9E9 /* prev_song.png in Resources */ = {isa = PBXBuildFile; fileRef = 57CF9A2920BA8FFB005EB9E9 /* prev_song.png */; };
+		57CF9A2C20BA900D005EB9E9 /* shuffle_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 57CF9A2B20BA900D005EB9E9 /* shuffle_icon.png */; };
+		57CF9A3420BA94E2005EB9E9 /* NAKPlaybackIndicatorContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 57CF9A3120BA94E2005EB9E9 /* NAKPlaybackIndicatorContentView.m */; };
+		57CF9A3520BA94E2005EB9E9 /* NAKPlaybackIndicatorView.m in Sources */ = {isa = PBXBuildFile; fileRef = 57CF9A3220BA94E2005EB9E9 /* NAKPlaybackIndicatorView.m */; };
+		57CF9A3620BA94E2005EB9E9 /* MusicIndicator.m in Sources */ = {isa = PBXBuildFile; fileRef = 57CF9A3320BA94E2005EB9E9 /* MusicIndicator.m */; };
 		57DF59B420835527002D2CED /* BBUserDevice.m in Sources */ = {isa = PBXBuildFile; fileRef = 57DF59B320835527002D2CED /* BBUserDevice.m */; };
 		57DF59B720843CD7002D2CED /* BBSignInPopView.m in Sources */ = {isa = PBXBuildFile; fileRef = 57DF59B620843CD7002D2CED /* BBSignInPopView.m */; };
 		84114B4320722BF6005A1DC9 /* jpush-ios-3.0.8.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 84114B4020722BF6005A1DC9 /* jpush-ios-3.0.8.a */; };
@@ -701,6 +724,40 @@
 		57CECE42207374DC00E9A876 /* UIAlertController+EasilyMake.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIAlertController+EasilyMake.h"; sourceTree = "<group>"; };
 		57CF997420B31948005EB9E9 /* BBEarlyEdutionMusicListCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BBEarlyEdutionMusicListCell.h; sourceTree = "<group>"; };
 		57CF997520B31948005EB9E9 /* BBEarlyEdutionMusicListCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BBEarlyEdutionMusicListCell.m; sourceTree = "<group>"; };
+		57CF99F520BA7170005EB9E9 /* BBMusicViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BBMusicViewController.h; sourceTree = "<group>"; };
+		57CF99F620BA7170005EB9E9 /* BBMusicViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BBMusicViewController.m; sourceTree = "<group>"; };
+		57CF99F920BA8551005EB9E9 /* MusicSlider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MusicSlider.m; sourceTree = "<group>"; };
+		57CF99FA20BA8551005EB9E9 /* Track.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Track.m; sourceTree = "<group>"; };
+		57CF99FB20BA8551005EB9E9 /* Track.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Track.h; sourceTree = "<group>"; };
+		57CF99FC20BA8551005EB9E9 /* MusicSlider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MusicSlider.h; sourceTree = "<group>"; };
+		57CF9A0220BA859F005EB9E9 /* UIView+Animations.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Animations.m"; sourceTree = "<group>"; };
+		57CF9A0320BA859F005EB9E9 /* UIView+Animations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Animations.h"; sourceTree = "<group>"; };
+		57CF9A0520BA859F005EB9E9 /* GVUserDefaults+Properties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "GVUserDefaults+Properties.m"; sourceTree = "<group>"; };
+		57CF9A0620BA859F005EB9E9 /* GVUserDefaults+Properties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "GVUserDefaults+Properties.h"; sourceTree = "<group>"; };
+		57CF9A0820BA859F005EB9E9 /* NSString+Additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Additions.m"; sourceTree = "<group>"; };
+		57CF9A0920BA859F005EB9E9 /* NSString+Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Additions.h"; sourceTree = "<group>"; };
+		57CF9A0E20BA8EA1005EB9E9 /* MusicHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MusicHandler.h; sourceTree = "<group>"; };
+		57CF9A0F20BA8EA1005EB9E9 /* BaseHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseHelper.m; sourceTree = "<group>"; };
+		57CF9A1020BA8EA1005EB9E9 /* BaseHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseHelper.h; sourceTree = "<group>"; };
+		57CF9A1120BA8EA1005EB9E9 /* MusicHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MusicHandler.m; sourceTree = "<group>"; };
+		57CF9A1520BA8EFD005EB9E9 /* music_slider_circle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = music_slider_circle.png; sourceTree = "<group>"; };
+		57CF9A1720BA8F12005EB9E9 /* big_pause_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = big_pause_button.png; sourceTree = "<group>"; };
+		57CF9A1920BA8F1B005EB9E9 /* big_play_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = big_play_button.png; sourceTree = "<group>"; };
+		57CF9A1B20BA8F3D005EB9E9 /* loop_all_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = loop_all_icon.png; sourceTree = "<group>"; };
+		57CF9A1D20BA8F4A005EB9E9 /* loop_single_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = loop_single_icon.png; sourceTree = "<group>"; };
+		57CF9A1F20BA8FC2005EB9E9 /* more_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = more_icon.png; sourceTree = "<group>"; };
+		57CF9A2120BA8FCF005EB9E9 /* music_lock_screen_placeholder.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = music_lock_screen_placeholder.jpg; sourceTree = "<group>"; };
+		57CF9A2320BA8FDB005EB9E9 /* music_placeholder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = music_placeholder.png; sourceTree = "<group>"; };
+		57CF9A2520BA8FE6005EB9E9 /* music_slider_circle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = music_slider_circle.png; path = "../../../../../../../../../Downloads/ZWTMusicPlayer-master/Enesco/Assets.xcassets/Music/music_slider_circle.imageset/music_slider_circle.png"; sourceTree = "<group>"; };
+		57CF9A2720BA8FF1005EB9E9 /* next_song.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = next_song.png; sourceTree = "<group>"; };
+		57CF9A2920BA8FFB005EB9E9 /* prev_song.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = prev_song.png; sourceTree = "<group>"; };
+		57CF9A2B20BA900D005EB9E9 /* shuffle_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = shuffle_icon.png; sourceTree = "<group>"; };
+		57CF9A2E20BA94E2005EB9E9 /* NAKPlaybackIndicatorView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NAKPlaybackIndicatorView.h; sourceTree = "<group>"; };
+		57CF9A2F20BA94E2005EB9E9 /* NAKPlaybackIndicatorContentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NAKPlaybackIndicatorContentView.h; sourceTree = "<group>"; };
+		57CF9A3020BA94E2005EB9E9 /* MusicIndicator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MusicIndicator.h; sourceTree = "<group>"; };
+		57CF9A3120BA94E2005EB9E9 /* NAKPlaybackIndicatorContentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NAKPlaybackIndicatorContentView.m; sourceTree = "<group>"; };
+		57CF9A3220BA94E2005EB9E9 /* NAKPlaybackIndicatorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NAKPlaybackIndicatorView.m; sourceTree = "<group>"; };
+		57CF9A3320BA94E2005EB9E9 /* MusicIndicator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MusicIndicator.m; sourceTree = "<group>"; };
 		57DF59B220835527002D2CED /* BBUserDevice.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BBUserDevice.h; sourceTree = "<group>"; };
 		57DF59B320835527002D2CED /* BBUserDevice.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BBUserDevice.m; sourceTree = "<group>"; };
 		57DF59B520843CD7002D2CED /* BBSignInPopView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BBSignInPopView.h; sourceTree = "<group>"; };
@@ -1054,6 +1111,7 @@
 		22CFD38620614BD80004186D /* EarlyEducationModules */ = {
 			isa = PBXGroup;
 			children = (
+				57CF99F420BA6FD1005EB9E9 /* ZWTMusicPlayer */,
 				5722096B20AD22AC00611BFA /* Player */,
 				57CB443F20A59D1C00268DBE /* M */,
 				22CFD38720614C180004186D /* EarlyEducationViewController.h */,
@@ -1872,6 +1930,104 @@
 			path = ZXPUnicode;
 			sourceTree = "<group>";
 		};
+		57CF99F420BA6FD1005EB9E9 /* ZWTMusicPlayer */ = {
+			isa = PBXGroup;
+			children = (
+				57CF9A2D20BA94E2005EB9E9 /* NAKPlaybackIndicatorView */,
+				57CF9A1420BA8EFD005EB9E9 /* Imgs */,
+				57CF9A0D20BA8EA1005EB9E9 /* Handlers */,
+				57CF9A0020BA859F005EB9E9 /* Categories */,
+				57CF99FC20BA8551005EB9E9 /* MusicSlider.h */,
+				57CF99F920BA8551005EB9E9 /* MusicSlider.m */,
+				57CF99FB20BA8551005EB9E9 /* Track.h */,
+				57CF99FA20BA8551005EB9E9 /* Track.m */,
+				57CF99F520BA7170005EB9E9 /* BBMusicViewController.h */,
+				57CF99F620BA7170005EB9E9 /* BBMusicViewController.m */,
+			);
+			path = ZWTMusicPlayer;
+			sourceTree = "<group>";
+		};
+		57CF9A0020BA859F005EB9E9 /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				57CF9A0120BA859F005EB9E9 /* UIView */,
+				57CF9A0420BA859F005EB9E9 /* GVUserDefaults */,
+				57CF9A0720BA859F005EB9E9 /* NSString */,
+			);
+			path = Categories;
+			sourceTree = "<group>";
+		};
+		57CF9A0120BA859F005EB9E9 /* UIView */ = {
+			isa = PBXGroup;
+			children = (
+				57CF9A0220BA859F005EB9E9 /* UIView+Animations.m */,
+				57CF9A0320BA859F005EB9E9 /* UIView+Animations.h */,
+			);
+			path = UIView;
+			sourceTree = "<group>";
+		};
+		57CF9A0420BA859F005EB9E9 /* GVUserDefaults */ = {
+			isa = PBXGroup;
+			children = (
+				57CF9A0520BA859F005EB9E9 /* GVUserDefaults+Properties.m */,
+				57CF9A0620BA859F005EB9E9 /* GVUserDefaults+Properties.h */,
+			);
+			path = GVUserDefaults;
+			sourceTree = "<group>";
+		};
+		57CF9A0720BA859F005EB9E9 /* NSString */ = {
+			isa = PBXGroup;
+			children = (
+				57CF9A0820BA859F005EB9E9 /* NSString+Additions.m */,
+				57CF9A0920BA859F005EB9E9 /* NSString+Additions.h */,
+			);
+			path = NSString;
+			sourceTree = "<group>";
+		};
+		57CF9A0D20BA8EA1005EB9E9 /* Handlers */ = {
+			isa = PBXGroup;
+			children = (
+				57CF9A0E20BA8EA1005EB9E9 /* MusicHandler.h */,
+				57CF9A0F20BA8EA1005EB9E9 /* BaseHelper.m */,
+				57CF9A1020BA8EA1005EB9E9 /* BaseHelper.h */,
+				57CF9A1120BA8EA1005EB9E9 /* MusicHandler.m */,
+			);
+			path = Handlers;
+			sourceTree = "<group>";
+		};
+		57CF9A1420BA8EFD005EB9E9 /* Imgs */ = {
+			isa = PBXGroup;
+			children = (
+				57CF9A2B20BA900D005EB9E9 /* shuffle_icon.png */,
+				57CF9A2920BA8FFB005EB9E9 /* prev_song.png */,
+				57CF9A2720BA8FF1005EB9E9 /* next_song.png */,
+				57CF9A2520BA8FE6005EB9E9 /* music_slider_circle.png */,
+				57CF9A2320BA8FDB005EB9E9 /* music_placeholder.png */,
+				57CF9A2120BA8FCF005EB9E9 /* music_lock_screen_placeholder.jpg */,
+				57CF9A1F20BA8FC2005EB9E9 /* more_icon.png */,
+				57CF9A1D20BA8F4A005EB9E9 /* loop_single_icon.png */,
+				57CF9A1B20BA8F3D005EB9E9 /* loop_all_icon.png */,
+				57CF9A1920BA8F1B005EB9E9 /* big_play_button.png */,
+				57CF9A1720BA8F12005EB9E9 /* big_pause_button.png */,
+				57CF9A1520BA8EFD005EB9E9 /* music_slider_circle.png */,
+			);
+			path = Imgs;
+			sourceTree = "<group>";
+		};
+		57CF9A2D20BA94E2005EB9E9 /* NAKPlaybackIndicatorView */ = {
+			isa = PBXGroup;
+			children = (
+				57CF9A2E20BA94E2005EB9E9 /* NAKPlaybackIndicatorView.h */,
+				57CF9A2F20BA94E2005EB9E9 /* NAKPlaybackIndicatorContentView.h */,
+				57CF9A3020BA94E2005EB9E9 /* MusicIndicator.h */,
+				57CF9A3120BA94E2005EB9E9 /* NAKPlaybackIndicatorContentView.m */,
+				57CF9A3220BA94E2005EB9E9 /* NAKPlaybackIndicatorView.m */,
+				57CF9A3320BA94E2005EB9E9 /* MusicIndicator.m */,
+			);
+			name = NAKPlaybackIndicatorView;
+			path = Handlers/NAKPlaybackIndicatorView;
+			sourceTree = "<group>";
+		};
 		84114B3F20722BD0005A1DC9 /* JPush */ = {
 			isa = PBXGroup;
 			children = (
@@ -2075,6 +2231,11 @@
 					22CFD333206141080004186D = {
 						CreatedOnToolsVersion = 9.2;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+						};
 					};
 					22CFD34B206141080004186D = {
 						CreatedOnToolsVersion = 9.2;
@@ -2115,6 +2276,8 @@
 			files = (
 				57585AF4206D485C001BB202 /* share_qq@2x.png in Resources */,
 				57585AE8206D4839001BB202 /* share_weibo@2x.png in Resources */,
+				57CF9A2620BA8FE6005EB9E9 /* music_slider_circle.png in Resources */,
+				57CF9A1A20BA8F1C005EB9E9 /* big_play_button.png in Resources */,
 				57585AF3206D485C001BB202 /* share_qq@3x.png in Resources */,
 				8490CFC020747CFC00D416C1 /* ConfigurationWifiViewController.xib in Resources */,
 				84D270C1208DB38200ED57A3 /* BLEScanConnectViewController.xib in Resources */,
@@ -2122,19 +2285,23 @@
 				5722098F20AD261E00611BFA /* cm2_topbar_icn_search@3x.png in Resources */,
 				22CFD3DF2067D82E0004186D /* RoomIndicatorView.xib in Resources */,
 				22CFD341206141080004186D /* Assets.xcassets in Resources */,
+				57CF9A1E20BA8F4A005EB9E9 /* loop_single_icon.png in Resources */,
 				5722098D20AD261E00611BFA /* cm2_topbar_icn_search.png in Resources */,
 				22CF356B2073E17300707F8A /* noticeMusic.wav in Resources */,
 				57585AEB206D4843001BB202 /* share_wechat@3x.png in Resources */,
+				57CF9A2A20BA8FFB005EB9E9 /* prev_song.png in Resources */,
 				5726F382206B70C5008EED75 /* ShareSDKUI.bundle in Resources */,
 				22CFD3C0206548100004186D /* ConsoleBodyView.xib in Resources */,
 				22CFD3BB2065451D0004186D /* ConsoleHeaderView.xib in Resources */,
 				22CFD3D72067C69B0004186D /* ThermometerView.xib in Resources */,
 				84DD47572068DB7B00D154B5 /* ThresholdTableViewCell.xib in Resources */,
 				57210CAB2074C2DE0039D8D5 /* ZFPlayer.bundle in Resources */,
+				57CF9A2820BA8FF1005EB9E9 /* next_song.png in Resources */,
 				22CF357720775D4700707F8A /* deviceListTableViewCell.xib in Resources */,
 				22CFD3EF2067FD8C0004186D /* WettingThresholdSettingViewController.xib in Resources */,
 				5726F3AE206B8D82008EED75 /* expandableImage.png in Resources */,
 				57585AF0206D4850001BB202 /* share_timeline@3x.png in Resources */,
+				57CF9A1820BA8F12005EB9E9 /* big_pause_button.png in Resources */,
 				5726F386206B70C5008EED75 /* ShareSDKConfigFile.bundle in Resources */,
 				57585AE7206D4839001BB202 /* share_weibo@3x.png in Resources */,
 				22CFD3FB2067FE060004186D /* TemperatureThresholdSettingViewController.xib in Resources */,
@@ -2143,10 +2310,16 @@
 				57585AEC206D4843001BB202 /* share_wechat@2x.png in Resources */,
 				22CF35642073CCAB00707F8A /* ScanDeviceCodeViewController.xib in Resources */,
 				5726F37B206B70C5008EED75 /* WeiboSDK.bundle in Resources */,
+				57CF9A1C20BA8F3D005EB9E9 /* loop_all_icon.png in Resources */,
+				57CF9A2220BA8FCF005EB9E9 /* music_lock_screen_placeholder.jpg in Resources */,
+				57CF9A2020BA8FC2005EB9E9 /* more_icon.png in Resources */,
 				84332C9E206CE6F5009A9121 /* MessageTableViewCell.xib in Resources */,
 				22CFD3EA2067FD650004186D /* CryingThresholdSettingViewController.xib in Resources */,
+				57CF9A2420BA8FDC005EB9E9 /* music_placeholder.png in Resources */,
 				5726F381206B70C5008EED75 /* ShareSDK.bundle in Resources */,
 				5726F37D206B70C5008EED75 /* README.txt in Resources */,
+				57CF9A1620BA8EFD005EB9E9 /* music_slider_circle.png in Resources */,
+				57CF9A2C20BA900D005EB9E9 /* shuffle_icon.png in Resources */,
 				22CFD3F42067FDAF0004186D /* KickQulitThresholdSettingViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2179,8 +2352,10 @@
 				"${BUILT_PRODUCTS_DIR}/BAButton/BAButton.framework",
 				"${BUILT_PRODUCTS_DIR}/BRPickerView/BRPickerView.framework",
 				"${BUILT_PRODUCTS_DIR}/CocoaAsyncSocket/CocoaAsyncSocket.framework",
+				"${BUILT_PRODUCTS_DIR}/DOUAudioStreamer/DOUAudioStreamer.framework",
 				"${BUILT_PRODUCTS_DIR}/FreeStreamer/FreeStreamer.framework",
 				"${BUILT_PRODUCTS_DIR}/GKCover/GKCover.framework",
+				"${BUILT_PRODUCTS_DIR}/GVUserDefaults/GVUserDefaults.framework",
 				"${BUILT_PRODUCTS_DIR}/IQKeyboardManager/IQKeyboardManager.framework",
 				"${BUILT_PRODUCTS_DIR}/JSONModel/JSONModel.framework",
 				"${BUILT_PRODUCTS_DIR}/MBProgressHUD/MBProgressHUD.framework",
@@ -2202,8 +2377,10 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/BAButton.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/BRPickerView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CocoaAsyncSocket.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DOUAudioStreamer.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FreeStreamer.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GKCover.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GVUserDefaults.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManager.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JSONModel.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MBProgressHUD.framework",
@@ -2249,10 +2426,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				57CF9A1320BA8EA1005EB9E9 /* MusicHandler.m in Sources */,
 				229FF0A72084E2C2005BA4A6 /* JMAirKissShareTools.m in Sources */,
 				5726F3AA206B8537008EED75 /* BBHelpAndSuggestionViewController.m in Sources */,
 				57CB443820A415D900268DBE /* UIDevice+GetDeviceInfo.m in Sources */,
 				57210CAA2074C2DE0039D8D5 /* ZFBrightnessView.m in Sources */,
+				57CF99FE20BA8551005EB9E9 /* MusicSlider.m in Sources */,
 				22CFD3D22067C3120004186D /* ConsoleTemperatureViewController.m in Sources */,
 				57585AD2206D4428001BB202 /* LWShareService.m in Sources */,
 				574C6CD92069262000F5BF55 /* BBLoginRegistHeaderView.m in Sources */,
@@ -2281,11 +2460,13 @@
 				5722098020AD22AC00611BFA /* GKWYMusicVolumeView.m in Sources */,
 				84D270C0208DB38200ED57A3 /* BLEScanConnectViewController.m in Sources */,
 				22833BF9207A5E6800A70247 /* MessageModel.m in Sources */,
+				57CF9A3520BA94E2005EB9E9 /* NAKPlaybackIndicatorView.m in Sources */,
 				22CFD3FA2067FE060004186D /* TemperatureThresholdSettingViewController.m in Sources */,
 				22CFD3C920667B250004186D /* ConsoleRateBottonView.m in Sources */,
 				22CFD3E92067FD650004186D /* CryingThresholdSettingViewController.m in Sources */,
 				22CFD3F32067FDAF0004186D /* KickQulitThresholdSettingViewController.m in Sources */,
 				57210D1220789A0E0039D8D5 /* NSString+Verify.m in Sources */,
+				57CF9A3420BA94E2005EB9E9 /* NAKPlaybackIndicatorContentView.m in Sources */,
 				57210BFB2073B3F80039D8D5 /* BBPermissionManageViewController.m in Sources */,
 				57CB444220A59E1F00268DBE /* BBMusicCategory.m in Sources */,
 				5722099320AD27AA00611BFA /* CBAutoScrollLabel.m in Sources */,
@@ -2333,6 +2514,7 @@
 				57210D09207736040039D8D5 /* NetWorkRequestManager+BBRequest.m in Sources */,
 				5722098920AD24E600611BFA /* GKSearchBar.m in Sources */,
 				5726F33C206A2FB2008EED75 /* BBWarningRingListCell.m in Sources */,
+				57CF9A0A20BA859F005EB9E9 /* UIView+Animations.m in Sources */,
 				5726F345206A3F1C008EED75 /* BBSettingManager.m in Sources */,
 				57210CA72074C2DE0039D8D5 /* UIView+CustomControlView.m in Sources */,
 				2263B8F52070A27A005BB15E /* BasePeripheralManager.m in Sources */,
@@ -2373,6 +2555,7 @@
 				57210CA82074C2DE0039D8D5 /* UIImageView+ZFCache.m in Sources */,
 				574C6CD82069262000F5BF55 /* BBLoginAndRegistViewController.m in Sources */,
 				84BE5EAF2069EE75007A001D /* KickQulitChartView.m in Sources */,
+				57CF99F720BA7170005EB9E9 /* BBMusicViewController.m in Sources */,
 				5726F3B4206B99D7008EED75 /* BBAboutUsViewController.m in Sources */,
 				22CFD375206146370004186D /* BaseViewController.m in Sources */,
 				22CFD37B2061476C0004186D /* BaseNavigationViewController.m in Sources */,
@@ -2384,9 +2567,12 @@
 				57210C862073CF260039D8D5 /* BBMyAccountViewController.m in Sources */,
 				57210D0C207744780039D8D5 /* GlobalTool+BBHandleCode.m in Sources */,
 				5722098520AD22AC00611BFA /* GKWYMusicCoverView.m in Sources */,
+				57CF9A3620BA94E2005EB9E9 /* MusicIndicator.m in Sources */,
 				22CFD3C6206659AD0004186D /* ConsoleRateViewController.m in Sources */,
 				22CF357220775B9A00707F8A /* BLEPairingViewController.m in Sources */,
 				572209C720AD32CB00611BFA /* UIViewController+GKWYCategory.m in Sources */,
+				57CF99FF20BA8551005EB9E9 /* Track.m in Sources */,
+				57CF9A1220BA8EA1005EB9E9 /* BaseHelper.m in Sources */,
 				57210CB02074C2DE0039D8D5 /* ASValueTrackingSlider.m in Sources */,
 				8449AC122062338F00526935 /* MBPAlertView.m in Sources */,
 				5726F3C1206C8F13008EED75 /* BBEarlyEducationCell.m in Sources */,
@@ -2398,6 +2584,7 @@
 				2266C1BA20694A61004F653A /* CryingChartView.m in Sources */,
 				57210D1E207B05650039D8D5 /* BBEarlyEducationMusicListViewController.m in Sources */,
 				22CFD3EE2067FD8C0004186D /* WettingThresholdSettingViewController.m in Sources */,
+				57CF9A0C20BA859F005EB9E9 /* NSString+Additions.m in Sources */,
 				57CECE43207374DC00E9A876 /* UIAlertController+EasilyMake.m in Sources */,
 				572209C120AD2B3D00611BFA /* GKDownloadManager.m in Sources */,
 				5726F3BB206BE46F008EED75 /* BBAcountNumberListCell.m in Sources */,
@@ -2414,6 +2601,7 @@
 				57585AD1206D4428001BB202 /* LWShareSheetView.m in Sources */,
 				22CFD3B9206545040004186D /* ConsoleHeaderView.m in Sources */,
 				84DD475A2068F04000D154B5 /* RoomTemperatureView.m in Sources */,
+				57CF9A0B20BA859F005EB9E9 /* GVUserDefaults+Properties.m in Sources */,
 				5726F3BE206C7F3B008EED75 /* BBEarlyEducationHeaderView.m in Sources */,
 				574C6CD62069262000F5BF55 /* BBLoginView.m in Sources */,
 				57585AD3206D4428001BB202 /* LWShareContentView.m in Sources */,

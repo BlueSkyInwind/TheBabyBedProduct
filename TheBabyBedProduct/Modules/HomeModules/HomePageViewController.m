@@ -42,20 +42,41 @@
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-//    if (BBUserHelpers.isNeedPopSignIn) {
-//
-//    }
+    if (BBUserHelpers.isNeedPopSignIn) {
+        
+        BBUser *user = [BBUser bb_getUser];
+        
+        BBSignInPopView *signInPopV = [BBSignInPopView signInPopView];
+        
+        BBWeakSelf(signInPopV)
+        signInPopV.signInBlock = ^{
+            [BBRequestTool bb_requestSignInWithSuccessBlock:^(EnumServerStatus status, id object) {
+                NSLog(@"签到成功 %@",object);
+                BBStrongSelf(signInPopV)
+                NSDictionary *result = (NSDictionary *)object;
+                if ([result.allKeys containsObject:@"msg"]) {
+                    NSString *msg = [result objectForKey:@"msg"];
+                    if ([msg containsString:@"已签到"] || [msg containsString:@"请求成功"]) {
+                        
+                        [signInPopV signInSuccess];
+                        
+                        user.latestSignInDate = [NSDate bb_todayStr];
+                        [BBUser bb_saveUser:user];
+                    }
+                }
+            } failureBlock:^(EnumServerStatus status, id object) {
+                [QMUITips showInfo:@"签到失败"];
+            }];
+        };
+
+        [signInPopV show];
+        
+        user.latestHomePagePopSingInDate = [NSDate bb_todayStr];
+        [BBUser bb_saveUser:user];
+    }
    
 #warning todo
-    BBSignInPopView *signInPopV = [BBSignInPopView signInPopViewWithSignInBlock:^(BBSignInPopView *popV) {
-//        [BBRequestTool bb_requestSignInWithSuccessBlock:^(EnumServerStatus status, id object) {
-//
-//        } failureBlock:^(EnumServerStatus status, id object) {
-//
-//        }];
-        [popV signInSuccess];
-    }];
-    [signInPopV show];
+   
 }
 
 - (void)viewDidLoad {

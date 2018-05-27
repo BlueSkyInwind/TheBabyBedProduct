@@ -16,6 +16,14 @@
     NSTimeInterval timeSp =[date timeIntervalSince1970]*1000;
     return [NSString stringWithFormat:@"%ld",(NSInteger)timeSp];
 }
++(NSString *)bb_todayStr
+{
+    NSDateFormatter *df = [[NSDateFormatter alloc]init];
+    df.locale = [NSLocale currentLocale];
+    df.timeZone = [NSTimeZone localTimeZone];
+    df.dateFormat = @"yyyy-MM-dd";
+    return [df stringFromDate:[NSDate date]];
+}
 @end
 
 
