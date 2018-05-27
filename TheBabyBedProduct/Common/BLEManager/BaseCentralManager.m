@@ -174,8 +174,9 @@ static BaseCentralManager * controller;
         default:
             break;
     }
+    [self setManagerStatus];
 }
--(BOOL)managerStatus{
+-(BOOL)setManagerStatus{
     [GlobalTool saveUserDefaul:[NSString stringWithFormat:@"%@",@(_managerStatus)] Key:BLE_POWER_NOTIFI];
     return _managerStatus;
 }

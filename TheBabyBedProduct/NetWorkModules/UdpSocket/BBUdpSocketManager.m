@@ -93,9 +93,9 @@ short int TransID;
         [_udpSocket beginReceiving:&error];
     }
     
-//    [self sendAddressMessage];
+    [self sendAddressMessage];
 //    [self createHeartData];
-    [self sendEventNotificationRequestMessage];
+//    [self sendEventNotificationRequestMessage];
 }
 
 #pragma mark - GCDAsyncUdpSocket delegate

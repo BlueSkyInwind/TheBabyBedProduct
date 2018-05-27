@@ -82,8 +82,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad]; 
     // Do any additional setup after loading the view.
-    [self configureAddDeviceView];
-//    [self configureView];
+//    [self configureAddDeviceView];
+    [self configureView];
     [[BBUdpSocketManager shareInstance] createAsyncUdpSocket];
 
 }
@@ -111,8 +111,7 @@
     leftItemView.nameLabel.text = @"欧阳马克";
     leftItemView.homeHeaderClick = ^(UIButton *button) {
         //婴儿头像的点击回调
-        
-        
+        [weakSelf configureAddDeviceView];
     };
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]initWithCustomView:leftItemView];
     
