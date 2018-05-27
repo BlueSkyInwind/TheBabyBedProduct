@@ -56,6 +56,7 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:a]
 #define iOS9_1Later ([UIDevice currentDevice].systemVersion.floatValue >= 9.1f)
 
 #define Character_Number @"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789"
+#define NUM @"0123456789"
 
 //主色调
 #define UI_MAIN_COLOR [UIColor colorWithRed:255/255.0 green:236/255.0 blue:186/255.0 alpha:1]

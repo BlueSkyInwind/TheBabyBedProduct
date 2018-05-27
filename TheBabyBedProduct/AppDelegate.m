@@ -41,12 +41,13 @@
     self.window.rootViewController = self.tabBar;
     
     // 初始化全局播放按钮
-    [self initPlayBtn];
+//    [self initPlayBtn];
     
     return YES;
 }
 
 - (void)initPlayBtn {
+    
     self.playBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     [self.playBtn setImage:[UIImage imageNamed:@"cm2_topbar_icn_playing1"] forState:UIControlStateNormal];
     [self.playBtn setImage:[UIImage imageNamed:@"cm2_topbar_icn_playing1_prs"] forState:UIControlStateHighlighted];
