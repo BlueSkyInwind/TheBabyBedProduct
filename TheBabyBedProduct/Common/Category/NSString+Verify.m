@@ -23,7 +23,8 @@ static const NSString *kRandomStrSet = @"abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLM
     NSRegularExpression *regular = [NSRegularExpression regularExpressionWithPattern:regexStr options:NSRegularExpressionCaseInsensitive error:&error];
     if (error) return NO;
     NSInteger count = [regular numberOfMatchesInString:phoneNum options:NSMatchingReportCompletion range:NSMakeRange(0, phoneNum.length)];
-    return count > 0;
+    BOOL isP = count > 0;
+    return isP;
 }
 #pragma mark --- 对字符串安全处理
 -(NSString *)bb_safe
