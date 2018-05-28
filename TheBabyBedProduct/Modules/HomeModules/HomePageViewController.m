@@ -19,6 +19,8 @@
 #import "ScanDeviceCodeViewController.h"
 #import "BBSignInPopView.h"
 #import "BLEScanConnectViewController.h"
+#import "BLEPairingViewController.h"
+
 @interface HomePageViewController ()<UITableViewDelegate,UITableViewDataSource>{
     
     NSArray * imgArr;
@@ -225,9 +227,7 @@
 
 -(void)pushScanVC{
     
-    
-    
-//    BLEScanConnectViewController *  scanDeviceCodeVC = [[BLEScanConnectViewController alloc]init];
+//    BLEPairingViewController *  scanDeviceCodeVC = [[BLEPairingViewController alloc]init];
 //    [self.navigationController pushViewController:scanDeviceCodeVC animated:true];
     
     ScanDeviceCodeViewController *  scanDeviceCodeVC = [[ScanDeviceCodeViewController alloc]init];

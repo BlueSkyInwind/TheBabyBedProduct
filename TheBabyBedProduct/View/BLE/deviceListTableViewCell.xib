@@ -48,6 +48,11 @@
                     <constraint firstItem="0f6-vm-vUb" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="xe8-3a-as9"/>
                 </constraints>
             </tableViewCellContentView>
+            <connections>
+                <outlet property="deviceImageView" destination="QlE-b2-5cf" id="hwc-gA-W91"/>
+                <outlet property="deviceNameLabel" destination="joa-oA-ujQ" id="xi2-MW-1q4"/>
+                <outlet property="statusLabel" destination="0f6-vm-vUb" id="xtW-zF-Git"/>
+            </connections>
         </tableViewCell>
     </objects>
 </document>
