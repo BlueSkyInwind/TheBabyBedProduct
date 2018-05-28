@@ -9,5 +9,24 @@
 #import "BBMusic.h"
 
 @implementation BBMusic
++(NSDictionary *)mj_replacedKeyFromPropertyName
+{
+    return @{
+             @"musicID":@"id"
+             };
+}
+@end
+
+@implementation BBMusicAudioinfos
++(NSDictionary *)mj_objectClassInArray
+{
+    return @{
+             @"contents":@"BBMusic"
+             };
+}
+@end
+
+@implementation BBMusicResult
 
 @end
+

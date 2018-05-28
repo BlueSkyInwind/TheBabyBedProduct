@@ -9,7 +9,7 @@
 #import "CryingThresholdSettingViewController.h"
 #import "ThresholdTableViewCell.h"
 
-@interface CryingThresholdSettingViewController ()<UITableViewDelegate,UITableViewDataSource>{
+@interface CryingThresholdSettingViewController ()<UITableViewDelegate,UITableViewDataSource,UITextFieldDelegate>{
     
     NSArray<NSString *> * titleArr;
     NSArray<NSString *> * imageArr;
@@ -35,6 +35,7 @@
     
     self.view.backgroundColor = kUIColorFromRGB(0xF7F9FB);
     self.displayTableView.backgroundColor = kUIColorFromRGB(0xF7F9FB);
+    self.decibelTextField.delegate = self;
     
     titleArr = @[@"哭闹图片",@"安静图片"];
     imageArr = @[@"babycrying_Icon",@"babycrying_normal_Icon"];
@@ -50,8 +51,17 @@
 }
 
 - (IBAction)saveButtonClick:(id)sender {
-    
-    
+    if (self.decibelTextField.text == nil || [self.decibelTextField.text  isEqual: @""]) {
+        [QMUITips showWithText:@"请输入声音分贝值" inView:self.view hideAfterDelay:0.5];
+        return;
+    }
+    __weak typeof (self) weakSelf = self;
+    [self SetCryingThresholdValueComplication:^(BOOL isSuccess) {
+        if (isSuccess) {
+            [QMUITips showWithText:@"保存成功" inView:self.view hideAfterDelay:0.5];
+            [weakSelf.navigationController popViewControllerAnimated:true];
+        }
+    }];
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     return  42;
@@ -88,7 +98,12 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
+{
+    NSCharacterSet *cs = [[NSCharacterSet characterSetWithCharactersInString:NUM] invertedSet];
+    NSString *filtered = [[string componentsSeparatedByCharactersInSet:cs] componentsJoinedByString:@""];
+    return [string isEqualToString:filtered];
+}
 #pragma mark --- 网络请求 ----
 -(void)SetCryingThresholdValueComplication:(void(^)(BOOL isSuccess))finish{
     [BBRequestTool SetThresholdValueDeviceType:@"1" minValue:@"" maxValue:self.decibelTextField.text deviceId:BBUserHelpers.deviceId successBlock:^(EnumServerStatus status, id object) {

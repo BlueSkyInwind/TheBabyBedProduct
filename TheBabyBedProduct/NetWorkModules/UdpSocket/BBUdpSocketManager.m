@@ -96,7 +96,7 @@ short int TransID;
     [self sendAddressMessage];
 //    [self createHeartData];
 //    [self sendEventNotificationRequestMessage];
-//    [self sendEquipmentmanagementRequestMessage];
+
 }
 
 #pragma mark - GCDAsyncUdpSocket delegate

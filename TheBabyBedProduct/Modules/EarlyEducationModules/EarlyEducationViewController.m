@@ -13,18 +13,23 @@
 #import "BBEarlyEducationMusicListViewController.h"
 #import "BBMusicCategory.h"
 #import "BBMusicHotRecommend.h"
+#import "GKSearchBar.h"
+
+#import "GKWYMusicModel.h"
+#import "BBMusicViewController.h"
 
 static NSString * const kEarlyEducationCellIdentifier = @"EarlyEducationCellIdentifier";
 static NSString * const kEarlyEducationHeaderViewIdentifier = @"EarlyEducationHeaderViewIdentifier";
 
 #define k_item_margin 5
 
-@interface EarlyEducationViewController ()<UICollectionViewDataSource,UICollectionViewDelegateFlowLayout>
+@interface EarlyEducationViewController ()<GKSearchBarDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout>
+@property(nonatomic,strong) GKSearchBar *searchBar;
 @property(nonatomic,strong)UICollectionView *collectionView;
 /** GCS music 分类 */
 @property(nonatomic,strong) NSMutableArray<BBMusicCategory *> *musicCategories;
 /** 热门推荐 */
-@property(nonatomic,strong) NSMutableArray<BBMusicHotRecommend *> *hotRecommends;
+@property(nonatomic,strong) NSMutableArray<BBMusic *> *hotRecommends;
 /** 顶部items数组 */
 @property(nonatomic,strong) NSArray *titleArrs;
 /** item起始数组都加的一个模型 */
@@ -59,7 +64,7 @@ static NSString * const kEarlyEducationHeaderViewIdentifier = @"EarlyEducationHe
     UICollectionViewFlowLayout *flowLayout = [[UICollectionViewFlowLayout alloc]init];
     flowLayout.minimumLineSpacing = k_item_margin;
     flowLayout.minimumInteritemSpacing = k_item_margin;
-    self.collectionView = [[UICollectionView alloc]initWithFrame:CGRectMake(0, 64+35, _k_w, _k_h-64-35-50) collectionViewLayout:flowLayout];
+    self.collectionView = [[UICollectionView alloc]initWithFrame:CGRectMake(0, 64+44, _k_w, _k_h-64-44-50) collectionViewLayout:flowLayout];
     [self.view addSubview:self.collectionView];
     self.collectionView.backgroundColor = k_color_vcBg;
     self.collectionView.dataSource=self;
@@ -125,14 +130,54 @@ static NSString * const kEarlyEducationHeaderViewIdentifier = @"EarlyEducationHe
 }
 -(void)creatHeaderSearchUI
 {
-    UIView *searchBGV = [[UIView alloc]initWithFrame:CGRectMake(0, 0, _k_w, 64+35)];
+    UIView *searchBGV = [[UIView alloc]initWithFrame:CGRectMake(0, 0, _k_w, 64+44)];
     searchBGV.backgroundColor = UI_MAIN_COLOR;
     [self.view addSubview:searchBGV];
     
     UILabel *titleLB = [UILabel bb_lbMakeWithSuperV:searchBGV fontSize:18 alignment:NSTextAlignmentCenter textColor:k_color_515151];
-    titleLB.frame = CGRectMake(0, 20, _k_w, 44);
+//    titleLB.frame = CGRectMake(0, 20, _k_w, 44);
     titleLB.text = @"早教";
+    [titleLB mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.right.equalTo(searchBGV);
+        make.top.equalTo(searchBGV.mas_top).offset(20);
+        make.height.equalTo(@44);
+    }];
+    
+    [searchBGV addSubview:self.searchBar];
+    [self.searchBar mas_remakeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(searchBGV).offset(10);
+        make.top.equalTo(titleLB.mas_bottom).offset(0);
+        make.right.equalTo(searchBGV).offset(-10);
+
+        make.height.mas_equalTo(44.0f);
+    }];
+    [self.searchBar layoutIfNeeded];
+    
+    
 }
+#pragma mark - 懒加载
+- (GKSearchBar *)searchBar {
+    if (!_searchBar) {
+        _searchBar              = [[GKSearchBar alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT)];
+        _searchBar.placeholder  = @"搜索";
+        _searchBar.iconAlign    = GKSearchBarIconAlignCenter;
+        _searchBar.iconImage    = [UIImage imageNamed:@"cm2_topbar_icn_search"];
+        _searchBar.delegate     = self;
+        
+        if (@available(iOS 11.0, *)) {
+            [_searchBar.heightAnchor constraintLessThanOrEqualToConstant:44].active = YES;
+        }
+    }
+    return _searchBar;
+}
+#pragma mark - EVNCustomSearchBarDelegate
+- (BOOL)searchBarShouldBeginEditing:(GKSearchBar *)searchBar {
+//    GKWYSearchViewController *searchVC = [GKWYSearchViewController new];
+//    [self.navigationController pushViewController:searchVC animated:YES];
+    NSLog(@"点击了serachbar");
+    return NO;
+}
+
 -(UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath
 {
     if (kind == UICollectionElementKindSectionHeader) {
@@ -169,6 +214,35 @@ static NSString * const kEarlyEducationHeaderViewIdentifier = @"EarlyEducationHe
 {
     return CGSizeMake(_k_w, 514);
 }
+-(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
+{
+//    GKWYMusicModel *model = [GKWYMusicModel new];
+//    model.song_id       = songModel.songid;
+//    model.song_name     = songModel.songname;
+//    model.artist_name   = songModel.artistname;
+//    
+//    [kWYPlayerVC playMusicWithModel:model];
+    
+    BBMusicViewController *musicVC = [BBMusicViewController sharedInstance];
+    musicVC.musicTitle = @"热门推荐";
+    musicVC.musics = self.hotRecommends;
+    musicVC.playingIndex = indexPath.item;
+    BBMusic *selectedMusic = self.hotRecommends[indexPath.item];
+    BBMusic *playingMusic = [musicVC currentPlayingMusic];
+    if (![selectedMusic.musicID isEqualToString:playingMusic.musicID]) {
+        [musicVC playMusicWithSpecialIndex:indexPath.item];
+    }
+    
+//    [self presentToMusicViewWithMusicVC:musicVC];
+    [self presentViewController:musicVC animated:YES completion:nil];
+
+//    [QMUITips showLoadingInView:self.view];
+}
+
+- (void)presentToMusicViewWithMusicVC:(BBMusicViewController *)musicVC {
+    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:musicVC];
+    [self.navigationController presentViewController:navigationController animated:YES completion:nil];
+}
                                                  
 #pragma mark --- 处理header上轮播图和板块点击跳转事件
 -(void)setupHeaderViewAction:(BBEarlyEducationHeaderView *)headerV
@@ -204,7 +278,7 @@ static NSString * const kEarlyEducationHeaderViewIdentifier = @"EarlyEducationHe
     }
     return _musicCategories;
 }
--(NSMutableArray<BBMusicHotRecommend *> *)hotRecommends
+-(NSMutableArray<BBMusic *> *)hotRecommends
 {
     if (!_hotRecommends) {
         _hotRecommends = [NSMutableArray array];

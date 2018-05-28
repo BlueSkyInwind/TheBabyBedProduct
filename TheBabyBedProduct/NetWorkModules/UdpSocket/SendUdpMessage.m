@@ -125,7 +125,7 @@ NSString * const    Baby_Urine_Value     =  @"Baby_Urine_Value";
     NSData * dataSix = [self generateYdaCtrlHeaderChecksum:0 Random:12];
     [dataOne appendData:dataSix];
     
-    NSData * bodyData = [self generateDiscoverRequestUdpBody];
+    NSData * bodyData = [self generateLoginRequestUdpBody];
     [dataOne appendData:bodyData];
     
     dataOne = [[self setYdaHeaderDatalen:dataOne.length  data:dataOne] mutableCopy];
@@ -138,7 +138,7 @@ NSString * const    Baby_Urine_Value     =  @"Baby_Urine_Value";
 
 -(NSData *)generateLoginRequestUdpBody{
     
-    NSMutableData * bodyData = [[self generateUdpBodyUnit:0 elementID:9 dataContent:nil] mutableCopy];
+    NSMutableData * bodyData = [[self generateUdpBodyUnit:134 elementID:9 dataContent:nil] mutableCopy];
     return bodyData;
     
 }
