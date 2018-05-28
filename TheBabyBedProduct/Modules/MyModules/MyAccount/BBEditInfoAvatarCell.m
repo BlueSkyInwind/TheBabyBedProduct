@@ -28,7 +28,10 @@
 }
 -(void)setupCellAvatar:(NSString *)avatarUrl
 {
-    [self.avatarImgV sd_setImageWithURL:[NSURL URLWithString:avatarUrl] placeholderImage:[UIImage imageNamed:@"touxianggg"]];
+    if ([avatarUrl bb_isSafe]) {
+        [self.avatarImgV sd_setImageWithURL:[NSURL URLWithString:avatarUrl] placeholderImage:[UIImage imageNamed:@"touxianggg"]];
+    }
+    
 }
 
 -(void)creatCellUI
@@ -36,7 +39,7 @@
     self.userNameLB = [UILabel bb_lbMakeWithSuperV:self.contentView fontSize:16 alignment:NSTextAlignmentLeft textColor:k_color_515151];
     self.userNameLB.text = @"头像";
     
-    self.avatarImgV = [UIImageView bb_imgVMakeWithSuperV:self.contentView imgName:nil];
+    self.avatarImgV = [UIImageView bb_imgVMakeWithSuperV:self.contentView imgName:@"touxianggg"];
     self.avatarImgV.layer.masksToBounds = YES;
     self.avatarImgV.layer.cornerRadius = 25;
     

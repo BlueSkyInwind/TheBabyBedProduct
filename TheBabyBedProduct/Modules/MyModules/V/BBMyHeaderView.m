@@ -121,13 +121,43 @@
 
 -(void)judgeItemShowOrHidden
 {
+    /*
+     第一次注册登录成功后返回的数据如下：
+     response json --- {
+     code = 0;
+     data =     {
+     bindQQ = 0;
+     bindWB = 0;
+     bindWX = 0;
+     deviceId = "";
+     id = 5000809708864ed6bbe3f9500e046f93;
+     manager = 1;
+     totalScore = 0;
+     username = 16602103722;
+     videoAuth = 1;
+     };
+     msg = "请求成功";
+     }
+     */
     if (BBUserHelpers.hasLogined) {
         self.userNameLB.text = self.user.username;
-        self.babyDaysLB.text = [NSString stringWithFormat:@"您的宝宝%lu天了",(unsigned long)[self.user.both bb_timeIntervalFromTimestamp]];
+        if (self.user.both && [self.user.both integerValue] > 0) {
+            self.babyDaysLB.text = [NSString stringWithFormat:@"您的宝宝%lu天了",(unsigned long)[self.user.both bb_timeIntervalFromTimestamp]];
+            self.babyDaysLB.hidden = NO;
+        }else{
+            self.babyDaysLB.text = @"";
+            self.babyDaysLB.hidden = YES;
+            self.userNameLB.height += 20;
+        }
+        
         self.userNameLB.hidden = NO;
-        self.babyDaysLB.hidden = NO;
         self.loginOrRegistBT.hidden = YES;
-        [self.avatarImgV sd_setImageWithURL:[NSURL URLWithString:[K_Url_GetImg stringByAppendingString:self.user.avatar]] placeholderImage:[UIImage imageNamed:@"touxianggg"]];
+        if ([self.user.avatar bb_isSafe]) {
+            [self.avatarImgV sd_setImageWithURL:[NSURL URLWithString:[K_Url_GetImg stringByAppendingString:self.user.avatar]] placeholderImage:[UIImage imageNamed:@"touxianggg"]];
+        }else{
+            self.avatarImgV.image = [UIImage imageNamed:@"touxianggg"];
+        }
+        
     }else{
         self.userNameLB.hidden = YES;
         self.babyDaysLB.hidden = YES;

@@ -181,7 +181,7 @@
         return;
     }
     //账号密码登录
-    [BBRequestTool bb_requestLoginWithPhone:@"13386050182" password:password loginType:BBLoginTypeDefault uid:nil openid:nil successBlock:^(EnumServerStatus status, id object) {
+    [BBRequestTool bb_requestLoginWithPhone:phoneNo password:password loginType:BBLoginTypeDefault uid:nil openid:nil successBlock:^(EnumServerStatus status, id object) {
         NSLog(@"success %@",object);
         BBLoginResultModel *loginResultM = [BBLoginResultModel mj_objectWithKeyValues:object];
         if (loginResultM.code == 0) {
