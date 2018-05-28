@@ -51,7 +51,7 @@
         return;
     }
     [_scanView start];
-    if (_scanView.is_AnmotionFinished) {
+    if (!_scanView.is_AnmotionFinished) {
         [_scanView loopDrawLine];
     }
 }

@@ -425,6 +425,8 @@ static void getRequest(NSString *url,id param,SuccessBlock successBlock,FailureB
  */
 -(void)SetThresholdValueDeviceType:(NSString *)deviceType minValue:(NSString *)minValue maxValue:(NSString *)maxValue deviceId:(NSString *)deviceId successBlock:(SuccessBlock)successBlock failureBlock:(FailureBlock)failureBlock{
     
+    deviceId = deviceId == nil ? @"":deviceId;
+    
     NSDictionary *param = @{
                             @"deviceType":deviceType,
                             @"minVal":minValue,

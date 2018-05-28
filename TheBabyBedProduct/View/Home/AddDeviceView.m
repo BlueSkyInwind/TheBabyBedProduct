@@ -64,7 +64,7 @@
     }];
     
     UILabel * explainLabel = [[UILabel alloc]init];
-    explainLabel.text = @"链接设备见覅额就覅偶金额将发尾佛安慰放假";
+    explainLabel.text = @"链接设备，请绑定您的婴儿床";
     explainLabel.textAlignment = NSTextAlignmentCenter;
     explainLabel.font = [UIFont systemFontOfSize:15];
     explainLabel.numberOfLines = 0;
