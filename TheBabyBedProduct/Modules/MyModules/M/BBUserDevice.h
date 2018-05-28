@@ -47,8 +47,7 @@
 @property(nonatomic,copy,readonly) NSString *deviceStatus;
 @property(nonatomic,copy,readonly) NSString *deviceVersion;
 @property(nonatomic,copy,readonly) NSString *deviceType;
-/** 当日是否已经签到 */
-@property(nonatomic,assign,readonly) BOOL hasSignIn;
+
 @end
 
 

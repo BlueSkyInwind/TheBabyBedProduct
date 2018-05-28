@@ -58,6 +58,14 @@ typedef NS_ENUM(NSUInteger, GKWYPlayerPlayStyle) {
 
 #define kWYPlayerVC [GKWYPlayerViewController sharedInstance]
 
+
+typedef NS_ENUM(NSInteger, MusicCycleType) {
+    MusicCycleTypeLoopAll = 0,
+    MusicCycleTypeLoopSingle = 1,
+    MusicCycleTypeShuffle = 2,
+};
+
+
 //#import "TheBabyBedProduct-Swift.h"
 
 

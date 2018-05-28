@@ -9,8 +9,8 @@
 #import <UIKit/UIKit.h>
 
 @interface BBSignInPopView : UIView
-
-+(instancetype)signInPopViewWithSignInBlock:(void(^)(BBSignInPopView *popV))signInBlock;
+@property(nonatomic,copy) void(^signInBlock)(void);
++(instancetype)signInPopView;
 -(void)show;
 -(void)hidden;
 -(void)signInSuccess;

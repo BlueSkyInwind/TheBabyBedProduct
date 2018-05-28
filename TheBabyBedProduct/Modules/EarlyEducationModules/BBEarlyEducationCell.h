@@ -7,10 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "BBMusicHotRecommend.h"
+#import "BBMusic.h"
 
 @interface BBEarlyEducationCell : UICollectionViewCell
 @property(nonatomic,strong) UIImageView *imgV;
 @property(nonatomic,strong) UILabel *tLB;
--(void)setupCellWithAHotRecommend:(BBMusicHotRecommend *)aHotRecommend;
+-(void)setupCellWithAHotRecommend:(BBMusic *)aHotRecommend;
 @end

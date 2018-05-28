@@ -15,16 +15,14 @@ typedef void(^signInB)(BBSignInPopView *popV);
 @property(nonatomic,strong) UILabel *titleLabel;
 @property(nonatomic,strong) UIButton *closeBtn;
 @property(nonatomic,strong) UIButton *signInBtn;
-@property(nonatomic,assign) signInB signInBlock;
 @property(nonatomic,strong) UIView *goldBgV;
 @property(nonatomic,strong) UIView *signInSuccessBgV;
 @end
 
 @implementation BBSignInPopView
-+(instancetype)signInPopViewWithSignInBlock:(void (^)(BBSignInPopView *))signInBlock
++(instancetype)signInPopView
 {
     BBSignInPopView *popV = [[BBSignInPopView alloc]initWithFrame:[UIScreen mainScreen].bounds];
-    popV.signInBlock = signInBlock;
     return popV;
 }
 
@@ -175,7 +173,7 @@ typedef void(^signInB)(BBSignInPopView *popV);
 -(void)signInAction
 {
     if (self.signInBlock) {
-        self.signInBlock(self);
+        self.signInBlock();
     }
 }
 -(void)signInSuccess

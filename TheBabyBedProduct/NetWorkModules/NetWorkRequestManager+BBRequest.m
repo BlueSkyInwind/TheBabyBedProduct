@@ -96,7 +96,17 @@ static void getRequest(NSString *url,id param,SuccessBlock successBlock,FailureB
                      successBlock:(SuccessBlock)successBlock
                      failureBlock:(FailureBlock)failureBlock
 {
-    NSDictionary *param = @{@"phone":phone,@"type":[NSNumber numberWithInteger:codeType]};
+    NSString *typeStr = @"";
+    if (codeType == BBGetCodeTypeRegist) {
+        typeStr = @"REGISTER";
+    }else if (codeType == BBGetCodeTypeLogin){
+        typeStr = @"LOGIN";
+    }else if (codeType == BBGetCodeTypeForgetPassword){
+        typeStr = @"FORGETPASSWORD";
+    }else{
+        typeStr = @"OTHER";
+    }
+    NSDictionary *param = @{@"phone":phone,@"type":typeStr};
     postRequest(K_Url_GetCode, param, successBlock, failureBlock);
 }
 
@@ -317,7 +327,8 @@ static void getRequest(NSString *url,id param,SuccessBlock successBlock,FailureB
     [param setValue:[UIDevice pp_UUID] forKey:@"device_id"];
     [param setValue:nonceStr forKey:@"nonce"];
     [param setValue:timestampStr forKey:@"timestamp"];
-    
+    [param setValue:@"1" forKey:@"chapter"];
+    [param setValue:@"1" forKey:@"verbose"];
     postRequestGCSDad(K_Url_MusicList, param, successBlock, failureBlock);
     
 }
@@ -340,7 +351,8 @@ static void getRequest(NSString *url,id param,SuccessBlock successBlock,FailureB
     [param setValue:[UIDevice pp_UUID] forKey:@"device_id"];
     [param setValue:nonceStr forKey:@"nonce"];
     [param setValue:timestampStr forKey:@"timestamp"];
-    
+    [param setValue:@"1" forKey:@"chapter"];
+    [param setValue:@"1" forKey:@"verbose"];
     NSMutableString *str = [[NSMutableString alloc]initWithString:@"["];
     for (int i = 0; i < categoryIds.count-1; i++) {
         [str appendFormat:@"%@,",categoryIds[i]];
@@ -378,7 +390,26 @@ static void getRequest(NSString *url,id param,SuccessBlock successBlock,FailureB
     [param setValue:nonceStr forKey:@"nonce"];
     [param setValue:timestampStr forKey:@"timestamp"];
     [param setValue:@"hot" forKey:@"listtype"];
+    [param setValue:@"1" forKey:@"chapter"];
+    [param setValue:@"1" forKey:@"verbose"];
     postRequestGCSDad(K_Url_MusicList, param, successBlock, failureBlock);
+}
+
+-(void)bb_requestRefreshTokenWithSuccessBlock:(SuccessBlock)successBlock failureBlock:(FailureBlock)failureBlock
+{
+    NSString *timestampStr = [NSDate bb_strFromTimestamp];
+    NSString *nonceStr = [NSString pp_randomStr];
+    NSMutableDictionary *param = [NSMutableDictionary dictionary];
+    NSMutableString *signatureStr = [[NSMutableString alloc]initWithString:KGCSDad_AppId];
+    [signatureStr appendString:KGCSDad_Secret];
+    [signatureStr appendString:[NSString stringWithFormat:@"%@",timestampStr]];
+    NSString *signatureString = [NSString pp_sha1:signatureStr];
+    [param setValue:signatureString forKey:@"signature"];
+    [param setValue:KGCSDad_AppId forKey:@"app_id"];
+    [param setValue:[UIDevice pp_UUID] forKey:@"device_id"];
+    [param setValue:nonceStr forKey:@"nonce"];
+    [param setValue:timestampStr forKey:@"timestamp"];
+    postRequestGCSDad(K_Url_Refresh_Token, param, successBlock, failureBlock);
 }
 
 /**

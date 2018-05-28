@@ -21,7 +21,7 @@
     return self;
 }
 
--(void)setupCellWithAHotRecommend:(BBMusicHotRecommend *)aHotRecommend
+-(void)setupCellWithAHotRecommend:(BBMusic *)aHotRecommend
 {
     [self.imgV sd_setImageWithURL:[NSURL URLWithString:aHotRecommend.icon] placeholderImage:nil];
     self.tLB.text = aHotRecommend.name;

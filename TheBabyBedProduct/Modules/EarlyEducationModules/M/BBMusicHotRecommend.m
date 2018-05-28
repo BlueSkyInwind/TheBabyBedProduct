@@ -21,7 +21,7 @@
 +(NSDictionary *)mj_objectClassInArray
 {
     return @{
-             @"contents":@"BBMusicHotRecommend"
+             @"contents":@"BBMusic"
              };
 }
 @end

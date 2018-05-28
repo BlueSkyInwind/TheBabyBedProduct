@@ -23,12 +23,16 @@
 
 @implementation AppDelegate
 
+- (BOOL)canBecomeFirstResponder {
+    return YES;
+}
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     
     [self bb_configureShareSDK];
-    [self bb_signInAction];
+//    [self bb_signInAction];
+    [self bb_refreshToken];
 
     
     [[LaunchConfiguration shared] InitializeAppConfiguration];

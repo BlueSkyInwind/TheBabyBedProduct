@@ -149,20 +149,23 @@ static BBUser * toGetUser(){
 }
 -(BOOL)hasTodaySignIn
 {
-    if ([_aUser().latestSignInDate isEqualToDate:[NSDate date]]) {
+    if ([_aUser().latestSignInDate isEqualToString:[NSDate bb_todayStr]]) {
         return YES;
     }
     return NO;
 }
 -(BOOL)hasTodayHomePopSignIn
 {
-    if ([_aUser().latestHomePagePopSingInDate isEqualToDate:[NSDate date]]) {
+    if ([_aUser().latestHomePagePopSingInDate isEqualToString:[NSDate bb_todayStr]]) {
         return YES;
     }
     return NO;
 }
 -(BOOL)isNeedPopSignIn
 {
+    if (!BBUserHelpers.hasLogined) {
+        return NO;
+    }
     //如果今日已经签到了，肯定不用弹出了
     if (BBUserHelpers.hasTodaySignIn) {
         return NO;

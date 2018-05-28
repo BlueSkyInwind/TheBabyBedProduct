@@ -76,6 +76,7 @@
 #define K_Url_MusicList          @"/audio/v2/list"
 //热门推荐（音乐）
 
+#define K_Url_Refresh_Token     @"/audio/v2/refresh_device_token"
 
 
 #endif /* BBRequestUrlMacros_h */

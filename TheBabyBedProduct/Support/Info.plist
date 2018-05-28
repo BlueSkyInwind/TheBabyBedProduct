@@ -104,6 +104,10 @@
 	<string>允许定位以把位置保存到照片中</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>访问相册以选择照片</string>
+	<key>UIBackgroundModes</key>
+	<array>
+		<string>audio</string>
+	</array>
 	<key>UIRequiredDeviceCapabilities</key>
 	<array>
 		<string>armv7</string>

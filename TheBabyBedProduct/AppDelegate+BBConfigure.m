@@ -19,6 +19,8 @@
 
 #import "BBUserDevice.h"
 
+#import "GVUserDefaults+Properties.h"
+
 @implementation AppDelegate (BBConfigure)
 
 -(void)bb_configureShareSDK
@@ -83,15 +85,36 @@
                           }
                       }];
 }
--(void)bb_signInAction
+//-(void)bb_signInAction
+//{
+//    if (!BBUserHelpers.hasLogined) {
+//        return;
+//    }
+//    [BBRequestTool bb_requestSignInWithSuccessBlock:^(EnumServerStatus status, id object) {
+//        NSLog(@"签到成功 %@",object);
+//        NSDictionary *result = (NSDictionary *)object;
+//        if ([result.allKeys containsObject:@"msg"]) {
+//            NSString *msg = [result objectForKey:@"msg"];
+//            if ([msg containsString:@"已签到"]) {
+//                BBUser *user = [BBUser bb_getUser];
+//                user.latestSignInDate = [NSDate bb_todayStr];
+//                [BBUser bb_saveUser:user];
+//            }
+//        }
+//    } failureBlock:^(EnumServerStatus status, id object) {
+//        NSLog(@"签到shibai  %@",object);
+//    }];
+//}
+
+-(void)bb_refreshToken
 {
-    if (!BBUserDeviceHelpers.hasSignIn) {
-        
-    }
-    [BBRequestTool bb_requestSignInWithSuccessBlock:^(EnumServerStatus status, id object) {
-        NSLog(@"签到成功 %@",object);
+    [BBRequestTool bb_requestRefreshTokenWithSuccessBlock:^(EnumServerStatus status, id object) {
+        NSDictionary *result = (NSDictionary *)object;
+        NSDictionary *dataDict = [result objectForKey:@"data"];
+        NSString *token = [dataDict objectForKey: @"device_token"];
+        [GVUserDefaults standardUserDefaults].deviceToken = token;
     } failureBlock:^(EnumServerStatus status, id object) {
-        NSLog(@"签到shibai  %@",object);
+        
     }];
 }
 @end

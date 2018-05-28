@@ -9,6 +9,7 @@
 #import "BBEarlyEducationMusicListViewController.h"
 #import "BBMusicCategory.h"
 #import "BBEarlyEdutionMusicListCell.h"
+#import "BBMusicViewController.h"
 
 @interface BBEarlyEducationMusicListViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property(nonatomic,strong) UITableView *tableView;
@@ -69,8 +70,22 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    BBMusicViewController *musicVC = [BBMusicViewController sharedInstance];
+    musicVC.musicTitle = @"热门推荐";
+    musicVC.musics = self.musicLists;
     
+    musicVC.playingIndex = indexPath.item;
+    
+    [self presentToMusicViewWithMusicVC:musicVC];
+    
+    //    [QMUITips showLoadingInView:self.view];
 }
+
+- (void)presentToMusicViewWithMusicVC:(BBMusicViewController *)musicVC {
+    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:musicVC];
+    [self.navigationController presentViewController:navigationController animated:YES completion:nil];
+}
+    
 -(NSMutableArray *)musicLists
 {
     if (!_musicLists) {

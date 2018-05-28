@@ -10,6 +10,7 @@
 
 @interface NSDate (BB)
 +(NSString *)bb_strFromTimestamp;
++(NSString *)bb_todayStr;
 @end
 
 
@@ -22,4 +23,5 @@
 
 @interface NSString (Timestamp)
 -(NSNumber *)bb_strForTimestamp;
+
 @end
