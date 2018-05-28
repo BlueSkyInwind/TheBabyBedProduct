@@ -18,7 +18,7 @@
 #import "ScanDeviceCodeViewController.h"
 #import "ScanDeviceCodeViewController.h"
 #import "BBSignInPopView.h"
-
+#import "BLEScanConnectViewController.h"
 @interface HomePageViewController ()<UITableViewDelegate,UITableViewDataSource>{
     
     NSArray * imgArr;
@@ -90,7 +90,7 @@
     leftItemView.nameLabel.text = @"欧阳马克";
     leftItemView.homeHeaderClick = ^(UIButton *button) {
         //婴儿头像的点击回调
-        [weakSelf configureAddDeviceView];
+        [weakSelf connectDeviceAlertView];
     };
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]initWithCustomView:leftItemView];
     
@@ -191,8 +191,24 @@
         }
     }];
 }
+//临时入口
+-(void)connectDeviceAlertView{
+    __weak typeof (self) weakSelf = self;
+    [[GlobalAlertViewManager shareInstance] promptsPopViewWithtitle:nil content:@"连接设备临时入口" cancelTitle:@"取消" sureTitle:@"确定" completion:^(NSInteger index) {
+        if (index == 1) {
+            // 进入设备扫描
+            [self configureAddDeviceView];
+        }
+    }];
+}
 
 -(void)pushScanVC{
+    
+    
+    
+//    BLEScanConnectViewController *  scanDeviceCodeVC = [[BLEScanConnectViewController alloc]init];
+//    [self.navigationController pushViewController:scanDeviceCodeVC animated:true];
+    
     ScanDeviceCodeViewController *  scanDeviceCodeVC = [[ScanDeviceCodeViewController alloc]init];
     [self.navigationController pushViewController:scanDeviceCodeVC animated:true];
 }

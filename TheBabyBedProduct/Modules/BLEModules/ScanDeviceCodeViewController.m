@@ -65,11 +65,12 @@
         return;
     }
     [_qrScanView start];
-    if (_qrScanView.is_AnmotionFinished) {
+    if (!_qrScanView.is_AnmotionFinished) {
         [_qrScanView loopDrawLine];
     }
 }
 -(void)viewWillAppear:(BOOL)animated{
+    
     [super viewWillAppear:animated];
     [self reStartScan];
 }
