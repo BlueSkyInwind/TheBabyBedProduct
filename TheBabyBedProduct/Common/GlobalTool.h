@@ -29,8 +29,8 @@
  @return 返回结果
  */
 -(UIViewController *)topViewController;
-//判断手机号是否有效
-+ (BOOL)isMobileNumber:(NSString *)mobileNum;
+//判断手机号是否有效 【不准】
+//+ (BOOL)isMobileNumber:(NSString *)mobileNum;
 
 /**
  生成对应颜色的图片

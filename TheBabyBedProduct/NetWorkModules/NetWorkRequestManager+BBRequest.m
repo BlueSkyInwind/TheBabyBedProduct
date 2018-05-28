@@ -96,7 +96,17 @@ static void getRequest(NSString *url,id param,SuccessBlock successBlock,FailureB
                      successBlock:(SuccessBlock)successBlock
                      failureBlock:(FailureBlock)failureBlock
 {
-    NSDictionary *param = @{@"phone":phone,@"type":[NSNumber numberWithInteger:codeType]};
+    NSString *typeStr = @"";
+    if (codeType == BBGetCodeTypeRegist) {
+        typeStr = @"REGISTER";
+    }else if (codeType == BBGetCodeTypeLogin){
+        typeStr = @"LOGIN";
+    }else if (codeType == BBGetCodeTypeForgetPassword){
+        typeStr = @"FORGETPASSWORD";
+    }else{
+        typeStr = @"OTHER";
+    }
+    NSDictionary *param = @{@"phone":phone,@"type":typeStr};
     postRequest(K_Url_GetCode, param, successBlock, failureBlock);
 }
 
