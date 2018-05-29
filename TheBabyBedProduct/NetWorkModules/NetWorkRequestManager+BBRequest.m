@@ -458,6 +458,14 @@ static void getRequest(NSString *url,id param,SuccessBlock successBlock,FailureB
     getRequest(urlStr, param, successBlock, failureBlock);
 
 }
+/*  绑定设备  */
+-(void)applyBindDeviceId:(NSString *)deviceId successBlock:(SuccessBlock)successBlock failureBlock:(FailureBlock)failureBlock{
+    
+    NSString * urlStr = [NSString stringWithFormat:@"%@%@",K_Url_bindDevice,deviceId];
+    
+    getRequest(urlStr, nil, successBlock, failureBlock);
+    
+}
 
 
 @end

@@ -44,6 +44,9 @@
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+    //监测设备的绑定状态
+    [self judgeUserDeviceStatus];
+    
     if (BBUserHelpers.isNeedPopSignIn) {
         
         BBUser *user = [BBUser bb_getUser];
@@ -84,24 +87,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad]; 
     // Do any additional setup after loading the view.
-//    [self configureAddDeviceView];
     [self configureView];
-    [[BBUdpSocketManager shareInstance] createAsyncUdpSocket];
-
+//    [[BBUdpSocketManager shareInstance] createAsyncUdpSocket];
 }
 
--(void)configureAddDeviceView{
-    __weak typeof (self) weakSelf = self;
-    _addDeviceView = [[AddDeviceView alloc]initWithFrame:CGRectZero];
-    [self.view addSubview:_addDeviceView];
-    _addDeviceView.addDeviceClick = ^{
-      //添加设备点击
-        [weakSelf popAddDeviceAlertView];
-      };
-    [_addDeviceView mas_remakeConstraints:^(MASConstraintMaker *make) {
-        make.edges.equalTo(self.view);
-    }];
-}
 
 -(void)configureView{
     
@@ -204,7 +193,35 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+#pragma mark - 登陆后 设备配网
+-(void)judgeUserDeviceStatus{
+    
+    if (![BBUser bb_getUser].hasLogined) {
+        return;
+    }
+    //通过deviceId来判断是否绑定设备
+    if ([BBUser bb_getUser].deviceId == nil || [[BBUser bb_getUser].deviceId isEqual: @""]) {
+        [self configureAddDeviceView];
+    }else{
+        if(_addDeviceView != nil){
+            [_addDeviceView removeFromSuperview];
+            _addDeviceView = nil;
+        }
+    }
+}
 
+-(void)configureAddDeviceView{
+    __weak typeof (self) weakSelf = self;
+    _addDeviceView = [[AddDeviceView alloc]initWithFrame:CGRectZero];
+    [self.view addSubview:_addDeviceView];
+    _addDeviceView.addDeviceClick = ^{
+        //添加设备点击
+        [weakSelf popAddDeviceAlertView];
+    };
+    [_addDeviceView mas_remakeConstraints:^(MASConstraintMaker *make) {
+        make.edges.equalTo(self.view);
+    }];
+}
 -(void)popAddDeviceAlertView{
     __weak typeof (self) weakSelf = self;
     [[GlobalAlertViewManager shareInstance] promptsPopViewWithtitle:nil content:@"请绑定您的婴儿床" cancelTitle:@"取消" sureTitle:@"确定" completion:^(NSInteger index) {
@@ -214,6 +231,7 @@
         }
     }];
 }
+
 //临时入口
 -(void)connectDeviceAlertView{
     __weak typeof (self) weakSelf = self;
@@ -233,6 +251,13 @@
     ScanDeviceCodeViewController *  scanDeviceCodeVC = [[ScanDeviceCodeViewController alloc]init];
     [self.navigationController pushViewController:scanDeviceCodeVC animated:true];
 }
+
+
+
+
+
+
+
 
 /*
 #pragma mark - Navigation

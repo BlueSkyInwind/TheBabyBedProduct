@@ -60,7 +60,8 @@
 //积分兑换
 #define K_Url_Exchange          @"/api/user/exchange"
 
-
+//设备绑定 后面需要加上deviceId
+#define K_Url_bindDevice        @"/apply/bindDevice/"
 //消息列表
 #define K_Url_MessageList        @"/api/msg/list"
 //消息编辑

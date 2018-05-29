@@ -10,6 +10,9 @@
 
 @interface ConfigurationWifiViewController : BaseViewController
 
+/* 扫描结果*/
+@property(nonatomic,strong)NSString * scanID;
+
 @property (weak, nonatomic) IBOutlet UIView *chooseView;
 
 @property (weak, nonatomic) IBOutlet UITextField *chooseTextField;

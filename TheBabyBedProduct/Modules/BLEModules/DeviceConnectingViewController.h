@@ -14,5 +14,6 @@
 /* */
 @property(nonatomic,strong)NSString * ssid;
 @property(nonatomic,strong)NSString * wifiPassword;
+@property(nonatomic,strong)NSString * scanId;
 
 @end

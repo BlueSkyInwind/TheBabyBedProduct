@@ -310,6 +310,43 @@ NSString * const    Baby_Urine_Value     =  @"Baby_Urine_Value";
     return dataOne;
 }
 
+//CFG设置报文
+-(NSData *)generateCFGSettingRequestMessage{
+    
+    NSMutableData * dataOne = [[self generatePreambleVersion:0 preambleCrypto:0 HLEN:0x04 YdaHeaderChecksum:0] mutableCopy];
+    
+    NSData * dataTwo = [self generateTransID:TransID ctrlAndExt:0];
+    [dataOne appendData:dataTwo];
+    
+    NSData * dataThree = [self generateFragmentID:0 FragOffset:0];
+    [dataOne appendData:dataThree];
+    
+    NSData * dataFour = [self generateDataLen:0 Reserved:0];
+    [dataOne appendData:dataFour];
+    
+    NSData * dataFive = [self generateMsgType:0x09 SeqNum:sendCount MsgLen:0];
+    [dataOne appendData:dataFive];
+    
+    NSData * dataSix = [self generateYdaCtrlHeaderChecksum:0 Random:19];
+    [dataOne appendData:dataSix];
+    
+    NSData * bodyData = [self generateCFGRequestUdpBody];
+    [dataOne appendData:bodyData];
+    
+    dataOne = [[self setYdaHeaderDatalen:dataOne.length  data:dataOne] mutableCopy];
+    dataOne = [[self setYdaCtrlHeaderMsglen:bodyData.length + 8 data:dataOne] mutableCopy];
+    dataOne = [[self setYdaCtrlHeaderChecksumData:dataOne] mutableCopy];
+    dataOne = [[self setYdaHeaderChecksumData:dataOne] mutableCopy];
+    
+    return dataOne;
+}
+
+-(NSData *)generateCFGRequestUdpBody{
+    
+    NSMutableData * bodyData = [[self generateUdpBodyUnit:6 elementID:0x0B dataContent:nil] mutableCopy];
+    return bodyData;
+
+}
 
 #pragma mark - YDA HEAdER
 /**

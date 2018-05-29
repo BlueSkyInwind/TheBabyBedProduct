@@ -164,8 +164,8 @@ short int TransID;
 -(void)sendLoginRequestMessage{
     
     SendUdpMessage * sendMessage = [[SendUdpMessage alloc]init];
-    NSData * discoverRequestData = [sendMessage generateLoginRequestMessage];
-    [self sendUdpData:discoverRequestData tag:1003];
+    NSData * LoginRequestData = [sendMessage generateLoginRequestMessage];
+    [self sendUdpData:LoginRequestData tag:1003];
     
 }
 -(void)sendHeartbeatRequestMessage{
@@ -174,6 +174,12 @@ short int TransID;
     NSData * discoverRequestData = [sendMessage generateHeartbeatRequestMessage];
     [self sendUdpData:discoverRequestData tag:1004];
     
+}
+-(void)sendCFGSettingRequestMessage{
+    
+    SendUdpMessage * sendMessage = [[SendUdpMessage alloc]init];
+    NSData * CFGSettingRequestData = [sendMessage generateCFGSettingRequestMessage];
+    [self sendUdpData:CFGSettingRequestData tag:1007];
 }
 
 -(void)sendEventNotificationRequestMessage{
@@ -220,7 +226,9 @@ short int TransID;
             break;
         case HeartMessageType:{
             heartNoResponseCount = heartNoResponseCount > 0 ? heartNoResponseCount -= 1 : 0;
-//            [self sendEquipmentmanagementRequestMessage];
+            [self sendCFGSettingRequestMessage];
+//            [self sendEventNotificationRequestMessage];
+
         }
             break;
         default:

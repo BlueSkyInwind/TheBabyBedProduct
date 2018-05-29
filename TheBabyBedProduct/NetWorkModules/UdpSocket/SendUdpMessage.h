@@ -29,6 +29,8 @@ UIKIT_EXTERN NSString * const Baby_Urine_Value;
 -(NSData *)generateLoginRequestMessage;
 //心跳
 -(NSData *)generateHeartbeatRequestMessage;
+//CFG设置报文
+-(NSData *)generateCFGSettingRequestMessage;
 /**
  事件通知请求
  
