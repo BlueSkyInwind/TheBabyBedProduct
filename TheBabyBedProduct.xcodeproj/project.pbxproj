@@ -243,7 +243,6 @@
 		57CF9A2020BA8FC2005EB9E9 /* more_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 57CF9A1F20BA8FC2005EB9E9 /* more_icon.png */; };
 		57CF9A2220BA8FCF005EB9E9 /* music_lock_screen_placeholder.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 57CF9A2120BA8FCF005EB9E9 /* music_lock_screen_placeholder.jpg */; };
 		57CF9A2420BA8FDC005EB9E9 /* music_placeholder.png in Resources */ = {isa = PBXBuildFile; fileRef = 57CF9A2320BA8FDB005EB9E9 /* music_placeholder.png */; };
-		57CF9A2620BA8FE6005EB9E9 /* music_slider_circle.png in Resources */ = {isa = PBXBuildFile; fileRef = 57CF9A2520BA8FE6005EB9E9 /* music_slider_circle.png */; };
 		57CF9A2820BA8FF1005EB9E9 /* next_song.png in Resources */ = {isa = PBXBuildFile; fileRef = 57CF9A2720BA8FF1005EB9E9 /* next_song.png */; };
 		57CF9A2A20BA8FFB005EB9E9 /* prev_song.png in Resources */ = {isa = PBXBuildFile; fileRef = 57CF9A2920BA8FFB005EB9E9 /* prev_song.png */; };
 		57CF9A2C20BA900D005EB9E9 /* shuffle_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 57CF9A2B20BA900D005EB9E9 /* shuffle_icon.png */; };
@@ -748,7 +747,6 @@
 		57CF9A1F20BA8FC2005EB9E9 /* more_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = more_icon.png; sourceTree = "<group>"; };
 		57CF9A2120BA8FCF005EB9E9 /* music_lock_screen_placeholder.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = music_lock_screen_placeholder.jpg; sourceTree = "<group>"; };
 		57CF9A2320BA8FDB005EB9E9 /* music_placeholder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = music_placeholder.png; sourceTree = "<group>"; };
-		57CF9A2520BA8FE6005EB9E9 /* music_slider_circle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = music_slider_circle.png; path = "../../../../../../../../../Downloads/ZWTMusicPlayer-master/Enesco/Assets.xcassets/Music/music_slider_circle.imageset/music_slider_circle.png"; sourceTree = "<group>"; };
 		57CF9A2720BA8FF1005EB9E9 /* next_song.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = next_song.png; sourceTree = "<group>"; };
 		57CF9A2920BA8FFB005EB9E9 /* prev_song.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = prev_song.png; sourceTree = "<group>"; };
 		57CF9A2B20BA900D005EB9E9 /* shuffle_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = shuffle_icon.png; sourceTree = "<group>"; };
@@ -2001,7 +1999,6 @@
 				57CF9A2B20BA900D005EB9E9 /* shuffle_icon.png */,
 				57CF9A2920BA8FFB005EB9E9 /* prev_song.png */,
 				57CF9A2720BA8FF1005EB9E9 /* next_song.png */,
-				57CF9A2520BA8FE6005EB9E9 /* music_slider_circle.png */,
 				57CF9A2320BA8FDB005EB9E9 /* music_placeholder.png */,
 				57CF9A2120BA8FCF005EB9E9 /* music_lock_screen_placeholder.jpg */,
 				57CF9A1F20BA8FC2005EB9E9 /* more_icon.png */,
@@ -2277,7 +2274,6 @@
 			files = (
 				57585AF4206D485C001BB202 /* share_qq@2x.png in Resources */,
 				57585AE8206D4839001BB202 /* share_weibo@2x.png in Resources */,
-				57CF9A2620BA8FE6005EB9E9 /* music_slider_circle.png in Resources */,
 				57CF9A1A20BA8F1C005EB9E9 /* big_play_button.png in Resources */,
 				57585AF3206D485C001BB202 /* share_qq@3x.png in Resources */,
 				8490CFC020747CFC00D416C1 /* ConfigurationWifiViewController.xib in Resources */,
