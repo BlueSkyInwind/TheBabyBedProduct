@@ -67,12 +67,13 @@
         return;
     }
     
-    BLEDeviceStatusViewController * blePairingVC = [[BLEDeviceStatusViewController alloc]init];
-    [self.navigationController pushViewController:blePairingVC animated:true];
-//    DeviceConnectingViewController * connectVC = [[DeviceConnectingViewController alloc]init];
-//    connectVC.ssid = _ssidStr;
-//    connectVC.wifiPassword = _inputTextfield.text;
-//    [self.navigationController pushViewController:connectVC animated:true];
+//    BLEDeviceStatusViewController * blePairingVC = [[BLEDeviceStatusViewController alloc]init];
+//    [self.navigationController pushViewController:blePairingVC animated:true];
+    DeviceConnectingViewController * connectVC = [[DeviceConnectingViewController alloc]init];
+    connectVC.scanId = _scanID;
+    connectVC.ssid = _ssidStr;
+    connectVC.wifiPassword = _inputTextfield.text;
+    [self.navigationController pushViewController:connectVC animated:true];
 }
 
 -(void)getSSID{

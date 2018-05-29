@@ -45,7 +45,7 @@
     }
     if (self.highTemperatureTextfield.text == nil || [self.highTemperatureTextfield.text  isEqual: @""]) {
         [QMUITips showWithText:@"请输入最高温度值" inView:self.view hideAfterDelay:0.5];
-        return;
+         return;
     }
     __weak typeof (self) weakSelf = self;
     [self SetTemperatureThresholdValueComplication:^(BOOL isSuccess) {

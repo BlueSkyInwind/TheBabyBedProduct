@@ -96,6 +96,7 @@ short int TransID;
     [self sendAddressMessage];
 //    [self createHeartData];
 //    [self sendEventNotificationRequestMessage];
+
 }
 
 #pragma mark - GCDAsyncUdpSocket delegate
@@ -163,8 +164,8 @@ short int TransID;
 -(void)sendLoginRequestMessage{
     
     SendUdpMessage * sendMessage = [[SendUdpMessage alloc]init];
-    NSData * discoverRequestData = [sendMessage generateLoginRequestMessage];
-    [self sendUdpData:discoverRequestData tag:1003];
+    NSData * LoginRequestData = [sendMessage generateLoginRequestMessage];
+    [self sendUdpData:LoginRequestData tag:1003];
     
 }
 -(void)sendHeartbeatRequestMessage{
@@ -173,6 +174,12 @@ short int TransID;
     NSData * discoverRequestData = [sendMessage generateHeartbeatRequestMessage];
     [self sendUdpData:discoverRequestData tag:1004];
     
+}
+-(void)sendCFGSettingRequestMessage{
+    
+    SendUdpMessage * sendMessage = [[SendUdpMessage alloc]init];
+    NSData * CFGSettingRequestData = [sendMessage generateCFGSettingRequestMessage];
+    [self sendUdpData:CFGSettingRequestData tag:1007];
 }
 
 -(void)sendEventNotificationRequestMessage{
@@ -210,7 +217,8 @@ short int TransID;
             int errCode = [result intValue];
             if (errCode == 0) {
                 heartNoResponseCount = 0;
-                [self createHeartData];
+//                [self createHeartData];
+                [self sendHeartbeatRequestMessage];
             }else{
                 
             }
@@ -218,6 +226,9 @@ short int TransID;
             break;
         case HeartMessageType:{
             heartNoResponseCount = heartNoResponseCount > 0 ? heartNoResponseCount -= 1 : 0;
+            [self sendCFGSettingRequestMessage];
+//            [self sendEventNotificationRequestMessage];
+
         }
             break;
         default:

@@ -244,4 +244,6 @@ typedef NS_ENUM(NSInteger,BBGetCodeType) {
 -(void)GetThresholdValueDeviceType:(NSString *)deviceType deviceId:(NSString *)deviceId successBlock:(SuccessBlock)successBlock failureBlock:(FailureBlock)failureBlock;
 /*  获取曲线数据  */
 -(void)GetStatisticsDataDeviceType:(NSString *)deviceType deviceId:(NSString *)deviceId successBlock:(SuccessBlock)successBlock failureBlock:(FailureBlock)failureBlock;
+/*  绑定设备  */
+-(void)applyBindDeviceId:(NSString *)deviceId successBlock:(SuccessBlock)successBlock failureBlock:(FailureBlock)failureBlock;
 @end

@@ -50,7 +50,8 @@
     
     //进度条
     if (isNeedWait) {
-        [AFNetworkActivityIndicatorManager sharedManager].enabled = isNeedWait;
+        [[MBPAlertView sharedMBPTextView] showIndeterminateOnly:[UIApplication sharedApplication].keyWindow];
+//        [AFNetworkActivityIndicatorManager sharedManager].enabled = isNeedWait;
     }
     
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
@@ -73,7 +74,8 @@
         if (error) {
             if (failure) {
                 DLog(@"response error --- %@",error.description);
-                [AFNetworkActivityIndicatorManager sharedManager].enabled = NO;
+                [[MBPAlertView sharedMBPTextView]removeWaitHud];
+//                [AFNetworkActivityIndicatorManager sharedManager].enabled = NO;
                 failure(Enum_FAIL,error);
             }
         } else {
@@ -87,7 +89,8 @@
                     NSString *jsonStr = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
                 }
                 DLog(@"response json --- %@",resultDic.description);
-                [AFNetworkActivityIndicatorManager sharedManager].enabled = isNeedWait;
+                [[MBPAlertView sharedMBPTextView]removeWaitHud];
+//                [AFNetworkActivityIndicatorManager sharedManager].enabled = isNeedWait;
                 finished(Enum_SUCCESS,responseObject);
             }
         }

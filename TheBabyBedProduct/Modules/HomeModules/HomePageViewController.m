@@ -18,6 +18,8 @@
 #import "ScanDeviceCodeViewController.h"
 #import "ScanDeviceCodeViewController.h"
 #import "BBSignInPopView.h"
+#import "BLEScanConnectViewController.h"
+#import "BLEPairingViewController.h"
 
 @interface HomePageViewController ()<UITableViewDelegate,UITableViewDataSource>{
     
@@ -42,6 +44,9 @@
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+    //监测设备的绑定状态
+    [self judgeUserDeviceStatus];
+    
     if (BBUserHelpers.isNeedPopSignIn) {
         
         BBUser *user = [BBUser bb_getUser];
@@ -80,24 +85,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad]; 
     // Do any additional setup after loading the view.
-//    [self configureAddDeviceView];
     [self configureView];
-    [[BBUdpSocketManager shareInstance] createAsyncUdpSocket];
-
+//    [[BBUdpSocketManager shareInstance] createAsyncUdpSocket];
 }
 
--(void)configureAddDeviceView{
-    __weak typeof (self) weakSelf = self;
-    _addDeviceView = [[AddDeviceView alloc]initWithFrame:CGRectZero];
-    [self.view addSubview:_addDeviceView];
-    _addDeviceView.addDeviceClick = ^{
-      //添加设备点击
-        [weakSelf popAddDeviceAlertView];
-      };
-    [_addDeviceView mas_remakeConstraints:^(MASConstraintMaker *make) {
-        make.edges.equalTo(self.view);
-    }];
-}
 
 -(void)configureView{
     
@@ -109,7 +100,7 @@
     leftItemView.nameLabel.text = @"欧阳马克";
     leftItemView.homeHeaderClick = ^(UIButton *button) {
         //婴儿头像的点击回调
-        [weakSelf configureAddDeviceView];
+        [weakSelf connectDeviceAlertView];
     };
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]initWithCustomView:leftItemView];
     
@@ -200,7 +191,35 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+#pragma mark - 登陆后 设备配网
+-(void)judgeUserDeviceStatus{
+    
+    if (![BBUser bb_getUser].hasLogined) {
+        return;
+    }
+    //通过deviceId来判断是否绑定设备
+    if ([BBUser bb_getUser].deviceId == nil || [[BBUser bb_getUser].deviceId isEqual: @""]) {
+        [self configureAddDeviceView];
+    }else{
+        if(_addDeviceView != nil){
+            [_addDeviceView removeFromSuperview];
+            _addDeviceView = nil;
+        }
+    }
+}
 
+-(void)configureAddDeviceView{
+    __weak typeof (self) weakSelf = self;
+    _addDeviceView = [[AddDeviceView alloc]initWithFrame:CGRectZero];
+    [self.view addSubview:_addDeviceView];
+    _addDeviceView.addDeviceClick = ^{
+        //添加设备点击
+        [weakSelf popAddDeviceAlertView];
+    };
+    [_addDeviceView mas_remakeConstraints:^(MASConstraintMaker *make) {
+        make.edges.equalTo(self.view);
+    }];
+}
 -(void)popAddDeviceAlertView{
     __weak typeof (self) weakSelf = self;
     [[GlobalAlertViewManager shareInstance] promptsPopViewWithtitle:nil content:@"请绑定您的婴儿床" cancelTitle:@"取消" sureTitle:@"确定" completion:^(NSInteger index) {
@@ -211,10 +230,32 @@
     }];
 }
 
+//临时入口
+-(void)connectDeviceAlertView{
+    __weak typeof (self) weakSelf = self;
+    [[GlobalAlertViewManager shareInstance] promptsPopViewWithtitle:nil content:@"连接设备临时入口" cancelTitle:@"取消" sureTitle:@"确定" completion:^(NSInteger index) {
+        if (index == 1) {
+            // 进入设备扫描
+            [self configureAddDeviceView];
+        }
+    }];
+}
+
 -(void)pushScanVC{
+    
+//    BLEPairingViewController *  scanDeviceCodeVC = [[BLEPairingViewController alloc]init];
+//    [self.navigationController pushViewController:scanDeviceCodeVC animated:true];
+    
     ScanDeviceCodeViewController *  scanDeviceCodeVC = [[ScanDeviceCodeViewController alloc]init];
     [self.navigationController pushViewController:scanDeviceCodeVC animated:true];
 }
+
+
+
+
+
+
+
 
 /*
 #pragma mark - Navigation

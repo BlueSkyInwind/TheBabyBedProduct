@@ -10,7 +10,7 @@
 #import "deviceListTableViewCell.h"
 #import "BaseCentralManager.h"
 
-@interface BLEPairingViewController ()<UITableViewDelegate,UITableViewDataSource>{
+@interface BLEPairingViewController ()<UITableViewDelegate,UITableViewDataSource,BaseCentralManagerDelegate>{
 }
 
 
@@ -18,6 +18,9 @@
 @property(nonatomic,strong)UITableView * deviceTableView;
 /* <#Description#>*/
 @property(nonatomic,strong)deviceListTableViewCell * deviceListCell;
+
+/* <#Description#>*/
+@property(nonatomic,strong)BaseCentralManager * manager;
 
 @end
 
@@ -29,24 +32,63 @@
     self.title = @"设备链接";
     [self addBackItem];
     [self configureView];
+    [self createCentralManager];
+    
 }
 
 -(void)viewWillAppear:(BOOL)animated{
     
+    
 }
 -(void)viewWillDisappear:(BOOL)animated{
     
+    
+}
+-(void)createCentralManager{
+    _manager = [BaseCentralManager shareInstance];
+    _manager.delegate = self;
+    [_manager startScan];
+    [_deviceNameArr removeAllObjects];
+    [self performSelector:@selector(stopScan) withObject:self afterDelay:20];
+}
+-(void)stopScan{
+    [_manager stopScan];
 }
 
+-(void)onScanning:(NSArray *)peripheralArray{
+    DLog(@"%@",peripheralArray);
+    if (peripheralArray.count == 0) {
+        return;
+    }
+    if (peripheralArray.count > _deviceNameArr.count) {
+        [_deviceNameArr addObjectsFromArray:peripheralArray];
+    }
+    [self.deviceTableView reloadData];
+}
+-(void)onConnectingPeripheral:(CBPeripheral *)peripheral{
+    
+    
+}
+- (void)onConnectedPeripheral:(CBPeripheral *)peripheral{
+    
+    
+}
+- (void)onDisconnectedPeripheral:(CBPeripheral *)peripheral{
+    
+    
+}
 
 -(void)configureView{
     
-    _deviceImageArr = @[@"babyDed_Icon",@"babyDed_Icon",@"bluetooth_Icon"];
-    _deviceNameArr = @[@"小雅智能",@"小雅智能",@"蓝牙1"];
+    _deviceNameArr = [NSMutableArray array];
+    _deviceImageArr = @[@"babyDed_Icon",@"bluetooth_Icon"];
+    [_deviceNameArr addObject:@{thePeripheralName:@"小雅智能"}];
     
     _deviceTableView = [[UITableView alloc]init];
     _deviceTableView.delegate = self;
     _deviceTableView.dataSource = self;
+    _deviceTableView.backgroundColor = rgb(247, 249, 251, 1);
+    _deviceTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     [self.view addSubview:_deviceTableView];
     [_deviceTableView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.edges.equalTo(self.view);
@@ -58,7 +100,7 @@
     return 1;
 }
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
-    return 3;
+    return _deviceNameArr.count;
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     return 47;
@@ -66,15 +108,29 @@
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     _deviceListCell = [tableView dequeueReusableCellWithIdentifier:@"deviceListTableViewCell" forIndexPath:indexPath];
-    _deviceListCell.deviceImageView.image = [UIImage imageNamed:_deviceImageArr[indexPath.section]];
-    _deviceListCell.deviceNameLabel.text = _deviceNameArr[indexPath.section];
+    NSString * name  = _deviceNameArr[indexPath.section][thePeripheralName];
+    if ([name hasPrefix:deviceNameP]) {
+        _deviceListCell.deviceImageView.image = [UIImage imageNamed:_deviceImageArr[0]];
+        _deviceListCell.deviceNameLabel.text = @"小雅智能";
+    }else{
+        _deviceListCell.deviceImageView.image = [UIImage imageNamed:_deviceImageArr[1]];
+        _deviceListCell.deviceNameLabel.text = name;
+    }
     return _deviceListCell;
 }
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [tableView deselectRowAtIndexPath:indexPath animated:true];
     
 }
-
+-(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
+    return 8;
+    
+}
+-(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
+    UIView *view = [[UIView alloc]init];
+    view.backgroundColor = rgb(247, 249, 251, 1);
+    return view;
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

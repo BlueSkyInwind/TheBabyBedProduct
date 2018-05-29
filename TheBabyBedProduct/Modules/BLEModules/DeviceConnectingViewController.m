@@ -72,7 +72,13 @@
     [[GlobalAlertViewManager shareInstance]promptsPopViewWithtitle:@"连接成功" content:@"不错过告警消息请关注公众号：xxxxxx" cancelTitle:@"进入首页" sureTitle:@"去关注" completion:^(NSInteger index) {
         if (index == 0) {
             //进去首页
-            [self.navigationController popToRootViewControllerAnimated:true];
+            __weak typeof (self) weakSelf = self;
+            [self applyBindDevice:_scanId finish:^(BOOL isSuccess) {
+                if (isSuccess){
+                    [BBUser bb_getUser].deviceId = weakSelf.scanId;
+                    [weakSelf.navigationController popToRootViewControllerAnimated:true];
+                }
+            }];
         }else if (index == 1){
             //关注公众号
             
@@ -108,6 +114,23 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+-(void)applyBindDevice:(NSString *)deviceId finish:(void(^)(BOOL isSuccess))finish{
+    
+    [BBRequestTool applyBindDeviceId:deviceId successBlock:^(EnumServerStatus status, id object) {
+        BaseResultModel *resultM = [[BaseResultModel alloc] initWithDictionary:object error:nil];
+        if (resultM.code == 0) {
+            finish(true);
+        }else{
+            [QMUITips showWithText:resultM.msg inView:self.view hideAfterDelay:0.5];
+            finish(false);
+        }
+    } failureBlock:^(EnumServerStatus status, id object) {
+        finish(false);
+    }];
+
+}
+
 
 /*
 #pragma mark - Navigation

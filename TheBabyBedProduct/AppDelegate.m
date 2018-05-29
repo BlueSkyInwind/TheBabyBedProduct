@@ -30,13 +30,8 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     
-    [self bb_configureShareSDK];
-    [self bb_signInAction];
-    [self bb_refreshToken];
-    
-    [self test];
 
-    
+
     [[LaunchConfiguration shared] InitializeAppConfiguration];
     
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
@@ -45,9 +40,15 @@
     [self.window makeKeyAndVisible];
     self.tabBar = [[BaseTabBarViewController alloc]init];
     self.window.rootViewController = self.tabBar;
-    
+    [self bb_refreshToken];
+
     // 初始化全局播放按钮
 //    [self initPlayBtn];
+    [self bb_configureShareSDK];
+    [self bb_signInAction];
+    [self bb_refreshToken];
+    
+    [self test];
     
     return YES;
 }

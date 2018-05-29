@@ -13,6 +13,6 @@
 
 /* <#Description#>*/
 @property(nonatomic,strong)NSArray * deviceImageArr;
-@property(nonatomic,strong)NSArray * deviceNameArr;
+@property(nonatomic,strong)NSMutableArray * deviceNameArr;
 
 @end

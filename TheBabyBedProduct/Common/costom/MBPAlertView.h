@@ -38,13 +38,7 @@
 - (void) showIndeterminateOnly:(UIView *)view;
 -(void)removeWaitHud;
 
-/**
- 动画等待条
- 
- @param view 父视图
- */
-- (void)loadingWaitHUDView:(UIView *)view;
--(void)removeWaitHUDView;
+
 
 
 
