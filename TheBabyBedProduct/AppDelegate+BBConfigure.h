@@ -10,6 +10,6 @@
 
 @interface AppDelegate (BBConfigure)
 -(void)bb_configureShareSDK;
--(void)bb_signInAction;
+//-(void)bb_signInAction;
 -(void)bb_refreshToken;
 @end

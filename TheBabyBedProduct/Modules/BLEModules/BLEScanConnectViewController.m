@@ -34,12 +34,12 @@
 }
 
 -(void)viewDidLayoutSubviews{
-    qrFrame = _scanView.frame;
+    qrFrame = _qrScanView.frame;
     __weak typeof (self) weakSelf = self;
     if (_scanView) {
         return;
     }
-    _scanView = [QRScanView defaultShareFrame:CGRectMake(0, 0, _scanView.frame.size.width, _scanView.frame.size.height) resultBlock:^(NSString *result) {
+    _scanView = [QRScanView defaultShareFrame:CGRectMake(0, 0, _qrScanView.frame.size.width, _qrScanView.frame.size.height) resultBlock:^(NSString *result) {
         [weakSelf.scanView stop];
         
     }];
@@ -51,7 +51,7 @@
         return;
     }
     [_scanView start];
-    if (_scanView.is_AnmotionFinished) {
+    if (!_scanView.is_AnmotionFinished) {
         [_scanView loopDrawLine];
     }
 }

@@ -66,11 +66,11 @@
 //消息编辑
 #define K_Url_MessageEidt        @"/api/msg/edit"
 //阈值设定
-#define K_Url_SetThreshold       @"api/waringsetting/setting"
+#define K_Url_SetThreshold       @"/api/waringsetting/setting"
 //获取阈值  api/waringsetting/setting/{id}
-#define K_Url_GetThreshold       @"api/waringsetting/setting"
+#define K_Url_GetThreshold       @"/api/waringsetting/setting"
 //传感器数据获取  api/statistics/{deviceId}
-#define K_Url_GetSensorData      @"api/statistics/"
+#define K_Url_GetSensorData      @"/api/statistics/"
 
 //早教
 #define K_Url_MusicList          @"/audio/v2/list"

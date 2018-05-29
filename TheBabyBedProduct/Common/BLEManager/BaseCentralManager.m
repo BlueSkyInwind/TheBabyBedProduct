@@ -190,7 +190,7 @@ static BaseCentralManager * controller;
     //NSLog(@"Peripheral:%@",aPeripheral);
     
     if (![aPeripheral.name hasPrefix:deviceNameP]) {
-        return;
+//        return;
     }
     
     NSString * identifier = [NSString stringWithFormat:@"%@",aPeripheral.identifier.UUIDString];

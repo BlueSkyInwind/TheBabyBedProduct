@@ -17,7 +17,7 @@ static void postRequest(NSString *url,id param,SuccessBlock successBlock,Failure
     }else{
         requestUrl = [NSString stringWithFormat:@"%@%@",K_Url_BBBase,url];
     }
-    [BBRequestTool PostWithURL:requestUrl isNeedNetStatus:NO isNeedWait:NO parameters:param finished:successBlock failure:failureBlock];
+    [BBRequestTool PostWithURL:requestUrl isNeedNetStatus:NO isNeedWait:true parameters:param finished:successBlock failure:failureBlock];
 }
 
 static void postRequestGCSDad(NSString *url,id param,SuccessBlock successBlock,FailureBlock failureBlock){
@@ -27,7 +27,7 @@ static void postRequestGCSDad(NSString *url,id param,SuccessBlock successBlock,F
     }else{
         requestUrl = [NSString stringWithFormat:@"%@%@",K_Url_BBBaseGCSDad,url];
     }
-    [BBRequestTool PostWithURL:requestUrl isNeedNetStatus:NO isNeedWait:NO parameters:param finished:successBlock failure:failureBlock];
+    [BBRequestTool PostWithURL:requestUrl isNeedNetStatus:NO isNeedWait:true parameters:param finished:successBlock failure:failureBlock];
 }
 
 static void getRequest(NSString *url,id param,SuccessBlock successBlock,FailureBlock failureBlock){
@@ -37,7 +37,7 @@ static void getRequest(NSString *url,id param,SuccessBlock successBlock,FailureB
     }else{
         requestUrl = [NSString stringWithFormat:@"%@%@",K_Url_BBBase,url];
     }
-    [BBRequestTool GetWithURL:requestUrl isNeedNetStatus:NO isNeedWait:NO parameters:param finished:successBlock failure:failureBlock];
+    [BBRequestTool GetWithURL:requestUrl isNeedNetStatus:NO isNeedWait:true parameters:param finished:successBlock failure:failureBlock];
 }
 
 /**
@@ -424,6 +424,8 @@ static void getRequest(NSString *url,id param,SuccessBlock successBlock,FailureB
  @param deviceId 设备id
  */
 -(void)SetThresholdValueDeviceType:(NSString *)deviceType minValue:(NSString *)minValue maxValue:(NSString *)maxValue deviceId:(NSString *)deviceId successBlock:(SuccessBlock)successBlock failureBlock:(FailureBlock)failureBlock{
+    
+    deviceId = deviceId == nil ? @"":deviceId;
     
     NSDictionary *param = @{
                             @"deviceType":deviceType,

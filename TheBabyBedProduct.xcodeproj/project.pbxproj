@@ -249,6 +249,7 @@
 		57CF9A3420BA94E2005EB9E9 /* NAKPlaybackIndicatorContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 57CF9A3120BA94E2005EB9E9 /* NAKPlaybackIndicatorContentView.m */; };
 		57CF9A3520BA94E2005EB9E9 /* NAKPlaybackIndicatorView.m in Sources */ = {isa = PBXBuildFile; fileRef = 57CF9A3220BA94E2005EB9E9 /* NAKPlaybackIndicatorView.m */; };
 		57CF9A3620BA94E2005EB9E9 /* MusicIndicator.m in Sources */ = {isa = PBXBuildFile; fileRef = 57CF9A3320BA94E2005EB9E9 /* MusicIndicator.m */; };
+		57CF9A3820BBA456005EB9E9 /* music_vc_gbImg.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 57CF9A3720BBA456005EB9E9 /* music_vc_gbImg.jpg */; };
 		57DF59B420835527002D2CED /* BBUserDevice.m in Sources */ = {isa = PBXBuildFile; fileRef = 57DF59B320835527002D2CED /* BBUserDevice.m */; };
 		57DF59B720843CD7002D2CED /* BBSignInPopView.m in Sources */ = {isa = PBXBuildFile; fileRef = 57DF59B620843CD7002D2CED /* BBSignInPopView.m */; };
 		84114B4320722BF6005A1DC9 /* jpush-ios-3.0.8.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 84114B4020722BF6005A1DC9 /* jpush-ios-3.0.8.a */; };
@@ -756,6 +757,7 @@
 		57CF9A3120BA94E2005EB9E9 /* NAKPlaybackIndicatorContentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NAKPlaybackIndicatorContentView.m; sourceTree = "<group>"; };
 		57CF9A3220BA94E2005EB9E9 /* NAKPlaybackIndicatorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NAKPlaybackIndicatorView.m; sourceTree = "<group>"; };
 		57CF9A3320BA94E2005EB9E9 /* MusicIndicator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MusicIndicator.m; sourceTree = "<group>"; };
+		57CF9A3720BBA456005EB9E9 /* music_vc_gbImg.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = music_vc_gbImg.jpg; sourceTree = "<group>"; };
 		57DF59B220835527002D2CED /* BBUserDevice.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BBUserDevice.h; sourceTree = "<group>"; };
 		57DF59B320835527002D2CED /* BBUserDevice.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BBUserDevice.m; sourceTree = "<group>"; };
 		57DF59B520843CD7002D2CED /* BBSignInPopView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BBSignInPopView.h; sourceTree = "<group>"; };
@@ -1996,6 +1998,7 @@
 		57CF9A1420BA8EFD005EB9E9 /* Imgs */ = {
 			isa = PBXGroup;
 			children = (
+				57CF9A3720BBA456005EB9E9 /* music_vc_gbImg.jpg */,
 				57CF9A2B20BA900D005EB9E9 /* shuffle_icon.png */,
 				57CF9A2920BA8FFB005EB9E9 /* prev_song.png */,
 				57CF9A2720BA8FF1005EB9E9 /* next_song.png */,
@@ -2302,6 +2305,7 @@
 				5726F386206B70C5008EED75 /* ShareSDKConfigFile.bundle in Resources */,
 				57585AE7206D4839001BB202 /* share_weibo@3x.png in Resources */,
 				22CFD3FB2067FE060004186D /* TemperatureThresholdSettingViewController.xib in Resources */,
+				57CF9A3820BBA456005EB9E9 /* music_vc_gbImg.jpg in Resources */,
 				5722098E20AD261E00611BFA /* cm2_topbar_icn_search@2x.png in Resources */,
 				5726F3AD206B8D82008EED75 /* expandableImage@2x.png in Resources */,
 				57585AEC206D4843001BB202 /* share_wechat@2x.png in Resources */,
@@ -2792,6 +2796,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = B4V533E2T3;
+				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/TheBabyBedProduct/Third/MOBSDK/ShareSDK/Support/PlatformSDK/QQSDK",
@@ -2860,6 +2865,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = B4V533E2T3;
+				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/TheBabyBedProduct/Third/MOBSDK/ShareSDK/Support/PlatformSDK/QQSDK",

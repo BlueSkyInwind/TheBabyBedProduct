@@ -71,32 +71,7 @@
     self.waitHud = nil;
 }
 
-- (void)loadingWaitHUDView:(UIView *)view
-{
-    if (_waitHudView) {
-        return;
-    }
-    NSArray *arr = @[@"load4",@"load3",@"load2",@"load1"];
-    UIImageView *waitImageView = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, 70, 70)];
-    NSMutableArray *imageArr = [NSMutableArray array];
-    for (int i = 0; i < arr.count; i++) {
-        [imageArr addObject:[UIImage imageNamed:[arr objectAtIndex:i]]];
-    }
-    waitImageView.animationImages = imageArr;
-    waitImageView.animationDuration = imageArr.count/3;
-    waitImageView.animationRepeatCount = 0;
-    [waitImageView startAnimating];
-    _waitHudView = [[MBProgressHUD alloc] initWithView:view];
-    _waitHudView.mode = MBProgressHUDModeCustomView;
-    _waitHudView.customView = waitImageView;
-    _waitHudView.dimBackground = YES;
-    [view addSubview:_waitHudView];
-    [_waitHudView show:true];
-}
--(void)removeWaitHUDView{
-    [_waitHudView hide:true];
-    _waitHudView = nil;
-}
+
 
 
 

@@ -201,7 +201,7 @@
     
     if (indexPath.row == 0) {
         BBEditInfoAvatarCell *cell = [BBEditInfoAvatarCell bb_cellMakeWithTableView:tableView];
-        if (user) {
+        if (user && [user.avatar bb_isSafe]) {
             [cell setupCellAvatar:[K_Url_GetImg stringByAppendingString:user.avatar]];
         }
         return cell;
