@@ -26,8 +26,17 @@
     [super viewDidLoad];
     self.view.backgroundColor = k_color_vcBg;
     self.title = @"我的账户";
+    [self getCurListData];
     [self creatUI];
     
+}
+-(void)getCurListData
+{
+    [BBRequestTool bb_requestCurListWithPageNo:0 pageSize:10 SuccessBlock:^(EnumServerStatus status, id object) {
+        NSLog(@"我的账户 %@",object);
+    } failureBlock:^(EnumServerStatus status, id object) {
+        NSLog(@"我的账户 22 %@",object);
+    }];
 }
 -(void)creatUI
 {

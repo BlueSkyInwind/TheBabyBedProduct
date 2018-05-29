@@ -57,8 +57,10 @@ static void getRequest(NSString *url,id param,SuccessBlock successBlock,FailureB
                    successBlock:(SuccessBlock)successBlock
                    failureBlock:(FailureBlock)failureBlock
 {
-    NSParameterAssert(phone.length > 0);
-    NSParameterAssert(password.length > 0);
+    if (loginType == BBLoginTypeDefault) {
+        NSParameterAssert(phone.length > 0);
+        NSParameterAssert(password.length > 0);
+    }
     
     NSMutableDictionary *param = [NSMutableDictionary dictionary];
     [param setValue:phone forKey:@"phone"];
@@ -293,6 +295,14 @@ static void getRequest(NSString *url,id param,SuccessBlock successBlock,FailureB
     postRequest(K_Url_SignIn, nil, successBlock, failureBlock);
 }
 /**
+ 今日是否已签到
+ */
+-(void)bb_requestTodayHasSignInWithSuccessBlock:(SuccessBlock)successBlock
+                                   failureBlock:(FailureBlock)failureBlock
+{
+    postRequest(K_Url_TodayHasSignIn, nil, successBlock, failureBlock);
+}
+/**
  签到列表 post
  */
 -(void)bb_requestSignInListWithSuccessBlock:(SuccessBlock)successBlock
@@ -308,6 +318,56 @@ static void getRequest(NSString *url,id param,SuccessBlock successBlock,FailureB
                              failureBlock:(FailureBlock)failureBlock
 {
     postRequest(K_Url_Exchange, nil, successBlock, failureBlock);
+}
+/*
+ 预选值列表
+ */
+-(void)bb_requestMoneyListWithSuccessBlock:(SuccessBlock)successBlock
+                              failureBlock:(FailureBlock)failureBlock
+{
+    getRequest(K_Url_MoneyList, nil, successBlock, failureBlock);
+}
+/*
+ 消费记录列表
+ */
+-(void)bb_requestCurListWithPageNo:(NSInteger)pageNo
+                          pageSize:(NSInteger)pageSize
+                      SuccessBlock:(SuccessBlock)successBlock
+                      failureBlock:(FailureBlock)failureBlock;
+{
+    NSString *url = [NSString stringWithFormat:@"%@?pageNo=%ld&pageSize=%ld",K_Url_CurList,(long)pageNo,(long)pageSize];
+    getRequest(url, nil, successBlock, failureBlock);
+}
+/*
+ 已绑定用户列表
+ */
+-(void)bb_requestBindListWithPageNo:(NSInteger)pageNo
+                           pageSize:(NSInteger)pageSize
+                       SuccessBlock:(SuccessBlock)successBlock
+                       failureBlock:(FailureBlock)failureBlock
+{
+    NSString *url = [NSString stringWithFormat:@"%@?pageNo=%ld&pageSize=%ld",K_Url_BindList,(long)pageNo,(long)pageSize];
+    getRequest(url, nil, successBlock, failureBlock);
+}
+/*
+ 申请记录列表
+ applyType  // -1 所有的申请记录  0 视频的申请记录 1 绑定的申请记录
+ */
+-(void)bb_requestApplyListWithPageNo:(NSInteger)pageNo
+                            pageSize:(NSInteger)pageSize
+                        SuccessBlock:(SuccessBlock)successBlock
+                        failureBlock:(FailureBlock)failureBlock
+{
+    NSString *url = [NSString stringWithFormat:@"%@?pageNo=%ld&pageSize=%ld&applyType=-1",K_Url_ApplyList,(long)pageNo,(long)pageSize];
+    getRequest(url, nil, successBlock, failureBlock);
+}
+/*
+ 分享赚积分
+ */
+-(void)bb_requestShareWithSuccessBlock:(SuccessBlock)successBlock
+                          failureBlock:(FailureBlock)failureBlock
+{
+    postRequest(K_Url_ShareVideo, nil, successBlock, failureBlock);
 }
 /**
  早教列表
@@ -411,6 +471,7 @@ static void getRequest(NSString *url,id param,SuccessBlock successBlock,FailureB
     [param setValue:timestampStr forKey:@"timestamp"];
     postRequestGCSDad(K_Url_Refresh_Token, param, successBlock, failureBlock);
 }
+
 
 /**
  阈值设定

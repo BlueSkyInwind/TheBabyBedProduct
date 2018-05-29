@@ -59,6 +59,9 @@
 /** 最新一次首页弹出签到框的日期 */
 @property(nonatomic,copy) NSString *latestHomePagePopSingInDate;
 
+//总共签到天数
+@property(nonatomic,assign) NSInteger totalSignInDays;
+
 
 +(BBUser *)bb_getUser;
 +(void)bb_saveUser:(BBUser *)user;

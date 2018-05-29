@@ -20,6 +20,7 @@
 #import "BBUserDevice.h"
 
 #import "GVUserDefaults+Properties.h"
+#import "BBHasTodaySignInResultModel.h"
 
 @implementation AppDelegate (BBConfigure)
 
@@ -42,9 +43,9 @@
      */
     
     [ShareSDK registerActivePlatforms:@[
-                                        //                                        @(SSDKPlatformTypeSinaWeibo),
-                                        @(SSDKPlatformTypeWechat)
-                                        //                                        @(SSDKPlatformTypeQQ)
+                                        @(SSDKPlatformTypeSinaWeibo),
+                                        @(SSDKPlatformTypeWechat),
+                                        @(SSDKPlatformTypeQQ)
                                         ]
                              onImport:^(SSDKPlatformType platformType){
                                  switch (platformType){
@@ -66,8 +67,8 @@
                           switch (platformType){
                               case SSDKPlatformTypeSinaWeibo:
                                   //设置新浪微博应用信息,其中authType设置为使用SSO＋Web形式授权
-                                  [appInfo SSDKSetupSinaWeiboByAppKey:@"568898243"
-                                                            appSecret:@"38a4f8204cc784f81f9f0daaf31e02e3"
+                                  [appInfo SSDKSetupSinaWeiboByAppKey:@"1260154196"
+                                                            appSecret:@"6ef734b4da22229c17b94e7a47437cc5"
                                                           redirectUri:@"http://www.sharesdk.cn"
                                                              authType:SSDKAuthTypeBoth];
                                   break;
@@ -76,8 +77,8 @@
                                                         appSecret:@"43149eff51a71b423bb5a5229d04fc4f"];
                                   break;
                               case SSDKPlatformTypeQQ:
-                                  [appInfo SSDKSetupQQByAppId:@"100371282"
-                                                       appKey:@"aed9b0303e3ed1e27bae87c33761161d"
+                                  [appInfo SSDKSetupQQByAppId:@"101479666"
+                                                       appKey:@"fa7500acb21363c3e685a081b4306fc2"
                                                      authType:SSDKAuthTypeBoth];
                                   break;
                               default:
@@ -85,26 +86,33 @@
                           }
                       }];
 }
-//-(void)bb_signInAction
-//{
-//    if (!BBUserHelpers.hasLogined) {
-//        return;
-//    }
-//    [BBRequestTool bb_requestSignInWithSuccessBlock:^(EnumServerStatus status, id object) {
-//        NSLog(@"签到成功 %@",object);
-//        NSDictionary *result = (NSDictionary *)object;
-//        if ([result.allKeys containsObject:@"msg"]) {
-//            NSString *msg = [result objectForKey:@"msg"];
-//            if ([msg containsString:@"已签到"]) {
-//                BBUser *user = [BBUser bb_getUser];
-//                user.latestSignInDate = [NSDate bb_todayStr];
-//                [BBUser bb_saveUser:user];
-//            }
-//        }
-//    } failureBlock:^(EnumServerStatus status, id object) {
-//        NSLog(@"签到shibai  %@",object);
-//    }];
-//}
+-(void)bb_signInAction
+{
+    if (!BBUserHelpers.hasLogined) {
+        return;
+    }
+    
+    [BBRequestTool bb_requestTodayHasSignInWithSuccessBlock:^(EnumServerStatus status, id object) {
+        NSLog(@"今日是否已签到  %@",object);
+        BBHasTodaySignInResultModel *resultM = [BBHasTodaySignInResultModel mj_objectWithKeyValues:object];
+        if (resultM.code == 0) {
+            BBHasTodaySignIn *hasTodaySignIn = resultM.data;
+            BBUser *user = [BBUser bb_getUser];
+            if (hasTodaySignIn.continuity == 1) {
+                //如果根据continuity是无法对比今天是否已经签到的
+                user.latestSignInDate = [NSDate bb_todayStr];
+            }else{
+                user.latestSignInDate = @"";
+            }
+            user.totalSignInDays = hasTodaySignIn.days;
+            [BBUser bb_saveUser:user];
+        }
+    } failureBlock:^(EnumServerStatus status, id object) {
+        NSLog(@"今日是否已签到 error %@",object);
+    }];
+    
+}
+
 
 -(void)bb_refreshToken
 {
@@ -115,6 +123,27 @@
         [GVUserDefaults standardUserDefaults].deviceToken = token;
     } failureBlock:^(EnumServerStatus status, id object) {
         
+    }];
+}
+-(void)test
+{
+#warning todo pp605
+//    [BBRequestTool bb_requestShareWithSuccessBlock:^(EnumServerStatus status, id object) {
+//        NSLog(@"share success %@",object);
+//    } failureBlock:^(EnumServerStatus status, id object) {
+//        NSLog(@"share error %@",object);
+//    }];
+    
+//    [BBRequestTool bb_requestGetHelpListWithSuccessBlock:^(EnumServerStatus status, id object) {
+//        NSLog(@"HelpList success %@",object);
+//    } failureBlock:^(EnumServerStatus status, id object) {
+//        NSLog(@"HelpList error %@",object);
+//    }];
+    
+    [BBRequestTool bb_requestMoneyListWithSuccessBlock:^(EnumServerStatus status, id object) {
+        NSLog(@"MoneyList success %@",object);
+    } failureBlock:^(EnumServerStatus status, id object) {
+        NSLog(@"MoneyList error %@",object);
     }];
 }
 @end

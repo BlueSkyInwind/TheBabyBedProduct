@@ -37,6 +37,8 @@
     
     self.title = @"家庭成员";
     _isLeft = YES;
+    
+    [self getBindListData];
     [self creatUI];
     
     UIButton *invireBt = [UIButton bb_btMakeWithSuperV:nil bgColor:nil titleColor:k_color_515151 titleFontSize:14 title:@"邀请好友"];
@@ -44,6 +46,24 @@
     UIBarButtonItem *item = [[UIBarButtonItem alloc]initWithCustomView:invireBt];
     self.navigationItem.rightBarButtonItem = item;
     
+}
+-(void)getBindListData
+{
+#warning pp605
+    [BBRequestTool bb_requestBindListWithPageNo:0 pageSize:10 SuccessBlock:^(EnumServerStatus status, id object) {
+        NSLog(@"bind list %@",object);
+    } failureBlock:^(EnumServerStatus status, id object) {
+        NSLog(@"bind list %@",object);
+
+    }];
+}
+-(void)getApplyListData
+{
+    [BBRequestTool bb_requestApplyListWithPageNo:0 pageSize:10 SuccessBlock:^(EnumServerStatus status, id object) {
+        NSLog(@"apply list 1 %@",object);
+    } failureBlock:^(EnumServerStatus status, id object) {
+        NSLog(@"apply list 2 %@",object);
+    }];
 }
 -(void)inviteMemberAction
 {
@@ -149,8 +169,7 @@
     [_bingingBT bb_btSetTitleColor:k_color_appOrange];
     [_applyRecordBT bb_btSetTitleColor:k_color_515151];
     _isLeft = YES;
-    
-    [self.tableView reloadData];
+    [self getBindListData];
 }
 -(void)applyRecordActin
 {
@@ -161,7 +180,7 @@
     [_applyRecordBT bb_btSetTitleColor:k_color_appOrange];
     _isLeft = NO;
     
-     [self.tableView reloadData];
+    [self getApplyListData];
 }
 
 -(NSMutableArray *)bindingedUsers

@@ -74,15 +74,15 @@
     [self.contentView addSubview:s];
     s.transform = CGAffineTransformMakeScale(0.75,0.75);
     s.onTintColor = [UIColor colorWithRed:76/255.0 green:217/255.0 blue:100/255.0 alpha:1];
-    s.thumbTintColor = [UIColor whiteColor];
+    s.thumbTintColor = [UIColor colorWithRed:245/255.0 green:245/255.0 blue:245/255.0 alpha:1];
     s.tintColor = [UIColor colorWithRed:229/255.0 green:229/255.0 blue:229/255.0 alpha:1];
     [s addTarget:self action:@selector(switchAction:) forControlEvents:UIControlEventValueChanged];
     
     CGFloat totalH = 47;
     CGFloat leftMargin = 10;
-    CGFloat textLBW = 100;
+    CGFloat textLBW = 150;
     self.textLB.frame = CGRectMake(leftMargin, 0, textLBW, totalH);
-    self.subTextLB.frame = CGRectMake(110, 0, _k_w-110-leftMargin-6-5, totalH);
+    self.subTextLB.frame = CGRectMake(160, 0, _k_w-160-leftMargin-6-5, totalH);
     self.line = [[UIView alloc]initWithFrame:CGRectFlatMake(leftMargin, 47, _k_w-leftMargin, 0.5)];
     [self.contentView addSubview:self.line];
     self.line.backgroundColor = K_color_line;

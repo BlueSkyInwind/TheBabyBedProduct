@@ -118,7 +118,14 @@
         [self handelAvatarTapAction];
     }];
 }
-
+-(void)checkNeedRefreshUI
+{
+    BBUser *user = [BBUser bb_getUser];
+    if (![user.username isEqualToString:self.user.username]) {
+        self.user = user;
+        [self judgeItemShowOrHidden];
+    }
+}
 -(void)judgeItemShowOrHidden
 {
     /*
@@ -130,7 +137,7 @@
      bindWB = 0;
      bindWX = 0;
      deviceId = "";
-     id = 5000809708864ed6bbe3f9500e046f93;
+     id = 5000809708864ed6bbe3f9500e046f93; //49a1a9a681c94a47adbc5129c12851bc
      manager = 1;
      totalScore = 0;
      username = 16602103722;

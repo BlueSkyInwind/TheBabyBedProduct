@@ -74,9 +74,7 @@
         user.latestHomePagePopSingInDate = [NSDate bb_todayStr];
         [BBUser bb_saveUser:user];
     }
-   
-#warning todo
-   
+    
 }
 
 - (void)viewDidLoad {

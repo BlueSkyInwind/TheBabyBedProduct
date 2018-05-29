@@ -98,9 +98,9 @@
  添加请求头
  */
 -(void)setHttpHeaderInfo:(AFHTTPSessionManager *)manager{
-    
-    if (BBUserHelpers.token) {
-        [manager.requestSerializer setValue:BBUserHelpers.token forHTTPHeaderField:@"x-auth-token"];
+    NSString *token = BBUserHelpers.token;
+    if (token) {
+        [manager.requestSerializer setValue:token forHTTPHeaderField:@"x-auth-token"];
     }
 }
 
