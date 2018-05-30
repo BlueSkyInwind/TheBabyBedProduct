@@ -19,7 +19,6 @@
 #import "ScanDeviceCodeViewController.h"
 #import "BBSignInPopView.h"
 #import "BLEScanConnectViewController.h"
-#import "BLEPairingViewController.h"
 
 @interface HomePageViewController ()<UITableViewDelegate,UITableViewDataSource>{
     
@@ -86,7 +85,7 @@
     [super viewDidLoad]; 
     // Do any additional setup after loading the view.
     [self configureView];
-//    [[BBUdpSocketManager shareInstance] createAsyncUdpSocket];
+    [[BBUdpSocketManager shareInstance] createAsyncUdpSocket];
 }
 
 

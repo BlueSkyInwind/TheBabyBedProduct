@@ -19,7 +19,7 @@ typedef NS_ENUM(NSInteger,ReceiveUdpMessageType) {
     
 };
 
-typedef void(^ReceiveUdpMessageResult)(ReceiveUdpMessageType type,id result);
+typedef void(^ReceiveUdpMessageResult)(ReceiveUdpMessageType type,int errCode,id result);
 
 @interface ReceiveUdpMessage : NSObject
 

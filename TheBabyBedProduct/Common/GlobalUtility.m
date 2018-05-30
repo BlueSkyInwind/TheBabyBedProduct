@@ -10,8 +10,6 @@
 
 @implementation GlobalUtility
 
-
-
 + (GlobalUtility *)sharedUtility
 {
     static GlobalUtility *sharedUtilityInstance = nil;
@@ -26,7 +24,8 @@
 {
     self = [super init];
     if (self) {
-        _loginFlage = false;
+        _airkissCount = 0;
+        _BLEOpen = false;
     }
     return self;
 }
@@ -34,9 +33,7 @@
 + (void)EmptyData
 {
     
-    [GlobalTool saveUserDefaul:nil Key:kLoginFlag];
-    [GlobalTool saveUserDefaul:nil Key:Auth_Token];
-    [GlobalUtility sharedUtility].loginFlage = false;
+
     
 }
 

@@ -115,8 +115,8 @@ short int TransID;
 - (void)udpSocket:(GCDAsyncUdpSocket *)sock didReceiveData:(NSData *)data fromAddress:(NSData *)address withFilterContext:(id)filterContext
 {
     DLog(@"接收到%@的消息",address);
-    [ReceiveUdpMessage initReceiveData:data complecation:^(ReceiveUdpMessageType type, id result) {
-        [self receiveMessageData:type result:result];
+    [ReceiveUdpMessage initReceiveData:data complecation:^(ReceiveUdpMessageType type, int errCode,id result) {
+        [self receiveMessageData:type errcode:errCode result:result];
     }];
 }
 - (void)udpSocketDidClose:(GCDAsyncUdpSocket *)sock withError:(NSError *)error
@@ -180,6 +180,7 @@ short int TransID;
     SendUdpMessage * sendMessage = [[SendUdpMessage alloc]init];
     NSData * CFGSettingRequestData = [sendMessage generateCFGSettingRequestMessage];
     [self sendUdpData:CFGSettingRequestData tag:1007];
+    
 }
 
 -(void)sendEventNotificationRequestMessage{
@@ -197,28 +198,30 @@ short int TransID;
     
 }
 #pragma mrak - 报文接收处理
--(void)receiveMessageData:(ReceiveUdpMessageType)type result:(id)result{
+-(void)receiveMessageData:(ReceiveUdpMessageType)type errcode:(int)errCode result:(id)result{
     
     switch (type) {
         case AddressingMessageType:{
-            [self sendDiscoverRequestMessage];
+            if (errCode == 0) {
+                [self sendDiscoverRequestMessage];
+            }else{
+                [self sendAddressMessage];
+            }
         }
             break;
         case DiscoverMessageType:{
-            int errCode = [result intValue];
             if (errCode == 0) {
                 [self sendLoginRequestMessage];
             }else{
-                
+                [self sendDiscoverRequestMessage];
             }
         }
             break;
         case LoginMessageType:{
-            int errCode = [result intValue];
             if (errCode == 0) {
                 heartNoResponseCount = 0;
-//                [self createHeartData];
-                [self sendHeartbeatRequestMessage];
+                [self createHeartData];
+//                [self sendHeartbeatRequestMessage];
             }else{
                 
             }
@@ -226,9 +229,8 @@ short int TransID;
             break;
         case HeartMessageType:{
             heartNoResponseCount = heartNoResponseCount > 0 ? heartNoResponseCount -= 1 : 0;
-            [self sendCFGSettingRequestMessage];
+//            [self sendCFGSettingRequestMessage];
 //            [self sendEventNotificationRequestMessage];
-
         }
             break;
         default:

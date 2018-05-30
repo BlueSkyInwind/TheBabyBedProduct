@@ -9,6 +9,7 @@
 #import "ScanDeviceCodeViewController.h"
 #import "QRScanView.h"
 #import "ConfigurationWifiViewController.h"
+#import "BLEPairingViewController.h"
 
 @interface ScanDeviceCodeViewController ()<UITextFieldDelegate>{
     CGRect qrFrame;
@@ -79,6 +80,7 @@
     
     [super viewWillAppear:animated];
     [self reStartScan];
+    
 }
 
 -(void)viewWillDisappear:(BOOL)animated{
@@ -98,6 +100,12 @@
 
 }
 -(void)pushConfigurationWifiVC {
+    
+    if (BBGlobalUtility.airkissCount >= 3) {
+        BLEPairingViewController * blePairingVC = [[BLEPairingViewController alloc]init];
+        [self.navigationController pushViewController:blePairingVC animated:true];
+        return;
+    }
     
     ConfigurationWifiViewController * configurationVC = [[ConfigurationWifiViewController alloc]init];
     configurationVC.scanID = self.deviceid;

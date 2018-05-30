@@ -40,6 +40,7 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:a]
 #define BBWeakSelf(type)  __weak typeof(type) weak##type = type;
 #define BBStrongSelf(type)  __strong typeof(type) type = weak##type;
 
+#define BBGlobalUtility [GlobalUtility sharedUtility]
 
 #define UI_IS_IPHONE            ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone)
 #define UI_IS_IPHONE5           (UI_IS_IPHONE && [[UIScreen mainScreen] bounds].size.height == 568.0)
