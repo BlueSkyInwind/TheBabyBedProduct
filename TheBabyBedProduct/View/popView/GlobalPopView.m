@@ -40,8 +40,19 @@
     popView.globalPopViewClick = globalPopClickBlock;
     popView.titleLabel.text = title;
     popView.contentLabel.text = content;
-    [popView.cancelBtn setTitle:cancelTitle forState:UIControlStateNormal];
     [popView.sureBtn setTitle:sureTitle forState:UIControlStateNormal];
+    
+    if (cancelTitle == nil) {
+        popView.cancelBtn.hidden = true;
+        [popView.sureBtn mas_remakeConstraints:^(MASConstraintMaker *make) {
+            make.centerX.equalTo(popView.alertView.mas_centerX).with.offset(0);
+            make.bottom.equalTo(popView.alertView.mas_bottom).offset(-25);
+            make.width.equalTo(@88);
+            make.height.equalTo(@33);
+        }];
+    }else{
+        [popView.cancelBtn setTitle:cancelTitle forState:UIControlStateNormal];
+    }
     
     CGFloat minHeight = 170;
     if (title == nil) {
@@ -247,8 +258,6 @@
         make.top.equalTo(_alertView.mas_bottom).with.offset(15);
         make.centerX.equalTo(_alertView.mas_centerX);
     }];
-    
-    
 }
 
 /*

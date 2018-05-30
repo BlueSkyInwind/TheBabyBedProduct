@@ -141,6 +141,12 @@ typedef NS_ENUM(NSInteger,BBGetCodeType) {
                            failureBlock:(FailureBlock)failureBlock;
 
 /**
+ 今日是否已签到
+ */
+-(void)bb_requestTodayHasSignInWithSuccessBlock:(SuccessBlock)successBlock
+                                   failureBlock:(FailureBlock)failureBlock;
+
+/**
  签到列表 post
  */
 -(void)bb_requestSignInListWithSuccessBlock:(SuccessBlock)successBlock
@@ -151,6 +157,42 @@ typedef NS_ENUM(NSInteger,BBGetCodeType) {
  */
 -(void)bb_requestExchangeWithSuccessBlock:(SuccessBlock)successBlock
                              failureBlock:(FailureBlock)failureBlock;
+
+/*
+ 预选值列表
+ */
+-(void)bb_requestMoneyListWithSuccessBlock:(SuccessBlock)successBlock
+                              failureBlock:(FailureBlock)failureBlock;
+
+/*
+ 消费记录列表
+ */
+-(void)bb_requestCurListWithPageNo:(NSInteger)pageNo
+                          pageSize:(NSInteger)pageSize
+                      SuccessBlock:(SuccessBlock)successBlock
+                      failureBlock:(FailureBlock)failureBlock;
+
+/*
+ 已绑定用户列表
+ */
+-(void)bb_requestBindListWithPageNo:(NSInteger)pageNo
+                           pageSize:(NSInteger)pageSize
+                       SuccessBlock:(SuccessBlock)successBlock
+                       failureBlock:(FailureBlock)failureBlock;
+
+/*
+ 申请记录列表
+ */
+-(void)bb_requestApplyListWithPageNo:(NSInteger)pageNo
+                            pageSize:(NSInteger)pageSize
+                        SuccessBlock:(SuccessBlock)successBlock
+                        failureBlock:(FailureBlock)failureBlock;
+
+/*
+ 分享赚积分
+ */
+-(void)bb_requestShareWithSuccessBlock:(SuccessBlock)successBlock
+                          failureBlock:(FailureBlock)failureBlock;
 
 
 /**
@@ -183,6 +225,7 @@ typedef NS_ENUM(NSInteger,BBGetCodeType) {
  */
 -(void)bb_requestRefreshTokenWithSuccessBlock:(SuccessBlock)successBlock
                                  failureBlock:(FailureBlock)failureBlock;
+
 
 /**
  阈值设定

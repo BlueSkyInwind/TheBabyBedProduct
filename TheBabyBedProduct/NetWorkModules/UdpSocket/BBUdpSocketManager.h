@@ -19,5 +19,7 @@
 +(BBUdpSocketManager *)shareInstance;
 
 -(void)createAsyncUdpSocket;
-
+    
+-(void)sendAddressMessage;
+    
 @end

@@ -59,10 +59,12 @@
         [self goToLoginAndRegistWithHeaderV:headerV];
     };
     
+    BBWeakSelf(headerV)
     headerV.funcBlock = ^(BBMyHeaderViewFuncType funcType) {
         if (BBUserHelpers.hasLogined) {
             [self handleFuncAction:funcType];
         }else{
+            BBStrongSelf(headerV)
             [self goToLoginAndRegistWithHeaderV:headerV];
         }
     };
@@ -165,7 +167,8 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     [self.navigationController setNavigationBarHidden:YES animated:animated];
-    
+    //处理用户信息已经变更了，但是UI没刷新
+    [_headerV checkNeedRefreshUI];
     if (BBUserHelpers.myHeaderVHasLogined && !BBUserHelpers.hasLogined) {
         //退出登录后返回我的页面
         [_headerV updateUserMess];

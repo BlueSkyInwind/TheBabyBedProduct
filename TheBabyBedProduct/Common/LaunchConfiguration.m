@@ -59,8 +59,6 @@
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         
-        [GlobalUtility sharedUtility].loginFlage = [[GlobalTool getContentWithKey:kLoginFlag] integerValue];
-
     });
 }
 

@@ -172,12 +172,43 @@
 -(void)bindingQQ
 {
 #warning to
+    [SSEThirdPartyLoginHelper loginByPlatform:SSDKPlatformTypeQQ onUserSync:^(SSDKUser *user, SSEUserAssociateHandler associateHandler) {
+        //在此回调中可以将社交平台用户信息与自身用户系统进行绑定，最后使用一个唯一用户标识来关联此用户信息。
+        //在此示例中没有跟用户系统关联，则使用一个社交用户对应一个系统用户的方式。将社交用户的uid作为关联ID传入associateHandler。
+        //            associateHandler (user.uid, user, user);
+        NSLog(@"dd%@",user.rawData);
+        NSLog(@"dd%@",user.credential);
+        NSString *str = @"QQ登录授权成功";
+        [QMUITips showSucceed:str inView:self.view hideAfterDelay:2];
+//        [self goToLoginWithPhoneNo:nil password:nil loginType:BBLoginTypeQQ uid:user.uid openid:user.uid];
+    } onLoginResult:^(SSDKResponseState state, SSEBaseUser *user, NSError *error) {
+        //失败走这里
+        DLog(@"QQ登录结果 %lu",(unsigned long)state);
+        NSString *resultStr = @"QQ登录授权失败";
+        if (state == SSDKResponseStateCancel) {
+            resultStr = @"您已取消QQ登录";
+        }
+        [QMUITips showWithText:resultStr inView:self.view hideAfterDelay:2];
+    }];
 
 }
 -(void)bindingWB
 {
 #warning to
-
+    [SSEThirdPartyLoginHelper loginByPlatform:SSDKPlatformTypeSinaWeibo onUserSync:^(SSDKUser *user, SSEUserAssociateHandler associateHandler) {
+        //成功走这里
+#warning to
+        NSString *str = @"微博登录授权成功";
+        [QMUITips showSucceed:str inView:self.view hideAfterDelay:2];
+    } onLoginResult:^(SSDKResponseState state, SSEBaseUser *user, NSError *error) {
+        //失败走这里
+        DLog(@"微博登录结果 %lu",(unsigned long)state);
+        NSString *resultStr = @"微博登录授权失败";
+        if (state == SSDKResponseStateCancel) {
+            resultStr = @"您已取消微博登录";
+        }
+        [QMUITips showWithText:resultStr inView:self.view hideAfterDelay:2];
+    }];
 }
 
 

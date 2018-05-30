@@ -29,9 +29,9 @@
 
 //登录 👌
 #define K_Url_Login             @"/api/login"
-//注册
+//注册 👌
 #define K_Url_Regist            @"/api/reg"
-//获取验证码
+//获取验证码 👌
 #define K_Url_GetCode           @"/api/sendCode"
 //忘记密码
 #define K_Url_ForgetPassword    @"/api/forgetpass"
@@ -50,8 +50,11 @@
 //帮助list
 #define K_Url_HelpList          @"/api/help/list"
 
-//签到
+//签到 👌
 #define K_Url_SignIn            @"/api/user/signin"
+//今日是否已签到 👌
+#define K_Url_TodayHasSignIn    @"/api/user/getSignTotalDays"
+
 //分享视频获取分钟奖励(有点问题)
 #define K_Url_ShareVideo        @"/api/user/share"
 //签到列表
@@ -60,8 +63,21 @@
 //积分兑换
 #define K_Url_Exchange          @"/api/user/exchange"
 
+///走通了没数据
+
+//预选值列表
+#define K_Url_MoneyList         @"/api/recharge/moneyList"
+//消费记录 
+#define K_Url_CurList           @"/api/recharge/curList"
+//已绑定用户列表
+#define K_Url_BindList          @"/api/apply/bindList"
+//申请记录列表
+#define K_Url_ApplyList         @"/api/apply/list"
+
+
 //设备绑定 后面需要加上deviceId
 #define K_Url_bindDevice        @"/apply/bindDevice/"
+
 //消息列表
 #define K_Url_MessageList        @"/api/msg/list"
 //消息编辑

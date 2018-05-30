@@ -19,7 +19,6 @@
 #import "ScanDeviceCodeViewController.h"
 #import "BBSignInPopView.h"
 #import "BLEScanConnectViewController.h"
-#import "BLEPairingViewController.h"
 
 @interface HomePageViewController ()<UITableViewDelegate,UITableViewDataSource>{
     
@@ -79,16 +78,14 @@
         user.latestHomePagePopSingInDate = [NSDate bb_todayStr];
         [BBUser bb_saveUser:user];
     }
-   
-#warning todo
-   
+    
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad]; 
     // Do any additional setup after loading the view.
     [self configureView];
-//    [[BBUdpSocketManager shareInstance] createAsyncUdpSocket];
+    [[BBUdpSocketManager shareInstance] createAsyncUdpSocket];
 }
 
 

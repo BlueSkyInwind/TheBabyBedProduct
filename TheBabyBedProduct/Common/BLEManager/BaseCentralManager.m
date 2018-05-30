@@ -147,19 +147,15 @@ static BaseCentralManager * controller;
 - (void)centralManagerDidUpdateState:(CBCentralManager *)central{
     switch (central.state) {
         case CBCentralManagerStateUnknown:
-        
             NSLog(@"蓝牙---CBCentralManagerStateUnknown");
             break;
         case CBCentralManagerStateResetting:
-            
             NSLog(@"蓝牙---CBCentralManagerStateResetting");
             break;
         case CBCentralManagerStateUnsupported:
-            
             NSLog(@"蓝牙---CBCentralManagerStateUnsupported");
             break;
         case CBCentralManagerStateUnauthorized:
-            
             NSLog(@"蓝牙---CBCentralManagerStateUnauthorized");
             break;
         case CBCentralManagerStatePoweredOff:
@@ -176,9 +172,9 @@ static BaseCentralManager * controller;
     }
     [self setManagerStatus];
 }
--(BOOL)setManagerStatus{
-    [GlobalTool saveUserDefaul:[NSString stringWithFormat:@"%@",@(_managerStatus)] Key:BLE_POWER_NOTIFI];
-    return _managerStatus;
+-(void)setManagerStatus{
+    BBGlobalUtility.BLEOpen = _managerStatus;
+    [[NSNotificationCenter defaultCenter]postNotificationName:BLE_POWER_NOTIFI object:@(_managerStatus)];
 }
 
 -(void)getCentralManagerStatus:(CentralManagerStatusBlock)managerStatus{

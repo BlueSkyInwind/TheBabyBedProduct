@@ -30,8 +30,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     
-    [self bb_configureShareSDK];
-//    [self bb_signInAction];
+
 
     [[LaunchConfiguration shared] InitializeAppConfiguration];
     
@@ -45,6 +44,11 @@
 
     // 初始化全局播放按钮
 //    [self initPlayBtn];
+    [self bb_configureShareSDK];
+    [self bb_signInAction];
+    [self bb_refreshToken];
+    
+    [self test];
     
     return YES;
 }

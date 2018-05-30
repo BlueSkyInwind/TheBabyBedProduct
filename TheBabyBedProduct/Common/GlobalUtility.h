@@ -10,13 +10,13 @@
 
 @interface GlobalUtility : NSObject
 
-
-@property (nonatomic,assign) BOOL loginFlage;
 @property (nonatomic,assign) BOOL networkState;
-@property (nonatomic,strong) NSString  * token;
+@property (nonatomic,assign) NSInteger airkissCount;
+@property (nonatomic,assign) BOOL BLEOpen;
+
 
 + (GlobalUtility *)sharedUtility;
-
+    
 /**
  退出登录时清理数据
  */

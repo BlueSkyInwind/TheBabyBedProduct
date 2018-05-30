@@ -23,4 +23,7 @@ typedef NS_ENUM(NSInteger,BBMyHeaderViewFuncType) {
 @property(nonatomic,copy) void(^funcBlock)(BBMyHeaderViewFuncType funcType);
 
 -(void)updateUserMess;
+
+-(void)checkNeedRefreshUI;
+
 @end

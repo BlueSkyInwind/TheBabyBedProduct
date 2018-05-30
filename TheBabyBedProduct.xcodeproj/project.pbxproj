@@ -250,6 +250,7 @@
 		57CF9A3520BA94E2005EB9E9 /* NAKPlaybackIndicatorView.m in Sources */ = {isa = PBXBuildFile; fileRef = 57CF9A3220BA94E2005EB9E9 /* NAKPlaybackIndicatorView.m */; };
 		57CF9A3620BA94E2005EB9E9 /* MusicIndicator.m in Sources */ = {isa = PBXBuildFile; fileRef = 57CF9A3320BA94E2005EB9E9 /* MusicIndicator.m */; };
 		57CF9A3820BBA456005EB9E9 /* music_vc_gbImg.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 57CF9A3720BBA456005EB9E9 /* music_vc_gbImg.jpg */; };
+		57CF9A3B20BC4EE5005EB9E9 /* BBHasTodaySignInResultModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 57CF9A3A20BC4EE5005EB9E9 /* BBHasTodaySignInResultModel.m */; };
 		57DF59B420835527002D2CED /* BBUserDevice.m in Sources */ = {isa = PBXBuildFile; fileRef = 57DF59B320835527002D2CED /* BBUserDevice.m */; };
 		57DF59B720843CD7002D2CED /* BBSignInPopView.m in Sources */ = {isa = PBXBuildFile; fileRef = 57DF59B620843CD7002D2CED /* BBSignInPopView.m */; };
 		84114B4320722BF6005A1DC9 /* jpush-ios-3.0.8.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 84114B4020722BF6005A1DC9 /* jpush-ios-3.0.8.a */; };
@@ -758,6 +759,8 @@
 		57CF9A3220BA94E2005EB9E9 /* NAKPlaybackIndicatorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NAKPlaybackIndicatorView.m; sourceTree = "<group>"; };
 		57CF9A3320BA94E2005EB9E9 /* MusicIndicator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MusicIndicator.m; sourceTree = "<group>"; };
 		57CF9A3720BBA456005EB9E9 /* music_vc_gbImg.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = music_vc_gbImg.jpg; sourceTree = "<group>"; };
+		57CF9A3920BC4EE5005EB9E9 /* BBHasTodaySignInResultModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BBHasTodaySignInResultModel.h; sourceTree = "<group>"; };
+		57CF9A3A20BC4EE5005EB9E9 /* BBHasTodaySignInResultModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BBHasTodaySignInResultModel.m; sourceTree = "<group>"; };
 		57DF59B220835527002D2CED /* BBUserDevice.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BBUserDevice.h; sourceTree = "<group>"; };
 		57DF59B320835527002D2CED /* BBUserDevice.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BBUserDevice.m; sourceTree = "<group>"; };
 		57DF59B520843CD7002D2CED /* BBSignInPopView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BBSignInPopView.h; sourceTree = "<group>"; };
@@ -1331,6 +1334,8 @@
 			children = (
 				57210C7D2073B4B80039D8D5 /* BBMyRewardViewController.h */,
 				57210C7C2073B4B80039D8D5 /* BBMyRewardViewController.m */,
+				57CF9A3920BC4EE5005EB9E9 /* BBHasTodaySignInResultModel.h */,
+				57CF9A3A20BC4EE5005EB9E9 /* BBHasTodaySignInResultModel.m */,
 			);
 			path = MyReward;
 			sourceTree = "<group>";
@@ -2473,6 +2478,7 @@
 				57210CA52074C2DE0039D8D5 /* ZFPlayerModel.m in Sources */,
 				84D5BDC7207354010025C757 /* bluetoothPairingViewController.m in Sources */,
 				5726F349206A8428008EED75 /* BBMyListSubTitleCell.m in Sources */,
+				57CF9A3B20BC4EE5005EB9E9 /* BBHasTodaySignInResultModel.m in Sources */,
 				5722098020AD22AC00611BFA /* GKWYMusicVolumeView.m in Sources */,
 				84D270C0208DB38200ED57A3 /* BLEScanConnectViewController.m in Sources */,
 				22833BF9207A5E6800A70247 /* MessageModel.m in Sources */,

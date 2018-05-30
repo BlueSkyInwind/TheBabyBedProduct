@@ -11,8 +11,14 @@
 #import "LWShareService.h"
 #import <ShareSDK/ShareSDK.h>
 #import <ShareSDKUI/ShareSDK+SSUI.h>
-@interface BBMyRewardViewController ()
+#import "BBSignInPopView.h"
 
+@interface BBMyRewardViewController ()
+{
+    UILabel *_userNameMesLB;
+    UILabel *_totalSignInLB;
+    QMUIFillButton *_signInBT;
+}
 @end
 
 @implementation BBMyRewardViewController
@@ -28,6 +34,7 @@
     
     self.title = @"任务奖励";
     [self creatUI];
+    
 }
 -(void)creatUI
 {
@@ -53,6 +60,7 @@
     BBUser *user = [BBUser bb_getUser];
     UILabel *mesLB = [UILabel bb_lbMakeWithSuperV:userIntegralBgV fontSize:16 alignment:NSTextAlignmentLeft textColor:k_color_515151];
     mesLB.text = [NSString stringWithFormat:@"%@   %lu积分",[user.username bb_safe],(unsigned long)user.totalScore];
+    _userNameMesLB = mesLB;
     
     mesLB.frame = CGRectMake(lbX, avatarImgV.top+6, lbW, 30);
     QMUIFillButton *IntegralConvertBT = [QMUIFillButton buttonWithType:UIButtonTypeCustom];
@@ -92,18 +100,27 @@
     topLB.text = @"连续签到送积分";
     topLB.frame = CGRectMake(lbX1, 12, lbW1, 26);
     UILabel *bottomLB = [UILabel bb_lbMakeWithSuperV:signInBgV fontSize:13 alignment:NSTextAlignmentLeft textColor:k_color_153153153];
-    bottomLB.text = @"您已连续签到2天";
+    _totalSignInLB = bottomLB;
+    bottomLB.text = [NSString stringWithFormat:@"您已连续签到%ld天",(long)user.totalSignInDays];
     bottomLB.frame = CGRectMake(lbX1, topLB.bottom, lbW1, 20);
     
     QMUIFillButton *signInBT = [QMUIFillButton buttonWithType:UIButtonTypeCustom];
+    _signInBT = signInBT;
     [signInBgV addSubview:signInBT];
     signInBT.frame = CGRectMake(btX, (signInTotalH-btH)/2, btW, btH);
     signInBT.titleLabel.font = [UIFont systemFontOfSize:15];
-    signInBT.fillColor = rgb(255, 155, 57, 1);
+    
     signInBT.titleTextColor = [UIColor whiteColor];
     signInBT.cornerRadius = 6;
-    [signInBT setTitle:@"签到" forState:UIControlStateNormal];
-    [signInBT addTarget:self action:@selector(signInAction) forControlEvents:UIControlEventTouchUpInside];
+    if (BBUserHelpers.hasTodaySignIn) {
+        [signInBT setTitle:@"已签到" forState:UIControlStateNormal];
+        signInBT.fillColor = rgb(255, 155, 57, 0.5);
+    }else{
+        [signInBT setTitle:@"签到" forState:UIControlStateNormal];
+        signInBT.fillColor = rgb(255, 155, 57, 1);
+        [signInBT addTarget:self action:@selector(signInAction) forControlEvents:UIControlEventTouchUpInside];
+    }
+    
     
     UIView *shareBgV = [[UIView alloc]initWithFrame:CGRectFlatMake(0, signInBgV.bottom+10, _k_w, 70)];
     [self.view addSubview:shareBgV];
@@ -150,7 +167,32 @@
 }
 -(void)signInAction
 {
-#warning todo 签到
+    BBUser *user = [BBUser bb_getUser];
+    
+    BBSignInPopView *signInPopV = [BBSignInPopView signInPopView];
+    BBWeakSelf(signInPopV)
+    signInPopV.signInBlock = ^{
+        [BBRequestTool bb_requestSignInWithSuccessBlock:^(EnumServerStatus status, id object) {
+            NSLog(@"签到成功 %@",object);
+            BBStrongSelf(signInPopV)
+            NSDictionary *result = (NSDictionary *)object;
+            if ([result.allKeys containsObject:@"msg"]) {
+                NSString *msg = [result objectForKey:@"msg"];
+                if ([msg containsString:@"已签到"] || [msg containsString:@"请求成功"]) {
+                    [signInPopV signInSuccess];
+                    user.latestSignInDate = [NSDate bb_todayStr];
+                    [BBUser bb_saveUser:user];
+                    
+                    //刷新界面
+                    [self refeshUI];
+                }
+            }
+        } failureBlock:^(EnumServerStatus status, id object) {
+            [QMUITips showInfo:@"签到失败"];
+        }];
+    };
+    
+    [signInPopV show];
 }
 -(void)shareAction
 {
@@ -196,6 +238,33 @@
         }
         
         [LWShareServices hidden];
+    }];
+}
+-(void)refeshUI
+{
+    [_signInBT setTitle:@"已签到" forState:UIControlStateNormal];
+    _signInBT.fillColor = rgb(255, 155, 57, 0.5);
+    BBUser *user = [BBUser bb_getUser];
+    _totalSignInLB.text = [NSString stringWithFormat:@"您已连续签到%ld天",(long)(user.totalSignInDays+1)];
+    
+    [BBRequestTool bb_requestGetUserInfoWithSuccessBlock:^(EnumServerStatus status, id object) {
+        NSDictionary *userInfoResultDict = (NSDictionary *)object;
+        int resultCode = [[userInfoResultDict objectForKey:@"code"] intValue];
+        
+        if (resultCode == 0) {
+            NSDictionary *userInfoDict = [userInfoResultDict objectForKey:@"data"];
+            
+            BBUser *user = [BBUser bb_getUser];
+            for (NSString *dictKey in userInfoDict.allKeys) {
+                if ([user.properties containsObject:dictKey]) {
+                    [user setValue:[userInfoDict objectForKey:dictKey] forKey:dictKey];
+                }
+            }
+            [BBUser bb_saveUser:user];
+            _userNameMesLB.text = [NSString stringWithFormat:@"%@   %lu积分",[user.username bb_safe],(unsigned long)user.totalScore];
+        }
+    } failureBlock:^(EnumServerStatus status, id object) {
+       
     }];
 }
 
