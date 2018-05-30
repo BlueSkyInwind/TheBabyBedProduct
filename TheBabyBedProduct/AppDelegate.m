@@ -30,10 +30,8 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     
-
-
     [[LaunchConfiguration shared] InitializeAppConfiguration];
-    
+    [self initJPush:launchOptions];
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window.backgroundColor = [UIColor whiteColor];
     [application setStatusBarHidden:NO withAnimation:UIStatusBarAnimationNone];

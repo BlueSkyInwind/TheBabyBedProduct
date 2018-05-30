@@ -314,6 +314,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		225B8B8B20BEF5DF00710583 /* TheBabyBedProduct.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TheBabyBedProduct.entitlements; sourceTree = "<group>"; };
 		2263B8E0206BCBB9005BB15E /* HomeTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeTableViewCell.h; sourceTree = "<group>"; };
 		2263B8E1206BCBB9005BB15E /* HomeTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeTableViewCell.m; sourceTree = "<group>"; };
 		2263B8E5206BD901005BB15E /* HomeHeaderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeHeaderView.h; sourceTree = "<group>"; };
@@ -984,6 +985,7 @@
 		22CFD336206141080004186D /* TheBabyBedProduct */ = {
 			isa = PBXGroup;
 			children = (
+				225B8B8B20BEF5DF00710583 /* TheBabyBedProduct.entitlements */,
 				22CFD337206141080004186D /* AppDelegate.h */,
 				22CFD338206141080004186D /* AppDelegate.m */,
 				57210D0D207777960039D8D5 /* AppDelegate+BBConfigure.h */,
@@ -2241,6 +2243,9 @@
 							com.apple.BackgroundModes = {
 								enabled = 1;
 							};
+							com.apple.Push = {
+								enabled = 1;
+							};
 						};
 					};
 					22CFD34B206141080004186D = {
@@ -2798,10 +2803,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_ENTITLEMENTS = TheBabyBedProduct/TheBabyBedProduct.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = B4V533E2T3;
+				DEVELOPMENT_TEAM = LDR3UXH97L;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2867,10 +2873,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_ENTITLEMENTS = TheBabyBedProduct/TheBabyBedProduct.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = B4V533E2T3;
+				DEVELOPMENT_TEAM = LDR3UXH97L;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",

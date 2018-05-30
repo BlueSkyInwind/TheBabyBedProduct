@@ -30,4 +30,10 @@
  sha1加密
  */
 + (NSString*)pp_sha1:(NSString *)str;
+/**
+ 带子节的string转为NSData
+ 
+ @return NSData类型
+ */
+-(NSData*) convertBytesStringToData;
 @end

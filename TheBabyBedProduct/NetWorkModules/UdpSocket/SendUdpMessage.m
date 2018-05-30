@@ -23,6 +23,14 @@ NSString * const    Body_Temp_Value     =  @"Body_Temp_Value";
 NSString * const    Baby_Urine_Value     =  @"Baby_Urine_Value";
 
 
+NSString * const    aucYdaDevSn     =  @"aucYdaDevSn";
+NSString * const    aucYdaDevName     =  @"aucYdaDevName";
+NSString * const    aucYdaSwVer     =  @"aucYdaSwVer";
+NSString * const    aucYdaHwVer     =  @"aucYdaHwVer";
+NSString * const    aucYdaHwAddr     =  @"aucYdaHwAddr";
+
+
+
 @implementation SendUdpMessage
 
 //寻址
@@ -48,6 +56,7 @@ NSString * const    Baby_Urine_Value     =  @"Baby_Urine_Value";
     NSData * bodyData = [self generateUdpBody];
     [dataOne appendData:bodyData];
     
+    
     dataOne = [[self setYdaHeaderDatalen:dataOne.length  data:dataOne] mutableCopy];
     dataOne = [[self setYdaCtrlHeaderMsglen:bodyData.length + 8 data:dataOne] mutableCopy];
     dataOne = [[self setYdaCtrlHeaderChecksumData:dataOne] mutableCopy];
@@ -58,7 +67,9 @@ NSString * const    Baby_Urine_Value     =  @"Baby_Urine_Value";
 
 -(NSData *)generateUdpBody{
     
-    NSMutableData * bodyData = [[self generateUdpBodyUnit:134 elementID:1 dataContent:nil] mutableCopy];
+    NSData * payloadData = [self generateYDA_VSP_DEVICE_INFO:@{aucYdaDevSn:@"SN:LYDA20180210",aucYdaDevName:@"YDA398",aucYdaSwVer:@"V200R003C60B100",aucYdaHwVer:@"IMX6UL_PCBA0001",aucYdaHwAddr:@"2082c064c602"}];
+    
+    NSMutableData * bodyData = [[self generateUdpBodyUnit:134 elementID:1 dataContent:payloadData] mutableCopy];
     [bodyData appendData: [self generateUdpBodyUnit:36 elementID:2 dataContent:nil]];
     [bodyData appendData: [self generateUdpBodyUnit:1 elementID:3 dataContent:nil]];
     NSData *rsaData = [RSA_PUBLIC_KEY dataUsingEncoding: NSUTF8StringEncoding];
@@ -138,7 +149,8 @@ NSString * const    Baby_Urine_Value     =  @"Baby_Urine_Value";
 
 -(NSData *)generateLoginRequestUdpBody{
     
-    NSMutableData * bodyData = [[self generateUdpBodyUnit:134 elementID:9 dataContent:nil] mutableCopy];
+    NSData * payloadData = [self generateYDA_VSP_DEVICE_INFO:@{aucYdaDevSn:@"SN:LYDA20180210",aucYdaDevName:@"YDA398",aucYdaSwVer:@"V200R003C60B100",aucYdaHwVer:@"IMX6UL_PCBA0001",aucYdaHwAddr:@"2082c064c602"}];
+    NSMutableData * bodyData = [[self generateUdpBodyUnit:134 elementID:9 dataContent:payloadData] mutableCopy];
     return bodyData;
     
 }
@@ -498,6 +510,58 @@ NSString * const    Baby_Urine_Value     =  @"Baby_Urine_Value";
     NSMutableData * bodyData = [[NSMutableData alloc]initWithBytes:bodyByte length:datalength];
     return bodyData;
 }
+
+-(NSData *)generateYDA_VSP_DEVICE_INFO:(NSDictionary *)infoDic{
+    
+    Byte devSnByte[32];
+    Byte devNameByte[32];
+    Byte devSwVerByte[32];
+    Byte devHwVerByte[32];
+    Byte devHwAddrByte[6];
+
+    if ([infoDic.allKeys containsObject:aucYdaDevSn]) {
+        NSString * devSnStr = infoDic[aucYdaDevSn];
+        NSData *data =[devSnStr dataUsingEncoding:NSUTF8StringEncoding];
+        Byte * byte = (Byte*)[data bytes];
+        memcpy(devSnByte, byte, data.length);
+    }
+    
+    if ([infoDic.allKeys containsObject:aucYdaDevName]) {
+        NSString * devSnStr = infoDic[aucYdaDevName];
+        NSData *data =[devSnStr dataUsingEncoding:NSUTF8StringEncoding];
+        Byte * byte = (Byte*)[data bytes];
+        memcpy(devNameByte, byte, data.length);
+    }
+    
+    if ([infoDic.allKeys containsObject:aucYdaHwVer]) {
+        NSString * devSnStr = infoDic[aucYdaHwVer];
+        NSData *data =[devSnStr dataUsingEncoding:NSUTF8StringEncoding];
+        Byte * byte = (Byte*)[data bytes];
+        memcpy(devHwVerByte, byte, data.length);
+    }
+    
+    if ([infoDic.allKeys containsObject:aucYdaSwVer]) {
+        NSString * devSnStr = infoDic[aucYdaSwVer];
+        NSData *data =[devSnStr dataUsingEncoding:NSUTF8StringEncoding];
+        Byte * byte = (Byte*)[data bytes];
+        memcpy(devSwVerByte, byte, data.length);
+    }
+    
+    if ([infoDic.allKeys containsObject:aucYdaHwAddr]) {
+        NSString * devSnStr = infoDic[aucYdaHwAddr];
+        NSData *data =[devSnStr dataUsingEncoding:NSUTF8StringEncoding];
+        Byte * byte = (Byte*)[data bytes];
+//        memcpy(devHwAddrByte, byte, data.length);
+    }
+    NSMutableData * dataOne = [[NSMutableData alloc]initWithBytes:devSnByte length:32];
+    [dataOne appendData:[[NSData alloc]initWithBytes:devNameByte length:32]];
+    [dataOne appendData:[[NSData alloc]initWithBytes:devSwVerByte length:32]];
+    [dataOne appendData:[[NSData alloc]initWithBytes:devHwVerByte length:32]];
+    [dataOne appendData:[[NSData alloc]initWithBytes:devHwAddrByte length:6]];
+    return dataOne;
+}
+
+
 
 #pragma mark - 基本数据类型转换
 
