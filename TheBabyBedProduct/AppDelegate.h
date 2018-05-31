@@ -9,9 +9,9 @@
 #import <UIKit/UIKit.h>
 #import "BaseTabBarViewController.h"
 
-static NSString *appKey = @"";
+static NSString *appKey = @"c69b80f8c7c71bdee9413cbb";
 static NSString *channel = @"App Store";
-static BOOL isProduction = true;
+static BOOL isProduction = false;
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 

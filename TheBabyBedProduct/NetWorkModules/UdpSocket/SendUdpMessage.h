@@ -16,6 +16,13 @@ UIKIT_EXTERN NSString * const Env_Humidity_Value;
 UIKIT_EXTERN NSString * const Body_Temp_Value;
 UIKIT_EXTERN NSString * const Baby_Urine_Value;
 
+UIKIT_EXTERN NSString * const    aucYdaDevSn;    //设备序列号
+UIKIT_EXTERN NSString * const    aucYdaDevName;  //设备名称
+UIKIT_EXTERN NSString * const    aucYdaSwVer;    //软件版本
+UIKIT_EXTERN NSString * const    aucYdaHwVer;    //硬件版本
+UIKIT_EXTERN NSString * const    aucYdaHwAddr;   //硬件地址
+
+
 
 
 @interface SendUdpMessage : NSObject
