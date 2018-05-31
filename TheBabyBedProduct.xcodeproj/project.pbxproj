@@ -269,6 +269,8 @@
 		842D9CED206B94C90020C3C2 /* HomeLeftItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = 842D9CEC206B94C90020C3C2 /* HomeLeftItemView.m */; };
 		84332C9D206CE6F5009A9121 /* MessageTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 84332C9B206CE6F5009A9121 /* MessageTableViewCell.m */; };
 		84332C9E206CE6F5009A9121 /* MessageTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84332C9C206CE6F5009A9121 /* MessageTableViewCell.xib */; };
+		843346E720BFDBFA0021C7AB /* IJKMediaFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 843346E620BFDBFA0021C7AB /* IJKMediaFramework.framework */; };
+		843346EC20BFFE390021C7AB /* BBVideoPlayShare.m in Sources */ = {isa = PBXBuildFile; fileRef = 843346EB20BFFE390021C7AB /* BBVideoPlayShare.m */; };
 		8449AC0820620CB300526935 /* BaseResultModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8449AC0720620CB300526935 /* BaseResultModel.m */; };
 		8449AC0B20620D1B00526935 /* BaseViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8449AC0A20620D1B00526935 /* BaseViewModel.m */; };
 		8449AC0E2062283300526935 /* NetWorkRequestManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8449AC0D2062283300526935 /* NetWorkRequestManager.m */; };
@@ -788,6 +790,9 @@
 		84332C9A206CE6F5009A9121 /* MessageTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MessageTableViewCell.h; sourceTree = "<group>"; };
 		84332C9B206CE6F5009A9121 /* MessageTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MessageTableViewCell.m; sourceTree = "<group>"; };
 		84332C9C206CE6F5009A9121 /* MessageTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MessageTableViewCell.xib; sourceTree = "<group>"; };
+		843346E620BFDBFA0021C7AB /* IJKMediaFramework.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = IJKMediaFramework.framework; sourceTree = "<group>"; };
+		843346EA20BFFE390021C7AB /* BBVideoPlayShare.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BBVideoPlayShare.h; sourceTree = "<group>"; };
+		843346EB20BFFE390021C7AB /* BBVideoPlayShare.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BBVideoPlayShare.m; sourceTree = "<group>"; };
 		8449AC0620620CB300526935 /* BaseResultModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseResultModel.h; sourceTree = "<group>"; };
 		8449AC0720620CB300526935 /* BaseResultModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BaseResultModel.m; sourceTree = "<group>"; };
 		8449AC0920620D1B00526935 /* BaseViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseViewModel.h; sourceTree = "<group>"; };
@@ -870,6 +875,7 @@
 				5726F385206B70C5008EED75 /* ShareSDKUI.framework in Frameworks */,
 				84114B4320722BF6005A1DC9 /* jpush-ios-3.0.8.a in Frameworks */,
 				5726F380206B70C5008EED75 /* ShareSDKConnector.framework in Frameworks */,
+				843346E720BFDBFA0021C7AB /* IJKMediaFramework.framework in Frameworks */,
 				5726F384206B70C5008EED75 /* ShareSDKExtension.framework in Frameworks */,
 				229FF0AC2084EB65005BA4A6 /* JMAirKiss.framework in Frameworks */,
 				5726F37C206B70C5008EED75 /* libWeiboSDK.a in Frameworks */,
@@ -1052,6 +1058,7 @@
 		22CFD36B206142850004186D /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				843346E920BFFE0B0021C7AB /* BBVideoPlayer */,
 				2263B8EF20709BAC005BB15E /* BLEManager */,
 				574C6CDB2069272700F5BF55 /* Category */,
 				8449AC0F20622EBC00526935 /* costom */,
@@ -1254,6 +1261,7 @@
 		22CFD39E2064015D0004186D /* Third */ = {
 			isa = PBXGroup;
 			children = (
+				843346E520BFDBDA0021C7AB /* ijkplayer */,
 				5722099020AD27AA00611BFA /* CBAutoScrollLabel */,
 				5722098620AD24E600611BFA /* GKSearchBar */,
 				57CB447F20A9E55100268DBE /* ZXPUnicode */,
@@ -2071,6 +2079,23 @@
 			path = AirKiss;
 			sourceTree = "<group>";
 		};
+		843346E520BFDBDA0021C7AB /* ijkplayer */ = {
+			isa = PBXGroup;
+			children = (
+				843346E620BFDBFA0021C7AB /* IJKMediaFramework.framework */,
+			);
+			path = ijkplayer;
+			sourceTree = "<group>";
+		};
+		843346E920BFFE0B0021C7AB /* BBVideoPlayer */ = {
+			isa = PBXGroup;
+			children = (
+				843346EA20BFFE390021C7AB /* BBVideoPlayShare.h */,
+				843346EB20BFFE390021C7AB /* BBVideoPlayShare.m */,
+			);
+			path = BBVideoPlayer;
+			sourceTree = "<group>";
+		};
 		8449AC032062031F00526935 /* NetWorkModules */ = {
 			isa = PBXGroup;
 			children = (
@@ -2533,6 +2558,7 @@
 				842D9CED206B94C90020C3C2 /* HomeLeftItemView.m in Sources */,
 				84332C9D206CE6F5009A9121 /* MessageTableViewCell.m in Sources */,
 				22CFD39120614C820004186D /* LoginAndRegisterViewController.m in Sources */,
+				843346EC20BFFE390021C7AB /* BBVideoPlayShare.m in Sources */,
 				574C6CB92069254200F5BF55 /* NSMutableAttributedString+KeywordHignlight.m in Sources */,
 				5726F356206B2B62008EED75 /* BBNotificationSettingListCell.m in Sources */,
 				5722098320AD22AC00611BFA /* GKWYDiskView.m in Sources */,
@@ -2807,7 +2833,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = LDR3UXH97L;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2818,6 +2844,7 @@
 					"$(PROJECT_DIR)/TheBabyBedProduct/Third/MOBSDK/ShareSDK",
 					"$(PROJECT_DIR)/TheBabyBedProduct/Third/MOBSDK/Required",
 					"$(PROJECT_DIR)/TheBabyBedProduct/Third/AirKiss",
+					"$(PROJECT_DIR)/TheBabyBedProduct/Third/ijkplayer",
 				);
 				GCC_PREFIX_HEADER = TheBabyBedProduct/Common/TheBabyBedProduct.pch;
 				INFOPLIST_FILE = "$(SRCROOT)/TheBabyBedProduct/Support/Info.plist";
@@ -2877,7 +2904,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = LDR3UXH97L;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2888,6 +2915,7 @@
 					"$(PROJECT_DIR)/TheBabyBedProduct/Third/MOBSDK/ShareSDK",
 					"$(PROJECT_DIR)/TheBabyBedProduct/Third/MOBSDK/Required",
 					"$(PROJECT_DIR)/TheBabyBedProduct/Third/AirKiss",
+					"$(PROJECT_DIR)/TheBabyBedProduct/Third/ijkplayer",
 				);
 				GCC_PREFIX_HEADER = TheBabyBedProduct/Common/TheBabyBedProduct.pch;
 				INFOPLIST_FILE = "$(SRCROOT)/TheBabyBedProduct/Support/Info.plist";

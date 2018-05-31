@@ -30,7 +30,7 @@
 #import "BaseResultModel.h"
 #import "BBUdpSocketManager.h"
 #import "BaseCentralManager.h"
-
+#import <IJKMediaFramework/IJKMediaFramework.h>
 
 #import <QMUIKit/QMUIKit.h>
 #import "BBMacros.h"
