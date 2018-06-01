@@ -94,7 +94,7 @@
     
     imgArr = @[@"home_room_Icon",@"home_temperature_Icon",@"home_wetting_Icon",@"home_kickqulit_Icon"];
     titleArr = @[@"室内外温度",@"体温",@"尿湿状态",@"踢被状态"];
-    valueArr = @[@"08/18",@"36.8",@"需要更换",@"正常"];
+    valueArr = [@[@"08/18",@"36.8",@"需要更换",@"正常"] mutableCopy];
     __weak typeof (self) weakSelf = self;
     HomeLeftItemView * leftItemView = [[HomeLeftItemView alloc]initWithFrame:CGRectMake(0, 0, 100, 35)];
     leftItemView.nameLabel.text = @"欧阳马克";
