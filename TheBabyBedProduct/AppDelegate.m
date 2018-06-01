@@ -183,7 +183,15 @@
     // Required,For systems with less than or equal to iOS6
     [JPUSHService handleRemoteNotification:userInfo];
 }
-
+- (UIInterfaceOrientationMask)application:(UIApplication *)application supportedInterfaceOrientationsForWindow:(UIWindow *)nowWindow {
+    
+    //    是非支持横竖屏
+    if (_allowRotation){
+        return UIInterfaceOrientationMaskLandscapeRight;
+    } else{
+        return UIInterfaceOrientationMaskPortrait;
+    }
+}
 
 
 @end

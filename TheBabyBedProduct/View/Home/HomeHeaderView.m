@@ -8,6 +8,7 @@
 
 #import "HomeHeaderView.h"
 #import "ZFPlayer.h"
+#import "BBVideoPlayView.h"
 
 @interface HomeHeaderView ()
     
@@ -49,19 +50,21 @@
         make.height.equalTo(@(_k_w * 0.61));
     }];
     
-    IJKFFOptions *options = [IJKFFOptions optionsByDefault];
-    self.player = [[IJKFFMoviePlayerController alloc] initWithContentURL:[NSURL URLWithString:@"rtmp://live.hkstv.hk.lxdns.com/live/hks"] withOptions:options];
-    self.player.view.autoresizingMask = UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight;
-    self.player.scalingMode = IJKMPMovieScalingModeAspectFit;
-    self.player.shouldAutoplay = YES;
-    _videoView.autoresizesSubviews = YES;
-    [_videoView addSubview:self.player.view];
-    [self.player.view mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.edges.equalTo(_videoView);
-    }];
+    BBVideoPlayView * videoPlayView = [BBVideoPlayView initBBVideoPlayView:_videoView videoUrl:@"rtmp://live.hkstv.hk.lxdns.com/live/hks"];
     
-    [self.player prepareToPlay];
-    [self.player play];
+//    IJKFFOptions *options = [IJKFFOptions optionsByDefault];
+//    self.player = [[IJKFFMoviePlayerController alloc] initWithContentURL:[NSURL URLWithString:@"rtmp://live.hkstv.hk.lxdns.com/live/hks"] withOptions:options];
+//    self.player.view.autoresizingMask = UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight;
+//    self.player.scalingMode = IJKMPMovieScalingModeAspectFit;
+//    self.player.shouldAutoplay = YES;
+//    _videoView.autoresizesSubviews = YES;
+//    [_videoView addSubview:self.player.view];
+//    [self.player.view mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.edges.equalTo(_videoView);
+//    }];
+//
+//    [self.player prepareToPlay];
+//    [self.player play];
 
     
 //    _playerBtn = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -162,20 +165,16 @@
 }
     
     
-    
-    
-    
-    
-    
-    
+//
+//
 //- (ZFPlayerModel *)playerModel {
 //    if (!_playerModel) {
 //        _playerModel                  = [[ZFPlayerModel alloc] init];
 //        _playerModel.title            = @"小黄人一起来嗨";
-//        _playerModel.videoURL         = [NSURL URLWithString:@"rtmp://live.hkstv.hk.lxdns.com/live/hks"];   //http://120.25.226.186:32812/resources/videos/minion_01.mp4
+//        _playerModel.videoURL         = [NSURL URLWithString:@"http://221.228.226.23/11/t/j/v/b/tjvbwspwhqdmgouolposcsfafpedmb/sh.yinyuetai.com/691201536EE4912BF7E4F1E2C67B8119.mp4"];
 //        _playerModel.placeholderImage = [UIImage imageNamed:@"loading_bgView1"];
 //        _playerModel.fatherView       = _videoView;
-//        _playerModel.resolutionDic = @{@"高清" : @"rtmp://live.hkstv.hk.lxdns.com/live/hks",@"标清" : @"rtmp://live.hkstv.hk.lxdns.com/live/hks"};
+//        _playerModel.resolutionDic = @{@"高清" : @"http://221.228.226.23/11/t/j/v/b/tjvbwspwhqdmgouolposcsfafpedmb/sh.yinyuetai.chttp://221.228.226.23/11/t/j/v/b/tjvbwspwhqdmgouolposcsfafpedmb/sh.yinyuetai.com/691201536EE4912BF7E4F1E2C67B8119.mp4"};
 //    }
 //    return _playerModel;
 //}

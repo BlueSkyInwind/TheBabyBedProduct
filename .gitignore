@@ -24,6 +24,7 @@ pods/
 /pods/
 .swp
 *.lock
+**/IJKMediaFramework.framework
 
 # CocoaPods
 #

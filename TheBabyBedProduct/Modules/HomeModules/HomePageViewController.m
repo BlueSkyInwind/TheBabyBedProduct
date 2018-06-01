@@ -24,7 +24,8 @@
     
     NSArray * imgArr;
     NSArray * titleArr;
-    
+    NSMutableArray * valueArr;
+
 }
 
 /**<#Description#>*/
@@ -93,7 +94,7 @@
     
     imgArr = @[@"home_room_Icon",@"home_temperature_Icon",@"home_wetting_Icon",@"home_kickqulit_Icon"];
     titleArr = @[@"室内外温度",@"体温",@"尿湿状态",@"踢被状态"];
-
+    valueArr = @[@"08/18",@"36.8",@"需要更换",@"正常"];
     __weak typeof (self) weakSelf = self;
     HomeLeftItemView * leftItemView = [[HomeLeftItemView alloc]initWithFrame:CGRectMake(0, 0, 100, 35)];
     leftItemView.nameLabel.text = @"欧阳马克";
@@ -122,12 +123,40 @@
     _headerView = [HomeHeaderView initWithBabyStatus:@[@"home_histroy_Icon",@"home_crystatus_Icon",@"home_happystatus_Icon"]];
     _homeTableView.tableHeaderView = _headerView;
     
+    //
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(sensorDataUpdates:) name:YDA_EVENT_NOTIFICATION object:nil ];
 }
 -(void)rightButtonItemClick{
-    
     MessageViewController * messageVC = [[MessageViewController alloc]init];
     messageVC.hidesBottomBarWhenPushed = true;
     [self.navigationController pushViewController:messageVC animated:true];
+}
+#pragma mark - 传感器数据通知状态
+-(void)sensorDataUpdates:(NSNotification *)notification{
+    NSDictionary * valueDic = notification.userInfo;
+    DLog(@"%@",valueDic);
+    NSString * indoorAndOutdoorTemperature = [NSString stringWithFormat:@"%@/%@",valueDic[Env_Temp_Value],@"35"];
+    NSString * bobyTemp = [NSString stringWithFormat:@"%@",valueDic[Body_Temp_Value]];
+    NSString * wetState;
+    NSString * kickState = @"正常";
+    NSNumber * wetValue = valueDic[Env_Humidity_Value];
+    if ([wetValue shortValue] < 10){
+        wetState = @"干爽";
+    }else if([wetValue shortValue] > 10 &&  [wetValue shortValue] < 50){
+        wetState = @"轻度尿湿";
+    }else{
+        wetState = @"需更换";
+    }
+    
+    NSNumber * kickValue = valueDic[Baby_Urine_Value];
+    if ([kickValue shortValue] == 1){
+        NSString * kickState = @"踢被";
+    }
+    [valueArr replaceObjectAtIndex:0 withObject:indoorAndOutdoorTemperature];
+    [valueArr replaceObjectAtIndex:1 withObject:bobyTemp];
+    [valueArr replaceObjectAtIndex:2 withObject:wetState];
+    [valueArr replaceObjectAtIndex:3 withObject:kickState];
+    [self.homeTableView reloadData];
 }
 
 #pragma mark - tableViewDelegate
@@ -144,7 +173,7 @@
     if (!_homeCell) {
         _homeCell = [[HomeTableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"HomeTableViewCell"];
     }
-    [_homeCell setIcon:imgArr[indexPath.row] title:titleArr[indexPath.row] content:@"正常"];
+    [_homeCell setIcon:imgArr[indexPath.row] title:titleArr[indexPath.row] content:valueArr[indexPath.row]];
     return _homeCell;
 }
 
@@ -242,12 +271,14 @@
 
 -(void)pushScanVC{
     
+    
 //    BLEPairingViewController *  scanDeviceCodeVC = [[BLEPairingViewController alloc]init];
 //    [self.navigationController pushViewController:scanDeviceCodeVC animated:true];
     
     ScanDeviceCodeViewController *  scanDeviceCodeVC = [[ScanDeviceCodeViewController alloc]init];
     [self.navigationController pushViewController:scanDeviceCodeVC animated:true];
 }
+
 
 
 /*

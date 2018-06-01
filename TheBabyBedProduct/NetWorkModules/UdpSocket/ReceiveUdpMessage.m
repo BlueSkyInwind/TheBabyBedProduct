@@ -61,7 +61,7 @@ extern short int TransID;
             //心跳相应报文
             DLog(@"心跳相应报文类型 ---- %c",msgType);
             self.responseResult(HeartMessageType,0,nil);
-        }else if(msgType == 0x0c){
+        }else if(msgType == 0x0b){
             //事件相应报文
             DLog(@"事件相应报文类型 ---- %c",msgType);
              [self analysisEventYDACtrlHeader:ctrlData complication:self.responseResult];
@@ -195,19 +195,43 @@ extern short int TransID;
 -(void)analysisEventYDACtrlHeader:(NSData *)ctrlHeaderData complication:(ReceiveUdpMessageResult)messageResult{
     
     unsigned int errCode;
+    NSDictionary * eventDic;
     Byte receiveCtrlByte[ctrlHeaderData.length];
     Byte receivePayLoad[ctrlHeaderData.length - YDA_CTRL_HAEDER_LENGTH];
     [ctrlHeaderData getBytes:receiveCtrlByte length:ctrlHeaderData.length];
     memcpy(receivePayLoad, receiveCtrlByte + YDA_CTRL_HAEDER_LENGTH, ctrlHeaderData.length - YDA_CTRL_HAEDER_LENGTH);
-    Byte receiveUdpEventByte[4];
-    memcpy(receiveUdpEventByte, receivePayLoad + 4, 4);
+    Byte receiveUdpEventByte[12];
+    memcpy(receiveUdpEventByte, receivePayLoad + 4, 12);
     short int elementID = (receivePayLoad[0] << 8) + receivePayLoad[1];
-    if (elementID == 0x0F) {
-        errCode = receiveUdpEventByte[0] + (receiveUdpEventByte[1] << 8) + (receiveUdpEventByte[2] << 16) + (receiveUdpEventByte[3] << 24);
+    if (elementID == 0x0D) {
+        errCode = 0;
+       eventDic = [self analysisEventMessageData:[[NSData alloc]initWithBytes:receiveUdpEventByte length:12]];
     }
-    messageResult(NotificationType,errCode,nil);
+    messageResult(NotificationType,errCode,eventDic);
 }
-
+    
+-(NSDictionary *)analysisEventMessageData:(NSData *)data{
+    
+    Byte receiveUdpEventByte[data.length];
+    [data getBytes:receiveUdpEventByte length:data.length];
+    
+    short int cryState = 0;
+    short int kickState = 0;
+    short int envtemp_Value = 0;
+    short int  humidity_Value = 0;
+    short int bodytemp_Value = 0;
+    short int urine_Value = 0;
+    
+    cryState = (receiveUdpEventByte[0] << 8 ) +  receiveUdpEventByte[1];
+    kickState = (receiveUdpEventByte[2] << 8 ) +  receiveUdpEventByte[3];
+    envtemp_Value = (receiveUdpEventByte[4] << 8)  + receiveUdpEventByte[5] ;
+    humidity_Value = (receiveUdpEventByte[6] << 8)+ receiveUdpEventByte[7] ;
+    bodytemp_Value = (receiveUdpEventByte[8] << 8) + receiveUdpEventByte[9];
+    urine_Value = (receiveUdpEventByte[10] << 8 ) +  receiveUdpEventByte[11];
+    
+    NSDictionary * eventDic = @{Baby_Cry_State:@(cryState),Baby_Kick_State:@(kickState),Env_Temp_Value:@(envtemp_Value),Env_Humidity_Value:@(humidity_Value),Body_Temp_Value:@(bodytemp_Value),Baby_Urine_Value:@(urine_Value)};
+    return eventDic;
+}
 
 
 

@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "ReceiveUdpMessage.h"
+//#import "ReceiveUdpMessage.h"
 
 UIKIT_EXTERN NSString * const Baby_Cry_State;
 UIKIT_EXTERN NSString * const Baby_Kick_State;
@@ -21,8 +21,6 @@ UIKIT_EXTERN NSString * const    aucYdaDevName;  //设备名称
 UIKIT_EXTERN NSString * const    aucYdaSwVer;    //软件版本
 UIKIT_EXTERN NSString * const    aucYdaHwVer;    //硬件版本
 UIKIT_EXTERN NSString * const    aucYdaHwAddr;   //硬件地址
-
-
 
 
 @interface SendUdpMessage : NSObject

@@ -94,8 +94,6 @@ short int TransID;
     }
     
     [self sendAddressMessage];
-//    [self createHeartData];
-//    [self sendEventNotificationRequestMessage];
 
 }
 
@@ -183,7 +181,7 @@ short int TransID;
     
 }
 
--(void)sendEventNotificationRequestMessage{
+-(void)sendEventNotificationRequestMessage:(NSDictionary *)eventDic{
     
     SendUdpMessage * sendMessage = [[SendUdpMessage alloc]init];
     NSData * discoverRequestData = [sendMessage generateEventNotificationRequestMessage:@{Env_Temp_Value:@(24)}];
@@ -221,7 +219,6 @@ short int TransID;
             if (errCode == 0) {
                 heartNoResponseCount = 0;
                 [self createHeartData];
-//                [self sendHeartbeatRequestMessage];
             }else{
                 
             }
@@ -229,8 +226,13 @@ short int TransID;
             break;
         case HeartMessageType:{
             heartNoResponseCount = heartNoResponseCount > 0 ? heartNoResponseCount -= 1 : 0;
-//            [self sendCFGSettingRequestMessage];
-//            [self sendEventNotificationRequestMessage];
+        }
+            break;
+        case NotificationType:{
+            if (errCode == 0) {
+                NSDictionary * dic = (NSDictionary *)result;
+                [[NSNotificationCenter defaultCenter] postNotificationName:YDA_EVENT_NOTIFICATION object:self userInfo:dic];
+            }
         }
             break;
         default:

@@ -14,7 +14,6 @@
 extern short int sendCount;
 extern short int TransID;
 
-
 NSString * const    Baby_Cry_State     =  @"Baby_Cry_State";
 NSString * const    Baby_Kick_State     =  @"Baby_Kick_State";
 NSString * const    Env_Temp_Value     =  @"Env_Temp_Value";
@@ -208,7 +207,7 @@ NSString * const    aucYdaHwAddr     =  @"aucYdaHwAddr";
     NSData * dataFour = [self generateDataLen:0 Reserved:0];
     [dataOne appendData:dataFour];
     
-    NSData * dataFive = [self generateMsgType:0x11 SeqNum:sendCount MsgLen:0];
+    NSData * dataFive = [self generateMsgType:0x0b SeqNum:sendCount MsgLen:0];
     [dataOne appendData:dataFive];
     
     NSData * dataSix = [self generateYdaCtrlHeaderChecksum:0 Random:16];
@@ -226,7 +225,7 @@ NSString * const    aucYdaHwAddr     =  @"aucYdaHwAddr";
 }
 -(NSData *)generateEventNotificationRequestRequestUdpBody:(NSDictionary *)valueDic{
     
-    NSData * contentData = [self generateEventNotificationData:valueDic datalength:18];
+    NSData * contentData = [self generateEventNotificationData:valueDic datalength:12];
     NSMutableData * bodyData = [[self generateUdpBodyUnit:18 elementID:0x0D dataContent:contentData] mutableCopy];
     return bodyData;
     
@@ -237,9 +236,9 @@ NSString * const    aucYdaHwAddr     =  @"aucYdaHwAddr";
     Byte bodyByte[datalength];
     short int cryState = 0;
     short int kickState = 0;
-    int envtemp_Value = 0;
-    unsigned int  humidity_Value = 0;
-    int bodytemp_Value = 0;
+    short int envtemp_Value = 0;
+    short int  humidity_Value = 0;
+    short int bodytemp_Value = 0;
     short int urine_Value = 0;
 
     if ([dic.allKeys containsObject:Baby_Cry_State]) {
@@ -252,19 +251,19 @@ NSString * const    aucYdaHwAddr     =  @"aucYdaHwAddr";
     }
     if ([dic.allKeys containsObject:Env_Temp_Value]) {
         NSNumber * num = (NSNumber *)dic[Env_Temp_Value];
-        envtemp_Value = num.intValue;
+        envtemp_Value = num.shortValue;
     }
     if ([dic.allKeys containsObject:Env_Humidity_Value]) {
         NSNumber * num = (NSNumber *)dic[Env_Humidity_Value];
-        humidity_Value = num.unsignedIntValue;
+        humidity_Value = num.shortValue;
     }
     if ([dic.allKeys containsObject:Body_Temp_Value]) {
         NSNumber * num = (NSNumber *)dic[Body_Temp_Value];
-        bodytemp_Value = num.intValue;
+        bodytemp_Value = num.shortValue;
     }
     if ([dic.allKeys containsObject:Baby_Urine_Value]) {
         NSNumber * num = (NSNumber *)dic[Baby_Urine_Value];
-        urine_Value = num.intValue;
+        urine_Value = num.shortValue;
     }
     //哭闹
     bodyByte[0] = ((cryState >> 8) & 0xff);
@@ -273,23 +272,19 @@ NSString * const    aucYdaHwAddr     =  @"aucYdaHwAddr";
     bodyByte[2] = ((kickState >> 8) & 0xff);
     bodyByte[3] = (kickState & 0xff);
     //环境温度
-    bodyByte[4] = (envtemp_Value & 0xff);
-    bodyByte[5] = ((envtemp_Value >> 8) & 0xff);
-    bodyByte[6] = ((envtemp_Value >> 16) & 0xff);
-    bodyByte[7] = ((envtemp_Value >> 24) & 0xff);
+    bodyByte[4] = ((envtemp_Value >> 8) & 0xff);
+    bodyByte[5] = (envtemp_Value & 0xff);
     //环境湿度
-    bodyByte[8] = (humidity_Value & 0xff);
-    bodyByte[9] = ((humidity_Value >> 8) & 0xff);
-    bodyByte[10] = ((humidity_Value >> 16) & 0xff);
-    bodyByte[11] = ((humidity_Value >> 24) & 0xff);
+    bodyByte[6] = ((humidity_Value >> 8) & 0xff);
+    bodyByte[7] = (humidity_Value & 0xff);
+
     //体温值
-    bodyByte[12] = (bodytemp_Value & 0xff);
-    bodyByte[13] = ((bodytemp_Value >> 8) & 0xff);
-    bodyByte[14] = ((bodytemp_Value >> 16) & 0xff);
-    bodyByte[15] = ((bodytemp_Value >> 24) & 0xff);
+    bodyByte[8] = ((bodytemp_Value >> 8) & 0xff);
+    bodyByte[9] = (bodytemp_Value & 0xff);
+
     //尿湿值
-    bodyByte[16] = (urine_Value & 0xff);
-    bodyByte[17] = ((urine_Value >> 8) & 0xff);
+    bodyByte[10] = ((urine_Value >> 8) & 0xff);
+    bodyByte[11] = (urine_Value & 0xff);
     NSData * data = [[NSData alloc]initWithBytes:bodyByte length:18];
     return data;
 }

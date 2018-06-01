@@ -9,17 +9,18 @@
 #import <Foundation/Foundation.h>
 
 
+
 @interface BBUdpSocketManager : NSObject{
     
 
 }
-
-//short int sendCount;
 
 +(BBUdpSocketManager *)shareInstance;
 
 -(void)createAsyncUdpSocket;
     
 -(void)sendAddressMessage;
+    
+-(void)sendEventNotificationRequestMessage:(NSDictionary *)eventDic;
     
 @end

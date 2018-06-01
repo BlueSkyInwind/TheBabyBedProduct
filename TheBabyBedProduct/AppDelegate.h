@@ -19,6 +19,7 @@ static BOOL isProduction = false;
 @property (strong, nonatomic)BaseTabBarViewController * tabBar;
 @property (nonatomic,strong)NSDictionary * notificationContentInfo;
 @property (strong, nonatomic) UIButton  *playBtn;
+@property (nonatomic, assign) BOOL allowRotation;
 
 @end
 
