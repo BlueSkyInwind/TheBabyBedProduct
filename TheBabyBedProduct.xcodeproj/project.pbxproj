@@ -15,7 +15,6 @@
 		225B8B9720C03B4900710583 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 225B8B9620C03B4900710583 /* MediaPlayer.framework */; };
 		225B8B9920C03B6000710583 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 225B8B9820C03B6000710583 /* OpenGLES.framework */; };
 		225B8B9B20C03B6900710583 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 225B8B9A20C03B6900710583 /* QuartzCore.framework */; };
-		225B8B9D20C03DCA00710583 /* IJKMediaFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 225B8B9C20C03DCA00710583 /* IJKMediaFramework.framework */; };
 		225B8BA120C0438900710583 /* BBVideoPlayView.m in Sources */ = {isa = PBXBuildFile; fileRef = 225B8BA020C0438900710583 /* BBVideoPlayView.m */; };
 		2263B8E3206BCBB9005BB15E /* HomeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2263B8E1206BCBB9005BB15E /* HomeTableViewCell.m */; };
 		2263B8E7206BD901005BB15E /* HomeHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2263B8E6206BD901005BB15E /* HomeHeaderView.m */; };
@@ -333,7 +332,6 @@
 		225B8B9620C03B4900710583 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
 		225B8B9820C03B6000710583 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		225B8B9A20C03B6900710583 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
-		225B8B9C20C03DCA00710583 /* IJKMediaFramework.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = IJKMediaFramework.framework; sourceTree = "<group>"; };
 		225B8B9F20C0438900710583 /* BBVideoPlayView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BBVideoPlayView.h; sourceTree = "<group>"; };
 		225B8BA020C0438900710583 /* BBVideoPlayView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BBVideoPlayView.m; sourceTree = "<group>"; };
 		2263B8E0206BCBB9005BB15E /* HomeTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeTableViewCell.h; sourceTree = "<group>"; };
@@ -866,7 +864,6 @@
 			files = (
 				84114B4E20722CA6005A1DC9 /* CoreGraphics.framework in Frameworks */,
 				225B8B9B20C03B6900710583 /* QuartzCore.framework in Frameworks */,
-				225B8B9D20C03DCA00710583 /* IJKMediaFramework.framework in Frameworks */,
 				225B8B9920C03B6000710583 /* OpenGLES.framework in Frameworks */,
 				225B8B9720C03B4900710583 /* MediaPlayer.framework in Frameworks */,
 				225B8B9520C03B3300710583 /* CoreVideo.framework in Frameworks */,
@@ -2114,7 +2111,6 @@
 		843346E520BFDBDA0021C7AB /* ijkplayer */ = {
 			isa = PBXGroup;
 			children = (
-				225B8B9C20C03DCA00710583 /* IJKMediaFramework.framework */,
 			);
 			path = ijkplayer;
 			sourceTree = "<group>";
