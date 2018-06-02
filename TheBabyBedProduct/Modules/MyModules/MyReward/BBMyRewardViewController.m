@@ -214,11 +214,24 @@
         platformType = SSDKPlatformTypeSinaWeibo;
     }
     
+    /*
+     
+     String msg = "点击下面的链接可注册并绑定婴儿床:" + Constants.HOST_SHARE + "h5/inv/" + GApplication.getInstance().userdb.getUserInfo().getId() + "?invCode=" + code;
+     短信邀请绑定的H5链接
+     
+     ShareUtil.getInstance().share(this, "婴儿香邀请绑定", "点击下面的链接可注册并绑定婴儿床", "http://img1.imgtn.bdimg.com/it/u=407406776,3648841261&fm=214&gp=0.jpg",url );
+     分享邀请绑定的H5链接
+     
+     ShareUtil.getInstance().share(this, "每日任务", "分享好友赚积分", "http://img1.imgtn.bdimg.com/it/u=407406776,3648841261&fm=214&gp=0.jpg", Constants.HOST_SHARE+"h5/toYdaShare");
+     每日任务赚积分的H5链接
+     @PPAbner
+     */
+    
     NSMutableDictionary *shareParams = [NSMutableDictionary dictionary];
-    [shareParams SSDKSetupShareParamsByText:@"分享内容"
-                                     images:nil
-                                        url:[NSURL URLWithString:@"http://mob.com"]
-                                      title:@"分享标题"
+    [shareParams SSDKSetupShareParamsByText:@"分享好友赚积分"
+                                     images:@"http://img1.imgtn.bdimg.com/it/u=407406776,3648841261&fm=214&gp=0.jpg"
+                                        url:[NSURL URLWithString:[NSString stringWithFormat:@"%@/h5/toYdaShare",K_Url_BBBase]]
+                                      title:@"每日任务"
                                        type:SSDKContentTypeAuto];
     //有的平台要客户端分享需要加此方法，例如微博
     [shareParams SSDKEnableUseClientShare];

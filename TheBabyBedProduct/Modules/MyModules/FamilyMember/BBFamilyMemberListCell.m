@@ -58,6 +58,7 @@
         self.setOrAgreeBT.frame = CGRectMake(totalW-imgX-setOrAgreeBTW, 15, setOrAgreeBTW, 30);
         self.refuseBT.frame = CGRectMake(totalW-imgX-setOrAgreeBTW, 15+30+10, setOrAgreeBTW, 30);
         [self.setOrAgreeBT setTitle:@"同意" forState:UIControlStateNormal];
+        [self.refuseBT setTitle:@"设置" forState:UIControlStateNormal];
 
     }
     

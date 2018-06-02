@@ -21,6 +21,23 @@ typedef NS_ENUM(NSInteger,BBUserGenderType) {
     BBUserGenderTypeSecrect,      //保密
     BBUserGenderTypeUnknow        //未知
 };
+typedef NS_ENUM(NSInteger,BBPayType) {
+    BBPayTypeZhiFuBao = 0,
+    BBPayTypeWeiXin
+};
+typedef NS_ENUM(NSInteger,BBConsumeType) {
+    BBConsumeTypeRecharge = 0,     //充值
+    BBConsumeTypeConsume           //消费
+};
+typedef NS_ENUM(NSInteger,BBApplyStatus) {
+    BBApplyStatusAgree = 1,
+    BBApplyStatusRefuse
+};
+typedef NS_ENUM(NSInteger,BBApplyType) {
+    BBApplyTypeAll = -1,    //所有申请
+    BBApplyTypeVideo,       //视频
+    BBApplyTypeBind         //绑定
+};
 
 #define k_bb_settingManager  @"KBBSETTINGMANAGER"
 
@@ -42,5 +59,6 @@ typedef NS_ENUM(NSInteger,BBUserGenderType) {
 #import "NSString+Verify.h"
 #import "NSDate+BB.h"
 #import "UIDevice+GetDeviceInfo.h"
+#import "UITableView+MJRefresh.h"
 
 #endif /* BBMacros_h */

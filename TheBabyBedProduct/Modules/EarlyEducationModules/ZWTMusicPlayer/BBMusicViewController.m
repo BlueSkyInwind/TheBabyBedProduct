@@ -55,8 +55,8 @@ static void *kBufferingRatioKVOKey = &kBufferingRatioKVOKey;
 @property(nonatomic,strong) UILabel *endTimeLabel;
 @property (weak, nonatomic) UIButton *previousMusicButton;
 @property (weak, nonatomic) UIButton *nextMusicButton;
-@property (weak, nonatomic) UIButton *musicToggleButton;
-@property (weak, nonatomic) UIButton *musicCycleButton;
+@property (weak, nonatomic) UIButton *toggleButton;  //开关
+@property (weak, nonatomic) UIButton *cycleButton;   //循环
 
 @property (weak, nonatomic) UIImageView *backgroudImageView;
 @property (weak, nonatomic) UIView *backgroudView;
@@ -70,16 +70,18 @@ static void *kBufferingRatioKVOKey = &kBufferingRatioKVOKey;
 @implementation BBMusicViewController
 -(void)creatUI
 {
-    self.view.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.3];
+    self.view.backgroundColor = [UIColor whiteColor];
+
+    UIImageView *bgV = [UIImageView bb_imgVMakeWithSuperV:self.view imgName:@"bb_playMusic_bg.jpg"];
+    bgV.userInteractionEnabled = YES;
+    bgV.frame = self.view.bounds;
     
-    UIButton *dismissBt = [UIButton bb_btMakeWithSuperV:self.view imageName:@""];
+    UIButton *dismissBt = [UIButton bb_btMakeWithSuperV:self.view imageName:@"return"];
     [dismissBt addTarget:self action:@selector(dismissAction) forControlEvents:UIControlEventTouchUpInside];
-    [dismissBt setTitle:@"返回" forState:UIControlStateNormal];
-    [dismissBt setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
 #warning pp605 适配
     dismissBt.frame = CGRectMake(15, 20, 50, 50);
     
-    UIView *bottomV = [[UIView alloc]initWithFrame:CGRectMake(0, _k_h-130, _k_w, 130)];
+    UIView *bottomV = [[UIView alloc]initWithFrame:CGRectMake(0, _k_h-120, _k_w, 120)];
     [self.view addSubview:bottomV];
     
     self.beginTimeLabel = [UILabel bb_lbMakeWithSuperV:bottomV fontSize:10 alignment:NSTextAlignmentLeft textColor:[UIColor whiteColor]];
@@ -95,7 +97,101 @@ static void *kBufferingRatioKVOKey = &kBufferingRatioKVOKey;
 //    self.musicSlider.maximumTrackTintColor = [UIColor purpleColor];
 //    self.musicSlider.thumbTintColor = [UIColor yellowColor];
     
+    CGFloat toggleW = 50;
+    CGFloat toggleX = (_k_w-self.toggleButton.width)/2;
+    CGFloat toggleY =  51;
+    self.toggleButton = [UIButton bb_btMakeWithSuperV:bottomV imageName:@"music_play_playing"];
+    self.toggleButton.frame = CGRectMake(toggleX, toggleY, toggleW, toggleW);
+    [self.toggleButton addTarget:self action:@selector(playOrSuspendAction) forControlEvents:UIControlEventTouchUpInside];
+    [self.toggleButton setImageEdgeInsets:UIEdgeInsetsMake(5, 5, 5, 5)];
     
+    UIButton *previousBT = [UIButton bb_btMakeWithSuperV:bottomV imageName:@"music_play_previous"];
+    previousBT.frame = CGRectMake(self.toggleButton.left-60, toggleY+5, 40, 40);
+    [previousBT addTarget:self action:@selector(previousAction) forControlEvents:UIControlEventTouchUpInside];
+    [previousBT setImageEdgeInsets:UIEdgeInsetsMake(9, 9, 9, 9)];
+
+    
+    UIButton *nextBT = [UIButton bb_btMakeWithSuperV:bottomV imageName:@"music_play_next"];
+    nextBT.frame = CGRectMake(self.toggleButton.right+20, toggleY+5, 40, 40);
+    [nextBT addTarget:self action:@selector(nextAction) forControlEvents:UIControlEventTouchUpInside];
+    [nextBT setImageEdgeInsets:UIEdgeInsetsMake(9, 9, 9, 9)];
+
+    
+    UIButton *voiceBT = [UIButton bb_btMakeWithSuperV:bottomV imageName:@"music_play_voice"];
+    voiceBT.frame = CGRectMake(20, toggleY+5, 40, 40);
+    [voiceBT addTarget:self action:@selector(voiceAction) forControlEvents:UIControlEventTouchUpInside];
+    [voiceBT setImageEdgeInsets:UIEdgeInsetsMake(9, 5, 9, 5)];
+    
+    self.cycleButton = [UIButton bb_btMakeWithSuperV:bottomV imageName:@"music_play_order"];
+    self.cycleButton.frame = CGRectMake(_k_w-20-40, toggleY+5, 40, 40);
+    [self.cycleButton addTarget:self action:@selector(cycleAction) forControlEvents:UIControlEventTouchUpInside];
+    [self.cycleButton setImageEdgeInsets:UIEdgeInsetsMake(9, 9, 9, 9)];
+}
+-(void)voiceAction
+{
+    
+}
+#pragma mark --- 播放or暂停
+-(void)playOrSuspendAction
+{
+    if (_musicIsPlaying) {
+        [_streamer pause];
+    } else {
+        [_streamer play];
+    }
+}
+
+-(void)previousAction
+{
+    if (_musics.count == 1) {
+        [QMUITips showWithText:@"已经是第一首歌曲了"];
+        return;
+    }
+    if (_musicCycleType == MusicCycleTypeShuffle && _musics.count > 2) {
+        [self setupRandomMusicIfNeed];
+    } else {
+        NSInteger firstIndex = 0;
+        if (_currentIndex == firstIndex || [self currentIndexIsInvalid]) {
+            self.currentIndex = _musics.count - 1;
+        } else {
+            self.currentIndex--;
+        }
+    }
+    
+    [self setupStreamer];
+}
+-(void)nextAction
+{
+    if (_musics.count == 1) {
+        [self showMiddleHint:@"已经是最后一首歌曲"];
+        return;
+    }
+    if (_musicCycleType == MusicCycleTypeShuffle && _musics.count > 2) {
+        [self setupRandomMusicIfNeed];
+    } else {
+        [self checkNextIndexValue];
+    }
+    
+    [self setupStreamer];
+}
+-(void)cycleAction
+{
+    switch (_musicCycleType) {
+        case MusicCycleTypeLoopAll: {
+            self.musicCycleType = MusicCycleTypeShuffle;
+            [self showMiddleHint:@"随机播放"]; } break;
+        case MusicCycleTypeShuffle: {
+            self.musicCycleType = MusicCycleTypeLoopSingle;
+            [self showMiddleHint:@"单曲循环"]; } break;
+        case MusicCycleTypeLoopSingle: {
+            self.musicCycleType = MusicCycleTypeLoopAll;
+            [self showMiddleHint:@"列表循环"]; } break;
+            
+        default:
+            break;
+    }
+    
+    [GVUserDefaults standardUserDefaults].musicCycleType = self.musicCycleType;
 }
 -(void)dismissAction
 {
@@ -311,13 +407,13 @@ static void *kBufferingRatioKVOKey = &kBufferingRatioKVOKey;
 - (void)updateMusicCycleButton {
     switch (_musicCycleType) {
         case MusicCycleTypeLoopAll:
-            [_musicCycleButton setImage:[UIImage imageNamed:@"loop_all_icon"] forState:UIControlStateNormal];
+            [_cycleButton setImage:[UIImage imageNamed:@"music_play_order"] forState:UIControlStateNormal];
             break;
         case MusicCycleTypeShuffle:
-            [_musicCycleButton setImage:[UIImage imageNamed:@"shuffle_icon"] forState:UIControlStateNormal];
+            [_cycleButton setImage:[UIImage imageNamed:@"music_play_random"] forState:UIControlStateNormal];
             break;
         case MusicCycleTypeLoopSingle:
-            [_musicCycleButton setImage:[UIImage imageNamed:@"loop_single_icon"] forState:UIControlStateNormal];
+            [_cycleButton setImage:[UIImage imageNamed:@"music_play_singlecycle"] forState:UIControlStateNormal];
             break;
             
         default:
@@ -388,9 +484,9 @@ static void *kBufferingRatioKVOKey = &kBufferingRatioKVOKey;
 - (void)setMusicIsPlaying:(BOOL)musicIsPlaying {
     _musicIsPlaying = musicIsPlaying;
     if (_musicIsPlaying) {
-        [_musicToggleButton setImage:[UIImage imageNamed:@"big_pause_button"] forState:UIControlStateNormal];
+        [_toggleButton setImage:[UIImage imageNamed:@"music_play_playing"] forState:UIControlStateNormal];
     } else {
-        [_musicToggleButton setImage:[UIImage imageNamed:@"big_play_button"] forState:UIControlStateNormal];
+        [_toggleButton setImage:[UIImage imageNamed:@"music_play_suspend"] forState:UIControlStateNormal];
     }
 }
 
@@ -407,16 +503,6 @@ static void *kBufferingRatioKVOKey = &kBufferingRatioKVOKey;
     
 }
 
-# pragma mark - Music Controls
-
-- (IBAction)didTouchMusicToggleButton:(id)sender {
-    
-    if (_musicIsPlaying) {
-        [_streamer pause];
-    } else {
-        [_streamer play];
-    }
-}
 
 - (IBAction)didChangeMusicSliderValue:(id)sender {
     if (_streamer.status == DOUAudioStreamerFinished) {
@@ -673,7 +759,8 @@ static void *kBufferingRatioKVOKey = &kBufferingRatioKVOKey;
     }
 }
 
-- (void)updateStatus {
+- (void)updateStatus
+{
     self.musicIsPlaying = NO;
     _musicIndicator.state = NAKPlaybackIndicatorViewStateStopped;
     switch ([_streamer status]) {

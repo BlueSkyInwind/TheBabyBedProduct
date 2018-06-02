@@ -12,6 +12,8 @@
 #import <ShareSDKUI/ShareSDK+SSUI.h>
 #import "LWShareService.h"
 #import "BBPermissionManageViewController.h"
+#import "LYEmptyViewHeader.h"
+#import "BBFamilyMember.h"
 
 @interface BBFamilyMemberViewController ()<UITableViewDelegate,UITableViewDataSource>
 {
@@ -36,9 +38,9 @@
     self.view.backgroundColor = k_color_vcBg;
     
     self.title = @"家庭成员";
-    _isLeft = YES;
+//    _isLeft = YES;
     
-    [self getBindListData];
+    [self bingingActin];
     [self creatUI];
     
     UIButton *invireBt = [UIButton bb_btMakeWithSuperV:nil bgColor:nil titleColor:k_color_515151 titleFontSize:14 title:@"邀请好友"];
@@ -47,11 +49,14 @@
     self.navigationItem.rightBarButtonItem = item;
     
 }
+#pragma mark --- 获取已绑定用户列表
 -(void)getBindListData
 {
 #warning pp605
     [BBRequestTool bb_requestBindListWithPageNo:0 pageSize:10 SuccessBlock:^(EnumServerStatus status, id object) {
         NSLog(@"bind list %@",object);
+        [self.tableView reloadData];
+        [self.tableView ly_endLoading];
     } failureBlock:^(EnumServerStatus status, id object) {
         NSLog(@"bind list %@",object);
 
@@ -114,30 +119,36 @@
 
 -(void)creatUI
 {
-    UIView *topV = [[UIView alloc]initWithFrame:CGRectFlatMake(10, 64, _k_w-20, 33)];
+    UIView *topV = [[UIView alloc]initWithFrame:CGRectFlatMake(10, 64, _k_w-20, 44)];
     [self.view addSubview:topV];
     topV.backgroundColor = [UIColor whiteColor];
     
     UIButton *bingingedBt = [UIButton bb_btMakeWithSuperV:topV bgColor:nil titleColor:k_color_appOrange titleFontSize:16 title:@"已绑定用户"];
     _bingingBT = bingingedBt;
-    bingingedBt.frame = CGRectFlatMake(0, 0, topV.width/2, 33);
+    bingingedBt.frame = CGRectFlatMake(0, 0, topV.width/2, 44);
     [bingingedBt addTarget:self action:@selector(bingingActin) forControlEvents:UIControlEventTouchUpInside];
 
     UIButton *applyRecordBt = [UIButton bb_btMakeWithSuperV:topV bgColor:nil titleColor:k_color_515151 titleFontSize:16 title:@"申请记录"];
     _applyRecordBT = applyRecordBt;
-    applyRecordBt.frame = CGRectFlatMake(topV.width/2, 0, topV.width/2, 33);
+    applyRecordBt.frame = CGRectFlatMake(topV.width/2, 0, topV.width/2, 44);
     [applyRecordBt addTarget:self action:@selector(applyRecordActin) forControlEvents:UIControlEventTouchUpInside];
 
-    UIView *line = [[UIView alloc]initWithFrame:CGRectMake(topV.width/2, 5, 1, 23)];
+    UIView *line = [[UIView alloc]initWithFrame:CGRectMake(topV.width/2, 5, 1, 34)];
     line.backgroundColor = K_color_line;
     [topV addSubview:line];
     
     
-    self.tableView = [UITableView bb_tableVMakeWithSuperV:self.view frame:CGRectMake(0, 64+33, _k_w, _k_h-64-33) delegate:self bgColor:k_color_vcBg style:UITableViewStylePlain];
+    self.tableView = [UITableView bb_tableVMakeWithSuperV:self.view frame:CGRectMake(0, 64+44, _k_w, _k_h-64-33) delegate:self bgColor:k_color_vcBg style:UITableViewStylePlain];
+//    self.tableView.ly_emptyView = [LYEmptyView emptyViewWithImageStr:nil titleStr:@"还没有家庭成员绑定" detailStr:@"你可以邀请家庭成员绑定哦~"];
+
+    
 }
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 3;
+    if (_isLeft) {
+        return self.bindingedUsers.count;
+    }
+    return self.applyingUsers.count;
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -166,6 +177,8 @@
     if (_isLeft) {
         return;
     }
+    self.tableView.ly_emptyView = [LYEmptyView emptyViewWithImageStr:nil titleStr:@"还没有家庭成员绑定" detailStr:@"你可以邀请家庭成员绑定哦~"];
+    self.tableView.ly_emptyView.autoShowEmptyView = NO;
     [_bingingBT bb_btSetTitleColor:k_color_appOrange];
     [_applyRecordBT bb_btSetTitleColor:k_color_515151];
     _isLeft = YES;
@@ -176,6 +189,8 @@
     if (!_isLeft) {
         return;
     }
+    self.tableView.ly_emptyView = [LYEmptyView emptyViewWithImageStr:nil titleStr:@"还没有家庭成员申请绑定" detailStr:@"你可以邀请家庭成员绑定哦~"];
+    self.tableView.ly_emptyView.autoShowEmptyView = NO;
     [_bingingBT bb_btSetTitleColor:k_color_515151];
     [_applyRecordBT bb_btSetTitleColor:k_color_appOrange];
     _isLeft = NO;

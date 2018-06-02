@@ -53,6 +53,15 @@
 
     return birthdayStr;
 }
+-(NSString *)bb_dateFromTimestampForyyyyMMddHHmmss
+{
+    NSDate *birthdayDate = [self bb_dateFromTimestamp];
+    NSDateFormatter *formatter = [[NSDateFormatter alloc]init];
+    [formatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
+    NSString *birthdayStr = [formatter stringFromDate:birthdayDate];
+    return birthdayStr;
+}
+
 -(NSUInteger)bb_timeIntervalFromTimestamp
 {
     NSDate *birthdayDate = [self bb_dateFromTimestamp];

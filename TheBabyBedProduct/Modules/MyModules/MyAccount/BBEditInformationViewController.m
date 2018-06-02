@@ -256,6 +256,22 @@
         case 3:
         {
            //所在地
+            //性别
+//            NSArray *defaultSelArr = [textField.text componentsSeparatedByString:@" "];
+            NSArray *dataSource = [self getAddressDataSource];  //从外部传入地区数据源
+            BBNotificationSettingListCell *cell = (BBNotificationSettingListCell *)[self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:3 inSection:0]];
+            [BRAddressPickerView showAddressPickerWithShowType:BRAddressPickerModeArea dataSource:dataSource defaultSelected:nil isAutoSelect:YES themeColor:nil resultBlock:^(BRProvinceModel *province, BRCityModel *city, BRAreaModel *area) {
+                NSString *areaStr = [NSString stringWithFormat:@"%@ %@ %@", province.name, city.name, area.name];
+                cell.subTextLB.text = areaStr;
+                self.aUserInfoItem.city = areaStr;
+//                textField.text = self.infoModel.addressStr = [NSString stringWithFormat:@"%@ %@ %@", province.name, city.name, area.name];
+                NSLog(@"省[%zi]：%@，%@", province.index, province.code, province.name);
+                NSLog(@"市[%zi]：%@，%@", city.index, city.code, city.name);
+                NSLog(@"区[%zi]：%@，%@", area.index, area.code, area.name);
+                NSLog(@"--------------------");
+            } cancelBlock:^{
+                NSLog(@"点击了背景视图或取消按钮");
+            }];
         }
             break;
         case 4:
@@ -294,6 +310,15 @@
         default:
             break;
     }
+}
+#pragma mark - 获取地区数据源
+- (NSArray *)getAddressDataSource
+{
+    NSString *filePath = [[NSBundle mainBundle] pathForResource:@"bbCityList.json" ofType:nil];
+    NSData *data = [NSData dataWithContentsOfFile:filePath];
+    NSArray *dataSource = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:nil];
+    
+    return dataSource;
 }
 #pragma mark --- 设置头像
 -(void)configureAvatar

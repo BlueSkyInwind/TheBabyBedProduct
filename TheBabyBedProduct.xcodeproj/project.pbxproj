@@ -78,6 +78,9 @@
 		22CFD3FA2067FE060004186D /* TemperatureThresholdSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22CFD3F82067FE060004186D /* TemperatureThresholdSettingViewController.m */; };
 		22CFD3FB2067FE060004186D /* TemperatureThresholdSettingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22CFD3F92067FE060004186D /* TemperatureThresholdSettingViewController.xib */; };
 		347E55C5AB34C5F0659DAE6B /* Pods_TheBabyBedProduct.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 884698C1D52FC8383E4B1BCF /* Pods_TheBabyBedProduct.framework */; };
+		570782F120C0DB790069B88D /* BBConsumeRecord.m in Sources */ = {isa = PBXBuildFile; fileRef = 570782F020C0DB790069B88D /* BBConsumeRecord.m */; };
+		570782F420C0DC350069B88D /* BBPage.m in Sources */ = {isa = PBXBuildFile; fileRef = 570782F320C0DC350069B88D /* BBPage.m */; };
+		5707830C20C1195C0069B88D /* UITableView+MJRefresh.m in Sources */ = {isa = PBXBuildFile; fileRef = 5707830A20C1195B0069B88D /* UITableView+MJRefresh.m */; };
 		570A1C1E208C6E5200B13EB5 /* NSDate+BB.m in Sources */ = {isa = PBXBuildFile; fileRef = 570A1C1D208C6E5200B13EB5 /* NSDate+BB.m */; };
 		570A1CB72090C9D500B13EB5 /* BBDeviceHeaderBottomView.m in Sources */ = {isa = PBXBuildFile; fileRef = 570A1CB62090C9D500B13EB5 /* BBDeviceHeaderBottomView.m */; };
 		57210BFB2073B3F80039D8D5 /* BBPermissionManageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 57210BFA2073B3F80039D8D5 /* BBPermissionManageViewController.m */; };
@@ -219,6 +222,8 @@
 		57585AF0206D4850001BB202 /* share_timeline@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 57585AEE206D4850001BB202 /* share_timeline@3x.png */; };
 		57585AF3206D485C001BB202 /* share_qq@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 57585AF1206D485B001BB202 /* share_qq@3x.png */; };
 		57585AF4206D485C001BB202 /* share_qq@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 57585AF2206D485B001BB202 /* share_qq@2x.png */; };
+		577330FF20C23658000831E8 /* bbCityList.json in Resources */ = {isa = PBXBuildFile; fileRef = 577330FE20C23657000831E8 /* bbCityList.json */; };
+		5773310320C24722000831E8 /* BBFamilyMember.m in Sources */ = {isa = PBXBuildFile; fileRef = 5773310220C24722000831E8 /* BBFamilyMember.m */; };
 		57CB443820A415D900268DBE /* UIDevice+GetDeviceInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 57CB443720A415D900268DBE /* UIDevice+GetDeviceInfo.m */; };
 		57CB443B20A570D700268DBE /* BBMusic.m in Sources */ = {isa = PBXBuildFile; fileRef = 57CB443A20A570D700268DBE /* BBMusic.m */; };
 		57CB443E20A5712100268DBE /* BBMusicRequestModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 57CB443D20A5712100268DBE /* BBMusicRequestModel.m */; };
@@ -454,6 +459,12 @@
 		22CFD3F82067FE060004186D /* TemperatureThresholdSettingViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TemperatureThresholdSettingViewController.m; sourceTree = "<group>"; };
 		22CFD3F92067FE060004186D /* TemperatureThresholdSettingViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TemperatureThresholdSettingViewController.xib; sourceTree = "<group>"; };
 		2F6F434F00B680C952F3C9BF /* Pods-TheBabyBedProduct.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TheBabyBedProduct.release.xcconfig"; path = "Pods/Target Support Files/Pods-TheBabyBedProduct/Pods-TheBabyBedProduct.release.xcconfig"; sourceTree = "<group>"; };
+		570782EF20C0DB790069B88D /* BBConsumeRecord.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BBConsumeRecord.h; sourceTree = "<group>"; };
+		570782F020C0DB790069B88D /* BBConsumeRecord.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BBConsumeRecord.m; sourceTree = "<group>"; };
+		570782F220C0DC350069B88D /* BBPage.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BBPage.h; sourceTree = "<group>"; };
+		570782F320C0DC350069B88D /* BBPage.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BBPage.m; sourceTree = "<group>"; };
+		5707830A20C1195B0069B88D /* UITableView+MJRefresh.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableView+MJRefresh.m"; sourceTree = "<group>"; };
+		5707830B20C1195C0069B88D /* UITableView+MJRefresh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableView+MJRefresh.h"; sourceTree = "<group>"; };
 		570A1C1C208C6E5200B13EB5 /* NSDate+BB.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSDate+BB.h"; sourceTree = "<group>"; };
 		570A1C1D208C6E5200B13EB5 /* NSDate+BB.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSDate+BB.m"; sourceTree = "<group>"; };
 		570A1CB52090C9D500B13EB5 /* BBDeviceHeaderBottomView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BBDeviceHeaderBottomView.h; sourceTree = "<group>"; };
@@ -709,6 +720,9 @@
 		57585AEE206D4850001BB202 /* share_timeline@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "share_timeline@3x.png"; sourceTree = "<group>"; };
 		57585AF1206D485B001BB202 /* share_qq@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "share_qq@3x.png"; sourceTree = "<group>"; };
 		57585AF2206D485B001BB202 /* share_qq@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "share_qq@2x.png"; sourceTree = "<group>"; };
+		577330FE20C23657000831E8 /* bbCityList.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = bbCityList.json; sourceTree = "<group>"; };
+		5773310120C24722000831E8 /* BBFamilyMember.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BBFamilyMember.h; sourceTree = "<group>"; };
+		5773310220C24722000831E8 /* BBFamilyMember.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BBFamilyMember.m; sourceTree = "<group>"; };
 		57CB443620A415D900268DBE /* UIDevice+GetDeviceInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIDevice+GetDeviceInfo.h"; sourceTree = "<group>"; };
 		57CB443720A415D900268DBE /* UIDevice+GetDeviceInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIDevice+GetDeviceInfo.m"; sourceTree = "<group>"; };
 		57CB443920A570D700268DBE /* BBMusic.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BBMusic.h; sourceTree = "<group>"; };
@@ -953,6 +967,7 @@
 		22CF35692073E15900707F8A /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				577330FE20C23657000831E8 /* bbCityList.json */,
 				22CF356A2073E17300707F8A /* noticeMusic.wav */,
 			);
 			path = Source;
@@ -1310,9 +1325,21 @@
 			path = ThresholdSetting;
 			sourceTree = "<group>";
 		};
+		570782EE20C0D9C30069B88D /* M */ = {
+			isa = PBXGroup;
+			children = (
+				570782EF20C0DB790069B88D /* BBConsumeRecord.h */,
+				570782F020C0DB790069B88D /* BBConsumeRecord.m */,
+				570782F220C0DC350069B88D /* BBPage.h */,
+				570782F320C0DC350069B88D /* BBPage.m */,
+			);
+			path = M;
+			sourceTree = "<group>";
+		};
 		57210C712073B4A50039D8D5 /* MyAccount */ = {
 			isa = PBXGroup;
 			children = (
+				570782EE20C0D9C30069B88D /* M */,
 				57210C842073CF260039D8D5 /* BBMyAccountViewController.h */,
 				57210C852073CF260039D8D5 /* BBMyAccountViewController.m */,
 				57210C722073B4A50039D8D5 /* BBEditInfoAvatarCell.h */,
@@ -1826,6 +1853,8 @@
 		574C6CDB2069272700F5BF55 /* Category */ = {
 			isa = PBXGroup;
 			children = (
+				5707830B20C1195C0069B88D /* UITableView+MJRefresh.h */,
+				5707830A20C1195B0069B88D /* UITableView+MJRefresh.m */,
 				57CB443520A415D900268DBE /* UIDevice */,
 				57CECE42207374DC00E9A876 /* UIAlertController+EasilyMake.h */,
 				57CECE41207374DC00E9A876 /* UIAlertController+EasilyMake.m */,
@@ -1871,6 +1900,7 @@
 		57585ABB206D17B4001BB202 /* FamilyMember */ = {
 			isa = PBXGroup;
 			children = (
+				5773310020C245A5000831E8 /* M */,
 				57210BF92073B3F80039D8D5 /* BBPermissionManageViewController.h */,
 				57210BFA2073B3F80039D8D5 /* BBPermissionManageViewController.m */,
 				57585ABC206D17CA001BB202 /* BBFamilyMemberViewController.h */,
@@ -1904,6 +1934,15 @@
 				57585ACE206D4428001BB202 /* LWShareButton.h */,
 			);
 			path = LWShareView;
+			sourceTree = "<group>";
+		};
+		5773310020C245A5000831E8 /* M */ = {
+			isa = PBXGroup;
+			children = (
+				5773310120C24722000831E8 /* BBFamilyMember.h */,
+				5773310220C24722000831E8 /* BBFamilyMember.m */,
+			);
+			path = M;
 			sourceTree = "<group>";
 		};
 		57CB443520A415D900268DBE /* UIDevice */ = {
@@ -2178,7 +2217,6 @@
 				22CFD331206141080004186D /* Frameworks */,
 				22CFD332206141080004186D /* Resources */,
 				0EF6D12AADA72849A9392AD1 /* [CP] Embed Pods Frameworks */,
-				EA544DD7F3B136B7CDD916D1 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -2280,6 +2318,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				577330FF20C23658000831E8 /* bbCityList.json in Resources */,
 				57585AF4206D485C001BB202 /* share_qq@2x.png in Resources */,
 				57585AE8206D4839001BB202 /* share_weibo@2x.png in Resources */,
 				57CF9A1A20BA8F1C005EB9E9 /* big_play_button.png in Resources */,
@@ -2364,6 +2403,7 @@
 				"${BUILT_PRODUCTS_DIR}/GVUserDefaults/GVUserDefaults.framework",
 				"${BUILT_PRODUCTS_DIR}/IQKeyboardManager/IQKeyboardManager.framework",
 				"${BUILT_PRODUCTS_DIR}/JSONModel/JSONModel.framework",
+				"${BUILT_PRODUCTS_DIR}/LYEmptyView/LYEmptyView.framework",
 				"${BUILT_PRODUCTS_DIR}/MBProgressHUD/MBProgressHUD.framework",
 				"${BUILT_PRODUCTS_DIR}/MJExtension/MJExtension.framework",
 				"${BUILT_PRODUCTS_DIR}/MJRefresh/MJRefresh.framework",
@@ -2389,6 +2429,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GVUserDefaults.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManager.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JSONModel.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/LYEmptyView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MBProgressHUD.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MJExtension.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MJRefresh.framework",
@@ -2423,21 +2464,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		EA544DD7F3B136B7CDD916D1 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TheBabyBedProduct/Pods-TheBabyBedProduct-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -2497,8 +2523,10 @@
 				574C6CD72069262000F5BF55 /* BBRegistView.m in Sources */,
 				5722098420AD22AC00611BFA /* GKWYMusicLyricView.m in Sources */,
 				57CB447E20A9DB0700268DBE /* BBMusicHotRecommend.m in Sources */,
+				5707830C20C1195C0069B88D /* UITableView+MJRefresh.m in Sources */,
 				22CF35682073DB1500707F8A /* QRScanView.m in Sources */,
 				22CFD38D20614C3F0004186D /* MyViewController.m in Sources */,
+				5773310320C24722000831E8 /* BBFamilyMember.m in Sources */,
 				22CFD3B3206402BF0004186D /* PointItem.m in Sources */,
 				5726F3B8206BDE5F008EED75 /* BBAccountNumberViewController.m in Sources */,
 				5722099D20AD294100611BFA /* GKWYMusicTool.m in Sources */,
@@ -2546,6 +2574,7 @@
 				5726F3A4206B8332008EED75 /* WSTableViewCell.m in Sources */,
 				5722097F20AD22AC00611BFA /* GKWYMusicListView.m in Sources */,
 				57210D1B207A48F60039D8D5 /* BBModifyPasswordViewController.m in Sources */,
+				570782F120C0DB790069B88D /* BBConsumeRecord.m in Sources */,
 				8449AC0820620CB300526935 /* BaseResultModel.m in Sources */,
 				57585ACF206D4428001BB202 /* LWShareButton.m in Sources */,
 				574C6CDA2069262000F5BF55 /* BBSettingViewController.m in Sources */,
@@ -2642,6 +2671,7 @@
 				22CFD3BE206548000004186D /* ConsoleBodyView.m in Sources */,
 				5722099C20AD294100611BFA /* GKWYMusicModel.m in Sources */,
 				22CFD339206141080004186D /* AppDelegate.m in Sources */,
+				570782F420C0DC350069B88D /* BBPage.m in Sources */,
 				2263B8E7206BD901005BB15E /* HomeHeaderView.m in Sources */,
 				84C7921D207C566600B63796 /* HistoryTemperatureListViewController.m in Sources */,
 				2263B8E3206BCBB9005BB15E /* HomeTableViewCell.m in Sources */,
