@@ -11,6 +11,7 @@
 #import "RSA.h"
 
 extern short int TransID;
+NSString * const    Video_Address     =  @"Video_Address";
 
 @implementation ReceiveUdpMessage
 
@@ -69,6 +70,10 @@ extern short int TransID;
             //设备管理相应报文
             DLog(@"设备管理相应报文类型 ---- %c",msgType);
             [self analysisEventYDACtrlHeader:ctrlData complication:self.responseResult];
+        }else if(msgType == 0x0a){
+            //CFG相应报文
+            DLog(@"设备管理相应报文类型 ---- %c",msgType);
+            [self analysisCFGYDACtrlHeader:ctrlData complication:self.responseResult];
         }
     }@catch (NSException * exception){
         DLog(@"解析报文出现异常%@",exception);
@@ -178,7 +183,7 @@ extern short int TransID;
 #pragma mark - 登录相应报文解析
 -(void)analysisLoginYDACtrlHeader:(NSData *)ctrlHeaderData complication:(ReceiveUdpMessageResult)messageResult{
     
-    unsigned int errCode;
+    unsigned int errCode = 0;
     Byte receiveCtrlByte[ctrlHeaderData.length];
     Byte receivePayLoad[ctrlHeaderData.length - YDA_CTRL_HAEDER_LENGTH];
     [ctrlHeaderData getBytes:receiveCtrlByte length:ctrlHeaderData.length];
@@ -233,8 +238,46 @@ extern short int TransID;
     return eventDic;
 }
 
+#pragma mark - CFG相应报文解析
+-(void)analysisCFGYDACtrlHeader:(NSData *)ctrlHeaderData complication:(ReceiveUdpMessageResult)messageResult{
+    
+    unsigned int errCode;
+    NSDictionary * CFGDic;
+    Byte receiveCtrlByte[ctrlHeaderData.length];
+    Byte receivePayLoad[ctrlHeaderData.length - YDA_CTRL_HAEDER_LENGTH];
+    [ctrlHeaderData getBytes:receiveCtrlByte length:ctrlHeaderData.length];
+    memcpy(receivePayLoad, receiveCtrlByte + YDA_CTRL_HAEDER_LENGTH, ctrlHeaderData.length - YDA_CTRL_HAEDER_LENGTH);
+    Byte receiveUdpCFGErrByte[8];
+    memcpy(receivePayLoad, receivePayLoad, 8);
+    short int elementID = (receivePayLoad[0] << 8) + receivePayLoad[1];
+    if (elementID == 0) {
+        errCode = receiveUdpCFGErrByte[4] + (receiveUdpCFGErrByte[5] << 8) + (receiveUdpCFGErrByte[6] << 16) + (receiveUdpCFGErrByte[7] << 24);
+    }
+    
+    Byte receiveUdpCFGAddressheaderByte[4];
+    memcpy(receiveUdpCFGAddressheaderByte, receivePayLoad + 8, 4);
+    short int elementTwoID = (receiveUdpCFGAddressheaderByte[0] << 8) + receiveUdpCFGAddressheaderByte[1];
+    if (elementTwoID == 0x0c) {
+        short int addressLength = (receiveUdpCFGAddressheaderByte[2] << 8) + receiveUdpCFGAddressheaderByte[3];
+        Byte receiveUdpCFGAddressByte[addressLength];
+        memcpy(receiveUdpCFGAddressByte, receivePayLoad + 12, addressLength);
+        NSData * addressData = [[NSData alloc]initWithBytes:receiveUdpCFGAddressheaderByte length:addressLength];
+        CFGDic = [self analysisCFGVideoAdress:addressData];
+    }
 
-
+    messageResult(CFGMessageType,errCode,CFGDic);
+    
+}
+-(NSDictionary * )analysisCFGVideoAdress:(NSData *)addressData{
+    
+    Byte addressByte [addressData.length];
+    short int option = 0;
+    short int value = 0;
+    NSData * resultData = [[NSData alloc]initWithBytes:(addressByte + 4) length:addressData.length - 4];
+    NSString * addressStr = [[NSString alloc]initWithData:resultData encoding:NSUTF8StringEncoding];
+    NSDictionary * addressDic = @{Video_Address:addressStr};
+    return addressDic;
+}
 
 
 

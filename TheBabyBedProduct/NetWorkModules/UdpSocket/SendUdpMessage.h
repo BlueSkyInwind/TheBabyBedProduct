@@ -22,6 +22,10 @@ UIKIT_EXTERN NSString * const    aucYdaSwVer;    //软件版本
 UIKIT_EXTERN NSString * const    aucYdaHwVer;    //硬件版本
 UIKIT_EXTERN NSString * const    aucYdaHwAddr;   //硬件地址
 
+UIKIT_EXTERN NSString * const    VideoPlayrStatus;
+UIKIT_EXTERN NSString * const    VideoClarityStatus;
+
+
 
 @interface SendUdpMessage : NSObject
 
@@ -34,8 +38,14 @@ UIKIT_EXTERN NSString * const    aucYdaHwAddr;   //硬件地址
 -(NSData *)generateLoginRequestMessage;
 //心跳
 -(NSData *)generateHeartbeatRequestMessage;
-//CFG设置报文
--(NSData *)generateCFGSettingRequestMessage;
+/**
+ //CFG设置报文
+ 
+ @param CFGParam  VideoPlayrStatus ： 1、开始播放  2、暂停播放
+ VideoClarityStatus ： 1、标清  2、高清
+ @return CFG 数据包
+ */
+-(NSData *)generateCFGSettingRequestMessage:(NSDictionary *)CFGParam;
 /**
  事件通知请求
  

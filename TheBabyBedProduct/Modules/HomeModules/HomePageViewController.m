@@ -127,9 +127,12 @@
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(sensorDataUpdates:) name:YDA_EVENT_NOTIFICATION object:nil ];
 }
 -(void)rightButtonItemClick{
-    MessageViewController * messageVC = [[MessageViewController alloc]init];
-    messageVC.hidesBottomBarWhenPushed = true;
-    [self.navigationController pushViewController:messageVC animated:true];
+    
+    [[BBUdpSocketManager shareInstance] sendCFGSettingRequestMessage:@{VideoPlayrStatus:@(1),VideoClarityStatus:@(1)}];
+
+//    MessageViewController * messageVC = [[MessageViewController alloc]init];
+//    messageVC.hidesBottomBarWhenPushed = true;
+//    [self.navigationController pushViewController:messageVC animated:true];
 }
 #pragma mark - 传感器数据通知状态
 -(void)sensorDataUpdates:(NSNotification *)notification{

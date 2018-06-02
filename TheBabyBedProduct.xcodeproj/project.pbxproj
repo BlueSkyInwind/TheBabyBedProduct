@@ -17,6 +17,8 @@
 		225B8B9B20C03B6900710583 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 225B8B9A20C03B6900710583 /* QuartzCore.framework */; };
 		225B8BA120C0438900710583 /* BBVideoPlayView.m in Sources */ = {isa = PBXBuildFile; fileRef = 225B8BA020C0438900710583 /* BBVideoPlayView.m */; };
 		225B8BA320C2542D00710583 /* IJKMediaFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 225B8BA220C2542D00710583 /* IJKMediaFramework.framework */; };
+		225B8BB020C2AA0000710583 /* ASValuePopUpView.m in Sources */ = {isa = PBXBuildFile; fileRef = 57210C9F2074C2DE0039D8D5 /* ASValuePopUpView.m */; };
+		225B8BB120C2AA0000710583 /* ASValueTrackingSlider.m in Sources */ = {isa = PBXBuildFile; fileRef = 57210CA42074C2DE0039D8D5 /* ASValueTrackingSlider.m */; };
 		2263B8E3206BCBB9005BB15E /* HomeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2263B8E1206BCBB9005BB15E /* HomeTableViewCell.m */; };
 		2263B8E7206BD901005BB15E /* HomeHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2263B8E6206BD901005BB15E /* HomeHeaderView.m */; };
 		2263B8EA206BE604005BB15E /* MessageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2263B8E9206BE604005BB15E /* MessageViewController.m */; };
@@ -104,11 +106,9 @@
 		57210CA92074C2DE0039D8D5 /* UIViewController+ZFPlayerRotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 57210C972074C2DE0039D8D5 /* UIViewController+ZFPlayerRotation.m */; };
 		57210CAA2074C2DE0039D8D5 /* ZFBrightnessView.m in Sources */ = {isa = PBXBuildFile; fileRef = 57210C9C2074C2DE0039D8D5 /* ZFBrightnessView.m */; };
 		57210CAB2074C2DE0039D8D5 /* ZFPlayer.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 57210C9D2074C2DE0039D8D5 /* ZFPlayer.bundle */; };
-		57210CAC2074C2DE0039D8D5 /* ASValuePopUpView.m in Sources */ = {isa = PBXBuildFile; fileRef = 57210C9F2074C2DE0039D8D5 /* ASValuePopUpView.m */; };
 		57210CAD2074C2DE0039D8D5 /* ZFPlayerControlView.m in Sources */ = {isa = PBXBuildFile; fileRef = 57210CA02074C2DE0039D8D5 /* ZFPlayerControlView.m */; };
 		57210CAE2074C2DE0039D8D5 /* ZFPlayerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 57210CA12074C2DE0039D8D5 /* ZFPlayerView.m */; };
 		57210CAF2074C2DE0039D8D5 /* MMMaterialDesignSpinner.m in Sources */ = {isa = PBXBuildFile; fileRef = 57210CA22074C2DE0039D8D5 /* MMMaterialDesignSpinner.m */; };
-		57210CB02074C2DE0039D8D5 /* ASValueTrackingSlider.m in Sources */ = {isa = PBXBuildFile; fileRef = 57210CA42074C2DE0039D8D5 /* ASValueTrackingSlider.m */; };
 		57210D09207736040039D8D5 /* NetWorkRequestManager+BBRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 57210D08207736040039D8D5 /* NetWorkRequestManager+BBRequest.m */; };
 		57210D0C207744780039D8D5 /* GlobalTool+BBHandleCode.m in Sources */ = {isa = PBXBuildFile; fileRef = 57210D0B207744780039D8D5 /* GlobalTool+BBHandleCode.m */; };
 		57210D0F207777960039D8D5 /* AppDelegate+BBConfigure.m in Sources */ = {isa = PBXBuildFile; fileRef = 57210D0E207777960039D8D5 /* AppDelegate+BBConfigure.m */; };
@@ -2509,6 +2509,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				225B8BB020C2AA0000710583 /* ASValuePopUpView.m in Sources */,
+				225B8BB120C2AA0000710583 /* ASValueTrackingSlider.m in Sources */,
 				57CF9A1320BA8EA1005EB9E9 /* MusicHandler.m in Sources */,
 				229FF0A72084E2C2005BA4A6 /* JMAirKissShareTools.m in Sources */,
 				5726F3AA206B8537008EED75 /* BBHelpAndSuggestionViewController.m in Sources */,
@@ -2577,7 +2579,6 @@
 				8449AC152062354000526935 /* LaunchConfiguration.m in Sources */,
 				8412F52A20886DF500521C23 /* CRC16.m in Sources */,
 				229FF0BD208E258F005BA4A6 /* BabyBedPeripheralManager.m in Sources */,
-				57210CAC2074C2DE0039D8D5 /* ASValuePopUpView.m in Sources */,
 				8449AC18206239F900526935 /* GlobalUtility.m in Sources */,
 				8490CFC72074814200D416C1 /* DeviceConnectAnimationView.m in Sources */,
 				22CF35632073CCAB00707F8A /* ScanDeviceCodeViewController.m in Sources */,
@@ -2658,7 +2659,6 @@
 				572209C720AD32CB00611BFA /* UIViewController+GKWYCategory.m in Sources */,
 				57CF99FF20BA8551005EB9E9 /* Track.m in Sources */,
 				57CF9A1220BA8EA1005EB9E9 /* BaseHelper.m in Sources */,
-				57210CB02074C2DE0039D8D5 /* ASValueTrackingSlider.m in Sources */,
 				8449AC122062338F00526935 /* MBPAlertView.m in Sources */,
 				5726F3C1206C8F13008EED75 /* BBEarlyEducationCell.m in Sources */,
 				5726F34F206A8DC3008EED75 /* UIView+PP_Frame.m in Sources */,

@@ -13,3 +13,12 @@
 +(id)initBBVideoPlayView:(UIView *)superView videoUrl:(NSString *)videoUrl;
 
 @end
+
+
+@interface BBVideoPlayView (configureView)
+
+-(void)palyVideo;
+-(void)pauseVideo;
+
+@end
+

@@ -173,10 +173,10 @@ short int TransID;
     [self sendUdpData:discoverRequestData tag:1004];
     
 }
--(void)sendCFGSettingRequestMessage{
+-(void)sendCFGSettingRequestMessage:(NSDictionary *)dic{
     
     SendUdpMessage * sendMessage = [[SendUdpMessage alloc]init];
-    NSData * CFGSettingRequestData = [sendMessage generateCFGSettingRequestMessage];
+    NSData * CFGSettingRequestData = [sendMessage generateCFGSettingRequestMessage:dic];
     [self sendUdpData:CFGSettingRequestData tag:1007];
     
 }
@@ -230,8 +230,19 @@ short int TransID;
             break;
         case NotificationType:{
             if (errCode == 0) {
-                NSDictionary * dic = (NSDictionary *)result;
-                [[NSNotificationCenter defaultCenter] postNotificationName:YDA_EVENT_NOTIFICATION object:self userInfo:dic];
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    NSDictionary * dic = (NSDictionary *)result;
+                    [[NSNotificationCenter defaultCenter] postNotificationName:YDA_EVENT_NOTIFICATION object:self userInfo:dic];
+                });
+            }
+        }
+            break;
+        case CFGMessageType:{
+            if (errCode == 0) {
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    NSDictionary * dic = (NSDictionary *)result;
+                    [[NSNotificationCenter defaultCenter] postNotificationName:YDA_EVENT_NOTIFICATION object:self userInfo:dic];
+                });
             }
         }
             break;

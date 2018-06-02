@@ -28,6 +28,8 @@ NSString * const    aucYdaSwVer     =  @"aucYdaSwVer";
 NSString * const    aucYdaHwVer     =  @"aucYdaHwVer";
 NSString * const    aucYdaHwAddr     =  @"aucYdaHwAddr";
 
+NSString * const    VideoPlayrStatus     =  @"VideoPlayrStatus";
+NSString * const    VideoClarityStatus     =  @"VideoClarityStatus";
 
 
 @implementation SendUdpMessage
@@ -317,8 +319,15 @@ NSString * const    aucYdaHwAddr     =  @"aucYdaHwAddr";
     return dataOne;
 }
 
-//CFG设置报文
--(NSData *)generateCFGSettingRequestMessage{
+
+/**
+ //CFG设置报文
+
+ @param CFGParam  VideoPlayrStatus ： 1、开始播放  2、暂停播放
+                  VideoClarityStatus ： 1、标清  2、高清
+ @return CFG 数据包
+ */
+-(NSData *)generateCFGSettingRequestMessage:(NSDictionary *)CFGParam{
     
     NSMutableData * dataOne = [[self generatePreambleVersion:0 preambleCrypto:0 HLEN:0x04 YdaHeaderChecksum:0] mutableCopy];
     
@@ -337,7 +346,7 @@ NSString * const    aucYdaHwAddr     =  @"aucYdaHwAddr";
     NSData * dataSix = [self generateYdaCtrlHeaderChecksum:0 Random:19];
     [dataOne appendData:dataSix];
     
-    NSData * bodyData = [self generateCFGRequestUdpBody];
+    NSData * bodyData = [self generateCFGRequestUdpBody:CFGParam];
     [dataOne appendData:bodyData];
     
     dataOne = [[self setYdaHeaderDatalen:dataOne.length  data:dataOne] mutableCopy];
@@ -348,13 +357,40 @@ NSString * const    aucYdaHwAddr     =  @"aucYdaHwAddr";
     return dataOne;
 }
 
--(NSData *)generateCFGRequestUdpBody{
+-(NSData *)generateCFGRequestUdpBody:(NSDictionary *)param{
     
-    NSMutableData * bodyData = [[self generateUdpBodyUnit:6 elementID:0x0B dataContent:nil] mutableCopy];
+    NSData * data = [self generateCFGBodyData:param dataLength:6];
+    NSMutableData * bodyData = [[self generateUdpBodyUnit:6 elementID:0x0B dataContent:data] mutableCopy];
     return bodyData;
 
 }
+-(NSData *)generateCFGBodyData:(NSDictionary *)param dataLength:(short int)dataLength{
+    Byte byte[dataLength];
+    
+    short int playerStatus = 0;
+    short int playerClarity = 0;
+    short int other = 0;
 
+    if ([param.allKeys containsObject:VideoPlayrStatus]) {
+        NSNumber * num = (NSNumber *)param[VideoPlayrStatus];
+        playerStatus = num.shortValue;
+    }
+    
+    if ([param.allKeys containsObject:VideoClarityStatus]) {
+        NSNumber * num = (NSNumber *)param[VideoClarityStatus];
+        playerClarity = num.shortValue;
+    }
+    
+    byte[0] = ((playerStatus >> 8) & 0xff);
+    byte[1] = (playerStatus & 0xff);
+    byte[2] = ((playerClarity >> 8) & 0xff);
+    byte[3] = (playerClarity & 0xff);
+    byte[4] = ((other >> 8) & 0xff);
+    byte[5] = (other & 0xff);
+    
+    NSData * resultData = [[NSData alloc]initWithBytes:byte length:dataLength];
+    return resultData;
+}
 #pragma mark - YDA HEAdER
 /**
  生成 版本 payload加密部分
@@ -584,97 +620,6 @@ unsigned short checksumAndCRC(unsigned short * buffer,int size)
 }
 
 
- -(NSData *)testGenerateAddressingMessage{
  
- Byte byteOne[4];
- unsigned char version = 0;    //版本
- unsigned char crypto = 0;     //加密类型
- short int checksum = 0;
- 
- byteOne[0] = (((crypto << 4)&0xf0) | version);
- byteOne[1] = 0x04;
- byteOne[2] = ((checksum >> 8) & 0xff);
- byteOne[3] = (checksum & 0xff);
- NSMutableData * dataOne = [[NSMutableData alloc]initWithBytes:byteOne length:4];
- 
- // 会话id ctrlAndExt
- Byte byteTwo[4];
- short int transID = 0;
- short int ctrlAndExt  = 0;
- 
- byteTwo[0] = ((transID >> 8) & 0xff);
- byteTwo[1] = (transID  & 0xff);
- byteTwo[2] = ((ctrlAndExt >> 8) & 0xff);
- byteTwo[3] = (ctrlAndExt & 0xff);
- [dataOne appendBytes:byteTwo length:4];
- 
- // Frag Offset
- Byte byteThree[4];
- short int fragmentID = 0;
- short int fragOffset  = 0;
- byteThree[0] = ((fragmentID >> 8) & 0xff);
- byteThree[1] = (fragmentID  & 0xff);
- byteThree[2] = ((fragOffset >> 8) & 0xff);
- byteThree[3] = (fragOffset & 0xff);
- [dataOne appendBytes:byteThree length:4];
- 
- Byte byteFour[4];
- short int dataLen = 0;
- short int reserved = 0;
- byteFour[0] = ((dataLen >> 8) & 0xff);
- byteFour[1] = (dataLen  & 0xff);
- byteFour[2] = ((reserved >> 8) & 0xff);
- byteFour[3] = (reserved & 0xff);
- [dataOne appendBytes:byteFour length:4];
- 
- Byte byteFive[4];
- short int maslen = 8;
- byteFive[0] = 0x01;
- byteFive[1] = 0x00;
- byteFive[2] = ((maslen >> 8) & 0xff);
- byteFive[3] = (maslen & 0xff);
- [dataOne appendBytes:byteFive length:4];
- 
- Byte bytesix[4];
- short int CRC = 0;
- short int random = 7;  //随机数
- bytesix[0] = ((CRC >> 8) & 0xff);
- bytesix[1] = (CRC  & 0xff);
- bytesix[2] = ((random >> 8) & 0xff);
- bytesix[3] = (random & 0xff);
- [dataOne appendBytes:bytesix length:4];
- 
- NSData * bodyData = [self generateUdpBody];
- [dataOne appendData:bodyData];
- 
- //YDAmaslen赋值；
- Byte headerByte[dataOne.length];
- Byte ctrlHeaderByte[dataOne.length - 16];
- [dataOne getBytes:headerByte length:dataOne.length];
- memcpy(ctrlHeaderByte, headerByte + 16, dataOne.length - 16);
- 
- //DataLen
- short int yda_datalen = bodyData.length;
- headerByte[12] = ((yda_datalen >> 8) & 0xff);
- headerByte[13] = (yda_datalen  & 0xff);
- //
- short int yda_maslen = bodyData.length + 8;
- headerByte[18] = ((yda_maslen >> 8) & 0xff);
- headerByte[19] = (yda_maslen  & 0xff);
- 
-  short int num = (0x01 << 8) | 0x89;
- 
-     unsigned short checksumOne = checksumAndCRC(headerByte, (int)dataOne.length);
-     headerByte[2] = ((checksumOne >> 8) & 0xff);
-     headerByte[3] = (checksumOne  & 0xff);
- 
-     unsigned short checksumTwo = checksumAndCRC(ctrlHeaderByte, (int)(dataOne.length - 16));
-     headerByte[20] = ((checksumTwo >> 8) & 0xff);
-     headerByte[21] = (checksumTwo  & 0xff);
- 
- NSData * resultData = [NSData dataWithBytes:headerByte length:dataOne.length];
-     return resultData;
- 
- }
 
 @end
