@@ -16,6 +16,7 @@
 		225B8B9920C03B6000710583 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 225B8B9820C03B6000710583 /* OpenGLES.framework */; };
 		225B8B9B20C03B6900710583 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 225B8B9A20C03B6900710583 /* QuartzCore.framework */; };
 		225B8BA120C0438900710583 /* BBVideoPlayView.m in Sources */ = {isa = PBXBuildFile; fileRef = 225B8BA020C0438900710583 /* BBVideoPlayView.m */; };
+		225B8BA320C2542D00710583 /* IJKMediaFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 225B8BA220C2542D00710583 /* IJKMediaFramework.framework */; };
 		2263B8E3206BCBB9005BB15E /* HomeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2263B8E1206BCBB9005BB15E /* HomeTableViewCell.m */; };
 		2263B8E7206BD901005BB15E /* HomeHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2263B8E6206BD901005BB15E /* HomeHeaderView.m */; };
 		2263B8EA206BE604005BB15E /* MessageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2263B8E9206BE604005BB15E /* MessageViewController.m */; };
@@ -278,7 +279,6 @@
 		842D9CED206B94C90020C3C2 /* HomeLeftItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = 842D9CEC206B94C90020C3C2 /* HomeLeftItemView.m */; };
 		84332C9D206CE6F5009A9121 /* MessageTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 84332C9B206CE6F5009A9121 /* MessageTableViewCell.m */; };
 		84332C9E206CE6F5009A9121 /* MessageTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84332C9C206CE6F5009A9121 /* MessageTableViewCell.xib */; };
-		843346F020C135840021C7AB /* IJKMediaFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 843346EF20C135840021C7AB /* IJKMediaFramework.framework */; };
 		8449AC0820620CB300526935 /* BaseResultModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8449AC0720620CB300526935 /* BaseResultModel.m */; };
 		8449AC0B20620D1B00526935 /* BaseViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8449AC0A20620D1B00526935 /* BaseViewModel.m */; };
 		8449AC0E2062283300526935 /* NetWorkRequestManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8449AC0D2062283300526935 /* NetWorkRequestManager.m */; };
@@ -335,6 +335,7 @@
 		225B8B9A20C03B6900710583 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		225B8B9F20C0438900710583 /* BBVideoPlayView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BBVideoPlayView.h; sourceTree = "<group>"; };
 		225B8BA020C0438900710583 /* BBVideoPlayView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BBVideoPlayView.m; sourceTree = "<group>"; };
+		225B8BA220C2542D00710583 /* IJKMediaFramework.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = IJKMediaFramework.framework; sourceTree = "<group>"; };
 		2263B8E0206BCBB9005BB15E /* HomeTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeTableViewCell.h; sourceTree = "<group>"; };
 		2263B8E1206BCBB9005BB15E /* HomeTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeTableViewCell.m; sourceTree = "<group>"; };
 		2263B8E5206BD901005BB15E /* HomeHeaderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeHeaderView.h; sourceTree = "<group>"; };
@@ -808,7 +809,6 @@
 		84332C9A206CE6F5009A9121 /* MessageTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MessageTableViewCell.h; sourceTree = "<group>"; };
 		84332C9B206CE6F5009A9121 /* MessageTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MessageTableViewCell.m; sourceTree = "<group>"; };
 		84332C9C206CE6F5009A9121 /* MessageTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MessageTableViewCell.xib; sourceTree = "<group>"; };
-		843346EF20C135840021C7AB /* IJKMediaFramework.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = IJKMediaFramework.framework; sourceTree = "<group>"; };
 		8449AC0620620CB300526935 /* BaseResultModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseResultModel.h; sourceTree = "<group>"; };
 		8449AC0720620CB300526935 /* BaseResultModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BaseResultModel.m; sourceTree = "<group>"; };
 		8449AC0920620D1B00526935 /* BaseViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseViewModel.h; sourceTree = "<group>"; };
@@ -866,7 +866,7 @@
 			files = (
 				84114B4E20722CA6005A1DC9 /* CoreGraphics.framework in Frameworks */,
 				225B8B9B20C03B6900710583 /* QuartzCore.framework in Frameworks */,
-				843346F020C135840021C7AB /* IJKMediaFramework.framework in Frameworks */,
+				225B8BA320C2542D00710583 /* IJKMediaFramework.framework in Frameworks */,
 				225B8B9920C03B6000710583 /* OpenGLES.framework in Frameworks */,
 				225B8B9720C03B4900710583 /* MediaPlayer.framework in Frameworks */,
 				225B8B9520C03B3300710583 /* CoreVideo.framework in Frameworks */,
@@ -2114,7 +2114,7 @@
 		843346E520BFDBDA0021C7AB /* ijkplayer */ = {
 			isa = PBXGroup;
 			children = (
-				843346EF20C135840021C7AB /* IJKMediaFramework.framework */,
+				225B8BA220C2542D00710583 /* IJKMediaFramework.framework */,
 			);
 			path = ijkplayer;
 			sourceTree = "<group>";
