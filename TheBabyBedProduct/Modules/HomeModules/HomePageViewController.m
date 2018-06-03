@@ -229,9 +229,11 @@
         return;
     }
     //通过deviceId来判断是否绑定设备
-    if ([BBUser bb_getUser].deviceId == nil || [[BBUser bb_getUser].deviceId isEqual: @""]) {
+    if ([BBUser bb_getUser].deviceId == nil || [[BBUser bb_getUser].deviceId isEqual:@""]) {
         [self configureAddDeviceView];
     }else{
+        //开启udp服务
+        [[BBUdpSocketManager shareInstance] createAsyncUdpSocket];
         if(_addDeviceView != nil){
             [_addDeviceView removeFromSuperview];
             _addDeviceView = nil;
@@ -274,10 +276,7 @@
 
 -(void)pushScanVC{
     
-    
-//    BLEPairingViewController *  scanDeviceCodeVC = [[BLEPairingViewController alloc]init];
-//    [self.navigationController pushViewController:scanDeviceCodeVC animated:true];
-    
+        
     ScanDeviceCodeViewController *  scanDeviceCodeVC = [[ScanDeviceCodeViewController alloc]init];
     [self.navigationController pushViewController:scanDeviceCodeVC animated:true];
 }

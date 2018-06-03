@@ -508,17 +508,16 @@
 }
 -(void) screenShot{
     
-    UIWindow * screenWindow = [[UIApplication sharedApplication]keyWindow];
+    CGRect screenFrame = [UIApplication sharedApplication].keyWindow.frame;
+    UIGraphicsBeginImageContextWithOptions(screenFrame.size, NO, 0);
+    for (UIWindow *window in [[UIApplication sharedApplication] windows])
+    {
+        [window drawViewHierarchyInRect:screenFrame afterScreenUpdates:NO];
+    }
     
-    UIGraphicsBeginImageContext(screenWindow.frame.size);
-    
-    [screenWindow.layer renderInContext:UIGraphicsGetCurrentContext()];
-    
-    UIImage* viewImage =UIGraphicsGetImageFromCurrentImageContext();
-    
+    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
-    
-    UIImageWriteToSavedPhotosAlbum(viewImage,nil,nil,nil);
+    UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil);
     
 }
 

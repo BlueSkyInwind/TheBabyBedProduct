@@ -137,6 +137,7 @@
 }
 - (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler {
     _notificationContentInfo= userInfo;
+    [self NotificationRemind:userInfo];
     // Required, iOS 7 Support
     if (application.applicationState == UIApplicationStateActive ){
         
@@ -154,7 +155,7 @@
     // Required
     NSDictionary * userInfo = notification.request.content.userInfo;
     _notificationContentInfo = notification.request.content.userInfo;
-    //    [self NotificationJump:notificationContentInfo];
+    [self NotificationRemind:userInfo];
     if([notification.request.trigger isKindOfClass:[UNPushNotificationTrigger class]]) {
         [JPUSHService handleRemoteNotification:userInfo];
     }
@@ -172,11 +173,15 @@
     completionHandler();  // 系统要求执行这个方法
 }
 #endif
-
 -(void)NotificationJump:(NSDictionary *)contentInfo{
  
+    if ([contentInfo.allKeys containsObject:@"type"]) {
+        
+    }
     
-    
+    if ([contentInfo.allKeys containsObject:@"msg"]) {
+        
+    }
     
 }
 - (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo {

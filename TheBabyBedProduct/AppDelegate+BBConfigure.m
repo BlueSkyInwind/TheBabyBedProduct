@@ -146,4 +146,40 @@
         NSLog(@"MoneyList error %@",object);
     }];
 }
+
+-(void)NotificationRemind:(NSDictionary *)contentInfo{
+    
+    NSString * msg;
+    if ([contentInfo.allKeys containsObject:@"msg"]) {
+        msg = contentInfo[@"msg"];
+    }
+    if ([contentInfo.allKeys containsObject:@"type"]) {
+        NSString * type = contentInfo[@"type"];
+        if ([type isEqualToString:WARN_CRY]) {
+            
+        }
+        if ([type isEqualToString:WARN_KICK]) {
+            
+        }
+        if ([type isEqualToString:WARN_TEMP]) {
+            
+        }
+        if ([type isEqualToString:WARN_HUMIDITY]) {
+            
+        }
+        if ([type isEqualToString:WARN_BABY_TEMP]) {
+            
+        }
+        if ([type isEqualToString:WARN_URINE]) {
+            
+        }
+        if ([type isEqualToString:WARN_DEVICE_NOTICE]) {
+            //收到设备上线通知，开启udp服务
+            [[BBUdpSocketManager shareInstance] createAsyncUdpSocket];
+        }
+    }    
+}
+
+
+
 @end

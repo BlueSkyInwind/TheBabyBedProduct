@@ -210,7 +210,7 @@ NSString * const    Video_Address     =  @"Video_Address";
     short int elementID = (receivePayLoad[0] << 8) + receivePayLoad[1];
     if (elementID == 0x0D) {
         errCode = 0;
-       eventDic = [self analysisEventMessageData:[[NSData alloc]initWithBytes:receiveUdpEventByte length:12]];
+       eventDic = [self analysisEventMessageData:[[NSData alloc]initWithBytes:receiveUdpEventByte length:13]];
     }
     messageResult(NotificationType,errCode,eventDic);
 }
@@ -220,19 +220,20 @@ NSString * const    Video_Address     =  @"Video_Address";
     Byte receiveUdpEventByte[data.length];
     [data getBytes:receiveUdpEventByte length:data.length];
     
+    unsigned char Valid_Value = 0;
     short int cryState = 0;
     short int kickState = 0;
     short int envtemp_Value = 0;
-    short int  humidity_Value = 0;
+    short int humidity_Value = 0;
     short int bodytemp_Value = 0;
     short int urine_Value = 0;
-    
-    cryState = (receiveUdpEventByte[0] << 8 ) +  receiveUdpEventByte[1];
-    kickState = (receiveUdpEventByte[2] << 8 ) +  receiveUdpEventByte[3];
-    envtemp_Value = (receiveUdpEventByte[4] << 8)  + receiveUdpEventByte[5] ;
-    humidity_Value = (receiveUdpEventByte[6] << 8)+ receiveUdpEventByte[7] ;
-    bodytemp_Value = (receiveUdpEventByte[8] << 8) + receiveUdpEventByte[9];
-    urine_Value = (receiveUdpEventByte[10] << 8 ) +  receiveUdpEventByte[11];
+    Valid_Value = receiveUdpEventByte[0];
+    cryState = (receiveUdpEventByte[1] << 8 ) +  receiveUdpEventByte[2];
+    kickState = (receiveUdpEventByte[3] << 8 ) +  receiveUdpEventByte[4];
+    envtemp_Value = (receiveUdpEventByte[5] << 8)  + receiveUdpEventByte[6] ;
+    humidity_Value = (receiveUdpEventByte[7] << 8)+ receiveUdpEventByte[8] ;
+    bodytemp_Value = (receiveUdpEventByte[9] << 8) + receiveUdpEventByte[10];
+    urine_Value = (receiveUdpEventByte[11] << 8 ) +  receiveUdpEventByte[12];
     
     NSDictionary * eventDic = @{Baby_Cry_State:@(cryState),Baby_Kick_State:@(kickState),Env_Temp_Value:@(envtemp_Value),Env_Humidity_Value:@(humidity_Value),Body_Temp_Value:@(bodytemp_Value),Baby_Urine_Value:@(urine_Value)};
     return eventDic;

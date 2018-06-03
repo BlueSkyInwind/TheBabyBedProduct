@@ -81,7 +81,6 @@
             [self applyBindDevice:_scanId finish:^(BOOL isSuccess) {
                 if (isSuccess){
                     [BBUser bb_getUser].deviceId = weakSelf.scanId;
-                    [[BBUdpSocketManager shareInstance] sendAddressMessage];
                     [weakSelf.navigationController popToRootViewControllerAnimated:true];
                 }
             }];
