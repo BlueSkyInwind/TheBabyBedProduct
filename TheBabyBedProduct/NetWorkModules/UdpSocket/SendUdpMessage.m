@@ -14,6 +14,7 @@
 extern short int sendCount;
 extern short int TransID;
 
+NSString * const    Baby_Valid_Value    =  @"Baby_Valid_Value";
 NSString * const    Baby_Cry_State     =  @"Baby_Cry_State";
 NSString * const    Baby_Kick_State     =  @"Baby_Kick_State";
 NSString * const    Env_Temp_Value     =  @"Env_Temp_Value";
@@ -236,6 +237,7 @@ NSString * const    VideoClarityStatus     =  @"VideoClarityStatus";
 -(NSData *)generateEventNotificationData:(NSDictionary *)dic datalength:(short int)datalength{
     
     Byte bodyByte[datalength];
+    short int validValue = 0;
     short int cryState = 0;
     short int kickState = 0;
     short int envtemp_Value = 0;
@@ -243,6 +245,11 @@ NSString * const    VideoClarityStatus     =  @"VideoClarityStatus";
     short int bodytemp_Value = 0;
     short int urine_Value = 0;
 
+    if ([dic.allKeys containsObject:Baby_Valid_Value]) {
+        NSNumber * num = (NSNumber *)dic[Baby_Valid_Value];
+        validValue = num.shortValue;
+    }
+    
     if ([dic.allKeys containsObject:Baby_Cry_State]) {
         NSNumber * num = (NSNumber *)dic[Baby_Cry_State];
         cryState = num.shortValue;
@@ -267,26 +274,29 @@ NSString * const    VideoClarityStatus     =  @"VideoClarityStatus";
         NSNumber * num = (NSNumber *)dic[Baby_Urine_Value];
         urine_Value = num.shortValue;
     }
-    //哭闹
+    //是否有效
     bodyByte[0] = ((cryState >> 8) & 0xff);
     bodyByte[1] = (cryState & 0xff);
+    //哭闹
+    bodyByte[2] = ((cryState >> 8) & 0xff);
+    bodyByte[3] = (cryState & 0xff);
     //踢被
-    bodyByte[2] = ((kickState >> 8) & 0xff);
-    bodyByte[3] = (kickState & 0xff);
+    bodyByte[4] = ((kickState >> 8) & 0xff);
+    bodyByte[5] = (kickState & 0xff);
     //环境温度
-    bodyByte[4] = ((envtemp_Value >> 8) & 0xff);
-    bodyByte[5] = (envtemp_Value & 0xff);
+    bodyByte[6] = ((envtemp_Value >> 8) & 0xff);
+    bodyByte[7] = (envtemp_Value & 0xff);
     //环境湿度
-    bodyByte[6] = ((humidity_Value >> 8) & 0xff);
-    bodyByte[7] = (humidity_Value & 0xff);
+    bodyByte[8] = ((humidity_Value >> 8) & 0xff);
+    bodyByte[9] = (humidity_Value & 0xff);
 
     //体温值
-    bodyByte[8] = ((bodytemp_Value >> 8) & 0xff);
-    bodyByte[9] = (bodytemp_Value & 0xff);
+    bodyByte[10] = ((bodytemp_Value >> 8) & 0xff);
+    bodyByte[11] = (bodytemp_Value & 0xff);
 
     //尿湿值
-    bodyByte[10] = ((urine_Value >> 8) & 0xff);
-    bodyByte[11] = (urine_Value & 0xff);
+    bodyByte[12] = ((urine_Value >> 8) & 0xff);
+    bodyByte[13] = (urine_Value & 0xff);
     NSData * data = [[NSData alloc]initWithBytes:bodyByte length:18];
     return data;
 }

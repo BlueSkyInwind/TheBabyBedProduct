@@ -404,7 +404,7 @@
     [_clarityBtn mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerY.equalTo(_bottomView.mas_centerY);
         make.right.equalTo(_bottomView.mas_right).with.offset(-20);
-        make.width.height.equalTo(@(25));
+        make.height.equalTo(@(25));
     }];
 
     _landscapePlayerBtn = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -418,16 +418,16 @@
         make.width.height.equalTo(@(25));
     }];
     
-    _nextBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    _nextBtn.center = self.center;
-    [_nextBtn setBackgroundImage:[UIImage imageNamed:@"next_video_Icon"] forState:UIControlStateNormal];
-    [_nextBtn addTarget:self action:@selector(screenShotBtnClick:) forControlEvents:UIControlEventTouchUpInside];
-    [_bottomView addSubview:_nextBtn];
-    [_nextBtn mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.centerY.equalTo(_bottomView.mas_centerY);
-        make.left.equalTo(_landscapePlayerBtn.mas_right).with.offset(15);
-        make.width.height.equalTo(@(25));
-    }];
+//    _nextBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+//    _nextBtn.center = self.center;
+//    [_nextBtn setBackgroundImage:[UIImage imageNamed:@"next_video_Icon"] forState:UIControlStateNormal];
+//    [_nextBtn addTarget:self action:@selector(screenShotBtnClick:) forControlEvents:UIControlEventTouchUpInside];
+//    [_bottomView addSubview:_nextBtn];
+//    [_nextBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.centerY.equalTo(_bottomView.mas_centerY);
+//        make.left.equalTo(_landscapePlayerBtn.mas_right).with.offset(15);
+//        make.width.height.equalTo(@(25));
+//    }];
     
     _currentTimeLabel = [[UILabel alloc]init];
     _currentTimeLabel.textAlignment = NSTextAlignmentCenter;
@@ -437,26 +437,26 @@
     [_bottomView addSubview:_currentTimeLabel];
     [_currentTimeLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerY.equalTo(_bottomView.mas_centerY);
-        make.left.equalTo(_nextBtn.mas_right).with.offset(15);
+        make.left.equalTo(_landscapePlayerBtn.mas_right).with.offset(15);
     }];
     
-    _durationLabel = [[UILabel alloc]init];
-    _durationLabel.textAlignment = NSTextAlignmentCenter;
-    _durationLabel.text = @"--:--";
-    _durationLabel.textColor = [UIColor whiteColor];
-    _durationLabel.font = [UIFont systemFontOfSize:15];
-    [_bottomView addSubview:_durationLabel];
-    [_durationLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.centerY.equalTo(_bottomView.mas_centerY);
-        make.right.equalTo(_clarityBtn.mas_left).with.offset(-15);
-    }];
+//    _durationLabel = [[UILabel alloc]init];
+//    _durationLabel.textAlignment = NSTextAlignmentCenter;
+//    _durationLabel.text = @"--:--";
+//    _durationLabel.textColor = [UIColor whiteColor];
+//    _durationLabel.font = [UIFont systemFontOfSize:15];
+//    [_bottomView addSubview:_durationLabel];
+//    [_durationLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.centerY.equalTo(_bottomView.mas_centerY);
+//        make.right.equalTo(_clarityBtn.mas_left).with.offset(-15);
+//    }];
     
-    [_bottomView addSubview:self.videoSlider];
-    [_videoSlider mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.centerY.equalTo(_bottomView.mas_centerY);
-        make.left.equalTo(_currentTimeLabel.mas_right).with.offset(5);
-        make.right.equalTo(_durationLabel.mas_left).with.offset(-5);
-    }];
+//    [_bottomView addSubview:self.videoSlider];
+//    [_videoSlider mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.centerY.equalTo(_bottomView.mas_centerY);
+//        make.left.equalTo(_currentTimeLabel.mas_right).with.offset(5);
+//        make.right.equalTo(_durationLabel.mas_left).with.offset(-5);
+//    }];
 }
 
 - (UISlider *)videoSlider {
