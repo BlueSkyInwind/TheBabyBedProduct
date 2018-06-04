@@ -21,123 +21,68 @@
 @property(nonatomic,assign) NSInteger status;
 @property(nonatomic,copy) NSString *author;      //1
 @end
-/*
- 
- {
- "age_from" = "-1";
- "age_to" = 5;
- author = "渡渡鸟";
- bitrate = 64000;
- description = "这是一则给不爱睡觉的小朋友的故事，如果你总是为了让孩子早些入睡伤透了脑筋，那就赶紧让孩子听听这个充满想象力的安静故事吧！";
- duration = 823;
- "editor_comment" = "主播鱼淼淼真情演绎的原创精品故事，欢迎关注我们后续的其他原创故事";
- filesize = 6586651;
- "has_chapter" = 0;
- icon = "http://img.ilisten.idaddy.cn/b/7/9ow5gusy.jpg";
- id = ADQGN1A9DTI;
- lyrics = "从前，有个不爱睡觉的小猴子，
- \n
- \n一到了睡觉时间，它就在森林里到处蹦跳，不肯睡觉，
- \n
- \n猴子妈妈为了哄它睡觉，给它讲故事，唱儿歌，玩游戏，
- \n
- \n可小猴子还在精神的翻着筋斗，不肯睡觉。
- \n
- \n猴子妈妈累了，她对小猴子说：“好，你别打扰妈妈和爸爸，我们要睡了，你自己玩儿吧，喜欢睡就睡，喜欢给它讲故事，唱儿歌，玩游戏，
- \n
- \n可小猴子还在精神的翻着筋斗，不肯睡觉。
- \n
- \n猴子妈妈累了，她对小猴子说：“好，你别打扰妈妈和爸爸，我们要睡了，你自己玩儿吧，喜欢睡就睡，喜欢\347\216玩儿就玩儿。”
- \n\t
- \n小猴子特别高兴，它终于可以不用睡觉，自由自在的玩儿了！\t
- \n
- \n小猴子的家在一棵枝繁叶茂的大树上。
- \n
- \n大树上的邻居还有鸟妈妈一家。
- \n
- \n小猴子不睡觉就去树杈的给它讲故事，唱儿歌，玩游戏，
- \n
- \n可小猴子还在精神的翻着筋斗，不肯睡觉。
- \n
- \n猴子妈妈累了，她对小猴子说：“好，你别打扰妈妈和爸爸，我们要睡了，你自己玩儿吧，喜欢睡就睡，喜欢\347\216玩儿就玩儿。”
- \n\t
- \n小猴子特别高兴，它终于可以不用睡觉，自由自在的玩儿了！\t
- \n
- \n小猴子的家在一棵枝繁叶茂的大树上。
- \n
- \n大树上的邻居还有鸟妈妈一家。
- \n
- \n小猴子不睡觉就去树杈的\351\270鸟妈妈家找小鸟宝宝玩儿。
- \n
- \n小鸟宝宝才刚刚出生几天，
- \n
- \n黄黄的嘴巴，毛绒绒的羽毛，
- \n
- \n还有一双眼睛还没有完全睁开，只知道张着大嘴，“唧唧”叫着找吃的。
- \n
- \n小猴子，非常非常喜欢可爱的小鸟宝宝。
- \n
- \n它去敲敲鸟妈妈家的门，咚咚咚 咚咚咚
- \n
- \n“喳喳，是谁呀？”鸟妈妈问。
- \n
- \n“我是小猴子，我想跟小鸟宝宝玩儿！”
- \n
- \n“小鸟宝宝睡了，明天再玩儿吧！喳喳！”鸟妈妈说到。
- \n
- \n小猴子只好自己在树上荡秋千，折跟头，打把势，
- \n
- \n夜风吹过，小猴子把树叶弄的哗啦啦响，
- \n
- \n然后让落下的树叶，随着风去旅行，
- \n
- \n树叶们在风中飘飘摇摇，装载着透过树冠缝隙的月光，
- \n
- \n像小飞机似的一片片飞了出去。
- \n
- \n小猴子开心极了，不睡觉真好！
- \n
- \n早晨，猴妈妈和猴爸爸要去给小猴子找食物，
- \n
- \n猴妈妈说：“小猴子，你夜里没睡觉，白天会过树冠缝隙的月光，
- \n
- \n像小飞机似的一片片飞了出去。
- \n
- \n小猴子开心极了，不睡觉真好！
- \n
- \n早晨，猴妈妈和猴爸爸要去给小猴子找食物，
- \n
- \n猴妈妈说：“小猴子，你夜里没睡觉，白天会\345\233困的，你就在家里等着吧！”
- \n
- \n“妈妈，我不困，白天了，我想和小鸟宝宝玩！”
- \n
- \n小猴子攀上枝头又去敲敲鸟妈妈家门。
- \n
- \n鸟妈妈对小猴子说，“小猴子，麻烦你陪陪鸟宝宝，我要去给宝宝去找食物。”
- \n
- \n小猴子点点头，开心的在树上陪伴鸟宝宝。
- \n
- \n鸟宝宝嘴张的很大，唧唧着要吃的。
- \n
- \n小猴子把自己的爪子，塞一根放在小鸟嘴里。
- \n
- \n小鸟的嘴含一含爪子，吐了出来，还是张大嘴唧唧唧唧唧唧。
- \n
- \n小猴子把自己的尾巴尖，塞到小鸟嘴里，
- \n“我要早早睡觉，白天我还要保护小鸟呢！我要陪小鸟玩儿！我要抓住那只狡猾的山猫，让它别再想吃我的朋友小鸟！”";
- md5 = 10b31fe543ffdb000fbf6950a2fe237d;
- name = "不爱睡觉的小猴子";
- performer = "鱼淼淼";
- "play_url" = "http://cdn.open.idaddy.cn/apsmp3/5d67/ydazn00000000001/201805260000/0/ADQGN1A9DTI.YS83L3BwaXJtNGNiLmF1ZGlv.mp3";
- "play_url_with_token" = "http://cdn.open.idaddy.cn/apsmp3/5d67/ydazn00000000001/201805260000/0/ADQGN1A9DTI.YS83L3BwaXJtNGNiLmF1ZGlv.mp3?token=3iNmTq49PMpVYMHlRamEsA.Mw03QzlBRDA3Ny1GNURFLTRFQzUtOTYxMy0xQTQ0RDIwNzc1QkUNMTgwNjI1";
- price = 0;
- rank = 9;
- status = 0;
- taxonomys = "2013年度精选集,儿童阅读从听开始,故事旅行记,睡前故事";
- },
- 
- */
 
+/*
+{
+    "age_from" = "-1";
+    "age_to" = 4;
+    author = "天天艺术";
+    "chapter_count" = 10;
+    description = "睡眠对每个人来说是非常重要的，尤其是婴幼儿！处于人生起步阶段的婴儿，睡眠时间的长短，睡眠质量的好坏，都直接影响着宝宝的身体发育和心智发展。良好的睡眠，可以促进宝宝的生长发育，增强宝宝智力和体力，增强宝宝的抗病能力。所以作为家长，需要细心关注宝宝睡眠，给宝宝香甜安稳的美觉。本辑收录了中外著名的幼儿音乐，体裁新颖，音乐轻柔舒缓。让宝宝在美妙的音乐中，自然进入梦乡。";
+    "editor_comment" = "该辑音乐为《我的第一套古典音乐CD》的7张CD专辑之一。
+    \n这套产品精选60首最适合宝宝聆听的古典音乐经典篇章，每首音乐开始都有有趣的童话故事引导宝宝进入音乐世界，调节宝宝体内的生物节律，刺激大脑皮层活动，调节大脑功能，促进宝宝大脑和感觉器官的发育，提高宝宝的思维能力，培养宝宝音乐节奏感、哼唱乐曲的模仿能力，是帮助宝宝敲开音乐大门的魔法石。";
+    "has_chapter" = 1;
+    icon = "http://img.ilisten.idaddy.cn/b/5/g9fno7qy.jpg";
+    id = ADEGNFA9DTA;
+    name = "宝宝睡前音乐";
+    performer = "天天艺术";
+    price = 599;
+    rank = "8.800000000000001";
+    status = 0;
+    taxonomys = "古典音乐,睡前音乐,精品音乐,胎教音乐,音乐启蒙";
+},
+{
+    "age_from" = "-1";
+    "age_to" = 0;
+    author = "佚名";
+    "chapter_count" = 10;
+    description = "爱因斯坦说过：没有早期音乐教育，干什么事我都会一事无成。音乐胎教是大多数孕妈妈进行胎教的首选。用灵动的音乐带着孕妈妈和宝宝进行一段打开心扉的音乐之旅。国外名曲让音乐胎教时光更富情趣。";
+    "editor_comment" = "每一对父母都知道音乐胎教的好处。但是你可知道如何让宝宝感知一段美好的旋律？你可知道如何与宝宝在音乐声中交流情感？外国篇胎教音乐精选10首最经典的动人音乐，让孕妈妈在舒缓的音乐中陶冶情操。";
+    "has_chapter" = 1;
+    icon = "http://img.ilisten.idaddy.cn/b/0/kl23qvg2.jpg";
+    id = ADAGP1A1DTU;
+    name = "胎教音乐：中国篇1";
+    performer = "九通";
+    price = 299;
+    rank = "9.5";
+    status = 0;
+    taxonomys = "VIP畅销故事,九通胎教系列,古典音乐,胎教音乐,胎教音乐";
+},
+{
+    "age_from" = "-1";
+    "age_to" = 16;
+    author = "佚名";
+    bitrate = 64001;
+    description = "这首小夜曲色彩明朗，轻快的漫步节奏和娓娓动听的旋律，具有一种典雅质朴的情调，表现了无忧无虑的意境。在展开过程中的旋律进行，时而出现极其自然的大跳音程，使曲调更富于生气。";
+    duration = 194;
+    "editor_comment" = "";
+    filesize = 1553796;
+    "has_chapter" = 0;
+    icon = "http://img.ilisten.idaddy.cn/b/6/ow6qr1j.jpg";
+    id = ADAGPlAwDTM;
+    lyrics = "";
+    md5 = bbeba440d91c7e1536c63f3c9f4b6069;
+    name = "海顿小夜曲";
+    performer = "";
+    "play_url" = "http://cdn.open.idaddy.cn/apsmp3/f4f2/ydazn00000000001/201806050000/0/ADAGPlAwDTM.YTY0LzYva3h1ZGY0a2suYXVkaW8.mp3";
+    "play_url_with_token" = "http://cdn.open.idaddy.cn/apsmp3/f4f2/ydazn00000000001/201806050000/0/ADAGPlAwDTM.YTY0LzYva3h1ZGY0a2suYXVkaW8.mp3?token=7I6rzN5vxSfyUHs4qKg1DA.Mw1ENjgxMTQ4OC02NDNCLTQ4MzUtQTM2RS0zMjkzOTdENUMxQzANMTgwNzA0";
+    price = 0;
+    rank = "9.1";
+    status = 0;
+    taxonomys = "胎教音乐,古典音乐,音乐启蒙,小提琴曲,器乐欣赏";
+}
+);
+*/
 @interface BBMusicAudioinfos : NSObject
 @property(nonatomic,strong) NSMutableArray *contents;
 @end

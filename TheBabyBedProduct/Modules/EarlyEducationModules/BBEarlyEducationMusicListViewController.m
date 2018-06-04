@@ -10,6 +10,9 @@
 #import "BBMusicCategory.h"
 #import "BBEarlyEdutionMusicListCell.h"
 #import "BBMusicViewController.h"
+#import "BBEarlyEducationMusicDetailViewController.h"
+
+
 
 @interface BBEarlyEducationMusicListViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property(nonatomic,strong) UITableView *tableView;
@@ -59,9 +62,15 @@
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     BBEarlyEdutionMusicListCell *cell = [BBEarlyEdutionMusicListCell bb_cellMakeWithTableView:tableView];
+    
     cell.playBlock = ^{
         NSLog(@"点击了第%ld行",indexPath.row);
+        BBMusicViewController *musicVC = [BBMusicViewController sharedInstance];
+        musicVC.musics = self.musicLists;
+        musicVC.playingIndex = indexPath.item;
+        [self presentToMusicViewWithMusicVC:musicVC];
     };
+    
     if (self.musicLists.count > indexPath.row) {
         [cell setupCell:self.musicLists[indexPath.row]];
     }
@@ -70,21 +79,16 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    BBMusicViewController *musicVC = [BBMusicViewController sharedInstance];
-    musicVC.musicTitle = @"热门推荐";
-    musicVC.musics = self.musicLists;
-    
-    musicVC.playingIndex = indexPath.item;
-    
-    [self presentToMusicViewWithMusicVC:musicVC];
-    
-    //    [QMUITips showLoadingInView:self.view];
+    BBEarlyEducationMusicDetailViewController *musicDetailVC = [[BBEarlyEducationMusicDetailViewController alloc]init];
+    [self.navigationController pushViewController:musicDetailVC animated:YES];
 }
 
 - (void)presentToMusicViewWithMusicVC:(BBMusicViewController *)musicVC {
     UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:musicVC];
     [self.navigationController presentViewController:navigationController animated:YES completion:nil];
 }
+
+
     
 -(NSMutableArray *)musicLists
 {

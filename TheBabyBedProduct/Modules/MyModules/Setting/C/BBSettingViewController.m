@@ -102,7 +102,7 @@
             return cell;
         }else if (indexPath.row == 1){
             BBMyListSubTitleCell *cell = [BBMyListSubTitleCell bb_cellMakeWithTableView:tableView];
-            [cell setupCellWithImgName:@"setsweep" title:@"清理缓存" subTitle:@"1.75MB"];
+            [cell setupCellWithImgName:@"setsweep" title:@"清理缓存" subTitle:[self getFolderSize]];
             return cell;
         }else{
             BBMyListCell *cell = [BBMyListCell bb_cellMakeWithTableView:tableView];
@@ -111,6 +111,32 @@
         }
     }
 }
+// 缓存大小
+- (NSString *)getFolderSize{
+    
+    CGFloat folderSize = 0.0;
+    
+    //获取路径
+    NSString *cachePath = [NSSearchPathForDirectoriesInDomains(NSCachesDirectory,NSUserDomainMask,YES)firstObject];
+    
+    //获取所有文件的数组
+    NSArray *files = [[NSFileManager defaultManager] subpathsAtPath:cachePath];
+    
+    NSLog(@"文件数：%ld",files.count);
+    
+    for(NSString *path in files) {
+        
+        NSString*filePath = [cachePath stringByAppendingString:[NSString stringWithFormat:@"/%@",path]];
+        
+        //累加
+        folderSize += [[NSFileManager defaultManager]attributesOfItemAtPath:filePath error:nil].fileSize;
+    }
+    //转换为M为单位
+    CGFloat sizeM = folderSize /1024.0/1024.0;
+    
+    return [NSString stringWithFormat:@"%.2fMB",sizeM];
+}
+
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
@@ -134,6 +160,14 @@
                 [self goLoginRegistVc];
             }
         }else if (indexPath.row == 1){
+            BBMyListSubTitleCell *cell = [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:1 inSection:1]];
+            if ([cell.subTitle isEqualToString:@"0.00MB"]) {
+                [QMUITips showWithText:@"没有缓存可清除" inView:self.view hideAfterDelay:1.5];
+                return;
+            }else{
+                //清理缓存
+                [self removeCache];
+            }
             
         }else if (indexPath.row == 2){
             BBAboutUsViewController *aboutUsVC = [[BBAboutUsViewController alloc]init];
@@ -143,6 +177,37 @@
     
 }
 
+- (void)removeCache
+{
+    //===============清除缓存==============
+    //获取路径
+    NSString*cachePath = [NSSearchPathForDirectoriesInDomains(NSCachesDirectory,NSUserDomainMask,YES)objectAtIndex:0];
+    
+    //返回路径中的文件数组
+    NSArray*files = [[NSFileManager defaultManager]subpathsAtPath:cachePath];
+    
+    NSLog(@"文件数：%ld",[files count]);
+    for(NSString *p in files){
+        NSError*error;
+        
+        NSString*path = [cachePath stringByAppendingString:[NSString stringWithFormat:@"/%@",p]];
+        
+        if([[NSFileManager defaultManager]fileExistsAtPath:path])
+        {
+            BOOL isRemove = [[NSFileManager defaultManager]removeItemAtPath:path error:&error];
+            if(isRemove) {
+                NSLog(@"清除成功");
+                //这里发送一个通知给外界，外界接收通知，可以做一些操作（比如UIAlertViewController）
+                [QMUITips showWithText:@"缓存清理成功" inView:self.view hideAfterDelay:1.5];
+                BBMyListSubTitleCell *cell = [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:1 inSection:1]];
+                [cell setupCellWithImgName:@"setsweep" title:@"清理缓存" subTitle:@"0.00MB"];
+
+            }else{
+                [QMUITips showWithText:@"清除失败" inView:self.view hideAfterDelay:1.5];
+            }
+        }
+    }
+}
 
 
 @end

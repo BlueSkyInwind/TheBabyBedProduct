@@ -234,6 +234,12 @@
 		57585AF4206D485C001BB202 /* share_qq@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 57585AF2206D485B001BB202 /* share_qq@2x.png */; };
 		577330FF20C23658000831E8 /* bbCityList.json in Resources */ = {isa = PBXBuildFile; fileRef = 577330FE20C23657000831E8 /* bbCityList.json */; };
 		5773310320C24722000831E8 /* BBFamilyMember.m in Sources */ = {isa = PBXBuildFile; fileRef = 5773310220C24722000831E8 /* BBFamilyMember.m */; };
+		5773314020C59C9A000831E8 /* dadadada.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 5773313B20C59C99000831E8 /* dadadada.mp3 */; };
+		5773314120C59C9A000831E8 /* supermali.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 5773313C20C59C99000831E8 /* supermali.mp3 */; };
+		5773314220C59C9A000831E8 /* didu.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 5773313D20C59C99000831E8 /* didu.mp3 */; };
+		5773314320C59C9A000831E8 /* mytheme.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 5773313E20C59C9A000831E8 /* mytheme.mp3 */; };
+		5773314420C59C9A000831E8 /* storystory.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 5773313F20C59C9A000831E8 /* storystory.mp3 */; };
+		5773314720C5A98B000831E8 /* BBEarlyEducationMusicDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5773314620C5A98B000831E8 /* BBEarlyEducationMusicDetailViewController.m */; };
 		57CB443820A415D900268DBE /* UIDevice+GetDeviceInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 57CB443720A415D900268DBE /* UIDevice+GetDeviceInfo.m */; };
 		57CB443B20A570D700268DBE /* BBMusic.m in Sources */ = {isa = PBXBuildFile; fileRef = 57CB443A20A570D700268DBE /* BBMusic.m */; };
 		57CB443E20A5712100268DBE /* BBMusicRequestModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 57CB443D20A5712100268DBE /* BBMusicRequestModel.m */; };
@@ -745,6 +751,13 @@
 		577330FE20C23657000831E8 /* bbCityList.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = bbCityList.json; sourceTree = "<group>"; };
 		5773310120C24722000831E8 /* BBFamilyMember.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BBFamilyMember.h; sourceTree = "<group>"; };
 		5773310220C24722000831E8 /* BBFamilyMember.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BBFamilyMember.m; sourceTree = "<group>"; };
+		5773313B20C59C99000831E8 /* dadadada.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = dadadada.mp3; sourceTree = "<group>"; };
+		5773313C20C59C99000831E8 /* supermali.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = supermali.mp3; sourceTree = "<group>"; };
+		5773313D20C59C99000831E8 /* didu.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = didu.mp3; sourceTree = "<group>"; };
+		5773313E20C59C9A000831E8 /* mytheme.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = mytheme.mp3; sourceTree = "<group>"; };
+		5773313F20C59C9A000831E8 /* storystory.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = storystory.mp3; sourceTree = "<group>"; };
+		5773314520C5A98B000831E8 /* BBEarlyEducationMusicDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BBEarlyEducationMusicDetailViewController.h; sourceTree = "<group>"; };
+		5773314620C5A98B000831E8 /* BBEarlyEducationMusicDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BBEarlyEducationMusicDetailViewController.m; sourceTree = "<group>"; };
 		57CB443620A415D900268DBE /* UIDevice+GetDeviceInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIDevice+GetDeviceInfo.h"; sourceTree = "<group>"; };
 		57CB443720A415D900268DBE /* UIDevice+GetDeviceInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIDevice+GetDeviceInfo.m"; sourceTree = "<group>"; };
 		57CB443920A570D700268DBE /* BBMusic.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BBMusic.h; sourceTree = "<group>"; };
@@ -1006,6 +1019,11 @@
 		22CF35692073E15900707F8A /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				5773313B20C59C99000831E8 /* dadadada.mp3 */,
+				5773313D20C59C99000831E8 /* didu.mp3 */,
+				5773313E20C59C9A000831E8 /* mytheme.mp3 */,
+				5773313F20C59C9A000831E8 /* storystory.mp3 */,
+				5773313C20C59C99000831E8 /* supermali.mp3 */,
 				577330FE20C23657000831E8 /* bbCityList.json */,
 				22CF356A2073E17300707F8A /* noticeMusic.wav */,
 			);
@@ -1188,6 +1206,8 @@
 				57CB443D20A5712100268DBE /* BBMusicRequestModel.m */,
 				57CF997420B31948005EB9E9 /* BBEarlyEdutionMusicListCell.h */,
 				57CF997520B31948005EB9E9 /* BBEarlyEdutionMusicListCell.m */,
+				5773314520C5A98B000831E8 /* BBEarlyEducationMusicDetailViewController.h */,
+				5773314620C5A98B000831E8 /* BBEarlyEducationMusicDetailViewController.m */,
 			);
 			path = EarlyEducationModules;
 			sourceTree = "<group>";
@@ -2385,6 +2405,7 @@
 				57585AE8206D4839001BB202 /* share_weibo@2x.png in Resources */,
 				57CF9A1A20BA8F1C005EB9E9 /* big_play_button.png in Resources */,
 				57585AF3206D485C001BB202 /* share_qq@3x.png in Resources */,
+				5773314120C59C9A000831E8 /* supermali.mp3 in Resources */,
 				8490CFC020747CFC00D416C1 /* ConfigurationWifiViewController.xib in Resources */,
 				84D270C1208DB38200ED57A3 /* BLEScanConnectViewController.xib in Resources */,
 				57585AEF206D4850001BB202 /* share_timeline@2x.png in Resources */,
@@ -2395,6 +2416,7 @@
 				5722098D20AD261E00611BFA /* cm2_topbar_icn_search.png in Resources */,
 				22CF356B2073E17300707F8A /* noticeMusic.wav in Resources */,
 				57585AEB206D4843001BB202 /* share_wechat@3x.png in Resources */,
+				5773314420C59C9A000831E8 /* storystory.mp3 in Resources */,
 				57CF9A2A20BA8FFB005EB9E9 /* prev_song.png in Resources */,
 				5726F382206B70C5008EED75 /* ShareSDKUI.bundle in Resources */,
 				22CFD3C0206548100004186D /* ConsoleBodyView.xib in Resources */,
@@ -2417,17 +2439,20 @@
 				57585AEC206D4843001BB202 /* share_wechat@2x.png in Resources */,
 				22CF35642073CCAB00707F8A /* ScanDeviceCodeViewController.xib in Resources */,
 				5726F37B206B70C5008EED75 /* WeiboSDK.bundle in Resources */,
+				5773314320C59C9A000831E8 /* mytheme.mp3 in Resources */,
 				57CF9A1C20BA8F3D005EB9E9 /* loop_all_icon.png in Resources */,
 				57CF9A2220BA8FCF005EB9E9 /* music_lock_screen_placeholder.jpg in Resources */,
 				57CF9A2020BA8FC2005EB9E9 /* more_icon.png in Resources */,
 				84332C9E206CE6F5009A9121 /* MessageTableViewCell.xib in Resources */,
 				22CFD3EA2067FD650004186D /* CryingThresholdSettingViewController.xib in Resources */,
+				5773314020C59C9A000831E8 /* dadadada.mp3 in Resources */,
 				57CF9A2420BA8FDC005EB9E9 /* music_placeholder.png in Resources */,
 				5726F381206B70C5008EED75 /* ShareSDK.bundle in Resources */,
 				5726F37D206B70C5008EED75 /* README.txt in Resources */,
 				57CF9A1620BA8EFD005EB9E9 /* music_slider_circle.png in Resources */,
 				57CF9A2C20BA900D005EB9E9 /* shuffle_icon.png in Resources */,
 				22CFD3F42067FDAF0004186D /* KickQulitThresholdSettingViewController.xib in Resources */,
+				5773314220C59C9A000831E8 /* didu.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2713,6 +2738,7 @@
 				22CFD378206146AF0004186D /* BaseTabBarViewController.m in Sources */,
 				57210C892073D3770039D8D5 /* BBMyDevieceCell.m in Sources */,
 				57585AD1206D4428001BB202 /* LWShareSheetView.m in Sources */,
+				5773314720C5A98B000831E8 /* BBEarlyEducationMusicDetailViewController.m in Sources */,
 				22CFD3B9206545040004186D /* ConsoleHeaderView.m in Sources */,
 				84DD475A2068F04000D154B5 /* RoomTemperatureView.m in Sources */,
 				57CF9A0B20BA859F005EB9E9 /* GVUserDefaults+Properties.m in Sources */,

@@ -71,10 +71,15 @@ static void *kBufferingRatioKVOKey = &kBufferingRatioKVOKey;
 -(void)creatUI
 {
     self.view.backgroundColor = [UIColor whiteColor];
+   
 
     UIImageView *bgV = [UIImageView bb_imgVMakeWithSuperV:self.view imgName:@"bb_playMusic_bg.jpg"];
     bgV.userInteractionEnabled = YES;
     bgV.frame = self.view.bounds;
+    
+    UILabel *titleLB = [UILabel bb_lbMakeWithSuperV:bgV fontSize:18 alignment:NSTextAlignmentCenter textColor:[UIColor whiteColor]];
+    titleLB.frame = CGRectMake(60, 27, _k_w-120, 30);
+    titleLB.text = @"音乐播放";
     
     UIButton *dismissBt = [UIButton bb_btMakeWithSuperV:self.view imageName:@"return"];
     [dismissBt addTarget:self action:@selector(dismissAction) forControlEvents:UIControlEventTouchUpInside];
