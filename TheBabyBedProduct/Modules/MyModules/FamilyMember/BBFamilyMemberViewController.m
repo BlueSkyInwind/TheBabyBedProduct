@@ -20,10 +20,33 @@
     BOOL _isLeft;
     UIButton *_bingingBT;
     UIButton *_applyRecordBT;
+    BOOL _hasLeftLoad;
+    BOOL _hasRightLoad;
 }
-@property(nonatomic,strong) UITableView *tableView;
+@property(nonatomic,strong) UITableView *leftTableView;
+@property(nonatomic,strong) UITableView *rightTableView;
 @property(nonatomic,strong) NSMutableArray *bindingedUsers;
 @property(nonatomic,strong) NSMutableArray *applyingUsers;
+
+/** 当前页码 从1开始*/
+@property(nonatomic,assign)NSInteger leftCurrentPage;
+/** 是否正在刷新 */
+@property(nonatomic,assign)BOOL leftIsRefreshing;
+/** 是否正在加载更多 */
+@property(nonatomic,assign)BOOL leftIsLoadMoreing;
+/** 总数 */
+@property(nonatomic,assign)NSInteger leftTotalCount;
+
+
+/** 当前页码 从1开始*/
+@property(nonatomic,assign)NSInteger rightCurrentPage;
+/** 是否正在刷新 */
+@property(nonatomic,assign)BOOL rightIsRefreshing;
+/** 是否正在加载更多 */
+@property(nonatomic,assign)BOOL rightIsLoadMoreing;
+/** 总数 */
+@property(nonatomic,assign)NSInteger rightTotalCount;
+
 @end
 
 @implementation BBFamilyMemberViewController
@@ -38,9 +61,22 @@
     self.view.backgroundColor = k_color_vcBg;
     
     self.title = @"家庭成员";
-//    _isLeft = YES;
     
-    [self bingingActin];
+    _hasLeftLoad = NO;
+    _hasRightLoad = NO;
+    
+    self.leftCurrentPage = 0;
+    self.leftIsRefreshing = NO;
+    self.leftIsLoadMoreing = NO;
+    self.leftTotalCount = 0;
+    
+    self.rightCurrentPage = 0;
+    self.rightIsRefreshing = NO;
+    self.rightIsLoadMoreing = NO;
+    self.rightTotalCount = 0;
+    
+    _isLeft = YES;
+    [self getBindListData];
     [self creatUI];
     
     UIButton *invireBt = [UIButton bb_btMakeWithSuperV:nil bgColor:nil titleColor:k_color_515151 titleFontSize:14 title:@"邀请好友"];
@@ -52,23 +88,65 @@
 #pragma mark --- 获取已绑定用户列表
 -(void)getBindListData
 {
-#warning pp605
+    _hasLeftLoad = YES;
+    [self.leftTableView ly_startLoading];
     [BBRequestTool bb_requestBindListWithPageNo:0 pageSize:10 SuccessBlock:^(EnumServerStatus status, id object) {
         NSLog(@"bind list %@",object);
-        [self.tableView reloadData];
-        [self.tableView ly_endLoading];
+        BBFamilyMemberListResult *result = [BBFamilyMemberListResult mj_objectWithKeyValues:object];
+        if (result.code == 0) {
+            [self.bindingedUsers addObjectsFromArray:result.data];
+            self.leftTotalCount = result.count;
+        }else{
+            [QMUITips showWithText:result.msg inView:self.view hideAfterDelay:1.2];
+        }
+        [self.leftTableView reloadData];
+        [self _endRefreshing];
+        [self.leftTableView ly_endLoading];
     } failureBlock:^(EnumServerStatus status, id object) {
         NSLog(@"bind list %@",object);
-
+        [self.leftTableView reloadData];
+        [self _endRefreshing];
+        [self.leftTableView ly_endLoading];
     }];
 }
 -(void)getApplyListData
 {
+    _hasRightLoad = YES;
+    [self.rightTableView ly_startLoading];
     [BBRequestTool bb_requestApplyListWithPageNo:0 pageSize:10 SuccessBlock:^(EnumServerStatus status, id object) {
         NSLog(@"apply list 1 %@",object);
+        BBFamilyMemberListResult *result = [BBFamilyMemberListResult mj_objectWithKeyValues:object];
+        if (result.code == 0) {
+            [self.applyingUsers addObjectsFromArray:result.data];
+            self.rightTotalCount = result.count;
+        }else{
+            [QMUITips showWithText:result.msg inView:self.view hideAfterDelay:1.2];
+        }
+        [self.rightTableView reloadData];
+        [self _endRefreshing];
+        [self.rightTableView ly_endLoading];
     } failureBlock:^(EnumServerStatus status, id object) {
         NSLog(@"apply list 2 %@",object);
+        [self.rightTableView reloadData];
+        [self _endRefreshing];
+        [self.rightTableView ly_endLoading];
     }];
+}
+#pragma mark 结束刷新
+- (void)_endRefreshing
+{
+    
+    if (_isLeft) {
+        self.leftIsRefreshing = NO;
+        self.leftIsLoadMoreing = NO;
+        [self.leftTableView.mj_header endRefreshing];
+        [self.leftTableView.mj_footer endRefreshing];
+    }else{
+        self.rightIsRefreshing = NO;
+        self.rightIsLoadMoreing = NO;
+        [self.rightTableView.mj_header endRefreshing];
+        [self.rightTableView.mj_footer endRefreshing];
+    }
 }
 -(void)inviteMemberAction
 {
@@ -90,11 +168,24 @@
         platformType = SSDKPlatformTypeSinaWeibo;
     }
     
+    /*
+     
+     String msg = "点击下面的链接可注册并绑定婴儿床:" + Constants.HOST_SHARE + "h5/inv/" + GApplication.getInstance().userdb.getUserInfo().getId() + "?invCode=" + code;
+     短信邀请绑定的H5链接
+     
+     ShareUtil.getInstance().share(this, "婴儿香邀请绑定", "点击下面的链接可注册并绑定婴儿床", "http://img1.imgtn.bdimg.com/it/u=407406776,3648841261&fm=214&gp=0.jpg",url );
+     分享邀请绑定的H5链接
+     
+     ShareUtil.getInstance().share(this, "每日任务", "分享好友赚积分", "http://img1.imgtn.bdimg.com/it/u=407406776,3648841261&fm=214&gp=0.jpg", Constants.HOST_SHARE+"h5/toYdaShare");
+     每日任务赚积分的H5链接
+     @PPAbner
+     */
+    
     NSMutableDictionary *shareParams = [NSMutableDictionary dictionary];
-    [shareParams SSDKSetupShareParamsByText:@"分享内容"
-                                     images:nil
-                                        url:[NSURL URLWithString:@"http://mob.com"]
-                                      title:@"分享标题"
+    [shareParams SSDKSetupShareParamsByText:@"点击下面的链接可注册并绑定婴儿床"
+                                     images:@"http://img1.imgtn.bdimg.com/it/u=407406776,3648841261&fm=214&gp=0.jpg"
+                                        url:[NSURL URLWithString:[NSString stringWithFormat:@"%@/h5/toYdaShare",K_Url_BBBase]]
+                                      title:@"婴儿香邀请绑定"
                                        type:SSDKContentTypeAuto];
     //有的平台要客户端分享需要加此方法，例如微博
     [shareParams SSDKEnableUseClientShare];
@@ -117,6 +208,7 @@
     }];
 }
 
+
 -(void)creatUI
 {
     UIView *topV = [[UIView alloc]initWithFrame:CGRectFlatMake(10, 64, _k_w-20, 44)];
@@ -138,9 +230,95 @@
     [topV addSubview:line];
     
     
-    self.tableView = [UITableView bb_tableVMakeWithSuperV:self.view frame:CGRectMake(0, 64+44, _k_w, _k_h-64-33) delegate:self bgColor:k_color_vcBg style:UITableViewStylePlain];
-//    self.tableView.ly_emptyView = [LYEmptyView emptyViewWithImageStr:nil titleStr:@"还没有家庭成员绑定" detailStr:@"你可以邀请家庭成员绑定哦~"];
+    self.leftTableView = [UITableView bb_tableVMakeWithSuperV:self.view frame:CGRectMake(0, 64+44, _k_w, _k_h-64-33) delegate:self bgColor:k_color_vcBg style:UITableViewStylePlain];
+    self.leftTableView.ly_emptyView = [LYEmptyView emptyViewWithImageStr:nil titleStr:@"还没有家庭成员绑定" detailStr:@"你可以邀请家庭成员绑定哦~"];
+    self.leftTableView.ly_emptyView.autoShowEmptyView = NO;
 
+    //下拉刷新
+    self.leftTableView.mj_header = [UITableView pp_headerForNomaWithTarget:self action:@selector(_leftHeaderRefreshAction) hasLastDate:NO enterStartRefresh:NO];
+    
+    //上拉加载
+    self.leftTableView.mj_footer = [UITableView pp_footerForAutoNormalWithTarger:self action:@selector(_leftLoadMoreDataAction)];
+    
+    
+    //右边
+    self.rightTableView = [UITableView bb_tableVMakeWithSuperV:self.view frame:CGRectMake(_k_w, 64+44, _k_w, _k_h-64-33) delegate:self bgColor:k_color_vcBg style:UITableViewStylePlain];
+    self.rightTableView.ly_emptyView = [LYEmptyView emptyViewWithImageStr:nil titleStr:@"还没有家庭成员申请绑定" detailStr:@"你可以邀请家庭成员绑定哦~"];
+    self.rightTableView.ly_emptyView.autoShowEmptyView = NO;
+    
+    //下拉刷新
+    self.rightTableView.mj_header = [UITableView pp_headerForNomaWithTarget:self action:@selector(_rightHeaderRefreshAction) hasLastDate:NO enterStartRefresh:NO];
+    
+    //上拉加载
+    self.rightTableView.mj_footer = [UITableView pp_footerForAutoNormalWithTarger:self action:@selector(_rightLoadMoreDataAction)];
+    
+}
+#pragma mark --- 下拉刷新事件
+-(void)_leftHeaderRefreshAction
+{
+    
+    if (self.leftIsRefreshing || self.leftIsLoadMoreing) {
+        [self _endRefreshing];
+        return;
+    }else{
+        [self.bindingedUsers removeAllObjects];
+        [self.leftTableView reloadData];
+        self.leftIsRefreshing = YES;
+        self.leftIsLoadMoreing = NO;
+        self.leftCurrentPage = 0;
+        self.leftTotalCount = 0;
+        [self getBindListData];
+    }
+}
+-(void)_rightHeaderRefreshAction
+{
+    
+    if (self.rightIsRefreshing || self.rightIsLoadMoreing) {
+        [self _endRefreshing];
+        return;
+    }else{
+        [self.applyingUsers removeAllObjects];
+        [self.rightTableView reloadData];
+        self.rightIsRefreshing = YES;
+        self.rightIsLoadMoreing = NO;
+        self.rightCurrentPage = 0;
+        self.rightTotalCount = 0;
+        [self getApplyListData];
+    }
+}
+-(void)_leftLoadMoreDataAction
+{
+    
+    if (self.leftIsRefreshing || self.leftIsLoadMoreing) {
+        [self _endRefreshing];
+        return;
+    }else{
+        self.leftIsLoadMoreing = YES;
+        self.leftIsRefreshing = NO;
+        if (self.bindingedUsers.count >= self.leftTotalCount && self.leftTotalCount > 0) {
+            [self.leftTableView.mj_footer endRefreshingWithNoMoreData];//已加载全部
+            return;
+        }
+        self.leftCurrentPage += 1;
+        [self getBindListData];
+    }
+    
+}
+-(void)_rightLoadMoreDataAction
+{
+    if (self.rightIsRefreshing || self.rightIsLoadMoreing) {
+        [self _endRefreshing];
+        return;
+    }else{
+        self.rightIsRefreshing = YES;
+        self.rightIsLoadMoreing = NO;
+        if (self.bindingedUsers.count >= self.rightTotalCount && self.rightTotalCount > 0) {
+            [self.rightTableView.mj_footer endRefreshingWithNoMoreData];//已加载全部
+            return;
+        }
+        self.rightCurrentPage += 1;
+        [self getApplyListData];
+    }
     
 }
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -177,25 +355,32 @@
     if (_isLeft) {
         return;
     }
-    self.tableView.ly_emptyView = [LYEmptyView emptyViewWithImageStr:nil titleStr:@"还没有家庭成员绑定" detailStr:@"你可以邀请家庭成员绑定哦~"];
-    self.tableView.ly_emptyView.autoShowEmptyView = NO;
     [_bingingBT bb_btSetTitleColor:k_color_appOrange];
     [_applyRecordBT bb_btSetTitleColor:k_color_515151];
     _isLeft = YES;
-    [self getBindListData];
+    [UIView animateWithDuration:0.25 delay:0 options:(UIViewAnimationOptionCurveLinear) animations:^{
+        self.leftTableView.left = 0;
+        self.rightTableView.left = _k_w;
+    } completion:nil];
+    if (!_hasLeftLoad) {
+        [self getBindListData];
+    }
 }
 -(void)applyRecordActin
 {
     if (!_isLeft) {
         return;
     }
-    self.tableView.ly_emptyView = [LYEmptyView emptyViewWithImageStr:nil titleStr:@"还没有家庭成员申请绑定" detailStr:@"你可以邀请家庭成员绑定哦~"];
-    self.tableView.ly_emptyView.autoShowEmptyView = NO;
     [_bingingBT bb_btSetTitleColor:k_color_515151];
     [_applyRecordBT bb_btSetTitleColor:k_color_appOrange];
     _isLeft = NO;
-    
-    [self getApplyListData];
+    [UIView animateWithDuration:0.25 delay:0 options:(UIViewAnimationOptionCurveLinear) animations:^{
+        self.leftTableView.left = -_k_w;
+        self.rightTableView.left = 0;
+    } completion:nil];
+    if (!_hasRightLoad) {
+        [self getApplyListData];
+    }
 }
 
 -(NSMutableArray *)bindingedUsers

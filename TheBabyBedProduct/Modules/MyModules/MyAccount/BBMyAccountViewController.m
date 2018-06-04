@@ -21,8 +21,8 @@
 @property(nonatomic,assign)BOOL isRefreshing;
 /** 是否正在加载更多 */
 @property(nonatomic,assign)BOOL isLoadMoreing;
-/** 总页数 */
-@property(nonatomic,assign)NSInteger totalPage;
+/** 总数 */
+@property(nonatomic,assign)NSInteger totalCount;
 
 @end
 
@@ -41,7 +41,7 @@
     self.currentPage = 0;
     self.isRefreshing = NO;
     self.isLoadMoreing = NO;
-    self.totalPage = 0;
+    self.totalCount = 0;
     
     [self creatUI];
     
@@ -54,8 +54,8 @@
         BBConsumeRecordListResult *result = [BBConsumeRecordListResult mj_objectWithKeyValues:object];
         if (result.code == 0) {
             [self.expenceRecords addObjectsFromArray:result.data];
-            self.totalPage = result.count;
-            if (self.expenceRecords.count >= self.totalPage && self.totalPage > 0) {
+            self.totalCount = result.count;
+            if (self.expenceRecords.count >= self.totalCount && self.totalCount > 0) {
                 [self.tableView.mj_footer endRefreshingWithNoMoreData];//已加载全部
                 return;
             }
@@ -140,7 +140,7 @@
         self.isRefreshing = YES;
         self.isLoadMoreing = NO;
         self.currentPage = 0;
-        self.totalPage = 0;
+        self.totalCount = 0;
         [self getCurListData];
     }
 }
@@ -152,7 +152,7 @@
     }else{
         self.isLoadMoreing = YES;
         self.isRefreshing = NO;
-        if (self.expenceRecords.count >= self.totalPage && self.totalPage > 0) {
+        if (self.expenceRecords.count >= self.totalCount && self.totalCount > 0) {
             [self.tableView.mj_footer endRefreshingWithNoMoreData];//已加载全部
             return;
         }
