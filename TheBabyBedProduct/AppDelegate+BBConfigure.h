@@ -13,4 +13,12 @@
 -(void)bb_signInAction;
 -(void)bb_refreshToken;
 -(void)test;
+
+/**
+ 收到通知处理
+
+ @param contentInfo 信息
+ */
+-(void)NotificationRemind:(NSDictionary *)contentInfo;
+
 @end

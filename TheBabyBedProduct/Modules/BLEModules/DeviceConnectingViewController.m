@@ -11,6 +11,8 @@
 #import <JMAirKiss/JMAirKiss.h>
 #import "BLEDeviceStatusViewController.h"
 #import "BLEScanConnectViewController.h"
+#import "GlobalPopView.h"
+#import "ScanDeviceCodeViewController.h"
 
 @interface DeviceConnectingViewController ()
 /* <#Description#>*/
@@ -28,7 +30,10 @@
     [self addBackItem];
     [self connectAirkiss];
     
+    [ [NSNotificationCenter defaultCenter]addObserver:self selector:@selector(SetTheBluetooth) name:BLE_POWER_NOTIFI object:nil];
+    
 }
+    
 -(void)connectAirkiss{
     
     if (self.airKissConnection != nil) {
@@ -68,7 +73,7 @@
 }
 
 -(void)showConnectSuccessPopView{
-    
+    BBGlobalUtility.airkissCount = 0;
     [[GlobalAlertViewManager shareInstance]promptsPopViewWithtitle:@"连接成功" content:@"不错过告警消息请关注公众号：xxxxxx" cancelTitle:@"进入首页" sureTitle:@"去关注" completion:^(NSInteger index) {
         if (index == 0) {
             //进去首页
@@ -88,7 +93,14 @@
 
 -(void)showConnectFailPopView{
     
-    [[GlobalAlertViewManager shareInstance]promptsPopViewWithtitle:@"连接失败" content:@"请确保您的Wi-Fi密码输入正确" cancelTitle:@"蓝牙连接" sureTitle:@"再试一次" completion:^(NSInteger index) {
+    BBGlobalUtility.airkissCount += 1;
+    DLog(@"%ld",BBGlobalUtility.airkissCount);
+    NSString * bleStr = nil;
+    if (BBGlobalUtility.airkissCount >= 3){
+        bleStr = @"蓝牙连接";
+    }
+    
+    [[GlobalAlertViewManager shareInstance]promptsPopViewWithtitle:@"连接失败" content:@"请确保您的Wi-Fi密码输入正确" cancelTitle:bleStr sureTitle:@"再试一次" completion:^(NSInteger index) {
         if (index == 0) {
             //蓝牙连接
             [self SetTheBluetooth];
@@ -100,16 +112,33 @@
 }
 
 -(void)SetTheBluetooth{
-    BOOL isOpen = [[GlobalTool getContentWithKey:BLE_POWER_NOTIFI] boolValue];
+    BOOL isOpen = BBGlobalUtility.BLEOpen;
     if (!isOpen) {
-        BLEDeviceStatusViewController * statusVC = [[BLEDeviceStatusViewController alloc]init];
-        [self.navigationController pushViewController:statusVC animated:true];
+        [self showBLEOffStatusPopView];
+//        BLEDeviceStatusViewController * statusVC = [[BLEDeviceStatusViewController alloc]init];
+//        [self.navigationController pushViewController:statusVC animated:true];
     }else{
-        BLEScanConnectViewController * connectingVC = [[BLEScanConnectViewController alloc]init];
-        [self.navigationController pushViewController:connectingVC animated:true];
+//        BLEScanConnectViewController * connectingVC = [[BLEScanConnectViewController alloc]init];
+//        [self.navigationController pushViewController:connectingVC animated:true];
+        for (UIViewController * vc in self.navigationController.viewControllers) {
+            if ([vc isKindOfClass:[ScanDeviceCodeViewController class]]) {
+                [self.navigationController popToViewController:vc animated:true];
+            }
+        }
     }
 }
-
+    
+-(void)showBLEOffStatusPopView{
+    GlobalPopView * popView =  [GlobalPopView initWithTitle:nil superView:self.view content:@"请打开蓝牙扫描xx二维码" cancelTitle:@"取消" sureTitle:@"设置" clickcompletion:^(NSInteger index) {
+        if (index == 0) {
+            [self.navigationController popViewControllerAnimated:true];
+        }else if (index == 1){
+            //打开设置蓝牙页面
+            [GlobalTool openSystemSetting:@"App-Prefs:root=Bluetooth"];
+        }
+    }];
+}
+    
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -128,9 +157,11 @@
     } failureBlock:^(EnumServerStatus status, id object) {
         finish(false);
     }];
-
 }
-
+    
+-(void)dealloc{
+    [[NSNotificationCenter defaultCenter]removeObserver:self];
+}
 
 /*
 #pragma mark - Navigation

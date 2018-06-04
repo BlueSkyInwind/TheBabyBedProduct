@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "SendUdpMessage.h"
 
 typedef NS_ENUM(NSInteger,ReceiveUdpMessageType) {
     
@@ -15,11 +16,12 @@ typedef NS_ENUM(NSInteger,ReceiveUdpMessageType) {
     LoginMessageType,                       //登录报文
     HeartMessageType,                       //心跳报文
     NotificationType,                           //通知报文
-    DeviceManagerType                      //设备管理报文
-    
+    DeviceManagerType,                     //设备管理报文
+    CFGMessageType                      //CFG报文
+
 };
 
-typedef void(^ReceiveUdpMessageResult)(ReceiveUdpMessageType type,id result);
+typedef void(^ReceiveUdpMessageResult)(ReceiveUdpMessageType type,int errCode,id result);
 
 @interface ReceiveUdpMessage : NSObject
 

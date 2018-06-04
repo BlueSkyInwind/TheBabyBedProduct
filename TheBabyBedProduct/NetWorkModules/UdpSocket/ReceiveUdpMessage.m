@@ -11,6 +11,7 @@
 #import "RSA.h"
 
 extern short int TransID;
+NSString * const    Video_Address     =  @"Video_Address";
 
 @implementation ReceiveUdpMessage
 
@@ -48,32 +49,31 @@ extern short int TransID;
         if (msgType == 0x02) {
             //寻址相应报文
             DLog(@"寻址相应报文类型 ---- %c",msgType);
-            NSArray * arr = [self analysisAddressYDACtrlHeader:ctrlData];
-            self.responseResult(AddressingMessageType, arr);
+            [self analysisAddressYDACtrlHeader:ctrlData complication:self.responseResult];
         }else if(msgType == 0x04){
             //发现相应报文
             DLog(@"发现相应报文类型 ---- %c",msgType);
-           unsigned int code =  [self analysisDiscoverYDACtrlHeader:ctrlData];
-           self.responseResult(DiscoverMessageType, @(code));
+            [self analysisDiscoverYDACtrlHeader:ctrlData complication:self.responseResult];
         }else if(msgType == 0x06){
             //登录相应报文
             DLog(@"登陆相应报文类型 ---- %c",msgType);
-            unsigned int code =  [self analysisLoginYDACtrlHeader:ctrlData];
-            self.responseResult(LoginMessageType, @(code));
+            [self analysisLoginYDACtrlHeader:ctrlData complication:self.responseResult];
         }else if(msgType == 0x08){
             //心跳相应报文
             DLog(@"心跳相应报文类型 ---- %c",msgType);
-            self.responseResult(HeartMessageType, @(0));
-        }else if(msgType == 0x0c){
+            self.responseResult(HeartMessageType,0,nil);
+        }else if(msgType == 0x0b){
             //事件相应报文
             DLog(@"事件相应报文类型 ---- %c",msgType);
-            unsigned int code =  [self analysisEventYDACtrlHeader:ctrlData];
-            self.responseResult(NotificationType, @(code));
+             [self analysisEventYDACtrlHeader:ctrlData complication:self.responseResult];
         }else if(msgType == 0x0e){
             //设备管理相应报文
             DLog(@"设备管理相应报文类型 ---- %c",msgType);
-            unsigned int code =  [self analysisEventYDACtrlHeader:ctrlData];
-            self.responseResult(NotificationType, @(code));
+            [self analysisEventYDACtrlHeader:ctrlData complication:self.responseResult];
+        }else if(msgType == 0x0a){
+            //CFG相应报文
+            DLog(@"设备管理相应报文类型 ---- %c",msgType);
+            [self analysisCFGYDACtrlHeader:ctrlData complication:self.responseResult];
         }
     }@catch (NSException * exception){
         DLog(@"解析报文出现异常%@",exception);
@@ -86,19 +86,27 @@ extern short int TransID;
 /**
  解析寻址响应的udp报文
 
- @param ctrlHeaderData 数据包
  */
--(NSArray *)analysisAddressYDACtrlHeader:(NSData *)ctrlHeaderData{
+-(void)analysisAddressYDACtrlHeader:(NSData *)ctrlHeaderData complication:(ReceiveUdpMessageResult)messageResult{
     
     NSMutableArray * adressArr = [NSMutableArray array];
+    unsigned int errCode = 0;
     Byte receiveCtrlByte[ctrlHeaderData.length];
     Byte receivePayLoad[ctrlHeaderData.length - YDA_CTRL_HAEDER_LENGTH];
     [ctrlHeaderData getBytes:receiveCtrlByte length:ctrlHeaderData.length];
     memcpy(receivePayLoad, receiveCtrlByte + YDA_CTRL_HAEDER_LENGTH, ctrlHeaderData.length - YDA_CTRL_HAEDER_LENGTH);
+    
+    Byte receiveUdpAddressErrByte[4];
+    memcpy(receiveUdpAddressErrByte, receivePayLoad + 4, 4);
+    short int elementErrID = (receivePayLoad[0] << 8) + receivePayLoad[1];
+    if (elementErrID == 0) {
+        errCode = receiveUdpAddressErrByte[0] + (receiveUdpAddressErrByte[1] << 8) + (receiveUdpAddressErrByte[2] << 16) + (receiveUdpAddressErrByte[3] << 24);
+    }
+    
     Byte receiveUdpAdressByte[104];
     memcpy(receiveUdpAdressByte, receivePayLoad + 8, 104);
     short int elementID = (receiveUdpAdressByte[0] << 8) + receiveUdpAdressByte[1];
-    if (elementID == 5) {
+    if (elementID == 4) {
         Byte receiveUdpAddressByte[100];
         memcpy(receiveUdpAddressByte, receiveUdpAdressByte + 4, 100);
         for (int i = 0; i < 5; i++) {
@@ -109,7 +117,7 @@ extern short int TransID;
             [adressArr addObject:dic];
         }
     }
-    return adressArr;
+    messageResult(AddressingMessageType,errCode,adressArr);
 }
 
 
@@ -156,7 +164,7 @@ extern short int TransID;
 }
 
 #pragma mark - 发现相应报文解析
--(unsigned int)analysisDiscoverYDACtrlHeader:(NSData *)ctrlHeaderData{
+-(void)analysisDiscoverYDACtrlHeader:(NSData *)ctrlHeaderData complication:(ReceiveUdpMessageResult)messageResult{
     
     unsigned int errCode;
     Byte receiveCtrlByte[ctrlHeaderData.length];
@@ -169,13 +177,13 @@ extern short int TransID;
     if (elementID == 0) {
         errCode = receiveUdpDiscoverByte[0] + (receiveUdpDiscoverByte[1] << 8) + (receiveUdpDiscoverByte[2] << 16) + (receiveUdpDiscoverByte[3] << 24);
     }
-    return errCode;
+    messageResult(DiscoverMessageType,errCode,nil);
 }
 
 #pragma mark - 登录相应报文解析
--(unsigned int)analysisLoginYDACtrlHeader:(NSData *)ctrlHeaderData{
+-(void)analysisLoginYDACtrlHeader:(NSData *)ctrlHeaderData complication:(ReceiveUdpMessageResult)messageResult{
     
-    unsigned int errCode;
+    unsigned int errCode = 0;
     Byte receiveCtrlByte[ctrlHeaderData.length];
     Byte receivePayLoad[ctrlHeaderData.length - YDA_CTRL_HAEDER_LENGTH];
     [ctrlHeaderData getBytes:receiveCtrlByte length:ctrlHeaderData.length];
@@ -186,28 +194,91 @@ extern short int TransID;
     if (elementID == 0) {
         errCode = receiveUdpLoginByte[0] + (receiveUdpLoginByte[1] << 8) + (receiveUdpLoginByte[2] << 16) + (receiveUdpLoginByte[3] << 24);
     }
-    return errCode;
+    messageResult(LoginMessageType,errCode,nil);
 }
 #pragma mark - 事件报文相应报文解析
--(unsigned int)analysisEventYDACtrlHeader:(NSData *)ctrlHeaderData{
+-(void)analysisEventYDACtrlHeader:(NSData *)ctrlHeaderData complication:(ReceiveUdpMessageResult)messageResult{
     
     unsigned int errCode;
+    NSDictionary * eventDic;
     Byte receiveCtrlByte[ctrlHeaderData.length];
     Byte receivePayLoad[ctrlHeaderData.length - YDA_CTRL_HAEDER_LENGTH];
     [ctrlHeaderData getBytes:receiveCtrlByte length:ctrlHeaderData.length];
     memcpy(receivePayLoad, receiveCtrlByte + YDA_CTRL_HAEDER_LENGTH, ctrlHeaderData.length - YDA_CTRL_HAEDER_LENGTH);
-    Byte receiveUdpEventByte[4];
-    memcpy(receiveUdpEventByte, receivePayLoad + 4, 4);
+    Byte receiveUdpEventByte[12];
+    memcpy(receiveUdpEventByte, receivePayLoad + 4, 12);
     short int elementID = (receivePayLoad[0] << 8) + receivePayLoad[1];
-    if (elementID == 0x0F) {
-        errCode = receiveUdpEventByte[0] + (receiveUdpEventByte[1] << 8) + (receiveUdpEventByte[2] << 16) + (receiveUdpEventByte[3] << 24);
+    if (elementID == 0x0D) {
+        errCode = 0;
+       eventDic = [self analysisEventMessageData:[[NSData alloc]initWithBytes:receiveUdpEventByte length:13]];
     }
-    return errCode;
+    messageResult(NotificationType,errCode,eventDic);
+}
+    
+-(NSDictionary *)analysisEventMessageData:(NSData *)data{
+    
+    Byte receiveUdpEventByte[data.length];
+    [data getBytes:receiveUdpEventByte length:data.length];
+    
+    unsigned char Valid_Value = 0;
+    short int cryState = 0;
+    short int kickState = 0;
+    short int envtemp_Value = 0;
+    short int humidity_Value = 0;
+    short int bodytemp_Value = 0;
+    short int urine_Value = 0;
+    Valid_Value = receiveUdpEventByte[0];
+    cryState = (receiveUdpEventByte[1] << 8 ) +  receiveUdpEventByte[2];
+    kickState = (receiveUdpEventByte[3] << 8 ) +  receiveUdpEventByte[4];
+    envtemp_Value = (receiveUdpEventByte[5] << 8)  + receiveUdpEventByte[6] ;
+    humidity_Value = (receiveUdpEventByte[7] << 8)+ receiveUdpEventByte[8] ;
+    bodytemp_Value = (receiveUdpEventByte[9] << 8) + receiveUdpEventByte[10];
+    urine_Value = (receiveUdpEventByte[11] << 8 ) +  receiveUdpEventByte[12];
+    
+    NSDictionary * eventDic = @{Baby_Cry_State:@(cryState),Baby_Kick_State:@(kickState),Env_Temp_Value:@(envtemp_Value),Env_Humidity_Value:@(humidity_Value),Body_Temp_Value:@(bodytemp_Value),Baby_Urine_Value:@(urine_Value)};
+    return eventDic;
 }
 
+#pragma mark - CFG相应报文解析
+-(void)analysisCFGYDACtrlHeader:(NSData *)ctrlHeaderData complication:(ReceiveUdpMessageResult)messageResult{
+    
+    unsigned int errCode;
+    NSDictionary * CFGDic;
+    Byte receiveCtrlByte[ctrlHeaderData.length];
+    Byte receivePayLoad[ctrlHeaderData.length - YDA_CTRL_HAEDER_LENGTH];
+    [ctrlHeaderData getBytes:receiveCtrlByte length:ctrlHeaderData.length];
+    memcpy(receivePayLoad, receiveCtrlByte + YDA_CTRL_HAEDER_LENGTH, ctrlHeaderData.length - YDA_CTRL_HAEDER_LENGTH);
+    Byte receiveUdpCFGErrByte[8];
+    memcpy(receivePayLoad, receivePayLoad, 8);
+    short int elementID = (receivePayLoad[0] << 8) + receivePayLoad[1];
+    if (elementID == 0) {
+        errCode = receiveUdpCFGErrByte[4] + (receiveUdpCFGErrByte[5] << 8) + (receiveUdpCFGErrByte[6] << 16) + (receiveUdpCFGErrByte[7] << 24);
+    }
+    
+    Byte receiveUdpCFGAddressheaderByte[4];
+    memcpy(receiveUdpCFGAddressheaderByte, receivePayLoad + 8, 4);
+    short int elementTwoID = (receiveUdpCFGAddressheaderByte[0] << 8) + receiveUdpCFGAddressheaderByte[1];
+    if (elementTwoID == 0x0c) {
+        short int addressLength = (receiveUdpCFGAddressheaderByte[2] << 8) + receiveUdpCFGAddressheaderByte[3];
+        Byte receiveUdpCFGAddressByte[addressLength];
+        memcpy(receiveUdpCFGAddressByte, receivePayLoad + 12, addressLength);
+        NSData * addressData = [[NSData alloc]initWithBytes:receiveUdpCFGAddressheaderByte length:addressLength];
+        CFGDic = [self analysisCFGVideoAdress:addressData];
+    }
 
-
-
+    messageResult(CFGMessageType,errCode,CFGDic);
+    
+}
+-(NSDictionary * )analysisCFGVideoAdress:(NSData *)addressData{
+    
+    Byte addressByte [addressData.length];
+    short int option = 0;
+    short int value = 0;
+    NSData * resultData = [[NSData alloc]initWithBytes:(addressByte + 4) length:addressData.length - 4];
+    NSString * addressStr = [[NSString alloc]initWithData:resultData encoding:NSUTF8StringEncoding];
+    NSDictionary * addressDic = @{Video_Address:addressStr};
+    return addressDic;
+}
 
 
 

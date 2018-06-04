@@ -8,8 +8,12 @@
 
 #import "HomeHeaderView.h"
 #import "ZFPlayer.h"
+#import "BBVideoPlayView.h"
 
 @interface HomeHeaderView ()
+    
+@property(atomic, retain) id<IJKMediaPlayback> player;
+@property(nonatomic, strong) UIButton * playerBtn;
 @property(nonatomic,strong) ZFPlayerView *playerView;
 @property (nonatomic, strong) ZFPlayerModel *playerModel;
 @property(nonatomic,strong) UIView *recommenderView;
@@ -25,7 +29,6 @@
     headerView.statusArr = statusArr;
     return headerView;
 }
-
 
 -(instancetype)initWithFrame:(CGRect)frame{
     self = [super initWithFrame:frame];
@@ -47,6 +50,30 @@
         make.height.equalTo(@(_k_w * 0.61));
     }];
     
+    BBVideoPlayView * videoPlayView = [BBVideoPlayView initBBVideoPlayView:_videoView videoUrl:@"rtmp://live.hkstv.hk.lxdns.com/live/hks"];
+    
+//    IJKFFOptions *options = [IJKFFOptions optionsByDefault];
+//    self.player = [[IJKFFMoviePlayerController alloc] initWithContentURL:[NSURL URLWithString:@"rtmp://live.hkstv.hk.lxdns.com/live/hks"] withOptions:options];
+//    self.player.view.autoresizingMask = UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight;
+//    self.player.scalingMode = IJKMPMovieScalingModeAspectFit;
+//    self.player.shouldAutoplay = YES;
+//    _videoView.autoresizesSubviews = YES;
+//    [_videoView addSubview:self.player.view];
+//    [self.player.view mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.edges.equalTo(_videoView);
+//    }];
+//
+//    [self.player prepareToPlay];
+//    [self.player play];
+
+    
+//    _playerBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+//    _playerBtn.center = _videoView.center;
+//    [_playerBtn setBackgroundImage:[UIImage imageNamed:@"home_video_play_Icon"] forState:UIControlStateNormal];
+//    [_playerBtn addTarget:self action:@selector(playerBtnClick:) forControlEvents:UIControlEventTouchUpInside];
+//    [self addSubview:_playerBtn];
+    
+
 //    self.recommenderView = [UIView new];
 //    [self addSubview:self.recommenderView];
 //    self.recommenderView.backgroundColor = rgb(0, 0, 0, 0.5);
@@ -81,8 +108,6 @@
 //    [cancelBT mas_makeConstraints:^(MASConstraintMaker *make) {
 //        make.centerX.equalTo(itemV.mas_centerX).with.offset(-60);
 //    }]
-    
-    
     
     self.playerView.ZFPlayerViewGetCurrentSeconBlock = ^(ZFPlayerView *playerView,NSInteger currentSecond) {
         if (currentSecond >= 12) {
@@ -133,25 +158,33 @@
         }];
     }
 }
-
-- (ZFPlayerModel *)playerModel {
-    if (!_playerModel) {
-        _playerModel                  = [[ZFPlayerModel alloc] init];
-        _playerModel.title            = @"小黄人一起来嗨";
-        _playerModel.videoURL         = [NSURL URLWithString:@"http://120.25.226.186:32812/resources/videos/minion_01.mp4"];
-        _playerModel.placeholderImage = [UIImage imageNamed:@"loading_bgView1"];
-        _playerModel.fatherView       = _videoView;
-        _playerModel.resolutionDic = @{@"高清" : @"http://120.25.226.186:32812/resources/videos/minion_01.mp4",@"标清" : @"http://120.25.226.186:32812/resources/videos/minion_01.mp4"};
-    }
-    return _playerModel;
+    
+-(void)playerBtnClick:(id)sender{
+        
+        
 }
+    
+    
 
-- (ZFPlayerView *)playerView {
-    if (!_playerView) {
-        _playerView = [[ZFPlayerView alloc] init];
-        [_playerView playerControlView:nil playerModel:self.playerModel];
-    }
-    return _playerView;
-}
+//
+//- (ZFPlayerModel *)playerModel {
+//    if (!_playerModel) {
+//        _playerModel                  = [[ZFPlayerModel alloc] init];
+//        _playerModel.title            = @"小黄人一起来嗨";
+//        _playerModel.videoURL         = [NSURL URLWithString:@"http://221.228.226.23/11/t/j/v/b/tjvbwspwhqdmgouolposcsfafpedmb/sh.yinyuetai.com/691201536EE4912BF7E4F1E2C67B8119.mp4"];
+//        _playerModel.placeholderImage = [UIImage imageNamed:@"loading_bgView1"];
+//        _playerModel.fatherView       = _videoView;
+//        _playerModel.resolutionDic = @{@"高清" : @"http://221.228.226.23/11/t/j/v/b/tjvbwspwhqdmgouolposcsfafpedmb/sh.yinyuetai.chttp://221.228.226.23/11/t/j/v/b/tjvbwspwhqdmgouolposcsfafpedmb/sh.yinyuetai.com/691201536EE4912BF7E4F1E2C67B8119.mp4"};
+//    }
+//    return _playerModel;
+//}
+//
+//- (ZFPlayerView *)playerView {
+//    if (!_playerView) {
+//        _playerView = [[ZFPlayerView alloc] init];
+//        [_playerView playerControlView:nil playerModel:self.playerModel];
+//    }
+//    return _playerView;
+//}
 
 @end

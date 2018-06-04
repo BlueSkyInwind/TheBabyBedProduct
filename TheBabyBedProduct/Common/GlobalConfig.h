@@ -40,6 +40,7 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:a]
 #define BBWeakSelf(type)  __weak typeof(type) weak##type = type;
 #define BBStrongSelf(type)  __strong typeof(type) type = weak##type;
 
+#define BBGlobalUtility [GlobalUtility sharedUtility]
 
 #define UI_IS_IPHONE            ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone)
 #define UI_IS_IPHONE5           (UI_IS_IPHONE && [[UIScreen mainScreen] bounds].size.height == 568.0)
@@ -73,6 +74,16 @@ UIKIT_EXTERN NSString * const _main_url;
 UIKIT_EXTERN NSString *const KGCSDad_AppId;
 
 UIKIT_EXTERN NSString *const KGCSDad_Secret;
+
+
+#pragma mrak --------远程推送报警提示--------
+UIKIT_EXTERN NSString *const WARN_CRY; //哭闹告警
+UIKIT_EXTERN NSString *const WARN_KICK; //踢被告警
+UIKIT_EXTERN NSString *const WARN_TEMP; //室内温度告警
+UIKIT_EXTERN NSString *const WARN_HUMIDITY;  //室内湿度告警
+UIKIT_EXTERN NSString *const WARN_BABY_TEMP;  //宝贝体温告警
+UIKIT_EXTERN NSString *const WARN_URINE;   //尿湿告警
+UIKIT_EXTERN NSString *const WARN_DEVICE_NOTICE;   //设备上线通知
 
 
 

@@ -7,6 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		225B8B8D20C0399700710583 /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 225B8B8C20C0399700710583 /* libc++.tbd */; };
+		225B8B8F20C03B0200710583 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 225B8B8E20C03B0200710583 /* AudioToolbox.framework */; };
+		225B8B9120C03B1400710583 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 225B8B9020C03B1400710583 /* CoreMedia.framework */; };
+		225B8B9320C03B2700710583 /* VideoToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 225B8B9220C03B2700710583 /* VideoToolbox.framework */; };
+		225B8B9520C03B3300710583 /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 225B8B9420C03B3300710583 /* CoreVideo.framework */; };
+		225B8B9720C03B4900710583 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 225B8B9620C03B4900710583 /* MediaPlayer.framework */; };
+		225B8B9920C03B6000710583 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 225B8B9820C03B6000710583 /* OpenGLES.framework */; };
+		225B8B9B20C03B6900710583 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 225B8B9A20C03B6900710583 /* QuartzCore.framework */; };
+		225B8BA120C0438900710583 /* BBVideoPlayView.m in Sources */ = {isa = PBXBuildFile; fileRef = 225B8BA020C0438900710583 /* BBVideoPlayView.m */; };
+		225B8BA320C2542D00710583 /* IJKMediaFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 225B8BA220C2542D00710583 /* IJKMediaFramework.framework */; };
+		225B8BB020C2AA0000710583 /* ASValuePopUpView.m in Sources */ = {isa = PBXBuildFile; fileRef = 57210C9F2074C2DE0039D8D5 /* ASValuePopUpView.m */; };
+		225B8BB120C2AA0000710583 /* ASValueTrackingSlider.m in Sources */ = {isa = PBXBuildFile; fileRef = 57210CA42074C2DE0039D8D5 /* ASValueTrackingSlider.m */; };
 		2263B8E3206BCBB9005BB15E /* HomeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2263B8E1206BCBB9005BB15E /* HomeTableViewCell.m */; };
 		2263B8E7206BD901005BB15E /* HomeHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2263B8E6206BD901005BB15E /* HomeHeaderView.m */; };
 		2263B8EA206BE604005BB15E /* MessageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2263B8E9206BE604005BB15E /* MessageViewController.m */; };
@@ -97,11 +109,9 @@
 		57210CA92074C2DE0039D8D5 /* UIViewController+ZFPlayerRotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 57210C972074C2DE0039D8D5 /* UIViewController+ZFPlayerRotation.m */; };
 		57210CAA2074C2DE0039D8D5 /* ZFBrightnessView.m in Sources */ = {isa = PBXBuildFile; fileRef = 57210C9C2074C2DE0039D8D5 /* ZFBrightnessView.m */; };
 		57210CAB2074C2DE0039D8D5 /* ZFPlayer.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 57210C9D2074C2DE0039D8D5 /* ZFPlayer.bundle */; };
-		57210CAC2074C2DE0039D8D5 /* ASValuePopUpView.m in Sources */ = {isa = PBXBuildFile; fileRef = 57210C9F2074C2DE0039D8D5 /* ASValuePopUpView.m */; };
 		57210CAD2074C2DE0039D8D5 /* ZFPlayerControlView.m in Sources */ = {isa = PBXBuildFile; fileRef = 57210CA02074C2DE0039D8D5 /* ZFPlayerControlView.m */; };
 		57210CAE2074C2DE0039D8D5 /* ZFPlayerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 57210CA12074C2DE0039D8D5 /* ZFPlayerView.m */; };
 		57210CAF2074C2DE0039D8D5 /* MMMaterialDesignSpinner.m in Sources */ = {isa = PBXBuildFile; fileRef = 57210CA22074C2DE0039D8D5 /* MMMaterialDesignSpinner.m */; };
-		57210CB02074C2DE0039D8D5 /* ASValueTrackingSlider.m in Sources */ = {isa = PBXBuildFile; fileRef = 57210CA42074C2DE0039D8D5 /* ASValueTrackingSlider.m */; };
 		57210D09207736040039D8D5 /* NetWorkRequestManager+BBRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 57210D08207736040039D8D5 /* NetWorkRequestManager+BBRequest.m */; };
 		57210D0C207744780039D8D5 /* GlobalTool+BBHandleCode.m in Sources */ = {isa = PBXBuildFile; fileRef = 57210D0B207744780039D8D5 /* GlobalTool+BBHandleCode.m */; };
 		57210D0F207777960039D8D5 /* AppDelegate+BBConfigure.m in Sources */ = {isa = PBXBuildFile; fileRef = 57210D0E207777960039D8D5 /* AppDelegate+BBConfigure.m */; };
@@ -319,6 +329,18 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		225B8B8B20BEF5DF00710583 /* TheBabyBedProduct.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TheBabyBedProduct.entitlements; sourceTree = "<group>"; };
+		225B8B8C20C0399700710583 /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
+		225B8B8E20C03B0200710583 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		225B8B9020C03B1400710583 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
+		225B8B9220C03B2700710583 /* VideoToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = VideoToolbox.framework; path = System/Library/Frameworks/VideoToolbox.framework; sourceTree = SDKROOT; };
+		225B8B9420C03B3300710583 /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = System/Library/Frameworks/CoreVideo.framework; sourceTree = SDKROOT; };
+		225B8B9620C03B4900710583 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
+		225B8B9820C03B6000710583 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
+		225B8B9A20C03B6900710583 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		225B8B9F20C0438900710583 /* BBVideoPlayView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BBVideoPlayView.h; sourceTree = "<group>"; };
+		225B8BA020C0438900710583 /* BBVideoPlayView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BBVideoPlayView.m; sourceTree = "<group>"; };
+		225B8BA220C2542D00710583 /* IJKMediaFramework.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = IJKMediaFramework.framework; sourceTree = "<group>"; };
 		2263B8E0206BCBB9005BB15E /* HomeTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeTableViewCell.h; sourceTree = "<group>"; };
 		2263B8E1206BCBB9005BB15E /* HomeTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeTableViewCell.m; sourceTree = "<group>"; };
 		2263B8E5206BD901005BB15E /* HomeHeaderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeHeaderView.h; sourceTree = "<group>"; };
@@ -856,12 +878,21 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				84114B4E20722CA6005A1DC9 /* CoreGraphics.framework in Frameworks */,
+				225B8B9B20C03B6900710583 /* QuartzCore.framework in Frameworks */,
+				225B8BA320C2542D00710583 /* IJKMediaFramework.framework in Frameworks */,
+				225B8B9920C03B6000710583 /* OpenGLES.framework in Frameworks */,
+				225B8B9720C03B4900710583 /* MediaPlayer.framework in Frameworks */,
+				225B8B9520C03B3300710583 /* CoreVideo.framework in Frameworks */,
+				225B8B9320C03B2700710583 /* VideoToolbox.framework in Frameworks */,
+				225B8B9120C03B1400710583 /* CoreMedia.framework in Frameworks */,
+				225B8B8F20C03B0200710583 /* AudioToolbox.framework in Frameworks */,
+				225B8B8D20C0399700710583 /* libc++.tbd in Frameworks */,
 				84114B5820722CF4005A1DC9 /* libresolv.tbd in Frameworks */,
 				84114B5620722CE0005A1DC9 /* UserNotifications.framework in Frameworks */,
 				84114B5420722CCD005A1DC9 /* UIKit.framework in Frameworks */,
 				84114B5220722CC3005A1DC9 /* Foundation.framework in Frameworks */,
 				84114B5020722CB6005A1DC9 /* Security.framework in Frameworks */,
-				84114B4E20722CA6005A1DC9 /* CoreGraphics.framework in Frameworks */,
 				84114B4C20722C9B005A1DC9 /* SystemConfiguration.framework in Frameworks */,
 				84114B4A20722C8F005A1DC9 /* CoreTelephony.framework in Frameworks */,
 				84114B4820722C84005A1DC9 /* CoreFoundation.framework in Frameworks */,
@@ -911,6 +942,14 @@
 		08647956D283325F7A1D56FF /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				225B8B9A20C03B6900710583 /* QuartzCore.framework */,
+				225B8B9820C03B6000710583 /* OpenGLES.framework */,
+				225B8B9620C03B4900710583 /* MediaPlayer.framework */,
+				225B8B9420C03B3300710583 /* CoreVideo.framework */,
+				225B8B9220C03B2700710583 /* VideoToolbox.framework */,
+				225B8B9020C03B1400710583 /* CoreMedia.framework */,
+				225B8B8E20C03B0200710583 /* AudioToolbox.framework */,
+				225B8B8C20C0399700710583 /* libc++.tbd */,
 				84114B5720722CF4005A1DC9 /* libresolv.tbd */,
 				84114B5520722CE0005A1DC9 /* UserNotifications.framework */,
 				84114B5320722CCD005A1DC9 /* UIKit.framework */,
@@ -999,6 +1038,7 @@
 		22CFD336206141080004186D /* TheBabyBedProduct */ = {
 			isa = PBXGroup;
 			children = (
+				225B8B8B20BEF5DF00710583 /* TheBabyBedProduct.entitlements */,
 				22CFD337206141080004186D /* AppDelegate.h */,
 				22CFD338206141080004186D /* AppDelegate.m */,
 				57210D0D207777960039D8D5 /* AppDelegate+BBConfigure.h */,
@@ -1199,6 +1239,7 @@
 		22CFD3982062AC480004186D /* View */ = {
 			isa = PBXGroup;
 			children = (
+				843346E920BFFE0B0021C7AB /* BBVideoPlayer */,
 				8490CFC42074811E00D416C1 /* BLE */,
 				22CF35652073DAEA00707F8A /* QRscanView */,
 				84BE5EB3206A4863007A001D /* popView */,
@@ -1267,6 +1308,7 @@
 		22CFD39E2064015D0004186D /* Third */ = {
 			isa = PBXGroup;
 			children = (
+				843346E520BFDBDA0021C7AB /* ijkplayer */,
 				5722099020AD27AA00611BFA /* CBAutoScrollLabel */,
 				5722098620AD24E600611BFA /* GKSearchBar */,
 				57CB447F20A9E55100268DBE /* ZXPUnicode */,
@@ -2108,6 +2150,23 @@
 			path = AirKiss;
 			sourceTree = "<group>";
 		};
+		843346E520BFDBDA0021C7AB /* ijkplayer */ = {
+			isa = PBXGroup;
+			children = (
+				225B8BA220C2542D00710583 /* IJKMediaFramework.framework */,
+			);
+			path = ijkplayer;
+			sourceTree = "<group>";
+		};
+		843346E920BFFE0B0021C7AB /* BBVideoPlayer */ = {
+			isa = PBXGroup;
+			children = (
+				225B8B9F20C0438900710583 /* BBVideoPlayView.h */,
+				225B8BA020C0438900710583 /* BBVideoPlayView.m */,
+			);
+			path = BBVideoPlayer;
+			sourceTree = "<group>";
+		};
 		8449AC032062031F00526935 /* NetWorkModules */ = {
 			isa = PBXGroup;
 			children = (
@@ -2277,6 +2336,9 @@
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+							com.apple.Push = {
 								enabled = 1;
 							};
 						};
@@ -2473,6 +2535,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				225B8BB020C2AA0000710583 /* ASValuePopUpView.m in Sources */,
+				225B8BB120C2AA0000710583 /* ASValueTrackingSlider.m in Sources */,
 				57CF9A1320BA8EA1005EB9E9 /* MusicHandler.m in Sources */,
 				229FF0A72084E2C2005BA4A6 /* JMAirKissShareTools.m in Sources */,
 				5726F3AA206B8537008EED75 /* BBHelpAndSuggestionViewController.m in Sources */,
@@ -2543,10 +2607,10 @@
 				8449AC152062354000526935 /* LaunchConfiguration.m in Sources */,
 				8412F52A20886DF500521C23 /* CRC16.m in Sources */,
 				229FF0BD208E258F005BA4A6 /* BabyBedPeripheralManager.m in Sources */,
-				57210CAC2074C2DE0039D8D5 /* ASValuePopUpView.m in Sources */,
 				8449AC18206239F900526935 /* GlobalUtility.m in Sources */,
 				8490CFC72074814200D416C1 /* DeviceConnectAnimationView.m in Sources */,
 				22CF35632073CCAB00707F8A /* ScanDeviceCodeViewController.m in Sources */,
+				225B8BA120C0438900710583 /* BBVideoPlayView.m in Sources */,
 				570A1CB72090C9D500B13EB5 /* BBDeviceHeaderBottomView.m in Sources */,
 				2263B8EA206BE604005BB15E /* MessageViewController.m in Sources */,
 				2266C1B720692D73004F653A /* UIFont+YX_Font.m in Sources */,
@@ -2624,7 +2688,6 @@
 				572209C720AD32CB00611BFA /* UIViewController+GKWYCategory.m in Sources */,
 				57CF99FF20BA8551005EB9E9 /* Track.m in Sources */,
 				57CF9A1220BA8EA1005EB9E9 /* BaseHelper.m in Sources */,
-				57210CB02074C2DE0039D8D5 /* ASValueTrackingSlider.m in Sources */,
 				8449AC122062338F00526935 /* MBPAlertView.m in Sources */,
 				5726F3C1206C8F13008EED75 /* BBEarlyEducationCell.m in Sources */,
 				5726F34F206A8DC3008EED75 /* UIView+PP_Frame.m in Sources */,
@@ -2828,10 +2891,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_ENTITLEMENTS = TheBabyBedProduct/TheBabyBedProduct.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = GP8N54644M;
+				DEVELOPMENT_TEAM = LDR3UXH97L;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2842,6 +2906,7 @@
 					"$(PROJECT_DIR)/TheBabyBedProduct/Third/MOBSDK/ShareSDK",
 					"$(PROJECT_DIR)/TheBabyBedProduct/Third/MOBSDK/Required",
 					"$(PROJECT_DIR)/TheBabyBedProduct/Third/AirKiss",
+					"$(PROJECT_DIR)/TheBabyBedProduct/Third/ijkplayer",
 				);
 				GCC_PREFIX_HEADER = TheBabyBedProduct/Common/TheBabyBedProduct.pch;
 				INFOPLIST_FILE = "$(SRCROOT)/TheBabyBedProduct/Support/Info.plist";
@@ -2888,6 +2953,7 @@
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = 1;
 				USER_HEADER_SEARCH_PATHS = "$(PODS_ROOT)/**";
+				VALID_ARCHS = "arm64 armv7s";
 			};
 			name = Debug;
 		};
@@ -2897,10 +2963,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_ENTITLEMENTS = TheBabyBedProduct/TheBabyBedProduct.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = GP8N54644M;
+				DEVELOPMENT_TEAM = LDR3UXH97L;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2911,6 +2978,7 @@
 					"$(PROJECT_DIR)/TheBabyBedProduct/Third/MOBSDK/ShareSDK",
 					"$(PROJECT_DIR)/TheBabyBedProduct/Third/MOBSDK/Required",
 					"$(PROJECT_DIR)/TheBabyBedProduct/Third/AirKiss",
+					"$(PROJECT_DIR)/TheBabyBedProduct/Third/ijkplayer",
 				);
 				GCC_PREFIX_HEADER = TheBabyBedProduct/Common/TheBabyBedProduct.pch;
 				INFOPLIST_FILE = "$(SRCROOT)/TheBabyBedProduct/Support/Info.plist";
@@ -2957,6 +3025,7 @@
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = 1;
 				USER_HEADER_SEARCH_PATHS = "$(PODS_ROOT)/**";
+				VALID_ARCHS = "arm64 armv7s";
 			};
 			name = Release;
 		};

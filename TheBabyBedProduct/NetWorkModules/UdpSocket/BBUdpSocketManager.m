@@ -94,8 +94,6 @@ short int TransID;
     }
     
     [self sendAddressMessage];
-//    [self createHeartData];
-//    [self sendEventNotificationRequestMessage];
 
 }
 
@@ -115,8 +113,8 @@ short int TransID;
 - (void)udpSocket:(GCDAsyncUdpSocket *)sock didReceiveData:(NSData *)data fromAddress:(NSData *)address withFilterContext:(id)filterContext
 {
     DLog(@"接收到%@的消息",address);
-    [ReceiveUdpMessage initReceiveData:data complecation:^(ReceiveUdpMessageType type, id result) {
-        [self receiveMessageData:type result:result];
+    [ReceiveUdpMessage initReceiveData:data complecation:^(ReceiveUdpMessageType type, int errCode,id result) {
+        [self receiveMessageData:type errcode:errCode result:result];
     }];
 }
 - (void)udpSocketDidClose:(GCDAsyncUdpSocket *)sock withError:(NSError *)error
@@ -175,14 +173,15 @@ short int TransID;
     [self sendUdpData:discoverRequestData tag:1004];
     
 }
--(void)sendCFGSettingRequestMessage{
+-(void)sendCFGSettingRequestMessage:(NSDictionary *)dic{
     
     SendUdpMessage * sendMessage = [[SendUdpMessage alloc]init];
-    NSData * CFGSettingRequestData = [sendMessage generateCFGSettingRequestMessage];
+    NSData * CFGSettingRequestData = [sendMessage generateCFGSettingRequestMessage:dic];
     [self sendUdpData:CFGSettingRequestData tag:1007];
+    
 }
 
--(void)sendEventNotificationRequestMessage{
+-(void)sendEventNotificationRequestMessage:(NSDictionary *)eventDic{
     
     SendUdpMessage * sendMessage = [[SendUdpMessage alloc]init];
     NSData * discoverRequestData = [sendMessage generateEventNotificationRequestMessage:@{Env_Temp_Value:@(24)}];
@@ -197,28 +196,29 @@ short int TransID;
     
 }
 #pragma mrak - 报文接收处理
--(void)receiveMessageData:(ReceiveUdpMessageType)type result:(id)result{
+-(void)receiveMessageData:(ReceiveUdpMessageType)type errcode:(int)errCode result:(id)result{
     
     switch (type) {
         case AddressingMessageType:{
-            [self sendDiscoverRequestMessage];
+            if (errCode == 0) {
+                [self sendDiscoverRequestMessage];
+            }else{
+                [self sendAddressMessage];
+            }
         }
             break;
         case DiscoverMessageType:{
-            int errCode = [result intValue];
             if (errCode == 0) {
                 [self sendLoginRequestMessage];
             }else{
-                
+                [self sendDiscoverRequestMessage];
             }
         }
             break;
         case LoginMessageType:{
-            int errCode = [result intValue];
             if (errCode == 0) {
                 heartNoResponseCount = 0;
-//                [self createHeartData];
-                [self sendHeartbeatRequestMessage];
+                [self createHeartData];
             }else{
                 
             }
@@ -226,9 +226,24 @@ short int TransID;
             break;
         case HeartMessageType:{
             heartNoResponseCount = heartNoResponseCount > 0 ? heartNoResponseCount -= 1 : 0;
-            [self sendCFGSettingRequestMessage];
-//            [self sendEventNotificationRequestMessage];
-
+        }
+            break;
+        case NotificationType:{
+            if (errCode == 0) {
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    NSDictionary * dic = (NSDictionary *)result;
+                    [[NSNotificationCenter defaultCenter] postNotificationName:YDA_EVENT_NOTIFICATION object:self userInfo:dic];
+                });
+            }
+        }
+            break;
+        case CFGMessageType:{
+            if (errCode == 0) {
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    NSDictionary * dic = (NSDictionary *)result;
+                    [[NSNotificationCenter defaultCenter] postNotificationName:YDA_EVENT_NOTIFICATION object:self userInfo:dic];
+                });
+            }
         }
             break;
         default:
