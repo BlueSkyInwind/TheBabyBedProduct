@@ -21,6 +21,8 @@
 @property(atomic, retain) id<IJKMediaPlayback> player;
 /* <#Description#>*/
 @property(nonatomic,strong)UISlider * videoSlider;
+/**<#Description#>*/
+@property (nonatomic,strong)NSString   * playUrl;
 
 //竖屏控件
 @property(nonatomic, strong) UIView * verticalCtrlView;
@@ -48,6 +50,9 @@
 +(id)initBBVideoPlayView:(UIView *)superView videoUrl:(NSString *)videoUrl{
     BBVideoPlayView * playView = [[BBVideoPlayView alloc]initWithFrame:CGRectZero];
     [playView createPlayer:videoUrl];
+    [playView addVerticalUI];
+    [playView addLandscapeCtrlView];
+    self.landscapeCtrlView.hidden = true;
     playView.vedioSuperView = superView;
     [superView addSubview:playView];
     [playView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -68,9 +73,19 @@
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(applicationBecomeActive) name:UIApplicationWillEnterForegroundNotification object:nil];
         // 添加检测app进入后台的观察者
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(applicationEnterBackground) name: UIApplicationDidEnterBackgroundNotification object:nil];
+        // 添加检测app进入后台的观察者
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(changePlayerSource:) name:YDA_CFG_NOTIFICATION object:nil];
 
     }
     return self;
+}
+-(void)changePlayerSource:(NSNotification *)notification{
+    
+    NSDictionary * info = notification.userInfo;
+    NSString * addressStr = info[Video_Address];
+    _playUrl = addressStr;
+    [self createPlayer:_playUrl];
+
 }
 
 -(void)createPlayer:(NSString *)videoUrl{
@@ -84,25 +99,29 @@
     self.player.view.autoresizingMask = UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight;
     self.player.scalingMode = IJKMPMovieScalingModeAspectFit;
     self.player.shouldAutoplay = NO;
+    [self.player setPauseInBackground:true];
     self.autoresizesSubviews = YES;
     [self addSubview:self.player.view];
     [self.player.view mas_makeConstraints:^(MASConstraintMaker *make) {
         make.edges.equalTo(self);
     }];
     [self.player prepareToPlay];
-    [self addVerticalUI];
-    [self addLandscapeCtrlView];
-    self.landscapeCtrlView.hidden = true;
+    [self.player play];
 }
 -(void)palyVideo{
-    [self.player play];
+    [[BBUdpSocketManager shareInstance] sendCFGSettingRequestMessage:@{VideoPlayrStatus:@(1),VideoClarityStatus:@(1)}];
     [self refreshMediaControl];
 }
 -(void)pauseVideo{
     [self.player pause];
     [self refreshMediaControl];
 }
-
+-(void)stopVideo{
+    [[BBUdpSocketManager shareInstance] sendCFGSettingRequestMessage:@{VideoPlayrStatus:@(0),VideoClarityStatus:@(1)}];
+    [self.player stop];
+    self.player = nil;
+    
+}
 -(void)refreshMediaControl{
     
     NSTimeInterval duration = self.player.duration;
@@ -127,7 +146,6 @@
     
     if ([UIDevice currentDevice].orientation == UIDeviceOrientationPortrait) {
         
-        
     }
     if ([UIDevice currentDevice].orientation == UIDeviceOrientationLandscapeRight) {
         
@@ -142,7 +160,7 @@
 -(void)applicationEnterBackground{
     BOOL isPlaying = [self.player isPlaying];
     if (isPlaying) {
-        [self pauseVideo];
+        [self stopVideo];
     }
 }
 #pragma mrak -------- 响应事件 --------------------
@@ -151,7 +169,7 @@
     BOOL isPlaying = [self.player isPlaying];
     if (isPlaying) {
         button.alpha = 1;
-        [self pauseVideo];
+        [self stopVideo];
     }else{
         button.alpha = 0.1;
         [self palyVideo];
@@ -177,7 +195,7 @@
     UIButton * button = (UIButton *)sender;
     BOOL isPlaying = [self.player isPlaying];
     if (isPlaying) {
-        [self pauseVideo];
+        [self stopVideo];
     }else{
         [self palyVideo];
     }
