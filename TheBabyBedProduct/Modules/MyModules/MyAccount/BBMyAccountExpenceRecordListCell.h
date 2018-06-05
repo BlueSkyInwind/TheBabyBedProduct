@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "BBConsumeRecord.h"
 
 @interface BBMyAccountExpenceRecordListCell : UITableViewCell
-
+-(void)setupCellWithConsumeRecord:(BBConsumeRecord *)consumeRecord;
 @end

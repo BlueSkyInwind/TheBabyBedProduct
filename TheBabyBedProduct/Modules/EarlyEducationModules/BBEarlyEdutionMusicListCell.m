@@ -39,10 +39,15 @@
     self.avatarImgV = [UIImageView bb_imgVMakeWithSuperV:self.contentView];
     
     self.musicNameLB = [UILabel bb_lbMakeWithSuperV:self.contentView fontSize:16 alignment:NSTextAlignmentLeft textColor:k_color_515151];
-#warning todo pp605
-    self.playBT = [UIButton bb_btMakeWithSuperV:self.contentView imageName:@""];
-    
+    self.playBT = [UIButton bb_btMakeWithSuperV:self.contentView imageName:@"yinyuebofang"];
+    [self.playBT addTarget:self action:@selector(playAction) forControlEvents:UIControlEventTouchUpInside];
     [self configureFrame];
+}
+-(void)playAction
+{
+    if (self.playBlock) {
+        self.playBlock();
+    }
 }
 -(void)configureFrame
 {
@@ -53,8 +58,6 @@
     self.avatarImgV.layer.masksToBounds = YES;
     self.avatarImgV.layer.cornerRadius = imgW/2;
     self.avatarImgV.frame = CGRectMake(imgX, imgY, imgW, imgW);
-#warning todo pp605
-    self.playBT.backgroundColor = [UIColor yellowColor];
     
     CGFloat playBtW = 60;
     CGFloat musicNameX = self.avatarImgV.right+18;
@@ -63,7 +66,8 @@
     self.musicNameLB.frame = CGRectMake(musicNameX, musicNameY, musicNameW, cellH);
         
     self.playBT.frame = CGRectMake(_k_w-playBtW, 0, playBtW, cellH);
-    [self.playBT setImageEdgeInsets:UIEdgeInsetsMake(32, 15, 32, 25)];
+    //41*41
+    [self.playBT setImageEdgeInsets:UIEdgeInsetsMake(21.5, 19.5, 21.5, 19.5)];
     
     UIView *line = [[UIView alloc]initWithFrame:CGRectMake(0, 62.5, _k_w, 1.5)];
     [self.contentView addSubview:line];

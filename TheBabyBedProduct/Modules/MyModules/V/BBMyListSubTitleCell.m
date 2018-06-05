@@ -36,6 +36,10 @@
     self.textLB.text = title;
     self.subTextLB.text = subTitle;
 }
+-(NSString *)subTitle
+{
+    return self.subTextLB.text;
+}
 -(void)creatCellUI
 {
     self.imgV = [UIImageView bb_imgVMakeWithSuperV:self.contentView];

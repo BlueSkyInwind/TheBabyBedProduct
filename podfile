@@ -22,10 +22,13 @@ target 'TheBabyBedProduct' do
     pod 'BRPickerView', '~> 2.2.0'
     pod 'CocoaAsyncSocket'
 #    pod 'HYBNetworking'
+
     
     pod 'FreeStreamer', '~> 3.8.3'
     pod 'GKCover'                         # 遮罩
     
     pod 'DOUAudioStreamer'
     pod 'GVUserDefaults'
+    
+    pod 'LYEmptyView', '~> 1.1.0'
 end
