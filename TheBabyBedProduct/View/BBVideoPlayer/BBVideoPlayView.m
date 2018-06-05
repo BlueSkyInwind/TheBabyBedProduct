@@ -52,7 +52,7 @@
     [playView createPlayer:videoUrl];
     [playView addVerticalUI];
     [playView addLandscapeCtrlView];
-    self.landscapeCtrlView.hidden = true;
+    playView.landscapeCtrlView.hidden = true;
     playView.vedioSuperView = superView;
     [superView addSubview:playView];
     [playView mas_makeConstraints:^(MASConstraintMaker *make) {
