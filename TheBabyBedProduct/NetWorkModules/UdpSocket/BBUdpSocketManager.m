@@ -241,7 +241,7 @@ short int TransID;
             if (errCode == 0) {
                 dispatch_async(dispatch_get_main_queue(), ^{
                     NSDictionary * dic = (NSDictionary *)result;
-                    [[NSNotificationCenter defaultCenter] postNotificationName:YDA_EVENT_NOTIFICATION object:self userInfo:dic];
+                    [[NSNotificationCenter defaultCenter] postNotificationName:YDA_CFG_NOTIFICATION object:self userInfo:dic];
                 });
             }
         }

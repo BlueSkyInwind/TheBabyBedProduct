@@ -194,6 +194,13 @@ NSString * const    Video_Address     =  @"Video_Address";
     if (elementID == 0) {
         errCode = receiveUdpLoginByte[0] + (receiveUdpLoginByte[1] << 8) + (receiveUdpLoginByte[2] << 16) + (receiveUdpLoginByte[3] << 24);
     }
+    
+    Byte receiveUdpLoginInfoByte[72];
+    memcpy(receiveUdpLoginInfoByte, receivePayLoad + 8, 72);
+    short int elementTwoID = (receiveUdpLoginInfoByte[0] << 8) + receiveUdpLoginInfoByte[1];
+    if (elementTwoID == 10) {
+        TransID = (receiveUdpLoginInfoByte[4] << 8) +  receiveUdpLoginInfoByte[5];
+    }
     messageResult(LoginMessageType,errCode,nil);
 }
 #pragma mark - 事件报文相应报文解析
@@ -205,12 +212,12 @@ NSString * const    Video_Address     =  @"Video_Address";
     Byte receivePayLoad[ctrlHeaderData.length - YDA_CTRL_HAEDER_LENGTH];
     [ctrlHeaderData getBytes:receiveCtrlByte length:ctrlHeaderData.length];
     memcpy(receivePayLoad, receiveCtrlByte + YDA_CTRL_HAEDER_LENGTH, ctrlHeaderData.length - YDA_CTRL_HAEDER_LENGTH);
-    Byte receiveUdpEventByte[12];
-    memcpy(receiveUdpEventByte, receivePayLoad + 4, 12);
+    Byte receiveUdpEventByte[14];
+    memcpy(receiveUdpEventByte, receivePayLoad + 4, 14);
     short int elementID = (receivePayLoad[0] << 8) + receivePayLoad[1];
     if (elementID == 0x0D) {
         errCode = 0;
-       eventDic = [self analysisEventMessageData:[[NSData alloc]initWithBytes:receiveUdpEventByte length:13]];
+       eventDic = [self analysisEventMessageData:[[NSData alloc]initWithBytes:receiveUdpEventByte length:14]];
     }
     messageResult(NotificationType,errCode,eventDic);
 }
@@ -220,22 +227,27 @@ NSString * const    Video_Address     =  @"Video_Address";
     Byte receiveUdpEventByte[data.length];
     [data getBytes:receiveUdpEventByte length:data.length];
     
-    unsigned char Valid_Value = 0;
+    short int Valid_Value = 0;
     short int cryState = 0;
     short int kickState = 0;
     short int envtemp_Value = 0;
     short int humidity_Value = 0;
     short int bodytemp_Value = 0;
     short int urine_Value = 0;
-    Valid_Value = receiveUdpEventByte[0];
-    cryState = (receiveUdpEventByte[1] << 8 ) +  receiveUdpEventByte[2];
-    kickState = (receiveUdpEventByte[3] << 8 ) +  receiveUdpEventByte[4];
-    envtemp_Value = (receiveUdpEventByte[5] << 8)  + receiveUdpEventByte[6] ;
-    humidity_Value = (receiveUdpEventByte[7] << 8)+ receiveUdpEventByte[8] ;
-    bodytemp_Value = (receiveUdpEventByte[9] << 8) + receiveUdpEventByte[10];
-    urine_Value = (receiveUdpEventByte[11] << 8 ) +  receiveUdpEventByte[12];
     
-    NSDictionary * eventDic = @{Baby_Cry_State:@(cryState),Baby_Kick_State:@(kickState),Env_Temp_Value:@(envtemp_Value),Env_Humidity_Value:@(humidity_Value),Body_Temp_Value:@(bodytemp_Value),Baby_Urine_Value:@(urine_Value)};
+    Valid_Value = (receiveUdpEventByte[0] << 8) + receiveUdpEventByte[1];
+    cryState = (receiveUdpEventByte[2] << 8 ) +  receiveUdpEventByte[3];
+    kickState = (receiveUdpEventByte[4] << 8 ) +  receiveUdpEventByte[5];
+    envtemp_Value = (receiveUdpEventByte[6] << 8)  + receiveUdpEventByte[7];
+    humidity_Value = (receiveUdpEventByte[8] << 8)+ receiveUdpEventByte[9];
+    bodytemp_Value = (receiveUdpEventByte[10] << 8) + receiveUdpEventByte[11];
+    urine_Value = (receiveUdpEventByte[12] << 8 ) +  receiveUdpEventByte[13];
+    
+    CGFloat  envtemp = (CGFloat)(envtemp_Value / 10);
+    CGFloat  humidity = (CGFloat)(humidity_Value / 10);
+    CGFloat  bodytemp = (CGFloat)(bodytemp_Value / 10);
+
+    NSDictionary * eventDic = @{Baby_Valid_Value:@(Valid_Value),Baby_Cry_State:@(cryState),Baby_Kick_State:@(kickState),Env_Temp_Value:@(envtemp),Env_Humidity_Value:@(humidity),Body_Temp_Value:@(bodytemp),Baby_Urine_Value:@(urine_Value)};
     return eventDic;
 }
 
@@ -261,8 +273,8 @@ NSString * const    Video_Address     =  @"Video_Address";
     if (elementTwoID == 0x0c) {
         short int addressLength = (receiveUdpCFGAddressheaderByte[2] << 8) + receiveUdpCFGAddressheaderByte[3];
         Byte receiveUdpCFGAddressByte[addressLength];
-        memcpy(receiveUdpCFGAddressByte, receivePayLoad + 12, addressLength);
-        NSData * addressData = [[NSData alloc]initWithBytes:receiveUdpCFGAddressheaderByte length:addressLength];
+        memcpy(receiveUdpCFGAddressByte, receivePayLoad + 12, addressLength - 4);
+        NSData * addressData = [[NSData alloc]initWithBytes:receiveUdpCFGAddressByte length:addressLength - 4];
         CFGDic = [self analysisCFGVideoAdress:addressData];
     }
 
@@ -271,10 +283,14 @@ NSString * const    Video_Address     =  @"Video_Address";
 }
 -(NSDictionary * )analysisCFGVideoAdress:(NSData *)addressData{
     
-    Byte addressByte [addressData.length];
+    Byte addressInfoByte[addressData.length];
+    [addressData getBytes:addressInfoByte length:addressData.length];
     short int option = 0;
     short int value = 0;
-    NSData * resultData = [[NSData alloc]initWithBytes:(addressByte + 4) length:addressData.length - 4];
+    
+    Byte addressIByte[addressData.length - 4];
+    memcpy(addressIByte, addressInfoByte + 4, addressData.length - 4);
+    NSData * resultData = [[NSData alloc]initWithBytes:addressIByte length:addressData.length - 4];
     NSString * addressStr = [[NSString alloc]initWithData:resultData encoding:NSUTF8StringEncoding];
     NSDictionary * addressDic = @{Video_Address:addressStr};
     return addressDic;

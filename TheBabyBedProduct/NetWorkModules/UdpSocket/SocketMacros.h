@@ -10,6 +10,7 @@
 #define SocketMacros_h
 
 
+UIKIT_EXTERN NSString * const Baby_Valid_Value;
 UIKIT_EXTERN NSString * const Baby_Cry_State;
 UIKIT_EXTERN NSString * const Baby_Kick_State;
 UIKIT_EXTERN NSString * const Env_Temp_Value;
@@ -29,8 +30,10 @@ UIKIT_EXTERN NSString * const    Video_Address;
 
 #define YDA_HAEDER_LENGTH 16
 #define YDA_CTRL_HAEDER_LENGTH 8
-
 #define YDA_EVENT_NOTIFICATION @"YDA_EVENT_NOTIFICATION"
+#define YDA_CFG_NOTIFICATION @"YDA_CFG_NOTIFICATION"
+
+
 
 
 

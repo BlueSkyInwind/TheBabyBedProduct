@@ -1,3 +1,5 @@
 IJKMediaFramework filter=lfs diff=lfs merge=lfs -text
 IJKMediaFramework.framework filter=lfs diff=lfs merge=lfs -text
 TheBabyBedProduct/Third/ijkplayer/IJKMediaFramework.framework filter=lfs diff=lfs merge=lfs -text
+IJKMediaFramework.framework/* filter=lfs diff=lfs merge=lfs -text
+TheBabyBedProduct/Third/ijkplayer/IJKMediaFramework.framework/* filter=lfs diff=lfs merge=lfs -text

@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 //#import "ReceiveUdpMessage.h"
 
+UIKIT_EXTERN NSString * const Baby_Valid_Value;
 UIKIT_EXTERN NSString * const Baby_Cry_State;
 UIKIT_EXTERN NSString * const Baby_Kick_State;
 UIKIT_EXTERN NSString * const Env_Temp_Value;

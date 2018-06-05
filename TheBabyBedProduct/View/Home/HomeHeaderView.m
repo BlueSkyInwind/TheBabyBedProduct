@@ -49,7 +49,7 @@
         make.top.equalTo(self.mas_top);
         make.height.equalTo(@(_k_w * 0.61));
     }];
-    
+    //rtmp://pull.yingerxiang.com/huadong/video   rtmp://live.hkstv.hk.lxdns.com/live/hks
     BBVideoPlayView * videoPlayView = [BBVideoPlayView initBBVideoPlayView:_videoView videoUrl:@"rtmp://live.hkstv.hk.lxdns.com/live/hks"];
     
 //    IJKFFOptions *options = [IJKFFOptions optionsByDefault];
