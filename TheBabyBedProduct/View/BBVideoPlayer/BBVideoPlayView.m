@@ -120,7 +120,6 @@
     [[BBUdpSocketManager shareInstance] sendCFGSettingRequestMessage:@{VideoPlayrStatus:@(0),VideoClarityStatus:@(1)}];
     [self.player stop];
     self.player = nil;
-    
 }
 -(void)refreshMediaControl{
     
