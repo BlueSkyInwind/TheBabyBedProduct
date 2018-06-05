@@ -96,11 +96,7 @@
 		570A1C1E208C6E5200B13EB5 /* NSDate+BB.m in Sources */ = {isa = PBXBuildFile; fileRef = 570A1C1D208C6E5200B13EB5 /* NSDate+BB.m */; };
 		570A1CB72090C9D500B13EB5 /* BBDeviceHeaderBottomView.m in Sources */ = {isa = PBXBuildFile; fileRef = 570A1CB62090C9D500B13EB5 /* BBDeviceHeaderBottomView.m */; };
 		57210BFB2073B3F80039D8D5 /* BBPermissionManageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 57210BFA2073B3F80039D8D5 /* BBPermissionManageViewController.m */; };
-		57210C782073B4A50039D8D5 /* BBEditInfoAvatarCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 57210C752073B4A50039D8D5 /* BBEditInfoAvatarCell.m */; };
-		57210C792073B4A50039D8D5 /* BBEditInformationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 57210C762073B4A50039D8D5 /* BBEditInformationViewController.m */; };
 		57210C7E2073B4B80039D8D5 /* BBMyRewardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 57210C7C2073B4B80039D8D5 /* BBMyRewardViewController.m */; };
-		57210C812073BB600039D8D5 /* BBMyAccountExpenceRecordListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 57210C802073BB600039D8D5 /* BBMyAccountExpenceRecordListCell.m */; };
-		57210C862073CF260039D8D5 /* BBMyAccountViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 57210C852073CF260039D8D5 /* BBMyAccountViewController.m */; };
 		57210C892073D3770039D8D5 /* BBMyDevieceCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 57210C882073D3770039D8D5 /* BBMyDevieceCell.m */; };
 		57210CA52074C2DE0039D8D5 /* ZFPlayerModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 57210C8B2074C2DE0039D8D5 /* ZFPlayerModel.m */; };
 		57210CA62074C2DE0039D8D5 /* UIWindow+CurrentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 57210C942074C2DE0039D8D5 /* UIWindow+CurrentViewController.m */; };
@@ -119,8 +115,6 @@
 		57210D1B207A48F60039D8D5 /* BBModifyPasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 57210D1A207A48F60039D8D5 /* BBModifyPasswordViewController.m */; };
 		57210D1E207B05650039D8D5 /* BBEarlyEducationMusicListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 57210D1D207B05650039D8D5 /* BBEarlyEducationMusicListViewController.m */; };
 		57210DD5207CA37F0039D8D5 /* BBEEMusicListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 57210DD4207CA37F0039D8D5 /* BBEEMusicListCell.m */; };
-		57210DDB207D15F40039D8D5 /* BBUploadImageResultModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 57210DDA207D15F40039D8D5 /* BBUploadImageResultModel.m */; };
-		57210DDE207D1A6D0039D8D5 /* BBEditUserInfoItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 57210DDD207D1A6D0039D8D5 /* BBEditUserInfoItem.m */; };
 		5722097E20AD22AC00611BFA /* GKWYPlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5722096D20AD22AC00611BFA /* GKWYPlayerViewController.m */; };
 		5722097F20AD22AC00611BFA /* GKWYMusicListView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5722097720AD22AC00611BFA /* GKWYMusicListView.m */; };
 		5722098020AD22AC00611BFA /* GKWYMusicVolumeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5722097820AD22AC00611BFA /* GKWYMusicVolumeView.m */; };
@@ -240,6 +234,12 @@
 		5773314320C59C9A000831E8 /* mytheme.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 5773313E20C59C9A000831E8 /* mytheme.mp3 */; };
 		5773314420C59C9A000831E8 /* storystory.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 5773313F20C59C9A000831E8 /* storystory.mp3 */; };
 		5773314720C5A98B000831E8 /* BBEarlyEducationMusicDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5773314620C5A98B000831E8 /* BBEarlyEducationMusicDetailViewController.m */; };
+		5773317120C70DD5000831E8 /* BBEditUserInfoItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 5773316D20C70DD4000831E8 /* BBEditUserInfoItem.m */; };
+		5773317220C70DD5000831E8 /* BBUploadImageResultModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5773316F20C70DD5000831E8 /* BBUploadImageResultModel.m */; };
+		5773317D20C70DE8000831E8 /* BBEditInfoAvatarCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5773317620C70DE7000831E8 /* BBEditInfoAvatarCell.m */; };
+		5773317E20C70DE8000831E8 /* BBMyAccountExpenceRecordListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5773317720C70DE7000831E8 /* BBMyAccountExpenceRecordListCell.m */; };
+		5773317F20C70DE8000831E8 /* BBEditInformationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5773317B20C70DE8000831E8 /* BBEditInformationViewController.m */; };
+		5773318020C70DE8000831E8 /* BBMyAccountViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5773317C20C70DE8000831E8 /* BBMyAccountViewController.m */; };
 		57CB443820A415D900268DBE /* UIDevice+GetDeviceInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 57CB443720A415D900268DBE /* UIDevice+GetDeviceInfo.m */; };
 		57CB443B20A570D700268DBE /* BBMusic.m in Sources */ = {isa = PBXBuildFile; fileRef = 57CB443A20A570D700268DBE /* BBMusic.m */; };
 		57CB443E20A5712100268DBE /* BBMusicRequestModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 57CB443D20A5712100268DBE /* BBMusicRequestModel.m */; };
@@ -499,16 +499,8 @@
 		570A1CB62090C9D500B13EB5 /* BBDeviceHeaderBottomView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BBDeviceHeaderBottomView.m; sourceTree = "<group>"; };
 		57210BF92073B3F80039D8D5 /* BBPermissionManageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBPermissionManageViewController.h; sourceTree = "<group>"; };
 		57210BFA2073B3F80039D8D5 /* BBPermissionManageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBPermissionManageViewController.m; sourceTree = "<group>"; };
-		57210C722073B4A50039D8D5 /* BBEditInfoAvatarCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBEditInfoAvatarCell.h; sourceTree = "<group>"; };
-		57210C742073B4A50039D8D5 /* BBEditInformationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBEditInformationViewController.h; sourceTree = "<group>"; };
-		57210C752073B4A50039D8D5 /* BBEditInfoAvatarCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBEditInfoAvatarCell.m; sourceTree = "<group>"; };
-		57210C762073B4A50039D8D5 /* BBEditInformationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBEditInformationViewController.m; sourceTree = "<group>"; };
 		57210C7C2073B4B80039D8D5 /* BBMyRewardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBMyRewardViewController.m; sourceTree = "<group>"; };
 		57210C7D2073B4B80039D8D5 /* BBMyRewardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBMyRewardViewController.h; sourceTree = "<group>"; };
-		57210C7F2073BB600039D8D5 /* BBMyAccountExpenceRecordListCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BBMyAccountExpenceRecordListCell.h; sourceTree = "<group>"; };
-		57210C802073BB600039D8D5 /* BBMyAccountExpenceRecordListCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BBMyAccountExpenceRecordListCell.m; sourceTree = "<group>"; };
-		57210C842073CF260039D8D5 /* BBMyAccountViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBMyAccountViewController.h; sourceTree = "<group>"; };
-		57210C852073CF260039D8D5 /* BBMyAccountViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBMyAccountViewController.m; sourceTree = "<group>"; };
 		57210C872073D3770039D8D5 /* BBMyDevieceCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BBMyDevieceCell.h; sourceTree = "<group>"; };
 		57210C882073D3770039D8D5 /* BBMyDevieceCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BBMyDevieceCell.m; sourceTree = "<group>"; };
 		57210C8B2074C2DE0039D8D5 /* ZFPlayerModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZFPlayerModel.m; sourceTree = "<group>"; };
@@ -551,10 +543,6 @@
 		57210D1D207B05650039D8D5 /* BBEarlyEducationMusicListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BBEarlyEducationMusicListViewController.m; sourceTree = "<group>"; };
 		57210DD3207CA37F0039D8D5 /* BBEEMusicListCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BBEEMusicListCell.h; sourceTree = "<group>"; };
 		57210DD4207CA37F0039D8D5 /* BBEEMusicListCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BBEEMusicListCell.m; sourceTree = "<group>"; };
-		57210DD9207D15F40039D8D5 /* BBUploadImageResultModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BBUploadImageResultModel.h; sourceTree = "<group>"; };
-		57210DDA207D15F40039D8D5 /* BBUploadImageResultModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BBUploadImageResultModel.m; sourceTree = "<group>"; };
-		57210DDC207D1A6D0039D8D5 /* BBEditUserInfoItem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BBEditUserInfoItem.h; sourceTree = "<group>"; };
-		57210DDD207D1A6D0039D8D5 /* BBEditUserInfoItem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BBEditUserInfoItem.m; sourceTree = "<group>"; };
 		5722096D20AD22AC00611BFA /* GKWYPlayerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GKWYPlayerViewController.m; sourceTree = "<group>"; };
 		5722096E20AD22AC00611BFA /* GKWYPlayerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GKWYPlayerViewController.h; sourceTree = "<group>"; };
 		5722097020AD22AC00611BFA /* GKWYMusicVolumeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GKWYMusicVolumeView.h; sourceTree = "<group>"; };
@@ -758,6 +746,18 @@
 		5773313F20C59C9A000831E8 /* storystory.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = storystory.mp3; sourceTree = "<group>"; };
 		5773314520C5A98B000831E8 /* BBEarlyEducationMusicDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BBEarlyEducationMusicDetailViewController.h; sourceTree = "<group>"; };
 		5773314620C5A98B000831E8 /* BBEarlyEducationMusicDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BBEarlyEducationMusicDetailViewController.m; sourceTree = "<group>"; };
+		5773316D20C70DD4000831E8 /* BBEditUserInfoItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBEditUserInfoItem.m; sourceTree = "<group>"; };
+		5773316E20C70DD4000831E8 /* BBUploadImageResultModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBUploadImageResultModel.h; sourceTree = "<group>"; };
+		5773316F20C70DD5000831E8 /* BBUploadImageResultModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBUploadImageResultModel.m; sourceTree = "<group>"; };
+		5773317020C70DD5000831E8 /* BBEditUserInfoItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBEditUserInfoItem.h; sourceTree = "<group>"; };
+		5773317420C70DE7000831E8 /* BBEditInfoAvatarCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBEditInfoAvatarCell.h; sourceTree = "<group>"; };
+		5773317520C70DE7000831E8 /* BBMyAccountExpenceRecordListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBMyAccountExpenceRecordListCell.h; sourceTree = "<group>"; };
+		5773317620C70DE7000831E8 /* BBEditInfoAvatarCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBEditInfoAvatarCell.m; sourceTree = "<group>"; };
+		5773317720C70DE7000831E8 /* BBMyAccountExpenceRecordListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBMyAccountExpenceRecordListCell.m; sourceTree = "<group>"; };
+		5773317920C70DE8000831E8 /* BBMyAccountViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBMyAccountViewController.h; sourceTree = "<group>"; };
+		5773317A20C70DE8000831E8 /* BBEditInformationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBEditInformationViewController.h; sourceTree = "<group>"; };
+		5773317B20C70DE8000831E8 /* BBEditInformationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBEditInformationViewController.m; sourceTree = "<group>"; };
+		5773317C20C70DE8000831E8 /* BBMyAccountViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBMyAccountViewController.m; sourceTree = "<group>"; };
 		57CB443620A415D900268DBE /* UIDevice+GetDeviceInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIDevice+GetDeviceInfo.h"; sourceTree = "<group>"; };
 		57CB443720A415D900268DBE /* UIDevice+GetDeviceInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIDevice+GetDeviceInfo.m"; sourceTree = "<group>"; };
 		57CB443920A570D700268DBE /* BBMusic.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BBMusic.h; sourceTree = "<group>"; };
@@ -1390,6 +1390,10 @@
 		570782EE20C0D9C30069B88D /* M */ = {
 			isa = PBXGroup;
 			children = (
+				5773317020C70DD5000831E8 /* BBEditUserInfoItem.h */,
+				5773316D20C70DD4000831E8 /* BBEditUserInfoItem.m */,
+				5773316E20C70DD4000831E8 /* BBUploadImageResultModel.h */,
+				5773316F20C70DD5000831E8 /* BBUploadImageResultModel.m */,
 				570782EF20C0DB790069B88D /* BBConsumeRecord.h */,
 				570782F020C0DB790069B88D /* BBConsumeRecord.m */,
 				570782F220C0DC350069B88D /* BBPage.h */,
@@ -1401,19 +1405,9 @@
 		57210C712073B4A50039D8D5 /* MyAccount */ = {
 			isa = PBXGroup;
 			children = (
+				5773317820C70DE8000831E8 /* C */,
+				5773317320C70DE7000831E8 /* V */,
 				570782EE20C0D9C30069B88D /* M */,
-				57210C842073CF260039D8D5 /* BBMyAccountViewController.h */,
-				57210C852073CF260039D8D5 /* BBMyAccountViewController.m */,
-				57210C722073B4A50039D8D5 /* BBEditInfoAvatarCell.h */,
-				57210C752073B4A50039D8D5 /* BBEditInfoAvatarCell.m */,
-				57210C742073B4A50039D8D5 /* BBEditInformationViewController.h */,
-				57210C762073B4A50039D8D5 /* BBEditInformationViewController.m */,
-				57210C7F2073BB600039D8D5 /* BBMyAccountExpenceRecordListCell.h */,
-				57210C802073BB600039D8D5 /* BBMyAccountExpenceRecordListCell.m */,
-				57210DD9207D15F40039D8D5 /* BBUploadImageResultModel.h */,
-				57210DDA207D15F40039D8D5 /* BBUploadImageResultModel.m */,
-				57210DDC207D1A6D0039D8D5 /* BBEditUserInfoItem.h */,
-				57210DDD207D1A6D0039D8D5 /* BBEditUserInfoItem.m */,
 			);
 			path = MyAccount;
 			sourceTree = "<group>";
@@ -2007,6 +2001,28 @@
 			path = M;
 			sourceTree = "<group>";
 		};
+		5773317320C70DE7000831E8 /* V */ = {
+			isa = PBXGroup;
+			children = (
+				5773317420C70DE7000831E8 /* BBEditInfoAvatarCell.h */,
+				5773317520C70DE7000831E8 /* BBMyAccountExpenceRecordListCell.h */,
+				5773317620C70DE7000831E8 /* BBEditInfoAvatarCell.m */,
+				5773317720C70DE7000831E8 /* BBMyAccountExpenceRecordListCell.m */,
+			);
+			path = V;
+			sourceTree = "<group>";
+		};
+		5773317820C70DE8000831E8 /* C */ = {
+			isa = PBXGroup;
+			children = (
+				5773317920C70DE8000831E8 /* BBMyAccountViewController.h */,
+				5773317A20C70DE8000831E8 /* BBEditInformationViewController.h */,
+				5773317B20C70DE8000831E8 /* BBEditInformationViewController.m */,
+				5773317C20C70DE8000831E8 /* BBMyAccountViewController.m */,
+			);
+			path = C;
+			sourceTree = "<group>";
+		};
 		57CB443520A415D900268DBE /* UIDevice */ = {
 			isa = PBXGroup;
 			children = (
@@ -2561,6 +2577,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				225B8BB020C2AA0000710583 /* ASValuePopUpView.m in Sources */,
+				5773317220C70DD5000831E8 /* BBUploadImageResultModel.m in Sources */,
 				225B8BB120C2AA0000710583 /* ASValueTrackingSlider.m in Sources */,
 				57CF9A1320BA8EA1005EB9E9 /* MusicHandler.m in Sources */,
 				229FF0A72084E2C2005BA4A6 /* JMAirKissShareTools.m in Sources */,
@@ -2619,9 +2636,10 @@
 				22CFD3B3206402BF0004186D /* PointItem.m in Sources */,
 				5726F3B8206BDE5F008EED75 /* BBAccountNumberViewController.m in Sources */,
 				5722099D20AD294100611BFA /* GKWYMusicTool.m in Sources */,
-				57210C782073B4A50039D8D5 /* BBEditInfoAvatarCell.m in Sources */,
+				5773317F20C70DE8000831E8 /* BBEditInformationViewController.m in Sources */,
 				572209BE20AD2B3D00611BFA /* GKRefreshHeader.m in Sources */,
 				574C6CD52069262000F5BF55 /* BBUser.m in Sources */,
+				5773317120C70DD5000831E8 /* BBEditUserInfoItem.m in Sources */,
 				572209AC20AD2AC500611BFA /* GKTimer.m in Sources */,
 				5726F353206B257A008EED75 /* BBNotificationSettingViewController.m in Sources */,
 				5726F3A3206B8332008EED75 /* WSTableViewCellIndicator.m in Sources */,
@@ -2642,6 +2660,7 @@
 				57210DD5207CA37F0039D8D5 /* BBEEMusicListCell.m in Sources */,
 				5722098120AD22AC00611BFA /* GKWYMusicControlView.m in Sources */,
 				574C6CEA2069272700F5BF55 /* UIButton+EasilyMake.m in Sources */,
+				5773318020C70DE8000831E8 /* BBMyAccountViewController.m in Sources */,
 				842D9CED206B94C90020C3C2 /* HomeLeftItemView.m in Sources */,
 				84332C9D206CE6F5009A9121 /* MessageTableViewCell.m in Sources */,
 				22CFD39120614C820004186D /* LoginAndRegisterViewController.m in Sources */,
@@ -2667,7 +2686,6 @@
 				8449AC0820620CB300526935 /* BaseResultModel.m in Sources */,
 				57585ACF206D4428001BB202 /* LWShareButton.m in Sources */,
 				574C6CDA2069262000F5BF55 /* BBSettingViewController.m in Sources */,
-				57210DDB207D15F40039D8D5 /* BBUploadImageResultModel.m in Sources */,
 				57585ABA206D116C001BB202 /* BBMyDeviceViewController.m in Sources */,
 				57210CA62074C2DE0039D8D5 /* UIWindow+CurrentViewController.m in Sources */,
 				8449AC0B20620D1B00526935 /* BaseViewModel.m in Sources */,
@@ -2687,9 +2705,7 @@
 				22CFD3C3206652B70004186D /* ConsoleRateView.m in Sources */,
 				2263B8F220709EA2005BB15E /* BaseCentralManager.m in Sources */,
 				2266C1BD20694A85004F653A /* CryingChartViewController.m in Sources */,
-				57210DDE207D1A6D0039D8D5 /* BBEditUserInfoItem.m in Sources */,
 				57210C7E2073B4B80039D8D5 /* BBMyRewardViewController.m in Sources */,
-				57210C792073B4A50039D8D5 /* BBEditInformationViewController.m in Sources */,
 				574C6CE72069272700F5BF55 /* UITableViewCell+EasilyMake.m in Sources */,
 				57DF59B420835527002D2CED /* BBUserDevice.m in Sources */,
 				57210CA82074C2DE0039D8D5 /* UIImageView+ZFCache.m in Sources */,
@@ -2704,7 +2720,6 @@
 				574C6CB82069254200F5BF55 /* NSMutableAttributedString+PPTextField.m in Sources */,
 				5726F3A5206B8332008EED75 /* WSTableviewDataModel.m in Sources */,
 				84DD47602068FCD600D154B5 /* WettingChartView.m in Sources */,
-				57210C862073CF260039D8D5 /* BBMyAccountViewController.m in Sources */,
 				57210D0C207744780039D8D5 /* GlobalTool+BBHandleCode.m in Sources */,
 				5722098520AD22AC00611BFA /* GKWYMusicCoverView.m in Sources */,
 				57CF9A3620BA94E2005EB9E9 /* MusicIndicator.m in Sources */,
@@ -2716,6 +2731,7 @@
 				8449AC122062338F00526935 /* MBPAlertView.m in Sources */,
 				5726F3C1206C8F13008EED75 /* BBEarlyEducationCell.m in Sources */,
 				5726F34F206A8DC3008EED75 /* UIView+PP_Frame.m in Sources */,
+				5773317E20C70DE8000831E8 /* BBMyAccountExpenceRecordListCell.m in Sources */,
 				57CF997620B31948005EB9E9 /* BBEarlyEdutionMusicListCell.m in Sources */,
 				22CFD3AF206401780004186D /* PXLineChartConst.m in Sources */,
 				8490CFC3207480C200D416C1 /* DeviceConnectingViewController.m in Sources */,
@@ -2741,6 +2757,7 @@
 				5773314720C5A98B000831E8 /* BBEarlyEducationMusicDetailViewController.m in Sources */,
 				22CFD3B9206545040004186D /* ConsoleHeaderView.m in Sources */,
 				84DD475A2068F04000D154B5 /* RoomTemperatureView.m in Sources */,
+				5773317D20C70DE8000831E8 /* BBEditInfoAvatarCell.m in Sources */,
 				57CF9A0B20BA859F005EB9E9 /* GVUserDefaults+Properties.m in Sources */,
 				5726F3BE206C7F3B008EED75 /* BBEarlyEducationHeaderView.m in Sources */,
 				574C6CD62069262000F5BF55 /* BBLoginView.m in Sources */,
@@ -2771,7 +2788,6 @@
 				5722098220AD22AC00611BFA /* GKVolumeView.m in Sources */,
 				84D5BDCD2073579A0025C757 /* AddDeviceView.m in Sources */,
 				5726F3A6206B8332008EED75 /* WSTableView.m in Sources */,
-				57210C812073BB600039D8D5 /* BBMyAccountExpenceRecordListCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

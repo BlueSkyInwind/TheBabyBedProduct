@@ -43,8 +43,7 @@
 @property(nonatomic,assign) BOOL bindQQ;
 /** 身份 */
 @property(nonatomic,copy) NSString *identity;
-/** 宝宝姓名 */
-@property(nonatomic,copy) NSString *babyName;
+
 
 /** 密码 */
 @property(nonatomic,copy) NSString *password;
@@ -52,6 +51,40 @@
 @property(nonatomic,copy) NSString *deviceId;
 /** 总积分 */
 @property(nonatomic,assign) NSUInteger totalScore;
+
+//pp_开头的，是自己根据接口猜的，文档没有
+
+/** pp_是否是管理员 */
+@property(nonatomic,assign) BOOL manager;
+/** pp_账号余额 */
+@property(nonatomic,copy) NSNumber *price;
+
+
+/*  2018-06-06
+{
+    code = 0;
+    data =     {
+        avatar = "/2018/05/31/3/3/1527696059093.jpg";
+        bindQQ = 0;
+        bindWB = 0;
+        bindWX = 0;
+        both = 1496592000;
+        city = "辽宁大连金州";
+        curTime = 95;
+        deviceId = 1111;
+        gender = 0;
+        id = 49a1a9a681c94a47adbc5129c12851bc;
+        identity = "爸爸";
+        manager = 1;
+        nickName = "槿知";
+        price = "4.16";
+        totalScore = 12;
+        username = 13386050182;
+    };
+    msg = "请求成功";
+}
+
+*/
 
 //辅助，帮助判断签到信息
 /** 最新一次签到日期 */
@@ -89,6 +122,11 @@
 @property(nonatomic,copy,readonly) NSString *token;
 @property(nonatomic,copy,readonly) NSString *password;
 @property(nonatomic,copy,readonly) NSString *deviceId;
+@property(nonatomic,copy,readonly) NSString *city;
+@property(nonatomic,copy,readonly) NSString *curTime;
+@property(nonatomic,copy,readonly) NSNumber *price;
+
+
 
 /** 今日是否已经签到 */
 @property(nonatomic,assign,readonly) BOOL hasTodaySignIn;

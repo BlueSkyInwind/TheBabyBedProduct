@@ -23,10 +23,6 @@
 #import "BRPickerView.h"
 
 @interface BBEditInformationViewController ()<UITableViewDelegate,UITableViewDataSource,UIImagePickerControllerDelegate,UINavigationControllerDelegate>
-{
-    NSString *_babayName;
-    
-}
 @property(nonatomic,strong) UITableView *tableView;
 @property(nonatomic,strong) NSArray<NSString *> *titles;
 @property (nonatomic, strong) UIImagePickerController *imagePickerVc;
@@ -72,40 +68,19 @@
 
     [self configureUserInfoItem];
     
-//    [self getUserInfo];
-    
     [self creatUI];
 }
 -(void)configureUserInfoItem
 {
     BBUser *savedUser = [BBUser bb_getUser];
     self.aUserInfoItem = [[BBEditUserInfoItem alloc]init];
-    self.aUserInfoItem.babyName = savedUser.babyName;
+    self.aUserInfoItem.babyName = savedUser.nickName;
     self.aUserInfoItem.gender = savedUser.gender;
     self.aUserInfoItem.city = savedUser.city;
     self.aUserInfoItem.bothDate = [savedUser.both bb_dateFromTimestampForyyyyMMdd];
     self.aUserInfoItem.identity = savedUser.identity;
 }
-//-(void)getUserInfo
-//{
-//    //只处理请求成功的情况
-//    [BBRequestTool bb_requestGetUserInfoWithSuccessBlock:^(EnumServerStatus status, id object) {
-//        BaseDictResultModel *resultM = [BaseDictResultModel mj_objectWithKeyValues:object];
-//        if (resultM.code == 0) {
-//            BBUser *savedUser = [BBUser bb_getUser];
-//            NSDictionary *savedUserDict = [savedUser mj_keyValues];
-//            NSMutableDictionary *mutDict = [[NSMutableDictionary alloc]initWithDictionary:savedUserDict];
-//            [mutDict addEntriesFromDictionary:resultM.data];
-//
-//            BBUser *latestUser = [BBUser mj_objectWithKeyValues:mutDict];
-//            [BBUser bb_saveUser:latestUser];
-//
-//            [self.tableView reloadData];
-//        }
-//    } failureBlock:^(EnumServerStatus status, id object) {
-//
-//    }];
-//}
+
 -(void)creatUI
 {
     if (self.comesFrom == BBEditInformationVCComesFromRegistSuccess) {
@@ -146,7 +121,7 @@
 #warning todo
     BBUser *currentSavedUser = [BBUser bb_getUser];
     NSString *babyName = @"";
-    if (![self.aUserInfoItem.babyName isEqualToString:currentSavedUser.babyName]) {
+    if (![self.aUserInfoItem.babyName isEqualToString:currentSavedUser.nickName]) {
         babyName = self.aUserInfoItem.babyName;
     }
     NSString *genderStr = @"";
@@ -173,7 +148,7 @@
         BaseResultModel *editUserInfoRM = [BaseResultModel mj_objectWithKeyValues:object];
         if (editUserInfoRM.code == 0) {
             [QMUITips showSucceed:@"您的信息更改成功！"];
-            BBUser *user = [BBUser bb_getUser];
+            [self getUserInfo];
             
         }else{
             [QMUITips showError:@"您的信息更改失败，请稍后再试！"];
@@ -183,6 +158,24 @@
 
     }];
     
+}
+-(void)getUserInfo
+{
+    //只处理请求成功的情况
+    [BBRequestTool bb_requestGetUserInfoWithSuccessBlock:^(EnumServerStatus status, id object) {
+        BaseDictResultModel *resultM = [BaseDictResultModel mj_objectWithKeyValues:object];
+        if (resultM.code == 0) {
+            BBUser *savedUser = [BBUser bb_getUser];
+            NSDictionary *savedUserDict = [savedUser mj_keyValues];
+            NSMutableDictionary *mutDict = [[NSMutableDictionary alloc]initWithDictionary:savedUserDict];
+            [mutDict addEntriesFromDictionary:resultM.data];
+
+            BBUser *latestUser = [BBUser mj_objectWithKeyValues:mutDict];
+            [BBUser bb_saveUser:latestUser];
+        }
+    } failureBlock:^(EnumServerStatus status, id object) {
+
+    }];
 }
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
@@ -229,13 +222,13 @@
             //宝宝姓名
             UIAlertController *alertC = [UIAlertController alertControllerWithTitle:@"宝宝姓名" message:@"请填写您的宝宝的姓名" preferredStyle:UIAlertControllerStyleAlert];
             [alertC addTextFieldWithConfigurationHandler:^(UITextField * _Nonnull textField) {
-                DLog(@"%@",textField.text);
+                textField.text = self.aUserInfoItem.babyName;
             }];
             UIAlertAction *cancelAlertAction = [UIAlertAction actionWithTitle:@"取消" style:(UIAlertActionStyleCancel) handler:^(UIAlertAction * _Nonnull action) {
                 
             }];
             UIAlertAction *OKAlertAction = [UIAlertAction actionWithTitle:@"确定" style:(UIAlertActionStyleDefault) handler:^(UIAlertAction * _Nonnull action) {
-                [self updateBabyName:indexPath];
+                [self updateBabyName:alertC];
             }];
             
             [alertC addAction:cancelAlertAction];
@@ -256,7 +249,6 @@
         case 3:
         {
            //所在地
-            //性别
 //            NSArray *defaultSelArr = [textField.text componentsSeparatedByString:@" "];
             NSArray *dataSource = [self getAddressDataSource];  //从外部传入地区数据源
             BBNotificationSettingListCell *cell = (BBNotificationSettingListCell *)[self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:3 inSection:0]];
@@ -292,13 +284,14 @@
         {
             //身份
             BBNotificationSettingListCell *cell = (BBNotificationSettingListCell *)[self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:5 inSection:0]];
-            NSArray *addresses = @[
+#warning pp605 设置身份数组
+            NSArray *identifieries = @[
                                    @"爷爷",
                                    @"奶奶",
                                    @"爸爸",
                                    @"妈妈"
                                    ];
-            [BRStringPickerView showStringPickerWithTitle:@"身份" dataSource:addresses defaultSelValue:cell.subTextLB.text isAutoSelect:YES themeColor:nil resultBlock:^(id selectValue) {
+            [BRStringPickerView showStringPickerWithTitle:@"身份" dataSource:identifieries defaultSelValue:cell.subTextLB.text isAutoSelect:YES themeColor:nil resultBlock:^(id selectValue) {
                 cell.subTextLB.text = selectValue;
                 self.aUserInfoItem.identity = selectValue;
             } cancelBlock:^{
@@ -539,10 +532,16 @@
 {
     return YES;
 }
--(void)updateBabyName:(NSIndexPath *)indexPath
+-(void)updateBabyName:(UIAlertController *)alertC
 {
-    BBNotificationSettingListCell *cell = [self.tableView cellForRowAtIndexPath:indexPath];
-    cell.subTextLB.text = _babayName;
+    NSArray *tfs = alertC.textFields;
+    if (tfs.count > 0) {
+        UITextField *tf = tfs[0];
+        BBNotificationSettingListCell *cell = [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:1 inSection:0]];
+        cell.subTextLB.text = tf.text;
+        self.aUserInfoItem.babyName = tf.text;
+    }
+    
 }
 
 -(NSArray<NSString *> *)titles

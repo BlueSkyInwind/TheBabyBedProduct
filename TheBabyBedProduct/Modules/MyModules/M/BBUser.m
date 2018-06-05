@@ -147,6 +147,18 @@ static BBUser * toGetUser(){
 {
     return _aUser().password;
 }
+-(NSString *)city
+{
+    return _aUser().city;
+}
+-(NSString *)curTime
+{
+    return _aUser().curTime;
+}
+-(NSNumber *)price
+{
+    return _aUser().price;
+}
 -(BOOL)hasTodaySignIn
 {
     if ([_aUser().latestSignInDate isEqualToString:[NSDate bb_todayStr]]) {

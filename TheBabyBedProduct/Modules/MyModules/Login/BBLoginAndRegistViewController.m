@@ -192,29 +192,33 @@
         if (loginResultM.code == 0) {
             
             /*
-             response json --- {
-             code = 0;
-             data =     {
-             avatar = "/2018/05/31/3/3/1527696059093.jpg";
-             bindQQ = 0;
-             bindWB = 0;
-             bindWX = 0;
-             both = 1527609600;
-             city = "辽宁 大连 金州";
-             curTime = 95;
-             deviceId = "";
-             gender = 0;
-             id = 49a1a9a681c94a47adbc5129c12851bc;
-             identity = "爸爸";
-             manager = 1;
-             nickName = "槿知";
-             price = "4.16";
-             totalScore = 10;
-             username = 13386050182;
-             };
-             msg = "请求成功";
-             }
-             */
+            
+            {
+                code = 0;
+                data =     {
+                    avatar = "/2018/05/31/3/3/1527696059093.jpg";
+                    bindQQ = 0;
+                    bindWB = 0;
+                    bindWX = 0;
+                    both = 1496592000;
+                    city = "辽宁大连金州";
+                    curTime = 95;
+                    deviceId = 1111;
+                    gender = 0;
+                    id = 49a1a9a681c94a47adbc5129c12851bc;
+                    identity = "爸爸";
+                    manager = 1;
+                    nickName = "槿知";
+                    price = "4.16";
+                    totalScore = 12;
+                    username = 13386050182;
+                };
+                msg = "请求成功";
+            }
+             
+               */
+            
+            
             BBUser *user = loginResultM.data;
             user.password = password;
             [BBUser bb_saveUser:user];
