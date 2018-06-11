@@ -64,17 +64,18 @@
         make.top.equalTo(self.headerView.mas_bottom).with.offset(5);
         make.height.equalTo(@(_k_h - 210));
     }];
+    [_thermometerView updateAlarTemProgressWithNumber:50];
     _thermometerView.historyChartClick = ^{
-        
         HistoryFeverViewController * historyFeverVC = [[HistoryFeverViewController alloc]init];
         [weakSelf.navigationController pushViewController:historyFeverVC animated:true];
     };
-    
-
 }
 
-
-
+-(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
+    
+    [_thermometerView updateAlarTemProgressWithNumber:100];
+    
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

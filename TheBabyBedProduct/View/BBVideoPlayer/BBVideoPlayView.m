@@ -531,11 +531,10 @@
     {
         [window drawViewHierarchyInRect:screenFrame afterScreenUpdates:NO];
     }
-    
     UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
     UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil);
-    
+    [QMUITips showInfo:@"已保存到相册"];
 }
 
 

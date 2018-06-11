@@ -67,7 +67,7 @@
     [self.view addSubview:_indicatorView];
     _indicatorView.roomTemperatureCurveClick = ^{
         
-        [weakSelf.indicatorView setInDoorIndcatorScale:0.3];
+    [weakSelf.indicatorView setInDoorIndcatorScale:0.3];
 //        RoomTemperatureChartViewController * roomTemPeratureChartVC = [[RoomTemperatureChartViewController alloc]init];
 //        roomTemPeratureChartVC.isOutside = false;
 //        [weakSelf.navigationController pushViewController:roomTemPeratureChartVC animated:true];
@@ -85,8 +85,6 @@
         make.height.equalTo(@(_k_h - 210));
     }];
 }
-
-
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
