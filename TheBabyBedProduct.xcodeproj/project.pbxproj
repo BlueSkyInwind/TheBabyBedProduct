@@ -103,6 +103,7 @@
 		22CFD3FB2067FE060004186D /* TemperatureThresholdSettingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22CFD3F92067FE060004186D /* TemperatureThresholdSettingViewController.xib */; };
 		22F4C35120CEC84D006FBBAC /* BBEarlyEducationMusicDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22F4C34D20CEC84C006FBBAC /* BBEarlyEducationMusicDetailViewController.m */; };
 		22F4C35220CEC84D006FBBAC /* BBEarlyEducationMusicListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22F4C34F20CEC84C006FBBAC /* BBEarlyEducationMusicListViewController.m */; };
+		22F4C35520CECD40006FBBAC /* videoClarityChangeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 22F4C35420CECD40006FBBAC /* videoClarityChangeView.m */; };
 		347E55C5AB34C5F0659DAE6B /* Pods_TheBabyBedProduct.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 884698C1D52FC8383E4B1BCF /* Pods_TheBabyBedProduct.framework */; };
 		570A1C1E208C6E5200B13EB5 /* NSDate+BB.m in Sources */ = {isa = PBXBuildFile; fileRef = 570A1C1D208C6E5200B13EB5 /* NSDate+BB.m */; };
 		570A1CB72090C9D500B13EB5 /* BBDeviceHeaderBottomView.m in Sources */ = {isa = PBXBuildFile; fileRef = 570A1CB62090C9D500B13EB5 /* BBDeviceHeaderBottomView.m */; };
@@ -510,6 +511,8 @@
 		22F4C34E20CEC84C006FBBAC /* BBEarlyEducationMusicDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBEarlyEducationMusicDetailViewController.h; sourceTree = "<group>"; };
 		22F4C34F20CEC84C006FBBAC /* BBEarlyEducationMusicListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBEarlyEducationMusicListViewController.m; sourceTree = "<group>"; };
 		22F4C35020CEC84C006FBBAC /* BBEarlyEducationMusicListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBEarlyEducationMusicListViewController.h; sourceTree = "<group>"; };
+		22F4C35320CECD3F006FBBAC /* videoClarityChangeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = videoClarityChangeView.h; sourceTree = "<group>"; };
+		22F4C35420CECD40006FBBAC /* videoClarityChangeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = videoClarityChangeView.m; sourceTree = "<group>"; };
 		2F6F434F00B680C952F3C9BF /* Pods-TheBabyBedProduct.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TheBabyBedProduct.release.xcconfig"; path = "Pods/Target Support Files/Pods-TheBabyBedProduct/Pods-TheBabyBedProduct.release.xcconfig"; sourceTree = "<group>"; };
 		570A1C1C208C6E5200B13EB5 /* NSDate+BB.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSDate+BB.h"; sourceTree = "<group>"; };
 		570A1C1D208C6E5200B13EB5 /* NSDate+BB.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSDate+BB.m"; sourceTree = "<group>"; };
@@ -2191,6 +2194,8 @@
 			children = (
 				225B8B9F20C0438900710583 /* BBVideoPlayView.h */,
 				225B8BA020C0438900710583 /* BBVideoPlayView.m */,
+				22F4C35320CECD3F006FBBAC /* videoClarityChangeView.h */,
+				22F4C35420CECD40006FBBAC /* videoClarityChangeView.m */,
 			);
 			path = BBVideoPlayer;
 			sourceTree = "<group>";
@@ -2743,6 +2748,7 @@
 				22CFD3EE2067FD8C0004186D /* WettingThresholdSettingViewController.m in Sources */,
 				57CF9A0C20BA859F005EB9E9 /* NSString+Additions.m in Sources */,
 				57CECE43207374DC00E9A876 /* UIAlertController+EasilyMake.m in Sources */,
+				22F4C35520CECD40006FBBAC /* videoClarityChangeView.m in Sources */,
 				572209C120AD2B3D00611BFA /* GKDownloadManager.m in Sources */,
 				5726F3BB206BE46F008EED75 /* BBAcountNumberListCell.m in Sources */,
 				8449AC1B20623ACC00526935 /* GlobalTool.m in Sources */,

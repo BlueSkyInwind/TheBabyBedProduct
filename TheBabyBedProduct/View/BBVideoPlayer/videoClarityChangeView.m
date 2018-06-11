@@ -17,7 +17,6 @@
 @implementation videoClarityChangeView
 
 
-
 -(void)showClarityChangeView{
     
     

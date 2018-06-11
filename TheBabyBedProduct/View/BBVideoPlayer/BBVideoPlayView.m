@@ -423,6 +423,7 @@
         make.centerY.equalTo(_bottomView.mas_centerY);
         make.right.equalTo(_bottomView.mas_right).with.offset(-20);
         make.height.equalTo(@(25));
+        make.width.equalTo(@(60));
     }];
 
     _landscapePlayerBtn = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -551,14 +552,7 @@
 }
 */
 
-
-
-
-
 @end
-
-
-
 
 @implementation BBVideoPlayView (configureView)
 
