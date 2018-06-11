@@ -240,7 +240,9 @@
 		5773317E20C70DE8000831E8 /* BBMyAccountExpenceRecordListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5773317720C70DE7000831E8 /* BBMyAccountExpenceRecordListCell.m */; };
 		5773317F20C70DE8000831E8 /* BBEditInformationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5773317B20C70DE8000831E8 /* BBEditInformationViewController.m */; };
 		5773318020C70DE8000831E8 /* BBMyAccountViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5773317C20C70DE8000831E8 /* BBMyAccountViewController.m */; };
-		57CB443820A415D900268DBE /* UIDevice+GetDeviceInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 57CB443720A415D900268DBE /* UIDevice+GetDeviceInfo.m */; };
+		5798F89E20CEA83D00C20029 /* UIDevice+GetDeviceInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 5798F89C20CEA83D00C20029 /* UIDevice+GetDeviceInfo.m */; };
+		5798F89F20CEA83D00C20029 /* UIDevice+GetDeviceMessages.m in Sources */ = {isa = PBXBuildFile; fileRef = 5798F89D20CEA83D00C20029 /* UIDevice+GetDeviceMessages.m */; };
+		5798F8A220CEA89D00C20029 /* UIDevice+Adapter.m in Sources */ = {isa = PBXBuildFile; fileRef = 5798F8A020CEA89D00C20029 /* UIDevice+Adapter.m */; };
 		57CB443B20A570D700268DBE /* BBMusic.m in Sources */ = {isa = PBXBuildFile; fileRef = 57CB443A20A570D700268DBE /* BBMusic.m */; };
 		57CB443E20A5712100268DBE /* BBMusicRequestModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 57CB443D20A5712100268DBE /* BBMusicRequestModel.m */; };
 		57CB444220A59E1F00268DBE /* BBMusicCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 57CB444120A59E1F00268DBE /* BBMusicCategory.m */; };
@@ -758,8 +760,12 @@
 		5773317A20C70DE8000831E8 /* BBEditInformationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBEditInformationViewController.h; sourceTree = "<group>"; };
 		5773317B20C70DE8000831E8 /* BBEditInformationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBEditInformationViewController.m; sourceTree = "<group>"; };
 		5773317C20C70DE8000831E8 /* BBMyAccountViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBMyAccountViewController.m; sourceTree = "<group>"; };
-		57CB443620A415D900268DBE /* UIDevice+GetDeviceInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIDevice+GetDeviceInfo.h"; sourceTree = "<group>"; };
-		57CB443720A415D900268DBE /* UIDevice+GetDeviceInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIDevice+GetDeviceInfo.m"; sourceTree = "<group>"; };
+		5798F89A20CEA83C00C20029 /* UIDevice+GetDeviceMessages.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIDevice+GetDeviceMessages.h"; sourceTree = "<group>"; };
+		5798F89B20CEA83C00C20029 /* UIDevice+GetDeviceInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIDevice+GetDeviceInfo.h"; sourceTree = "<group>"; };
+		5798F89C20CEA83D00C20029 /* UIDevice+GetDeviceInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIDevice+GetDeviceInfo.m"; sourceTree = "<group>"; };
+		5798F89D20CEA83D00C20029 /* UIDevice+GetDeviceMessages.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIDevice+GetDeviceMessages.m"; sourceTree = "<group>"; };
+		5798F8A020CEA89D00C20029 /* UIDevice+Adapter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIDevice+Adapter.m"; sourceTree = "<group>"; };
+		5798F8A120CEA89D00C20029 /* UIDevice+Adapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIDevice+Adapter.h"; sourceTree = "<group>"; };
 		57CB443920A570D700268DBE /* BBMusic.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BBMusic.h; sourceTree = "<group>"; };
 		57CB443A20A570D700268DBE /* BBMusic.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BBMusic.m; sourceTree = "<group>"; };
 		57CB443C20A5712100268DBE /* BBMusicRequestModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BBMusicRequestModel.h; sourceTree = "<group>"; };
@@ -2026,8 +2032,12 @@
 		57CB443520A415D900268DBE /* UIDevice */ = {
 			isa = PBXGroup;
 			children = (
-				57CB443620A415D900268DBE /* UIDevice+GetDeviceInfo.h */,
-				57CB443720A415D900268DBE /* UIDevice+GetDeviceInfo.m */,
+				5798F8A120CEA89D00C20029 /* UIDevice+Adapter.h */,
+				5798F8A020CEA89D00C20029 /* UIDevice+Adapter.m */,
+				5798F89B20CEA83C00C20029 /* UIDevice+GetDeviceInfo.h */,
+				5798F89C20CEA83D00C20029 /* UIDevice+GetDeviceInfo.m */,
+				5798F89A20CEA83C00C20029 /* UIDevice+GetDeviceMessages.h */,
+				5798F89D20CEA83D00C20029 /* UIDevice+GetDeviceMessages.m */,
 			);
 			path = UIDevice;
 			sourceTree = "<group>";
@@ -2598,7 +2608,6 @@
 				57CF9A1320BA8EA1005EB9E9 /* MusicHandler.m in Sources */,
 				229FF0A72084E2C2005BA4A6 /* JMAirKissShareTools.m in Sources */,
 				5726F3AA206B8537008EED75 /* BBHelpAndSuggestionViewController.m in Sources */,
-				57CB443820A415D900268DBE /* UIDevice+GetDeviceInfo.m in Sources */,
 				57210CAA2074C2DE0039D8D5 /* ZFBrightnessView.m in Sources */,
 				57CF99FE20BA8551005EB9E9 /* MusicSlider.m in Sources */,
 				22CFD3D22067C3120004186D /* ConsoleTemperatureViewController.m in Sources */,
@@ -2622,6 +2631,7 @@
 				572209A320AD2A8100611BFA /* GKLyricModel.m in Sources */,
 				574C6CBD2069254200F5BF55 /* JKCountDownButton.m in Sources */,
 				22CFD3AC206401780004186D /* PXChartBackgroundView.m in Sources */,
+				5798F89F20CEA83D00C20029 /* UIDevice+GetDeviceMessages.m in Sources */,
 				5722097E20AD22AC00611BFA /* GKWYPlayerViewController.m in Sources */,
 				57210CA52074C2DE0039D8D5 /* ZFPlayerModel.m in Sources */,
 				84D5BDC7207354010025C757 /* bluetoothPairingViewController.m in Sources */,
@@ -2703,6 +2713,7 @@
 				57585ACF206D4428001BB202 /* LWShareButton.m in Sources */,
 				574C6CDA2069262000F5BF55 /* BBSettingViewController.m in Sources */,
 				57585ABA206D116C001BB202 /* BBMyDeviceViewController.m in Sources */,
+				5798F89E20CEA83D00C20029 /* UIDevice+GetDeviceInfo.m in Sources */,
 				57210CA62074C2DE0039D8D5 /* UIWindow+CurrentViewController.m in Sources */,
 				8449AC0B20620D1B00526935 /* BaseViewModel.m in Sources */,
 				572209BC20AD2B3D00611BFA /* GKPlayer.m in Sources */,
@@ -2762,6 +2773,7 @@
 				8449AC1B20623ACC00526935 /* GlobalTool.m in Sources */,
 				574C6CED20693D2400F5BF55 /* UILabel+EasilyMake.m in Sources */,
 				574C6CBE2069254200F5BF55 /* PPLabel.m in Sources */,
+				5798F8A220CEA89D00C20029 /* UIDevice+Adapter.m in Sources */,
 				84D270C4208DDB4900ED57A3 /* BLEDeviceStatusViewController.m in Sources */,
 				57210CAF2074C2DE0039D8D5 /* MMMaterialDesignSpinner.m in Sources */,
 				57585AD4206D4428001BB202 /* LWShareCollectionViewCell.m in Sources */,
@@ -2953,7 +2965,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = LDR3UXH97L;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -3025,7 +3037,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = LDR3UXH97L;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",

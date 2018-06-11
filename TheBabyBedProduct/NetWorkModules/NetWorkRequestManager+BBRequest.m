@@ -413,6 +413,7 @@ static void getRequest(NSString *url,id param,SuccessBlock successBlock,FailureB
     [param setValue:timestampStr forKey:@"timestamp"];
     [param setValue:@"1" forKey:@"chapter"];
     [param setValue:@"1" forKey:@"verbose"];
+    [param setValue:@"3" forKey:@"offset"];
     NSMutableString *str = [[NSMutableString alloc]initWithString:@"["];
     for (int i = 0; i < categoryIds.count-1; i++) {
         [str appendFormat:@"%@,",categoryIds[i]];

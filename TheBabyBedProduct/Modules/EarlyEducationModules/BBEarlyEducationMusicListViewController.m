@@ -32,6 +32,7 @@
 }
 -(void)getListData
 {
+    [self.tableView ly_startLoading];
     [BBRequestTool bb_requestEarlyEdutionSubListListWithCategoryId:[NSString stringWithFormat:@"%ld",(long)self.aMusicCategory.cat_id] successBlock:^(EnumServerStatus status, id object) {
         NSLog(@"success 早教sublistlist");
         BBMusicResult *musicListResult = [BBMusicResult mj_objectWithKeyValues:object];
@@ -39,16 +40,21 @@
             BBMusicAudioinfos *audioInfos = musicListResult.audioinfos;
             [self.musicLists addObjectsFromArray:audioInfos.contents];
             [self.tableView reloadData];
+            [self.tableView ly_endLoading];
         }else{
             [QMUITips showInfo:@"获取列表失败"];
+            [self.tableView ly_endLoading];
         }
     } failureBlock:^(EnumServerStatus status, id object) {
         NSLog(@"fail 早教失败t");
+        [self.tableView ly_endLoading];
     }];
 }
 -(void)creatUI
 {
     self.tableView = [UITableView bb_tableVMakeWithSuperV:self.view frame:self.view.bounds delegate:self bgColor:k_color_vcBg style:UITableViewStylePlain];
+    self.tableView.ly_emptyView = [LYEmptyView emptyViewWithImageStr:nil titleStr:@"该列表未查询到歌曲" detailStr:@"你可以去其它列表看看"];
+    self.tableView.ly_emptyView.autoShowEmptyView = NO;
     
 }
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -66,6 +72,7 @@
     cell.playBlock = ^{
         NSLog(@"点击了第%ld行",indexPath.row);
         BBMusicViewController *musicVC = [BBMusicViewController sharedInstance];
+        musicVC.musicTitle = [self.titleStr bb_safe];
         musicVC.musics = self.musicLists;
         musicVC.playingIndex = indexPath.item;
         [self presentToMusicViewWithMusicVC:musicVC];

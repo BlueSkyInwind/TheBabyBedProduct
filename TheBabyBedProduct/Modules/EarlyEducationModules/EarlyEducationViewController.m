@@ -256,7 +256,7 @@ static NSString * const kEarlyEducationHeaderViewIdentifier = @"EarlyEducationHe
         DLog(@"点击item");
         
         BBEarlyEducationMusicListViewController *musicListVC = [[BBEarlyEducationMusicListViewController alloc]init];
-//        musicListVC.titleStr = self.titleArrs[itemType];
+        musicListVC.titleStr = self.titleArrs[itemType];
         musicListVC.aMusicCategory = self.musicCategories[itemType];
         [self.navigationController pushViewController:musicListVC animated:YES];
     };

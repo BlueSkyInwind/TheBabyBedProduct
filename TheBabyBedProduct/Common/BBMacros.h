@@ -60,5 +60,8 @@ typedef NS_ENUM(NSInteger,BBApplyType) {
 #import "NSDate+BB.h"
 #import "UIDevice+GetDeviceInfo.h"
 #import "UITableView+MJRefresh.h"
+#import "UIDevice+Adapter.h"
+#import "UIDevice+GetDeviceMessages.h"
+#import "LYEmptyViewHeader.h"
 
 #endif /* BBMacros_h */

@@ -81,21 +81,21 @@ static void *kBufferingRatioKVOKey = &kBufferingRatioKVOKey;
     titleLB.frame = CGRectMake(60, 27, _k_w-120, 30);
     titleLB.text = @"音乐播放";
     
-    UIButton *dismissBt = [UIButton bb_btMakeWithSuperV:self.view imageName:@"return"];
+    UIButton *dismissBt = [UIButton bb_btMakeWithSuperV:self.view imageName:@"bb_music_back"];
     [dismissBt addTarget:self action:@selector(dismissAction) forControlEvents:UIControlEventTouchUpInside];
 #warning pp605 适配
-    dismissBt.frame = CGRectMake(15, 20, 50, 50);
+    dismissBt.frame = CGRectMake(PPWidth(10), PPDevice_statusBarHeight, PPWidth(50), PPWidth(50));
     
-    UIView *bottomV = [[UIView alloc]initWithFrame:CGRectMake(0, _k_h-120, _k_w, 120)];
+    UIView *bottomV = [[UIView alloc]initWithFrame:CGRectMake(0, PPDevice_realBottomVY(120), _k_w, PPDevice_realBottomVH(120))];
     [self.view addSubview:bottomV];
     
     self.beginTimeLabel = [UILabel bb_lbMakeWithSuperV:bottomV fontSize:10 alignment:NSTextAlignmentLeft textColor:[UIColor whiteColor]];
-    self.beginTimeLabel.frame = CGRectMake(8, 0, 40, 36);
+    self.beginTimeLabel.frame = CGRectMake(PPWidth(8), 0, PPWidth(40), PPHeight(36));
     
     self.endTimeLabel = [UILabel bb_lbMakeWithSuperV:bottomV fontSize:10 alignment:NSTextAlignmentRight textColor:[UIColor whiteColor]];
-    self.endTimeLabel.frame = CGRectMake(_k_w-8-40, 0, 40, 36);
+    self.endTimeLabel.frame = CGRectMake(_k_w-PPWidth(8+40), 0, PPWidth(40), PPHeight(36));
     
-    self.musicSlider = [[MusicSlider alloc]initWithFrame:CGRectMake(self.beginTimeLabel.right, 0, _k_w-96, 36)];
+    self.musicSlider = [[MusicSlider alloc]initWithFrame:CGRectMake(self.beginTimeLabel.right, 0, _k_w-PPWidth(96), PPHeight(36))];
     [bottomV addSubview:self.musicSlider];
     [self.musicSlider addTarget:self action:@selector(didChangeMusicSliderValue:) forControlEvents:UIControlEventValueChanged];
     self.musicSlider.minimumTrackTintColor = [UIColor whiteColor];
@@ -103,8 +103,8 @@ static void *kBufferingRatioKVOKey = &kBufferingRatioKVOKey;
 //    self.musicSlider.thumbTintColor = [UIColor yellowColor];
     
     CGFloat toggleW = 50;
-    CGFloat toggleX = (_k_w-self.toggleButton.width)/2;
-    CGFloat toggleY =  51;
+    CGFloat toggleX = (_k_w-toggleW)/2;
+    CGFloat toggleY =  PPHeight(51);
     self.toggleButton = [UIButton bb_btMakeWithSuperV:bottomV imageName:@"music_play_playing"];
     self.toggleButton.frame = CGRectMake(toggleX, toggleY, toggleW, toggleW);
     [self.toggleButton addTarget:self action:@selector(playOrSuspendAction) forControlEvents:UIControlEventTouchUpInside];
@@ -123,12 +123,12 @@ static void *kBufferingRatioKVOKey = &kBufferingRatioKVOKey;
 
     
     UIButton *voiceBT = [UIButton bb_btMakeWithSuperV:bottomV imageName:@"music_play_voice"];
-    voiceBT.frame = CGRectMake(20, toggleY+5, 40, 40);
+    voiceBT.frame = CGRectMake(PPWidth(20), toggleY+PPHeight(5), 40, 40);
     [voiceBT addTarget:self action:@selector(voiceAction) forControlEvents:UIControlEventTouchUpInside];
     [voiceBT setImageEdgeInsets:UIEdgeInsetsMake(9, 5, 9, 5)];
     
     self.cycleButton = [UIButton bb_btMakeWithSuperV:bottomV imageName:@"music_play_order"];
-    self.cycleButton.frame = CGRectMake(_k_w-20-40, toggleY+5, 40, 40);
+    self.cycleButton.frame = CGRectMake(_k_w-PPWidth(20)-40, toggleY+5, 40, 40);
     [self.cycleButton addTarget:self action:@selector(cycleAction) forControlEvents:UIControlEventTouchUpInside];
     [self.cycleButton setImageEdgeInsets:UIEdgeInsetsMake(9, 9, 9, 9)];
 }
