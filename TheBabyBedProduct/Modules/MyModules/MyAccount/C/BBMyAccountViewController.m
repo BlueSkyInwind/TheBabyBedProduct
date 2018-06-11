@@ -9,6 +9,7 @@
 #import "BBMyAccountViewController.h"
 #import "BBMyAccountExpenceRecordListCell.h"
 #import "BBConsumeRecord.h"
+#import "LYEmptyViewHeader.h"
 
 @interface BBMyAccountViewController ()<UITableViewDataSource,UITableViewDelegate>
 @property(nonatomic,strong) UITableView *tableView;
@@ -48,17 +49,13 @@
 }
 -(void)getCurListData
 {
-   
+    [self.tableView ly_startLoading];
     [BBRequestTool bb_requestCurListWithPageNo:self.currentPage pageSize:10 SuccessBlock:^(EnumServerStatus status, id object) {
         NSLog(@"我的账户 %@",object);
         BBConsumeRecordListResult *result = [BBConsumeRecordListResult mj_objectWithKeyValues:object];
         if (result.code == 0) {
             [self.expenceRecords addObjectsFromArray:result.data];
             self.totalCount = result.count;
-            if (self.expenceRecords.count >= self.totalCount && self.totalCount > 0) {
-                [self.tableView.mj_footer endRefreshingWithNoMoreData];//已加载全部
-                return;
-            }
             [self.tableView reloadData];
             [self _endRefreshing];
         }else{
@@ -84,16 +81,23 @@
     UIImageView *imgV = [UIImageView bb_imgVMakeWithSuperV:topView imgName:@"balance"];
     UILabel *accountSurplusTextLB = [UILabel bb_lbMakeWithSuperV:topView fontSize:16 alignment:NSTextAlignmentCenter textColor:k_color_515151];
     accountSurplusTextLB.text = @"账户余额";
-#warning todo 账户余额
+
     UILabel *accountSurplusLB = [UILabel bb_lbMakeWithSuperV:topView fontSize:16 alignment:NSTextAlignmentCenter textColor:k_color_515151];
-    accountSurplusLB.text = @"30";
+    #warning todo 账户余额
+    NSNumber *surplusCount = BBUserHelpers.price;
+    if ([surplusCount floatValue]) {
+        accountSurplusLB.text = [NSString stringWithFormat:@"%@",surplusCount];
+    }else{
+        accountSurplusLB.text = @"--";
+    }
     
     imgV.frame = CGRectMake(imgX, topMargin, imgW, imgH);
-    accountSurplusTextLB.frame = CGRectMake(0, imgV.bottom, _k_w, 20);
-    accountSurplusLB.frame = CGRectMake(0, accountSurplusTextLB.bottom, _k_w, 20);
+    accountSurplusTextLB.frame = CGRectMake(0, imgV.bottom+5, _k_w, 20);
+    accountSurplusLB.frame = CGRectMake(0, accountSurplusTextLB.bottom+5, _k_w, 20);
     
     [self creatTableViewUI];
 }
+
 -(void)creatTableViewUI
 {
     CGFloat tabVY = 64+96;
@@ -110,6 +114,9 @@
     
     //上拉加载
     self.tableView.mj_footer = [UITableView pp_footerForAutoNormalWithTarger:self action:@selector(_loadMoreDataAction)];
+    
+    self.tableView.ly_emptyView = [LYEmptyView emptyViewWithImageStr:nil titleStr:@"未查询到您的相关消费记录" detailStr:@"你可以充值、观看视频消费后再来看一看"];
+    self.tableView.ly_emptyView.autoShowEmptyView = NO;
     
     
     UIView *bottomV = [[UIView alloc]initWithFrame:CGRectMake(0, _k_h-67, _k_w, 67)];
@@ -152,10 +159,6 @@
     }else{
         self.isLoadMoreing = YES;
         self.isRefreshing = NO;
-        if (self.expenceRecords.count >= self.totalCount && self.totalCount > 0) {
-            [self.tableView.mj_footer endRefreshingWithNoMoreData];//已加载全部
-            return;
-        }
         self.currentPage += 1;
         [self getCurListData];
     }
@@ -163,10 +166,16 @@
 #pragma mark 结束刷新
 - (void)_endRefreshing
 {
+    
     self.isRefreshing = NO;
     self.isLoadMoreing = NO;
     [self.tableView.mj_header endRefreshing];
-    [self.tableView.mj_footer endRefreshing];
+    if (self.expenceRecords.count >= self.totalCount && self.totalCount > 0) {
+        [self.tableView.mj_footer endRefreshingWithNoMoreData];//已加载全部
+    }else{
+        [self.tableView.mj_footer endRefreshing];
+    }
+    [self.tableView ly_endLoading];
 }
 #pragma mark --- 点击“充值”
 -(void)toRechatge

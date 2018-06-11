@@ -201,7 +201,8 @@
 }
 
 -(void)clarityBtnClick:(id)sender{
-    
+    //切换清晰度
+    [[BBUdpSocketManager shareInstance] sendCFGSettingRequestMessage:@{VideoPlayrStatus:@(0),VideoClarityStatus:@(1)}];
     
 }
 -(void)progressSliderTouchBegan:(UISlider *)sender{
