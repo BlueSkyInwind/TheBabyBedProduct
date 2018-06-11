@@ -19,6 +19,18 @@
 		225B8BA320C2542D00710583 /* IJKMediaFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 225B8BA220C2542D00710583 /* IJKMediaFramework.framework */; };
 		225B8BB020C2AA0000710583 /* ASValuePopUpView.m in Sources */ = {isa = PBXBuildFile; fileRef = 57210C9F2074C2DE0039D8D5 /* ASValuePopUpView.m */; };
 		225B8BB120C2AA0000710583 /* ASValueTrackingSlider.m in Sources */ = {isa = PBXBuildFile; fileRef = 57210CA42074C2DE0039D8D5 /* ASValueTrackingSlider.m */; };
+		225B8BB420CEB64F00710583 /* UITableView+MJRefresh.m in Sources */ = {isa = PBXBuildFile; fileRef = 225B8BB220CEB64A00710583 /* UITableView+MJRefresh.m */; };
+		225B8BB720CEB68800710583 /* UIDevice+Adapter.m in Sources */ = {isa = PBXBuildFile; fileRef = 225B8BB520CEB68800710583 /* UIDevice+Adapter.m */; };
+		225B8BBA20CEB6D800710583 /* UIDevice+GetDeviceMessages.m in Sources */ = {isa = PBXBuildFile; fileRef = 225B8BB820CEB6D700710583 /* UIDevice+GetDeviceMessages.m */; };
+		225B8BCE20CEBA3200710583 /* BBConsumeRecord.m in Sources */ = {isa = PBXBuildFile; fileRef = 225B8BBC20CEBA3100710583 /* BBConsumeRecord.m */; };
+		225B8BCF20CEBA3200710583 /* BBEditUserInfoItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 225B8BBD20CEBA3100710583 /* BBEditUserInfoItem.m */; };
+		225B8BD020CEBA3200710583 /* BBPage.m in Sources */ = {isa = PBXBuildFile; fileRef = 225B8BBE20CEBA3100710583 /* BBPage.m */; };
+		225B8BD120CEBA3200710583 /* BBUploadImageResultModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 225B8BC320CEBA3100710583 /* BBUploadImageResultModel.m */; };
+		225B8BD220CEBA3200710583 /* BBEditInformationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 225B8BC720CEBA3100710583 /* BBEditInformationViewController.m */; };
+		225B8BD320CEBA3200710583 /* BBMyAccountViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 225B8BC820CEBA3100710583 /* BBMyAccountViewController.m */; };
+		225B8BD420CEBA3200710583 /* BBEditInfoAvatarCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 225B8BCC20CEBA3200710583 /* BBEditInfoAvatarCell.m */; };
+		225B8BD520CEBA3200710583 /* BBMyAccountExpenceRecordListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 225B8BCD20CEBA3200710583 /* BBMyAccountExpenceRecordListCell.m */; };
+		225B8BD920CEBA9400710583 /* BBFamilyMember.m in Sources */ = {isa = PBXBuildFile; fileRef = 225B8BD820CEBA9300710583 /* BBFamilyMember.m */; };
 		2263B8E3206BCBB9005BB15E /* HomeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2263B8E1206BCBB9005BB15E /* HomeTableViewCell.m */; };
 		2263B8E7206BD901005BB15E /* HomeHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2263B8E6206BD901005BB15E /* HomeHeaderView.m */; };
 		2263B8EA206BE604005BB15E /* MessageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2263B8E9206BE604005BB15E /* MessageViewController.m */; };
@@ -89,10 +101,9 @@
 		22CFD3F42067FDAF0004186D /* KickQulitThresholdSettingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22CFD3F22067FDAF0004186D /* KickQulitThresholdSettingViewController.xib */; };
 		22CFD3FA2067FE060004186D /* TemperatureThresholdSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22CFD3F82067FE060004186D /* TemperatureThresholdSettingViewController.m */; };
 		22CFD3FB2067FE060004186D /* TemperatureThresholdSettingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22CFD3F92067FE060004186D /* TemperatureThresholdSettingViewController.xib */; };
+		22F4C35120CEC84D006FBBAC /* BBEarlyEducationMusicDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22F4C34D20CEC84C006FBBAC /* BBEarlyEducationMusicDetailViewController.m */; };
+		22F4C35220CEC84D006FBBAC /* BBEarlyEducationMusicListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22F4C34F20CEC84C006FBBAC /* BBEarlyEducationMusicListViewController.m */; };
 		347E55C5AB34C5F0659DAE6B /* Pods_TheBabyBedProduct.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 884698C1D52FC8383E4B1BCF /* Pods_TheBabyBedProduct.framework */; };
-		570782F120C0DB790069B88D /* BBConsumeRecord.m in Sources */ = {isa = PBXBuildFile; fileRef = 570782F020C0DB790069B88D /* BBConsumeRecord.m */; };
-		570782F420C0DC350069B88D /* BBPage.m in Sources */ = {isa = PBXBuildFile; fileRef = 570782F320C0DC350069B88D /* BBPage.m */; };
-		5707830C20C1195C0069B88D /* UITableView+MJRefresh.m in Sources */ = {isa = PBXBuildFile; fileRef = 5707830A20C1195B0069B88D /* UITableView+MJRefresh.m */; };
 		570A1C1E208C6E5200B13EB5 /* NSDate+BB.m in Sources */ = {isa = PBXBuildFile; fileRef = 570A1C1D208C6E5200B13EB5 /* NSDate+BB.m */; };
 		570A1CB72090C9D500B13EB5 /* BBDeviceHeaderBottomView.m in Sources */ = {isa = PBXBuildFile; fileRef = 570A1CB62090C9D500B13EB5 /* BBDeviceHeaderBottomView.m */; };
 		57210BFB2073B3F80039D8D5 /* BBPermissionManageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 57210BFA2073B3F80039D8D5 /* BBPermissionManageViewController.m */; };
@@ -113,7 +124,6 @@
 		57210D0F207777960039D8D5 /* AppDelegate+BBConfigure.m in Sources */ = {isa = PBXBuildFile; fileRef = 57210D0E207777960039D8D5 /* AppDelegate+BBConfigure.m */; };
 		57210D1220789A0E0039D8D5 /* NSString+Verify.m in Sources */ = {isa = PBXBuildFile; fileRef = 57210D1120789A0E0039D8D5 /* NSString+Verify.m */; };
 		57210D1B207A48F60039D8D5 /* BBModifyPasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 57210D1A207A48F60039D8D5 /* BBModifyPasswordViewController.m */; };
-		57210D1E207B05650039D8D5 /* BBEarlyEducationMusicListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 57210D1D207B05650039D8D5 /* BBEarlyEducationMusicListViewController.m */; };
 		57210DD5207CA37F0039D8D5 /* BBEEMusicListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 57210DD4207CA37F0039D8D5 /* BBEEMusicListCell.m */; };
 		5722097E20AD22AC00611BFA /* GKWYPlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5722096D20AD22AC00611BFA /* GKWYPlayerViewController.m */; };
 		5722097F20AD22AC00611BFA /* GKWYMusicListView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5722097720AD22AC00611BFA /* GKWYMusicListView.m */; };
@@ -226,23 +236,7 @@
 		57585AF0206D4850001BB202 /* share_timeline@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 57585AEE206D4850001BB202 /* share_timeline@3x.png */; };
 		57585AF3206D485C001BB202 /* share_qq@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 57585AF1206D485B001BB202 /* share_qq@3x.png */; };
 		57585AF4206D485C001BB202 /* share_qq@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 57585AF2206D485B001BB202 /* share_qq@2x.png */; };
-		577330FF20C23658000831E8 /* bbCityList.json in Resources */ = {isa = PBXBuildFile; fileRef = 577330FE20C23657000831E8 /* bbCityList.json */; };
-		5773310320C24722000831E8 /* BBFamilyMember.m in Sources */ = {isa = PBXBuildFile; fileRef = 5773310220C24722000831E8 /* BBFamilyMember.m */; };
-		5773314020C59C9A000831E8 /* dadadada.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 5773313B20C59C99000831E8 /* dadadada.mp3 */; };
-		5773314120C59C9A000831E8 /* supermali.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 5773313C20C59C99000831E8 /* supermali.mp3 */; };
-		5773314220C59C9A000831E8 /* didu.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 5773313D20C59C99000831E8 /* didu.mp3 */; };
-		5773314320C59C9A000831E8 /* mytheme.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 5773313E20C59C9A000831E8 /* mytheme.mp3 */; };
-		5773314420C59C9A000831E8 /* storystory.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 5773313F20C59C9A000831E8 /* storystory.mp3 */; };
-		5773314720C5A98B000831E8 /* BBEarlyEducationMusicDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5773314620C5A98B000831E8 /* BBEarlyEducationMusicDetailViewController.m */; };
-		5773317120C70DD5000831E8 /* BBEditUserInfoItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 5773316D20C70DD4000831E8 /* BBEditUserInfoItem.m */; };
-		5773317220C70DD5000831E8 /* BBUploadImageResultModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5773316F20C70DD5000831E8 /* BBUploadImageResultModel.m */; };
-		5773317D20C70DE8000831E8 /* BBEditInfoAvatarCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5773317620C70DE7000831E8 /* BBEditInfoAvatarCell.m */; };
-		5773317E20C70DE8000831E8 /* BBMyAccountExpenceRecordListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5773317720C70DE7000831E8 /* BBMyAccountExpenceRecordListCell.m */; };
-		5773317F20C70DE8000831E8 /* BBEditInformationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5773317B20C70DE8000831E8 /* BBEditInformationViewController.m */; };
-		5773318020C70DE8000831E8 /* BBMyAccountViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5773317C20C70DE8000831E8 /* BBMyAccountViewController.m */; };
-		5798F89E20CEA83D00C20029 /* UIDevice+GetDeviceInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 5798F89C20CEA83D00C20029 /* UIDevice+GetDeviceInfo.m */; };
-		5798F89F20CEA83D00C20029 /* UIDevice+GetDeviceMessages.m in Sources */ = {isa = PBXBuildFile; fileRef = 5798F89D20CEA83D00C20029 /* UIDevice+GetDeviceMessages.m */; };
-		5798F8A220CEA89D00C20029 /* UIDevice+Adapter.m in Sources */ = {isa = PBXBuildFile; fileRef = 5798F8A020CEA89D00C20029 /* UIDevice+Adapter.m */; };
+		57CB443820A415D900268DBE /* UIDevice+GetDeviceInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 57CB443720A415D900268DBE /* UIDevice+GetDeviceInfo.m */; };
 		57CB443B20A570D700268DBE /* BBMusic.m in Sources */ = {isa = PBXBuildFile; fileRef = 57CB443A20A570D700268DBE /* BBMusic.m */; };
 		57CB443E20A5712100268DBE /* BBMusicRequestModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 57CB443D20A5712100268DBE /* BBMusicRequestModel.m */; };
 		57CB444220A59E1F00268DBE /* BBMusicCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 57CB444120A59E1F00268DBE /* BBMusicCategory.m */; };
@@ -299,7 +293,6 @@
 		8449AC152062354000526935 /* LaunchConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = 8449AC142062354000526935 /* LaunchConfiguration.m */; };
 		8449AC18206239F900526935 /* GlobalUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = 8449AC17206239F900526935 /* GlobalUtility.m */; };
 		8449AC1B20623ACC00526935 /* GlobalTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 8449AC1A20623ACC00526935 /* GlobalTool.m */; };
-		8489C22020CE6AA800EE7901 /* videoClarityChangeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8489C21F20CE6AA800EE7901 /* videoClarityChangeView.m */; };
 		8490CFBF20747CFC00D416C1 /* ConfigurationWifiViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8490CFBD20747CFC00D416C1 /* ConfigurationWifiViewController.m */; };
 		8490CFC020747CFC00D416C1 /* ConfigurationWifiViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8490CFBE20747CFC00D416C1 /* ConfigurationWifiViewController.xib */; };
 		8490CFC3207480C200D416C1 /* DeviceConnectingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8490CFC2207480C200D416C1 /* DeviceConnectingViewController.m */; };
@@ -350,6 +343,30 @@
 		225B8B9F20C0438900710583 /* BBVideoPlayView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BBVideoPlayView.h; sourceTree = "<group>"; };
 		225B8BA020C0438900710583 /* BBVideoPlayView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BBVideoPlayView.m; sourceTree = "<group>"; };
 		225B8BA220C2542D00710583 /* IJKMediaFramework.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = IJKMediaFramework.framework; sourceTree = "<group>"; };
+		225B8BB220CEB64A00710583 /* UITableView+MJRefresh.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableView+MJRefresh.m"; sourceTree = "<group>"; };
+		225B8BB320CEB64E00710583 /* UITableView+MJRefresh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableView+MJRefresh.h"; sourceTree = "<group>"; };
+		225B8BB520CEB68800710583 /* UIDevice+Adapter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIDevice+Adapter.m"; path = "UIDevice/UIDevice+Adapter.m"; sourceTree = "<group>"; };
+		225B8BB620CEB68800710583 /* UIDevice+Adapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIDevice+Adapter.h"; path = "UIDevice/UIDevice+Adapter.h"; sourceTree = "<group>"; };
+		225B8BB820CEB6D700710583 /* UIDevice+GetDeviceMessages.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIDevice+GetDeviceMessages.m"; path = "UIDevice/UIDevice+GetDeviceMessages.m"; sourceTree = "<group>"; };
+		225B8BB920CEB6D700710583 /* UIDevice+GetDeviceMessages.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIDevice+GetDeviceMessages.h"; path = "UIDevice/UIDevice+GetDeviceMessages.h"; sourceTree = "<group>"; };
+		225B8BBC20CEBA3100710583 /* BBConsumeRecord.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBConsumeRecord.m; sourceTree = "<group>"; };
+		225B8BBD20CEBA3100710583 /* BBEditUserInfoItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBEditUserInfoItem.m; sourceTree = "<group>"; };
+		225B8BBE20CEBA3100710583 /* BBPage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBPage.m; sourceTree = "<group>"; };
+		225B8BBF20CEBA3100710583 /* BBUploadImageResultModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBUploadImageResultModel.h; sourceTree = "<group>"; };
+		225B8BC020CEBA3100710583 /* BBEditUserInfoItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBEditUserInfoItem.h; sourceTree = "<group>"; };
+		225B8BC120CEBA3100710583 /* BBPage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBPage.h; sourceTree = "<group>"; };
+		225B8BC220CEBA3100710583 /* BBConsumeRecord.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBConsumeRecord.h; sourceTree = "<group>"; };
+		225B8BC320CEBA3100710583 /* BBUploadImageResultModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBUploadImageResultModel.m; sourceTree = "<group>"; };
+		225B8BC520CEBA3100710583 /* BBMyAccountViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBMyAccountViewController.h; sourceTree = "<group>"; };
+		225B8BC620CEBA3100710583 /* BBEditInformationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBEditInformationViewController.h; sourceTree = "<group>"; };
+		225B8BC720CEBA3100710583 /* BBEditInformationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBEditInformationViewController.m; sourceTree = "<group>"; };
+		225B8BC820CEBA3100710583 /* BBMyAccountViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBMyAccountViewController.m; sourceTree = "<group>"; };
+		225B8BCA20CEBA3200710583 /* BBEditInfoAvatarCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBEditInfoAvatarCell.h; sourceTree = "<group>"; };
+		225B8BCB20CEBA3200710583 /* BBMyAccountExpenceRecordListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBMyAccountExpenceRecordListCell.h; sourceTree = "<group>"; };
+		225B8BCC20CEBA3200710583 /* BBEditInfoAvatarCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBEditInfoAvatarCell.m; sourceTree = "<group>"; };
+		225B8BCD20CEBA3200710583 /* BBMyAccountExpenceRecordListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBMyAccountExpenceRecordListCell.m; sourceTree = "<group>"; };
+		225B8BD720CEBA9300710583 /* BBFamilyMember.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBFamilyMember.h; sourceTree = "<group>"; };
+		225B8BD820CEBA9300710583 /* BBFamilyMember.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBFamilyMember.m; sourceTree = "<group>"; };
 		2263B8E0206BCBB9005BB15E /* HomeTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeTableViewCell.h; sourceTree = "<group>"; };
 		2263B8E1206BCBB9005BB15E /* HomeTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeTableViewCell.m; sourceTree = "<group>"; };
 		2263B8E5206BD901005BB15E /* HomeHeaderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeHeaderView.h; sourceTree = "<group>"; };
@@ -489,13 +506,11 @@
 		22CFD3F72067FE060004186D /* TemperatureThresholdSettingViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TemperatureThresholdSettingViewController.h; sourceTree = "<group>"; };
 		22CFD3F82067FE060004186D /* TemperatureThresholdSettingViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TemperatureThresholdSettingViewController.m; sourceTree = "<group>"; };
 		22CFD3F92067FE060004186D /* TemperatureThresholdSettingViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TemperatureThresholdSettingViewController.xib; sourceTree = "<group>"; };
+		22F4C34D20CEC84C006FBBAC /* BBEarlyEducationMusicDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBEarlyEducationMusicDetailViewController.m; sourceTree = "<group>"; };
+		22F4C34E20CEC84C006FBBAC /* BBEarlyEducationMusicDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBEarlyEducationMusicDetailViewController.h; sourceTree = "<group>"; };
+		22F4C34F20CEC84C006FBBAC /* BBEarlyEducationMusicListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBEarlyEducationMusicListViewController.m; sourceTree = "<group>"; };
+		22F4C35020CEC84C006FBBAC /* BBEarlyEducationMusicListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBEarlyEducationMusicListViewController.h; sourceTree = "<group>"; };
 		2F6F434F00B680C952F3C9BF /* Pods-TheBabyBedProduct.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TheBabyBedProduct.release.xcconfig"; path = "Pods/Target Support Files/Pods-TheBabyBedProduct/Pods-TheBabyBedProduct.release.xcconfig"; sourceTree = "<group>"; };
-		570782EF20C0DB790069B88D /* BBConsumeRecord.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BBConsumeRecord.h; sourceTree = "<group>"; };
-		570782F020C0DB790069B88D /* BBConsumeRecord.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BBConsumeRecord.m; sourceTree = "<group>"; };
-		570782F220C0DC350069B88D /* BBPage.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BBPage.h; sourceTree = "<group>"; };
-		570782F320C0DC350069B88D /* BBPage.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BBPage.m; sourceTree = "<group>"; };
-		5707830A20C1195B0069B88D /* UITableView+MJRefresh.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableView+MJRefresh.m"; sourceTree = "<group>"; };
-		5707830B20C1195C0069B88D /* UITableView+MJRefresh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableView+MJRefresh.h"; sourceTree = "<group>"; };
 		570A1C1C208C6E5200B13EB5 /* NSDate+BB.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSDate+BB.h"; sourceTree = "<group>"; };
 		570A1C1D208C6E5200B13EB5 /* NSDate+BB.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSDate+BB.m"; sourceTree = "<group>"; };
 		570A1CB52090C9D500B13EB5 /* BBDeviceHeaderBottomView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BBDeviceHeaderBottomView.h; sourceTree = "<group>"; };
@@ -542,8 +557,6 @@
 		57210D1120789A0E0039D8D5 /* NSString+Verify.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSString+Verify.m"; sourceTree = "<group>"; };
 		57210D19207A48F60039D8D5 /* BBModifyPasswordViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BBModifyPasswordViewController.h; sourceTree = "<group>"; };
 		57210D1A207A48F60039D8D5 /* BBModifyPasswordViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BBModifyPasswordViewController.m; sourceTree = "<group>"; };
-		57210D1C207B05650039D8D5 /* BBEarlyEducationMusicListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BBEarlyEducationMusicListViewController.h; sourceTree = "<group>"; };
-		57210D1D207B05650039D8D5 /* BBEarlyEducationMusicListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BBEarlyEducationMusicListViewController.m; sourceTree = "<group>"; };
 		57210DD3207CA37F0039D8D5 /* BBEEMusicListCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BBEEMusicListCell.h; sourceTree = "<group>"; };
 		57210DD4207CA37F0039D8D5 /* BBEEMusicListCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BBEEMusicListCell.m; sourceTree = "<group>"; };
 		5722096D20AD22AC00611BFA /* GKWYPlayerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GKWYPlayerViewController.m; sourceTree = "<group>"; };
@@ -739,34 +752,8 @@
 		57585AEE206D4850001BB202 /* share_timeline@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "share_timeline@3x.png"; sourceTree = "<group>"; };
 		57585AF1206D485B001BB202 /* share_qq@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "share_qq@3x.png"; sourceTree = "<group>"; };
 		57585AF2206D485B001BB202 /* share_qq@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "share_qq@2x.png"; sourceTree = "<group>"; };
-		577330FE20C23657000831E8 /* bbCityList.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = bbCityList.json; sourceTree = "<group>"; };
-		5773310120C24722000831E8 /* BBFamilyMember.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BBFamilyMember.h; sourceTree = "<group>"; };
-		5773310220C24722000831E8 /* BBFamilyMember.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BBFamilyMember.m; sourceTree = "<group>"; };
-		5773313B20C59C99000831E8 /* dadadada.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = dadadada.mp3; sourceTree = "<group>"; };
-		5773313C20C59C99000831E8 /* supermali.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = supermali.mp3; sourceTree = "<group>"; };
-		5773313D20C59C99000831E8 /* didu.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = didu.mp3; sourceTree = "<group>"; };
-		5773313E20C59C9A000831E8 /* mytheme.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = mytheme.mp3; sourceTree = "<group>"; };
-		5773313F20C59C9A000831E8 /* storystory.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = storystory.mp3; sourceTree = "<group>"; };
-		5773314520C5A98B000831E8 /* BBEarlyEducationMusicDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BBEarlyEducationMusicDetailViewController.h; sourceTree = "<group>"; };
-		5773314620C5A98B000831E8 /* BBEarlyEducationMusicDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BBEarlyEducationMusicDetailViewController.m; sourceTree = "<group>"; };
-		5773316D20C70DD4000831E8 /* BBEditUserInfoItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBEditUserInfoItem.m; sourceTree = "<group>"; };
-		5773316E20C70DD4000831E8 /* BBUploadImageResultModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBUploadImageResultModel.h; sourceTree = "<group>"; };
-		5773316F20C70DD5000831E8 /* BBUploadImageResultModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBUploadImageResultModel.m; sourceTree = "<group>"; };
-		5773317020C70DD5000831E8 /* BBEditUserInfoItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBEditUserInfoItem.h; sourceTree = "<group>"; };
-		5773317420C70DE7000831E8 /* BBEditInfoAvatarCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBEditInfoAvatarCell.h; sourceTree = "<group>"; };
-		5773317520C70DE7000831E8 /* BBMyAccountExpenceRecordListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBMyAccountExpenceRecordListCell.h; sourceTree = "<group>"; };
-		5773317620C70DE7000831E8 /* BBEditInfoAvatarCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBEditInfoAvatarCell.m; sourceTree = "<group>"; };
-		5773317720C70DE7000831E8 /* BBMyAccountExpenceRecordListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBMyAccountExpenceRecordListCell.m; sourceTree = "<group>"; };
-		5773317920C70DE8000831E8 /* BBMyAccountViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBMyAccountViewController.h; sourceTree = "<group>"; };
-		5773317A20C70DE8000831E8 /* BBEditInformationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBEditInformationViewController.h; sourceTree = "<group>"; };
-		5773317B20C70DE8000831E8 /* BBEditInformationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBEditInformationViewController.m; sourceTree = "<group>"; };
-		5773317C20C70DE8000831E8 /* BBMyAccountViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBMyAccountViewController.m; sourceTree = "<group>"; };
-		5798F89A20CEA83C00C20029 /* UIDevice+GetDeviceMessages.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIDevice+GetDeviceMessages.h"; sourceTree = "<group>"; };
-		5798F89B20CEA83C00C20029 /* UIDevice+GetDeviceInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIDevice+GetDeviceInfo.h"; sourceTree = "<group>"; };
-		5798F89C20CEA83D00C20029 /* UIDevice+GetDeviceInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIDevice+GetDeviceInfo.m"; sourceTree = "<group>"; };
-		5798F89D20CEA83D00C20029 /* UIDevice+GetDeviceMessages.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIDevice+GetDeviceMessages.m"; sourceTree = "<group>"; };
-		5798F8A020CEA89D00C20029 /* UIDevice+Adapter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIDevice+Adapter.m"; sourceTree = "<group>"; };
-		5798F8A120CEA89D00C20029 /* UIDevice+Adapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIDevice+Adapter.h"; sourceTree = "<group>"; };
+		57CB443620A415D900268DBE /* UIDevice+GetDeviceInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIDevice+GetDeviceInfo.h"; sourceTree = "<group>"; };
+		57CB443720A415D900268DBE /* UIDevice+GetDeviceInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIDevice+GetDeviceInfo.m"; sourceTree = "<group>"; };
 		57CB443920A570D700268DBE /* BBMusic.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BBMusic.h; sourceTree = "<group>"; };
 		57CB443A20A570D700268DBE /* BBMusic.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BBMusic.m; sourceTree = "<group>"; };
 		57CB443C20A5712100268DBE /* BBMusicRequestModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BBMusicRequestModel.h; sourceTree = "<group>"; };
@@ -857,8 +844,6 @@
 		8449AC17206239F900526935 /* GlobalUtility.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GlobalUtility.m; sourceTree = "<group>"; };
 		8449AC1920623ACC00526935 /* GlobalTool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GlobalTool.h; sourceTree = "<group>"; };
 		8449AC1A20623ACC00526935 /* GlobalTool.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GlobalTool.m; sourceTree = "<group>"; };
-		8489C21E20CE6AA800EE7901 /* videoClarityChangeView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = videoClarityChangeView.h; sourceTree = "<group>"; };
-		8489C21F20CE6AA800EE7901 /* videoClarityChangeView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = videoClarityChangeView.m; sourceTree = "<group>"; };
 		8490CFBC20747CFC00D416C1 /* ConfigurationWifiViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ConfigurationWifiViewController.h; sourceTree = "<group>"; };
 		8490CFBD20747CFC00D416C1 /* ConfigurationWifiViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ConfigurationWifiViewController.m; sourceTree = "<group>"; };
 		8490CFBE20747CFC00D416C1 /* ConfigurationWifiViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ConfigurationWifiViewController.xib; sourceTree = "<group>"; };
@@ -993,6 +978,52 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		225B8BBB20CEBA3100710583 /* M */ = {
+			isa = PBXGroup;
+			children = (
+				225B8BBC20CEBA3100710583 /* BBConsumeRecord.m */,
+				225B8BBD20CEBA3100710583 /* BBEditUserInfoItem.m */,
+				225B8BBE20CEBA3100710583 /* BBPage.m */,
+				225B8BBF20CEBA3100710583 /* BBUploadImageResultModel.h */,
+				225B8BC020CEBA3100710583 /* BBEditUserInfoItem.h */,
+				225B8BC120CEBA3100710583 /* BBPage.h */,
+				225B8BC220CEBA3100710583 /* BBConsumeRecord.h */,
+				225B8BC320CEBA3100710583 /* BBUploadImageResultModel.m */,
+			);
+			path = M;
+			sourceTree = "<group>";
+		};
+		225B8BC420CEBA3100710583 /* C */ = {
+			isa = PBXGroup;
+			children = (
+				225B8BC520CEBA3100710583 /* BBMyAccountViewController.h */,
+				225B8BC620CEBA3100710583 /* BBEditInformationViewController.h */,
+				225B8BC720CEBA3100710583 /* BBEditInformationViewController.m */,
+				225B8BC820CEBA3100710583 /* BBMyAccountViewController.m */,
+			);
+			path = C;
+			sourceTree = "<group>";
+		};
+		225B8BC920CEBA3200710583 /* V */ = {
+			isa = PBXGroup;
+			children = (
+				225B8BCA20CEBA3200710583 /* BBEditInfoAvatarCell.h */,
+				225B8BCB20CEBA3200710583 /* BBMyAccountExpenceRecordListCell.h */,
+				225B8BCC20CEBA3200710583 /* BBEditInfoAvatarCell.m */,
+				225B8BCD20CEBA3200710583 /* BBMyAccountExpenceRecordListCell.m */,
+			);
+			path = V;
+			sourceTree = "<group>";
+		};
+		225B8BD620CEBA9300710583 /* M */ = {
+			isa = PBXGroup;
+			children = (
+				225B8BD720CEBA9300710583 /* BBFamilyMember.h */,
+				225B8BD820CEBA9300710583 /* BBFamilyMember.m */,
+			);
+			path = M;
+			sourceTree = "<group>";
+		};
 		2263B8EF20709BAC005BB15E /* BLEManager */ = {
 			isa = PBXGroup;
 			children = (
@@ -1028,12 +1059,6 @@
 		22CF35692073E15900707F8A /* Source */ = {
 			isa = PBXGroup;
 			children = (
-				5773313B20C59C99000831E8 /* dadadada.mp3 */,
-				5773313D20C59C99000831E8 /* didu.mp3 */,
-				5773313E20C59C9A000831E8 /* mytheme.mp3 */,
-				5773313F20C59C9A000831E8 /* storystory.mp3 */,
-				5773313C20C59C99000831E8 /* supermali.mp3 */,
-				577330FE20C23657000831E8 /* bbCityList.json */,
 				22CF356A2073E17300707F8A /* noticeMusic.wav */,
 			);
 			path = Source;
@@ -1203,10 +1228,12 @@
 				22CFD38820614C180004186D /* EarlyEducationViewController.m */,
 				5726F3BC206C7F3B008EED75 /* BBEarlyEducationHeaderView.h */,
 				5726F3BD206C7F3B008EED75 /* BBEarlyEducationHeaderView.m */,
+				22F4C34E20CEC84C006FBBAC /* BBEarlyEducationMusicDetailViewController.h */,
+				22F4C34D20CEC84C006FBBAC /* BBEarlyEducationMusicDetailViewController.m */,
+				22F4C35020CEC84C006FBBAC /* BBEarlyEducationMusicListViewController.h */,
+				22F4C34F20CEC84C006FBBAC /* BBEarlyEducationMusicListViewController.m */,
 				5726F3BF206C8F13008EED75 /* BBEarlyEducationCell.h */,
 				5726F3C0206C8F13008EED75 /* BBEarlyEducationCell.m */,
-				57210D1C207B05650039D8D5 /* BBEarlyEducationMusicListViewController.h */,
-				57210D1D207B05650039D8D5 /* BBEarlyEducationMusicListViewController.m */,
 				57210DD3207CA37F0039D8D5 /* BBEEMusicListCell.h */,
 				57210DD4207CA37F0039D8D5 /* BBEEMusicListCell.m */,
 				57CB443920A570D700268DBE /* BBMusic.h */,
@@ -1215,8 +1242,6 @@
 				57CB443D20A5712100268DBE /* BBMusicRequestModel.m */,
 				57CF997420B31948005EB9E9 /* BBEarlyEdutionMusicListCell.h */,
 				57CF997520B31948005EB9E9 /* BBEarlyEdutionMusicListCell.m */,
-				5773314520C5A98B000831E8 /* BBEarlyEducationMusicDetailViewController.h */,
-				5773314620C5A98B000831E8 /* BBEarlyEducationMusicDetailViewController.m */,
 			);
 			path = EarlyEducationModules;
 			sourceTree = "<group>";
@@ -1396,27 +1421,12 @@
 			path = ThresholdSetting;
 			sourceTree = "<group>";
 		};
-		570782EE20C0D9C30069B88D /* M */ = {
-			isa = PBXGroup;
-			children = (
-				5773317020C70DD5000831E8 /* BBEditUserInfoItem.h */,
-				5773316D20C70DD4000831E8 /* BBEditUserInfoItem.m */,
-				5773316E20C70DD4000831E8 /* BBUploadImageResultModel.h */,
-				5773316F20C70DD5000831E8 /* BBUploadImageResultModel.m */,
-				570782EF20C0DB790069B88D /* BBConsumeRecord.h */,
-				570782F020C0DB790069B88D /* BBConsumeRecord.m */,
-				570782F220C0DC350069B88D /* BBPage.h */,
-				570782F320C0DC350069B88D /* BBPage.m */,
-			);
-			path = M;
-			sourceTree = "<group>";
-		};
 		57210C712073B4A50039D8D5 /* MyAccount */ = {
 			isa = PBXGroup;
 			children = (
-				5773317820C70DE8000831E8 /* C */,
-				5773317320C70DE7000831E8 /* V */,
-				570782EE20C0D9C30069B88D /* M */,
+				225B8BC420CEBA3100710583 /* C */,
+				225B8BBB20CEBA3100710583 /* M */,
+				225B8BC920CEBA3200710583 /* V */,
 			);
 			path = MyAccount;
 			sourceTree = "<group>";
@@ -1918,11 +1928,15 @@
 		574C6CDB2069272700F5BF55 /* Category */ = {
 			isa = PBXGroup;
 			children = (
-				5707830B20C1195C0069B88D /* UITableView+MJRefresh.h */,
-				5707830A20C1195B0069B88D /* UITableView+MJRefresh.m */,
 				57CB443520A415D900268DBE /* UIDevice */,
 				57CECE42207374DC00E9A876 /* UIAlertController+EasilyMake.h */,
 				57CECE41207374DC00E9A876 /* UIAlertController+EasilyMake.m */,
+				225B8BB320CEB64E00710583 /* UITableView+MJRefresh.h */,
+				225B8BB220CEB64A00710583 /* UITableView+MJRefresh.m */,
+				225B8BB620CEB68800710583 /* UIDevice+Adapter.h */,
+				225B8BB520CEB68800710583 /* UIDevice+Adapter.m */,
+				225B8BB920CEB6D700710583 /* UIDevice+GetDeviceMessages.h */,
+				225B8BB820CEB6D700710583 /* UIDevice+GetDeviceMessages.m */,
 				5726F34E206A8DC3008EED75 /* UIView+PP_Frame.h */,
 				5726F34D206A8DC2008EED75 /* UIView+PP_Frame.m */,
 				574C6CDC2069272700F5BF55 /* UIImageView+EasilyMake.h */,
@@ -1965,7 +1979,7 @@
 		57585ABB206D17B4001BB202 /* FamilyMember */ = {
 			isa = PBXGroup;
 			children = (
-				5773310020C245A5000831E8 /* M */,
+				225B8BD620CEBA9300710583 /* M */,
 				57210BF92073B3F80039D8D5 /* BBPermissionManageViewController.h */,
 				57210BFA2073B3F80039D8D5 /* BBPermissionManageViewController.m */,
 				57585ABC206D17CA001BB202 /* BBFamilyMemberViewController.h */,
@@ -2001,46 +2015,11 @@
 			path = LWShareView;
 			sourceTree = "<group>";
 		};
-		5773310020C245A5000831E8 /* M */ = {
-			isa = PBXGroup;
-			children = (
-				5773310120C24722000831E8 /* BBFamilyMember.h */,
-				5773310220C24722000831E8 /* BBFamilyMember.m */,
-			);
-			path = M;
-			sourceTree = "<group>";
-		};
-		5773317320C70DE7000831E8 /* V */ = {
-			isa = PBXGroup;
-			children = (
-				5773317420C70DE7000831E8 /* BBEditInfoAvatarCell.h */,
-				5773317520C70DE7000831E8 /* BBMyAccountExpenceRecordListCell.h */,
-				5773317620C70DE7000831E8 /* BBEditInfoAvatarCell.m */,
-				5773317720C70DE7000831E8 /* BBMyAccountExpenceRecordListCell.m */,
-			);
-			path = V;
-			sourceTree = "<group>";
-		};
-		5773317820C70DE8000831E8 /* C */ = {
-			isa = PBXGroup;
-			children = (
-				5773317920C70DE8000831E8 /* BBMyAccountViewController.h */,
-				5773317A20C70DE8000831E8 /* BBEditInformationViewController.h */,
-				5773317B20C70DE8000831E8 /* BBEditInformationViewController.m */,
-				5773317C20C70DE8000831E8 /* BBMyAccountViewController.m */,
-			);
-			path = C;
-			sourceTree = "<group>";
-		};
 		57CB443520A415D900268DBE /* UIDevice */ = {
 			isa = PBXGroup;
 			children = (
-				5798F8A120CEA89D00C20029 /* UIDevice+Adapter.h */,
-				5798F8A020CEA89D00C20029 /* UIDevice+Adapter.m */,
-				5798F89B20CEA83C00C20029 /* UIDevice+GetDeviceInfo.h */,
-				5798F89C20CEA83D00C20029 /* UIDevice+GetDeviceInfo.m */,
-				5798F89A20CEA83C00C20029 /* UIDevice+GetDeviceMessages.h */,
-				5798F89D20CEA83D00C20029 /* UIDevice+GetDeviceMessages.m */,
+				57CB443620A415D900268DBE /* UIDevice+GetDeviceInfo.h */,
+				57CB443720A415D900268DBE /* UIDevice+GetDeviceInfo.m */,
 			);
 			path = UIDevice;
 			sourceTree = "<group>";
@@ -2212,8 +2191,6 @@
 			children = (
 				225B8B9F20C0438900710583 /* BBVideoPlayView.h */,
 				225B8BA020C0438900710583 /* BBVideoPlayView.m */,
-				8489C21E20CE6AA800EE7901 /* videoClarityChangeView.h */,
-				8489C21F20CE6AA800EE7901 /* videoClarityChangeView.m */,
 			);
 			path = BBVideoPlayer;
 			sourceTree = "<group>";
@@ -2327,7 +2304,7 @@
 				22CFD331206141080004186D /* Frameworks */,
 				22CFD332206141080004186D /* Resources */,
 				0EF6D12AADA72849A9392AD1 /* [CP] Embed Pods Frameworks */,
-				C4C6CB0DC03347A5B4BAC870 /* [CP] Copy Pods Resources */,
+				EA544DD7F3B136B7CDD916D1 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -2385,7 +2362,7 @@
 				TargetAttributes = {
 					22CFD333206141080004186D = {
 						CreatedOnToolsVersion = 9.2;
-						ProvisioningStyle = Automatic;
+						ProvisioningStyle = Manual;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
 								enabled = 1;
@@ -2432,12 +2409,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				577330FF20C23658000831E8 /* bbCityList.json in Resources */,
 				57585AF4206D485C001BB202 /* share_qq@2x.png in Resources */,
 				57585AE8206D4839001BB202 /* share_weibo@2x.png in Resources */,
 				57CF9A1A20BA8F1C005EB9E9 /* big_play_button.png in Resources */,
 				57585AF3206D485C001BB202 /* share_qq@3x.png in Resources */,
-				5773314120C59C9A000831E8 /* supermali.mp3 in Resources */,
 				8490CFC020747CFC00D416C1 /* ConfigurationWifiViewController.xib in Resources */,
 				84D270C1208DB38200ED57A3 /* BLEScanConnectViewController.xib in Resources */,
 				57585AEF206D4850001BB202 /* share_timeline@2x.png in Resources */,
@@ -2448,7 +2423,6 @@
 				5722098D20AD261E00611BFA /* cm2_topbar_icn_search.png in Resources */,
 				22CF356B2073E17300707F8A /* noticeMusic.wav in Resources */,
 				57585AEB206D4843001BB202 /* share_wechat@3x.png in Resources */,
-				5773314420C59C9A000831E8 /* storystory.mp3 in Resources */,
 				57CF9A2A20BA8FFB005EB9E9 /* prev_song.png in Resources */,
 				5726F382206B70C5008EED75 /* ShareSDKUI.bundle in Resources */,
 				22CFD3C0206548100004186D /* ConsoleBodyView.xib in Resources */,
@@ -2471,20 +2445,17 @@
 				57585AEC206D4843001BB202 /* share_wechat@2x.png in Resources */,
 				22CF35642073CCAB00707F8A /* ScanDeviceCodeViewController.xib in Resources */,
 				5726F37B206B70C5008EED75 /* WeiboSDK.bundle in Resources */,
-				5773314320C59C9A000831E8 /* mytheme.mp3 in Resources */,
 				57CF9A1C20BA8F3D005EB9E9 /* loop_all_icon.png in Resources */,
 				57CF9A2220BA8FCF005EB9E9 /* music_lock_screen_placeholder.jpg in Resources */,
 				57CF9A2020BA8FC2005EB9E9 /* more_icon.png in Resources */,
 				84332C9E206CE6F5009A9121 /* MessageTableViewCell.xib in Resources */,
 				22CFD3EA2067FD650004186D /* CryingThresholdSettingViewController.xib in Resources */,
-				5773314020C59C9A000831E8 /* dadadada.mp3 in Resources */,
 				57CF9A2420BA8FDC005EB9E9 /* music_placeholder.png in Resources */,
 				5726F381206B70C5008EED75 /* ShareSDK.bundle in Resources */,
 				5726F37D206B70C5008EED75 /* README.txt in Resources */,
 				57CF9A1620BA8EFD005EB9E9 /* music_slider_circle.png in Resources */,
 				57CF9A2C20BA900D005EB9E9 /* shuffle_icon.png in Resources */,
 				22CFD3F42067FDAF0004186D /* KickQulitThresholdSettingViewController.xib in Resources */,
-				5773314220C59C9A000831E8 /* didu.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2585,7 +2556,7 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		C4C6CB0DC03347A5B4BAC870 /* [CP] Copy Pods Resources */ = {
+		EA544DD7F3B136B7CDD916D1 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -2608,11 +2579,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				225B8BB020C2AA0000710583 /* ASValuePopUpView.m in Sources */,
-				5773317220C70DD5000831E8 /* BBUploadImageResultModel.m in Sources */,
+				225B8BD120CEBA3200710583 /* BBUploadImageResultModel.m in Sources */,
 				225B8BB120C2AA0000710583 /* ASValueTrackingSlider.m in Sources */,
 				57CF9A1320BA8EA1005EB9E9 /* MusicHandler.m in Sources */,
 				229FF0A72084E2C2005BA4A6 /* JMAirKissShareTools.m in Sources */,
 				5726F3AA206B8537008EED75 /* BBHelpAndSuggestionViewController.m in Sources */,
+				57CB443820A415D900268DBE /* UIDevice+GetDeviceInfo.m in Sources */,
 				57210CAA2074C2DE0039D8D5 /* ZFBrightnessView.m in Sources */,
 				57CF99FE20BA8551005EB9E9 /* MusicSlider.m in Sources */,
 				22CFD3D22067C3120004186D /* ConsoleTemperatureViewController.m in Sources */,
@@ -2626,6 +2598,7 @@
 				22CFD3AE206401780004186D /* PXYview.m in Sources */,
 				22CFD3B6206532F20004186D /* DateChooseView.m in Sources */,
 				22CF357620775D4700707F8A /* deviceListTableViewCell.m in Sources */,
+				225B8BD020CEBA3200710583 /* BBPage.m in Sources */,
 				22CFD3CF2066A07A0004186D /* RoomTemperatureChartViewController.m in Sources */,
 				84BE5EB6206A48B5007A001D /* GlobalPopView.m in Sources */,
 				229FF0BA208B99C0005BA4A6 /* RSA.m in Sources */,
@@ -2636,7 +2609,6 @@
 				572209A320AD2A8100611BFA /* GKLyricModel.m in Sources */,
 				574C6CBD2069254200F5BF55 /* JKCountDownButton.m in Sources */,
 				22CFD3AC206401780004186D /* PXChartBackgroundView.m in Sources */,
-				5798F89F20CEA83D00C20029 /* UIDevice+GetDeviceMessages.m in Sources */,
 				5722097E20AD22AC00611BFA /* GKWYPlayerViewController.m in Sources */,
 				57210CA52074C2DE0039D8D5 /* ZFPlayerModel.m in Sources */,
 				84D5BDC7207354010025C757 /* bluetoothPairingViewController.m in Sources */,
@@ -2649,6 +2621,7 @@
 				22CFD3FA2067FE060004186D /* TemperatureThresholdSettingViewController.m in Sources */,
 				22CFD3C920667B250004186D /* ConsoleRateBottonView.m in Sources */,
 				22CFD3E92067FD650004186D /* CryingThresholdSettingViewController.m in Sources */,
+				225B8BCF20CEBA3200710583 /* BBEditUserInfoItem.m in Sources */,
 				22CFD3F32067FDAF0004186D /* KickQulitThresholdSettingViewController.m in Sources */,
 				57210D1220789A0E0039D8D5 /* NSString+Verify.m in Sources */,
 				57CF9A3420BA94E2005EB9E9 /* NAKPlaybackIndicatorContentView.m in Sources */,
@@ -2660,17 +2633,13 @@
 				574C6CD72069262000F5BF55 /* BBRegistView.m in Sources */,
 				5722098420AD22AC00611BFA /* GKWYMusicLyricView.m in Sources */,
 				57CB447E20A9DB0700268DBE /* BBMusicHotRecommend.m in Sources */,
-				5707830C20C1195C0069B88D /* UITableView+MJRefresh.m in Sources */,
 				22CF35682073DB1500707F8A /* QRScanView.m in Sources */,
 				22CFD38D20614C3F0004186D /* MyViewController.m in Sources */,
-				5773310320C24722000831E8 /* BBFamilyMember.m in Sources */,
 				22CFD3B3206402BF0004186D /* PointItem.m in Sources */,
 				5726F3B8206BDE5F008EED75 /* BBAccountNumberViewController.m in Sources */,
 				5722099D20AD294100611BFA /* GKWYMusicTool.m in Sources */,
-				5773317F20C70DE8000831E8 /* BBEditInformationViewController.m in Sources */,
 				572209BE20AD2B3D00611BFA /* GKRefreshHeader.m in Sources */,
 				574C6CD52069262000F5BF55 /* BBUser.m in Sources */,
-				5773317120C70DD5000831E8 /* BBEditUserInfoItem.m in Sources */,
 				572209AC20AD2AC500611BFA /* GKTimer.m in Sources */,
 				5726F353206B257A008EED75 /* BBNotificationSettingViewController.m in Sources */,
 				5726F3A3206B8332008EED75 /* WSTableViewCellIndicator.m in Sources */,
@@ -2681,6 +2650,7 @@
 				8449AC152062354000526935 /* LaunchConfiguration.m in Sources */,
 				8412F52A20886DF500521C23 /* CRC16.m in Sources */,
 				229FF0BD208E258F005BA4A6 /* BabyBedPeripheralManager.m in Sources */,
+				22F4C35120CEC84D006FBBAC /* BBEarlyEducationMusicDetailViewController.m in Sources */,
 				8449AC18206239F900526935 /* GlobalUtility.m in Sources */,
 				8490CFC72074814200D416C1 /* DeviceConnectAnimationView.m in Sources */,
 				22CF35632073CCAB00707F8A /* ScanDeviceCodeViewController.m in Sources */,
@@ -2691,7 +2661,6 @@
 				57210DD5207CA37F0039D8D5 /* BBEEMusicListCell.m in Sources */,
 				5722098120AD22AC00611BFA /* GKWYMusicControlView.m in Sources */,
 				574C6CEA2069272700F5BF55 /* UIButton+EasilyMake.m in Sources */,
-				5773318020C70DE8000831E8 /* BBMyAccountViewController.m in Sources */,
 				842D9CED206B94C90020C3C2 /* HomeLeftItemView.m in Sources */,
 				84332C9D206CE6F5009A9121 /* MessageTableViewCell.m in Sources */,
 				22CFD39120614C820004186D /* LoginAndRegisterViewController.m in Sources */,
@@ -2705,6 +2674,7 @@
 				5726F33C206A2FB2008EED75 /* BBWarningRingListCell.m in Sources */,
 				57CF9A0A20BA859F005EB9E9 /* UIView+Animations.m in Sources */,
 				5726F345206A3F1C008EED75 /* BBSettingManager.m in Sources */,
+				225B8BB720CEB68800710583 /* UIDevice+Adapter.m in Sources */,
 				57210CA72074C2DE0039D8D5 /* UIView+CustomControlView.m in Sources */,
 				2263B8F52070A27A005BB15E /* BasePeripheralManager.m in Sources */,
 				57210CAD2074C2DE0039D8D5 /* ZFPlayerControlView.m in Sources */,
@@ -2713,14 +2683,13 @@
 				5726F3A4206B8332008EED75 /* WSTableViewCell.m in Sources */,
 				5722097F20AD22AC00611BFA /* GKWYMusicListView.m in Sources */,
 				57210D1B207A48F60039D8D5 /* BBModifyPasswordViewController.m in Sources */,
-				570782F120C0DB790069B88D /* BBConsumeRecord.m in Sources */,
 				8449AC0820620CB300526935 /* BaseResultModel.m in Sources */,
 				57585ACF206D4428001BB202 /* LWShareButton.m in Sources */,
 				574C6CDA2069262000F5BF55 /* BBSettingViewController.m in Sources */,
 				57585ABA206D116C001BB202 /* BBMyDeviceViewController.m in Sources */,
-				5798F89E20CEA83D00C20029 /* UIDevice+GetDeviceInfo.m in Sources */,
 				57210CA62074C2DE0039D8D5 /* UIWindow+CurrentViewController.m in Sources */,
 				8449AC0B20620D1B00526935 /* BaseViewModel.m in Sources */,
+				225B8BD220CEBA3200710583 /* BBEditInformationViewController.m in Sources */,
 				572209BC20AD2B3D00611BFA /* GKPlayer.m in Sources */,
 				572209A420AD2A8100611BFA /* GKLyricParser.m in Sources */,
 				229FF0AF20862EBD005BA4A6 /* BBUdpSocketManager.m in Sources */,
@@ -2743,6 +2712,7 @@
 				57210CA82074C2DE0039D8D5 /* UIImageView+ZFCache.m in Sources */,
 				574C6CD82069262000F5BF55 /* BBLoginAndRegistViewController.m in Sources */,
 				84BE5EAF2069EE75007A001D /* KickQulitChartView.m in Sources */,
+				225B8BB420CEB64F00710583 /* UITableView+MJRefresh.m in Sources */,
 				57CF99F720BA7170005EB9E9 /* BBMusicViewController.m in Sources */,
 				5726F3B4206B99D7008EED75 /* BBAboutUsViewController.m in Sources */,
 				22CFD375206146370004186D /* BaseViewController.m in Sources */,
@@ -2761,16 +2731,15 @@
 				57CF99FF20BA8551005EB9E9 /* Track.m in Sources */,
 				57CF9A1220BA8EA1005EB9E9 /* BaseHelper.m in Sources */,
 				8449AC122062338F00526935 /* MBPAlertView.m in Sources */,
-				8489C22020CE6AA800EE7901 /* videoClarityChangeView.m in Sources */,
 				5726F3C1206C8F13008EED75 /* BBEarlyEducationCell.m in Sources */,
 				5726F34F206A8DC3008EED75 /* UIView+PP_Frame.m in Sources */,
-				5773317E20C70DE8000831E8 /* BBMyAccountExpenceRecordListCell.m in Sources */,
+				225B8BD420CEBA3200710583 /* BBEditInfoAvatarCell.m in Sources */,
 				57CF997620B31948005EB9E9 /* BBEarlyEdutionMusicListCell.m in Sources */,
 				22CFD3AF206401780004186D /* PXLineChartConst.m in Sources */,
 				8490CFC3207480C200D416C1 /* DeviceConnectingViewController.m in Sources */,
+				22F4C35220CEC84D006FBBAC /* BBEarlyEducationMusicListViewController.m in Sources */,
 				22CFD3972062A78C0004186D /* HistoryFeverViewController.m in Sources */,
 				2266C1BA20694A61004F653A /* CryingChartView.m in Sources */,
-				57210D1E207B05650039D8D5 /* BBEarlyEducationMusicListViewController.m in Sources */,
 				22CFD3EE2067FD8C0004186D /* WettingThresholdSettingViewController.m in Sources */,
 				57CF9A0C20BA859F005EB9E9 /* NSString+Additions.m in Sources */,
 				57CECE43207374DC00E9A876 /* UIAlertController+EasilyMake.m in Sources */,
@@ -2779,7 +2748,6 @@
 				8449AC1B20623ACC00526935 /* GlobalTool.m in Sources */,
 				574C6CED20693D2400F5BF55 /* UILabel+EasilyMake.m in Sources */,
 				574C6CBE2069254200F5BF55 /* PPLabel.m in Sources */,
-				5798F8A220CEA89D00C20029 /* UIDevice+Adapter.m in Sources */,
 				84D270C4208DDB4900ED57A3 /* BLEDeviceStatusViewController.m in Sources */,
 				57210CAF2074C2DE0039D8D5 /* MMMaterialDesignSpinner.m in Sources */,
 				57585AD4206D4428001BB202 /* LWShareCollectionViewCell.m in Sources */,
@@ -2788,16 +2756,17 @@
 				22CFD378206146AF0004186D /* BaseTabBarViewController.m in Sources */,
 				57210C892073D3770039D8D5 /* BBMyDevieceCell.m in Sources */,
 				57585AD1206D4428001BB202 /* LWShareSheetView.m in Sources */,
-				5773314720C5A98B000831E8 /* BBEarlyEducationMusicDetailViewController.m in Sources */,
 				22CFD3B9206545040004186D /* ConsoleHeaderView.m in Sources */,
 				84DD475A2068F04000D154B5 /* RoomTemperatureView.m in Sources */,
-				5773317D20C70DE8000831E8 /* BBEditInfoAvatarCell.m in Sources */,
 				57CF9A0B20BA859F005EB9E9 /* GVUserDefaults+Properties.m in Sources */,
 				5726F3BE206C7F3B008EED75 /* BBEarlyEducationHeaderView.m in Sources */,
+				225B8BD320CEBA3200710583 /* BBMyAccountViewController.m in Sources */,
 				574C6CD62069262000F5BF55 /* BBLoginView.m in Sources */,
+				225B8BCE20CEBA3200710583 /* BBConsumeRecord.m in Sources */,
 				57585AD3206D4428001BB202 /* LWShareContentView.m in Sources */,
 				2263B8ED206BE81B005BB15E /* UIImage+category.m in Sources */,
 				572209AB20AD2AC500611BFA /* GKSliderView.m in Sources */,
+				225B8BD520CEBA3200710583 /* BBMyAccountExpenceRecordListCell.m in Sources */,
 				229FF0B22088EE9C005BA4A6 /* SendUdpMessage.m in Sources */,
 				574C6CBC2069254200F5BF55 /* NSString+PPTextField.m in Sources */,
 				57CB443E20A5712100268DBE /* BBMusicRequestModel.m in Sources */,
@@ -2809,9 +2778,10 @@
 				22CFD347206141080004186D /* main.m in Sources */,
 				5726F342206A391B008EED75 /* BBMyListCell.m in Sources */,
 				22CFD3BE206548000004186D /* ConsoleBodyView.m in Sources */,
+				225B8BBA20CEB6D800710583 /* UIDevice+GetDeviceMessages.m in Sources */,
+				225B8BD920CEBA9400710583 /* BBFamilyMember.m in Sources */,
 				5722099C20AD294100611BFA /* GKWYMusicModel.m in Sources */,
 				22CFD339206141080004186D /* AppDelegate.m in Sources */,
-				570782F420C0DC350069B88D /* BBPage.m in Sources */,
 				2263B8E7206BD901005BB15E /* HomeHeaderView.m in Sources */,
 				84C7921D207C566600B63796 /* HistoryTemperatureListViewController.m in Sources */,
 				2263B8E3206BCBB9005BB15E /* HomeTableViewCell.m in Sources */,
@@ -2968,8 +2938,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_ENTITLEMENTS = TheBabyBedProduct/TheBabyBedProduct.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = LDR3UXH97L;
 				ENABLE_BITCODE = NO;
@@ -3025,8 +2995,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.yadean;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE = "e3106840-8996-4fc0-8556-36c6149702fd";
+				PROVISIONING_PROFILE_SPECIFIER = test_distribution;
 				TARGETED_DEVICE_FAMILY = 1;
 				USER_HEADER_SEARCH_PATHS = "$(PODS_ROOT)/**";
 				VALID_ARCHS = "arm64 armv7s";
@@ -3040,8 +3010,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_ENTITLEMENTS = TheBabyBedProduct/TheBabyBedProduct.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = LDR3UXH97L;
 				ENABLE_BITCODE = NO;
@@ -3097,8 +3067,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.yadean;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE = "e3106840-8996-4fc0-8556-36c6149702fd";
+				PROVISIONING_PROFILE_SPECIFIER = test_distribution;
 				TARGETED_DEVICE_FAMILY = 1;
 				USER_HEADER_SEARCH_PATHS = "$(PODS_ROOT)/**";
 				VALID_ARCHS = "arm64 armv7s";
