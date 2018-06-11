@@ -15,7 +15,9 @@
 @end
 
 @implementation MessageInfoModel
-
++(JSONKeyMapper *)keyMapper{
+    return [[JSONKeyMapper alloc]initWithDictionary:@{@"id":@"message_id"}];
+}
 -(void)setValue:(id)value forUndefinedKey:(NSString *)key{
     if ([key isEqualToString:@"id"]) {
         self.message_id = value;

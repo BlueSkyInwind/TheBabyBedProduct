@@ -26,4 +26,8 @@ typedef void(^HistoryChartClick)();
 
 @property (copy, nonatomic)HistoryChartClick historyChartClick;
 
+-(void)updateAlarTemProgressWithNumber:(CGFloat)num;
+-(void)updateForeheadTemProgressWithNumber:(CGFloat)num;
+
+
 @end

@@ -299,6 +299,7 @@
 		8449AC152062354000526935 /* LaunchConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = 8449AC142062354000526935 /* LaunchConfiguration.m */; };
 		8449AC18206239F900526935 /* GlobalUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = 8449AC17206239F900526935 /* GlobalUtility.m */; };
 		8449AC1B20623ACC00526935 /* GlobalTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 8449AC1A20623ACC00526935 /* GlobalTool.m */; };
+		8489C22020CE6AA800EE7901 /* videoClarityChangeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8489C21F20CE6AA800EE7901 /* videoClarityChangeView.m */; };
 		8490CFBF20747CFC00D416C1 /* ConfigurationWifiViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8490CFBD20747CFC00D416C1 /* ConfigurationWifiViewController.m */; };
 		8490CFC020747CFC00D416C1 /* ConfigurationWifiViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8490CFBE20747CFC00D416C1 /* ConfigurationWifiViewController.xib */; };
 		8490CFC3207480C200D416C1 /* DeviceConnectingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8490CFC2207480C200D416C1 /* DeviceConnectingViewController.m */; };
@@ -856,6 +857,8 @@
 		8449AC17206239F900526935 /* GlobalUtility.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GlobalUtility.m; sourceTree = "<group>"; };
 		8449AC1920623ACC00526935 /* GlobalTool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GlobalTool.h; sourceTree = "<group>"; };
 		8449AC1A20623ACC00526935 /* GlobalTool.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GlobalTool.m; sourceTree = "<group>"; };
+		8489C21E20CE6AA800EE7901 /* videoClarityChangeView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = videoClarityChangeView.h; sourceTree = "<group>"; };
+		8489C21F20CE6AA800EE7901 /* videoClarityChangeView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = videoClarityChangeView.m; sourceTree = "<group>"; };
 		8490CFBC20747CFC00D416C1 /* ConfigurationWifiViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ConfigurationWifiViewController.h; sourceTree = "<group>"; };
 		8490CFBD20747CFC00D416C1 /* ConfigurationWifiViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ConfigurationWifiViewController.m; sourceTree = "<group>"; };
 		8490CFBE20747CFC00D416C1 /* ConfigurationWifiViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ConfigurationWifiViewController.xib; sourceTree = "<group>"; };
@@ -2209,6 +2212,8 @@
 			children = (
 				225B8B9F20C0438900710583 /* BBVideoPlayView.h */,
 				225B8BA020C0438900710583 /* BBVideoPlayView.m */,
+				8489C21E20CE6AA800EE7901 /* videoClarityChangeView.h */,
+				8489C21F20CE6AA800EE7901 /* videoClarityChangeView.m */,
 			);
 			path = BBVideoPlayer;
 			sourceTree = "<group>";
@@ -2756,6 +2761,7 @@
 				57CF99FF20BA8551005EB9E9 /* Track.m in Sources */,
 				57CF9A1220BA8EA1005EB9E9 /* BaseHelper.m in Sources */,
 				8449AC122062338F00526935 /* MBPAlertView.m in Sources */,
+				8489C22020CE6AA800EE7901 /* videoClarityChangeView.m in Sources */,
 				5726F3C1206C8F13008EED75 /* BBEarlyEducationCell.m in Sources */,
 				5726F34F206A8DC3008EED75 /* UIView+PP_Frame.m in Sources */,
 				5773317E20C70DE8000831E8 /* BBMyAccountExpenceRecordListCell.m in Sources */,
