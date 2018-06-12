@@ -66,7 +66,6 @@
 //    [self.player prepareToPlay];
 //    [self.player play];
 
-    
 //    _playerBtn = [UIButton buttonWithType:UIButtonTypeCustom];
 //    _playerBtn.center = _videoView.center;
 //    [_playerBtn setBackgroundImage:[UIImage imageNamed:@"home_video_play_Icon"] forState:UIControlStateNormal];

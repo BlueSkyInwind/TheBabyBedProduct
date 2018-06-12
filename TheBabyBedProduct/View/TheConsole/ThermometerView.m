@@ -87,18 +87,22 @@
 }
 
 -(void)updateAlarTemProgressWithNumber:(CGFloat)num{
+    CGFloat value = num >= 0 ? num : 0;
+    self.alarTemNumLabel.text = [NSString stringWithFormat:@"%.1f",value];
     [CATransaction begin];
     [CATransaction setAnimationTimingFunction:[CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseIn]];
     [CATransaction setAnimationDuration:0.5];
-    self.alarTemLayer.strokeEnd =  num / 100;
+    self.alarTemLayer.strokeEnd =  value / 50;
     [CATransaction commit];
 }
 
 -(void)updateForeheadTemProgressWithNumber:(CGFloat)num{
+    CGFloat value = num >= 0 ? num : 0;
+    self.foreheadTemLabel.text = [NSString stringWithFormat:@"%.1f",value];
     [CATransaction begin];
     [CATransaction setAnimationTimingFunction:[CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseIn]];
     [CATransaction setAnimationDuration:0.5];
-    self.foreheadTemLayer.strokeEnd =  num / 100;
+    self.foreheadTemLayer.strokeEnd =  value / 50;
     [CATransaction commit];
 }
 

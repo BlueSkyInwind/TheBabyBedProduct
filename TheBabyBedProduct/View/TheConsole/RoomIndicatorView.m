@@ -121,14 +121,17 @@
     [self.outDoorImageView.layer addSublayer:_outDoorIndcatorLayer];
     _outDoorIndcatorLayer.anchorPoint = CGPointMake(1, 1);
     _outDoorIndcatorLayer.position = CGPointMake(self.outDoorImageView.bounds.size.width / 2, self.outDoorImageView.bounds.size.height / 2);
-    
 }
 
 -(void)setInDoorIndcatorScale:(CGFloat)value{
     
+    CGFloat number = value >= 35 ?  value : 35;
+    self.roomTemperatureNumLabel.text = [NSString stringWithFormat:@"%.0f",number];
+    self.inDoorLabel.text = [NSString stringWithFormat:@"%.0f",number];
+    CGFloat scale = number / 50;
     CABasicAnimation * animation = [CABasicAnimation animationWithKeyPath:@"transform.rotation.z"];
     animation.duration = 0.25;
-    animation.toValue = @(value * 6 * M_PI_4);
+    animation.toValue = @(scale * 6 * M_PI_4);
     animation.removedOnCompletion = false;
     animation.fillMode = kCAFillModeForwards;
     [_inDoorIndcatorLayer addAnimation:animation forKey:@"transform.rotation.z"];
@@ -137,9 +140,13 @@
 
 -(void)setOutDoorIndcatorScale:(CGFloat)value{
     
+    CGFloat number = value >= 35 ?  value : 35;
+    self.outdoortemperatureNumLabel.text = [NSString stringWithFormat:@"%.0f",number];
+    self.outDoorLabel.text = [NSString stringWithFormat:@"%.0f",number];
+    CGFloat scale = number / 50;
     CABasicAnimation * animation = [CABasicAnimation animationWithKeyPath:@"transform.rotation.z"];
     animation.duration = 0.25;
-    animation.toValue = @(value * 6 * M_PI_4);
+    animation.toValue = @(scale * 6 * M_PI_4);
     animation.removedOnCompletion = false;
     animation.fillMode = kCAFillModeForwards;
     [_outDoorIndcatorLayer addAnimation:animation forKey:@"transform.rotation.z"];
