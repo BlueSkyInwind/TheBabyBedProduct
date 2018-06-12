@@ -27,6 +27,7 @@
     self.title = @"体温";
     [self addBackItem];
     [self configureView];
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(sensorDataUpdates:) name:YDA_EVENT_NOTIFICATION object:nil ];
 
 }
 
@@ -70,11 +71,21 @@
         [weakSelf.navigationController pushViewController:historyFeverVC animated:true];
     };
 }
+#pragma mark - 传感器数据通知状态
+-(void)sensorDataUpdates:(NSNotification *)notification{
+    NSDictionary * valueDic = notification.userInfo;
+    NSString * bobyTemp = [NSString stringWithFormat:@"%@",valueDic[Body_Temp_Value]];
+    CGFloat temp = bobyTemp.floatValue;
+    [_thermometerView updateAlarTemProgressWithNumber:temp];
+}
 
 -(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
     
-    [_thermometerView updateAlarTemProgressWithNumber:100];
+    [_thermometerView updateAlarTemProgressWithNumber:20];
     
+}
+-(void)dealloc{
+    [[NSNotificationCenter defaultCenter]removeObserver:self];
 }
 
 - (void)didReceiveMemoryWarning {
