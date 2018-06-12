@@ -34,9 +34,9 @@ typedef NS_ENUM(NSInteger,BBApplyStatus) {
     BBApplyStatusRefuse
 };
 typedef NS_ENUM(NSInteger,BBApplyType) {
-    BBApplyTypeAll = -1,    //所有申请
-    BBApplyTypeVideo,       //视频
-    BBApplyTypeBind         //绑定
+    BBApplyTypeAll = -1,        //所有申请
+    BBApplyTypeVideo = 0,       //视频
+    BBApplyTypeBind             //绑定
 };
 
 #define k_bb_settingManager  @"KBBSETTINGMANAGER"

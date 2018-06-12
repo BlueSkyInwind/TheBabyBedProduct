@@ -243,6 +243,9 @@
 		5798F89E20CEA83D00C20029 /* UIDevice+GetDeviceInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 5798F89C20CEA83D00C20029 /* UIDevice+GetDeviceInfo.m */; };
 		5798F89F20CEA83D00C20029 /* UIDevice+GetDeviceMessages.m in Sources */ = {isa = PBXBuildFile; fileRef = 5798F89D20CEA83D00C20029 /* UIDevice+GetDeviceMessages.m */; };
 		5798F8A220CEA89D00C20029 /* UIDevice+Adapter.m in Sources */ = {isa = PBXBuildFile; fileRef = 5798F8A020CEA89D00C20029 /* UIDevice+Adapter.m */; };
+		5798F8A520CEB5EE00C20029 /* ConsoleVideoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5798F8A420CEB5EE00C20029 /* ConsoleVideoViewController.m */; };
+		5798F8A820D0359500C20029 /* BBMyBalanceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5798F8A720D0359500C20029 /* BBMyBalanceViewController.m */; };
+		5798F8AB20D039FB00C20029 /* BBRechargeMoney.m in Sources */ = {isa = PBXBuildFile; fileRef = 5798F8AA20D039FB00C20029 /* BBRechargeMoney.m */; };
 		57CB443B20A570D700268DBE /* BBMusic.m in Sources */ = {isa = PBXBuildFile; fileRef = 57CB443A20A570D700268DBE /* BBMusic.m */; };
 		57CB443E20A5712100268DBE /* BBMusicRequestModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 57CB443D20A5712100268DBE /* BBMusicRequestModel.m */; };
 		57CB444220A59E1F00268DBE /* BBMusicCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 57CB444120A59E1F00268DBE /* BBMusicCategory.m */; };
@@ -767,6 +770,12 @@
 		5798F89D20CEA83D00C20029 /* UIDevice+GetDeviceMessages.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIDevice+GetDeviceMessages.m"; sourceTree = "<group>"; };
 		5798F8A020CEA89D00C20029 /* UIDevice+Adapter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIDevice+Adapter.m"; sourceTree = "<group>"; };
 		5798F8A120CEA89D00C20029 /* UIDevice+Adapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIDevice+Adapter.h"; sourceTree = "<group>"; };
+		5798F8A320CEB5EE00C20029 /* ConsoleVideoViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ConsoleVideoViewController.h; sourceTree = "<group>"; };
+		5798F8A420CEB5EE00C20029 /* ConsoleVideoViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ConsoleVideoViewController.m; sourceTree = "<group>"; };
+		5798F8A620D0359500C20029 /* BBMyBalanceViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BBMyBalanceViewController.h; sourceTree = "<group>"; };
+		5798F8A720D0359500C20029 /* BBMyBalanceViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BBMyBalanceViewController.m; sourceTree = "<group>"; };
+		5798F8A920D039FB00C20029 /* BBRechargeMoney.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BBRechargeMoney.h; sourceTree = "<group>"; };
+		5798F8AA20D039FB00C20029 /* BBRechargeMoney.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BBRechargeMoney.m; sourceTree = "<group>"; };
 		57CB443920A570D700268DBE /* BBMusic.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BBMusic.h; sourceTree = "<group>"; };
 		57CB443A20A570D700268DBE /* BBMusic.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BBMusic.m; sourceTree = "<group>"; };
 		57CB443C20A5712100268DBE /* BBMusicRequestModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BBMusicRequestModel.h; sourceTree = "<group>"; };
@@ -1189,6 +1198,8 @@
 				22CFD3D92067D5B10004186D /* ConsoleRoomTemperatureViewController.m */,
 				22CFD3E02067FCC50004186D /* ThresholdSetting */,
 				22CFD3942062A72A0004186D /* Temperature */,
+				5798F8A320CEB5EE00C20029 /* ConsoleVideoViewController.h */,
+				5798F8A420CEB5EE00C20029 /* ConsoleVideoViewController.m */,
 			);
 			path = TheConsoleModules;
 			sourceTree = "<group>";
@@ -1407,6 +1418,8 @@
 				570782F020C0DB790069B88D /* BBConsumeRecord.m */,
 				570782F220C0DC350069B88D /* BBPage.h */,
 				570782F320C0DC350069B88D /* BBPage.m */,
+				5798F8A920D039FB00C20029 /* BBRechargeMoney.h */,
+				5798F8AA20D039FB00C20029 /* BBRechargeMoney.m */,
 			);
 			path = M;
 			sourceTree = "<group>";
@@ -2028,6 +2041,8 @@
 				5773317A20C70DE8000831E8 /* BBEditInformationViewController.h */,
 				5773317B20C70DE8000831E8 /* BBEditInformationViewController.m */,
 				5773317C20C70DE8000831E8 /* BBMyAccountViewController.m */,
+				5798F8A620D0359500C20029 /* BBMyBalanceViewController.h */,
+				5798F8A720D0359500C20029 /* BBMyBalanceViewController.m */,
 			);
 			path = C;
 			sourceTree = "<group>";
@@ -2644,6 +2659,7 @@
 				57CF9A3B20BC4EE5005EB9E9 /* BBHasTodaySignInResultModel.m in Sources */,
 				5722098020AD22AC00611BFA /* GKWYMusicVolumeView.m in Sources */,
 				84D270C0208DB38200ED57A3 /* BLEScanConnectViewController.m in Sources */,
+				5798F8AB20D039FB00C20029 /* BBRechargeMoney.m in Sources */,
 				22833BF9207A5E6800A70247 /* MessageModel.m in Sources */,
 				57CF9A3520BA94E2005EB9E9 /* NAKPlaybackIndicatorView.m in Sources */,
 				22CFD3FA2067FE060004186D /* TemperatureThresholdSettingViewController.m in Sources */,
@@ -2668,6 +2684,7 @@
 				5726F3B8206BDE5F008EED75 /* BBAccountNumberViewController.m in Sources */,
 				5722099D20AD294100611BFA /* GKWYMusicTool.m in Sources */,
 				5773317F20C70DE8000831E8 /* BBEditInformationViewController.m in Sources */,
+				5798F8A820D0359500C20029 /* BBMyBalanceViewController.m in Sources */,
 				572209BE20AD2B3D00611BFA /* GKRefreshHeader.m in Sources */,
 				574C6CD52069262000F5BF55 /* BBUser.m in Sources */,
 				5773317120C70DD5000831E8 /* BBEditUserInfoItem.m in Sources */,
@@ -2807,6 +2824,7 @@
 				22CFD3B0206401780004186D /* PXLineChartView.m in Sources */,
 				572209C020AD2B3D00611BFA /* GKDownloadModel.m in Sources */,
 				22CFD347206141080004186D /* main.m in Sources */,
+				5798F8A520CEB5EE00C20029 /* ConsoleVideoViewController.m in Sources */,
 				5726F342206A391B008EED75 /* BBMyListCell.m in Sources */,
 				22CFD3BE206548000004186D /* ConsoleBodyView.m in Sources */,
 				5722099C20AD294100611BFA /* GKWYMusicModel.m in Sources */,
