@@ -28,7 +28,8 @@
     self.title = @"环境温度";
     [self addBackItem];
     [self configureView];
-    
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(sensorDataUpdates:) name:YDA_EVENT_NOTIFICATION object:nil ];
+
 }
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
@@ -55,7 +56,6 @@
     _headerView.settingButtonClick = ^(UIButton *button) {
         
         
-        
     };
     
     [_headerView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -67,10 +67,10 @@
     [self.view addSubview:_indicatorView];
     _indicatorView.roomTemperatureCurveClick = ^{
         
-    [weakSelf.indicatorView setInDoorIndcatorScale:0.3];
-//        RoomTemperatureChartViewController * roomTemPeratureChartVC = [[RoomTemperatureChartViewController alloc]init];
-//        roomTemPeratureChartVC.isOutside = false;
-//        [weakSelf.navigationController pushViewController:roomTemPeratureChartVC animated:true];
+//    [weakSelf.indicatorView setInDoorIndcatorScale:0.3];
+        RoomTemperatureChartViewController * roomTemPeratureChartVC = [[RoomTemperatureChartViewController alloc]init];
+        roomTemPeratureChartVC.isOutside = false;
+        [weakSelf.navigationController pushViewController:roomTemPeratureChartVC animated:true];
     };
     
     _indicatorView.outdoorTemperatureCurveClick = ^{
@@ -85,10 +85,20 @@
         make.height.equalTo(@(_k_h - 210));
     }];
 }
+#pragma mark - 传感器数据通知状态
+-(void)sensorDataUpdates:(NSNotification *)notification{
+    NSDictionary * valueDic = notification.userInfo;
+    DLog(@"%@",valueDic);
+    NSNumber * indoorAndOutdoorTemperature = valueDic[Env_Temp_Value];
+    [self.indicatorView setInDoorIndcatorScale:indoorAndOutdoorTemperature.floatValue];
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+-(void)dealloc{
+    [[NSNotificationCenter defaultCenter]removeObserver:self];
 }
 
 /*

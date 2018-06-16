@@ -140,11 +140,11 @@
 //        NSLog(@"HelpList error %@",object);
 //    }];
     
-    [BBRequestTool bb_requestMoneyListWithSuccessBlock:^(EnumServerStatus status, id object) {
-        NSLog(@"MoneyList success %@",object);
-    } failureBlock:^(EnumServerStatus status, id object) {
-        NSLog(@"MoneyList error %@",object);
-    }];
+//    [BBRequestTool bb_requestMoneyListWithSuccessBlock:^(EnumServerStatus status, id object) {
+//        NSLog(@"MoneyList success %@",object);
+//    } failureBlock:^(EnumServerStatus status, id object) {
+//        NSLog(@"MoneyList error %@",object);
+//    }];
 }
 
 -(void)NotificationRemind:(NSDictionary *)contentInfo{

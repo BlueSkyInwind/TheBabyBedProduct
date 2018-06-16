@@ -8,13 +8,15 @@
 
 #import "BBVideoPlayView.h"
 #import "ASValueTrackingSlider.h"
+#import "videoClarityChangeView.h"
+
 @interface BBVideoPlayView()<UIGestureRecognizerDelegate>{
     
     BOOL _forcePortrait;
     
     BOOL _drag;
     
-    
+     BOOL _changeClarity;
 }
 /* <#Description#>*/
 @property(nonatomic,strong) UIView * vedioSuperView;
@@ -67,6 +69,7 @@
     if (self) {
         self.backgroundColor = [UIColor blackColor];
         _drag = true;
+        _changeClarity = false;
         //监听横竖屏切换
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(orientChange:) name:UIApplicationDidChangeStatusBarOrientationNotification object:nil];
         // app从后台进入前台都会调用这个方法
@@ -171,6 +174,7 @@
         button.alpha = 1;
 //        [self stopVideo];
         [self.player pause];
+
     }else{
         button.alpha = 0.1;
 //        [self palyVideo];
@@ -198,7 +202,7 @@
     UIButton * button = (UIButton *)sender;
     BOOL isPlaying = [self.player isPlaying];
     if (isPlaying) {
-        [self stopVideo];
+        [self pauseVideo];
     }else{
         [self palyVideo];
     }
@@ -206,8 +210,21 @@
 
 -(void)clarityBtnClick:(id)sender{
     //切换清晰度
-    [[BBUdpSocketManager shareInstance] sendCFGSettingRequestMessage:@{VideoPlayrStatus:@(0),VideoClarityStatus:@(1)}];
-    
+    if (_changeClarity) {
+        CGRect originframe = [self.bottomView convertRect:self.clarityBtn.frame toView:self.landscapeCtrlView];
+        [videoClarityChangeView showClarityChangeView:originframe superView:self.landscapeCtrlView dataSource:@[@"高清",@"标清"] complication:^(NSInteger clickIndex, NSString *title) {
+            if (clickIndex == 0) {
+                [[BBUdpSocketManager shareInstance] sendCFGSettingRequestMessage:@{VideoPlayrStatus:@(1),VideoClarityStatus:@(2)}];
+            }else if (clickIndex == 1) {
+                [[BBUdpSocketManager shareInstance] sendCFGSettingRequestMessage:@{VideoPlayrStatus:@(1),VideoClarityStatus:@(1)}];
+            }
+            [self.clarityBtn setTitle:title forState:UIControlStateNormal];
+            [videoClarityChangeView hideChangeView];
+        }];
+    }else{
+        [videoClarityChangeView hideChangeView];
+    }
+    _changeClarity = !_changeClarity;
 }
 -(void)progressSliderTouchBegan:(UISlider *)sender{
     
@@ -405,7 +422,6 @@
     [_screenshotsBtn mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerY.equalTo(_landscapeCtrlView.mas_centerY).with.offset(0);
         make.right.equalTo(_verticalCtrlView.mas_right).with.offset(-10);
-        make.width.height.equalTo(@(20));
     }];
     
     _bottomView = [[UIView alloc]init];

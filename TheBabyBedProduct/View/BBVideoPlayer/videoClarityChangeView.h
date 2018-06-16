@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 
 
-typedef void (^ClarityChange)(NSInteger clickIndex);
+typedef void (^ClarityChange)(NSInteger clickIndex,NSString * title);
 @interface videoClarityChangeView : UIView
 
 /**<#Description#>*/
@@ -20,6 +20,9 @@ typedef void (^ClarityChange)(NSInteger clickIndex);
 @property (nonatomic,strong,readonly)NSMutableArray * buttonArr;
 /**<#Description#>*/
 @property (nonatomic,copy)ClarityChange clarityChange;
+
++(void)showClarityChangeView:(CGRect)frame superView:(UIView *)superView dataSource:(NSArray *)dataSource complication:(ClarityChange)index;
++(void)hideChangeView;
 
 
 @end

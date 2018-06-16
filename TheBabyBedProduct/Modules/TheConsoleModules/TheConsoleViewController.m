@@ -12,6 +12,7 @@
 #import "ConsoleRateViewController.h"
 #import "ConsoleTemperatureViewController.h"
 #import "ConsoleRoomTemperatureViewController.h"
+#import "ConsoleVideoViewController.h"
 
 
 @interface TheConsoleViewController ()
@@ -96,7 +97,8 @@
     };
     
     _bodyView.videoBtnClick = ^(UIButton *button) {
-        
+        ConsoleVideoViewController *videoVC = [[ConsoleVideoViewController alloc]init];
+        [weakSelf.navigationController pushViewController:videoVC animated:YES];
     };
 }
 

@@ -15,8 +15,13 @@
 @property(nonatomic,strong) NSNumber *createTime;
 @property(nonatomic,copy) NSString *memberID;
 @property(nonatomic,copy) NSString *identity;
-@property(nonatomic,assign) BOOL manager;
 @property(nonatomic,copy) NSString *name;
+/** 头像 */
+@property(nonatomic,copy) NSString *avatar;
+/** 是否是管理者 0 no, 1 yes*/
+@property(nonatomic,assign) BOOL manager;
+/** 是否有观看视频的权限 0 no, 1 yes*/
+@property(nonatomic,assign) BOOL videoAuth;
 @end
 
 @interface BBFamilyMemberListResult : NSObject

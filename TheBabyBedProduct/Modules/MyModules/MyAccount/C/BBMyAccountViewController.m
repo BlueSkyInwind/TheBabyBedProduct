@@ -10,6 +10,7 @@
 #import "BBMyAccountExpenceRecordListCell.h"
 #import "BBConsumeRecord.h"
 #import "LYEmptyViewHeader.h"
+#import "BBMyBalanceViewController.h"
 
 @interface BBMyAccountViewController ()<UITableViewDataSource,UITableViewDelegate>
 @property(nonatomic,strong) UITableView *tableView;
@@ -180,7 +181,8 @@
 #pragma mark --- 点击“充值”
 -(void)toRechatge
 {
-    [QMUITips showInfo:@"充值后续完善"];
+    BBMyBalanceViewController *balanceVC = [[BBMyBalanceViewController alloc]init];
+    [self.navigationController pushViewController:balanceVC animated:YES];
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {

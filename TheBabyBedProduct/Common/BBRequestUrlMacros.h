@@ -64,7 +64,7 @@
 //签到列表
 #define K_Url_SignInList        @"/api/user/shareList"
 
-//积分兑换
+//积分兑换 👌
 #define K_Url_Exchange          @"/api/user/exchange"
 
 ///走通了没数据
@@ -73,10 +73,13 @@
 #define K_Url_MoneyList         @"/api/recharge/moneyList"
 //消费记录 
 #define K_Url_CurList           @"/api/recharge/curList"
-//已绑定用户列表
+//已绑定用户列表 👌
 #define K_Url_BindList          @"/api/apply/bindList"
-//申请记录列表
+//申请记录列表 👌
 #define K_Url_ApplyList         @"/api/apply/list"
+
+//更改申请状态  api/changeStatus/{id}
+#define K_Url_ChangeStatus      @"/api/changeStatus/"
 
 
 //设备绑定 后面需要加上deviceId

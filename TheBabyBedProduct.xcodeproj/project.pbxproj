@@ -237,6 +237,9 @@
 		57585AF0206D4850001BB202 /* share_timeline@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 57585AEE206D4850001BB202 /* share_timeline@3x.png */; };
 		57585AF3206D485C001BB202 /* share_qq@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 57585AF1206D485B001BB202 /* share_qq@3x.png */; };
 		57585AF4206D485C001BB202 /* share_qq@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 57585AF2206D485B001BB202 /* share_qq@2x.png */; };
+		5798F8A520CEB5EE00C20029 /* ConsoleVideoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5798F8A420CEB5EE00C20029 /* ConsoleVideoViewController.m */; };
+		5798F8AE20D0404000C20029 /* BBRechargeMoney.m in Sources */ = {isa = PBXBuildFile; fileRef = 5798F8AC20D0403F00C20029 /* BBRechargeMoney.m */; };
+		5798F8B120D0408C00C20029 /* BBMyBalanceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5798F8AF20D0408C00C20029 /* BBMyBalanceViewController.m */; };
 		57CB443820A415D900268DBE /* UIDevice+GetDeviceInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 57CB443720A415D900268DBE /* UIDevice+GetDeviceInfo.m */; };
 		57CB443B20A570D700268DBE /* BBMusic.m in Sources */ = {isa = PBXBuildFile; fileRef = 57CB443A20A570D700268DBE /* BBMusic.m */; };
 		57CB443E20A5712100268DBE /* BBMusicRequestModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 57CB443D20A5712100268DBE /* BBMusicRequestModel.m */; };
@@ -403,8 +406,6 @@
 		229FF0BB208E258F005BA4A6 /* BabyBedPeripheralManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BabyBedPeripheralManager.h; sourceTree = "<group>"; };
 		229FF0BC208E258F005BA4A6 /* BabyBedPeripheralManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BabyBedPeripheralManager.m; sourceTree = "<group>"; };
 		22CF35502073C98300707F8A /* BBMyRewardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBMyRewardViewController.m; sourceTree = "<group>"; };
-		22CF35572073C99700707F8A /* BBEditInfoAvatarCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBEditInfoAvatarCell.m; sourceTree = "<group>"; };
-		22CF35582073C99700707F8A /* BBEditInformationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBEditInformationViewController.m; sourceTree = "<group>"; };
 		22CF35592073C99700707F8A /* BBMyAccountViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBMyAccountViewController.m; sourceTree = "<group>"; };
 		22CF355E2073C9D700707F8A /* BBPermissionManageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBPermissionManageViewController.m; sourceTree = "<group>"; };
 		22CF35602073CCAB00707F8A /* ScanDeviceCodeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ScanDeviceCodeViewController.h; sourceTree = "<group>"; };
@@ -755,6 +756,12 @@
 		57585AEE206D4850001BB202 /* share_timeline@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "share_timeline@3x.png"; sourceTree = "<group>"; };
 		57585AF1206D485B001BB202 /* share_qq@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "share_qq@3x.png"; sourceTree = "<group>"; };
 		57585AF2206D485B001BB202 /* share_qq@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "share_qq@2x.png"; sourceTree = "<group>"; };
+		5798F8A320CEB5EE00C20029 /* ConsoleVideoViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ConsoleVideoViewController.h; sourceTree = "<group>"; };
+		5798F8A420CEB5EE00C20029 /* ConsoleVideoViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ConsoleVideoViewController.m; sourceTree = "<group>"; };
+		5798F8AC20D0403F00C20029 /* BBRechargeMoney.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBRechargeMoney.m; sourceTree = "<group>"; };
+		5798F8AD20D0404000C20029 /* BBRechargeMoney.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBRechargeMoney.h; sourceTree = "<group>"; };
+		5798F8AF20D0408C00C20029 /* BBMyBalanceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBMyBalanceViewController.m; sourceTree = "<group>"; };
+		5798F8B020D0408C00C20029 /* BBMyBalanceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBMyBalanceViewController.h; sourceTree = "<group>"; };
 		57CB443620A415D900268DBE /* UIDevice+GetDeviceInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIDevice+GetDeviceInfo.h"; sourceTree = "<group>"; };
 		57CB443720A415D900268DBE /* UIDevice+GetDeviceInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIDevice+GetDeviceInfo.m"; sourceTree = "<group>"; };
 		57CB443920A570D700268DBE /* BBMusic.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BBMusic.h; sourceTree = "<group>"; };
@@ -984,6 +991,8 @@
 		225B8BBB20CEBA3100710583 /* M */ = {
 			isa = PBXGroup;
 			children = (
+				5798F8AD20D0404000C20029 /* BBRechargeMoney.h */,
+				5798F8AC20D0403F00C20029 /* BBRechargeMoney.m */,
 				225B8BBC20CEBA3100710583 /* BBConsumeRecord.m */,
 				225B8BBD20CEBA3100710583 /* BBEditUserInfoItem.m */,
 				225B8BBE20CEBA3100710583 /* BBPage.m */,
@@ -999,10 +1008,12 @@
 		225B8BC420CEBA3100710583 /* C */ = {
 			isa = PBXGroup;
 			children = (
+				5798F8B020D0408C00C20029 /* BBMyBalanceViewController.h */,
+				5798F8AF20D0408C00C20029 /* BBMyBalanceViewController.m */,
 				225B8BC520CEBA3100710583 /* BBMyAccountViewController.h */,
+				225B8BC820CEBA3100710583 /* BBMyAccountViewController.m */,
 				225B8BC620CEBA3100710583 /* BBEditInformationViewController.h */,
 				225B8BC720CEBA3100710583 /* BBEditInformationViewController.m */,
-				225B8BC820CEBA3100710583 /* BBMyAccountViewController.m */,
 			);
 			path = C;
 			sourceTree = "<group>";
@@ -1217,6 +1228,8 @@
 				22CFD3D92067D5B10004186D /* ConsoleRoomTemperatureViewController.m */,
 				22CFD3E02067FCC50004186D /* ThresholdSetting */,
 				22CFD3942062A72A0004186D /* Temperature */,
+				5798F8A320CEB5EE00C20029 /* ConsoleVideoViewController.h */,
+				5798F8A420CEB5EE00C20029 /* ConsoleVideoViewController.m */,
 			);
 			path = TheConsoleModules;
 			sourceTree = "<group>";
@@ -1450,9 +1463,7 @@
 			children = (
 				22CF35592073C99700707F8A /* BBMyAccountViewController.m */,
 				22CF355E2073C9D700707F8A /* BBPermissionManageViewController.m */,
-				22CF35572073C99700707F8A /* BBEditInfoAvatarCell.m */,
 				22CF35502073C98300707F8A /* BBMyRewardViewController.m */,
-				22CF35582073C99700707F8A /* BBEditInformationViewController.m */,
 			);
 			name = "Recovered References";
 			sourceTree = "<group>";
@@ -2640,6 +2651,7 @@
 				57CB447E20A9DB0700268DBE /* BBMusicHotRecommend.m in Sources */,
 				22CF35682073DB1500707F8A /* QRScanView.m in Sources */,
 				22CFD38D20614C3F0004186D /* MyViewController.m in Sources */,
+				5798F8B120D0408C00C20029 /* BBMyBalanceViewController.m in Sources */,
 				22CFD3B3206402BF0004186D /* PointItem.m in Sources */,
 				5726F3B8206BDE5F008EED75 /* BBAccountNumberViewController.m in Sources */,
 				5722099D20AD294100611BFA /* GKWYMusicTool.m in Sources */,
@@ -2766,6 +2778,7 @@
 				84DD475A2068F04000D154B5 /* RoomTemperatureView.m in Sources */,
 				57CF9A0B20BA859F005EB9E9 /* GVUserDefaults+Properties.m in Sources */,
 				5726F3BE206C7F3B008EED75 /* BBEarlyEducationHeaderView.m in Sources */,
+				5798F8AE20D0404000C20029 /* BBRechargeMoney.m in Sources */,
 				225B8BD320CEBA3200710583 /* BBMyAccountViewController.m in Sources */,
 				574C6CD62069262000F5BF55 /* BBLoginView.m in Sources */,
 				225B8BCE20CEBA3200710583 /* BBConsumeRecord.m in Sources */,
@@ -2782,6 +2795,7 @@
 				22CFD3B0206401780004186D /* PXLineChartView.m in Sources */,
 				572209C020AD2B3D00611BFA /* GKDownloadModel.m in Sources */,
 				22CFD347206141080004186D /* main.m in Sources */,
+				5798F8A520CEB5EE00C20029 /* ConsoleVideoViewController.m in Sources */,
 				5726F342206A391B008EED75 /* BBMyListCell.m in Sources */,
 				22CFD3BE206548000004186D /* ConsoleBodyView.m in Sources */,
 				225B8BBA20CEB6D800710583 /* UIDevice+GetDeviceMessages.m in Sources */,
