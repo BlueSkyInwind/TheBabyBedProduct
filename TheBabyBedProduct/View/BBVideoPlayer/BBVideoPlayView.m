@@ -106,9 +106,10 @@
         make.edges.equalTo(self);
     }];
     [self.player prepareToPlay];
-    [self.player play];
+//    [self.player play];
 }
 -(void)palyVideo{
+    [self.player play];
     [[BBUdpSocketManager shareInstance] sendCFGSettingRequestMessage:@{VideoPlayrStatus:@(1),VideoClarityStatus:@(1)}];
     [self refreshMediaControl];
 }
@@ -168,10 +169,13 @@
     BOOL isPlaying = [self.player isPlaying];
     if (isPlaying) {
         button.alpha = 1;
-        [self stopVideo];
+//        [self stopVideo];
+        [self.player pause];
     }else{
         button.alpha = 0.1;
-        [self palyVideo];
+//        [self palyVideo];
+        [self.player play];
+
     }
 }
 -(void)fullcreenBtnBtnClick:(id)sender{
