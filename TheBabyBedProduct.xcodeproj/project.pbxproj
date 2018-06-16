@@ -69,7 +69,6 @@
 		22CFD38520614B420004186D /* TheConsoleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22CFD38420614B420004186D /* TheConsoleViewController.m */; };
 		22CFD38920614C180004186D /* EarlyEducationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22CFD38820614C180004186D /* EarlyEducationViewController.m */; };
 		22CFD38D20614C3F0004186D /* MyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22CFD38C20614C3F0004186D /* MyViewController.m */; };
-		22CFD39120614C820004186D /* LoginAndRegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22CFD39020614C820004186D /* LoginAndRegisterViewController.m */; };
 		22CFD3972062A78C0004186D /* HistoryFeverViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22CFD3962062A78C0004186D /* HistoryFeverViewController.m */; };
 		22CFD39D2062ADB30004186D /* TemperatureChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = 22CFD39C2062ADB30004186D /* TemperatureChartView.m */; };
 		22CFD3AC206401780004186D /* PXChartBackgroundView.m in Sources */ = {isa = PBXBuildFile; fileRef = 22CFD3A1206401780004186D /* PXChartBackgroundView.m */; };
@@ -272,6 +271,13 @@
 		57CF9A3620BA94E2005EB9E9 /* MusicIndicator.m in Sources */ = {isa = PBXBuildFile; fileRef = 57CF9A3320BA94E2005EB9E9 /* MusicIndicator.m */; };
 		57CF9A3820BBA456005EB9E9 /* music_vc_gbImg.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 57CF9A3720BBA456005EB9E9 /* music_vc_gbImg.jpg */; };
 		57CF9A3B20BC4EE5005EB9E9 /* BBHasTodaySignInResultModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 57CF9A3A20BC4EE5005EB9E9 /* BBHasTodaySignInResultModel.m */; };
+		57DF018220D4A0B300BA95F7 /* BBIdentity.m in Sources */ = {isa = PBXBuildFile; fileRef = 57DF018120D4A0B300BA95F7 /* BBIdentity.m */; };
+		57DF018920D4B0BD00BA95F7 /* dadadada.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 57DF018320D4B0BC00BA95F7 /* dadadada.mp3 */; };
+		57DF018A20D4B0BD00BA95F7 /* supermali.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 57DF018420D4B0BC00BA95F7 /* supermali.mp3 */; };
+		57DF018B20D4B0BD00BA95F7 /* didu.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 57DF018520D4B0BD00BA95F7 /* didu.mp3 */; };
+		57DF018C20D4B0BD00BA95F7 /* mytheme.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 57DF018620D4B0BD00BA95F7 /* mytheme.mp3 */; };
+		57DF018D20D4B0BD00BA95F7 /* storystory.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 57DF018720D4B0BD00BA95F7 /* storystory.mp3 */; };
+		57DF018E20D4B0BD00BA95F7 /* bbCityList.json in Resources */ = {isa = PBXBuildFile; fileRef = 57DF018820D4B0BD00BA95F7 /* bbCityList.json */; };
 		57DF59B420835527002D2CED /* BBUserDevice.m in Sources */ = {isa = PBXBuildFile; fileRef = 57DF59B320835527002D2CED /* BBUserDevice.m */; };
 		57DF59B720843CD7002D2CED /* BBSignInPopView.m in Sources */ = {isa = PBXBuildFile; fileRef = 57DF59B620843CD7002D2CED /* BBSignInPopView.m */; };
 		84114B4320722BF6005A1DC9 /* jpush-ios-3.0.8.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 84114B4020722BF6005A1DC9 /* jpush-ios-3.0.8.a */; };
@@ -450,8 +456,6 @@
 		22CFD38820614C180004186D /* EarlyEducationViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EarlyEducationViewController.m; sourceTree = "<group>"; };
 		22CFD38B20614C3F0004186D /* MyViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyViewController.h; sourceTree = "<group>"; };
 		22CFD38C20614C3F0004186D /* MyViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyViewController.m; sourceTree = "<group>"; };
-		22CFD38F20614C820004186D /* LoginAndRegisterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoginAndRegisterViewController.h; sourceTree = "<group>"; };
-		22CFD39020614C820004186D /* LoginAndRegisterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoginAndRegisterViewController.m; sourceTree = "<group>"; };
 		22CFD3952062A78C0004186D /* HistoryFeverViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HistoryFeverViewController.h; sourceTree = "<group>"; };
 		22CFD3962062A78C0004186D /* HistoryFeverViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HistoryFeverViewController.m; sourceTree = "<group>"; };
 		22CFD39B2062ADB30004186D /* TemperatureChartView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TemperatureChartView.h; sourceTree = "<group>"; };
@@ -814,6 +818,14 @@
 		57CF9A3720BBA456005EB9E9 /* music_vc_gbImg.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = music_vc_gbImg.jpg; sourceTree = "<group>"; };
 		57CF9A3920BC4EE5005EB9E9 /* BBHasTodaySignInResultModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BBHasTodaySignInResultModel.h; sourceTree = "<group>"; };
 		57CF9A3A20BC4EE5005EB9E9 /* BBHasTodaySignInResultModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BBHasTodaySignInResultModel.m; sourceTree = "<group>"; };
+		57DF018020D4A0B300BA95F7 /* BBIdentity.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BBIdentity.h; sourceTree = "<group>"; };
+		57DF018120D4A0B300BA95F7 /* BBIdentity.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BBIdentity.m; sourceTree = "<group>"; };
+		57DF018320D4B0BC00BA95F7 /* dadadada.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = dadadada.mp3; sourceTree = "<group>"; };
+		57DF018420D4B0BC00BA95F7 /* supermali.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = supermali.mp3; sourceTree = "<group>"; };
+		57DF018520D4B0BD00BA95F7 /* didu.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = didu.mp3; sourceTree = "<group>"; };
+		57DF018620D4B0BD00BA95F7 /* mytheme.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = mytheme.mp3; sourceTree = "<group>"; };
+		57DF018720D4B0BD00BA95F7 /* storystory.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = storystory.mp3; sourceTree = "<group>"; };
+		57DF018820D4B0BD00BA95F7 /* bbCityList.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = bbCityList.json; sourceTree = "<group>"; };
 		57DF59B220835527002D2CED /* BBUserDevice.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BBUserDevice.h; sourceTree = "<group>"; };
 		57DF59B320835527002D2CED /* BBUserDevice.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BBUserDevice.m; sourceTree = "<group>"; };
 		57DF59B520843CD7002D2CED /* BBSignInPopView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BBSignInPopView.h; sourceTree = "<group>"; };
@@ -1034,6 +1046,8 @@
 			children = (
 				225B8BD720CEBA9300710583 /* BBFamilyMember.h */,
 				225B8BD820CEBA9300710583 /* BBFamilyMember.m */,
+				57DF018020D4A0B300BA95F7 /* BBIdentity.h */,
+				57DF018120D4A0B300BA95F7 /* BBIdentity.m */,
 			);
 			path = M;
 			sourceTree = "<group>";
@@ -1073,6 +1087,12 @@
 		22CF35692073E15900707F8A /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				57DF018820D4B0BD00BA95F7 /* bbCityList.json */,
+				57DF018320D4B0BC00BA95F7 /* dadadada.mp3 */,
+				57DF018520D4B0BD00BA95F7 /* didu.mp3 */,
+				57DF018620D4B0BD00BA95F7 /* mytheme.mp3 */,
+				57DF018720D4B0BD00BA95F7 /* storystory.mp3 */,
+				57DF018420D4B0BC00BA95F7 /* supermali.mp3 */,
 				22CF356A2073E17300707F8A /* noticeMusic.wav */,
 			);
 			path = Source;
@@ -1149,7 +1169,6 @@
 				22CFD38220614B0D0004186D /* TheConsoleModules */,
 				22CFD38620614BD80004186D /* EarlyEducationModules */,
 				22CFD38A20614C230004186D /* MyModules */,
-				22CFD38E20614C460004186D /* LoginAndRegister */,
 				22CFD36A206142250004186D /* BaseViewController */,
 			);
 			path = Modules;
@@ -1278,15 +1297,6 @@
 				22CFD38C20614C3F0004186D /* MyViewController.m */,
 			);
 			path = MyModules;
-			sourceTree = "<group>";
-		};
-		22CFD38E20614C460004186D /* LoginAndRegister */ = {
-			isa = PBXGroup;
-			children = (
-				22CFD38F20614C820004186D /* LoginAndRegisterViewController.h */,
-				22CFD39020614C820004186D /* LoginAndRegisterViewController.m */,
-			);
-			path = LoginAndRegister;
 			sourceTree = "<group>";
 		};
 		22CFD3942062A72A0004186D /* Temperature */ = {
@@ -2439,7 +2449,10 @@
 				5722098D20AD261E00611BFA /* cm2_topbar_icn_search.png in Resources */,
 				22CF356B2073E17300707F8A /* noticeMusic.wav in Resources */,
 				57585AEB206D4843001BB202 /* share_wechat@3x.png in Resources */,
+				57DF018920D4B0BD00BA95F7 /* dadadada.mp3 in Resources */,
 				57CF9A2A20BA8FFB005EB9E9 /* prev_song.png in Resources */,
+				57DF018C20D4B0BD00BA95F7 /* mytheme.mp3 in Resources */,
+				57DF018B20D4B0BD00BA95F7 /* didu.mp3 in Resources */,
 				5726F382206B70C5008EED75 /* ShareSDKUI.bundle in Resources */,
 				22CFD3C0206548100004186D /* ConsoleBodyView.xib in Resources */,
 				22CFD3BB2065451D0004186D /* ConsoleHeaderView.xib in Resources */,
@@ -2460,13 +2473,16 @@
 				5726F3AD206B8D82008EED75 /* expandableImage@2x.png in Resources */,
 				57585AEC206D4843001BB202 /* share_wechat@2x.png in Resources */,
 				22CF35642073CCAB00707F8A /* ScanDeviceCodeViewController.xib in Resources */,
+				57DF018D20D4B0BD00BA95F7 /* storystory.mp3 in Resources */,
 				5726F37B206B70C5008EED75 /* WeiboSDK.bundle in Resources */,
 				57CF9A1C20BA8F3D005EB9E9 /* loop_all_icon.png in Resources */,
 				57CF9A2220BA8FCF005EB9E9 /* music_lock_screen_placeholder.jpg in Resources */,
 				57CF9A2020BA8FC2005EB9E9 /* more_icon.png in Resources */,
+				57DF018E20D4B0BD00BA95F7 /* bbCityList.json in Resources */,
 				84332C9E206CE6F5009A9121 /* MessageTableViewCell.xib in Resources */,
 				22CFD3EA2067FD650004186D /* CryingThresholdSettingViewController.xib in Resources */,
 				57CF9A2420BA8FDC005EB9E9 /* music_placeholder.png in Resources */,
+				57DF018A20D4B0BD00BA95F7 /* supermali.mp3 in Resources */,
 				5726F381206B70C5008EED75 /* ShareSDK.bundle in Resources */,
 				5726F37D206B70C5008EED75 /* README.txt in Resources */,
 				57CF9A1620BA8EFD005EB9E9 /* music_slider_circle.png in Resources */,
@@ -2680,7 +2696,6 @@
 				574C6CEA2069272700F5BF55 /* UIButton+EasilyMake.m in Sources */,
 				842D9CED206B94C90020C3C2 /* HomeLeftItemView.m in Sources */,
 				84332C9D206CE6F5009A9121 /* MessageTableViewCell.m in Sources */,
-				22CFD39120614C820004186D /* LoginAndRegisterViewController.m in Sources */,
 				574C6CB92069254200F5BF55 /* NSMutableAttributedString+KeywordHignlight.m in Sources */,
 				5726F356206B2B62008EED75 /* BBNotificationSettingListCell.m in Sources */,
 				5722098320AD22AC00611BFA /* GKWYDiskView.m in Sources */,
@@ -2696,6 +2711,7 @@
 				2263B8F52070A27A005BB15E /* BasePeripheralManager.m in Sources */,
 				57210CAD2074C2DE0039D8D5 /* ZFPlayerControlView.m in Sources */,
 				5726F33B206A2FB2008EED75 /* BBWarningRingSettingViewController.m in Sources */,
+				57DF018220D4A0B300BA95F7 /* BBIdentity.m in Sources */,
 				57210CA92074C2DE0039D8D5 /* UIViewController+ZFPlayerRotation.m in Sources */,
 				5726F3A4206B8332008EED75 /* WSTableViewCell.m in Sources */,
 				5722097F20AD22AC00611BFA /* GKWYMusicListView.m in Sources */,

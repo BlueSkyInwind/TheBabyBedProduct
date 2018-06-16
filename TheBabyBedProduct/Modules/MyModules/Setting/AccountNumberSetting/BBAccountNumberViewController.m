@@ -157,8 +157,8 @@
 {
     [SSEThirdPartyLoginHelper loginByPlatform:SSDKPlatformTypeWechat onUserSync:^(SSDKUser *user, SSEUserAssociateHandler associateHandler) {
         //成功走这里
-        [QMUITips showSucceed:@"微信绑定成功" inView:self.view hideAfterDelay:2];
-        [self.tableView reloadData];
+        [QMUITips showSucceed:@"微信登录授权成功" inView:self.view hideAfterDelay:2];
+        [self goToLoginWithLoginType:BBLoginTypeWeiXin uid:user.uid openid:user.uid];
     } onLoginResult:^(SSDKResponseState state, SSEBaseUser *user, NSError *error) {
         //失败走这里
         DLog(@"微信3登录结果 %lu",(unsigned long)state);
@@ -171,16 +171,15 @@
 }
 -(void)bindingQQ
 {
-#warning to
     [SSEThirdPartyLoginHelper loginByPlatform:SSDKPlatformTypeQQ onUserSync:^(SSDKUser *user, SSEUserAssociateHandler associateHandler) {
         //在此回调中可以将社交平台用户信息与自身用户系统进行绑定，最后使用一个唯一用户标识来关联此用户信息。
         //在此示例中没有跟用户系统关联，则使用一个社交用户对应一个系统用户的方式。将社交用户的uid作为关联ID传入associateHandler。
-        //            associateHandler (user.uid, user, user);
         NSLog(@"dd%@",user.rawData);
         NSLog(@"dd%@",user.credential);
         NSString *str = @"QQ登录授权成功";
         [QMUITips showSucceed:str inView:self.view hideAfterDelay:2];
-//        [self goToLoginWithPhoneNo:nil password:nil loginType:BBLoginTypeQQ uid:user.uid openid:user.uid];
+        [self goToLoginWithLoginType:BBLoginTypeQQ uid:user.uid openid:user.uid];
+
     } onLoginResult:^(SSDKResponseState state, SSEBaseUser *user, NSError *error) {
         //失败走这里
         DLog(@"QQ登录结果 %lu",(unsigned long)state);
@@ -194,12 +193,11 @@
 }
 -(void)bindingWB
 {
-#warning to
     [SSEThirdPartyLoginHelper loginByPlatform:SSDKPlatformTypeSinaWeibo onUserSync:^(SSDKUser *user, SSEUserAssociateHandler associateHandler) {
         //成功走这里
-#warning to
         NSString *str = @"微博登录授权成功";
         [QMUITips showSucceed:str inView:self.view hideAfterDelay:2];
+        [self goToLoginWithLoginType:BBLoginTypeWeiBo uid:user.uid openid:user.uid];
     } onLoginResult:^(SSDKResponseState state, SSEBaseUser *user, NSError *error) {
         //失败走这里
         DLog(@"微博登录结果 %lu",(unsigned long)state);
@@ -208,6 +206,73 @@
             resultStr = @"您已取消微博登录";
         }
         [QMUITips showWithText:resultStr inView:self.view hideAfterDelay:2];
+    }];
+}
+
+-(void)goToLoginWithLoginType:(BBLoginType)loginType
+                          uid:(NSString *)uid
+                       openid:(NSString *)openid
+{
+    BBUser *user = [BBUser bb_getUser];
+    NSString *phoneNo = user.username;
+    NSString *password = user.password;
+    
+    [BBRequestTool bb_requestLoginWithPhone:phoneNo password:password loginType:loginType uid:uid openid:openid successBlock:^(EnumServerStatus status, id object) {
+        NSLog(@"success %@",object);
+        BBLoginResultModel *loginResultM = [BBLoginResultModel mj_objectWithKeyValues:object];
+        if (loginResultM.code == 0) {
+            
+            BBUser *user = loginResultM.data;
+            user.password = password;
+            [BBUser bb_saveUser:user];
+            
+            //登录成功拉用户信息
+            [self getUserInfo];
+            
+        }else{
+            [QMUITips showWithText:loginResultM.msg inView:self.view hideAfterDelay:1.5];
+            return ;
+        }
+    } failureBlock:^(EnumServerStatus status, id object) {
+        NSLog(@"filed %@",object);
+        [QMUITips showWithText:@"登录失败" inView:self.view hideAfterDelay:1.2];
+        return ;
+    }];
+}
+#pragma mark --- 登录成功后要先获取用户信息
+-(void)getUserInfo
+{
+    [BBRequestTool bb_requestGetUserInfoWithSuccessBlock:^(EnumServerStatus status, id object) {
+        NSDictionary *userInfoResultDict = (NSDictionary *)object;
+        int resultCode = [[userInfoResultDict objectForKey:@"code"] intValue];
+        NSString *resultMsg = [userInfoResultDict objectForKey:@"msg"];
+        
+        
+        if (resultCode == 0) {
+            [QMUITips showSucceed:@"登录成功"];
+            
+            NSDictionary *userInfoDict = [userInfoResultDict objectForKey:@"data"];
+            
+            //此处多说一点，因为登录的时候已经保存了一个
+            BBUser *user = [BBUser bb_getUser];
+            user.hasLogined = YES;
+            
+            for (NSString *dictKey in userInfoDict.allKeys) {
+                if ([user.properties containsObject:dictKey]) {
+                    [user setValue:[userInfoDict objectForKey:dictKey] forKey:dictKey];
+                }
+            }
+            
+            [BBUser bb_saveUser:user];
+            [self.tableView reloadData];
+            
+        }else{
+            [QMUITips showWithText:resultMsg inView:self.view hideAfterDelay:1.5];
+            return ;
+        }
+    } failureBlock:^(EnumServerStatus status, id object) {
+        [QMUITips showWithText:@"获取用户信息失败" inView:self.view hideAfterDelay:1.2];
+        return ;
     }];
 }
 

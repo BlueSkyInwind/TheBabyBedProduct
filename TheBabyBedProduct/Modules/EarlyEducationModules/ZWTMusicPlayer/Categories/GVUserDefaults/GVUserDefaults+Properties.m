@@ -15,6 +15,7 @@
 @dynamic lastTimeShowLaunchScreenAd;
 @dynamic musicCycleType;
 @dynamic shouldShowNotWiFiAlertView;
+@dynamic deviceToken;
 
 - (NSDictionary *)setupDefaults
 {

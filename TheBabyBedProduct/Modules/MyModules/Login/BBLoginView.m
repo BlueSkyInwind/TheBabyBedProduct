@@ -133,7 +133,7 @@
         loginType = BBLoginTypeWeiBo;
     }
     if (self.thirdLoginBlock) {
-        self.thirdLoginBlock(loginType);
+        self.thirdLoginBlock(loginType,self.phoneTF.text, self.passwordTF.text);
     }
 }
 

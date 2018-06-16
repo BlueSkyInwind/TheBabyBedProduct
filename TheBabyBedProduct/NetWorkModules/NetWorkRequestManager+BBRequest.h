@@ -101,6 +101,12 @@ typedef NS_ENUM(NSInteger,BBGetCodeType) {
                                 failureBlock:(FailureBlock)failureBlock;
 
 /**
+ 获取身份 get
+ */
+-(void)bb_requestGetIdentitiesWithSuccessBlock:(SuccessBlock)successBlock
+                                  failureBlock:(FailureBlock)failureBlock;
+
+/**
  上传用户图像 post
  */
 -(void)bb_requestUploadImageWithImage:(UIImage *)img
