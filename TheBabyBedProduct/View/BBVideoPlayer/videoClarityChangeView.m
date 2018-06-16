@@ -63,7 +63,6 @@ static videoClarityChangeView * changeView = nil;
 
 -(void)configreView{
     
-//    self.backgroundColor = [UIColor blueColor];
     _backView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, self.frame.size.width - 4, self.frame.size.height - 4)];
     _backView.layer.borderColor = [UIColor whiteColor].CGColor;
     _backView.layer.borderWidth = 1;
