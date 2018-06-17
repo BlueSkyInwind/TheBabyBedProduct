@@ -29,15 +29,12 @@
     // Do any additional setup after loading the view from its nib.
     self.title = @"扫一扫";
     [self addBackItem];
-
     [self configrueView];
-    
 }
 - (IBAction)sureButtonClick:(id)sender {
     if ([self.SerialNumberTextField.text isEqualToString:@""] || self.SerialNumberTextField.text == nil) {
         return;
     }
-    
     [self pushConfigurationWifiVC];
 }
 
@@ -49,12 +46,11 @@
     }
     _qrScanView = [QRScanView defaultShareFrame:CGRectMake(0, 0, _qrView.frame.size.width, _qrView.frame.size.height) resultBlock:^(NSString *result) {
         [weakSelf.qrScanView stop];
-        weakSelf.deviceid = result;
+        weakSelf.deviceid = [self parsingScanString:result];
         [weakSelf pushConfigurationWifiVC];
     }];
     [self.qrView addSubview:_qrScanView];
 }
-
 -(void)configrueView{
     
     self.sureButton.layer.cornerRadius = self.sureButton.bounds.size.height / 2;
@@ -64,6 +60,16 @@
     self.SerialNumberTextField.layer.borderColor = rgb(145, 145, 145, 1).CGColor;
     self.SerialNumberTextField.layer.borderWidth = 0.8;
     
+}
+
+-(NSString *)parsingScanString:(NSString *)scanStr{
+    
+    NSDictionary * dic = [self dictionaryWithUrlString:scanStr];
+    NSString * deviceID;
+    if (dic.allKeys.count > 0 && [dic.allKeys containsObject:@"deviceId"]) {
+        deviceID = dic[@"deviceId"];
+    }
+    return deviceID;
 }
 
 - (void)reStartScan
@@ -123,6 +129,35 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+-(NSDictionary *)dictionaryWithUrlString:(NSString *)urlStr
+{
+    if (urlStr && urlStr.length && [urlStr rangeOfString:@"?"].length == 1) {
+        NSArray *array = [urlStr componentsSeparatedByString:@"?"];
+        if (array && array.count == 2) {
+            NSString *paramsStr = array[1];
+            if (paramsStr.length) {
+                NSMutableDictionary *paramsDict = [NSMutableDictionary dictionary];
+                NSArray *paramArray = [paramsStr componentsSeparatedByString:@"&"];
+                for (NSString *param in paramArray) {
+                    if (param && param.length) {
+                        NSArray *parArr = [param componentsSeparatedByString:@"="];
+                        if (parArr.count == 2) {
+                            [paramsDict setObject:parArr[1] forKey:parArr[0]];
+                        }
+                    }
+                }
+                return paramsDict;
+            }else{
+                return nil;
+            }
+        }else{
+            return nil;
+        }
+    }else{
+        return nil;
+    }
 }
 
 /*

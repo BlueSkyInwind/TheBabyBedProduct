@@ -27,10 +27,8 @@
     [self configrueView];
 }
 -(void)configrueView{
-    
     self.scanButton.layer.cornerRadius = self.scanButton.bounds.size.height / 2;
     self.scanButton.clipsToBounds = true;
-    
 }
 
 -(void)viewDidLayoutSubviews{
