@@ -21,6 +21,7 @@
 #import "BBEditUserInfoItem.h"
 
 #import "BRPickerView.h"
+#import "BBIdentity.h"
 
 @interface BBEditInformationViewController ()<UITableViewDelegate,UITableViewDataSource,UIImagePickerControllerDelegate,UINavigationControllerDelegate>
 @property(nonatomic,strong) UITableView *tableView;
@@ -285,12 +286,27 @@
             //身份
             BBNotificationSettingListCell *cell = (BBNotificationSettingListCell *)[self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:5 inSection:0]];
 #warning pp605 设置身份数组
-            NSArray *identifieries = @[
-                                   @"爷爷",
-                                   @"奶奶",
-                                   @"爸爸",
-                                   @"妈妈"
-                                   ];
+            NSDictionary *identityDict = [[NSUserDefaults standardUserDefaults] valueForKey:k_bb_saveIdentity];
+            NSMutableArray *identifieries = [NSMutableArray array];
+            if (identityDict) {
+                BBIdentityListResult *result = [BBIdentityListResult mj_objectWithKeyValues:identityDict];
+                if (result.code == 0) {
+                    for (BBIdentity *identity in result.data) {
+                        if (![identifieries containsObject:identity.identityName]) {
+                            [identifieries addObject:identity.identityName];
+                        }
+                    }
+                }
+            }
+            if (identifieries.count == 0) {
+                [identifieries addObjectsFromArray:@[
+                                                     @"爷爷",
+                                                     @"奶奶",
+                                                     @"爸爸",
+                                                     @"妈妈"
+                                                     ]];
+            }
+        
             [BRStringPickerView showStringPickerWithTitle:@"身份" dataSource:identifieries defaultSelValue:cell.subTextLB.text isAutoSelect:YES themeColor:nil resultBlock:^(id selectValue) {
                 cell.subTextLB.text = selectValue;
                 self.aUserInfoItem.identity = selectValue;

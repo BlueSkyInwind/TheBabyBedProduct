@@ -14,6 +14,12 @@
 -(void)bb_refreshToken;
 -(void)test;
 
+
+/**
+ 获取用户可用身份数组，并保存在本地，每次进入都重新获取，然后与本地的对比，然后更新到最新
+ */
+-(void)bb_getIdentities;
+
 /**
  收到通知处理
 

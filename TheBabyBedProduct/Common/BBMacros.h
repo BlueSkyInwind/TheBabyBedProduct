@@ -44,6 +44,8 @@ typedef NS_ENUM(NSInteger,BBApplyType) {
 #define k_bb_saveUserMessage @"KBBSAVEUSERMESSAGE"                //用户
 #define k_bb_saveUserDeviceMessage @"KBBSAVEUSERDEVICEMESSAGE"    //用户设备
 
+#define k_bb_saveIdentity    @"KBBSAVEIDENTITY"  //保存用户身份字典
+
  
 #import "UIView+PP_Frame.h"
 #import "UILabel+EasilyMake.h"

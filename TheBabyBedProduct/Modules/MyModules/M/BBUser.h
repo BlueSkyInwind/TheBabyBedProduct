@@ -18,13 +18,13 @@
 @property(nonatomic,copy) NSString *token;
 /** 用户信息是否填写完整   false 不完整  true 完整 */
 @property(nonatomic,assign) BOOL reg;
+
 /** 用户名 */
 @property(nonatomic,copy) NSString *username;
 /** 宝宝昵称 */
 @property(nonatomic,copy) NSString *nickName;
 /** 当前用户是否有绑定婴儿床设备  false 没有绑定  true 已绑定 */
 @property(nonatomic,assign) BOOL bind;
-
 /** 头像url */
 @property(nonatomic,copy) NSString *avatar;
 /** 出生日期 如：1523856194*/
@@ -43,20 +43,17 @@
 @property(nonatomic,assign) BOOL bindQQ;
 /** 身份 */
 @property(nonatomic,copy) NSString *identity;
-
-
 /** 密码 */
 @property(nonatomic,copy) NSString *password;
 /** 绑定的设备id */
 @property(nonatomic,copy) NSString *deviceId;
 /** 总积分 */
 @property(nonatomic,assign) NSUInteger totalScore;
-
-//pp_开头的，是自己根据接口猜的，文档没有
-
-/** pp_是否是管理员 */
+/** 是否是管理员 */
 @property(nonatomic,assign) BOOL manager;
-/** pp_账号余额 */
+/** 是否有观看视频权限 */
+@property(nonatomic,assign) BOOL videoAuth;
+/** 账号余额 */
 @property(nonatomic,copy) NSNumber *price;
 
 
@@ -80,6 +77,8 @@
         price = "4.16";
         totalScore = 12;
         username = 13386050182;
+        videoAuth = 1
+
     };
     msg = "请求成功";
 }
@@ -91,7 +90,6 @@
 @property(nonatomic,copy) NSString *latestSignInDate;
 /** 最新一次首页弹出签到框的日期 */
 @property(nonatomic,copy) NSString *latestHomePagePopSingInDate;
-
 //总共签到天数
 @property(nonatomic,assign) NSInteger totalSignInDays;
 

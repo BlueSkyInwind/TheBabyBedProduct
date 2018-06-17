@@ -21,6 +21,7 @@
 
 #import "GVUserDefaults+Properties.h"
 #import "BBHasTodaySignInResultModel.h"
+#import "BBIdentity.h"
 
 @implementation AppDelegate (BBConfigure)
 
@@ -145,6 +146,21 @@
 //    } failureBlock:^(EnumServerStatus status, id object) {
 //        NSLog(@"MoneyList error %@",object);
 //    }];
+}
+
+#pragma mark --- 获取用户身份
+-(void)bb_getIdentities
+{
+    [BBRequestTool bb_requestGetIdentitiesWithSuccessBlock:^(EnumServerStatus status, id object) {
+        NSLog(@"getIdentity success %@",object);
+        BBIdentityListResult *result = [BBIdentityListResult mj_objectWithKeyValues:object];
+        if (result.code == 0) {
+            [[NSUserDefaults standardUserDefaults] setValue:object forKey:k_bb_saveIdentity];
+            [[NSUserDefaults standardUserDefaults] synchronize];
+        }
+    } failureBlock:^(EnumServerStatus status, id object) {
+        NSLog(@"getIdentity error %@",object);
+    }];
 }
 
 -(void)NotificationRemind:(NSDictionary *)contentInfo{

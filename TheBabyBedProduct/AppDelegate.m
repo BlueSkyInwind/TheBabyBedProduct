@@ -45,6 +45,7 @@
     [self bb_configureShareSDK];
     [self bb_signInAction];
     [self bb_refreshToken];
+    [self bb_getIdentities];
     
     [self test];
     

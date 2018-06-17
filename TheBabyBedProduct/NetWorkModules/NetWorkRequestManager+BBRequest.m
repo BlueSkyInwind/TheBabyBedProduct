@@ -199,6 +199,15 @@ static void getRequest(NSString *url,id param,SuccessBlock successBlock,FailureB
 {
     [[NetWorkRequestManager sharedNetWorkManager]GetWithURL:[K_Url_BBBase stringByAppendingString:K_Url_GetUserInfo] isNeedNetStatus:NO isNeedWait:NO parameters:nil finished:successBlock failure:failureBlock];
 }
+/**
+ 获取身份 get
+ */
+-(void)bb_requestGetIdentitiesWithSuccessBlock:(SuccessBlock)successBlock
+                                  failureBlock:(FailureBlock)failureBlock
+{
+    NSString *requestUrl = [NSString stringWithFormat:@"%@%@",K_Url_BBBase,k_Url_GetIndentities];
+    [BBRequestTool PostWithURL:requestUrl isNeedNetStatus:NO isNeedWait:NO parameters:nil finished:successBlock failure:failureBlock];
+}
 
 
 

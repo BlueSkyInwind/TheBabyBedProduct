@@ -10,21 +10,16 @@
 #define BBRequestUrlMacros_h
 
 #define BBIsAPPStore 0   //APPStore环境(正式1，测试0)
-//http://tt1.jinzhibro.com:8788
 #warning todo 记得修改baseURL
 #if BBIsAPPStore
 #define K_Url_BBBase            @"http://tt1.jinzhibro.com:8788"
-//#define K_Url_GetImg            @"http://tt1.jinzhibro.com:8081"
 #define K_Url_GetImg            @"http://114.55.129.5:8081"
 #define K_Url_BBUDP             @"114.55.129.5"   //47.91.220.187
 #define K_port_BBUDP            9999
 #define K_Url_BBBaseGCSDad      @"http://open.idaddy.cn"
 #else
 #define K_Url_BBBase            @"http://tt1.jinzhibro.com:8788"
-//#define K_Url_GetImg            @"http://tt1.jinzhibro.com:8081"
 #define K_Url_GetImg            @"http://114.55.129.5:8081"
-
-
 #define K_Url_BBUDP             @"47.91.220.187"
 #define K_port_BBUDP            9999
 #define K_Url_BBBaseGCSDad      @"http://open.idaddy.cn"
@@ -45,6 +40,8 @@
 #define K_Url_GetUserInfo       @"/api/user/userInfo"
 //编辑用户资料 👌
 #define K_Url_EditUserInfo      @"/api/user/editinfo"
+//获取所有身份数据
+#define k_Url_GetIndentities    @"/api/identity"
 //意见反馈 🆗
 #define K_Url_Suggestion        @"/api/user/sendSugister"
 //上传图片 👌
