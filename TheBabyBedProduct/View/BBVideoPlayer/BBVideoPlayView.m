@@ -16,7 +16,10 @@
     
     BOOL _drag;
     
-     BOOL _changeClarity;
+    BOOL _changeClarity;
+    
+    NSTimeInterval * palyDuration;
+    NSTimer * playTimer;
 }
 /* <#Description#>*/
 @property(nonatomic,strong) UIView * vedioSuperView;
@@ -104,15 +107,33 @@
     self.player.shouldAutoplay = NO;
     [self.player setPauseInBackground:true];
     self.autoresizesSubviews = YES;
+    [self createPlayTimer];
     [self addSubview:self.player.view];
     [self.player.view mas_makeConstraints:^(MASConstraintMaker *make) {
         make.edges.equalTo(self);
     }];
     [self.player prepareToPlay];
-//    [self.player play];
+    [self performSelector:@selector(autoPaly) withObject:self afterDelay:2];
 }
+-(void)createPlayTimer{
+    palyDuration = 0;
+    playTimer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(playTiming) userInfo:nil repeats:true];
+}
+-(void)playTiming{
+    
+    palyDuration ++;
+    
+}
+
+-(void)autoPaly{
+    if ([self.player isPreparedToPlay]) {
+        self.verticalPlayerBtn.alpha = 0.1;
+        [self.player play];
+    }
+}
+
 -(void)palyVideo{
-    [self.player play];
+    [self createPlayer:@"rtmp://live.hkstv.hk.lxdns.com/live/hks"];
     [[BBUdpSocketManager shareInstance] sendCFGSettingRequestMessage:@{VideoPlayrStatus:@(1),VideoClarityStatus:@(1)}];
     [self refreshMediaControl];
 }
@@ -122,9 +143,12 @@
 }
 -(void)stopVideo{
     [[BBUdpSocketManager shareInstance] sendCFGSettingRequestMessage:@{VideoPlayrStatus:@(0),VideoClarityStatus:@(1)}];
+    [playTimer invalidate];
+    playTimer = nil;
     [self.player stop];
     self.player = nil;
 }
+
 -(void)refreshMediaControl{
     
     NSTimeInterval duration = self.player.duration;
@@ -172,14 +196,10 @@
     BOOL isPlaying = [self.player isPlaying];
     if (isPlaying) {
         button.alpha = 1;
-//        [self stopVideo];
-        [self.player pause];
-
+        [self stopVideo];
     }else{
         button.alpha = 0.1;
-//        [self palyVideo];
-        [self.player play];
-
+        [self palyVideo];
     }
 }
 -(void)fullcreenBtnBtnClick:(id)sender{
@@ -202,7 +222,7 @@
     UIButton * button = (UIButton *)sender;
     BOOL isPlaying = [self.player isPlaying];
     if (isPlaying) {
-        [self pauseVideo];
+        [self stopVideo];
     }else{
         [self palyVideo];
     }
