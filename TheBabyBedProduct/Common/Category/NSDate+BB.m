@@ -62,7 +62,7 @@
     return birthdayStr;
 }
 
--(NSUInteger)bb_timeIntervalFromTimestamp
+-(NSString *)bb_timeIntervalFromTimestamp
 {
     NSDate *birthdayDate = [self bb_dateFromTimestamp];
     NSDateFormatter *formatter = [[NSDateFormatter alloc]init];
@@ -74,11 +74,19 @@
     
     NSCalendar *calendar = [NSCalendar calendarWithIdentifier:NSCalendarIdentifierGregorian];
     
-    NSDateComponents *comps = [calendar components:NSCalendarUnitDay
+    NSDateComponents *comps = [calendar components:NSCalendarUnitYear|NSCalendarUnitMonth|NSCalendarUnitDay
                                              fromDate:birthdayJustDate
                                                toDate:todayJustDate
                                               options:0];
-    return comps.day;
+    if (comps.year > 0) {
+        return [NSString stringWithFormat:@"您的宝宝已经%ld年%ld月%ld天了",(long)comps.year,(long)comps.month,(long)comps.day];
+    }else{
+        if (comps.month > 0) {
+            return [NSString stringWithFormat:@"您的宝宝已经%ld月%ld天了",(long)comps.month,(long)comps.day];
+        }
+       return [NSString stringWithFormat:@"您的宝宝已经%ld天了",(long)comps.day];
+    }
+    
 }
 @end
 

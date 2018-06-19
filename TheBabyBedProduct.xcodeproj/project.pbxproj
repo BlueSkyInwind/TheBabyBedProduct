@@ -286,6 +286,8 @@
 		57DF019520D79E6F00BA95F7 /* NJKWebViewProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 57DF019320D79E6F00BA95F7 /* NJKWebViewProgressView.m */; };
 		57DF019920D8067200BA95F7 /* BBExchangeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 57DF019820D8067200BA95F7 /* BBExchangeViewController.m */; };
 		57DF019C20D80C5700BA95F7 /* BBExchangeList.m in Sources */ = {isa = PBXBuildFile; fileRef = 57DF019B20D80C5700BA95F7 /* BBExchangeList.m */; };
+		57DF019F20D9B1ED00BA95F7 /* BBExchangeListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 57DF019E20D9B1ED00BA95F7 /* BBExchangeListCell.m */; };
+		57DF01A220D9BB8700BA95F7 /* BBInviteFriendsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 57DF01A120D9BB8700BA95F7 /* BBInviteFriendsViewController.m */; };
 		57DF59B420835527002D2CED /* BBUserDevice.m in Sources */ = {isa = PBXBuildFile; fileRef = 57DF59B320835527002D2CED /* BBUserDevice.m */; };
 		57DF59B720843CD7002D2CED /* BBSignInPopView.m in Sources */ = {isa = PBXBuildFile; fileRef = 57DF59B620843CD7002D2CED /* BBSignInPopView.m */; };
 		84114B4320722BF6005A1DC9 /* jpush-ios-3.0.8.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 84114B4020722BF6005A1DC9 /* jpush-ios-3.0.8.a */; };
@@ -851,6 +853,10 @@
 		57DF019820D8067200BA95F7 /* BBExchangeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BBExchangeViewController.m; sourceTree = "<group>"; };
 		57DF019A20D80C5700BA95F7 /* BBExchangeList.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BBExchangeList.h; sourceTree = "<group>"; };
 		57DF019B20D80C5700BA95F7 /* BBExchangeList.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BBExchangeList.m; sourceTree = "<group>"; };
+		57DF019D20D9B1ED00BA95F7 /* BBExchangeListCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BBExchangeListCell.h; sourceTree = "<group>"; };
+		57DF019E20D9B1ED00BA95F7 /* BBExchangeListCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BBExchangeListCell.m; sourceTree = "<group>"; };
+		57DF01A020D9BB8700BA95F7 /* BBInviteFriendsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BBInviteFriendsViewController.h; sourceTree = "<group>"; };
+		57DF01A120D9BB8700BA95F7 /* BBInviteFriendsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BBInviteFriendsViewController.m; sourceTree = "<group>"; };
 		57DF59B220835527002D2CED /* BBUserDevice.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BBUserDevice.h; sourceTree = "<group>"; };
 		57DF59B320835527002D2CED /* BBUserDevice.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BBUserDevice.m; sourceTree = "<group>"; };
 		57DF59B520843CD7002D2CED /* BBSignInPopView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BBSignInPopView.h; sourceTree = "<group>"; };
@@ -2053,6 +2059,8 @@
 				57585ABD206D17CA001BB202 /* BBFamilyMemberViewController.m */,
 				57585AC0206D1AE8001BB202 /* BBFamilyMemberListCell.h */,
 				57585AC1206D1AE8001BB202 /* BBFamilyMemberListCell.m */,
+				57DF01A020D9BB8700BA95F7 /* BBInviteFriendsViewController.h */,
+				57DF01A120D9BB8700BA95F7 /* BBInviteFriendsViewController.m */,
 			);
 			path = FamilyMember;
 			sourceTree = "<group>";
@@ -2227,6 +2235,8 @@
 				57DF019820D8067200BA95F7 /* BBExchangeViewController.m */,
 				57DF019A20D80C5700BA95F7 /* BBExchangeList.h */,
 				57DF019B20D80C5700BA95F7 /* BBExchangeList.m */,
+				57DF019D20D9B1ED00BA95F7 /* BBExchangeListCell.h */,
+				57DF019E20D9B1ED00BA95F7 /* BBExchangeListCell.m */,
 			);
 			path = Exchange;
 			sourceTree = "<group>";
@@ -2767,6 +2777,7 @@
 				842D9CED206B94C90020C3C2 /* HomeLeftItemView.m in Sources */,
 				84332C9D206CE6F5009A9121 /* MessageTableViewCell.m in Sources */,
 				574C6CB92069254200F5BF55 /* NSMutableAttributedString+KeywordHignlight.m in Sources */,
+				57DF01A220D9BB8700BA95F7 /* BBInviteFriendsViewController.m in Sources */,
 				22F4C36320D949B3006FBBAC /* AreaViewController.m in Sources */,
 				5726F356206B2B62008EED75 /* BBNotificationSettingListCell.m in Sources */,
 				5722098320AD22AC00611BFA /* GKWYDiskView.m in Sources */,
@@ -2873,6 +2884,7 @@
 				5726F3BE206C7F3B008EED75 /* BBEarlyEducationHeaderView.m in Sources */,
 				5798F8AE20D0404000C20029 /* BBRechargeMoney.m in Sources */,
 				225B8BD320CEBA3200710583 /* BBMyAccountViewController.m in Sources */,
+				57DF019F20D9B1ED00BA95F7 /* BBExchangeListCell.m in Sources */,
 				574C6CD62069262000F5BF55 /* BBLoginView.m in Sources */,
 				225B8BCE20CEBA3200710583 /* BBConsumeRecord.m in Sources */,
 				57585AD3206D4428001BB202 /* LWShareContentView.m in Sources */,

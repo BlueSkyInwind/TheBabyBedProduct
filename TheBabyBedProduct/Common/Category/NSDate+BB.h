@@ -18,7 +18,7 @@
 -(NSDate *)bb_dateFromTimestamp;
 -(NSString *)bb_dateFromTimestampForyyyyMMdd;
 -(NSString *)bb_dateFromTimestampForyyyyMMddHHmmss;
--(NSUInteger)bb_timeIntervalFromTimestamp;
+-(NSString *)bb_timeIntervalFromTimestamp;
 @end
 
 

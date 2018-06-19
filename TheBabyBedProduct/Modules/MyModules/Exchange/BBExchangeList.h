@@ -9,7 +9,9 @@
 #import <Foundation/Foundation.h>
 
 @interface BBExchangeList : NSObject
-
+@property(nonatomic,assign) NSInteger use_score;
+@property(nonatomic,assign) NSInteger cur_time;
+@property(nonatomic,strong) NSNumber *opat;
 @end
 
 
@@ -17,6 +19,7 @@
 @property(nonatomic,assign) NSInteger code;
 @property(nonatomic,strong) NSMutableArray *data;
 @property(nonatomic,copy) NSString *msg;
+@property(nonatomic,assign) NSInteger count;
 @end
 
 /*

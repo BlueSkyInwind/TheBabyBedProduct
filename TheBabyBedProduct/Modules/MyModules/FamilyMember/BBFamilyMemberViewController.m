@@ -8,12 +8,11 @@
 
 #import "BBFamilyMemberViewController.h"
 #import "BBFamilyMemberListCell.h"
-#import <ShareSDK/ShareSDK.h>
-#import <ShareSDKUI/ShareSDK+SSUI.h>
-#import "LWShareService.h"
+//#import "LWShareService.h"
 #import "BBPermissionManageViewController.h"
 #import "LYEmptyViewHeader.h"
 #import "BBFamilyMember.h"
+#import "BBInviteFriendsViewController.h"
 
 @interface BBFamilyMemberViewController ()<UITableViewDelegate,UITableViewDataSource>
 {
@@ -150,63 +149,11 @@
 }
 -(void)inviteMemberAction
 {
-    [LWShareService shared].shareBtnClickBlock = ^(NSIndexPath *index) {
-        [self toShareWithIndexpath:index];
-    };
-    
-    [[LWShareService shared] showInViewController:self];
+    BBInviteFriendsViewController *inviteFriendsVC = [[BBInviteFriendsViewController alloc]init];
+    [self.navigationController pushViewController:inviteFriendsVC animated:YES];
     
 }
--(void)toShareWithIndexpath:(NSIndexPath *)indexPath
-{
-    SSDKPlatformType platformType = SSDKPlatformSubTypeQQFriend;
-    if (indexPath.item == 1) {
-        platformType = SSDKPlatformSubTypeWechatTimeline;
-    }else if (indexPath.item == 2){
-        platformType = SSDKPlatformSubTypeWechatSession;
-    }else if (indexPath.item == 3){
-        platformType = SSDKPlatformTypeSinaWeibo;
-    }
-    
-    /*
-     
-     String msg = "点击下面的链接可注册并绑定婴儿床:" + Constants.HOST_SHARE + "h5/inv/" + GApplication.getInstance().userdb.getUserInfo().getId() + "?invCode=" + code;
-     短信邀请绑定的H5链接
-     
-     ShareUtil.getInstance().share(this, "婴儿香邀请绑定", "点击下面的链接可注册并绑定婴儿床", "http://img1.imgtn.bdimg.com/it/u=407406776,3648841261&fm=214&gp=0.jpg",url );
-     分享邀请绑定的H5链接
-     
-     ShareUtil.getInstance().share(this, "每日任务", "分享好友赚积分", "http://img1.imgtn.bdimg.com/it/u=407406776,3648841261&fm=214&gp=0.jpg", Constants.HOST_SHARE+"h5/toYdaShare");
-     每日任务赚积分的H5链接
-     @PPAbner
-     */
-    
-    NSMutableDictionary *shareParams = [NSMutableDictionary dictionary];
-    [shareParams SSDKSetupShareParamsByText:@"点击下面的链接可注册并绑定婴儿床"
-                                     images:@"http://img1.imgtn.bdimg.com/it/u=407406776,3648841261&fm=214&gp=0.jpg"
-                                        url:[NSURL URLWithString:[NSString stringWithFormat:@"%@/h5/toYdaShare",K_Url_BBBase]]
-                                      title:@"婴儿香邀请绑定"
-                                       type:SSDKContentTypeAuto];
-    //有的平台要客户端分享需要加此方法，例如微博
-    [shareParams SSDKEnableUseClientShare];
-    
-    [ShareSDK share:platformType parameters:shareParams onStateChanged:^(SSDKResponseState state, NSDictionary *userData, SSDKContentEntity *contentEntity, NSError *error) {
-        DLog(@"微信好友分享结果 %lu",(unsigned long)state);
-        NSString *shareResultStr = @"";
-        if (state == SSDKResponseStateSuccess) {
-            shareResultStr = @"分享成功";
-        }else if (state == SSDKResponseStateFail){
-            shareResultStr = @"分享失败";
-        }else if (state == SSDKResponseStateCancel){
-            shareResultStr = @"您取消了分享";
-        }
-        if (shareResultStr.length > 0) {
-            [QMUITips showWithText:shareResultStr inView:self.view hideAfterDelay:1.5];
-        }
-        
-        [LWShareServices hidden];
-    }];
-}
+
 
 
 -(void)creatUI
