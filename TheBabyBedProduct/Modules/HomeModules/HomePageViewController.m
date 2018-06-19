@@ -79,7 +79,6 @@
         user.latestHomePagePopSingInDate = [NSDate bb_todayStr];
         [BBUser bb_saveUser:user];
     }
-    
 }
 
 - (void)viewDidLoad {
@@ -88,8 +87,6 @@
     [self configureView];
     [[BBUdpSocketManager shareInstance] createAsyncUdpSocket];
 }
-
-
 -(void)configureView{
     
     imgArr = @[@"home_room_Icon",@"home_temperature_Icon",@"home_wetting_Icon",@"home_kickqulit_Icon"];
@@ -122,8 +119,8 @@
     
     _headerView = [HomeHeaderView initWithBabyStatus:@[@"home_histroy_Icon",@"home_crystatus_Icon",@"home_happystatus_Icon"]];
     _homeTableView.tableHeaderView = _headerView;
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(sensorDataUpdates:) name:YDA_EVENT_NOTIFICATION object:nil];
     
-    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(sensorDataUpdates:) name:YDA_EVENT_NOTIFICATION object:nil ];
 }
 -(void)rightButtonItemClick{
     
@@ -153,6 +150,14 @@
     if ([kickValue shortValue] == 1){
         kickState = @"踢被";
     }
+    NSNumber * cryValue = valueDic[Baby_Cry_State];
+    if ([cryValue shortValue] == 1) {
+        _headerView.statusArr = @[@"home_histroy_Icon",@"home_crystatus_Icon"];
+    }else{
+        _headerView.statusArr = @[@"home_histroy_Icon",@"home_crystatus_Icon"];
+    }
+
+    
     [valueArr replaceObjectAtIndex:0 withObject:indoorAndOutdoorTemperature];
     [valueArr replaceObjectAtIndex:1 withObject:bobyTemp];
     [valueArr replaceObjectAtIndex:2 withObject:wetState];

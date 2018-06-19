@@ -24,5 +24,4 @@
 
 @interface NSString (Timestamp)
 -(NSNumber *)bb_strForTimestamp;
-
 @end

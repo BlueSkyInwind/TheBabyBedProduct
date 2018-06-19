@@ -25,10 +25,10 @@
 }
 @property(nonatomic,strong) UITableView *leftTableView;
 @property(nonatomic,strong) UITableView *rightTableView;
-@property(nonatomic,strong) NSMutableArray *bindingedUsers;
-@property(nonatomic,strong) NSMutableArray *applyingUsers;
+@property(nonatomic,strong) NSMutableArray<BBFamilyMember *> *bindingedUsers;
+@property(nonatomic,strong) NSMutableArray<BBFamilyMember *> *applyingUsers;
 
-/** 当前页码 从1开始*/
+/** 当前页码 从0开始*/
 @property(nonatomic,assign)NSInteger leftCurrentPage;
 /** 是否正在刷新 */
 @property(nonatomic,assign)BOOL leftIsRefreshing;
@@ -90,7 +90,7 @@
 {
     _hasLeftLoad = YES;
     [self.leftTableView ly_startLoading];
-    [BBRequestTool bb_requestBindListWithPageNo:0 pageSize:10 SuccessBlock:^(EnumServerStatus status, id object) {
+    [BBRequestTool bb_requestBindListWithPageNo:self.leftCurrentPage pageSize:10 SuccessBlock:^(EnumServerStatus status, id object) {
         NSLog(@"bind list %@",object);
         BBFamilyMemberListResult *result = [BBFamilyMemberListResult mj_objectWithKeyValues:object];
         if (result.code == 0) {
@@ -113,7 +113,7 @@
 {
     _hasRightLoad = YES;
     [self.rightTableView ly_startLoading];
-    [BBRequestTool bb_requestApplyListWithPageNo:0 pageSize:10 SuccessBlock:^(EnumServerStatus status, id object) {
+    [BBRequestTool bb_requestApplyListWithApplyType:BBApplyTypeBind pageNo:self.rightCurrentPage pageSize:10 SuccessBlock:^(EnumServerStatus status, id object) {
         NSLog(@"apply list 1 %@",object);
         BBFamilyMemberListResult *result = [BBFamilyMemberListResult mj_objectWithKeyValues:object];
         if (result.code == 0) {
@@ -335,14 +335,25 @@
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     BBFamilyMemberListCell *cell = [BBFamilyMemberListCell bb_cellMakeWithTableView:tableView];
-    [cell setupCellWithUser:nil isleft:_isLeft];
-    cell.setOrCancelBlock = ^{
-        if (_isLeft) {
+    if (_isLeft) {
+        if (self.bindingedUsers.count > indexPath.row) {
+            [cell setupWithFamilyMember:self.bindingedUsers[indexPath.row] applyType:BBApplyTypeBind];
+        }
+    }else{
+        if (self.applyingUsers.count > indexPath.row) {
+            [cell setupWithFamilyMember:self.applyingUsers[indexPath.row] applyType:BBApplyTypeAll];
+        }
+    }
+    cell.setOrAgreeBlock = ^(BOOL isSetting) {
+        if (isSetting) {
+            //设置
             BBPermissionManageViewController *permissionManagVC = [[BBPermissionManageViewController alloc]init];
             [self.navigationController pushViewController:permissionManagVC animated:YES];
+        }else{
+           //同意
         }
     };
-    
+
     cell.refuseBlock = ^{
 #warning todo 拒绝
     };
@@ -383,7 +394,7 @@
     }
 }
 
--(NSMutableArray *)bindingedUsers
+-(NSMutableArray<BBFamilyMember *> *)bindingedUsers
 {
     if (!_bindingedUsers) {
         _bindingedUsers = [NSMutableArray array];
@@ -391,7 +402,7 @@
     return _bindingedUsers;
 }
 
--(NSMutableArray *)applyingUsers
+-(NSMutableArray<BBFamilyMember *> *)applyingUsers
 {
     if (!_applyingUsers) {
         _applyingUsers = [NSMutableArray array];

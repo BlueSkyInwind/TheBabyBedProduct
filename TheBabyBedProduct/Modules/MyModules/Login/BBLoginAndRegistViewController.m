@@ -73,11 +73,11 @@
         [self.view endEditing:YES];
         [self goToLoginWithPhoneNo:phone password:password loginType:BBLoginTypeDefault uid:nil openid:nil];
     };
-    self.loginV.thirdLoginBlock = ^(BBLoginType type) {
+    self.loginV.thirdLoginBlock = ^(BBLoginType type,NSString *phone, NSString *password) {
         DLog(@"第三方登录方式 %ld",(long)type);
         BBStrongSelf(self)
         [self.view endEditing:YES];
-        [self goToThirdWithType:type];
+        [self goToThirdWithType:type phone:phone password:password];
     };
     
     //注册板块
@@ -212,6 +212,7 @@
                     price = "4.16";
                     totalScore = 12;
                     username = 13386050182;
+                    videoAuth = 1
                 };
                 msg = "请求成功";
             }
@@ -302,9 +303,23 @@
         NSLog(@"今日是否已签到 error %@",object);
     }];
 }
--(void)goToThirdWithType:(BBLoginType)type
+-(void)goToThirdWithType:(BBLoginType)type phone:(NSString *)phone password:(NSString *)password
 {
- 
+  //备注：（个人觉得不合理，但接口如此）第三⽅方登录为:QQ、微信、微博。第三⽅方登录必须要绑定⼿手机号和密码，因为⼿手机 号是整个账号体系的唯⼀一标示。后⾯面的推送、下单、配⽹网都需要⽤用 备注:第三⽅方登录时调⽤用登录接⼝口，如果⽤用户没有绑定⼿手机号就让其绑定⼿手机号。 (具体的传参看接⼝口描述)
+    
+    if (phone.length == 0) {
+        [QMUITips showError:@"手机号不能为空"];
+        return;
+    }
+    if (![phone bb_isPhoneNumber]) {
+        [QMUITips showError:@"请填写正确手机号"];
+        return;
+    }
+    if (password.length == 0) {
+        [QMUITips showError:@"密码不能为空"];
+        return;
+    }
+    
     if (type == BBLoginTypeQQ) {
         [SSEThirdPartyLoginHelper loginByPlatform:SSDKPlatformTypeQQ onUserSync:^(SSDKUser *user, SSEUserAssociateHandler associateHandler) {
             //在此回调中可以将社交平台用户信息与自身用户系统进行绑定，最后使用一个唯一用户标识来关联此用户信息。
@@ -314,7 +329,7 @@
             NSLog(@"dd%@",user.credential);
             NSString *str = @"QQ登录授权成功";
             [QMUITips showSucceed:str inView:self.view hideAfterDelay:2];
-            [self goToLoginWithPhoneNo:nil password:nil loginType:BBLoginTypeQQ uid:user.uid openid:user.uid];
+            [self goToLoginWithPhoneNo:phone password:password loginType:BBLoginTypeQQ uid:user.uid openid:user.uid];
         } onLoginResult:^(SSDKResponseState state, SSEBaseUser *user, NSError *error) {
             //失败走这里
             DLog(@"QQ登录结果 %lu",(unsigned long)state);
@@ -330,14 +345,11 @@
     if (type == BBLoginTypeWeiXin) {
         [SSEThirdPartyLoginHelper loginByPlatform:SSDKPlatformTypeWechat onUserSync:^(SSDKUser *user, SSEUserAssociateHandler associateHandler) {
             //成功走这里
-            DLog(@"233");
-#warning to
-            NSString *str = [NSString stringWithFormat:@"%@ 已同意微信登录",user.nickname];
+            NSString *str = @"微信授权成功";
             [QMUITips showSucceed:str inView:self.view hideAfterDelay:2];
-            
+            [self goToLoginWithPhoneNo:phone password:password loginType:BBLoginTypeWeiXin uid:user.uid openid:user.uid];
         } onLoginResult:^(SSDKResponseState state, SSEBaseUser *user, NSError *error) {
             //失败走这里
-            DLog(@"微信3登录结果 %lu",(unsigned long)state);
             NSString *resultStr = @"微信登录授权失败";
             if (state == SSDKResponseStateCancel) {
                 resultStr = @"您已取消微信登录";
@@ -349,12 +361,11 @@
     if (type == BBLoginTypeWeiBo) {
         [SSEThirdPartyLoginHelper loginByPlatform:SSDKPlatformTypeSinaWeibo onUserSync:^(SSDKUser *user, SSEUserAssociateHandler associateHandler) {
             //成功走这里
-#warning to
             NSString *str = @"微博登录授权成功";
             [QMUITips showSucceed:str inView:self.view hideAfterDelay:2];
+            [self goToLoginWithPhoneNo:phone password:password loginType:BBLoginTypeWeiBo uid:user.uid openid:user.uid];
         } onLoginResult:^(SSDKResponseState state, SSEBaseUser *user, NSError *error) {
             //失败走这里
-            DLog(@"微博登录结果 %lu",(unsigned long)state);
             NSString *resultStr = @"微博登录授权失败";
             if (state == SSDKResponseStateCancel) {
                 resultStr = @"您已取消微博登录";

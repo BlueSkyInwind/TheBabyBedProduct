@@ -28,6 +28,7 @@
     HomeHeaderView * headerView = [[HomeHeaderView alloc]initWithFrame:frame];
     headerView.statusArr = statusArr;
     return headerView;
+    
 }
 
 -(instancetype)initWithFrame:(CGRect)frame{
@@ -137,6 +138,11 @@
 -(void)setStatusArr:(NSArray *)statusArr{
     _statusArr = statusArr;
     if (_statusArr.count != 0) {
+        for (UIView * view in _babyStatusView.subviews) {
+            if ([view isKindOfClass:[UIImageView class]]) {
+                [view removeFromSuperview];
+            }
+        }
         [self creatStatusImg:statusArr];
     }
 }
@@ -157,33 +163,11 @@
         }];
     }
 }
-    
+
 -(void)playerBtnClick:(id)sender{
         
         
 }
     
-    
-
-//
-//- (ZFPlayerModel *)playerModel {
-//    if (!_playerModel) {
-//        _playerModel                  = [[ZFPlayerModel alloc] init];
-//        _playerModel.title            = @"小黄人一起来嗨";
-//        _playerModel.videoURL         = [NSURL URLWithString:@"http://221.228.226.23/11/t/j/v/b/tjvbwspwhqdmgouolposcsfafpedmb/sh.yinyuetai.com/691201536EE4912BF7E4F1E2C67B8119.mp4"];
-//        _playerModel.placeholderImage = [UIImage imageNamed:@"loading_bgView1"];
-//        _playerModel.fatherView       = _videoView;
-//        _playerModel.resolutionDic = @{@"高清" : @"http://221.228.226.23/11/t/j/v/b/tjvbwspwhqdmgouolposcsfafpedmb/sh.yinyuetai.chttp://221.228.226.23/11/t/j/v/b/tjvbwspwhqdmgouolposcsfafpedmb/sh.yinyuetai.com/691201536EE4912BF7E4F1E2C67B8119.mp4"};
-//    }
-//    return _playerModel;
-//}
-//
-//- (ZFPlayerView *)playerView {
-//    if (!_playerView) {
-//        _playerView = [[ZFPlayerView alloc] init];
-//        [_playerView playerControlView:nil playerModel:self.playerModel];
-//    }
-//    return _playerView;
-//}
 
 @end

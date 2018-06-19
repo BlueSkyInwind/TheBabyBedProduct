@@ -101,6 +101,12 @@ typedef NS_ENUM(NSInteger,BBGetCodeType) {
                                 failureBlock:(FailureBlock)failureBlock;
 
 /**
+ 获取身份 get
+ */
+-(void)bb_requestGetIdentitiesWithSuccessBlock:(SuccessBlock)successBlock
+                                  failureBlock:(FailureBlock)failureBlock;
+
+/**
  上传用户图像 post
  */
 -(void)bb_requestUploadImageWithImage:(UIImage *)img
@@ -183,10 +189,18 @@ typedef NS_ENUM(NSInteger,BBGetCodeType) {
 /*
  申请记录列表
  */
--(void)bb_requestApplyListWithPageNo:(NSInteger)pageNo
-                            pageSize:(NSInteger)pageSize
-                        SuccessBlock:(SuccessBlock)successBlock
-                        failureBlock:(FailureBlock)failureBlock;
+-(void)bb_requestApplyListWithApplyType:(BBApplyType)applyType
+                                 pageNo:(NSInteger)pageNo
+                               pageSize:(NSInteger)pageSize
+                           SuccessBlock:(SuccessBlock)successBlock
+                           failureBlock:(FailureBlock)failureBlock;
+/*
+ 改变申请状态
+ */
+-(void)bb_requestChangeStatusWithFamilyMemberId:(NSString *)familyMemberId
+                                         status:(BBApplyStatus)status
+                                   successBlock:(SuccessBlock)successBlock
+                                   failureBlock:(FailureBlock)failureBlock;
 
 /*
  分享赚积分

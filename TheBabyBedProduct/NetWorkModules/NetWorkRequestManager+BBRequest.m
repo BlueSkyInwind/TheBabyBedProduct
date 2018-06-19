@@ -199,6 +199,15 @@ static void getRequest(NSString *url,id param,SuccessBlock successBlock,FailureB
 {
     [[NetWorkRequestManager sharedNetWorkManager]GetWithURL:[K_Url_BBBase stringByAppendingString:K_Url_GetUserInfo] isNeedNetStatus:NO isNeedWait:NO parameters:nil finished:successBlock failure:failureBlock];
 }
+/**
+ 获取身份 get
+ */
+-(void)bb_requestGetIdentitiesWithSuccessBlock:(SuccessBlock)successBlock
+                                  failureBlock:(FailureBlock)failureBlock
+{
+    NSString *requestUrl = [NSString stringWithFormat:@"%@%@",K_Url_BBBase,k_Url_GetIndentities];
+    [BBRequestTool PostWithURL:requestUrl isNeedNetStatus:NO isNeedWait:NO parameters:nil finished:successBlock failure:failureBlock];
+}
 
 
 
@@ -353,13 +362,31 @@ static void getRequest(NSString *url,id param,SuccessBlock successBlock,FailureB
  申请记录列表
  applyType  // -1 所有的申请记录  0 视频的申请记录 1 绑定的申请记录
  */
--(void)bb_requestApplyListWithPageNo:(NSInteger)pageNo
-                            pageSize:(NSInteger)pageSize
-                        SuccessBlock:(SuccessBlock)successBlock
-                        failureBlock:(FailureBlock)failureBlock
+-(void)bb_requestApplyListWithApplyType:(BBApplyType)applyType
+                                 pageNo:(NSInteger)pageNo
+                               pageSize:(NSInteger)pageSize
+                           SuccessBlock:(SuccessBlock)successBlock
+                           failureBlock:(FailureBlock)failureBlock
 {
-    NSString *url = [NSString stringWithFormat:@"%@?pageNo=%ld&pageSize=%ld&applyType=-1",K_Url_ApplyList,(long)pageNo,(long)pageSize];
+    NSString *url = [NSString stringWithFormat:@"%@?pageNo=%ld&pageSize=%ld&applyType=%ld",K_Url_ApplyList,(long)pageNo,(long)pageSize,(long)applyType];
     getRequest(url, nil, successBlock, failureBlock);
+}
+
+/*
+ 改变申请状态
+ */
+-(void)bb_requestChangeStatusWithFamilyMemberId:(NSString *)familyMemberId
+                                         status:(BBApplyStatus)status
+                                   successBlock:(SuccessBlock)successBlock
+                                   failureBlock:(FailureBlock)failureBlock
+{
+    if (![familyMemberId bb_isSafe]) {
+        return;
+    }
+    NSString *url = [K_Url_ChangeStatus stringByAppendingFormat:@"%@",familyMemberId];
+    NSMutableDictionary *param = [NSMutableDictionary dictionary];
+    [param setValue:@(status) forKey:@"applyStatus"];
+    postRequest(url, param, successBlock, failureBlock);
 }
 /*
  分享赚积分
@@ -413,7 +440,7 @@ static void getRequest(NSString *url,id param,SuccessBlock successBlock,FailureB
     [param setValue:timestampStr forKey:@"timestamp"];
     [param setValue:@"1" forKey:@"chapter"];
     [param setValue:@"1" forKey:@"verbose"];
-    [param setValue:@"3" forKey:@"offset"];
+//    [param setValue:@"3" forKey:@"offset"];
     NSMutableString *str = [[NSMutableString alloc]initWithString:@"["];
     for (int i = 0; i < categoryIds.count-1; i++) {
         [str appendFormat:@"%@,",categoryIds[i]];

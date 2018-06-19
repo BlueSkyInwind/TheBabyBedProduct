@@ -7,10 +7,13 @@
 //
 
 #import "BBFamilyMemberListCell.h"
+#import "UIImageView+WebCache.h"
+#import "BBFamilyMember.h"
 
 @interface BBFamilyMemberListCell ()
 {
     BOOL _isLeft;
+    BOOL _isSetting;
 }
 @property(nonatomic,strong) UIImageView *avatarImgV;
 @property(nonatomic,strong) UILabel *userNameLB;
@@ -63,6 +66,49 @@
     }
     
 }
+
+-(void)setupWithFamilyMember:(BBFamilyMember *)familyMember applyType:(BBApplyType)applyType
+{
+    if (!familyMember) {
+        return;
+    }
+    if ([familyMember.avatar bb_isSafe]) {
+        [self.avatarImgV sd_setImageWithURL:[NSURL URLWithString:[K_Url_GetImg stringByAppendingString:familyMember.avatar]] placeholderImage:[UIImage imageNamed:@"touxianggg"]];
+    }else{
+        self.avatarImgV.image = [UIImage imageNamed:@"touxianggg"];
+    }
+    
+    self.userNameLB.text = [familyMember.name bb_safe];
+    self.timeLB.text = [[familyMember.createTime bb_dateFromTimestampForyyyyMMddHHmmss] bb_safe];
+    
+    CGFloat imgX = 10;
+    CGFloat setOrAgreeBTW = 70;
+    CGFloat totalW = _k_w-10;
+    
+    if (applyType == BBApplyTypeVideo || applyType == BBApplyTypeAll) {
+        //视频 or 所有记录
+        if (familyMember.applyStatus == BBApplyStatusAgree) {
+            _isSetting = YES;
+            self.refuseBT.hidden = YES;
+            self.setOrAgreeBT.frame = CGRectMake(totalW-imgX-setOrAgreeBTW, 35, setOrAgreeBTW, 30);
+            [self.setOrAgreeBT setTitle:@"设置" forState:UIControlStateNormal];
+        }else{
+            _isSetting = NO;
+            self.refuseBT.hidden = NO;
+            self.setOrAgreeBT.frame = CGRectMake(totalW-imgX-setOrAgreeBTW, 15, setOrAgreeBTW, 30);
+            self.refuseBT.frame = CGRectMake(totalW-imgX-setOrAgreeBTW, 15+30+10, setOrAgreeBTW, 30);
+            [self.setOrAgreeBT setTitle:@"同意" forState:UIControlStateNormal];
+            [self.refuseBT setTitle:@"设置" forState:UIControlStateNormal];
+        }
+    }else{
+        //已绑定
+        _isSetting = YES;
+        self.refuseBT.hidden = YES;
+        self.setOrAgreeBT.frame = CGRectMake(totalW-imgX-setOrAgreeBTW, 35, setOrAgreeBTW, 30);
+        [self.setOrAgreeBT setTitle:@"设置" forState:UIControlStateNormal];
+    }
+    
+}
 -(void)creatCellUI
 {
     self.avatarImgV = [UIImageView bb_imgVMakeWithSuperV:self.contentView imgName:nil];
@@ -103,8 +149,8 @@
 }
 -(void)settingAction
 {
-    if (self.setOrCancelBlock) {
-        self.setOrCancelBlock();
+    if (self.setOrAgreeBlock) {
+        self.setOrAgreeBlock(_isSetting);
     }
 }
 -(void)refuseAction
