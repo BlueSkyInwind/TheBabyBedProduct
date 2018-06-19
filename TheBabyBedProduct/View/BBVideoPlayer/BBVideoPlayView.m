@@ -16,7 +16,10 @@
     
     BOOL _drag;
     
-     BOOL _changeClarity;
+    BOOL _changeClarity;
+    
+    NSTimeInterval palyDuration;
+    NSTimer * playTimer;
 }
 /* <#Description#>*/
 @property(nonatomic,strong) UIView * vedioSuperView;
@@ -41,7 +44,6 @@
 @property(nonatomic, strong) UILabel * durationLabel;
 @property(nonatomic, strong) UIButton * screenshotsBtn;
 @property(nonatomic, strong) UIButton * clarityBtn;
-
 
 
 @end
@@ -104,49 +106,61 @@
     self.player.shouldAutoplay = NO;
     [self.player setPauseInBackground:true];
     self.autoresizesSubviews = YES;
+    [self createPlayTimer];
     [self addSubview:self.player.view];
     [self.player.view mas_makeConstraints:^(MASConstraintMaker *make) {
         make.edges.equalTo(self);
     }];
     [self.player prepareToPlay];
-//    [self.player play];
+    [self performSelector:@selector(autoPaly) withObject:self afterDelay:2];
 }
+-(void)createPlayTimer{
+    palyDuration = 0;
+    playTimer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(playTiming) userInfo:nil repeats:true];
+}
+-(void)playTiming{
+    palyDuration ++;
+    [self refreshMediaControl];
+}
+
+-(void)autoPaly{
+    if ([self.player isPreparedToPlay]) {
+        self.verticalPlayerBtn.alpha = 0.1;
+        [self.player play];
+    }
+}
+
 -(void)palyVideo{
-    [self.player play];
+    [self createPlayer:@"rtmp://live.hkstv.hk.lxdns.com/live/hks"];
     [[BBUdpSocketManager shareInstance] sendCFGSettingRequestMessage:@{VideoPlayrStatus:@(1),VideoClarityStatus:@(1)}];
     [self refreshMediaControl];
 }
+
 -(void)pauseVideo{
     [self.player pause];
     [self refreshMediaControl];
 }
 -(void)stopVideo{
     [[BBUdpSocketManager shareInstance] sendCFGSettingRequestMessage:@{VideoPlayrStatus:@(0),VideoClarityStatus:@(1)}];
+    [playTimer invalidate];
+    playTimer = nil;
     [self.player stop];
     self.player = nil;
 }
 -(void)refreshMediaControl{
     
     NSTimeInterval duration = self.player.duration;
-    NSTimeInterval position = self.player.currentPlaybackTime;
-    if (_drag) {
-        position = self.videoSlider.value;
-    }else{
-        position = self.player.currentPlaybackTime;
-    }
+    NSTimeInterval position = palyDuration;
     NSInteger intPosition = position + 0.5;
     NSInteger intDuration = duration + 0.5;
-    if (duration > 0) {
-        self.durationLabel.text = [NSString stringWithFormat:@"%02d:%02d", (int)(intDuration / 60), (int)(intDuration % 60)];
+    if (position > 0) {
         self.currentTimeLabel.text = [NSString stringWithFormat:@"%02d:%02d", (int)(intPosition / 60), (int)(intPosition % 60)];
-        self.videoSlider.value = intPosition/intDuration;
+//        self.durationLabel.text = [NSString stringWithFormat:@"%02d:%02d", (int)(intDuration / 60), (int)(intDuration % 60)];
+//        self.videoSlider.value = intPosition/intDuration;
     }
 }
-
 #pragma mrak -------- 监听横竖屏切换 --------------------
-
 -(void)orientChange:(NSNotification *)notification{
-    
     if ([UIDevice currentDevice].orientation == UIDeviceOrientationPortrait) {
         
     }
@@ -172,14 +186,10 @@
     BOOL isPlaying = [self.player isPlaying];
     if (isPlaying) {
         button.alpha = 1;
-//        [self stopVideo];
-        [self.player pause];
-
+        [self stopVideo];
     }else{
         button.alpha = 0.1;
-//        [self palyVideo];
-        [self.player play];
-
+        [self palyVideo];
     }
 }
 -(void)fullcreenBtnBtnClick:(id)sender{
@@ -202,7 +212,7 @@
     UIButton * button = (UIButton *)sender;
     BOOL isPlaying = [self.player isPlaying];
     if (isPlaying) {
-        [self pauseVideo];
+        [self stopVideo];
     }else{
         [self palyVideo];
     }
@@ -250,7 +260,6 @@
         CGFloat length = slider.frame.size.width;
         // 视频跳转的value
         CGFloat tapValue = point.x / length;
-        
     }
 }
 // 不做处理，只是为了滑动slider其他地方不响应其他手势
@@ -556,9 +565,12 @@
     UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
     UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil);
-    [QMUITips showInfo:@"已保存到相册"];
+    [QMUITips showInfo:@"已保存到相册" inView:self];
+    [self performSelector:@selector(hideSelfTip) withObject:self afterDelay:1];
 }
-
+-(void)hideSelfTip{
+    [QMUITips hideAllTipsInView:self];
+}
 
 -(void)dealloc {
     [[NSNotificationCenter defaultCenter]removeObserver:self];

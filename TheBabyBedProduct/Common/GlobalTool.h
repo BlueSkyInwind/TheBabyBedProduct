@@ -21,8 +21,8 @@
 //工程名字
 + (NSString *)getProjectName;
 //设置沙盒
-+ (void)saveUserDefaul:(NSString *)content Key:(NSString *)key;
-+ (NSString *)getContentWithKey:(NSString *)key;
++ (void)saveUserDefaul:(id)content Key:(NSString *)key;
++ (id)getContentWithKey:(NSString *)key;
 /**
  获取当前视图
  

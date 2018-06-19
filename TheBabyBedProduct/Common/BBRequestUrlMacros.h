@@ -90,9 +90,9 @@
 #define K_Url_MessageList        @"/api/msg/list"
 //消息编辑
 #define K_Url_MessageEidt        @"/api/msg/edit"
-//阈值设定
+//预值设定
 #define K_Url_SetThreshold       @"/api/waringsetting/setting"
-//获取阈值  api/waringsetting/setting/{id}
+//获取预值    api/waringsetting/setting/{deviceType }/{id}
 #define K_Url_GetThreshold       @"/api/waringsetting/setting"
 //传感器数据获取  api/statistics/{deviceId}
 #define K_Url_GetSensorData      @"/api/statistics/"
@@ -102,6 +102,9 @@
 //热门推荐（音乐）
 
 #define K_Url_Refresh_Token     @"/audio/v2/refresh_device_token"
+
+//https://free-api.heweather.com/s6/weather/now?location=
+#define HefengWeaherInfo     @"https://free-api.heweather.com/s6/weather/now?location="
 
 
 #endif /* BBRequestUrlMacros_h */

@@ -66,7 +66,6 @@
         [QMUITips showWithText:@"请输入WiFi密码" inView:self.view hideAfterDelay:0.5];
         return;
     }
-    
 //    BLEDeviceStatusViewController * blePairingVC = [[BLEDeviceStatusViewController alloc]init];
 //    [self.navigationController pushViewController:blePairingVC animated:true];
     DeviceConnectingViewController * connectVC = [[DeviceConnectingViewController alloc]init];

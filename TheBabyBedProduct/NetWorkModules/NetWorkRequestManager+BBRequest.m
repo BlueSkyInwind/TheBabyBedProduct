@@ -512,7 +512,7 @@ static void getRequest(NSString *url,id param,SuccessBlock successBlock,FailureB
 
 
 /**
- 阈值设定
+ 预值设定
  @param deviceType 设备类型  0 室内外温度传感器数据
  1  声音传感器数据（哭闹）
  2 体温传感器 （额头传感器，腋下传感器）
@@ -535,14 +535,15 @@ static void getRequest(NSString *url,id param,SuccessBlock successBlock,FailureB
     postRequest(K_Url_SetThreshold, param, successBlock, failureBlock);
     
 }
-/*  获取阈值  */
+/*  获取预值  */
 -(void)GetThresholdValueDeviceType:(NSString *)deviceType deviceId:(NSString *)deviceId successBlock:(SuccessBlock)successBlock failureBlock:(FailureBlock)failureBlock{
     
-    NSDictionary *param = @{
-                            @"deviceType":deviceType,
-                            @"deviceId":deviceId
-                            };
-    getRequest(K_Url_GetThreshold, param, successBlock, failureBlock);
+//    NSDictionary *param = @{
+//                            @"deviceType":deviceType,
+//                            @"deviceId":deviceId
+//                            };
+    NSString * resultUrl = [NSString stringWithFormat:@"%@/%@/%@",K_Url_GetThreshold,deviceType,deviceId];
+    getRequest(resultUrl, nil, successBlock, failureBlock);
     
 }
 
@@ -566,5 +567,22 @@ static void getRequest(NSString *url,id param,SuccessBlock successBlock,FailureB
     
 }
 
+/*  获取天气信息(拼音) */
+-(void)applyCityWeatherInfo:(NSString *)cityEn successBlock:(SuccessBlock)successBlock failureBlock:(FailureBlock)failureBlock{
+    
+    NSString * urlStr = [NSString stringWithFormat:@"%@%@&key=%@",HefengWeaherInfo,cityEn,hefengWeather_key];
+    
+    [BBRequestTool GetWithURL:urlStr isNeedNetStatus:NO isNeedWait:true parameters:nil finished:successBlock failure:failureBlock];
+
+}
+
+/*  获取天气信息（经纬） */
+-(void)applyCityWeatherInfo:(NSString *)lan lon:(NSString *)lon successBlock:(SuccessBlock)successBlock failureBlock:(FailureBlock)failureBlock{
+    
+    NSString * urlStr = [NSString stringWithFormat:@"%@%@,%@&key=%@",HefengWeaherInfo,lan,lon,hefengWeather_key];
+    
+    [BBRequestTool GetWithURL:urlStr isNeedNetStatus:NO isNeedWait:true parameters:nil finished:successBlock failure:failureBlock];
+
+}
 
 @end

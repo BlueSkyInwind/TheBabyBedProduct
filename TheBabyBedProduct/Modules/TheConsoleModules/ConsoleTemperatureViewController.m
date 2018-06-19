@@ -28,7 +28,6 @@
     [self addBackItem];
     [self configureView];
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(sensorDataUpdates:) name:YDA_EVENT_NOTIFICATION object:nil ];
-
 }
 
 -(void)viewWillAppear:(BOOL)animated{
@@ -45,6 +44,7 @@
     __weak typeof (self) weakSelf = self;
     _headerView = [[NSBundle mainBundle]loadNibNamed:@"ConsoleHeaderView" owner:self options:nil].lastObject;
     _headerView.titleLabel.text = self.title;
+    
     [self.view addSubview:_headerView];
     _headerView.backButtonClick = ^(UIButton *button) {
         [weakSelf.navigationController popViewControllerAnimated:true];
@@ -77,6 +77,12 @@
     NSString * bobyTemp = [NSString stringWithFormat:@"%@",valueDic[Body_Temp_Value]];
     CGFloat temp = bobyTemp.floatValue;
     [_thermometerView updateAlarTemProgressWithNumber:temp];
+    NSString * kickState = @"宝宝体温正常";
+    NSNumber * kickValue = valueDic[Baby_Urine_Value];
+    if ([kickValue shortValue] == 1){
+        kickState = @"宝宝踢被啦";
+    }
+    _headerView.statusLabel.text = kickState;
 }
 
 -(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
