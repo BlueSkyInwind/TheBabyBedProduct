@@ -278,6 +278,10 @@
 		57DF018C20D4B0BD00BA95F7 /* mytheme.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 57DF018620D4B0BD00BA95F7 /* mytheme.mp3 */; };
 		57DF018D20D4B0BD00BA95F7 /* storystory.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 57DF018720D4B0BD00BA95F7 /* storystory.mp3 */; };
 		57DF018E20D4B0BD00BA95F7 /* bbCityList.json in Resources */ = {isa = PBXBuildFile; fileRef = 57DF018820D4B0BD00BA95F7 /* bbCityList.json */; };
+		57DF019420D79E6F00BA95F7 /* NJKWebViewProgress.m in Sources */ = {isa = PBXBuildFile; fileRef = 57DF019120D79E6F00BA95F7 /* NJKWebViewProgress.m */; };
+		57DF019520D79E6F00BA95F7 /* NJKWebViewProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 57DF019320D79E6F00BA95F7 /* NJKWebViewProgressView.m */; };
+		57DF019920D8067200BA95F7 /* BBExchangeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 57DF019820D8067200BA95F7 /* BBExchangeViewController.m */; };
+		57DF019C20D80C5700BA95F7 /* BBExchangeList.m in Sources */ = {isa = PBXBuildFile; fileRef = 57DF019B20D80C5700BA95F7 /* BBExchangeList.m */; };
 		57DF59B420835527002D2CED /* BBUserDevice.m in Sources */ = {isa = PBXBuildFile; fileRef = 57DF59B320835527002D2CED /* BBUserDevice.m */; };
 		57DF59B720843CD7002D2CED /* BBSignInPopView.m in Sources */ = {isa = PBXBuildFile; fileRef = 57DF59B620843CD7002D2CED /* BBSignInPopView.m */; };
 		84114B4320722BF6005A1DC9 /* jpush-ios-3.0.8.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 84114B4020722BF6005A1DC9 /* jpush-ios-3.0.8.a */; };
@@ -826,6 +830,14 @@
 		57DF018620D4B0BD00BA95F7 /* mytheme.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = mytheme.mp3; sourceTree = "<group>"; };
 		57DF018720D4B0BD00BA95F7 /* storystory.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = storystory.mp3; sourceTree = "<group>"; };
 		57DF018820D4B0BD00BA95F7 /* bbCityList.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = bbCityList.json; sourceTree = "<group>"; };
+		57DF019020D79E6F00BA95F7 /* NJKWebViewProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NJKWebViewProgressView.h; sourceTree = "<group>"; };
+		57DF019120D79E6F00BA95F7 /* NJKWebViewProgress.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NJKWebViewProgress.m; sourceTree = "<group>"; };
+		57DF019220D79E6F00BA95F7 /* NJKWebViewProgress.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NJKWebViewProgress.h; sourceTree = "<group>"; };
+		57DF019320D79E6F00BA95F7 /* NJKWebViewProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NJKWebViewProgressView.m; sourceTree = "<group>"; };
+		57DF019720D8067200BA95F7 /* BBExchangeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BBExchangeViewController.h; sourceTree = "<group>"; };
+		57DF019820D8067200BA95F7 /* BBExchangeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BBExchangeViewController.m; sourceTree = "<group>"; };
+		57DF019A20D80C5700BA95F7 /* BBExchangeList.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BBExchangeList.h; sourceTree = "<group>"; };
+		57DF019B20D80C5700BA95F7 /* BBExchangeList.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BBExchangeList.m; sourceTree = "<group>"; };
 		57DF59B220835527002D2CED /* BBUserDevice.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BBUserDevice.h; sourceTree = "<group>"; };
 		57DF59B320835527002D2CED /* BBUserDevice.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BBUserDevice.m; sourceTree = "<group>"; };
 		57DF59B520843CD7002D2CED /* BBSignInPopView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BBSignInPopView.h; sourceTree = "<group>"; };
@@ -1284,6 +1296,7 @@
 		22CFD38A20614C230004186D /* MyModules */ = {
 			isa = PBXGroup;
 			children = (
+				57DF019620D8064A00BA95F7 /* Exchange */,
 				57210C7B2073B4B80039D8D5 /* MyReward */,
 				57210C712073B4A50039D8D5 /* MyAccount */,
 				57585ABB206D17B4001BB202 /* FamilyMember */,
@@ -1388,6 +1401,7 @@
 		22CFD39E2064015D0004186D /* Third */ = {
 			isa = PBXGroup;
 			children = (
+				57DF018F20D79E6F00BA95F7 /* NJKWebViewProgress */,
 				843346E520BFDBDA0021C7AB /* ijkplayer */,
 				5722099020AD27AA00611BFA /* CBAutoScrollLabel */,
 				5722098620AD24E600611BFA /* GKSearchBar */,
@@ -1682,8 +1696,6 @@
 				5726F352206B257A008EED75 /* BBNotificationSettingViewController.m */,
 				5726F354206B2B62008EED75 /* BBNotificationSettingListCell.h */,
 				5726F355206B2B62008EED75 /* BBNotificationSettingListCell.m */,
-				5726F3B2206B99D7008EED75 /* BBAboutUsViewController.h */,
-				5726F3B3206B99D7008EED75 /* BBAboutUsViewController.m */,
 			);
 			path = NotificationSetting;
 			sourceTree = "<group>";
@@ -1941,6 +1953,8 @@
 		574C6CD02069262000F5BF55 /* C */ = {
 			isa = PBXGroup;
 			children = (
+				5726F3B2206B99D7008EED75 /* BBAboutUsViewController.h */,
+				5726F3B3206B99D7008EED75 /* BBAboutUsViewController.m */,
 				574C6CD22069262000F5BF55 /* BBSettingViewController.h */,
 				574C6CD12069262000F5BF55 /* BBSettingViewController.m */,
 				57210D19207A48F60039D8D5 /* BBModifyPasswordViewController.h */,
@@ -2164,6 +2178,28 @@
 			);
 			name = NAKPlaybackIndicatorView;
 			path = Handlers/NAKPlaybackIndicatorView;
+			sourceTree = "<group>";
+		};
+		57DF018F20D79E6F00BA95F7 /* NJKWebViewProgress */ = {
+			isa = PBXGroup;
+			children = (
+				57DF019020D79E6F00BA95F7 /* NJKWebViewProgressView.h */,
+				57DF019120D79E6F00BA95F7 /* NJKWebViewProgress.m */,
+				57DF019220D79E6F00BA95F7 /* NJKWebViewProgress.h */,
+				57DF019320D79E6F00BA95F7 /* NJKWebViewProgressView.m */,
+			);
+			path = NJKWebViewProgress;
+			sourceTree = "<group>";
+		};
+		57DF019620D8064A00BA95F7 /* Exchange */ = {
+			isa = PBXGroup;
+			children = (
+				57DF019720D8067200BA95F7 /* BBExchangeViewController.h */,
+				57DF019820D8067200BA95F7 /* BBExchangeViewController.m */,
+				57DF019A20D80C5700BA95F7 /* BBExchangeList.h */,
+				57DF019B20D80C5700BA95F7 /* BBExchangeList.m */,
+			);
+			path = Exchange;
 			sourceTree = "<group>";
 		};
 		84114B3F20722BD0005A1DC9 /* JPush */ = {
@@ -2701,6 +2737,8 @@
 				5722098320AD22AC00611BFA /* GKWYDiskView.m in Sources */,
 				57210D0F207777960039D8D5 /* AppDelegate+BBConfigure.m in Sources */,
 				5726F359206B437D008EED75 /* BBForgetPasswordViewController.m in Sources */,
+				57DF019520D79E6F00BA95F7 /* NJKWebViewProgressView.m in Sources */,
+				57DF019420D79E6F00BA95F7 /* NJKWebViewProgress.m in Sources */,
 				57210D09207736040039D8D5 /* NetWorkRequestManager+BBRequest.m in Sources */,
 				5722098920AD24E600611BFA /* GKSearchBar.m in Sources */,
 				5726F33C206A2FB2008EED75 /* BBWarningRingListCell.m in Sources */,
@@ -2739,6 +2777,7 @@
 				22CFD3C3206652B70004186D /* ConsoleRateView.m in Sources */,
 				2263B8F220709EA2005BB15E /* BaseCentralManager.m in Sources */,
 				2266C1BD20694A85004F653A /* CryingChartViewController.m in Sources */,
+				57DF019920D8067200BA95F7 /* BBExchangeViewController.m in Sources */,
 				57210C7E2073B4B80039D8D5 /* BBMyRewardViewController.m in Sources */,
 				574C6CE72069272700F5BF55 /* UITableViewCell+EasilyMake.m in Sources */,
 				57DF59B420835527002D2CED /* BBUserDevice.m in Sources */,
@@ -2781,6 +2820,7 @@
 				5726F3BB206BE46F008EED75 /* BBAcountNumberListCell.m in Sources */,
 				8449AC1B20623ACC00526935 /* GlobalTool.m in Sources */,
 				574C6CED20693D2400F5BF55 /* UILabel+EasilyMake.m in Sources */,
+				57DF019C20D80C5700BA95F7 /* BBExchangeList.m in Sources */,
 				574C6CBE2069254200F5BF55 /* PPLabel.m in Sources */,
 				84D270C4208DDB4900ED57A3 /* BLEDeviceStatusViewController.m in Sources */,
 				57210CAF2074C2DE0039D8D5 /* MMMaterialDesignSpinner.m in Sources */,

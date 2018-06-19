@@ -164,6 +164,13 @@ typedef NS_ENUM(NSInteger,BBGetCodeType) {
 -(void)bb_requestExchangeWithSuccessBlock:(SuccessBlock)successBlock
                              failureBlock:(FailureBlock)failureBlock;
 
+/**
+ 积分兑换记录 post
+ */
+-(void)bb_requestExchangeListWithPageNo:(NSInteger)pageNo
+                           successBlock:(SuccessBlock)successBlock
+                           failureBlock:(FailureBlock)failureBlock;
+
 /*
  预选值列表
  */

@@ -50,6 +50,8 @@
 #define K_Url_DeviceInfo        @"/api/deviceInfo"
 //帮助list
 #define K_Url_HelpList          @"/api/help/list"
+//关于我们 👌
+#define K_Url_AboutUs           @"/h5/help/abus"
 
 //签到 👌
 #define K_Url_SignIn            @"/api/user/signin"
@@ -63,6 +65,8 @@
 
 //积分兑换 👌
 #define K_Url_Exchange          @"/api/user/exchange"
+//积分兑换记录
+#define K_Url_ExchangeList      @"/api/user/getExchangeList"
 
 ///走通了没数据
 

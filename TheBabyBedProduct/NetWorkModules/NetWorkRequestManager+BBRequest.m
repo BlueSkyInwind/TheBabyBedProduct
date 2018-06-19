@@ -328,6 +328,16 @@ static void getRequest(NSString *url,id param,SuccessBlock successBlock,FailureB
 {
     postRequest(K_Url_Exchange, nil, successBlock, failureBlock);
 }
+/**
+ 积分兑换记录 post
+ */
+-(void)bb_requestExchangeListWithPageNo:(NSInteger)pageNo
+                           successBlock:(SuccessBlock)successBlock
+                           failureBlock:(FailureBlock)failureBlock
+{
+    NSString *url = [NSString stringWithFormat:@"%@?pageNo=%ld&pageSize=%d",K_Url_ExchangeList,(long)pageNo,10];
+    postRequest(url, nil, successBlock, failureBlock);
+}
 /*
  预选值列表
  */
