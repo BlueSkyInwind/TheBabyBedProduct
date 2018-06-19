@@ -32,6 +32,18 @@
     }
 }
 
+-(void)awakeFromNib{
+    [super awakeFromNib];
+    BBUser *user = [BBUser bb_getUser];
+    if (user.both && [user.both integerValue] > 0) {
+        self.consoleHeaderLabel.text = [NSString stringWithFormat:@"您的宝宝%lu天了",(unsigned long)[user.both bb_timeIntervalFromTimestamp]];
+        self.consoleHeaderLabel.hidden = NO;
+    }else{
+        self.consoleHeaderLabel.hidden = YES;
+    }
+}
+
+
 /*
 // Only override drawRect: if you perform custom drawing.
 // An empty implementation adversely affects performance during animation.

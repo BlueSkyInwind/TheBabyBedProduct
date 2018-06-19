@@ -242,7 +242,7 @@ typedef NS_ENUM(NSInteger,BBGetCodeType) {
 
 
 /**
- 阈值设定
+ 预值设定
  @param deviceType 设备类型  0 室内外温度传感器数据
  1  声音传感器数据（哭闹）
  2 体温传感器 （额头传感器，腋下传感器）
@@ -254,7 +254,7 @@ typedef NS_ENUM(NSInteger,BBGetCodeType) {
  */
 -(void)SetThresholdValueDeviceType:(NSString *)deviceType minValue:(NSString *)minValue maxValue:(NSString *)maxValue deviceId:(NSString *)deviceId successBlock:(SuccessBlock)successBlock failureBlock:(FailureBlock)failureBlock;
 
-/*  获取阈值  */
+/*  获取预值  */
 -(void)GetThresholdValueDeviceType:(NSString *)deviceType deviceId:(NSString *)deviceId successBlock:(SuccessBlock)successBlock failureBlock:(FailureBlock)failureBlock;
 /*  获取曲线数据  */
 -(void)GetStatisticsDataDeviceType:(NSString *)deviceType deviceId:(NSString *)deviceId successBlock:(SuccessBlock)successBlock failureBlock:(FailureBlock)failureBlock;
