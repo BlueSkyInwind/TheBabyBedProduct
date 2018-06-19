@@ -77,7 +77,7 @@
     NSString * bobyTemp = [NSString stringWithFormat:@"%@",valueDic[Body_Temp_Value]];
     CGFloat temp = bobyTemp.floatValue;
     [_thermometerView updateAlarTemProgressWithNumber:temp];
-    NSString * kickState = @"宝宝盖被正常";
+    NSString * kickState = @"宝宝体温正常";
     NSNumber * kickValue = valueDic[Baby_Urine_Value];
     if ([kickValue shortValue] == 1){
         kickState = @"宝宝踢被啦";

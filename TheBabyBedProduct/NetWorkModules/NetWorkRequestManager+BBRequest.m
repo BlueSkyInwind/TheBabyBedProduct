@@ -557,5 +557,22 @@ static void getRequest(NSString *url,id param,SuccessBlock successBlock,FailureB
     
 }
 
+/*  获取天气信息(拼音) */
+-(void)applyCityWeatherInfo:(NSString *)cityEn successBlock:(SuccessBlock)successBlock failureBlock:(FailureBlock)failureBlock{
+    
+    NSString * urlStr = [NSString stringWithFormat:@"%@%@&key=%@",HefengWeaherInfo,cityEn,hefengWeather_key];
+    
+    [BBRequestTool GetWithURL:urlStr isNeedNetStatus:NO isNeedWait:true parameters:nil finished:successBlock failure:failureBlock];
+
+}
+
+/*  获取天气信息（经纬） */
+-(void)applyCityWeatherInfo:(NSString *)lan lon:(NSString *)lon successBlock:(SuccessBlock)successBlock failureBlock:(FailureBlock)failureBlock{
+    
+    NSString * urlStr = [NSString stringWithFormat:@"%@%@,%@&key=%@",HefengWeaherInfo,lan,lon,hefengWeather_key];
+    
+    [BBRequestTool GetWithURL:urlStr isNeedNetStatus:NO isNeedWait:true parameters:nil finished:successBlock failure:failureBlock];
+
+}
 
 @end

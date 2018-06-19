@@ -99,5 +99,8 @@
 
 #define K_Url_Refresh_Token     @"/audio/v2/refresh_device_token"
 
+//https://free-api.heweather.com/s6/weather/now?location=
+#define HefengWeaherInfo     @"https://free-api.heweather.com/s6/weather/now?location="
+
 
 #endif /* BBRequestUrlMacros_h */

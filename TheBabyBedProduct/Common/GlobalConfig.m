@@ -22,6 +22,9 @@ NSString *const KGCSDad_AppId = @"ydazn00000000001";
 
 NSString *const KGCSDad_Secret = @"76Yr0xkTiBD4Ubn21c39Ghjpy5doCzSf";
 
+NSString *const hefengWeather_key = @"896e8ba531e046b4b8e29fd5ffbc10ca";
+
+
 #pragma mrak --------远程推送报警提示--------
 
 NSString *const WARN_CRY = @"warn_cry";      //哭闹告警

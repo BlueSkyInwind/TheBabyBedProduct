@@ -103,6 +103,10 @@
 		22F4C35120CEC84D006FBBAC /* BBEarlyEducationMusicDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22F4C34D20CEC84C006FBBAC /* BBEarlyEducationMusicDetailViewController.m */; };
 		22F4C35220CEC84D006FBBAC /* BBEarlyEducationMusicListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22F4C34F20CEC84C006FBBAC /* BBEarlyEducationMusicListViewController.m */; };
 		22F4C35520CECD40006FBBAC /* videoClarityChangeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 22F4C35420CECD40006FBBAC /* videoClarityChangeView.m */; };
+		22F4C35920D93FAE006FBBAC /* CityListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 22F4C35820D93FAE006FBBAC /* CityListModel.m */; };
+		22F4C35D20D945FD006FBBAC /* ProvinceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22F4C35C20D945FD006FBBAC /* ProvinceViewController.m */; };
+		22F4C36020D949A2006FBBAC /* CityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22F4C35F20D949A2006FBBAC /* CityViewController.m */; };
+		22F4C36320D949B3006FBBAC /* AreaViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22F4C36220D949B3006FBBAC /* AreaViewController.m */; };
 		347E55C5AB34C5F0659DAE6B /* Pods_TheBabyBedProduct.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 884698C1D52FC8383E4B1BCF /* Pods_TheBabyBedProduct.framework */; };
 		570A1C1E208C6E5200B13EB5 /* NSDate+BB.m in Sources */ = {isa = PBXBuildFile; fileRef = 570A1C1D208C6E5200B13EB5 /* NSDate+BB.m */; };
 		570A1CB72090C9D500B13EB5 /* BBDeviceHeaderBottomView.m in Sources */ = {isa = PBXBuildFile; fileRef = 570A1CB62090C9D500B13EB5 /* BBDeviceHeaderBottomView.m */; };
@@ -519,6 +523,14 @@
 		22F4C35020CEC84C006FBBAC /* BBEarlyEducationMusicListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBEarlyEducationMusicListViewController.h; sourceTree = "<group>"; };
 		22F4C35320CECD3F006FBBAC /* videoClarityChangeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = videoClarityChangeView.h; sourceTree = "<group>"; };
 		22F4C35420CECD40006FBBAC /* videoClarityChangeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = videoClarityChangeView.m; sourceTree = "<group>"; };
+		22F4C35720D93FAE006FBBAC /* CityListModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CityListModel.h; sourceTree = "<group>"; };
+		22F4C35820D93FAE006FBBAC /* CityListModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CityListModel.m; sourceTree = "<group>"; };
+		22F4C35B20D945FD006FBBAC /* ProvinceViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProvinceViewController.h; sourceTree = "<group>"; };
+		22F4C35C20D945FD006FBBAC /* ProvinceViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProvinceViewController.m; sourceTree = "<group>"; };
+		22F4C35E20D949A2006FBBAC /* CityViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CityViewController.h; sourceTree = "<group>"; };
+		22F4C35F20D949A2006FBBAC /* CityViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CityViewController.m; sourceTree = "<group>"; };
+		22F4C36120D949B3006FBBAC /* AreaViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AreaViewController.h; sourceTree = "<group>"; };
+		22F4C36220D949B3006FBBAC /* AreaViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AreaViewController.m; sourceTree = "<group>"; };
 		2F6F434F00B680C952F3C9BF /* Pods-TheBabyBedProduct.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TheBabyBedProduct.release.xcconfig"; path = "Pods/Target Support Files/Pods-TheBabyBedProduct/Pods-TheBabyBedProduct.release.xcconfig"; sourceTree = "<group>"; };
 		570A1C1C208C6E5200B13EB5 /* NSDate+BB.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSDate+BB.h"; sourceTree = "<group>"; };
 		570A1C1D208C6E5200B13EB5 /* NSDate+BB.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSDate+BB.m"; sourceTree = "<group>"; };
@@ -1252,6 +1264,7 @@
 				22CFD3942062A72A0004186D /* Temperature */,
 				5798F8A320CEB5EE00C20029 /* ConsoleVideoViewController.h */,
 				5798F8A420CEB5EE00C20029 /* ConsoleVideoViewController.m */,
+				22F4C35A20D945C4006FBBAC /* cityList */,
 			);
 			path = TheConsoleModules;
 			sourceTree = "<group>";
@@ -1448,6 +1461,19 @@
 				22CFD3F92067FE060004186D /* TemperatureThresholdSettingViewController.xib */,
 			);
 			path = ThresholdSetting;
+			sourceTree = "<group>";
+		};
+		22F4C35A20D945C4006FBBAC /* cityList */ = {
+			isa = PBXGroup;
+			children = (
+				22F4C35B20D945FD006FBBAC /* ProvinceViewController.h */,
+				22F4C35C20D945FD006FBBAC /* ProvinceViewController.m */,
+				22F4C35E20D949A2006FBBAC /* CityViewController.h */,
+				22F4C35F20D949A2006FBBAC /* CityViewController.m */,
+				22F4C36120D949B3006FBBAC /* AreaViewController.h */,
+				22F4C36220D949B3006FBBAC /* AreaViewController.m */,
+			);
+			path = cityList;
 			sourceTree = "<group>";
 		};
 		57210C712073B4A50039D8D5 /* MyAccount */ = {
@@ -2254,6 +2280,8 @@
 				22833BF8207A5E6800A70247 /* MessageModel.m */,
 				84C6B07C20D90C19008BD264 /* ForecastValuesModel.h */,
 				84C6B07D20D90C19008BD264 /* ForecastValuesModel.m */,
+				22F4C35720D93FAE006FBBAC /* CityListModel.h */,
+				22F4C35820D93FAE006FBBAC /* CityListModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -2393,7 +2421,7 @@
 				TargetAttributes = {
 					22CFD333206141080004186D = {
 						CreatedOnToolsVersion = 9.2;
-						ProvisioningStyle = Manual;
+						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
 								enabled = 1;
@@ -2624,6 +2652,7 @@
 				57CB443820A415D900268DBE /* UIDevice+GetDeviceInfo.m in Sources */,
 				57210CAA2074C2DE0039D8D5 /* ZFBrightnessView.m in Sources */,
 				57CF99FE20BA8551005EB9E9 /* MusicSlider.m in Sources */,
+				22F4C36020D949A2006FBBAC /* CityViewController.m in Sources */,
 				22CFD3D22067C3120004186D /* ConsoleTemperatureViewController.m in Sources */,
 				57585AD2206D4428001BB202 /* LWShareService.m in Sources */,
 				574C6CD92069262000F5BF55 /* BBLoginRegistHeaderView.m in Sources */,
@@ -2702,6 +2731,7 @@
 				842D9CED206B94C90020C3C2 /* HomeLeftItemView.m in Sources */,
 				84332C9D206CE6F5009A9121 /* MessageTableViewCell.m in Sources */,
 				574C6CB92069254200F5BF55 /* NSMutableAttributedString+KeywordHignlight.m in Sources */,
+				22F4C36320D949B3006FBBAC /* AreaViewController.m in Sources */,
 				5726F356206B2B62008EED75 /* BBNotificationSettingListCell.m in Sources */,
 				5722098320AD22AC00611BFA /* GKWYDiskView.m in Sources */,
 				57210D0F207777960039D8D5 /* AppDelegate+BBConfigure.m in Sources */,
@@ -2784,6 +2814,7 @@
 				22F4C35520CECD40006FBBAC /* videoClarityChangeView.m in Sources */,
 				572209C120AD2B3D00611BFA /* GKDownloadManager.m in Sources */,
 				5726F3BB206BE46F008EED75 /* BBAcountNumberListCell.m in Sources */,
+				22F4C35D20D945FD006FBBAC /* ProvinceViewController.m in Sources */,
 				8449AC1B20623ACC00526935 /* GlobalTool.m in Sources */,
 				574C6CED20693D2400F5BF55 /* UILabel+EasilyMake.m in Sources */,
 				574C6CBE2069254200F5BF55 /* PPLabel.m in Sources */,
@@ -2811,6 +2842,7 @@
 				229FF0B22088EE9C005BA4A6 /* SendUdpMessage.m in Sources */,
 				574C6CBC2069254200F5BF55 /* NSString+PPTextField.m in Sources */,
 				57CB443E20A5712100268DBE /* BBMusicRequestModel.m in Sources */,
+				22F4C35920D93FAE006FBBAC /* CityListModel.m in Sources */,
 				572209BD20AD2B3D00611BFA /* GKAudioPlayer.m in Sources */,
 				8490CFBF20747CFC00D416C1 /* ConfigurationWifiViewController.m in Sources */,
 				22CF356E20764F6300707F8A /* GlobalAlertViewManager.m in Sources */,
@@ -2980,8 +3012,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_ENTITLEMENTS = TheBabyBedProduct/TheBabyBedProduct.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = LDR3UXH97L;
 				ENABLE_BITCODE = NO;
@@ -3037,8 +3069,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.yadean;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "dc6c12d5-5852-43b0-a359-d918a2fcd7f9";
-				PROVISIONING_PROFILE_SPECIFIER = test_distribution;
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = 1;
 				USER_HEADER_SEARCH_PATHS = "$(PODS_ROOT)/**";
 				VALID_ARCHS = "arm64 armv7s";
@@ -3052,8 +3084,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_ENTITLEMENTS = TheBabyBedProduct/TheBabyBedProduct.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = LDR3UXH97L;
 				ENABLE_BITCODE = NO;
@@ -3109,8 +3141,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.yadean;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "dc6c12d5-5852-43b0-a359-d918a2fcd7f9";
-				PROVISIONING_PROFILE_SPECIFIER = test_distribution;
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = 1;
 				USER_HEADER_SEARCH_PATHS = "$(PODS_ROOT)/**";
 				VALID_ARCHS = "arm64 armv7s";

@@ -40,19 +40,7 @@
 
 -(void)configureView{
     
-    _inDoorLabel = [[UILabel alloc]init];
-    _inDoorLabel.text = @"26.0";
-    _inDoorLabel.font = [UIFont systemFontOfSize:10];
-    _inDoorLabel.textAlignment = NSTextAlignmentCenter;
-    _inDoorLabel.center = CGPointMake(self.indoorImageView.bounds.size.width / 2, self.indoorImageView.bounds.size.height / 2);
-    [self.indoorImageView addSubview:_inDoorLabel];
-    
-    _outDoorLabel = [[UILabel alloc]init];
-    _outDoorLabel.text = @"26.0";
-    _outDoorLabel.font = [UIFont systemFontOfSize:10];
-    _outDoorLabel.textAlignment = NSTextAlignmentCenter;
-    _outDoorLabel.center = CGPointMake(self.outDoorImageView.bounds.size.width / 2, self.outDoorImageView.bounds.size.height / 2);
-    [self.outDoorImageView addSubview:_outDoorLabel];
+
     
     CAShapeLayer * inDoorLayer = [CAShapeLayer layer];
     inDoorLayer.name = @"inDoorradius";
@@ -121,13 +109,35 @@
     [self.outDoorImageView.layer addSublayer:_outDoorIndcatorLayer];
     _outDoorIndcatorLayer.anchorPoint = CGPointMake(1, 1);
     _outDoorIndcatorLayer.position = CGPointMake(self.outDoorImageView.bounds.size.width / 2, self.outDoorImageView.bounds.size.height / 2);
+    
+    _inDoorLabel = [[UILabel alloc]init];
+    _inDoorLabel.text = @"0.0°";
+    _inDoorLabel.font = [UIFont systemFontOfSize:12];
+    _inDoorLabel.textAlignment = NSTextAlignmentCenter;
+//    _inDoorLabel.center = CGPointMake(self.indoorImageView.bounds.size.width / 2, self.indoorImageView.bounds.size.height / 2);
+    [self.indoorImageView addSubview:_inDoorLabel];
+    [_inDoorLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.centerX.equalTo(self.indoorImageView.mas_centerX);
+        make.centerY.equalTo(self.indoorImageView.mas_centerY);
+    }];
+    
+    _outDoorLabel = [[UILabel alloc]init];
+    _outDoorLabel.text = @"0.0°";
+    _outDoorLabel.font = [UIFont systemFontOfSize:12];
+    _outDoorLabel.textAlignment = NSTextAlignmentCenter;
+//    _outDoorLabel.center = CGPointMake(self.outDoorImageView.bounds.size.width / 2, self.outDoorImageView.bounds.size.height / 2);
+    [self.outDoorImageView addSubview:_outDoorLabel];
+    [_outDoorLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.centerX.equalTo(self.outDoorImageView.mas_centerX);
+        make.centerY.equalTo(self.outDoorImageView.mas_centerY);
+    }];
 }
 
 -(void)setInDoorIndcatorScale:(CGFloat)value{
     
-    CGFloat number = value >= 35 ?  value : 35;
-    self.roomTemperatureNumLabel.text = [NSString stringWithFormat:@"%.0f",number];
-    self.inDoorLabel.text = [NSString stringWithFormat:@"%.0f",number];
+    CGFloat number = value >= 35 ?  35 : value;
+    self.roomTemperatureNumLabel.text = [NSString stringWithFormat:@"%.0f°C",number];
+    self.inDoorLabel.text = [NSString stringWithFormat:@"%.0f°",number];
     CGFloat scale = number / 50;
     CABasicAnimation * animation = [CABasicAnimation animationWithKeyPath:@"transform.rotation.z"];
     animation.duration = 0.25;
@@ -140,9 +150,9 @@
 
 -(void)setOutDoorIndcatorScale:(CGFloat)value{
     
-    CGFloat number = value >= 35 ?  value : 35;
-    self.outdoortemperatureNumLabel.text = [NSString stringWithFormat:@"%.0f",number];
-    self.outDoorLabel.text = [NSString stringWithFormat:@"%.0f",number];
+    CGFloat number = value >= 35 ?  35 : value;
+    self.outdoortemperatureNumLabel.text = [NSString stringWithFormat:@"%.0f°C",number];
+    self.outDoorLabel.text = [NSString stringWithFormat:@"%.0f°",number];
     CGFloat scale = number / 50;
     CABasicAnimation * animation = [CABasicAnimation animationWithKeyPath:@"transform.rotation.z"];
     animation.duration = 0.25;

@@ -10,12 +10,20 @@
 #import "ConsoleHeaderView.h"
 #import "RoomIndicatorView.h"
 #import "RoomTemperatureChartViewController.h"
+#import "CityListModel.h"
+#import "ProvinceViewController.h"
 
-@interface ConsoleRoomTemperatureViewController ()
+@interface ConsoleRoomTemperatureViewController (){
+    
+    
+    
+}
 
 
 @property (nonatomic,strong)ConsoleHeaderView * headerView;
 @property (nonatomic,strong)RoomIndicatorView * indicatorView;
+@property (nonatomic,strong)NSString * outdoorValue;
+@property (nonatomic,strong)NSString * indoorValue;
 
 
 @end
@@ -34,11 +42,29 @@
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     self.navigationController.navigationBar.hidden = true;
+    __weak typeof (self) weakSelf = self;
+    NSDictionary * cityDic = [GlobalTool getContentWithKey:@"city_Name"];
+    if (cityDic) {
+        AreaListModel * model = [[AreaListModel alloc]initWithDictionary:cityDic error:nil];
+        _headerView.locationLabel.text = model.name;
+        [self obainWeatherInfo:model.en complication:^(NSString *temp) {
+            weakSelf.outdoorValue = temp;
+        }];
+    }
 }
 
 -(void)viewWillDisappear:(BOOL)animated{
     [super viewWillDisappear:animated];
     self.navigationController.navigationBar.hidden = false;
+}
+-(void)setOutdoorValue:(NSString *)outdoorValue{
+    _outdoorValue = outdoorValue;
+    [_indicatorView setOutDoorIndcatorScale:outdoorValue.floatValue];
+}
+-(void)setIndoorValue:(NSString *)indoorValue{
+    _indoorValue = indoorValue;
+    [_indicatorView setOutDoorIndcatorScale:indoorValue.floatValue];
+
 }
 
 -(void)configureView{
@@ -48,14 +74,15 @@
     _headerView.titleLabel.text = self.title;
     [_headerView resetConsoleSettingBtn:20];
     [_headerView.settingBtn setImage:[UIImage imageNamed:@"location_Icon"] forState:UIControlStateNormal];
-    _headerView.locationLabel.text = @"苏州";
+    _headerView.locationLabel.text = @"";
     [self.view addSubview:_headerView];
     _headerView.backButtonClick = ^(UIButton *button) {
         [weakSelf.navigationController popViewControllerAnimated:true];
     };
     _headerView.settingButtonClick = ^(UIButton *button) {
-        
-        
+        ProvinceViewController * vc = [[ProvinceViewController alloc]init];
+        vc.dataArr = [weakSelf parseCityJsonData];
+        [weakSelf.navigationController pushViewController:vc animated:true];
     };
     
     [_headerView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -66,7 +93,6 @@
     _indicatorView = [[NSBundle mainBundle]loadNibNamed:@"RoomIndicatorView" owner:self options:nil].lastObject;
     [self.view addSubview:_indicatorView];
     _indicatorView.roomTemperatureCurveClick = ^{
-        
 //    [weakSelf.indicatorView setInDoorIndcatorScale:0.3];
         RoomTemperatureChartViewController * roomTemPeratureChartVC = [[RoomTemperatureChartViewController alloc]init];
         roomTemPeratureChartVC.isOutside = false;
@@ -90,7 +116,9 @@
     NSDictionary * valueDic = notification.userInfo;
     DLog(@"%@",valueDic);
     NSNumber * indoorAndOutdoorTemperature = valueDic[Env_Temp_Value];
-    [self.indicatorView setInDoorIndcatorScale:indoorAndOutdoorTemperature.floatValue];
+    self.indoorValue = [NSString stringWithFormat:@"%@",indoorAndOutdoorTemperature];
+    NSString * State = @"室内体温比较舒适";
+    _headerView.statusLabel.text = State;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -99,6 +127,42 @@
 }
 -(void)dealloc{
     [[NSNotificationCenter defaultCenter]removeObserver:self];
+}
+
+
+-(NSArray *)parseCityJsonData{
+    
+    NSMutableArray * cityArray = [NSMutableArray array];
+    //JSON文件的路径
+    NSString *path = [[NSBundle mainBundle] pathForResource:@"bbCityList.json" ofType:nil];
+    //加载JSON文件
+    NSData *data = [NSData dataWithContentsOfFile:path];
+    //将JSON数据转为NSArray或NSDictionary
+    NSArray *dictArray = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
+    for (NSDictionary *dic in dictArray) {
+        ProvinceListModel * model = [[ProvinceListModel alloc]initWithDictionary:dic error:nil];
+        [cityArray addObject:model];
+    }
+    return cityArray;
+}
+-(void)obainWeatherInfo:(NSString *)en complication:(void(^)(NSString * temp))finish{
+    
+    [BBRequestTool applyCityWeatherInfo:en successBlock:^(EnumServerStatus status, id object) {
+        NSDictionary * dic = object;
+        if ([dic.allKeys containsObject:@"HeWeather6"]) {
+            NSArray * arr = dic[@"HeWeather6"];
+            NSDictionary * infoDic = arr[0];
+            if ([infoDic.allKeys containsObject:@"now"]) {
+                NSDictionary * tempDic = infoDic[@"now"];
+                NSString * value = tempDic [@"tmp"];
+                finish(value);
+            }
+        }
+    } failureBlock:^(EnumServerStatus status, id object) {
+        DLog(@"%@",object);
+
+    }];
+    
 }
 
 /*

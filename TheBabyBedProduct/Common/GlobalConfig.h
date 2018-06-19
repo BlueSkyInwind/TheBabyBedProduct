@@ -75,6 +75,7 @@ UIKIT_EXTERN NSString *const KGCSDad_AppId;
 
 UIKIT_EXTERN NSString *const KGCSDad_Secret;
 
+UIKIT_EXTERN NSString *const hefengWeather_key;
 
 #pragma mrak --------远程推送报警提示--------
 UIKIT_EXTERN NSString *const WARN_CRY; //哭闹告警
