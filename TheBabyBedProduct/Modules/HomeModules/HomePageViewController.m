@@ -94,7 +94,7 @@
     
     imgArr = @[@"home_room_Icon",@"home_temperature_Icon",@"home_wetting_Icon",@"home_kickqulit_Icon"];
     titleArr = @[@"室内外温度",@"体温",@"尿湿状态",@"踢被状态"];
-    valueArr = [@[@"08/18",@"36.8",@"需要更换",@"正常"] mutableCopy];
+    valueArr = [@[@"0°C/0°C",@"0°C",@"需要更换",@"正常"] mutableCopy];
     __weak typeof (self) weakSelf = self;
     HomeLeftItemView * leftItemView = [[HomeLeftItemView alloc]initWithFrame:CGRectMake(0, 0, 100, 35)];
     leftItemView.nameLabel.text = @"欧阳马克";
@@ -136,8 +136,8 @@
 -(void)sensorDataUpdates:(NSNotification *)notification{
     NSDictionary * valueDic = notification.userInfo;
     DLog(@"%@",valueDic);
-    NSString * indoorAndOutdoorTemperature = [NSString stringWithFormat:@"%@/%@",valueDic[Env_Temp_Value],@"35"];
-    NSString * bobyTemp = [NSString stringWithFormat:@"%@",valueDic[Body_Temp_Value]];
+    NSString * indoorAndOutdoorTemperature = [NSString stringWithFormat:@"%@°C/%@°C",valueDic[Env_Temp_Value],@"35"];
+    NSString * bobyTemp = [NSString stringWithFormat:@"%@°C",valueDic[Body_Temp_Value]];
     NSString * wetState;
     NSString * kickState = @"正常";
     NSNumber * wetValue = valueDic[Env_Humidity_Value];
@@ -151,7 +151,7 @@
     
     NSNumber * kickValue = valueDic[Baby_Urine_Value];
     if ([kickValue shortValue] == 1){
-        NSString * kickState = @"踢被";
+        kickState = @"踢被";
     }
     [valueArr replaceObjectAtIndex:0 withObject:indoorAndOutdoorTemperature];
     [valueArr replaceObjectAtIndex:1 withObject:bobyTemp];

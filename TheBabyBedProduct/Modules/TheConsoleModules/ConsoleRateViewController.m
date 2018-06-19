@@ -26,6 +26,8 @@
 
 @property (nonatomic,strong)ConsoleHeaderView * headerView;
 @property (nonatomic,strong)ConsoleRateView * rateView;
+@property (nonatomic,strong)NSString * statusStr;
+
 @end
 
 @implementation ConsoleRateViewController
@@ -34,9 +36,10 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     [self addBackItem];
-
     [self initVcData];
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(sensorDataUpdates:) name:YDA_EVENT_NOTIFICATION object:nil ];
 }
+
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     self.navigationController.navigationBar.hidden = true;
@@ -46,7 +49,6 @@
     self.navigationController.navigationBar.hidden = false;
 }
 -(void)initVcData{
-    
     currentColor = rgb(69, 207, 229, 1);
     switch (self.rateType) {
         case BabyCryType:{
@@ -68,8 +70,31 @@
             break;
     }
     [self configureView];
+
+    [[self rac_valuesAndChangesForKeyPath:@"statusStr" options:NSKeyValueObservingOptionNew observer:nil] subscribeNext:^(RACTwoTuple<id,NSDictionary *> * _Nullable x) {
+        
+    }];
 }
 
+#pragma mark - 传感器数据通知状态
+-(void)sensorDataUpdates:(NSNotification *)notification{
+    NSDictionary * valueDic = notification.userInfo;
+    DLog(@"%@",valueDic);
+    NSString * wetState;
+    NSString * kickState = @"正常";
+    NSNumber * wetValue = valueDic[Env_Humidity_Value];
+    if ([wetValue shortValue] < 10){
+        wetState = @"干爽";
+    }else if([wetValue shortValue] > 10 &&  [wetValue shortValue] < 50){
+        wetState = @"轻度尿湿";
+    }else{
+        wetState = @"需更换";
+    }
+    NSNumber * kickValue = valueDic[Baby_Urine_Value];
+    if ([kickValue shortValue] == 1){
+        kickState = @"踢被";
+    }
+}
 -(void)configureView{
     
     __weak typeof (self) weakSelf = self;
@@ -166,7 +191,9 @@
     [_rateView updateProgressWithNumber:100];
     
 }
-
+-(void)dealloc{
+    [[NSNotificationCenter defaultCenter]removeObserver:self];
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

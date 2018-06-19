@@ -25,10 +25,17 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    self.title = @"阈值设定";
+    self.title = @"预值设定";
     [self addBackItem];
     [self configureView];
-    
+}
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    [self getCryingThresholdValueComplication:^(BOOL isSuccess) {
+        if (isSuccess) {
+            
+        }
+    }];
 }
 
 -(void)configureView{
@@ -48,6 +55,9 @@
     self.displayTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     [self.displayTableView registerNib:[UINib nibWithNibName:NSStringFromClass([ThresholdTableViewCell class]) bundle:nil] forCellReuseIdentifier:@"ThresholdTableViewCell"];
     
+    [self.decibelTextField.rac_textSignal subscribeNext:^(NSString * _Nullable x) {
+        DLog(@"文字发生了改变%@",x);
+    }];
 }
 
 - (IBAction)saveButtonClick:(id)sender {
@@ -55,6 +65,7 @@
         [QMUITips showWithText:@"请输入声音分贝值" inView:self.view hideAfterDelay:0.5];
         return;
     }
+    
     __weak typeof (self) weakSelf = self;
     [self SetCryingThresholdValueComplication:^(BOOL isSuccess) {
         if (isSuccess) {
@@ -118,6 +129,23 @@
         finish(false);
     }];
 }
+
+-(void)getCryingThresholdValueComplication:(void(^)(BOOL isSuccess))finish{
+    [BBRequestTool GetThresholdValueDeviceType:@"1" deviceId:[BBUser bb_getUser].deviceId successBlock:^(EnumServerStatus status, id object) {
+        BaseResultModel *resultM = [[BaseResultModel alloc] initWithDictionary:object error:nil];
+        if (resultM.code == 0) {
+            finish(true);
+        }else{
+            [QMUITips showWithText:resultM.msg inView:self.view hideAfterDelay:0.5];
+            finish(false);
+        }
+    } failureBlock:^(EnumServerStatus status, id object) {
+        finish(false);
+    }];
+}
+
+
+
 /*
 #pragma mark - Navigation
 
