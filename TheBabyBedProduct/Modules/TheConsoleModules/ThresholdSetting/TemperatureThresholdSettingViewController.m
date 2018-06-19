@@ -7,6 +7,7 @@
 //
 
 #import "TemperatureThresholdSettingViewController.h"
+#import "ForecastValuesModel.h"
 
 @interface TemperatureThresholdSettingViewController ()<UITextFieldDelegate>
 
@@ -21,7 +22,16 @@
     [self addBackItem];
     [self configureView];
 }
-
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    __weak typeof (self) weakSelf = self;
+    [self getCryingThresholdValueComplication:^(BOOL isSuccess, ForecastValuesInfo *info) {
+        if (isSuccess) {
+            self.lowerTemperatureTextfield.text = info.minVal;
+            self.highTemperatureTextfield.text = info.maxVal;
+        }
+    }];
+}
 -(void)configureView{
     
     self.saveBtn.layer.cornerRadius = self.saveBtn.frame.size.height / 2;
@@ -82,7 +92,19 @@
         finish(false);
     }];
 }
-
+-(void)getCryingThresholdValueComplication:(void(^)(BOOL isSuccess,ForecastValuesInfo * info))finish{
+    [BBRequestTool GetThresholdValueDeviceType:@"2" deviceId:[BBUser bb_getUser].deviceId successBlock:^(EnumServerStatus status, id object) {
+        ForecastValuesModel *resultM = [[ForecastValuesModel alloc] initWithDictionary:object error:nil];
+        if (resultM.code == 0) {
+            finish(true,resultM.data);
+        }else{
+            [QMUITips showWithText:resultM.msg inView:self.view hideAfterDelay:0.5];
+            finish(false,nil);
+        }
+    } failureBlock:^(EnumServerStatus status, id object) {
+        finish(false,nil);
+    }];
+}
 
 
 /*

@@ -310,6 +310,7 @@
 		84BE5EAF2069EE75007A001D /* KickQulitChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = 84BE5EAE2069EE75007A001D /* KickQulitChartView.m */; };
 		84BE5EB22069F114007A001D /* KickQulitChartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84BE5EB12069F114007A001D /* KickQulitChartViewController.m */; };
 		84BE5EB6206A48B5007A001D /* GlobalPopView.m in Sources */ = {isa = PBXBuildFile; fileRef = 84BE5EB5206A48B5007A001D /* GlobalPopView.m */; };
+		84C6B07E20D90C19008BD264 /* ForecastValuesModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 84C6B07D20D90C19008BD264 /* ForecastValuesModel.m */; };
 		84C7921D207C566600B63796 /* HistoryTemperatureListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84C7921C207C566600B63796 /* HistoryTemperatureListViewController.m */; };
 		84D270C0208DB38200ED57A3 /* BLEScanConnectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84D270BE208DB38200ED57A3 /* BLEScanConnectViewController.m */; };
 		84D270C1208DB38200ED57A3 /* BLEScanConnectViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84D270BF208DB38200ED57A3 /* BLEScanConnectViewController.xib */; };
@@ -879,6 +880,8 @@
 		84BE5EB12069F114007A001D /* KickQulitChartViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KickQulitChartViewController.m; sourceTree = "<group>"; };
 		84BE5EB4206A48B5007A001D /* GlobalPopView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GlobalPopView.h; sourceTree = "<group>"; };
 		84BE5EB5206A48B5007A001D /* GlobalPopView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GlobalPopView.m; sourceTree = "<group>"; };
+		84C6B07C20D90C19008BD264 /* ForecastValuesModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ForecastValuesModel.h; sourceTree = "<group>"; };
+		84C6B07D20D90C19008BD264 /* ForecastValuesModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ForecastValuesModel.m; sourceTree = "<group>"; };
 		84C7921B207C566600B63796 /* HistoryTemperatureListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HistoryTemperatureListViewController.h; sourceTree = "<group>"; };
 		84C7921C207C566600B63796 /* HistoryTemperatureListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HistoryTemperatureListViewController.m; sourceTree = "<group>"; };
 		84D270BD208DB38200ED57A3 /* BLEScanConnectViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BLEScanConnectViewController.h; sourceTree = "<group>"; };
@@ -2249,6 +2252,8 @@
 				8449AC0720620CB300526935 /* BaseResultModel.m */,
 				22833BF7207A5E6800A70247 /* MessageModel.h */,
 				22833BF8207A5E6800A70247 /* MessageModel.m */,
+				84C6B07C20D90C19008BD264 /* ForecastValuesModel.h */,
+				84C6B07D20D90C19008BD264 /* ForecastValuesModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -2782,6 +2787,7 @@
 				8449AC1B20623ACC00526935 /* GlobalTool.m in Sources */,
 				574C6CED20693D2400F5BF55 /* UILabel+EasilyMake.m in Sources */,
 				574C6CBE2069254200F5BF55 /* PPLabel.m in Sources */,
+				84C6B07E20D90C19008BD264 /* ForecastValuesModel.m in Sources */,
 				84D270C4208DDB4900ED57A3 /* BLEDeviceStatusViewController.m in Sources */,
 				57210CAF2074C2DE0039D8D5 /* MMMaterialDesignSpinner.m in Sources */,
 				57585AD4206D4428001BB202 /* LWShareCollectionViewCell.m in Sources */,

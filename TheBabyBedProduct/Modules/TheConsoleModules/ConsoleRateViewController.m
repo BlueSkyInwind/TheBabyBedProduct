@@ -94,6 +94,12 @@
     if ([kickValue shortValue] == 1){
         kickState = @"踢被";
     }
+    NSNumber * cryValue = valueDic[Baby_Cry_State];
+    if ([cryValue shortValue] == 1) {
+        
+    }else{
+        
+    }
 }
 -(void)configureView{
     
@@ -166,13 +172,17 @@
     
     switch (self.rateType) {
         case BabyCryType:{
-            CryingThresholdSettingViewController * setVC = [[CryingThresholdSettingViewController alloc]init];
-            [self.navigationController pushViewController:setVC animated:true];
+            [QMUITips showWithText:@"尽请期待" inView:self.view hideAfterDelay:0.5];
+
+//            CryingThresholdSettingViewController * setVC = [[CryingThresholdSettingViewController alloc]init];
+//            [self.navigationController pushViewController:setVC animated:true];
         }
             break;
         case BabyKickType:{
-            KickQulitThresholdSettingViewController * setVC = [[KickQulitThresholdSettingViewController alloc]init];
-            [self.navigationController pushViewController:setVC animated:true];
+            [QMUITips showWithText:@"尽请期待" inView:self.view hideAfterDelay:0.5];
+//
+//            KickQulitThresholdSettingViewController * setVC = [[KickQulitThresholdSettingViewController alloc]init];
+//            [self.navigationController pushViewController:setVC animated:true];
         }
             break;
         case BabyWetType:{

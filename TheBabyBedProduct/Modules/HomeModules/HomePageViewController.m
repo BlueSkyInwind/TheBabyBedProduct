@@ -154,10 +154,9 @@
     if ([cryValue shortValue] == 1) {
         _headerView.statusArr = @[@"home_histroy_Icon",@"home_crystatus_Icon"];
     }else{
-        _headerView.statusArr = @[@"home_histroy_Icon",@"home_crystatus_Icon"];
+        _headerView.statusArr = @[@"home_histroy_Icon",@"home_happystatus_Icon"];
     }
 
-    
     [valueArr replaceObjectAtIndex:0 withObject:indoorAndOutdoorTemperature];
     [valueArr replaceObjectAtIndex:1 withObject:bobyTemp];
     [valueArr replaceObjectAtIndex:2 withObject:wetState];
@@ -228,7 +227,7 @@
 #pragma mark - 登陆后 设备配网
 -(void)judgeUserDeviceStatus{
     
-    if (![BBUser bb_getUser].hasLogined) {
+    if ([BBUser bb_getUser].hasLogined == false) {
         return;
     }
     //通过deviceId来判断是否绑定设备
