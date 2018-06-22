@@ -113,12 +113,15 @@
 }
 
 /**
- *用户位置更新后，会调用此函数
+ *用户方向更新后，会调用此函数
  *@param userLocation 新的用户位置
  */
-- (void)didUpdateBMKUserLocation:(BMKUserLocation *)userLocation{
-    NSLog(@"位置更新%f  %f",userLocation.location.coordinate.latitude,userLocation.location.coordinate.longitude);
+- (void)didUpdateUserHeading:(BMKUserLocation *)userLocation
+{
+    
+    NSLog(@"方向更新%f  %f",userLocation.location.coordinate.latitude,userLocation.location.coordinate.longitude);
 }
+
 
 /**
  *定位失败后，会调用此函数
