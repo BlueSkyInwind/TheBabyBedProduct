@@ -8,12 +8,15 @@
 
 #import "AppDelegate.h"
 
-@interface AppDelegate (BBConfigure)
+@interface AppDelegate (BBConfigure)<BMKGeneralDelegate>
 -(void)bb_configureShareSDK;
 -(void)bb_signInAction;
 -(void)bb_refreshToken;
 -(void)test;
-
+/**
+ 启动百度地图
+ */
+-(void)InitializeBMKSDK;
 
 /**
  获取用户可用身份数组，并保存在本地，每次进入都重新获取，然后与本地的对比，然后更新到最新

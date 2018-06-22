@@ -39,10 +39,10 @@
     self.tabBar = [[BaseTabBarViewController alloc]init];
     self.window.rootViewController = self.tabBar;
     [self bb_refreshToken];
-
     // 初始化全局播放按钮
 //    [self initPlayBtn];
     [self bb_configureShareSDK];
+    [self InitializeBMKSDK];
     [self bb_signInAction];
     [self bb_refreshToken];
     [self bb_getIdentities];

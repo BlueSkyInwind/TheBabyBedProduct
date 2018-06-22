@@ -15,11 +15,12 @@
 #import "ConsoleVideoViewController.h"
 
 
-@interface TheConsoleViewController ()
+@interface TheConsoleViewController ()<BMKLocationServiceDelegate>
 
 @property (nonatomic,strong)ConsoleHeaderView * headerView;
 @property (nonatomic,strong)ConsoleBodyView * bodyView;
 
+@property (strong, nonatomic) BMKLocationService * locService;//定位
 
 @end
 
@@ -29,6 +30,10 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     [self configureView];
+    
+    _locService = [[BMKLocationService alloc]init];
+    _locService.delegate = self;
+    [_locService startUserLocationService];
 }
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
@@ -107,6 +112,74 @@
     // Dispose of any resources that can be recreated.
 }
 
+/**
+ *用户方向更新后，会调用此函数
+ *@param userLocation 新的用户位置
+ */
+- (void)didUpdateUserHeading:(BMKUserLocation *)userLocation
+{
+    
+    NSLog(@"方向更新%f  %f",userLocation.location.coordinate.latitude,userLocation.location.coordinate.longitude);
+}
+
+/**
+ *用户位置更新后，会调用此函数
+ *@param userLocation 新的用户位置
+ */
+- (void)didUpdateBMKUserLocation:(BMKUserLocation *)userLocation{
+    NSLog(@"位置更新%f  %f",userLocation.location.coordinate.latitude,userLocation.location.coordinate.longitude);
+}
+
+/**
+ *定位失败后，会调用此函数
+ *@param error 错误号
+ */
+- (void)didFailToLocateUserWithError:(NSError *)error{
+    NSLog(@"定位失败%@",error);
+}
+
+
+/**
+ *用户位置更新后，会调用此函数
+ *@param userLocation 新的用户位置
+ */
+- (void)didUpdateBMKUserLocation:(BMKUserLocation *)userLocation
+{
+    
+    //定位当前城市
+    BMKCoordinateRegion region;
+    region.center.latitude  = userLocation.location.coordinate.latitude;
+    region.center.longitude = userLocation.location.coordinate.longitude;
+    region.span.latitudeDelta = 0;
+    region.span.longitudeDelta = 0;
+    NSLog(@"当前的坐标是:%f,%f",userLocation.location.coordinate.latitude,userLocation.location.coordinate.longitude);
+    
+    CLGeocoder *geocoder = [[CLGeocoder alloc] init];
+    [geocoder reverseGeocodeLocation: userLocation.location completionHandler:^(NSArray *array, NSError *error) {
+        if (array.count > 0) {
+            CLPlacemark *placemark = [array objectAtIndex:0];
+            if (placemark != nil) {
+                NSString *city = placemark.locality;
+                
+                NSLog(@"当前城市名称------%@",city);
+                BMKOfflineMap * _offlineMap = [[BMKOfflineMap alloc] init];
+                // _offlineMap.delegate = self;//可以不要
+                NSArray* records = [_offlineMap searchCity:city];
+                BMKOLSearchRecord* oneRecord = [records objectAtIndex:0];
+                //城市编码如:北京为131
+                NSInteger cityId = oneRecord.cityID;
+                
+                NSLog(@"当前城市编号-------->%zd",cityId);
+                NSLog(@"当前城市的 哪个区------%@ ",placemark.subLocality);
+                
+                //找到了当前位置城市后就关闭服务
+                // [_locService stopUserLocationService];
+
+            }
+        }
+    }];
+
+}
 /*
 #pragma mark - Navigation
 
