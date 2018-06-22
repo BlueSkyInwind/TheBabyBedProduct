@@ -11,8 +11,14 @@
 #import "ConsoleHeaderView.h"
 #import "TemperatureThresholdSettingViewController.h"
 #import "HistoryFeverViewController.h"
+#import "ForecastValuesModel.h"
 
-@interface ConsoleTemperatureViewController ()
+@interface ConsoleTemperatureViewController (){
+    
+    CGFloat minThresholdValue;
+    CGFloat maxThresholdValue;
+
+}
 
 @property (nonatomic,strong)ConsoleHeaderView * headerView;
 @property (nonatomic,strong)ThermometerView * thermometerView;
@@ -33,6 +39,12 @@
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     self.navigationController.navigationBar.hidden = true;
+    [self getCryingThresholdValueComplication:^(BOOL isSuccess, ForecastValuesInfo *info) {
+        if (isSuccess) {
+            minThresholdValue = info.minVal.floatValue;
+            maxThresholdValue = info.maxVal.floatValue;
+        }
+    }];
 }
 -(void)viewWillDisappear:(BOOL)animated{
     [super viewWillDisappear:animated];
@@ -44,15 +56,18 @@
     __weak typeof (self) weakSelf = self;
     _headerView = [[NSBundle mainBundle]loadNibNamed:@"ConsoleHeaderView" owner:self options:nil].lastObject;
     _headerView.titleLabel.text = self.title;
-    
+    _headerView.statusLabel.text = @"宝宝体温正常";
     [self.view addSubview:_headerView];
+    
     _headerView.backButtonClick = ^(UIButton *button) {
         [weakSelf.navigationController popViewControllerAnimated:true];
     };
+    
     _headerView.settingButtonClick = ^(UIButton *button) {
         TemperatureThresholdSettingViewController * temperatureSetVC = [[TemperatureThresholdSettingViewController alloc]init];
         [weakSelf.navigationController pushViewController:temperatureSetVC animated:true];
     };
+    
     [_headerView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.left.right.equalTo(@0);
         make.height.equalTo(@210);
@@ -77,12 +92,13 @@
     NSString * bobyTemp = [NSString stringWithFormat:@"%@",valueDic[Body_Temp_Value]];
     CGFloat temp = bobyTemp.floatValue;
     [_thermometerView updateAlarTemProgressWithNumber:temp];
-    NSString * kickState = @"宝宝盖被正常";
-    NSNumber * kickValue = valueDic[Baby_Urine_Value];
-    if ([kickValue shortValue] == 1){
-        kickState = @"宝宝踢被啦";
+    NSString * tempState = @"宝宝体温正常";
+    if ([bobyTemp floatValue] > maxThresholdValue){
+        tempState = @"宝宝体温偏高";
+    }else if ([bobyTemp floatValue] < minThresholdValue){
+        tempState = @"宝宝体温偏低";
     }
-    _headerView.statusLabel.text = kickState;
+    _headerView.statusLabel.text = tempState;
 }
 
 -(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
@@ -97,6 +113,20 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+-(void)getCryingThresholdValueComplication:(void(^)(BOOL isSuccess,ForecastValuesInfo * info))finish{
+    [BBRequestTool GetThresholdValueDeviceType:@"2" deviceId:[BBUser bb_getUser].deviceId successBlock:^(EnumServerStatus status, id object) {
+        ForecastValuesModel *resultM = [[ForecastValuesModel alloc] initWithDictionary:object error:nil];
+        if (resultM.code == 0) {
+            finish(true,resultM.data);
+        }else{
+            [QMUITips showWithText:resultM.msg inView:self.view hideAfterDelay:0.5];
+            finish(false,nil);
+        }
+    } failureBlock:^(EnumServerStatus status, id object) {
+        finish(false,nil);
+    }];
 }
 
 /*

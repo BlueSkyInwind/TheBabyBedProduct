@@ -14,6 +14,7 @@
 
 @property (nonatomic,strong)UIImage * centerImage;
 @property (nonatomic,strong)UIColor * currentColor;
+@property (nonatomic,strong)UILabel * titleLabel;
 
 
 +(instancetype)initWithFrame:(CGRect)frame image:(UIImage *)image circleColor:(UIColor *)color title:(NSString *)title;

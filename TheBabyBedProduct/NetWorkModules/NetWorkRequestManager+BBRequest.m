@@ -537,7 +537,12 @@ static void getRequest(NSString *url,id param,SuccessBlock successBlock,FailureB
     
 }
 
-/*  获取曲线数据  */
+/*  获取曲线数据
+ 0, "温度传感器"),
+ 1, "声音传感器"),
+ 2, "体温传感器"),
+ 3, "湿度传感器"
+ */
 -(void)GetStatisticsDataDeviceType:(NSString *)deviceType deviceId:(NSString *)deviceId successBlock:(SuccessBlock)successBlock failureBlock:(FailureBlock)failureBlock{
     
     NSString * urlStr = [NSString stringWithFormat:@"%@%@",K_Url_GetSensorData,deviceId];

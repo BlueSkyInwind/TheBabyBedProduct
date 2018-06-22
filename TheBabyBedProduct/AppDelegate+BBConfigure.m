@@ -128,8 +128,7 @@
 }
 -(void)test
 {
-#warning todo pp605
-//    [BBRequestTool bb_requestShareWithSuccessBlock:^(EnumServerStatus status, id object) {
+#warning to//    [BBRequestTool bb_requestShareWithSuccessBlock:^(EnumServerStatus status, id object) {
 //        NSLog(@"share success %@",object);
 //    } failureBlock:^(EnumServerStatus status, id object) {
 //        NSLog(@"share error %@",object);
