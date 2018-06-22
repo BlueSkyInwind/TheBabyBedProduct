@@ -147,9 +147,12 @@
      }
      */
     if (BBUserHelpers.hasLogined) {
-        self.userNameLB.text = self.user.username;
+        self.userNameLB.text = [self.user.nickName bb_safe];
+        if ([self.user.identity bb_isSafe]) {
+            self.userNameLB.text = [NSString stringWithFormat:@"%@的%@",[self.user.nickName bb_safe], [self.user.identity bb_safe]];
+        }
         if (self.user.both && [self.user.both integerValue] > 0) {
-            self.babyDaysLB.text = [NSString stringWithFormat:@"您的宝宝%lu天了",(unsigned long)[self.user.both bb_timeIntervalFromTimestamp]];
+            self.babyDaysLB.text = [self.user.both bb_timeIntervalFromTimestamp];
             self.babyDaysLB.hidden = NO;
         }else{
             self.babyDaysLB.text = @"";

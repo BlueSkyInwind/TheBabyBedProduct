@@ -164,6 +164,13 @@ typedef NS_ENUM(NSInteger,BBGetCodeType) {
 -(void)bb_requestExchangeWithSuccessBlock:(SuccessBlock)successBlock
                              failureBlock:(FailureBlock)failureBlock;
 
+/**
+ 积分兑换记录 post
+ */
+-(void)bb_requestExchangeListWithPageNo:(NSInteger)pageNo
+                           successBlock:(SuccessBlock)successBlock
+                           failureBlock:(FailureBlock)failureBlock;
+
 /*
  预选值列表
  */
@@ -260,4 +267,9 @@ typedef NS_ENUM(NSInteger,BBGetCodeType) {
 -(void)GetStatisticsDataDeviceType:(NSString *)deviceType deviceId:(NSString *)deviceId successBlock:(SuccessBlock)successBlock failureBlock:(FailureBlock)failureBlock;
 /*  绑定设备  */
 -(void)applyBindDeviceId:(NSString *)deviceId successBlock:(SuccessBlock)successBlock failureBlock:(FailureBlock)failureBlock;
+/*  获取天气信息(拼音) */
+-(void)applyCityWeatherInfo:(NSString *)cityEn successBlock:(SuccessBlock)successBlock failureBlock:(FailureBlock)failureBlock;
+/*  获取天气信息（经纬） */
+-(void)applyCityWeatherInfo:(NSString *)lan lon:(NSString *)lon successBlock:(SuccessBlock)successBlock failureBlock:(FailureBlock)failureBlock;
+
 @end

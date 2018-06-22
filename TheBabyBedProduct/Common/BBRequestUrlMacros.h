@@ -50,6 +50,8 @@
 #define K_Url_DeviceInfo        @"/api/deviceInfo"
 //帮助list
 #define K_Url_HelpList          @"/api/help/list"
+//关于我们 👌
+#define K_Url_AboutUs           @"/h5/help/abus"
 
 //签到 👌
 #define K_Url_SignIn            @"/api/user/signin"
@@ -63,6 +65,8 @@
 
 //积分兑换 👌
 #define K_Url_Exchange          @"/api/user/exchange"
+//积分兑换记录
+#define K_Url_ExchangeList      @"/api/user/getExchangeList"
 
 ///走通了没数据
 
@@ -98,6 +102,9 @@
 //热门推荐（音乐）
 
 #define K_Url_Refresh_Token     @"/audio/v2/refresh_device_token"
+
+//https://free-api.heweather.com/s6/weather/now?location=
+#define HefengWeaherInfo     @"https://free-api.heweather.com/s6/weather/now?location="
 
 
 #endif /* BBRequestUrlMacros_h */

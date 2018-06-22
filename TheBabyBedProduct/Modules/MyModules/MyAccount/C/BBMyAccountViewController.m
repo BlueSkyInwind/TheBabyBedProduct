@@ -52,7 +52,6 @@
 {
     [self.tableView ly_startLoading];
     [BBRequestTool bb_requestCurListWithPageNo:self.currentPage pageSize:10 SuccessBlock:^(EnumServerStatus status, id object) {
-        NSLog(@"我的账户 %@",object);
         BBConsumeRecordListResult *result = [BBConsumeRecordListResult mj_objectWithKeyValues:object];
         if (result.code == 0) {
             [self.expenceRecords addObjectsFromArray:result.data];
@@ -64,7 +63,6 @@
             [self _endRefreshing];
         }
     } failureBlock:^(EnumServerStatus status, id object) {
-        NSLog(@"我的账户 22 %@",object);
         [self _endRefreshing];
     }];
 }
@@ -85,9 +83,9 @@
 
     UILabel *accountSurplusLB = [UILabel bb_lbMakeWithSuperV:topView fontSize:16 alignment:NSTextAlignmentCenter textColor:k_color_515151];
     #warning todo 账户余额
-    NSNumber *surplusCount = BBUserHelpers.price;
-    if ([surplusCount floatValue]) {
-        accountSurplusLB.text = [NSString stringWithFormat:@"%@",surplusCount];
+    NSString *surplusCount = BBUserHelpers.curTime;
+    if ([surplusCount bb_isSafe]) {
+        accountSurplusLB.text = surplusCount;
     }else{
         accountSurplusLB.text = @"--";
     }

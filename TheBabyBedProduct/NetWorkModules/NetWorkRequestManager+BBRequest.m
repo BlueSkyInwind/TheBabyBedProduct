@@ -328,6 +328,16 @@ static void getRequest(NSString *url,id param,SuccessBlock successBlock,FailureB
 {
     postRequest(K_Url_Exchange, nil, successBlock, failureBlock);
 }
+/**
+ 积分兑换记录 post
+ */
+-(void)bb_requestExchangeListWithPageNo:(NSInteger)pageNo
+                           successBlock:(SuccessBlock)successBlock
+                           failureBlock:(FailureBlock)failureBlock
+{
+    NSString *url = [NSString stringWithFormat:@"%@?pageNo=%ld&pageSize=%d",K_Url_ExchangeList,(long)pageNo,10];
+    postRequest(url, nil, successBlock, failureBlock);
+}
 /*
  预选值列表
  */
@@ -562,5 +572,22 @@ static void getRequest(NSString *url,id param,SuccessBlock successBlock,FailureB
     
 }
 
+/*  获取天气信息(拼音) */
+-(void)applyCityWeatherInfo:(NSString *)cityEn successBlock:(SuccessBlock)successBlock failureBlock:(FailureBlock)failureBlock{
+    
+    NSString * urlStr = [NSString stringWithFormat:@"%@%@&key=%@",HefengWeaherInfo,cityEn,hefengWeather_key];
+    
+    [BBRequestTool GetWithURL:urlStr isNeedNetStatus:NO isNeedWait:true parameters:nil finished:successBlock failure:failureBlock];
+
+}
+
+/*  获取天气信息（经纬） */
+-(void)applyCityWeatherInfo:(NSString *)lan lon:(NSString *)lon successBlock:(SuccessBlock)successBlock failureBlock:(FailureBlock)failureBlock{
+    
+    NSString * urlStr = [NSString stringWithFormat:@"%@%@,%@&key=%@",HefengWeaherInfo,lan,lon,hefengWeather_key];
+    
+    [BBRequestTool GetWithURL:urlStr isNeedNetStatus:NO isNeedWait:true parameters:nil finished:successBlock failure:failureBlock];
+
+}
 
 @end

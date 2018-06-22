@@ -103,6 +103,10 @@
 		22F4C35120CEC84D006FBBAC /* BBEarlyEducationMusicDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22F4C34D20CEC84C006FBBAC /* BBEarlyEducationMusicDetailViewController.m */; };
 		22F4C35220CEC84D006FBBAC /* BBEarlyEducationMusicListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22F4C34F20CEC84C006FBBAC /* BBEarlyEducationMusicListViewController.m */; };
 		22F4C35520CECD40006FBBAC /* videoClarityChangeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 22F4C35420CECD40006FBBAC /* videoClarityChangeView.m */; };
+		22F4C35920D93FAE006FBBAC /* CityListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 22F4C35820D93FAE006FBBAC /* CityListModel.m */; };
+		22F4C35D20D945FD006FBBAC /* ProvinceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22F4C35C20D945FD006FBBAC /* ProvinceViewController.m */; };
+		22F4C36020D949A2006FBBAC /* CityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22F4C35F20D949A2006FBBAC /* CityViewController.m */; };
+		22F4C36320D949B3006FBBAC /* AreaViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22F4C36220D949B3006FBBAC /* AreaViewController.m */; };
 		347E55C5AB34C5F0659DAE6B /* Pods_TheBabyBedProduct.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 884698C1D52FC8383E4B1BCF /* Pods_TheBabyBedProduct.framework */; };
 		570A1C1E208C6E5200B13EB5 /* NSDate+BB.m in Sources */ = {isa = PBXBuildFile; fileRef = 570A1C1D208C6E5200B13EB5 /* NSDate+BB.m */; };
 		570A1CB72090C9D500B13EB5 /* BBDeviceHeaderBottomView.m in Sources */ = {isa = PBXBuildFile; fileRef = 570A1CB62090C9D500B13EB5 /* BBDeviceHeaderBottomView.m */; };
@@ -278,6 +282,12 @@
 		57DF018C20D4B0BD00BA95F7 /* mytheme.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 57DF018620D4B0BD00BA95F7 /* mytheme.mp3 */; };
 		57DF018D20D4B0BD00BA95F7 /* storystory.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 57DF018720D4B0BD00BA95F7 /* storystory.mp3 */; };
 		57DF018E20D4B0BD00BA95F7 /* bbCityList.json in Resources */ = {isa = PBXBuildFile; fileRef = 57DF018820D4B0BD00BA95F7 /* bbCityList.json */; };
+		57DF019420D79E6F00BA95F7 /* NJKWebViewProgress.m in Sources */ = {isa = PBXBuildFile; fileRef = 57DF019120D79E6F00BA95F7 /* NJKWebViewProgress.m */; };
+		57DF019520D79E6F00BA95F7 /* NJKWebViewProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 57DF019320D79E6F00BA95F7 /* NJKWebViewProgressView.m */; };
+		57DF019920D8067200BA95F7 /* BBExchangeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 57DF019820D8067200BA95F7 /* BBExchangeViewController.m */; };
+		57DF019C20D80C5700BA95F7 /* BBExchangeList.m in Sources */ = {isa = PBXBuildFile; fileRef = 57DF019B20D80C5700BA95F7 /* BBExchangeList.m */; };
+		57DF019F20D9B1ED00BA95F7 /* BBExchangeListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 57DF019E20D9B1ED00BA95F7 /* BBExchangeListCell.m */; };
+		57DF01A220D9BB8700BA95F7 /* BBInviteFriendsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 57DF01A120D9BB8700BA95F7 /* BBInviteFriendsViewController.m */; };
 		57DF59B420835527002D2CED /* BBUserDevice.m in Sources */ = {isa = PBXBuildFile; fileRef = 57DF59B320835527002D2CED /* BBUserDevice.m */; };
 		57DF59B720843CD7002D2CED /* BBSignInPopView.m in Sources */ = {isa = PBXBuildFile; fileRef = 57DF59B620843CD7002D2CED /* BBSignInPopView.m */; };
 		84114B4320722BF6005A1DC9 /* jpush-ios-3.0.8.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 84114B4020722BF6005A1DC9 /* jpush-ios-3.0.8.a */; };
@@ -519,6 +529,14 @@
 		22F4C35020CEC84C006FBBAC /* BBEarlyEducationMusicListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBEarlyEducationMusicListViewController.h; sourceTree = "<group>"; };
 		22F4C35320CECD3F006FBBAC /* videoClarityChangeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = videoClarityChangeView.h; sourceTree = "<group>"; };
 		22F4C35420CECD40006FBBAC /* videoClarityChangeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = videoClarityChangeView.m; sourceTree = "<group>"; };
+		22F4C35720D93FAE006FBBAC /* CityListModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CityListModel.h; sourceTree = "<group>"; };
+		22F4C35820D93FAE006FBBAC /* CityListModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CityListModel.m; sourceTree = "<group>"; };
+		22F4C35B20D945FD006FBBAC /* ProvinceViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProvinceViewController.h; sourceTree = "<group>"; };
+		22F4C35C20D945FD006FBBAC /* ProvinceViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProvinceViewController.m; sourceTree = "<group>"; };
+		22F4C35E20D949A2006FBBAC /* CityViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CityViewController.h; sourceTree = "<group>"; };
+		22F4C35F20D949A2006FBBAC /* CityViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CityViewController.m; sourceTree = "<group>"; };
+		22F4C36120D949B3006FBBAC /* AreaViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AreaViewController.h; sourceTree = "<group>"; };
+		22F4C36220D949B3006FBBAC /* AreaViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AreaViewController.m; sourceTree = "<group>"; };
 		2F6F434F00B680C952F3C9BF /* Pods-TheBabyBedProduct.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TheBabyBedProduct.release.xcconfig"; path = "Pods/Target Support Files/Pods-TheBabyBedProduct/Pods-TheBabyBedProduct.release.xcconfig"; sourceTree = "<group>"; };
 		570A1C1C208C6E5200B13EB5 /* NSDate+BB.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSDate+BB.h"; sourceTree = "<group>"; };
 		570A1C1D208C6E5200B13EB5 /* NSDate+BB.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSDate+BB.m"; sourceTree = "<group>"; };
@@ -827,6 +845,18 @@
 		57DF018620D4B0BD00BA95F7 /* mytheme.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = mytheme.mp3; sourceTree = "<group>"; };
 		57DF018720D4B0BD00BA95F7 /* storystory.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = storystory.mp3; sourceTree = "<group>"; };
 		57DF018820D4B0BD00BA95F7 /* bbCityList.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = bbCityList.json; sourceTree = "<group>"; };
+		57DF019020D79E6F00BA95F7 /* NJKWebViewProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NJKWebViewProgressView.h; sourceTree = "<group>"; };
+		57DF019120D79E6F00BA95F7 /* NJKWebViewProgress.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NJKWebViewProgress.m; sourceTree = "<group>"; };
+		57DF019220D79E6F00BA95F7 /* NJKWebViewProgress.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NJKWebViewProgress.h; sourceTree = "<group>"; };
+		57DF019320D79E6F00BA95F7 /* NJKWebViewProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NJKWebViewProgressView.m; sourceTree = "<group>"; };
+		57DF019720D8067200BA95F7 /* BBExchangeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BBExchangeViewController.h; sourceTree = "<group>"; };
+		57DF019820D8067200BA95F7 /* BBExchangeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BBExchangeViewController.m; sourceTree = "<group>"; };
+		57DF019A20D80C5700BA95F7 /* BBExchangeList.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BBExchangeList.h; sourceTree = "<group>"; };
+		57DF019B20D80C5700BA95F7 /* BBExchangeList.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BBExchangeList.m; sourceTree = "<group>"; };
+		57DF019D20D9B1ED00BA95F7 /* BBExchangeListCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BBExchangeListCell.h; sourceTree = "<group>"; };
+		57DF019E20D9B1ED00BA95F7 /* BBExchangeListCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BBExchangeListCell.m; sourceTree = "<group>"; };
+		57DF01A020D9BB8700BA95F7 /* BBInviteFriendsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BBInviteFriendsViewController.h; sourceTree = "<group>"; };
+		57DF01A120D9BB8700BA95F7 /* BBInviteFriendsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BBInviteFriendsViewController.m; sourceTree = "<group>"; };
 		57DF59B220835527002D2CED /* BBUserDevice.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BBUserDevice.h; sourceTree = "<group>"; };
 		57DF59B320835527002D2CED /* BBUserDevice.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BBUserDevice.m; sourceTree = "<group>"; };
 		57DF59B520843CD7002D2CED /* BBSignInPopView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BBSignInPopView.h; sourceTree = "<group>"; };
@@ -1252,6 +1282,7 @@
 				22CFD3942062A72A0004186D /* Temperature */,
 				5798F8A320CEB5EE00C20029 /* ConsoleVideoViewController.h */,
 				5798F8A420CEB5EE00C20029 /* ConsoleVideoViewController.m */,
+				22F4C35A20D945C4006FBBAC /* cityList */,
 			);
 			path = TheConsoleModules;
 			sourceTree = "<group>";
@@ -1287,6 +1318,7 @@
 		22CFD38A20614C230004186D /* MyModules */ = {
 			isa = PBXGroup;
 			children = (
+				57DF019620D8064A00BA95F7 /* Exchange */,
 				57210C7B2073B4B80039D8D5 /* MyReward */,
 				57210C712073B4A50039D8D5 /* MyAccount */,
 				57585ABB206D17B4001BB202 /* FamilyMember */,
@@ -1391,6 +1423,7 @@
 		22CFD39E2064015D0004186D /* Third */ = {
 			isa = PBXGroup;
 			children = (
+				57DF018F20D79E6F00BA95F7 /* NJKWebViewProgress */,
 				843346E520BFDBDA0021C7AB /* ijkplayer */,
 				5722099020AD27AA00611BFA /* CBAutoScrollLabel */,
 				5722098620AD24E600611BFA /* GKSearchBar */,
@@ -1448,6 +1481,19 @@
 				22CFD3F92067FE060004186D /* TemperatureThresholdSettingViewController.xib */,
 			);
 			path = ThresholdSetting;
+			sourceTree = "<group>";
+		};
+		22F4C35A20D945C4006FBBAC /* cityList */ = {
+			isa = PBXGroup;
+			children = (
+				22F4C35B20D945FD006FBBAC /* ProvinceViewController.h */,
+				22F4C35C20D945FD006FBBAC /* ProvinceViewController.m */,
+				22F4C35E20D949A2006FBBAC /* CityViewController.h */,
+				22F4C35F20D949A2006FBBAC /* CityViewController.m */,
+				22F4C36120D949B3006FBBAC /* AreaViewController.h */,
+				22F4C36220D949B3006FBBAC /* AreaViewController.m */,
+			);
+			path = cityList;
 			sourceTree = "<group>";
 		};
 		57210C712073B4A50039D8D5 /* MyAccount */ = {
@@ -1685,8 +1731,6 @@
 				5726F352206B257A008EED75 /* BBNotificationSettingViewController.m */,
 				5726F354206B2B62008EED75 /* BBNotificationSettingListCell.h */,
 				5726F355206B2B62008EED75 /* BBNotificationSettingListCell.m */,
-				5726F3B2206B99D7008EED75 /* BBAboutUsViewController.h */,
-				5726F3B3206B99D7008EED75 /* BBAboutUsViewController.m */,
 			);
 			path = NotificationSetting;
 			sourceTree = "<group>";
@@ -1944,6 +1988,8 @@
 		574C6CD02069262000F5BF55 /* C */ = {
 			isa = PBXGroup;
 			children = (
+				5726F3B2206B99D7008EED75 /* BBAboutUsViewController.h */,
+				5726F3B3206B99D7008EED75 /* BBAboutUsViewController.m */,
 				574C6CD22069262000F5BF55 /* BBSettingViewController.h */,
 				574C6CD12069262000F5BF55 /* BBSettingViewController.m */,
 				57210D19207A48F60039D8D5 /* BBModifyPasswordViewController.h */,
@@ -2013,6 +2059,8 @@
 				57585ABD206D17CA001BB202 /* BBFamilyMemberViewController.m */,
 				57585AC0206D1AE8001BB202 /* BBFamilyMemberListCell.h */,
 				57585AC1206D1AE8001BB202 /* BBFamilyMemberListCell.m */,
+				57DF01A020D9BB8700BA95F7 /* BBInviteFriendsViewController.h */,
+				57DF01A120D9BB8700BA95F7 /* BBInviteFriendsViewController.m */,
 			);
 			path = FamilyMember;
 			sourceTree = "<group>";
@@ -2169,6 +2217,30 @@
 			path = Handlers/NAKPlaybackIndicatorView;
 			sourceTree = "<group>";
 		};
+		57DF018F20D79E6F00BA95F7 /* NJKWebViewProgress */ = {
+			isa = PBXGroup;
+			children = (
+				57DF019020D79E6F00BA95F7 /* NJKWebViewProgressView.h */,
+				57DF019120D79E6F00BA95F7 /* NJKWebViewProgress.m */,
+				57DF019220D79E6F00BA95F7 /* NJKWebViewProgress.h */,
+				57DF019320D79E6F00BA95F7 /* NJKWebViewProgressView.m */,
+			);
+			path = NJKWebViewProgress;
+			sourceTree = "<group>";
+		};
+		57DF019620D8064A00BA95F7 /* Exchange */ = {
+			isa = PBXGroup;
+			children = (
+				57DF019720D8067200BA95F7 /* BBExchangeViewController.h */,
+				57DF019820D8067200BA95F7 /* BBExchangeViewController.m */,
+				57DF019A20D80C5700BA95F7 /* BBExchangeList.h */,
+				57DF019B20D80C5700BA95F7 /* BBExchangeList.m */,
+				57DF019D20D9B1ED00BA95F7 /* BBExchangeListCell.h */,
+				57DF019E20D9B1ED00BA95F7 /* BBExchangeListCell.m */,
+			);
+			path = Exchange;
+			sourceTree = "<group>";
+		};
 		84114B3F20722BD0005A1DC9 /* JPush */ = {
 			isa = PBXGroup;
 			children = (
@@ -2254,6 +2326,8 @@
 				22833BF8207A5E6800A70247 /* MessageModel.m */,
 				84C6B07C20D90C19008BD264 /* ForecastValuesModel.h */,
 				84C6B07D20D90C19008BD264 /* ForecastValuesModel.m */,
+				22F4C35720D93FAE006FBBAC /* CityListModel.h */,
+				22F4C35820D93FAE006FBBAC /* CityListModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -2624,6 +2698,7 @@
 				57CB443820A415D900268DBE /* UIDevice+GetDeviceInfo.m in Sources */,
 				57210CAA2074C2DE0039D8D5 /* ZFBrightnessView.m in Sources */,
 				57CF99FE20BA8551005EB9E9 /* MusicSlider.m in Sources */,
+				22F4C36020D949A2006FBBAC /* CityViewController.m in Sources */,
 				22CFD3D22067C3120004186D /* ConsoleTemperatureViewController.m in Sources */,
 				57585AD2206D4428001BB202 /* LWShareService.m in Sources */,
 				574C6CD92069262000F5BF55 /* BBLoginRegistHeaderView.m in Sources */,
@@ -2702,10 +2777,14 @@
 				842D9CED206B94C90020C3C2 /* HomeLeftItemView.m in Sources */,
 				84332C9D206CE6F5009A9121 /* MessageTableViewCell.m in Sources */,
 				574C6CB92069254200F5BF55 /* NSMutableAttributedString+KeywordHignlight.m in Sources */,
+				57DF01A220D9BB8700BA95F7 /* BBInviteFriendsViewController.m in Sources */,
+				22F4C36320D949B3006FBBAC /* AreaViewController.m in Sources */,
 				5726F356206B2B62008EED75 /* BBNotificationSettingListCell.m in Sources */,
 				5722098320AD22AC00611BFA /* GKWYDiskView.m in Sources */,
 				57210D0F207777960039D8D5 /* AppDelegate+BBConfigure.m in Sources */,
 				5726F359206B437D008EED75 /* BBForgetPasswordViewController.m in Sources */,
+				57DF019520D79E6F00BA95F7 /* NJKWebViewProgressView.m in Sources */,
+				57DF019420D79E6F00BA95F7 /* NJKWebViewProgress.m in Sources */,
 				57210D09207736040039D8D5 /* NetWorkRequestManager+BBRequest.m in Sources */,
 				5722098920AD24E600611BFA /* GKSearchBar.m in Sources */,
 				5726F33C206A2FB2008EED75 /* BBWarningRingListCell.m in Sources */,
@@ -2744,6 +2823,7 @@
 				22CFD3C3206652B70004186D /* ConsoleRateView.m in Sources */,
 				2263B8F220709EA2005BB15E /* BaseCentralManager.m in Sources */,
 				2266C1BD20694A85004F653A /* CryingChartViewController.m in Sources */,
+				57DF019920D8067200BA95F7 /* BBExchangeViewController.m in Sources */,
 				57210C7E2073B4B80039D8D5 /* BBMyRewardViewController.m in Sources */,
 				574C6CE72069272700F5BF55 /* UITableViewCell+EasilyMake.m in Sources */,
 				57DF59B420835527002D2CED /* BBUserDevice.m in Sources */,
@@ -2784,8 +2864,10 @@
 				22F4C35520CECD40006FBBAC /* videoClarityChangeView.m in Sources */,
 				572209C120AD2B3D00611BFA /* GKDownloadManager.m in Sources */,
 				5726F3BB206BE46F008EED75 /* BBAcountNumberListCell.m in Sources */,
+				22F4C35D20D945FD006FBBAC /* ProvinceViewController.m in Sources */,
 				8449AC1B20623ACC00526935 /* GlobalTool.m in Sources */,
 				574C6CED20693D2400F5BF55 /* UILabel+EasilyMake.m in Sources */,
+				57DF019C20D80C5700BA95F7 /* BBExchangeList.m in Sources */,
 				574C6CBE2069254200F5BF55 /* PPLabel.m in Sources */,
 				84C6B07E20D90C19008BD264 /* ForecastValuesModel.m in Sources */,
 				84D270C4208DDB4900ED57A3 /* BLEDeviceStatusViewController.m in Sources */,
@@ -2802,6 +2884,7 @@
 				5726F3BE206C7F3B008EED75 /* BBEarlyEducationHeaderView.m in Sources */,
 				5798F8AE20D0404000C20029 /* BBRechargeMoney.m in Sources */,
 				225B8BD320CEBA3200710583 /* BBMyAccountViewController.m in Sources */,
+				57DF019F20D9B1ED00BA95F7 /* BBExchangeListCell.m in Sources */,
 				574C6CD62069262000F5BF55 /* BBLoginView.m in Sources */,
 				225B8BCE20CEBA3200710583 /* BBConsumeRecord.m in Sources */,
 				57585AD3206D4428001BB202 /* LWShareContentView.m in Sources */,
@@ -2811,6 +2894,7 @@
 				229FF0B22088EE9C005BA4A6 /* SendUdpMessage.m in Sources */,
 				574C6CBC2069254200F5BF55 /* NSString+PPTextField.m in Sources */,
 				57CB443E20A5712100268DBE /* BBMusicRequestModel.m in Sources */,
+				22F4C35920D93FAE006FBBAC /* CityListModel.m in Sources */,
 				572209BD20AD2B3D00611BFA /* GKAudioPlayer.m in Sources */,
 				8490CFBF20747CFC00D416C1 /* ConfigurationWifiViewController.m in Sources */,
 				22CF356E20764F6300707F8A /* GlobalAlertViewManager.m in Sources */,

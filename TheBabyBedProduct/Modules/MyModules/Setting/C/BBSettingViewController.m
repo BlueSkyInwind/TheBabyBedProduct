@@ -37,19 +37,55 @@
 {
     self.tableView = [UITableView bb_tableVMakeWithSuperV:self.view frame:self.view.bounds delegate:self bgColor:k_color_vcBg style:UITableViewStylePlain];
     
+    UIView *fotterV = [[UIView alloc]init];
+    self.tableView.tableFooterView = fotterV;
+    
+    UILabel *currentVersionLB = [UILabel bb_lbMakeWithSuperV:fotterV fontSize:14 alignment:NSTextAlignmentCenter textColor:k_color_515151];
+    currentVersionLB.text = [NSString stringWithFormat:@"当前版本%@",[GlobalTool getAppVersion]];
+    currentVersionLB.frame = CGRectMake(0, 0, _k_w, 20);
+    
+    if (BBUserHelpers.hasLogined) {
+        QMUIFillButton *signOutBT = [QMUIFillButton buttonWithType:UIButtonTypeCustom];
+        [fotterV addSubview:signOutBT];
+        signOutBT.titleLabel.font = [UIFont systemFontOfSize:18];
+        signOutBT.fillColor = rgb(255, 236, 183, 1);
+        signOutBT.titleTextColor = k_color_515151;
+        [signOutBT setTitle:@"退出登录" forState:UIControlStateNormal];
+        signOutBT.frame = CGRectMake(40, 20+5, _k_w-80, 44);
+        [signOutBT addTarget:self action:@selector(signOutAction) forControlEvents:UIControlEventTouchUpInside];
+        fotterV.frame = CGRectMake(0, 0, _k_w, 20+44+5);
+        
+    }else{
+        fotterV.frame = CGRectMake(0, 0, _k_w, 20);
+    }
+    
+}
+-(void)signOutAction
+{
+    UIAlertController *alertC = [UIAlertController bb_alertControllerMakeForAlertCancelAndOKWithTitle:@"您真的要退出登录？" message:nil OKHandler:^(UIAlertAction *action) {
+        //退出登录，只需要本地清空token即可
+        BBUser *emptyUser = [[BBUser alloc]init];
+        emptyUser.hasLogined = NO;  //保险起见，还是加上
+        [BBUser bb_saveUser:emptyUser];
+        //清理缓存
+        [self removeCacheWithHasLoading:NO];
+        [self.tableView reloadData];
+        [QMUITips showLoading:@"您已退出登录" inView:self.view];
+    }];
+    [self presentViewController:alertC animated:YES completion:nil];
     
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
 {
-    if (!BBUserHelpers.hasLogined && section == 1){
-        return 200;
+    if (BBUserHelpers.hasLogined && section == 1){
+        return 100;
     }
     return 0.001;
 }
 -(UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section
 {
-    if (!BBUserHelpers.hasLogined && section == 1) {
-        UIView *foterV = [[UIView alloc]initWithFrame:CGRectFlatMake(0, 50, _k_w, 200)];
+    if (BBUserHelpers.hasLogined && section == 1) {
+        UIView *foterV = [[UIView alloc]initWithFrame:CGRectFlatMake(0, 50, _k_w, 100)];
         foterV.backgroundColor = [UIColor clearColor];
         return foterV;
     }
@@ -166,7 +202,7 @@
                 return;
             }else{
                 //清理缓存
-                [self removeCache];
+                [self removeCacheWithHasLoading:YES];
             }
             
         }else if (indexPath.row == 2){
@@ -177,7 +213,7 @@
     
 }
 
-- (void)removeCache
+- (void)removeCacheWithHasLoading:(BOOL)hasLoading
 {
     //===============清除缓存==============
     //获取路径
@@ -198,12 +234,16 @@
             if(isRemove) {
                 NSLog(@"清除成功");
                 //这里发送一个通知给外界，外界接收通知，可以做一些操作（比如UIAlertViewController）
-                [QMUITips showWithText:@"缓存清理成功" inView:self.view hideAfterDelay:1.5];
+                if (hasLoading) {
+                    [QMUITips showWithText:@"缓存清理成功" inView:self.view hideAfterDelay:1.5];
+                }
                 BBMyListSubTitleCell *cell = [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:1 inSection:1]];
                 [cell setupCellWithImgName:@"setsweep" title:@"清理缓存" subTitle:@"0.00MB"];
 
             }else{
-                [QMUITips showWithText:@"清除失败" inView:self.view hideAfterDelay:1.5];
+                if (hasLoading) {
+                    [QMUITips showWithText:@"清除失败" inView:self.view hideAfterDelay:1.5];
+                }
             }
         }
     }

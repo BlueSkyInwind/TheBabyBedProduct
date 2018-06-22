@@ -17,6 +17,7 @@
 #import "BBFamilyMemberViewController.h"
 #import "BBMyRewardViewController.h"
 #import "BBEditInformationViewController.h"
+#import "BBExchangeViewController.h"
 
 @interface MyViewController ()<UITableViewDelegate,UITableViewDataSource>
 {
@@ -113,7 +114,7 @@
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 3;
+    return 4;
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -124,12 +125,15 @@
 {
     NSArray *imgs = @[
                       @"gliwu",
+#warning pp605 这个图片到时候修改下
+                      @"gliwu",
                       @"gwenjian",
                       @"gshezhi"
                       ];
     
     NSArray *titles = @[
                         @"任务奖励",
+                        @"积分兑换记录",
                         @"帮助意见",
                         @"设置"
                         ];
@@ -151,6 +155,14 @@
         }
         
     }else if (indexPath.row == 1){
+        //兑换记录
+        if (BBUserHelpers.hasLogined) {
+            BBExchangeViewController *exchangeVC = [[BBExchangeViewController alloc]init];
+            [self.navigationController pushViewController:exchangeVC animated:YES];
+        }else{
+            [self goLoginRegistVc];
+        }
+    }else if (indexPath.row == 2){
         //帮助建议
         if (BBUserHelpers.hasLogined) {
             BBHelpAndSuggestionViewController *helpSuggestionVC = [[BBHelpAndSuggestionViewController alloc]init];
