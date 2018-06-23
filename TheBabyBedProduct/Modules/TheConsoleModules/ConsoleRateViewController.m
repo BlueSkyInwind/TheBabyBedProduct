@@ -70,7 +70,7 @@
             break;
     }
     [self configureView];
-
+    
     [[self rac_valuesAndChangesForKeyPath:@"statusStr" options:NSKeyValueObservingOptionNew observer:nil] subscribeNext:^(RACTwoTuple<id,NSDictionary *> * _Nullable x) {
         
     }];
@@ -80,25 +80,54 @@
 -(void)sensorDataUpdates:(NSNotification *)notification{
     NSDictionary * valueDic = notification.userInfo;
     DLog(@"%@",valueDic);
-    NSString * wetState;
-    NSString * kickState = @"正常";
-    NSNumber * wetValue = valueDic[Env_Humidity_Value];
-    if ([wetValue shortValue] < 10){
-        wetState = @"干爽";
-    }else if([wetValue shortValue] > 10 &&  [wetValue shortValue] < 50){
-        wetState = @"轻度尿湿";
-    }else{
-        wetState = @"需更换";
-    }
-    NSNumber * kickValue = valueDic[Baby_Urine_Value];
-    if ([kickValue shortValue] == 1){
-        kickState = @"踢被";
-    }
-    NSNumber * cryValue = valueDic[Baby_Cry_State];
-    if ([cryValue shortValue] == 1) {
-        
-    }else{
-        
+    switch (self.rateType) {
+        case BabyCryType:{
+            NSString * cryState = @"您的宝宝很乖哦，正在睡觉";
+            NSString * shortStr = @"安静";
+            NSNumber * cryValue = valueDic[Baby_Cry_State];
+            if ([cryValue shortValue] == 1) {
+                cryState = @"您的宝宝正在哭闹";
+                shortStr = @"哭闹";
+                [_rateView updateProgressWithNumber:100];
+            }
+            _headerView.statusLabel.text = cryState;
+            _rateView.titleLabel.text = shortStr;
+        }
+            break;
+        case BabyKickType:{
+            NSString * kickState = @"宝宝盖被正常";
+            NSString * shortStr = @"正常";
+            NSNumber * kickValue = valueDic[Baby_Urine_Value];
+            if ([kickValue shortValue] == 1){
+                kickState = @"宝宝踢被啦";
+                shortStr = @"踢被";
+                [_rateView updateProgressWithNumber:100];
+            }
+            _headerView.statusLabel.text = kickState;
+            _rateView.titleLabel.text = shortStr;
+        }
+            break;
+        case BabyWetType:{
+            NSString * wetState;
+            NSString * shotStr;
+            NSNumber * wetValue = valueDic[Env_Humidity_Value];
+            if ([wetValue shortValue] < 10){
+                wetState = @"您的宝宝尿不湿干爽";
+                shotStr = @"干爽";
+            }else if([wetValue shortValue] > 10 &&  [wetValue shortValue] < 50){
+                wetState = @"您的宝宝尿不湿轻度尿湿";
+                shotStr = @"轻度";
+            }else{
+                wetState = @"您的宝宝尿不湿已过湿，请注意更换";
+                shotStr = @"过湿";
+            }
+            [_rateView updateProgressWithNumber:[wetValue floatValue]];
+            _headerView.statusLabel.text = wetState;
+            _rateView.titleLabel.text = shotStr;
+        }
+            break;
+        default:
+            break;
     }
 }
 -(void)configureView{
@@ -129,9 +158,6 @@
     
     _rateView = [ConsoleRateView initWithFrame:CGRectMake(15, 0, _k_w - 30, _k_w - 30) image:currentImage circleColor:currentColor title:self.title];
     [backView addSubview:_rateView];
-    
-    [_rateView updateProgressWithNumber:50];
-    
     ConsoleRateBottonView * bottomView = [[ConsoleRateBottonView alloc]initWithFrame:CGRectZero];
     bottomView.historyBtnClick = ^(UIButton *button) {
         [weakSelf pushHistoryVC];
@@ -196,11 +222,11 @@
 }
 
 
--(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
-    
-    [_rateView updateProgressWithNumber:100];
-    
-}
+//-(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
+//
+//    [_rateView updateProgressWithNumber:100];
+//
+//}
 -(void)dealloc{
     [[NSNotificationCenter defaultCenter]removeObserver:self];
 }

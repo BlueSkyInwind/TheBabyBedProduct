@@ -72,6 +72,7 @@
     __weak typeof (self) weakSelf = self;
     _headerView = [[NSBundle mainBundle]loadNibNamed:@"ConsoleHeaderView" owner:self options:nil].lastObject;
     _headerView.titleLabel.text = self.title;
+    _headerView.statusLabel.text = @"室内体温比较舒适";
     [_headerView resetConsoleSettingBtn:20];
     [_headerView.settingBtn setImage:[UIImage imageNamed:@"location_Icon"] forState:UIControlStateNormal];
     _headerView.locationLabel.text = @"";
@@ -125,6 +126,7 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
 -(void)dealloc{
     [[NSNotificationCenter defaultCenter]removeObserver:self];
 }
