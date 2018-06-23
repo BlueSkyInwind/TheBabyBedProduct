@@ -81,6 +81,11 @@
 
 //更改申请状态  api/changeStatus/{id}
 #define K_Url_ChangeStatus      @"/api/changeStatus/"
+//设备解绑，权限设置 api/settingDevice/{id}
+#define K_Url_settingDevice     @"/api/settingDevice/"
+
+//生成邀请码 get
+#define K_Url_genInvCode        @"/api/apply/genInvCode"
 
 
 //设备绑定 后面需要加上deviceId

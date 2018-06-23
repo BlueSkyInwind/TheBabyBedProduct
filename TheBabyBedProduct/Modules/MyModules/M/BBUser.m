@@ -10,6 +10,7 @@
 #import <objc/runtime.h>
 
 @implementation BBUser
+
 -(void)encodeWithCoder:(NSCoder *)aCoder
 {
     //归档

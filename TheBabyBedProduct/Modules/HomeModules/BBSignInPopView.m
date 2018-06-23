@@ -195,14 +195,6 @@ typedef void(^signInB)(BBSignInPopView *popV);
         _titleLabel.hidden = YES;
         _goldBgV.hidden = YES;
         _signInBtn.hidden = YES;
-        //可以考虑间隔一定时间自动隐藏
-//        [UIView animateWithDuration:0 delay:10 options:UIViewAnimationOptionCurveLinear animations:^{
-//            if(self){
-//                [self hidden];
-//            }
-//        } completion:^(BOOL finished) {
-//
-//        }];
     }];
 }
 @end

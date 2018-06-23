@@ -247,6 +247,12 @@ typedef NS_ENUM(NSInteger,BBGetCodeType) {
 -(void)bb_requestRefreshTokenWithSuccessBlock:(SuccessBlock)successBlock
                                  failureBlock:(FailureBlock)failureBlock;
 
+/**
+ 获取邀请码
+ */
+-(void)bb_requestGenInCodeWithSuccessBlock:(SuccessBlock)successBlock
+                              failureBlock:(FailureBlock)failureBlock;
+
 
 /**
  预值设定
