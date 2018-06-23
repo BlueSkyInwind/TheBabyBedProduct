@@ -23,7 +23,6 @@ target 'TheBabyBedProduct' do
     pod 'CocoaAsyncSocket'
 #    pod 'HYBNetworking'
 
-    
     pod 'FreeStreamer', '~> 3.8.3'
     pod 'GKCover'                         # 遮罩
     
@@ -31,4 +30,8 @@ target 'TheBabyBedProduct' do
     pod 'GVUserDefaults'
     
     pod 'LYEmptyView', '~> 1.1.0'
+    
+    pod 'BaiduMapKit' #百度地图SDK
+    
+    
 end

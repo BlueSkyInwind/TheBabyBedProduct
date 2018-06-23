@@ -25,7 +25,7 @@
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     __weak typeof (self) weakSelf = self;
-    [self getCryingThresholdValueComplication:^(BOOL isSuccess, ForecastValuesInfo *info) {
+    [self getTemperatureThresholdValueComplication:^(BOOL isSuccess, ForecastValuesInfo *info) {
         if (isSuccess) {
             self.lowerTemperatureTextfield.text = info.minVal;
             self.highTemperatureTextfield.text = info.maxVal;
@@ -92,7 +92,7 @@
         finish(false);
     }];
 }
--(void)getCryingThresholdValueComplication:(void(^)(BOOL isSuccess,ForecastValuesInfo * info))finish{
+-(void)getTemperatureThresholdValueComplication:(void(^)(BOOL isSuccess,ForecastValuesInfo * info))finish{
     [BBRequestTool GetThresholdValueDeviceType:@"2" deviceId:[BBUser bb_getUser].deviceId successBlock:^(EnumServerStatus status, id object) {
         ForecastValuesModel *resultM = [[ForecastValuesModel alloc] initWithDictionary:object error:nil];
         if (resultM.code == 0) {

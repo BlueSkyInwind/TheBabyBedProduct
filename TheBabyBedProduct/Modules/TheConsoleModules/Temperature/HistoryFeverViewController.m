@@ -24,7 +24,9 @@
     self.title = @"历史体温";
     [self addBackItem];
     [self configureView];
-    
+    [self obtainHistoryFeverValueComplication:^(BOOL isSuccess) {
+        
+    }];
 }
 -(void)configureView{
     
@@ -38,6 +40,21 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+-(void)obtainHistoryFeverValueComplication:(void(^)(BOOL isSuccess))finish{
+    [BBRequestTool GetStatisticsDataDeviceType:@"2" deviceId:BBUserHelpers.deviceId successBlock:^(EnumServerStatus status, id object) {
+        BaseResultModel *resultM = [[BaseResultModel alloc] initWithDictionary:object error:nil];
+        if (resultM.code == 0) {
+            finish(true);
+        }else{
+            [QMUITips showWithText:resultM.msg inView:self.view hideAfterDelay:0.5];
+            finish(false);
+        }
+    } failureBlock:^(EnumServerStatus status, id object) {
+        finish(false);
+    }];
+}
+
 
 /*
 #pragma mark - Navigation

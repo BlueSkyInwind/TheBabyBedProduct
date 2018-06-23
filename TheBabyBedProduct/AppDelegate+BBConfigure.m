@@ -25,6 +25,22 @@
 
 @implementation AppDelegate (BBConfigure)
 
+-(void)InitializeBMKSDK{
+    
+   BOOL isSuccess =  [BMKMapManager setCoordinateTypeUsedInBaiduMapSDK:BMK_COORDTYPE_BD09LL];
+    if (isSuccess) {
+        DLog(@"经纬度类型设置成功");
+    }else{
+        DLog(@"经纬度类型设置失败");
+    }
+    BMKMapManager * mapManager = [[BMKMapManager alloc]init];
+    BOOL ret = [mapManager start:BMK_SDK_key generalDelegate:self];
+    if (!ret) {
+        NSLog(@"BMK ---- 启动失败");
+    }
+}
+
+
 -(void)bb_configureShareSDK
 {
     /**初始化ShareSDK应用
@@ -128,8 +144,7 @@
 }
 -(void)test
 {
-#warning todo pp605
-//    [BBRequestTool bb_requestShareWithSuccessBlock:^(EnumServerStatus status, id object) {
+#warning to//    [BBRequestTool bb_requestShareWithSuccessBlock:^(EnumServerStatus status, id object) {
 //        NSLog(@"share success %@",object);
 //    } failureBlock:^(EnumServerStatus status, id object) {
 //        NSLog(@"share error %@",object);

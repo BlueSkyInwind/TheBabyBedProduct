@@ -16,7 +16,6 @@
 }
 
 @property (nonatomic,strong)UIImageView * imageView;
-@property (nonatomic,strong)UILabel * titleLabel;
 @property (nonatomic,strong)CAShapeLayer * circleLayer;
 @property (nonatomic,strong)CAShapeLayer * progressLayer;
 
@@ -77,6 +76,7 @@
     _titleLabel.font = [UIFont systemFontOfSize:16];
     _titleLabel.layer.cornerRadius = _titleLabel.frame.size.height / 2;
     _titleLabel.clipsToBounds = true;
+    _titleLabel.text = @"正常";
     _titleLabel.textAlignment = NSTextAlignmentCenter;
     [self addSubview:_titleLabel];
     

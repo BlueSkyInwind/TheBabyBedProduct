@@ -24,6 +24,8 @@ NSString *const KGCSDad_Secret = @"76Yr0xkTiBD4Ubn21c39Ghjpy5doCzSf";
 
 NSString *const hefengWeather_key = @"896e8ba531e046b4b8e29fd5ffbc10ca";
 
+NSString *const BMK_SDK_key = @"7VrgvlKaftSeYN1VQAnfuQwLnxXFnzqP";
+
 
 #pragma mrak --------远程推送报警提示--------
 
