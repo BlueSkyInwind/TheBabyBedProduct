@@ -14,7 +14,6 @@
 #import "ConsoleRoomTemperatureViewController.h"
 #import "ConsoleVideoViewController.h"
 
-
 @interface TheConsoleViewController ()<BMKLocationServiceDelegate>
 
 @property (nonatomic,strong)ConsoleHeaderView * headerView;
@@ -30,14 +29,16 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     [self configureView];
-    
-    _locService = [[BMKLocationService alloc]init];
-    _locService.delegate = self;
-    [_locService startUserLocationService];
+
 }
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     self.navigationController.navigationBar.hidden = true;
+    if  (BBUserHelpers.hasLogined) {
+        _locService = [[BMKLocationService alloc]init];
+        _locService.delegate = self;
+        [_locService startUserLocationService];
+    }
 }
 -(void)viewWillDisappear:(BOOL)animated{
     [super viewWillDisappear:animated];
@@ -72,39 +73,51 @@
     
     __weak typeof (self) weakSelf = self;
     _bodyView.bobyTemperatureBtnClick = ^(UIButton *button) {
-        
+        [weakSelf pushLoginAndregister];
         ConsoleTemperatureViewController * temVC = [[ConsoleTemperatureViewController alloc]init];
         [weakSelf.navigationController pushViewController:temVC animated:true];
-
     };
     
     _bodyView.roomTemperatureBtnClick = ^(UIButton *button) {
+        [weakSelf pushLoginAndregister];
         ConsoleRoomTemperatureViewController * consoleRoomTemperature = [[ConsoleRoomTemperatureViewController alloc]init];
         [weakSelf.navigationController pushViewController:consoleRoomTemperature animated:true];
     };
     
     _bodyView.cryingBtnClick = ^(UIButton *button) {
+        [weakSelf pushLoginAndregister];
         ConsoleRateViewController * rateVC = [[ConsoleRateViewController alloc]init];
         rateVC.rateType = BabyCryType;
         [weakSelf.navigationController pushViewController:rateVC animated:true];
     };
     
     _bodyView.wettingBtnClick = ^(UIButton *button) {
+        [weakSelf pushLoginAndregister];
         ConsoleRateViewController * rateVC = [[ConsoleRateViewController alloc]init];
         rateVC.rateType = BabyWetType;
         [weakSelf.navigationController pushViewController:rateVC animated:true];
     };
     
     _bodyView.qulitBtnClick = ^(UIButton *button) {
+        [weakSelf pushLoginAndregister];
         ConsoleRateViewController * rateVC = [[ConsoleRateViewController alloc]init];
         rateVC.rateType = BabyKickType;
         [weakSelf.navigationController pushViewController:rateVC animated:true];
     };
     
     _bodyView.videoBtnClick = ^(UIButton *button) {
+        [weakSelf pushLoginAndregister];
         ConsoleVideoViewController *videoVC = [[ConsoleVideoViewController alloc]init];
         [weakSelf.navigationController pushViewController:videoVC animated:YES];
     };
+}
+
+-(void)pushLoginAndregister{
+    if  (BBUserHelpers.hasLogined == false) {
+        [self bb_goLoginRegistVC:^(BOOL isSuccess) {
+            
+        }];
+    }
 }
 
 - (void)didReceiveMemoryWarning {
@@ -118,10 +131,8 @@
  */
 - (void)didUpdateUserHeading:(BMKUserLocation *)userLocation
 {
-    
     NSLog(@"方向更新%f  %f",userLocation.location.coordinate.latitude,userLocation.location.coordinate.longitude);
 }
-
 
 /**
  *定位失败后，会调用此函数
@@ -138,7 +149,6 @@
  */
 - (void)didUpdateBMKUserLocation:(BMKUserLocation *)userLocation
 {
-    
     //定位当前城市
     BMKCoordinateRegion region;
     region.center.latitude  = userLocation.location.coordinate.latitude;
@@ -153,7 +163,6 @@
             CLPlacemark *placemark = [array objectAtIndex:0];
             if (placemark != nil) {
                 NSString *city = placemark.locality;
-                
                 NSLog(@"当前城市名称------%@",city);
                 BMKOfflineMap * _offlineMap = [[BMKOfflineMap alloc] init];
                 // _offlineMap.delegate = self;//可以不要
@@ -161,18 +170,15 @@
                 BMKOLSearchRecord* oneRecord = [records objectAtIndex:0];
                 //城市编码如:北京为131
                 NSInteger cityId = oneRecord.cityID;
-                
                 NSLog(@"当前城市编号-------->%zd",cityId);
                 NSLog(@"当前城市的 哪个区------%@ ",placemark.subLocality);
-                
                 //找到了当前位置城市后就关闭服务
-                // [_locService stopUserLocationService];
-
+                 [_locService stopUserLocationService];
             }
         }
     }];
-
 }
+
 /*
 #pragma mark - Navigation
 
