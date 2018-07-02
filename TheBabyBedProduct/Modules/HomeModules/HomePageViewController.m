@@ -68,6 +68,8 @@
                         user.latestSignInDate = [NSDate bb_todayStr];
                         [BBUser bb_saveUser:user];
                     }
+                }else{
+                    [QMUITips showInfo:@"签到失败"];
                 }
             } failureBlock:^(EnumServerStatus status, id object) {
                 [QMUITips showInfo:@"签到失败"];

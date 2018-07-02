@@ -510,6 +510,15 @@ static void getRequest(NSString *url,id param,SuccessBlock successBlock,FailureB
     postRequestGCSDad(K_Url_Refresh_Token, param, successBlock, failureBlock);
 }
 
+/**
+ 获取邀请码
+ */
+-(void)bb_requestGenInCodeWithSuccessBlock:(SuccessBlock)successBlock
+                              failureBlock:(FailureBlock)failureBlock
+{
+    getRequest(K_Url_genInvCode, nil, successBlock, failureBlock);
+}
+
 
 /**
  预值设定

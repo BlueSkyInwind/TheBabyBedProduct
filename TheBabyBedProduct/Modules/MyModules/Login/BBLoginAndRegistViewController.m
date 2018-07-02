@@ -256,12 +256,19 @@
             //此处多说一点，因为登录的时候已经保存了一个
             BBUser *user = [BBUser bb_getUser];
             user.hasLogined = YES;
-
+            
             for (NSString *dictKey in userInfoDict.allKeys) {
-                if ([user.properties containsObject:dictKey]) {
-                    [user setValue:[userInfoDict objectForKey:dictKey] forKey:dictKey];
+                if ([dictKey isEqualToString:@"id"]) {
+                    if ([user.properties containsObject:@"userId"]) {
+                        [user setValue:[userInfoDict objectForKey:@"id"] forKey:@"userId"];
+                    }
+                }else{
+                    if ([user.properties containsObject:dictKey]) {
+                        [user setValue:[userInfoDict objectForKey:dictKey] forKey:dictKey];
+                    }
                 }
             }
+            
             
             [BBUser bb_saveUser:user];
             

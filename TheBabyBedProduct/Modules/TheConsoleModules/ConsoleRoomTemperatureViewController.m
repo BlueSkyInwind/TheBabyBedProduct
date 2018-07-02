@@ -13,7 +13,7 @@
 #import "CityListModel.h"
 #import "ProvinceViewController.h"
 
-@interface ConsoleRoomTemperatureViewController (){
+@interface ConsoleRoomTemperatureViewController ()<BMKLocationServiceDelegate>{
     
     
     
@@ -24,6 +24,7 @@
 @property (nonatomic,strong)RoomIndicatorView * indicatorView;
 @property (nonatomic,strong)NSString * outdoorValue;
 @property (nonatomic,strong)NSString * indoorValue;
+@property (strong, nonatomic) BMKLocationService * locService;//定位
 
 
 @end
@@ -37,7 +38,6 @@
     [self addBackItem];
     [self configureView];
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(sensorDataUpdates:) name:YDA_EVENT_NOTIFICATION object:nil ];
-
 }
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
@@ -50,6 +50,11 @@
         [self obainWeatherInfo:model.en complication:^(NSString *temp) {
             weakSelf.outdoorValue = temp;
         }];
+    }else{
+        _headerView.locationLabel.text = @"获取中..";
+        _locService = [[BMKLocationService alloc]init];
+        _locService.delegate = self;
+        [_locService startUserLocationService];
     }
 }
 
@@ -162,11 +167,87 @@
         }
     } failureBlock:^(EnumServerStatus status, id object) {
         DLog(@"%@",object);
-
     }];
     
 }
 
+
+/**
+ *用户方向更新后，会调用此函数
+ *@param userLocation 新的用户位置
+ */
+- (void)didUpdateUserHeading:(BMKUserLocation *)userLocation
+{
+    NSLog(@"方向更新%f  %f",userLocation.location.coordinate.latitude,userLocation.location.coordinate.longitude);
+}
+
+/**
+ *定位失败后，会调用此函数
+ *@param error 错误号
+ */
+- (void)didFailToLocateUserWithError:(NSError *)error{
+    NSLog(@"定位失败%@",error);
+}
+
+
+/**
+ *用户位置更新后，会调用此函数
+ *@param userLocation 新的用户位置
+ */
+- (void)didUpdateBMKUserLocation:(BMKUserLocation *)userLocation
+{
+    //定位当前城市
+    BMKCoordinateRegion region;
+    region.center.latitude  = userLocation.location.coordinate.latitude;
+    region.center.longitude = userLocation.location.coordinate.longitude;
+    region.span.latitudeDelta = 0;
+    region.span.longitudeDelta = 0;
+    NSLog(@"当前的坐标是:%f,%f",userLocation.location.coordinate.latitude,userLocation.location.coordinate.longitude);
+    
+    CLGeocoder *geocoder = [[CLGeocoder alloc] init];
+    [geocoder reverseGeocodeLocation: userLocation.location completionHandler:^(NSArray *array, NSError *error) {
+        if (array.count > 0) {
+            CLPlacemark *placemark = [array objectAtIndex:0];
+            if (placemark != nil) {
+                NSString *city = placemark.locality;
+                NSLog(@"当前城市名称------%@",city);
+                BMKOfflineMap * _offlineMap = [[BMKOfflineMap alloc] init];
+                // _offlineMap.delegate = self;//可以不要
+                NSArray* records = [_offlineMap searchCity:city];
+                BMKOLSearchRecord* oneRecord = [records objectAtIndex:0];
+                //城市编码如:北京为131
+                NSInteger cityId = oneRecord.cityID;
+                NSLog(@"当前城市编号-------->%zd",cityId);
+                NSLog(@"当前城市的 哪个区------%@ ",placemark.subLocality);
+                //找到了当前位置城市后就关闭服务
+                [_locService stopUserLocationService];
+                _headerView.locationLabel.text = placemark.subLocality;
+                __weak typeof (self) weakSelf = self;
+                [self obainWeatherInfo:[NSString stringWithFormat:@"%f",userLocation.location.coordinate.latitude] lon:[NSString stringWithFormat:@"%f",userLocation.location.coordinate.longitude] complication:^(NSString *temp) {
+                    weakSelf.outdoorValue = temp;
+                }];
+            }
+        }
+    }];
+}
+
+-(void)obainWeatherInfo:(NSString *)lat lon:(NSString *)lon  complication:(void(^)(NSString * temp))finish{
+    
+    [BBRequestTool applyCityWeatherInfo:lat lon:lon successBlock:^(EnumServerStatus status, id object) {
+        NSDictionary * dic = object;
+        if ([dic.allKeys containsObject:@"HeWeather6"]) {
+            NSArray * arr = dic[@"HeWeather6"];
+            NSDictionary * infoDic = arr[0];
+            if ([infoDic.allKeys containsObject:@"now"]) {
+                NSDictionary * tempDic = infoDic[@"now"];
+                NSString * value = tempDic [@"tmp"];
+                finish(value);
+            }
+        }
+    } failureBlock:^(EnumServerStatus status, id object) {
+        DLog(@"%@",object);
+    }];
+}
 /*
 #pragma mark - Navigation
 
