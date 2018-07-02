@@ -80,7 +80,9 @@
 #pragma mark --- 网络请求 ----
 
 -(void)SetTemperatureThresholdValueComplication:(void(^)(BOOL isSuccess))finish{
-    [BBRequestTool SetThresholdValueDeviceType:@"2" minValue:self.lowerTemperatureTextfield.text maxValue:self.highTemperatureTextfield.text deviceId:BBUserHelpers.deviceId successBlock:^(EnumServerStatus status, id object) {
+    [BBRequestTool SetThresholdValueDeviceType:@"2" minValue:self.lowerTemperatureTextfield.text maxValue:self.highTemperatureTextfield.text deviceId:BBUserHelpers.deviceId
+                                           img:nil
+                                  successBlock:^(EnumServerStatus status, id object) {
         BaseResultModel *resultM = [[BaseResultModel alloc] initWithDictionary:object error:nil];
         if (resultM.code == 0) {
             finish(true);

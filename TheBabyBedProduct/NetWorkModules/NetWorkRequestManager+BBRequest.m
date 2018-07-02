@@ -531,7 +531,7 @@ static void getRequest(NSString *url,id param,SuccessBlock successBlock,FailureB
  @param maxValue 最大值
  @param deviceId 设备id
  */
--(void)SetThresholdValueDeviceType:(NSString *)deviceType minValue:(NSString *)minValue maxValue:(NSString *)maxValue deviceId:(NSString *)deviceId successBlock:(SuccessBlock)successBlock failureBlock:(FailureBlock)failureBlock{
+-(void)SetThresholdValueDeviceType:(NSString *)deviceType minValue:(NSString *)minValue maxValue:(NSString *)maxValue deviceId:(NSString *)deviceId img:(NSArray *)imgIDs successBlock:(SuccessBlock)successBlock failureBlock:(FailureBlock)failureBlock{
     
     deviceId = deviceId == nil ? @"":deviceId;
     
@@ -541,7 +541,68 @@ static void getRequest(NSString *url,id param,SuccessBlock successBlock,FailureB
                             @"maxVal":maxValue,
                             @"deviceId":deviceId
                             };
-    postRequest(K_Url_SetThreshold, param, successBlock, failureBlock);
+    
+    NSMutableDictionary * paramDic = [param mutableCopy];
+    if ([deviceType isEqualToString:@"3"]) {
+        for (int i = 0; i < imgIDs.count; i++) {
+            switch (i) {
+                case 0:{
+                    if ([imgIDs[0] isEqualToString:@""]) {
+                        break;
+                    }
+                    [paramDic setObject:imgIDs[0] forKey:@"qw_niao"];
+                }
+                    break;
+                case 1:{
+                    if ([imgIDs[1] isEqualToString:@""]) {
+                        break;
+                    }
+                    [paramDic setObject:imgIDs[1] forKey:@"zd_niao"];
+                }
+                    break;
+                case 2:{
+                    if ([imgIDs[2] isEqualToString:@""]) {
+                        break;
+                    }
+                    [paramDic setObject:imgIDs[2] forKey:@"zdd_niao"];
+                }
+                    break;
+                case 3:{
+                    if ([imgIDs[3] isEqualToString:@""]) {
+                        break;
+                    }
+                    [paramDic setObject:imgIDs[3] forKey:@"gz_niao"];
+                }
+                    break;
+                default:
+                    break;
+            }
+
+        }
+    }else if ([deviceType isEqualToString:@"1"]){
+        for (int i = 0; i < imgIDs.count; i++) {
+            switch (i) {
+                case 0:{
+                    if ([imgIDs[0] isEqualToString:@""]) {
+                        break;
+                    }
+                    [paramDic setObject:imgIDs[0] forKey:@"ku_anjing"];
+                }
+                    break;
+                case 1:{
+                    if ([imgIDs[1] isEqualToString:@""]) {
+                        break;
+                    }
+                    [paramDic setObject:imgIDs[1] forKey:@"ku_nao"];
+                }
+                default:
+                    break;
+            }
+            
+        }
+    }
+    
+    postRequest(K_Url_SetThreshold, paramDic, successBlock, failureBlock);
     
 }
 /*  获取预值  */
