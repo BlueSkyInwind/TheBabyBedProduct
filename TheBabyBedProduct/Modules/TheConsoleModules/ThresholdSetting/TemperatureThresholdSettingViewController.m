@@ -18,8 +18,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    self.title = @"预值设定";
-    [self addBackItem];
+    self.titleStr = @"预值设定";
     [self configureView];
 }
 -(void)viewWillAppear:(BOOL)animated{

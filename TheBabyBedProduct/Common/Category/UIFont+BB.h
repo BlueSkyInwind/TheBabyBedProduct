@@ -7,11 +7,20 @@
 //
 
 #import <UIKit/UIKit.h>
+//苹方-简 中粗体
+UIKIT_EXTERN NSString * const kFontNamePingFangSCSemibold;
+//苹方-简 中黑体
+UIKIT_EXTERN NSString * const kFontNamePingFangSCMedium;
+//苹方-简 常规体
+UIKIT_EXTERN NSString * const kFontNamePingFangSCRegular;
+
+
+#define kFontSemibold(fontSize)   [UIFont ppmake_fontPingFangSCSemiboldSize:(fontSize)]
+#define kFontMedium(fontSize)     [UIFont ppmake_fontPingFangSCMediumSize:(fontSize)]
+#define kFontRegular(fontSize)    [UIFont ppmake_fontPingFangSCRegularSize:(fontSize)]
 
 @interface UIFont (BB)
-
-/**
- 默认是PingFangSC-Regular 
- */
-+(instancetype)bb_fontWithSize:(CGFloat)fontSize;
++(instancetype)ppmake_fontPingFangSCSemiboldSize:(CGFloat)size;
++(instancetype)ppmake_fontPingFangSCMediumSize:(CGFloat)size;
++(instancetype)ppmake_fontPingFangSCRegularSize:(CGFloat)size;
 @end

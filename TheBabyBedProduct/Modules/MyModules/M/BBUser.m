@@ -152,7 +152,7 @@ static BBUser * toGetUser(){
 {
     return _aUser().city;
 }
--(NSString *)curTime
+-(NSInteger)curTime
 {
     return _aUser().curTime;
 }

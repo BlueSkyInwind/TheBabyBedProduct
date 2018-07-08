@@ -16,6 +16,7 @@
 
 #import "NetWorkRequestManager.h"
 #import "AppDelegate+BBConfigure.h"
+#import "BaseNavigationViewController.h"
 
 @interface AppDelegate ()<JPUSHRegisterDelegate,UNUserNotificationCenterDelegate>
 
@@ -35,9 +36,16 @@
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window.backgroundColor = [UIColor whiteColor];
     [application setStatusBarHidden:NO withAnimation:UIStatusBarAnimationNone];
-    [self.window makeKeyAndVisible];
+    
     self.tabBar = [[BaseTabBarViewController alloc]init];
-    self.window.rootViewController = self.tabBar;
+
+    BaseNavigationViewController *baseNav = [[BaseNavigationViewController alloc]initWithRootViewController:self.tabBar];
+    
+    self.window.rootViewController = baseNav;
+    [self.window makeKeyAndVisible];
+ 
+    
+    
     [self bb_refreshToken];
     // 初始化全局播放按钮
 //    [self initPlayBtn];

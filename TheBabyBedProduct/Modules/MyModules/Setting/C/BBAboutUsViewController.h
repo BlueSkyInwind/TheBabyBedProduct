@@ -9,5 +9,8 @@
 #import "BaseViewController.h"
 
 @interface BBAboutUsViewController : BaseViewController
-
+/** title */
+@property(nonatomic,copy) NSString *h5Title;
+/** webView urs */
+@property(nonatomic,copy) NSString *webUrl;
 @end

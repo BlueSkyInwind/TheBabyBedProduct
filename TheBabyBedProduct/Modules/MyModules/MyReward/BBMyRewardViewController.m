@@ -25,16 +25,12 @@
 
 @implementation BBMyRewardViewController
 
-- (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
-    [self.navigationController setNavigationBarHidden:NO animated:animated];
-}
 - (void)viewDidLoad {
     [super viewDidLoad];
     
     self.view.backgroundColor = k_color_vcBg;
     
-    self.title = @"任务奖励";
+    self.titleStr = @"每日任务";
     [self creatUI];
     
 }
@@ -53,7 +49,7 @@
     CGFloat lbW = btX-avatarImgW-leftMargin-5;
     CGFloat lbX = leftMargin+avatarImgW+5;
     
-    UIView *userIntegralBgV = [[UIView alloc]initWithFrame:CGRectMake(0, 64+10, _k_w, 100)];
+    UIView *userIntegralBgV = [[UIView alloc]initWithFrame:CGRectMake(0, PPDevice_navBarHeight+10, _k_w, 100)];
     [self.view addSubview:userIntegralBgV];
     userIntegralBgV.backgroundColor = [UIColor whiteColor];
     UIImageView *avatarImgV = [UIImageView bb_imgVMakeWithSuperV:userIntegralBgV imgName:@"touxianggg"];
@@ -166,7 +162,8 @@
             [QMUITips showWithText:curTimeStr inView:self.view hideAfterDelay:2];
             
             BBUser *user = [BBUser bb_getUser];
-            user.curTime = [NSString stringWithFormat:@"%ld",(long)exchange.total_curTime];
+            user.curTime = exchange.total_curTime;
+            user.totalScore = 0;
             [BBUser bb_saveUser:user];
             
             [self updateUIWithUser:user];

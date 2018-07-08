@@ -13,7 +13,7 @@
 #import "EarlyEducationViewController.h"
 #import "MyViewController.h"
 
-@interface BaseTabBarViewController ()<UITabBarControllerDelegate>
+@interface BaseTabBarViewController ()
 
 @end
 
@@ -25,7 +25,6 @@
     [self.tabBar setBackgroundImage:[[GlobalTool share] imageWithColor:[UIColor whiteColor]]];
     [self.tabBar setShadowImage:[[GlobalTool share] imageWithColor:[UIColor whiteColor]]];
     [self setTabbarCon];
-    self.delegate = self;
 }
 
 - (void)setTabbarCon
@@ -63,10 +62,7 @@
     return item;
 }
 
-- (void)tabBarController:(UITabBarController *)tabBarController didSelectViewController:(UIViewController *)viewController
-{
 
-}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

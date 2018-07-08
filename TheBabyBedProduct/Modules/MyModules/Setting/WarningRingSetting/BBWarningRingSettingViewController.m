@@ -37,14 +37,15 @@ static void *kStatusKVOKey = &kStatusKVOKey;
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.view.backgroundColor = rgb(247, 249, 251, 1);
+    self.view.backgroundColor = k_color_vcBg;
+    self.titleStr = @"声音选择";
     _selecteIndex = 0;
     [self creatTableVUI];
     [self createStreamer];
 }
 -(void)creatTableVUI
 {
-    self.tableView = [UITableView bb_tableVMakeWithSuperV:self.view frame:self.view.bounds delegate:self bgColor:rgb(247, 249, 251, 1) style:UITableViewStylePlain];
+    self.tableView = [UITableView bb_tableVMakeWithSuperV:self.view frame:CGRectMake(0, PPDevice_navBarHeight, _k_w, _k_h-PPDevice_navBarHeight) delegate:self bgColor:k_color_vcBg style:UITableViewStylePlain];
     
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -79,13 +80,6 @@ static void *kStatusKVOKey = &kStatusKVOKey;
 }
 - (void)createStreamer
 {
-
-    
-//    [self setupMusicViewWithMusic:_musics[_currentIndex]];
-//    [self loadPreviousAndNextMusicImage];
-//    
-//    //    [MusicHandler configNowPlayingInfoCenter];
-//    [self setNowPlayingInfoCenter];
     
     Track *track = [[Track alloc] init];
     
@@ -93,10 +87,6 @@ static void *kStatusKVOKey = &kStatusKVOKey;
         NSURL *fileURL = [[NSURL alloc] initFileURLWithPath:soundFilePath];
         NSLog(@"通知铃声 %@ MP3路径",soundFilePath);
         track.audioFileURL = fileURL;
-    //    track.audioFileURL = [NSURL URLWithString:[NSString stringWithFormat:@"%@?token=%@",_music.play_url,[GVUserDefaults standardUserDefaults].deviceToken]];
-    
-    //    track.audioFileURL = [NSURL URLWithString:@"http://cdn.open.idaddy.cn/apsmp3/51d2/ydazn00000000001/201805270000/0/ADcGN1AzDTc.YS8yLzh0dXJuOHY0LmF1ZGlv.mp3?token=221aIwL2fb4HGmacjbuXlA.Mw03QzlBRDA3Ny1GNURFLTRFQzUtOTYxMy0xQTQ0RDIwNzc1QkUNMTgwNjI2"];
-//    track.audioFileURL = [NSURL URLWithString:_music.play_url_with_token];
     
     @try {
         [self removeStreamerObserver];
@@ -112,15 +102,11 @@ static void *kStatusKVOKey = &kStatusKVOKey;
 
 - (void)removeStreamerObserver {
     [_streamer removeObserver:self forKeyPath:@"status"];
-//    [_streamer removeObserver:self forKeyPath:@"duration"];
-//    [_streamer removeObserver:self forKeyPath:@"bufferingRatio"];
 }
 
 - (void)addStreamerObserver
 {
     [_streamer addObserver:self forKeyPath:@"status" options:NSKeyValueObservingOptionNew context:kStatusKVOKey];
-//    [_streamer addObserver:self forKeyPath:@"duration" options:NSKeyValueObservingOptionNew context:kDurationKVOKey];
-//    [_streamer addObserver:self forKeyPath:@"bufferingRatio" options:NSKeyValueObservingOptionNew context:kBufferingRatioKVOKey];
 }
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
@@ -130,19 +116,6 @@ static void *kStatusKVOKey = &kStatusKVOKey;
                    withObject:nil
                 waitUntilDone:NO];
     }
-//    else if (context == kDurationKVOKey) {
-//        [self performSelector:@selector(updateSliderValue:)
-//                     onThread:[NSThread mainThread]
-//                   withObject:nil
-//                waitUntilDone:NO];
-//        ;
-//
-//    } else if (context == kBufferingRatioKVOKey) {
-//        [self performSelector:@selector(updateBufferingStatus)
-//                     onThread:[NSThread mainThread]
-//                   withObject:nil
-//                waitUntilDone:NO];
-//    }
     else {
         [super observeValueForKeyPath:keyPath ofObject:object change:change context:context];
     }
@@ -150,12 +123,9 @@ static void *kStatusKVOKey = &kStatusKVOKey;
 
 - (void)updateStatus
 {
-//    self.musicIsPlaying = NO;
-//    _musicIndicator.state = NAKPlaybackIndicatorViewStateStopped;
+
     switch ([_streamer status]) {
         case DOUAudioStreamerPlaying:
-//            self.musicIsPlaying = YES;
-//            _musicIndicator.state = NAKPlaybackIndicatorViewStatePlaying;
             break;
             
         case DOUAudioStreamerPaused:
@@ -165,22 +135,15 @@ static void *kStatusKVOKey = &kStatusKVOKey;
             break;
             
         case DOUAudioStreamerFinished:
-//            if (_musicCycleType == MusicCycleTypeLoopSingle) {
-//                [_streamer play];
-//            } else {
-//                [self playNextMusic:nil];
-//            }
             [_streamer stop];
             break;
             
         case DOUAudioStreamerBuffering:
-//            _musicIndicator.state = NAKPlaybackIndicatorViewStatePlaying;
             break;
             
         case DOUAudioStreamerError:
             break;
     }
-    //    [self updateMusicsCellsState];
 }
 
 -(NSMutableArray<NSString *> *)ringCNNames

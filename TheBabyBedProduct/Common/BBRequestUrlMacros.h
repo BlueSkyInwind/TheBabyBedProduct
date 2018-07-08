@@ -42,6 +42,8 @@
 #define K_Url_EditUserInfo      @"/api/user/editinfo"
 //获取所有身份数据
 #define k_Url_GetIndentities    @"/api/identity"
+
+#define K_Url_HelpUse           @"/h5/help/use"
 //意见反馈 🆗
 #define K_Url_Suggestion        @"/api/user/sendSugister"
 //上传图片 👌

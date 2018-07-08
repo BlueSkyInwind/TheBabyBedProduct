@@ -186,6 +186,11 @@
         return;
     }
     
+    if (!kBBHasNetwork) {
+        [QMUITips showError:@"似乎已断开与互联网的连接。"];
+        return;
+    }
+    
     [BBRequestTool bb_requestLoginWithPhone:phoneNo password:password loginType:loginType uid:uid openid:openid successBlock:^(EnumServerStatus status, id object) {
         NSLog(@"success %@",object);
         BBLoginResultModel *loginResultM = [BBLoginResultModel mj_objectWithKeyValues:object];
@@ -247,10 +252,8 @@
         int resultCode = [[userInfoResultDict objectForKey:@"code"] intValue];
         NSString *resultMsg = [userInfoResultDict objectForKey:@"msg"];
         
-        
         if (resultCode == 0) {
             [QMUITips showSucceed:@"登录成功"];
-
             NSDictionary *userInfoDict = [userInfoResultDict objectForKey:@"data"];
             
             //此处多说一点，因为登录的时候已经保存了一个
@@ -312,6 +315,7 @@
 }
 -(void)goToThirdWithType:(BBLoginType)type phone:(NSString *)phone password:(NSString *)password
 {
+    
   //备注：（个人觉得不合理，但接口如此）第三⽅方登录为:QQ、微信、微博。第三⽅方登录必须要绑定⼿手机号和密码，因为⼿手机 号是整个账号体系的唯⼀一标示。后⾯面的推送、下单、配⽹网都需要⽤用 备注:第三⽅方登录时调⽤用登录接⼝口，如果⽤用户没有绑定⼿手机号就让其绑定⼿手机号。 (具体的传参看接⼝口描述)
     
     if (phone.length == 0) {

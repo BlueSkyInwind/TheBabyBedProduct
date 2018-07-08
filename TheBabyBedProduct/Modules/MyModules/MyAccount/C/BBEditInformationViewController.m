@@ -57,15 +57,12 @@
     }
     return _imagePickerVc;
 }
-- (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
-    [self.navigationController setNavigationBarHidden:NO animated:animated];
-}
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = k_color_vcBg;
-    self.title = @"编辑资料";
+    self.titleStr = @"编辑资料";
 
     [self configureUserInfoItem];
     

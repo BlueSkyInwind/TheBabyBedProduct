@@ -30,15 +30,11 @@
 
 @implementation BBMyAccountViewController
 
-- (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
-    [self.navigationController setNavigationBarHidden:NO animated:animated];
-}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = k_color_vcBg;
-    self.title = @"我的账户";
+    self.titleStr = @"我的账户";
     
     self.currentPage = 0;
     self.isRefreshing = NO;
@@ -83,9 +79,9 @@
 
     UILabel *accountSurplusLB = [UILabel bb_lbMakeWithSuperV:topView fontSize:16 alignment:NSTextAlignmentCenter textColor:k_color_515151];
     #warning todo 账户余额
-    NSString *surplusCount = BBUserHelpers.curTime;
-    if ([surplusCount bb_isSafe]) {
-        accountSurplusLB.text = surplusCount;
+    NSInteger surplusCount = BBUserHelpers.curTime;
+    if (surplusCount > 0) {
+        accountSurplusLB.text = [NSString stringWithFormat:@"%ld",(long)surplusCount];
     }else{
         accountSurplusLB.text = @"--";
     }
@@ -99,7 +95,7 @@
 
 -(void)creatTableViewUI
 {
-    CGFloat tabVY = 64+96;
+    CGFloat tabVY = PPDevice_navBarHeight+96;
     CGFloat bottomH = 67;
     self.tableView = [UITableView bb_tableVMakeWithSuperV:self.view frame:CGRectFlatMake(0, tabVY, _k_w, _k_h-tabVY-bottomH) delegate:self bgColor:k_color_vcBg style:UITableViewStylePlain];
     

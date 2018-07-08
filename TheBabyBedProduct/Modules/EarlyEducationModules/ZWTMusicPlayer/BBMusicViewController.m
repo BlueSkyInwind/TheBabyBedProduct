@@ -233,7 +233,6 @@ static void *kBufferingRatioKVOKey = &kBufferingRatioKVOKey;
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    self.navigationController.navigationBarHidden = YES;
     [self remoteControlEventHandler];
     _musicCycleType = [GVUserDefaults standardUserDefaults].musicCycleType;
     [self setupRadioMusicIfNeeded];
@@ -365,7 +364,6 @@ static void *kBufferingRatioKVOKey = &kBufferingRatioKVOKey;
 }
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
-    self.navigationController.navigationBarHidden = NO;
     _dontReloadMusic = YES;
 }
 

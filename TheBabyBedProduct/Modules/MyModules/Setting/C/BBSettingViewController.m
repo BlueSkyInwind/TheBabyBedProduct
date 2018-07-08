@@ -21,27 +21,21 @@
 
 @implementation BBSettingViewController
 
-- (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
-    [self.navigationController setNavigationBarHidden:NO animated:animated];
-}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = k_color_vcBg;
-    self.title = @"设置";
+    self.titleStr = @"设置";
     [self creatUI];
     
 }
 -(void)creatUI
 {
-    self.tableView = [UITableView bb_tableVMakeWithSuperV:self.view frame:self.view.bounds delegate:self bgColor:k_color_vcBg style:UITableViewStylePlain];
+    self.tableView = [UITableView bb_tableVMakeWithSuperV:self.view frame:CGRectMake(0, PPDevice_navBarHeight, _k_w, _k_h-PPDevice_navBarHeight) delegate:self bgColor:k_color_vcBg style:UITableViewStylePlain];
     
     UIView *fotterV = [[UIView alloc]init];
     self.tableView.tableFooterView = fotterV;
-    
-    
-    
+        
     if (BBUserHelpers.hasLogined) {
         UILabel *currentVersionLB = [UILabel bb_lbMakeWithSuperV:fotterV fontSize:14 alignment:NSTextAlignmentCenter textColor:k_color_515151];
         currentVersionLB.text = [NSString stringWithFormat:@"当前版本%@",[GlobalTool getAppVersion]];
@@ -210,6 +204,8 @@
             
         }else if (indexPath.row == 2){
             BBAboutUsViewController *aboutUsVC = [[BBAboutUsViewController alloc]init];
+            aboutUsVC.h5Title = @"关于我们";
+            aboutUsVC.webUrl = [NSString stringWithFormat:@"%@%@",K_Url_BBBase,K_Url_AboutUs];
             [self.navigationController pushViewController:aboutUsVC animated:YES];
         }
     }

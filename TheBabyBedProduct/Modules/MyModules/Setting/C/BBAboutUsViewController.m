@@ -43,17 +43,17 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.title = @"关于我们";
+    self.titleStr = self.h5Title;
     self.view.backgroundColor = [UIColor whiteColor];
     
-    if (![GlobalUtility sharedUtility].networkState) {
+    if (!kBBHasNetwork) {
         [QMUITips showWithText:@"请检查你的网络后重试" inView:self.view hideAfterDelay:2];
         return;
     }
     
     
     //进度条初始化
-    self.progressView = [[UIProgressView alloc] initWithFrame:CGRectMake(0, 64, _k_w, 2)];
+    self.progressView = [[UIProgressView alloc] initWithFrame:CGRectMake(0, PPDevice_navBarHeight, _k_w, 2)];
     self.progressView.backgroundColor = [UIColor blueColor];
     //设置进度条的高度，下面这句代码表示进度条的宽度变为原来的1倍，高度变为原来的1.5倍.
     self.progressView.transform = CGAffineTransformMakeScale(1.0f, 1.5f);
@@ -63,8 +63,7 @@
     [self.view addSubview:webView];
     self.wkWebView = webView;
     
-    NSString *urlString = [NSString stringWithFormat:@"%@%@",K_Url_BBBase,K_Url_AboutUs];
-    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:urlString]];
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:self.webUrl]];
     request.timeoutInterval = 25.0f;
     [self.wkWebView loadRequest:request];
 

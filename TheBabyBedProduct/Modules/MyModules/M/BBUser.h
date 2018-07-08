@@ -32,7 +32,7 @@
 /** 出生地 */
 @property(nonatomic,copy) NSString *city;
 /** 剩余可观看视频时间 */
-@property(nonatomic,copy) NSString *curTime;
+@property(nonatomic,assign)NSInteger curTime;
 /** 性别 */
 @property(nonatomic,assign) BBUserGenderType gender;
 /** userId */
@@ -123,7 +123,7 @@
 @property(nonatomic,copy,readonly) NSString *password;
 @property(nonatomic,copy,readonly) NSString *deviceId;
 @property(nonatomic,copy,readonly) NSString *city;
-@property(nonatomic,copy,readonly) NSString *curTime;
+@property(nonatomic,assign,readonly) NSInteger curTime;
 @property(nonatomic,copy,readonly) NSNumber *price;
 
 

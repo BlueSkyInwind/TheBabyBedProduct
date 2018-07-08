@@ -50,16 +50,12 @@
 
 @implementation BBFamilyMemberViewController
 
-- (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
-    [self.navigationController setNavigationBarHidden:NO animated:animated];
-}
 - (void)viewDidLoad {
     [super viewDidLoad];
     
     self.view.backgroundColor = k_color_vcBg;
     
-    self.title = @"家庭成员";
+    self.titleStr = @"家庭成员";
     
     _hasLeftLoad = NO;
     _hasRightLoad = NO;

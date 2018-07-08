@@ -21,20 +21,25 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.title = @"市区";
-    [self addBackItem];
+    self.titleStr = @"市区";
     [self configureView];
 
 }
 -(void)configureView{
     
-    self.cityTableView = [[UITableView alloc]initWithFrame:CGRectZero style:UITableViewStylePlain];
-    self.cityTableView.delegate = self;
-    self.cityTableView.dataSource = self;
-    [self.view addSubview:_cityTableView];
-    [_cityTableView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.edges.equalTo(self.view);
+    self.cityTableView = [PPMAKE(PPMakeTypeTableVPlain) pp_make:^(PPMake *make) {
+        make.intoView(self.view);
+        make.frame(CGRectMake(0, PPDevice_navBarHeight, _k_w, _k_h-PPDevice_navBarHeight));
+        make.delegate(self);
     }];
+    
+//    [[UITableView alloc]initWithFrame:CGRectZero style:UITableViewStylePlain];
+//    self.cityTableView.delegate = self;
+//    self.cityTableView.dataSource = self;
+//    [self.view addSubview:_cityTableView];
+//    [_cityTableView mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.edges.equalTo(self.view);
+//    }];
     
 }
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{

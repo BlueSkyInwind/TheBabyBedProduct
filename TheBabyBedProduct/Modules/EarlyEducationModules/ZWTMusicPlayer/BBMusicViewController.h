@@ -7,9 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "BaseViewController.h"
 #import "BBMusic.h"
 
-@interface BBMusicViewController : UIViewController
+@interface BBMusicViewController : BaseViewController
 @property (nonatomic, copy) NSString *musicTitle;
 @property(nonatomic,strong) NSMutableArray<BBMusic *> *musics;
 @property(nonatomic,assign) NSInteger playingIndex;

@@ -37,6 +37,7 @@ static void getRequest(NSString *url,id param,SuccessBlock successBlock,FailureB
     }else{
         requestUrl = [NSString stringWithFormat:@"%@%@",K_Url_BBBase,url];
     }
+    NSLog(@"当前请求URL %@",requestUrl);
     [BBRequestTool GetWithURL:requestUrl isNeedNetStatus:NO isNeedWait:true parameters:param finished:successBlock failure:failureBlock];
 }
 

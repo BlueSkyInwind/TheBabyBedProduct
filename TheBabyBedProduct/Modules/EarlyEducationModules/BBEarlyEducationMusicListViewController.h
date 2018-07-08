@@ -10,6 +10,6 @@
 @class BBMusicCategory;
 
 @interface BBEarlyEducationMusicListViewController : BaseViewController
-@property(nonatomic,copy) NSString *titleStr;
+@property(nonatomic,copy) NSString *musicListName;
 @property(nonatomic,strong) BBMusicCategory *aMusicCategory;
 @end

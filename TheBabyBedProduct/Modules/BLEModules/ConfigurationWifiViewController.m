@@ -24,8 +24,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    self.title = @"配置";
-    [self addBackItem];
+    self.titleStr = @"配置";
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(getSSID)
                                                  name:UIApplicationDidBecomeActiveNotification

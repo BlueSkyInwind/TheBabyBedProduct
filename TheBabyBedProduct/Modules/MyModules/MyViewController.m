@@ -173,12 +173,12 @@
     }else{
        //设置
         BBSettingViewController *settingVC = [[BBSettingViewController alloc]init];
+        settingVC.hidesBottomBarWhenPushed = YES;
         [self.navigationController pushViewController:settingVC animated:YES];
     }
 }
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    [self.navigationController setNavigationBarHidden:YES animated:animated];
     //处理用户信息已经变更了，但是UI没刷新
     [_headerV checkNeedRefreshUI];
     if (BBUserHelpers.myHeaderVHasLogined && !BBUserHelpers.hasLogined) {
@@ -187,10 +187,6 @@
     }
 }
 
-- (void)viewWillDisappear:(BOOL)animated {
-    [super viewWillDisappear:animated];
-    [self.navigationController setNavigationBarHidden:YES animated:animated];
-}
 
 @end
 

@@ -29,13 +29,12 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    self.title = @"视频";
+    self.titleStr = @"视频";
     self.currentPage = 0;
     self.isRefreshing = NO;
     self.isLoadMore = NO;
     self.totalCount = 0;
     
-    [self addBackItem];
     [self creatUI];
     [self getVideoApplyListData];
 }
@@ -64,7 +63,7 @@
 
 -(void)creatUI
 {
-    self.talbeView = [UITableView bb_tableVMakeWithSuperV:self.view frame:self.view.bounds delegate:self bgColor:k_color_vcBg style:UITableViewStylePlain];
+    self.talbeView = [UITableView bb_tableVMakeWithSuperV:self.view frame:CGRectMake(0, PPDevice_navBarHeight, _k_w, _k_h-PPDevice_navBarHeight) delegate:self bgColor:k_color_vcBg style:UITableViewStylePlain];
     //下拉刷新
     self.talbeView.mj_header = [UITableView pp_headerForNomaWithTarget:self action:@selector(_headerRefreshAction) hasLastDate:NO enterStartRefresh:NO];
     

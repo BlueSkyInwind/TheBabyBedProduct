@@ -41,7 +41,7 @@
 -(void)creatUI
 {
     UIView *topBgV = [[UIView alloc]initWithFrame:CGRectFlatMake(0, 0, _k_w, 180+20)];
-    topBgV.backgroundColor = rgb(252, 226, 122, 1);
+    topBgV.backgroundColor = UI_MAIN_COLOR;
     [self addSubview:topBgV];
     
     UIView *bottomV = [[UIView alloc]initWithFrame:CGRectFlatMake(0, 200, _k_w, 72)];

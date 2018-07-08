@@ -19,8 +19,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.title = @"哭闹";
-    [self addBackItem];
+    self.titleStr = @"哭闹";
     [self configureView];
 }
 
