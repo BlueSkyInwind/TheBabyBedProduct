@@ -24,10 +24,18 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.view.backgroundColor = k_color_vcBg;
-    self.titleStr = self.aMusicCategory.cat_name;
-    
+    self.titleStr = self.musicListName;
+
     [self creatUI];
-    [self getListData];
+    if (self.forType == BBEarlyEducationMusicListVCForTypeCategory) {
+        [self getListData];
+    }else{
+        [self.tableView ly_startLoading];
+        [self.musicLists addObjectsFromArray:self.hotRecommends];
+        [self.tableView reloadData];
+        [self.tableView ly_endLoading];
+    }
+    
 }
 -(void)getListData
 {

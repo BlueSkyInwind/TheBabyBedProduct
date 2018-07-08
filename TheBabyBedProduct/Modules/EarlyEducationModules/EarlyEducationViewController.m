@@ -17,6 +17,8 @@
 
 #import "GKWYMusicModel.h"
 #import "BBMusicViewController.h"
+#import "BBEarlyEducationSearchListViewController.h"
+
 
 static NSString * const kEarlyEducationCellIdentifier = @"EarlyEducationCellIdentifier";
 static NSString * const kEarlyEducationHeaderViewIdentifier = @"EarlyEducationHeaderViewIdentifier";
@@ -59,6 +61,7 @@ static NSString * const kEarlyEducationHeaderViewIdentifier = @"EarlyEducationHe
 }
 -(void)creatUI
 {
+    self.navigationView.hidden = YES;
     [self creatHeaderSearchUI];
     
     UICollectionViewFlowLayout *flowLayout = [[UICollectionViewFlowLayout alloc]init];
@@ -99,7 +102,6 @@ static NSString * const kEarlyEducationHeaderViewIdentifier = @"EarlyEducationHe
 -(void)getEarlyEdutionList
 {
     [BBRequestTool bb_requestEarlyEdutionListWithSuccessBlock:^(EnumServerStatus status, id object) {
-        NSLog(@"em succes %@",object);
         BBMusicCategoryResult *result = [BBMusicCategoryResult mj_objectWithKeyValues:object];
         if (result.retcode == 0) {
             BBMusicCategoryAudioinfos *audioInfos = result.audioinfos;
@@ -115,9 +117,9 @@ static NSString * const kEarlyEducationHeaderViewIdentifier = @"EarlyEducationHe
     }];
     
     //6707 6708  6948 7156 7716 16815 17164 17174 17176 17466 19025
-    
+    #pragma mark --- 获取热门推荐列表
     [BBRequestTool bb_requestEarlyEdutionHotRecommendWithSuccessBlock:^(EnumServerStatus status, id object) {
-        NSLog(@"em succes %@",object);
+        NSLog(@"获取热门推荐列表 succes %@",object);
         BBMusicHotRecommendResult *result = [BBMusicHotRecommendResult mj_objectWithKeyValues:object];
         if (result.retcode == 0) {
             BBMusicHotRecommendAudioinfos *audioinfos = result.audioinfos;
@@ -125,17 +127,15 @@ static NSString * const kEarlyEducationHeaderViewIdentifier = @"EarlyEducationHe
             [self.collectionView reloadData];
         }
     } failureBlock:^(EnumServerStatus status, id object) {
-        NSLog(@"em error %@",object);
     }];
 }
 -(void)creatHeaderSearchUI
 {
-    UIView *searchBGV = [[UIView alloc]initWithFrame:CGRectMake(0, 0, _k_w, 64+44)];
+    UIView *searchBGV = [[UIView alloc]initWithFrame:CGRectMake(0, 0, _k_w, PPDevice_navBarHeight+44)];
     searchBGV.backgroundColor = UI_MAIN_COLOR;
     [self.view addSubview:searchBGV];
     
     UILabel *titleLB = [UILabel bb_lbMakeWithSuperV:searchBGV fontSize:18 alignment:NSTextAlignmentCenter textColor:k_color_515151];
-//    titleLB.frame = CGRectMake(0, 20, _k_w, 44);
     titleLB.text = @"早教";
     [titleLB mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.right.equalTo(searchBGV);
@@ -148,7 +148,6 @@ static NSString * const kEarlyEducationHeaderViewIdentifier = @"EarlyEducationHe
         make.left.equalTo(searchBGV).offset(10);
         make.top.equalTo(titleLB.mas_bottom).offset(0);
         make.right.equalTo(searchBGV).offset(-10);
-
         make.height.mas_equalTo(44.0f);
     }];
     [self.searchBar layoutIfNeeded];
@@ -172,8 +171,8 @@ static NSString * const kEarlyEducationHeaderViewIdentifier = @"EarlyEducationHe
 }
 #pragma mark - EVNCustomSearchBarDelegate
 - (BOOL)searchBarShouldBeginEditing:(GKSearchBar *)searchBar {
-//    GKWYSearchViewController *searchVC = [GKWYSearchViewController new];
-//    [self.navigationController pushViewController:searchVC animated:YES];
+    BBEarlyEducationSearchListViewController *searchVC = [[BBEarlyEducationSearchListViewController alloc]init];
+    [self.navigationController pushViewController:searchVC animated:YES];
     NSLog(@"点击了serachbar");
     return NO;
 }
@@ -233,10 +232,7 @@ static NSString * const kEarlyEducationHeaderViewIdentifier = @"EarlyEducationHe
         [musicVC playMusicWithSpecialIndex:indexPath.item];
     }
     
-//    [self presentToMusicViewWithMusicVC:musicVC];
     [self presentViewController:musicVC animated:YES completion:nil];
-
-//    [QMUITips showLoadingInView:self.view];
 }
 
 - (void)presentToMusicViewWithMusicVC:(BBMusicViewController *)musicVC {
@@ -247,22 +243,25 @@ static NSString * const kEarlyEducationHeaderViewIdentifier = @"EarlyEducationHe
 #pragma mark --- 处理header上轮播图和板块点击跳转事件
 -(void)setupHeaderViewAction:(BBEarlyEducationHeaderView *)headerV
 {
-    BBWeakSelf(self)
     headerV.bannerClickBlock = ^(NSInteger selectedIndex) {
         DLog(@"点击banner的 %ld 个",(long)selectedIndex);
     };
     
     headerV.itemClickedBlock = ^(BBEarlyEducationItemType itemType) {
-        DLog(@"点击item");
-        
         BBEarlyEducationMusicListViewController *musicListVC = [[BBEarlyEducationMusicListViewController alloc]init];
         musicListVC.musicListName = self.titleArrs[itemType];
+        musicListVC.forType = BBEarlyEducationMusicListVCForTypeCategory;
         musicListVC.aMusicCategory = self.musicCategories[itemType];
         [self.navigationController pushViewController:musicListVC animated:YES];
     };
     
     headerV.lookMoreBlock = ^{
-        DLog(@"查看更多");
+        #pragma mark --- “热门推荐”---查看更多点击事件
+        BBEarlyEducationMusicListViewController *musicListVC = [[BBEarlyEducationMusicListViewController alloc]init];
+        musicListVC.musicListName = @"热门推荐";
+        musicListVC.hotRecommends = self.hotRecommends;
+        musicListVC.forType = BBEarlyEducationMusicListVCForTypeHotRecommend;
+        [self.navigationController pushViewController:musicListVC animated:YES];
     };
         
 }

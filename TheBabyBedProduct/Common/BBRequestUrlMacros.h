@@ -104,9 +104,10 @@
 //传感器数据获取  api/statistics/{deviceId}
 #define K_Url_GetSensorData      @"/api/statistics/"
 
-//早教
+//早教 (热门推荐（音乐）)
 #define K_Url_MusicList          @"/audio/v2/list"
-//热门推荐（音乐）
+//早教音乐搜索
+#define K_Url_MusicQuery         @"/audio/v2/query"
 
 #define K_Url_Refresh_Token     @"/audio/v2/refresh_device_token"
 

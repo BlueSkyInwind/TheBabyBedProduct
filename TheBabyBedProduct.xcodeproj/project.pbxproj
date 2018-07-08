@@ -187,6 +187,7 @@
 		5726F3BB206BE46F008EED75 /* BBAcountNumberListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5726F3BA206BE46F008EED75 /* BBAcountNumberListCell.m */; };
 		5726F3BE206C7F3B008EED75 /* BBEarlyEducationHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5726F3BD206C7F3B008EED75 /* BBEarlyEducationHeaderView.m */; };
 		5726F3C1206C8F13008EED75 /* BBEarlyEducationCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5726F3C0206C8F13008EED75 /* BBEarlyEducationCell.m */; };
+		572D03F520F27DBE000FFC23 /* BBEarlyEducationSearchListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 572D03F420F27DBE000FFC23 /* BBEarlyEducationSearchListViewController.m */; };
 		574C6CB82069254200F5BF55 /* NSMutableAttributedString+PPTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 574C6CAB2069254200F5BF55 /* NSMutableAttributedString+PPTextField.m */; };
 		574C6CB92069254200F5BF55 /* NSMutableAttributedString+KeywordHignlight.m in Sources */ = {isa = PBXBuildFile; fileRef = 574C6CAC2069254200F5BF55 /* NSMutableAttributedString+KeywordHignlight.m */; };
 		574C6CBA2069254200F5BF55 /* PPTextfield.m in Sources */ = {isa = PBXBuildFile; fileRef = 574C6CAF2069254200F5BF55 /* PPTextfield.m */; };
@@ -695,6 +696,8 @@
 		5726F3BD206C7F3B008EED75 /* BBEarlyEducationHeaderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BBEarlyEducationHeaderView.m; sourceTree = "<group>"; };
 		5726F3BF206C8F13008EED75 /* BBEarlyEducationCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BBEarlyEducationCell.h; sourceTree = "<group>"; };
 		5726F3C0206C8F13008EED75 /* BBEarlyEducationCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BBEarlyEducationCell.m; sourceTree = "<group>"; };
+		572D03F320F27DBE000FFC23 /* BBEarlyEducationSearchListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BBEarlyEducationSearchListViewController.h; sourceTree = "<group>"; };
+		572D03F420F27DBE000FFC23 /* BBEarlyEducationSearchListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BBEarlyEducationSearchListViewController.m; sourceTree = "<group>"; };
 		574C6CA72069254200F5BF55 /* PPTextfield.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPTextfield.h; sourceTree = "<group>"; };
 		574C6CA92069254200F5BF55 /* NSMutableAttributedString+PPTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableAttributedString+PPTextField.h"; sourceTree = "<group>"; };
 		574C6CAA2069254200F5BF55 /* NSMutableAttributedString+KeywordHignlight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableAttributedString+KeywordHignlight.h"; sourceTree = "<group>"; };
@@ -1322,6 +1325,8 @@
 				57CB443D20A5712100268DBE /* BBMusicRequestModel.m */,
 				57CF997420B31948005EB9E9 /* BBEarlyEdutionMusicListCell.h */,
 				57CF997520B31948005EB9E9 /* BBEarlyEdutionMusicListCell.m */,
+				572D03F320F27DBE000FFC23 /* BBEarlyEducationSearchListViewController.h */,
+				572D03F420F27DBE000FFC23 /* BBEarlyEducationSearchListViewController.m */,
 			);
 			path = EarlyEducationModules;
 			sourceTree = "<group>";
@@ -2775,6 +2780,7 @@
 				572209AC20AD2AC500611BFA /* GKTimer.m in Sources */,
 				5726F353206B257A008EED75 /* BBNotificationSettingViewController.m in Sources */,
 				5726F3A3206B8332008EED75 /* WSTableViewCellIndicator.m in Sources */,
+				572D03F520F27DBE000FFC23 /* BBEarlyEducationSearchListViewController.m in Sources */,
 				84BE5EB22069F114007A001D /* KickQulitChartViewController.m in Sources */,
 				574C6CE92069272700F5BF55 /* UITableView+EasilyMake.m in Sources */,
 				574C6CD42069262000F5BF55 /* BBMyHeaderView.m in Sources */,

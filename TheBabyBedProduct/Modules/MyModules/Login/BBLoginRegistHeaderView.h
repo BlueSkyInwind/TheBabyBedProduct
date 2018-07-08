@@ -12,6 +12,7 @@
 @property(nonatomic,copy) void(^LoginRegistSelectedBlock)(BOOL isLogin);
 @property(nonatomic,copy) void(^closeBlock)(void);
 -(void)loginAction;
+-(void)configureCloseBTWithNeedHidden:(BOOL)needHidden;
 @end
 
 

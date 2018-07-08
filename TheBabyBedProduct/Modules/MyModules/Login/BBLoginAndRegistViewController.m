@@ -125,7 +125,7 @@
             countDownBt.enabled = NO;
             [countDownBt startCountDownWithSecond:60];
         }else{
-            [QMUITips showError:@"验证码发送失败"];
+            [QMUITips showError:getCodeResultM.msg];
             [countDownBt stopCountDown];
             countDownBt.enabled = YES;
         }
@@ -391,12 +391,15 @@
 {
     self.headerV = [[BBLoginRegistHeaderView alloc]initWithFrame:CGRectMake(0, 0, _k_w, 200)];
     [self.view addSubview:self.headerV];
+    [self.headerV configureCloseBTWithNeedHidden:self.isHiddenCloseBT];
     BBWeakSelf(self)
-    self.headerV.closeBlock = ^{
-        BBStrongSelf(self)
-        [self dismissViewControllerAnimated:YES completion:nil];
-    };
-    
+    if (!self.isHiddenCloseBT) {
+        self.headerV.closeBlock = ^{
+            BBStrongSelf(self)
+            [self dismissViewControllerAnimated:YES completion:nil];
+        };
+    }
+ 
     self.headerV.LoginRegistSelectedBlock = ^(BOOL isLogin) {
         BBStrongSelf(self)
         [self changLoginOrRegist:isLogin];

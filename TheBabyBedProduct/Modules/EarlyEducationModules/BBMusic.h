@@ -20,6 +20,8 @@
 @property(nonatomic,assign) NSInteger price;
 @property(nonatomic,assign) NSInteger status;
 @property(nonatomic,copy) NSString *author;      //1
+@property(nonatomic,strong) NSNumber *age_from;
+@property(nonatomic,strong) NSNumber *age_to;
 @end
 
 /*

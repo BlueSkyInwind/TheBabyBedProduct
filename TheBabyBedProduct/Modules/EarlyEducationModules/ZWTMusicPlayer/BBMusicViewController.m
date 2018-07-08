@@ -290,7 +290,9 @@ static void *kBufferingRatioKVOKey = &kBufferingRatioKVOKey;
         
         [dict setObject:_music.name forKey:MPMediaItemPropertyTitle];
         [dict setObject:_music.author forKey:MPMediaItemPropertyArtist];
-        [dict setObject:_musicTitle forKey:MPMediaItemPropertyAlbumTitle];
+        if (_musicTitle) {
+            [dict setObject:_musicTitle forKey:MPMediaItemPropertyAlbumTitle];
+        }
         [dict setObject:@(audioDurationSeconds) forKey:MPMediaItemPropertyPlaybackDuration];
         
         [dict setObject:[NSNumber numberWithDouble:[_streamer currentTime]] forKey:MPNowPlayingInfoPropertyElapsedPlaybackTime]; //音乐当前已经播放时间

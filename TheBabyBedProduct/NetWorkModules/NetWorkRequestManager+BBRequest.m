@@ -494,6 +494,34 @@ static void getRequest(NSString *url,id param,SuccessBlock successBlock,FailureB
     postRequestGCSDad(K_Url_MusicList, param, successBlock, failureBlock);
 }
 
+/**
+ 音乐搜索
+ */
+-(void)bb_requestEarlyEdutionQueryWithKeyWord:(NSString *)keyWord
+                                 successBlock:(SuccessBlock)successBlock
+                                 failureBlock:(FailureBlock)failureBlock
+{
+    NSString *timestampStr = [NSDate bb_strFromTimestamp];
+    NSString *nonceStr = [NSString pp_randomStr];
+    NSMutableDictionary *param = [NSMutableDictionary dictionary];
+    NSMutableString *signatureStr = [[NSMutableString alloc]initWithString:KGCSDad_AppId];
+    [signatureStr appendString:KGCSDad_Secret];
+    [signatureStr appendString:[NSString stringWithFormat:@"%@",timestampStr]];
+    NSString *signatureString = [NSString pp_sha1:signatureStr];
+    
+    [param setValue:KGCSDad_AppId forKey:@"app_id"];
+    [param setValue:[UIDevice pp_UUID] forKey:@"device_id"];
+    [param setValue:nonceStr forKey:@"nonce"];
+    [param setValue:signatureString forKey:@"signature"];
+    [param setValue:timestampStr forKey:@"timestamp"];
+    [param setValue:keyWord forKey:@"content"];
+    [param setValue:@"1" forKey:@"verbose"];
+
+    postRequestGCSDad(K_Url_MusicQuery, param, successBlock, failureBlock);
+
+
+}
+
 -(void)bb_requestRefreshTokenWithSuccessBlock:(SuccessBlock)successBlock failureBlock:(FailureBlock)failureBlock
 {
     NSString *timestampStr = [NSDate bb_strFromTimestamp];

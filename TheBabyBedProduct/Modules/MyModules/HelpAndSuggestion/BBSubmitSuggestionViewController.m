@@ -20,7 +20,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = k_color_vcBg;
-    self.title = @"意见反馈";
+    self.titleStr = @"意见反馈";
 
     [self creatUI];
 }

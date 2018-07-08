@@ -227,6 +227,12 @@ typedef NS_ENUM(NSInteger,BBGetCodeType) {
 -(void)bb_requestEarlyEdutionSubListWithCategoryIds:(NSArray *)categoryIds
                                        SuccessBlock:(SuccessBlock)successBlock
                                        failureBlock:(FailureBlock)failureBlock;
+/**
+ 音乐搜索
+ */
+-(void)bb_requestEarlyEdutionQueryWithKeyWord:(NSString *)keyWord
+                                 successBlock:(SuccessBlock)successBlock
+                                 failureBlock:(FailureBlock)failureBlock;
 
 /**
  子类下对应的music列表

@@ -11,6 +11,7 @@
 @interface BBEarlyEdutionMusicListCell ()
 @property(nonatomic,strong) UIImageView *avatarImgV;
 @property(nonatomic,strong) UILabel *musicNameLB;
+@property(nonatomic,strong) UILabel *musicMessLB;
 @property(nonatomic,strong) UIButton *playBT;
 @end
 
@@ -32,16 +33,52 @@
 #warning pp605 占位图设置
     [self.avatarImgV sd_setImageWithURL:[NSURL URLWithString:music.icon] placeholderImage:nil];
     self.musicNameLB.text = music.name;
+    self.musicMessLB.text = [NSString stringWithFormat:@"%@-%@岁  %@",music.age_from,music.age_to,music.taxonomys];
     
 }
 -(void)creatCellUI
 {
-    self.avatarImgV = [UIImageView bb_imgVMakeWithSuperV:self.contentView];
+    CGFloat cellH = 64;
+    CGFloat imgX = 14;
+    CGFloat imgW = 40;
+    CGFloat imgY = (cellH-imgW)/2;
+    self.avatarImgV = [PPMAKE(PPMakeTypeImgV) pp_make:^(PPMake *make) {
+        make.intoView(self.contentView);
+        make.cornerRadius(20);
+        make.frame(CGRectMake(imgX, imgY, imgW, imgW));
+    }];
     
-    self.musicNameLB = [UILabel bb_lbMakeWithSuperV:self.contentView fontSize:16 alignment:NSTextAlignmentLeft textColor:k_color_515151];
-    self.playBT = [UIButton bb_btMakeWithSuperV:self.contentView imageName:@"yinyuebofang"];
-    [self.playBT addTarget:self action:@selector(playAction) forControlEvents:UIControlEventTouchUpInside];
-    [self configureFrame];
+    CGFloat playBtW = 60;
+    CGFloat musicNameX = self.avatarImgV.right+18;
+    CGFloat musicNameY = 10;
+    CGFloat musicNameW = _k_w-musicNameX-playBtW;
+    
+    self.musicNameLB = [PPMAKE(PPMakeTypeLB) pp_make:^(PPMake *make) {
+        make.intoView(self.contentView);
+        make.font(kFontRegular(16));
+        make.textColor(k_color_515151);
+        make.frame(CGRectMake(musicNameX, musicNameY, musicNameW, 24));
+    }];
+    
+    self.musicMessLB = [PPMAKE(PPMakeTypeLB) pp_make:^(PPMake *make) {
+        make.intoView(self.contentView);
+        make.font(kFontRegular(13));
+        make.textColor(k_color_153153153);
+        make.frame(CGRectMake(musicNameX, self.musicNameLB.bottom, musicNameW, 20));
+    }];
+    
+    self.playBT = [PPMAKE(PPMakeTypeBT) pp_make:^(PPMake *make) {
+        make.intoView(self.contentView);
+        make.frame(CGRectMake(_k_w-playBtW, 0, playBtW, cellH));
+        make.normalImageName(@"yinyuebofang");
+        make.addTargetTouchUpInside(self, @selector(playAction));
+        make.setImageEdgeInsets(21.5, 19.5, 21.5, 19.5);
+    }];
+    
+    UIView *line = [[UIView alloc]initWithFrame:CGRectMake(0, 63, _k_w, 1)];
+    [self.contentView addSubview:line];
+    line.backgroundColor = kUIColorFromRGB(0xf2f2f2);
+    
 }
 -(void)playAction
 {
@@ -49,29 +86,6 @@
         self.playBlock();
     }
 }
--(void)configureFrame
-{
-    CGFloat cellH = 64;
-    CGFloat imgX = 14;
-    CGFloat imgW = 40;
-    CGFloat imgY = (cellH-imgW)/2;
-    self.avatarImgV.layer.masksToBounds = YES;
-    self.avatarImgV.layer.cornerRadius = imgW/2;
-    self.avatarImgV.frame = CGRectMake(imgX, imgY, imgW, imgW);
-    
-    CGFloat playBtW = 60;
-    CGFloat musicNameX = self.avatarImgV.right+18;
-    CGFloat musicNameY = 0;
-    CGFloat musicNameW = _k_w-musicNameX-playBtW;
-    self.musicNameLB.frame = CGRectMake(musicNameX, musicNameY, musicNameW, cellH);
-        
-    self.playBT.frame = CGRectMake(_k_w-playBtW, 0, playBtW, cellH);
-    //41*41
-    [self.playBT setImageEdgeInsets:UIEdgeInsetsMake(21.5, 19.5, 21.5, 19.5)];
-    
-    UIView *line = [[UIView alloc]initWithFrame:CGRectMake(0, 62.5, _k_w, 1.5)];
-    [self.contentView addSubview:line];
-    line.backgroundColor = kUIColorFromRGBA(0x515151,0.1);
-}
+
 
 @end
