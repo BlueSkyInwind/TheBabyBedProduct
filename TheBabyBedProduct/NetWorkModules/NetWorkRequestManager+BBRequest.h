@@ -265,7 +265,7 @@ typedef NS_ENUM(NSInteger,BBGetCodeType) {
  @param maxValue 最大值
  @param deviceId 设备id
  */
--(void)SetThresholdValueDeviceType:(NSString *)deviceType minValue:(NSString *)minValue maxValue:(NSString *)maxValue deviceId:(NSString *)deviceId successBlock:(SuccessBlock)successBlock failureBlock:(FailureBlock)failureBlock;
+-(void)SetThresholdValueDeviceType:(NSString *)deviceType minValue:(NSString *)minValue maxValue:(NSString *)maxValue deviceId:(NSString *)deviceId img:(NSArray *)imgIDs successBlock:(SuccessBlock)successBlock failureBlock:(FailureBlock)failureBlock;
 
 /*  获取预值  */
 -(void)GetThresholdValueDeviceType:(NSString *)deviceType deviceId:(NSString *)deviceId successBlock:(SuccessBlock)successBlock failureBlock:(FailureBlock)failureBlock;
