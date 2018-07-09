@@ -14,8 +14,6 @@
 #import "BBMusicCategory.h"
 #import "BBMusicHotRecommend.h"
 #import "GKSearchBar.h"
-
-#import "GKWYMusicModel.h"
 #import "BBMusicViewController.h"
 #import "BBEarlyEducationSearchListViewController.h"
 
@@ -151,7 +149,6 @@ static NSString * const kEarlyEducationHeaderViewIdentifier = @"EarlyEducationHe
         make.height.mas_equalTo(44.0f);
     }];
     [self.searchBar layoutIfNeeded];
-    
     
 }
 #pragma mark - 懒加载

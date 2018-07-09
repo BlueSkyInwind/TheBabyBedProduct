@@ -86,6 +86,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad]; 
     // Do any additional setup after loading the view.
+    self.titleStr = @"首页";
+    [self.backBT removeFromSuperview];
     [self configureView];
     [[BBUdpSocketManager shareInstance] createAsyncUdpSocket];
 }
@@ -96,15 +98,24 @@
     valueArr = [@[@"0°C/0°C",@"0°C",@"需要更换",@"正常"] mutableCopy];
     __weak typeof (self) weakSelf = self;
     HomeLeftItemView * leftItemView = [[HomeLeftItemView alloc]initWithFrame:CGRectMake(0, 0, 100, 35)];
+    leftItemView.center = CGPointMake(61, (self.navigationView.height - PPDevice_statusBarHeight) / 2 + PPDevice_statusBarHeight);
     leftItemView.nameLabel.text = @"欧阳马克";
     leftItemView.homeHeaderClick = ^(UIButton *button) {
         //婴儿头像的点击回调
         [weakSelf connectDeviceAlertView];
     };
-    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]initWithCustomView:leftItemView];
+    [self.navigationView addSubview:leftItemView];
     
-    UIBarButtonItem * rightButton = [[UIBarButtonItem alloc]initWithImage:[[[UIImage imageNamed:@"home_message_Icon"] TransformtoSize:CGSizeMake(32, 32)] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] style:UIBarButtonItemStylePlain target:self action:@selector(rightButtonItemClick)];
-    self.navigationItem.rightBarButtonItem = rightButton;
+    UIButton * rightButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    rightButton.frame = CGRectMake(0, 0, 32, 32);
+    rightButton.center = CGPointMake(self.navigationView.width - 11 - 16, (self.navigationView.height - PPDevice_statusBarHeight) / 2 + PPDevice_statusBarHeight);
+    [rightButton setImage:[UIImage imageNamed:@"home_message_Icon"] forState:UIControlStateNormal];
+    [rightButton addTarget:self action:@selector(rightButtonItemClick) forControlEvents:UIControlEventTouchUpInside];
+    [self.navigationView addSubview:rightButton];
+
+//    UIBarButtonItem * rightButton = [[UIBarButtonItem alloc]initWithImage:[[[UIImage imageNamed:@"home_message_Icon"] TransformtoSize:CGSizeMake(32, 32)] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] style:UIBarButtonItemStylePlain target:self action:@selector(rightButtonItemClick)];
+////    [self.navigationView addSubview:leftItemView];
+//    self.navigationItem.rightBarButtonItem = rightButton;
     
     _homeTableView = [[UITableView alloc]init];
     _homeTableView.delegate = self;
@@ -114,11 +125,11 @@
     _homeTableView.backgroundColor = rgb(247, 249, 251, 1);
     [self.view addSubview:_homeTableView];
     [_homeTableView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.edges.equalTo(self.view);
+        make.top.equalTo(self.view.mas_top).with.offset(PPDevice_navBarHeight);
+        make.right.left.bottom.equalTo(self.view);
     }];
     
     [_homeTableView registerClass:[HomeTableViewCell class] forCellReuseIdentifier:@"HomeTableViewCell"];
-    
     _headerView = [HomeHeaderView initWithBabyStatus:@[@"home_histroy_Icon",@"home_crystatus_Icon",@"home_happystatus_Icon"]];
     _homeTableView.tableHeaderView = _headerView;
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(sensorDataUpdates:) name:YDA_EVENT_NOTIFICATION object:nil];
@@ -254,7 +265,8 @@
         [weakSelf popAddDeviceAlertView];
     };
     [_addDeviceView mas_remakeConstraints:^(MASConstraintMaker *make) {
-        make.edges.equalTo(self.view);
+        make.top.equalTo(self.view.mas_top).with.offset(PPDevice_navBarHeight);
+        make.right.left.bottom.equalTo(self.view);
     }];
 }
 -(void)popAddDeviceAlertView{

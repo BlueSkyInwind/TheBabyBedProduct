@@ -129,34 +129,11 @@
 		57210D1220789A0E0039D8D5 /* NSString+Verify.m in Sources */ = {isa = PBXBuildFile; fileRef = 57210D1120789A0E0039D8D5 /* NSString+Verify.m */; };
 		57210D1B207A48F60039D8D5 /* BBModifyPasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 57210D1A207A48F60039D8D5 /* BBModifyPasswordViewController.m */; };
 		57210DD5207CA37F0039D8D5 /* BBEEMusicListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 57210DD4207CA37F0039D8D5 /* BBEEMusicListCell.m */; };
-		5722097E20AD22AC00611BFA /* GKWYPlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5722096D20AD22AC00611BFA /* GKWYPlayerViewController.m */; };
-		5722097F20AD22AC00611BFA /* GKWYMusicListView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5722097720AD22AC00611BFA /* GKWYMusicListView.m */; };
-		5722098020AD22AC00611BFA /* GKWYMusicVolumeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5722097820AD22AC00611BFA /* GKWYMusicVolumeView.m */; };
-		5722098120AD22AC00611BFA /* GKWYMusicControlView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5722097920AD22AC00611BFA /* GKWYMusicControlView.m */; };
-		5722098220AD22AC00611BFA /* GKVolumeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5722097A20AD22AC00611BFA /* GKVolumeView.m */; };
-		5722098320AD22AC00611BFA /* GKWYDiskView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5722097B20AD22AC00611BFA /* GKWYDiskView.m */; };
-		5722098420AD22AC00611BFA /* GKWYMusicLyricView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5722097C20AD22AC00611BFA /* GKWYMusicLyricView.m */; };
-		5722098520AD22AC00611BFA /* GKWYMusicCoverView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5722097D20AD22AC00611BFA /* GKWYMusicCoverView.m */; };
 		5722098920AD24E600611BFA /* GKSearchBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 5722098720AD24E600611BFA /* GKSearchBar.m */; };
 		5722098D20AD261E00611BFA /* cm2_topbar_icn_search.png in Resources */ = {isa = PBXBuildFile; fileRef = 5722098A20AD261E00611BFA /* cm2_topbar_icn_search.png */; };
 		5722098E20AD261E00611BFA /* cm2_topbar_icn_search@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5722098B20AD261E00611BFA /* cm2_topbar_icn_search@2x.png */; };
 		5722098F20AD261E00611BFA /* cm2_topbar_icn_search@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5722098C20AD261E00611BFA /* cm2_topbar_icn_search@3x.png */; };
 		5722099320AD27AA00611BFA /* CBAutoScrollLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5722099220AD27AA00611BFA /* CBAutoScrollLabel.m */; };
-		5722099B20AD294100611BFA /* GKWYResultModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5722099520AD294000611BFA /* GKWYResultModel.m */; };
-		5722099C20AD294100611BFA /* GKWYMusicModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5722099620AD294000611BFA /* GKWYMusicModel.m */; };
-		5722099D20AD294100611BFA /* GKWYMusicTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 5722099820AD294000611BFA /* GKWYMusicTool.m */; };
-		572209A320AD2A8100611BFA /* GKLyricModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 572209A120AD2A8100611BFA /* GKLyricModel.m */; };
-		572209A420AD2A8100611BFA /* GKLyricParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 572209A220AD2A8100611BFA /* GKLyricParser.m */; };
-		572209AB20AD2AC500611BFA /* GKSliderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 572209A720AD2AC400611BFA /* GKSliderView.m */; };
-		572209AC20AD2AC500611BFA /* GKTimer.m in Sources */ = {isa = PBXBuildFile; fileRef = 572209AA20AD2AC500611BFA /* GKTimer.m */; };
-		572209BC20AD2B3D00611BFA /* GKPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 572209B020AD2B3D00611BFA /* GKPlayer.m */; };
-		572209BD20AD2B3D00611BFA /* GKAudioPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 572209B120AD2B3D00611BFA /* GKAudioPlayer.m */; };
-		572209BE20AD2B3D00611BFA /* GKRefreshHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 572209B520AD2B3D00611BFA /* GKRefreshHeader.m */; };
-		572209BF20AD2B3D00611BFA /* GKRefreshFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = 572209B620AD2B3D00611BFA /* GKRefreshFooter.m */; };
-		572209C020AD2B3D00611BFA /* GKDownloadModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 572209BA20AD2B3D00611BFA /* GKDownloadModel.m */; };
-		572209C120AD2B3D00611BFA /* GKDownloadManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 572209BB20AD2B3D00611BFA /* GKDownloadManager.m */; };
-		572209C420AD2BE600611BFA /* UIImage+GKWYCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 572209C220AD2BE500611BFA /* UIImage+GKWYCategory.m */; };
-		572209C720AD32CB00611BFA /* UIViewController+GKWYCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 572209C520AD32CB00611BFA /* UIViewController+GKWYCategory.m */; };
 		5726F33B206A2FB2008EED75 /* BBWarningRingSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5726F337206A2FB2008EED75 /* BBWarningRingSettingViewController.m */; };
 		5726F33C206A2FB2008EED75 /* BBWarningRingListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5726F33A206A2FB2008EED75 /* BBWarningRingListCell.m */; };
 		5726F33F206A3185008EED75 /* PPTextfield+EasilyMake.m in Sources */ = {isa = PBXBuildFile; fileRef = 5726F33E206A3185008EED75 /* PPTextfield+EasilyMake.m */; };
@@ -590,22 +567,6 @@
 		57210D1A207A48F60039D8D5 /* BBModifyPasswordViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BBModifyPasswordViewController.m; sourceTree = "<group>"; };
 		57210DD3207CA37F0039D8D5 /* BBEEMusicListCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BBEEMusicListCell.h; sourceTree = "<group>"; };
 		57210DD4207CA37F0039D8D5 /* BBEEMusicListCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BBEEMusicListCell.m; sourceTree = "<group>"; };
-		5722096D20AD22AC00611BFA /* GKWYPlayerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GKWYPlayerViewController.m; sourceTree = "<group>"; };
-		5722096E20AD22AC00611BFA /* GKWYPlayerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GKWYPlayerViewController.h; sourceTree = "<group>"; };
-		5722097020AD22AC00611BFA /* GKWYMusicVolumeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GKWYMusicVolumeView.h; sourceTree = "<group>"; };
-		5722097120AD22AC00611BFA /* GKWYMusicListView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GKWYMusicListView.h; sourceTree = "<group>"; };
-		5722097220AD22AC00611BFA /* GKVolumeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GKVolumeView.h; sourceTree = "<group>"; };
-		5722097320AD22AC00611BFA /* GKWYMusicControlView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GKWYMusicControlView.h; sourceTree = "<group>"; };
-		5722097420AD22AC00611BFA /* GKWYDiskView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GKWYDiskView.h; sourceTree = "<group>"; };
-		5722097520AD22AC00611BFA /* GKWYMusicCoverView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GKWYMusicCoverView.h; sourceTree = "<group>"; };
-		5722097620AD22AC00611BFA /* GKWYMusicLyricView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GKWYMusicLyricView.h; sourceTree = "<group>"; };
-		5722097720AD22AC00611BFA /* GKWYMusicListView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GKWYMusicListView.m; sourceTree = "<group>"; };
-		5722097820AD22AC00611BFA /* GKWYMusicVolumeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GKWYMusicVolumeView.m; sourceTree = "<group>"; };
-		5722097920AD22AC00611BFA /* GKWYMusicControlView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GKWYMusicControlView.m; sourceTree = "<group>"; };
-		5722097A20AD22AC00611BFA /* GKVolumeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GKVolumeView.m; sourceTree = "<group>"; };
-		5722097B20AD22AC00611BFA /* GKWYDiskView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GKWYDiskView.m; sourceTree = "<group>"; };
-		5722097C20AD22AC00611BFA /* GKWYMusicLyricView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GKWYMusicLyricView.m; sourceTree = "<group>"; };
-		5722097D20AD22AC00611BFA /* GKWYMusicCoverView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GKWYMusicCoverView.m; sourceTree = "<group>"; };
 		5722098720AD24E600611BFA /* GKSearchBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GKSearchBar.m; sourceTree = "<group>"; };
 		5722098820AD24E600611BFA /* GKSearchBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GKSearchBar.h; sourceTree = "<group>"; };
 		5722098A20AD261E00611BFA /* cm2_topbar_icn_search.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cm2_topbar_icn_search.png; sourceTree = "<group>"; };
@@ -613,36 +574,6 @@
 		5722098C20AD261E00611BFA /* cm2_topbar_icn_search@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cm2_topbar_icn_search@3x.png"; sourceTree = "<group>"; };
 		5722099120AD27AA00611BFA /* CBAutoScrollLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBAutoScrollLabel.h; sourceTree = "<group>"; };
 		5722099220AD27AA00611BFA /* CBAutoScrollLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBAutoScrollLabel.m; sourceTree = "<group>"; };
-		5722099520AD294000611BFA /* GKWYResultModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GKWYResultModel.m; sourceTree = "<group>"; };
-		5722099620AD294000611BFA /* GKWYMusicModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GKWYMusicModel.m; sourceTree = "<group>"; };
-		5722099720AD294000611BFA /* GKWYMusicTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GKWYMusicTool.h; sourceTree = "<group>"; };
-		5722099820AD294000611BFA /* GKWYMusicTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GKWYMusicTool.m; sourceTree = "<group>"; };
-		5722099920AD294000611BFA /* GKWYMusicModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GKWYMusicModel.h; sourceTree = "<group>"; };
-		5722099A20AD294000611BFA /* GKWYResultModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GKWYResultModel.h; sourceTree = "<group>"; };
-		5722099F20AD2A8100611BFA /* GKLyricModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GKLyricModel.h; sourceTree = "<group>"; };
-		572209A020AD2A8100611BFA /* GKLyricParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GKLyricParser.h; sourceTree = "<group>"; };
-		572209A120AD2A8100611BFA /* GKLyricModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GKLyricModel.m; sourceTree = "<group>"; };
-		572209A220AD2A8100611BFA /* GKLyricParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GKLyricParser.m; sourceTree = "<group>"; };
-		572209A620AD2AC400611BFA /* GKSliderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GKSliderView.h; sourceTree = "<group>"; };
-		572209A720AD2AC400611BFA /* GKSliderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GKSliderView.m; sourceTree = "<group>"; };
-		572209A920AD2AC500611BFA /* GKTimer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GKTimer.h; sourceTree = "<group>"; };
-		572209AA20AD2AC500611BFA /* GKTimer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GKTimer.m; sourceTree = "<group>"; };
-		572209AE20AD2B3D00611BFA /* GKPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GKPlayer.h; sourceTree = "<group>"; };
-		572209AF20AD2B3D00611BFA /* GKAudioPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GKAudioPlayer.h; sourceTree = "<group>"; };
-		572209B020AD2B3D00611BFA /* GKPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GKPlayer.m; sourceTree = "<group>"; };
-		572209B120AD2B3D00611BFA /* GKAudioPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GKAudioPlayer.m; sourceTree = "<group>"; };
-		572209B320AD2B3D00611BFA /* GKRefreshFooter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GKRefreshFooter.h; sourceTree = "<group>"; };
-		572209B420AD2B3D00611BFA /* GKRefreshHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GKRefreshHeader.h; sourceTree = "<group>"; };
-		572209B520AD2B3D00611BFA /* GKRefreshHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GKRefreshHeader.m; sourceTree = "<group>"; };
-		572209B620AD2B3D00611BFA /* GKRefreshFooter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GKRefreshFooter.m; sourceTree = "<group>"; };
-		572209B820AD2B3D00611BFA /* GKDownloadModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GKDownloadModel.h; sourceTree = "<group>"; };
-		572209B920AD2B3D00611BFA /* GKDownloadManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GKDownloadManager.h; sourceTree = "<group>"; };
-		572209BA20AD2B3D00611BFA /* GKDownloadModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GKDownloadModel.m; sourceTree = "<group>"; };
-		572209BB20AD2B3D00611BFA /* GKDownloadManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GKDownloadManager.m; sourceTree = "<group>"; };
-		572209C220AD2BE500611BFA /* UIImage+GKWYCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+GKWYCategory.m"; sourceTree = "<group>"; };
-		572209C320AD2BE500611BFA /* UIImage+GKWYCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+GKWYCategory.h"; sourceTree = "<group>"; };
-		572209C520AD32CB00611BFA /* UIViewController+GKWYCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+GKWYCategory.m"; sourceTree = "<group>"; };
-		572209C620AD32CB00611BFA /* UIViewController+GKWYCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+GKWYCategory.h"; sourceTree = "<group>"; };
 		5726F337206A2FB2008EED75 /* BBWarningRingSettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBWarningRingSettingViewController.m; sourceTree = "<group>"; };
 		5726F338206A2FB2008EED75 /* BBWarningRingListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBWarningRingListCell.h; sourceTree = "<group>"; };
 		5726F339206A2FB2008EED75 /* BBWarningRingSettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBWarningRingSettingViewController.h; sourceTree = "<group>"; };
@@ -1305,7 +1236,6 @@
 			isa = PBXGroup;
 			children = (
 				57CF99F420BA6FD1005EB9E9 /* ZWTMusicPlayer */,
-				5722096B20AD22AC00611BFA /* Player */,
 				57CB443F20A59D1C00268DBE /* M */,
 				22CFD38720614C180004186D /* EarlyEducationViewController.h */,
 				22CFD38820614C180004186D /* EarlyEducationViewController.m */,
@@ -1585,56 +1515,6 @@
 			path = Category;
 			sourceTree = "<group>";
 		};
-		5722096B20AD22AC00611BFA /* Player */ = {
-			isa = PBXGroup;
-			children = (
-				572209C320AD2BE500611BFA /* UIImage+GKWYCategory.h */,
-				572209C220AD2BE500611BFA /* UIImage+GKWYCategory.m */,
-				572209C620AD32CB00611BFA /* UIViewController+GKWYCategory.h */,
-				572209C520AD32CB00611BFA /* UIViewController+GKWYCategory.m */,
-				572209B720AD2B3D00611BFA /* GKDownloadManager */,
-				572209AD20AD2B3D00611BFA /* GKPlayer */,
-				572209B220AD2B3D00611BFA /* GKRefresh */,
-				572209A520AD2AC400611BFA /* GKSliderView */,
-				572209A820AD2AC500611BFA /* GKTimer */,
-				5722099E20AD2A8100611BFA /* GKLyricParser */,
-				5722099420AD294000611BFA /* Model */,
-				5722096C20AD22AC00611BFA /* Controller */,
-				5722096F20AD22AC00611BFA /* View */,
-			);
-			path = Player;
-			sourceTree = "<group>";
-		};
-		5722096C20AD22AC00611BFA /* Controller */ = {
-			isa = PBXGroup;
-			children = (
-				5722096D20AD22AC00611BFA /* GKWYPlayerViewController.m */,
-				5722096E20AD22AC00611BFA /* GKWYPlayerViewController.h */,
-			);
-			path = Controller;
-			sourceTree = "<group>";
-		};
-		5722096F20AD22AC00611BFA /* View */ = {
-			isa = PBXGroup;
-			children = (
-				5722097020AD22AC00611BFA /* GKWYMusicVolumeView.h */,
-				5722097120AD22AC00611BFA /* GKWYMusicListView.h */,
-				5722097220AD22AC00611BFA /* GKVolumeView.h */,
-				5722097320AD22AC00611BFA /* GKWYMusicControlView.h */,
-				5722097420AD22AC00611BFA /* GKWYDiskView.h */,
-				5722097520AD22AC00611BFA /* GKWYMusicCoverView.h */,
-				5722097620AD22AC00611BFA /* GKWYMusicLyricView.h */,
-				5722097720AD22AC00611BFA /* GKWYMusicListView.m */,
-				5722097820AD22AC00611BFA /* GKWYMusicVolumeView.m */,
-				5722097920AD22AC00611BFA /* GKWYMusicControlView.m */,
-				5722097A20AD22AC00611BFA /* GKVolumeView.m */,
-				5722097B20AD22AC00611BFA /* GKWYDiskView.m */,
-				5722097C20AD22AC00611BFA /* GKWYMusicLyricView.m */,
-				5722097D20AD22AC00611BFA /* GKWYMusicCoverView.m */,
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
 		5722098620AD24E600611BFA /* GKSearchBar */ = {
 			isa = PBXGroup;
 			children = (
@@ -1654,81 +1534,6 @@
 				5722099220AD27AA00611BFA /* CBAutoScrollLabel.m */,
 			);
 			path = CBAutoScrollLabel;
-			sourceTree = "<group>";
-		};
-		5722099420AD294000611BFA /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				5722099520AD294000611BFA /* GKWYResultModel.m */,
-				5722099620AD294000611BFA /* GKWYMusicModel.m */,
-				5722099720AD294000611BFA /* GKWYMusicTool.h */,
-				5722099820AD294000611BFA /* GKWYMusicTool.m */,
-				5722099920AD294000611BFA /* GKWYMusicModel.h */,
-				5722099A20AD294000611BFA /* GKWYResultModel.h */,
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		5722099E20AD2A8100611BFA /* GKLyricParser */ = {
-			isa = PBXGroup;
-			children = (
-				5722099F20AD2A8100611BFA /* GKLyricModel.h */,
-				572209A020AD2A8100611BFA /* GKLyricParser.h */,
-				572209A120AD2A8100611BFA /* GKLyricModel.m */,
-				572209A220AD2A8100611BFA /* GKLyricParser.m */,
-			);
-			path = GKLyricParser;
-			sourceTree = "<group>";
-		};
-		572209A520AD2AC400611BFA /* GKSliderView */ = {
-			isa = PBXGroup;
-			children = (
-				572209A620AD2AC400611BFA /* GKSliderView.h */,
-				572209A720AD2AC400611BFA /* GKSliderView.m */,
-			);
-			path = GKSliderView;
-			sourceTree = "<group>";
-		};
-		572209A820AD2AC500611BFA /* GKTimer */ = {
-			isa = PBXGroup;
-			children = (
-				572209A920AD2AC500611BFA /* GKTimer.h */,
-				572209AA20AD2AC500611BFA /* GKTimer.m */,
-			);
-			path = GKTimer;
-			sourceTree = "<group>";
-		};
-		572209AD20AD2B3D00611BFA /* GKPlayer */ = {
-			isa = PBXGroup;
-			children = (
-				572209AE20AD2B3D00611BFA /* GKPlayer.h */,
-				572209AF20AD2B3D00611BFA /* GKAudioPlayer.h */,
-				572209B020AD2B3D00611BFA /* GKPlayer.m */,
-				572209B120AD2B3D00611BFA /* GKAudioPlayer.m */,
-			);
-			path = GKPlayer;
-			sourceTree = "<group>";
-		};
-		572209B220AD2B3D00611BFA /* GKRefresh */ = {
-			isa = PBXGroup;
-			children = (
-				572209B320AD2B3D00611BFA /* GKRefreshFooter.h */,
-				572209B420AD2B3D00611BFA /* GKRefreshHeader.h */,
-				572209B520AD2B3D00611BFA /* GKRefreshHeader.m */,
-				572209B620AD2B3D00611BFA /* GKRefreshFooter.m */,
-			);
-			path = GKRefresh;
-			sourceTree = "<group>";
-		};
-		572209B720AD2B3D00611BFA /* GKDownloadManager */ = {
-			isa = PBXGroup;
-			children = (
-				572209B820AD2B3D00611BFA /* GKDownloadModel.h */,
-				572209B920AD2B3D00611BFA /* GKDownloadManager.h */,
-				572209BA20AD2B3D00611BFA /* GKDownloadModel.m */,
-				572209BB20AD2B3D00611BFA /* GKDownloadManager.m */,
-			);
-			path = GKDownloadManager;
 			sourceTree = "<group>";
 		};
 		5726F336206A2FB2008EED75 /* WarningRingSetting */ = {
@@ -2699,7 +2504,7 @@
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/mapapi.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -2727,7 +2532,6 @@
 				57585AD2206D4428001BB202 /* LWShareService.m in Sources */,
 				574C6CD92069262000F5BF55 /* BBLoginRegistHeaderView.m in Sources */,
 				574C6CBA2069254200F5BF55 /* PPTextfield.m in Sources */,
-				572209BF20AD2B3D00611BFA /* GKRefreshFooter.m in Sources */,
 				57CB448220A9E55100268DBE /* ZXPUnicode.m in Sources */,
 				229FF0B52088EEC9005BA4A6 /* ReceiveUdpMessage.m in Sources */,
 				574C6CE62069272700F5BF55 /* UIImageView+EasilyMake.m in Sources */,
@@ -2742,15 +2546,12 @@
 				5726F33F206A3185008EED75 /* PPTextfield+EasilyMake.m in Sources */,
 				574C6CE82069272700F5BF55 /* UIFont+BB.m in Sources */,
 				84DD47562068DB7B00D154B5 /* ThresholdTableViewCell.m in Sources */,
-				572209A320AD2A8100611BFA /* GKLyricModel.m in Sources */,
 				574C6CBD2069254200F5BF55 /* JKCountDownButton.m in Sources */,
 				22CFD3AC206401780004186D /* PXChartBackgroundView.m in Sources */,
-				5722097E20AD22AC00611BFA /* GKWYPlayerViewController.m in Sources */,
 				57210CA52074C2DE0039D8D5 /* ZFPlayerModel.m in Sources */,
 				84D5BDC7207354010025C757 /* bluetoothPairingViewController.m in Sources */,
 				5726F349206A8428008EED75 /* BBMyListSubTitleCell.m in Sources */,
 				57CF9A3B20BC4EE5005EB9E9 /* BBHasTodaySignInResultModel.m in Sources */,
-				5722098020AD22AC00611BFA /* GKWYMusicVolumeView.m in Sources */,
 				84D270C0208DB38200ED57A3 /* BLEScanConnectViewController.m in Sources */,
 				22833BF9207A5E6800A70247 /* MessageModel.m in Sources */,
 				57CF9A3520BA94E2005EB9E9 /* NAKPlaybackIndicatorView.m in Sources */,
@@ -2767,17 +2568,13 @@
 				57585AC2206D1AE8001BB202 /* BBFamilyMemberListCell.m in Sources */,
 				8449AC0E2062283300526935 /* NetWorkRequestManager.m in Sources */,
 				574C6CD72069262000F5BF55 /* BBRegistView.m in Sources */,
-				5722098420AD22AC00611BFA /* GKWYMusicLyricView.m in Sources */,
 				57CB447E20A9DB0700268DBE /* BBMusicHotRecommend.m in Sources */,
 				22CF35682073DB1500707F8A /* QRScanView.m in Sources */,
 				22CFD38D20614C3F0004186D /* MyViewController.m in Sources */,
 				5798F8B120D0408C00C20029 /* BBMyBalanceViewController.m in Sources */,
 				22CFD3B3206402BF0004186D /* PointItem.m in Sources */,
 				5726F3B8206BDE5F008EED75 /* BBAccountNumberViewController.m in Sources */,
-				5722099D20AD294100611BFA /* GKWYMusicTool.m in Sources */,
-				572209BE20AD2B3D00611BFA /* GKRefreshHeader.m in Sources */,
 				574C6CD52069262000F5BF55 /* BBUser.m in Sources */,
-				572209AC20AD2AC500611BFA /* GKTimer.m in Sources */,
 				5726F353206B257A008EED75 /* BBNotificationSettingViewController.m in Sources */,
 				5726F3A3206B8332008EED75 /* WSTableViewCellIndicator.m in Sources */,
 				572D03F520F27DBE000FFC23 /* BBEarlyEducationSearchListViewController.m in Sources */,
@@ -2797,7 +2594,6 @@
 				2263B8EA206BE604005BB15E /* MessageViewController.m in Sources */,
 				2266C1B720692D73004F653A /* UIFont+YX_Font.m in Sources */,
 				57210DD5207CA37F0039D8D5 /* BBEEMusicListCell.m in Sources */,
-				5722098120AD22AC00611BFA /* GKWYMusicControlView.m in Sources */,
 				574C6CEA2069272700F5BF55 /* UIButton+EasilyMake.m in Sources */,
 				842D9CED206B94C90020C3C2 /* HomeLeftItemView.m in Sources */,
 				84332C9D206CE6F5009A9121 /* MessageTableViewCell.m in Sources */,
@@ -2805,7 +2601,6 @@
 				57DF01A220D9BB8700BA95F7 /* BBInviteFriendsViewController.m in Sources */,
 				22F4C36320D949B3006FBBAC /* AreaViewController.m in Sources */,
 				5726F356206B2B62008EED75 /* BBNotificationSettingListCell.m in Sources */,
-				5722098320AD22AC00611BFA /* GKWYDiskView.m in Sources */,
 				57210D0F207777960039D8D5 /* AppDelegate+BBConfigure.m in Sources */,
 				5726F359206B437D008EED75 /* BBForgetPasswordViewController.m in Sources */,
 				57DF019520D79E6F00BA95F7 /* NJKWebViewProgressView.m in Sources */,
@@ -2823,7 +2618,6 @@
 				57DF018220D4A0B300BA95F7 /* BBIdentity.m in Sources */,
 				57210CA92074C2DE0039D8D5 /* UIViewController+ZFPlayerRotation.m in Sources */,
 				5726F3A4206B8332008EED75 /* WSTableViewCell.m in Sources */,
-				5722097F20AD22AC00611BFA /* GKWYMusicListView.m in Sources */,
 				57210D1B207A48F60039D8D5 /* BBModifyPasswordViewController.m in Sources */,
 				8449AC0820620CB300526935 /* BaseResultModel.m in Sources */,
 				57585ACF206D4428001BB202 /* LWShareButton.m in Sources */,
@@ -2832,14 +2626,11 @@
 				57210CA62074C2DE0039D8D5 /* UIWindow+CurrentViewController.m in Sources */,
 				8449AC0B20620D1B00526935 /* BaseViewModel.m in Sources */,
 				225B8BD220CEBA3200710583 /* BBEditInformationViewController.m in Sources */,
-				572209BC20AD2B3D00611BFA /* GKPlayer.m in Sources */,
-				572209A420AD2A8100611BFA /* GKLyricParser.m in Sources */,
 				229FF0AF20862EBD005BA4A6 /* BBUdpSocketManager.m in Sources */,
 				57CB443B20A570D700268DBE /* BBMusic.m in Sources */,
 				22CFD38920614C180004186D /* EarlyEducationViewController.m in Sources */,
 				22CFD3AD206401780004186D /* PXXview.m in Sources */,
 				22CFD370206143AA0004186D /* GlobalConfig.m in Sources */,
-				5722099B20AD294100611BFA /* GKWYResultModel.m in Sources */,
 				22CFD38520614B420004186D /* TheConsoleViewController.m in Sources */,
 				22CFD3DA2067D5B10004186D /* ConsoleRoomTemperatureViewController.m in Sources */,
 				5726F34C206A857F008EED75 /* BBMyListOnlySubtitleCell.m in Sources */,
@@ -2866,11 +2657,9 @@
 				5726F3A5206B8332008EED75 /* WSTableviewDataModel.m in Sources */,
 				84DD47602068FCD600D154B5 /* WettingChartView.m in Sources */,
 				57210D0C207744780039D8D5 /* GlobalTool+BBHandleCode.m in Sources */,
-				5722098520AD22AC00611BFA /* GKWYMusicCoverView.m in Sources */,
 				57CF9A3620BA94E2005EB9E9 /* MusicIndicator.m in Sources */,
 				22CFD3C6206659AD0004186D /* ConsoleRateViewController.m in Sources */,
 				22CF357220775B9A00707F8A /* BLEPairingViewController.m in Sources */,
-				572209C720AD32CB00611BFA /* UIViewController+GKWYCategory.m in Sources */,
 				57CF99FF20BA8551005EB9E9 /* Track.m in Sources */,
 				57CF9A1220BA8EA1005EB9E9 /* BaseHelper.m in Sources */,
 				8449AC122062338F00526935 /* MBPAlertView.m in Sources */,
@@ -2887,7 +2676,6 @@
 				57CF9A0C20BA859F005EB9E9 /* NSString+Additions.m in Sources */,
 				57CECE43207374DC00E9A876 /* UIAlertController+EasilyMake.m in Sources */,
 				22F4C35520CECD40006FBBAC /* videoClarityChangeView.m in Sources */,
-				572209C120AD2B3D00611BFA /* GKDownloadManager.m in Sources */,
 				5726F3BB206BE46F008EED75 /* BBAcountNumberListCell.m in Sources */,
 				22F4C35D20D945FD006FBBAC /* ProvinceViewController.m in Sources */,
 				8449AC1B20623ACC00526935 /* GlobalTool.m in Sources */,
@@ -2900,7 +2688,6 @@
 				57210CAF2074C2DE0039D8D5 /* MMMaterialDesignSpinner.m in Sources */,
 				57585AD4206D4428001BB202 /* LWShareCollectionViewCell.m in Sources */,
 				84DD475D2068FC7600D154B5 /* WettingChartViewController.m in Sources */,
-				572209C420AD2BE600611BFA /* UIImage+GKWYCategory.m in Sources */,
 				22CFD378206146AF0004186D /* BaseTabBarViewController.m in Sources */,
 				57210C892073D3770039D8D5 /* BBMyDevieceCell.m in Sources */,
 				57A1EF2A20DE190D007B1B41 /* BBInvitedResult.m in Sources */,
@@ -2916,24 +2703,20 @@
 				225B8BCE20CEBA3200710583 /* BBConsumeRecord.m in Sources */,
 				57585AD3206D4428001BB202 /* LWShareContentView.m in Sources */,
 				2263B8ED206BE81B005BB15E /* UIImage+category.m in Sources */,
-				572209AB20AD2AC500611BFA /* GKSliderView.m in Sources */,
 				225B8BD520CEBA3200710583 /* BBMyAccountExpenceRecordListCell.m in Sources */,
 				229FF0B22088EE9C005BA4A6 /* SendUdpMessage.m in Sources */,
 				574C6CBC2069254200F5BF55 /* NSString+PPTextField.m in Sources */,
 				57CB443E20A5712100268DBE /* BBMusicRequestModel.m in Sources */,
 				22F4C35920D93FAE006FBBAC /* CityListModel.m in Sources */,
-				572209BD20AD2B3D00611BFA /* GKAudioPlayer.m in Sources */,
 				8490CFBF20747CFC00D416C1 /* ConfigurationWifiViewController.m in Sources */,
 				22CF356E20764F6300707F8A /* GlobalAlertViewManager.m in Sources */,
 				22CFD3B0206401780004186D /* PXLineChartView.m in Sources */,
-				572209C020AD2B3D00611BFA /* GKDownloadModel.m in Sources */,
 				22CFD347206141080004186D /* main.m in Sources */,
 				5798F8A520CEB5EE00C20029 /* ConsoleVideoViewController.m in Sources */,
 				5726F342206A391B008EED75 /* BBMyListCell.m in Sources */,
 				22CFD3BE206548000004186D /* ConsoleBodyView.m in Sources */,
 				225B8BBA20CEB6D800710583 /* UIDevice+GetDeviceMessages.m in Sources */,
 				225B8BD920CEBA9400710583 /* BBFamilyMember.m in Sources */,
-				5722099C20AD294100611BFA /* GKWYMusicModel.m in Sources */,
 				22CFD339206141080004186D /* AppDelegate.m in Sources */,
 				2263B8E7206BD901005BB15E /* HomeHeaderView.m in Sources */,
 				84C7921D207C566600B63796 /* HistoryTemperatureListViewController.m in Sources */,
@@ -2942,7 +2725,6 @@
 				22CFD3D52067C58B0004186D /* ThermometerView.m in Sources */,
 				22CFD3DD2067D8160004186D /* RoomIndicatorView.m in Sources */,
 				570A1C1E208C6E5200B13EB5 /* NSDate+BB.m in Sources */,
-				5722098220AD22AC00611BFA /* GKVolumeView.m in Sources */,
 				84D5BDCD2073579A0025C757 /* AddDeviceView.m in Sources */,
 				5726F3A6206B8332008EED75 /* WSTableView.m in Sources */,
 			);

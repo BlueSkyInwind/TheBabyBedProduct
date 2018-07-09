@@ -55,7 +55,6 @@
 
 -(void)configureView{
     
-    
     imgIDs = [NSMutableArray arrayWithObjects:@"",@"", nil];
     self.view.backgroundColor = kUIColorFromRGB(0xF7F9FB);
     self.displayTableView.backgroundColor = kUIColorFromRGB(0xF7F9FB);
