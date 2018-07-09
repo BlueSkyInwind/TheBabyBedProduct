@@ -12,10 +12,12 @@
 #import <ShareSDK/ShareSDK.h>
 #import <ShareSDKUI/ShareSDK+SSUI.h>
 #import "BBSignInPopView.h"
+#import "BBExchange.h"
 
 @interface BBMyRewardViewController ()
 {
     UILabel *_userNameMesLB;
+    QMUIFillButton *_IntegralConvertBT;
     UILabel *_totalSignInLB;
     QMUIFillButton *_signInBT;
 }
@@ -23,16 +25,12 @@
 
 @implementation BBMyRewardViewController
 
-- (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
-    [self.navigationController setNavigationBarHidden:NO animated:animated];
-}
 - (void)viewDidLoad {
     [super viewDidLoad];
     
     self.view.backgroundColor = k_color_vcBg;
     
-    self.title = @"任务奖励";
+    self.titleStr = @"每日任务";
     [self creatUI];
     
 }
@@ -51,35 +49,31 @@
     CGFloat lbW = btX-avatarImgW-leftMargin-5;
     CGFloat lbX = leftMargin+avatarImgW+5;
     
-    UIView *userIntegralBgV = [[UIView alloc]initWithFrame:CGRectMake(0, 64+10, _k_w, 100)];
+    UIView *userIntegralBgV = [[UIView alloc]initWithFrame:CGRectMake(0, PPDevice_navBarHeight+10, _k_w, 100)];
     [self.view addSubview:userIntegralBgV];
     userIntegralBgV.backgroundColor = [UIColor whiteColor];
     UIImageView *avatarImgV = [UIImageView bb_imgVMakeWithSuperV:userIntegralBgV imgName:@"touxianggg"];
     avatarImgV.frame = CGRectFlatMake(leftMargin, avatarImgY, avatarImgW, avatarImgW);
     
-    BBUser *user = [BBUser bb_getUser];
     UILabel *mesLB = [UILabel bb_lbMakeWithSuperV:userIntegralBgV fontSize:16 alignment:NSTextAlignmentLeft textColor:k_color_515151];
-    mesLB.text = [NSString stringWithFormat:@"%@   %lu积分",[user.username bb_safe],(unsigned long)user.totalScore];
     _userNameMesLB = mesLB;
     
     mesLB.frame = CGRectMake(lbX, avatarImgV.top+6, lbW, 30);
     QMUIFillButton *IntegralConvertBT = [QMUIFillButton buttonWithType:UIButtonTypeCustom];
+    _IntegralConvertBT = IntegralConvertBT;
     [userIntegralBgV addSubview:IntegralConvertBT];
     IntegralConvertBT.frame = CGRectMake(btX, btY, btW, btH);
     IntegralConvertBT.titleLabel.font = [UIFont systemFontOfSize:15];
-    if (user.totalScore > 0) {
-        IntegralConvertBT.fillColor = rgb(255, 155, 57, 1);
-        IntegralConvertBT.userInteractionEnabled = YES;
-    }else{
-        IntegralConvertBT.fillColor = rgb(153, 153, 153, 1);
-        IntegralConvertBT.userInteractionEnabled = NO;
-    }
     IntegralConvertBT.titleTextColor = [UIColor whiteColor];
     IntegralConvertBT.cornerRadius = 6;
     [IntegralConvertBT setTitle:@"积分兑换" forState:UIControlStateNormal];
     [IntegralConvertBT addTarget:self action:@selector(IntegralConvertAction) forControlEvents:UIControlEventTouchUpInside];
     
+    BBUser *user = [BBUser bb_getUser];
+    [self updateUIWithUser:user];
+    
     UILabel *recommenderLB = [UILabel bb_lbMakeWithSuperV:userIntegralBgV fontSize:12 alignment:NSTextAlignmentCenter textColor:k_color_153153153];
+#warning pp605
     recommenderLB.text = @"1积分可兑换10分钟";
     recommenderLB.frame = CGRectFlatMake(0, 70, _k_w, 30);
     
@@ -149,9 +143,9 @@
 #pragma mark --- 积分兑换
 -(void)IntegralConvertAction
 {
-    BBUser *user = [BBUser bb_getUser];
-    NSUInteger totalMinute = user.totalScore*10;
-    NSString *title = [NSString stringWithFormat:@"是否将积分兑换为%lu观看分钟",(unsigned long)totalMinute];
+//    BBUser *user = [BBUser bb_getUser];
+//    NSUInteger totalMinute = user.totalScore*10;
+    NSString *title = [NSString stringWithFormat:@"是否将积分兑换为观看分钟"];
     UIAlertController *alertC = [UIAlertController bb_alertControllerMakeForAlertCancelAndOKWithTitle:title message:nil OKHandler:^(UIAlertAction *action) {
         [self exchangeAction];
     }];
@@ -161,9 +155,43 @@
 {
     [BBRequestTool bb_requestExchangeWithSuccessBlock:^(EnumServerStatus status, id object) {
         NSLog(@"积分兑换 success %@",object);
+        BBExchangeResult *result = [BBExchangeResult mj_objectWithKeyValues:object];
+        if (result.code == 0) {
+            BBExchange *exchange = result.data;
+            NSString *curTimeStr = [NSString stringWithFormat:@"您已成功兑换%ld分钟观看视频时长",(long)exchange.curTime];
+            [QMUITips showWithText:curTimeStr inView:self.view hideAfterDelay:2];
+            
+            BBUser *user = [BBUser bb_getUser];
+            user.curTime = exchange.total_curTime;
+            user.totalScore = 0;
+            [BBUser bb_saveUser:user];
+            
+            [self updateUIWithUser:user];
+        }
     } failureBlock:^(EnumServerStatus status, id object) {
         NSLog(@"积分兑换 fail %@",object);
     }];
+}
+
+-(void)updateUIWithUser:(BBUser *)user
+{
+    NSString *messStr = @"";
+    if (user.identity && [user.identity bb_isSafe]) {
+        messStr = [NSString stringWithFormat:@"%@的%@   ",[user.nickName bb_safe], [user.identity bb_safe]];
+    }else if (user.nickName && [user.nickName bb_isSafe]){
+        messStr = [NSString stringWithFormat:@"%@   ",[user.nickName bb_safe]];
+    }else{
+        messStr = @"";
+    }
+    _userNameMesLB.text = [NSString stringWithFormat:@"%@%lu积分",messStr,(unsigned long)user.totalScore];
+    
+    if (user.totalScore > 0) {
+        _IntegralConvertBT.fillColor = rgb(255, 155, 57, 1);
+        _IntegralConvertBT.userInteractionEnabled = YES;
+    }else{
+        _IntegralConvertBT.fillColor = rgb(153, 153, 153, 1);
+        _IntegralConvertBT.userInteractionEnabled = NO;
+    }
 }
 -(void)signInAction
 {

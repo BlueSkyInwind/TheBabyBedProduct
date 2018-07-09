@@ -227,6 +227,12 @@ typedef NS_ENUM(NSInteger,BBGetCodeType) {
 -(void)bb_requestEarlyEdutionSubListWithCategoryIds:(NSArray *)categoryIds
                                        SuccessBlock:(SuccessBlock)successBlock
                                        failureBlock:(FailureBlock)failureBlock;
+/**
+ 音乐搜索
+ */
+-(void)bb_requestEarlyEdutionQueryWithKeyWord:(NSString *)keyWord
+                                 successBlock:(SuccessBlock)successBlock
+                                 failureBlock:(FailureBlock)failureBlock;
 
 /**
  子类下对应的music列表
@@ -247,6 +253,12 @@ typedef NS_ENUM(NSInteger,BBGetCodeType) {
 -(void)bb_requestRefreshTokenWithSuccessBlock:(SuccessBlock)successBlock
                                  failureBlock:(FailureBlock)failureBlock;
 
+/**
+ 获取邀请码
+ */
+-(void)bb_requestGenInCodeWithSuccessBlock:(SuccessBlock)successBlock
+                              failureBlock:(FailureBlock)failureBlock;
+
 
 /**
  预值设定
@@ -259,7 +271,7 @@ typedef NS_ENUM(NSInteger,BBGetCodeType) {
  @param maxValue 最大值
  @param deviceId 设备id
  */
--(void)SetThresholdValueDeviceType:(NSString *)deviceType minValue:(NSString *)minValue maxValue:(NSString *)maxValue deviceId:(NSString *)deviceId successBlock:(SuccessBlock)successBlock failureBlock:(FailureBlock)failureBlock;
+-(void)SetThresholdValueDeviceType:(NSString *)deviceType minValue:(NSString *)minValue maxValue:(NSString *)maxValue deviceId:(NSString *)deviceId img:(NSArray *)imgIDs successBlock:(SuccessBlock)successBlock failureBlock:(FailureBlock)failureBlock;
 
 /*  获取预值  */
 -(void)GetThresholdValueDeviceType:(NSString *)deviceType deviceId:(NSString *)deviceId successBlock:(SuccessBlock)successBlock failureBlock:(FailureBlock)failureBlock;

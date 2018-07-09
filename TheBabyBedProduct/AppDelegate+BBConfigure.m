@@ -142,26 +142,7 @@
         
     }];
 }
--(void)test
-{
-#warning to//    [BBRequestTool bb_requestShareWithSuccessBlock:^(EnumServerStatus status, id object) {
-//        NSLog(@"share success %@",object);
-//    } failureBlock:^(EnumServerStatus status, id object) {
-//        NSLog(@"share error %@",object);
-//    }];
-    
-//    [BBRequestTool bb_requestGetHelpListWithSuccessBlock:^(EnumServerStatus status, id object) {
-//        NSLog(@"HelpList success %@",object);
-//    } failureBlock:^(EnumServerStatus status, id object) {
-//        NSLog(@"HelpList error %@",object);
-//    }];
-    
-//    [BBRequestTool bb_requestMoneyListWithSuccessBlock:^(EnumServerStatus status, id object) {
-//        NSLog(@"MoneyList success %@",object);
-//    } failureBlock:^(EnumServerStatus status, id object) {
-//        NSLog(@"MoneyList error %@",object);
-//    }];
-}
+
 
 #pragma mark --- 获取用户身份
 -(void)bb_getIdentities

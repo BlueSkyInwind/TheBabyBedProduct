@@ -57,15 +57,12 @@
     }
     return _imagePickerVc;
 }
-- (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
-    [self.navigationController setNavigationBarHidden:NO animated:animated];
-}
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = k_color_vcBg;
-    self.title = @"编辑资料";
+    self.titleStr = @"编辑资料";
 
     [self configureUserInfoItem];
     
@@ -85,16 +82,16 @@
 -(void)creatUI
 {
     if (self.comesFrom == BBEditInformationVCComesFromRegistSuccess) {
-        UIButton *skipBt = [UIButton bb_btMakeWithSuperV:nil bgColor:nil titleColor:k_color_appOrange titleFontSize:12 title:@"跳过"];
+        UIButton *skipBt = [UIButton bb_btMakeWithSuperV:nil bgColor:nil titleColor:k_color_appOrange titleFontSize:10 title:@"跳过"];
         skipBt.layer.masksToBounds = YES;
-        skipBt.frame = CGRectMake(0, 0, 35, 35);
-        skipBt.layer.cornerRadius = 17.5;
+        skipBt.frame = CGRectMake(_k_w-40, PPDevice_statusBarHeight+7, 30, 30);
+        skipBt.layer.cornerRadius = 15;
         skipBt.layer.borderWidth = 1.2;
         skipBt.layer.borderColor = k_color_appOrange.CGColor;
-        self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithCustomView:skipBt];
         [skipBt addTarget:self action:@selector(skipAction) forControlEvents:UIControlEventTouchUpInside];
+        [self.navigationView addSubview:skipBt];
     }
-    self.tableView = [UITableView bb_tableVMakeWithSuperV:self.view frame:self.view.bounds delegate:self bgColor:k_color_vcBg style:UITableViewStylePlain];
+    self.tableView = [UITableView bb_tableVMakeWithSuperV:self.view frame:CGRectMake(0, PPDevice_navBarHeight, _k_w, _k_h-PPDevice_navBarHeight) delegate:self bgColor:k_color_vcBg style:UITableViewStylePlain];
     
     UIView *v = [[UIView alloc]initWithFrame:CGRectMake(0, 0, _k_w, 60+87)];
     self.tableView.tableFooterView = v;

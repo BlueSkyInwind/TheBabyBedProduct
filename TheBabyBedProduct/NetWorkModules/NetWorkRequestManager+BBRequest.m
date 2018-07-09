@@ -37,6 +37,7 @@ static void getRequest(NSString *url,id param,SuccessBlock successBlock,FailureB
     }else{
         requestUrl = [NSString stringWithFormat:@"%@%@",K_Url_BBBase,url];
     }
+    NSLog(@"当前请求URL %@",requestUrl);
     [BBRequestTool GetWithURL:requestUrl isNeedNetStatus:NO isNeedWait:true parameters:param finished:successBlock failure:failureBlock];
 }
 
@@ -493,6 +494,34 @@ static void getRequest(NSString *url,id param,SuccessBlock successBlock,FailureB
     postRequestGCSDad(K_Url_MusicList, param, successBlock, failureBlock);
 }
 
+/**
+ 音乐搜索
+ */
+-(void)bb_requestEarlyEdutionQueryWithKeyWord:(NSString *)keyWord
+                                 successBlock:(SuccessBlock)successBlock
+                                 failureBlock:(FailureBlock)failureBlock
+{
+    NSString *timestampStr = [NSDate bb_strFromTimestamp];
+    NSString *nonceStr = [NSString pp_randomStr];
+    NSMutableDictionary *param = [NSMutableDictionary dictionary];
+    NSMutableString *signatureStr = [[NSMutableString alloc]initWithString:KGCSDad_AppId];
+    [signatureStr appendString:KGCSDad_Secret];
+    [signatureStr appendString:[NSString stringWithFormat:@"%@",timestampStr]];
+    NSString *signatureString = [NSString pp_sha1:signatureStr];
+    
+    [param setValue:KGCSDad_AppId forKey:@"app_id"];
+    [param setValue:[UIDevice pp_UUID] forKey:@"device_id"];
+    [param setValue:nonceStr forKey:@"nonce"];
+    [param setValue:signatureString forKey:@"signature"];
+    [param setValue:timestampStr forKey:@"timestamp"];
+    [param setValue:keyWord forKey:@"content"];
+    [param setValue:@"1" forKey:@"verbose"];
+
+    postRequestGCSDad(K_Url_MusicQuery, param, successBlock, failureBlock);
+
+
+}
+
 -(void)bb_requestRefreshTokenWithSuccessBlock:(SuccessBlock)successBlock failureBlock:(FailureBlock)failureBlock
 {
     NSString *timestampStr = [NSDate bb_strFromTimestamp];
@@ -510,6 +539,15 @@ static void getRequest(NSString *url,id param,SuccessBlock successBlock,FailureB
     postRequestGCSDad(K_Url_Refresh_Token, param, successBlock, failureBlock);
 }
 
+/**
+ 获取邀请码
+ */
+-(void)bb_requestGenInCodeWithSuccessBlock:(SuccessBlock)successBlock
+                              failureBlock:(FailureBlock)failureBlock
+{
+    getRequest(K_Url_genInvCode, nil, successBlock, failureBlock);
+}
+
 
 /**
  预值设定
@@ -522,7 +560,7 @@ static void getRequest(NSString *url,id param,SuccessBlock successBlock,FailureB
  @param maxValue 最大值
  @param deviceId 设备id
  */
--(void)SetThresholdValueDeviceType:(NSString *)deviceType minValue:(NSString *)minValue maxValue:(NSString *)maxValue deviceId:(NSString *)deviceId successBlock:(SuccessBlock)successBlock failureBlock:(FailureBlock)failureBlock{
+-(void)SetThresholdValueDeviceType:(NSString *)deviceType minValue:(NSString *)minValue maxValue:(NSString *)maxValue deviceId:(NSString *)deviceId img:(NSArray *)imgIDs successBlock:(SuccessBlock)successBlock failureBlock:(FailureBlock)failureBlock{
     
     deviceId = deviceId == nil ? @"":deviceId;
     
@@ -532,7 +570,68 @@ static void getRequest(NSString *url,id param,SuccessBlock successBlock,FailureB
                             @"maxVal":maxValue,
                             @"deviceId":deviceId
                             };
-    postRequest(K_Url_SetThreshold, param, successBlock, failureBlock);
+    
+    NSMutableDictionary * paramDic = [param mutableCopy];
+    if ([deviceType isEqualToString:@"3"]) {
+        for (int i = 0; i < imgIDs.count; i++) {
+            switch (i) {
+                case 0:{
+                    if ([imgIDs[0] isEqualToString:@""]) {
+                        break;
+                    }
+                    [paramDic setObject:imgIDs[0] forKey:@"qw_niao"];
+                }
+                    break;
+                case 1:{
+                    if ([imgIDs[1] isEqualToString:@""]) {
+                        break;
+                    }
+                    [paramDic setObject:imgIDs[1] forKey:@"zd_niao"];
+                }
+                    break;
+                case 2:{
+                    if ([imgIDs[2] isEqualToString:@""]) {
+                        break;
+                    }
+                    [paramDic setObject:imgIDs[2] forKey:@"zdd_niao"];
+                }
+                    break;
+                case 3:{
+                    if ([imgIDs[3] isEqualToString:@""]) {
+                        break;
+                    }
+                    [paramDic setObject:imgIDs[3] forKey:@"gz_niao"];
+                }
+                    break;
+                default:
+                    break;
+            }
+
+        }
+    }else if ([deviceType isEqualToString:@"1"]){
+        for (int i = 0; i < imgIDs.count; i++) {
+            switch (i) {
+                case 0:{
+                    if ([imgIDs[0] isEqualToString:@""]) {
+                        break;
+                    }
+                    [paramDic setObject:imgIDs[0] forKey:@"ku_anjing"];
+                }
+                    break;
+                case 1:{
+                    if ([imgIDs[1] isEqualToString:@""]) {
+                        break;
+                    }
+                    [paramDic setObject:imgIDs[1] forKey:@"ku_nao"];
+                }
+                default:
+                    break;
+            }
+            
+        }
+    }
+    
+    postRequest(K_Url_SetThreshold, paramDic, successBlock, failureBlock);
     
 }
 /*  获取预值  */

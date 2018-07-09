@@ -42,6 +42,8 @@
 #define K_Url_EditUserInfo      @"/api/user/editinfo"
 //获取所有身份数据
 #define k_Url_GetIndentities    @"/api/identity"
+
+#define K_Url_HelpUse           @"/h5/help/use"
 //意见反馈 🆗
 #define K_Url_Suggestion        @"/api/user/sendSugister"
 //上传图片 👌
@@ -81,6 +83,11 @@
 
 //更改申请状态  api/changeStatus/{id}
 #define K_Url_ChangeStatus      @"/api/changeStatus/"
+//设备解绑，权限设置 api/settingDevice/{id}
+#define K_Url_settingDevice     @"/api/settingDevice/"
+
+//生成邀请码 get
+#define K_Url_genInvCode        @"/api/apply/genInvCode"
 
 
 //设备绑定 后面需要加上deviceId
@@ -97,9 +104,10 @@
 //传感器数据获取  api/statistics/{deviceId}
 #define K_Url_GetSensorData      @"/api/statistics/"
 
-//早教
+//早教 (热门推荐（音乐）)
 #define K_Url_MusicList          @"/audio/v2/list"
-//热门推荐（音乐）
+//早教音乐搜索
+#define K_Url_MusicQuery         @"/audio/v2/query"
 
 #define K_Url_Refresh_Token     @"/audio/v2/refresh_device_token"
 

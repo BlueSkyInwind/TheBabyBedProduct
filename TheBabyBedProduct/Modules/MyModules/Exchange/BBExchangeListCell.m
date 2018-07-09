@@ -11,6 +11,7 @@
 
 @interface BBExchangeListCell ()
 @property(nonatomic,strong) UILabel *exchangeLB;
+@property(nonatomic,strong) UILabel *timeLB;
 @end
 
 @implementation BBExchangeListCell
@@ -30,7 +31,15 @@
     self.exchangeLB = [UILabel bb_lbMakeWithSuperV:self.contentView fontSize:16 alignment:NSTextAlignmentLeft textColor:k_color_515151];
     CGFloat leftMargin = 10;
     CGFloat totalW = _k_w-leftMargin*2;
-    self.exchangeLB.frame = CGRectMake(leftMargin, 0, totalW, 47);
+    self.exchangeLB.frame = CGRectMake(leftMargin, 0, totalW/3, 47);
+    
+    self.timeLB = [PPMAKE(PPMakeTypeLB) pp_make:^(PPMake *make) {
+        make.intoView(self.contentView);
+        make.frame(CGRectMake(self.exchangeLB.right, 0, totalW*2/3, 47));
+        make.textAlignment(NSTextAlignmentRight);
+        make.font(kFontRegular(14));
+        make.textColor(k_color_153153153);
+    }];
     
     UIView *line = [[UIView alloc]initWithFrame:CGRectMake(leftMargin, 46.5, _k_w-leftMargin*2, 0.5)];
     line.backgroundColor = K_color_line;
@@ -38,6 +47,8 @@
 }
 -(void)setupWithExchange:(BBExchangeList *)exchange
 {
-    self.exchangeLB.text = [NSString stringWithFormat:@"用%ld积分兑换%ld分钟",(long)exchange.use_score,(long)exchange.cur_time];
+    self.exchangeLB.text = [NSString stringWithFormat:@"+%ld",(long)exchange.cur_time];
+    
+    self.timeLB.text = [NSString stringWithFormat:@"%@",[exchange.opat bb_dateFromTimestampForyyyyMMddHHmmss]];
 }
 @end

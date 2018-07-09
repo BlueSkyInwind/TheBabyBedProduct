@@ -27,26 +27,21 @@
 
 @implementation BBExchangeViewController
 
-- (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
-    [self.navigationController setNavigationBarHidden:NO animated:animated];
-}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.view.backgroundColor = k_color_vcBg;
-    self.title = @"积分兑换记录";
+    self.titleStr = @"积分兑换列表";
     self.currentPage = 0;
     self.isRefreshing = NO;
     self.isLoadMoreing = NO;
     self.totalCount = 0;
     [self creatUI];
-    [self getExchangeListData];
 }
 -(void)creatUI
 {
-    self.tableView = [UITableView bb_tableVMakeWithSuperV:self.view frame:self.view.bounds delegate:self bgColor:k_color_vcBg style:UITableViewStylePlain];
+    self.tableView = [UITableView bb_tableVMakeWithSuperV:self.view frame:CGRectMake(0, PPDevice_navBarHeight, _k_w, _k_h-PPDevice_navBarHeight) delegate:self bgColor:k_color_vcBg style:UITableViewStylePlain];
     //下拉刷新
     self.tableView.mj_header = [UITableView pp_headerForNomaWithTarget:self action:@selector(_headerRefreshAction) hasLastDate:NO enterStartRefresh:NO];
     [self.tableView.mj_header beginRefreshing];

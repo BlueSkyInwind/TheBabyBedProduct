@@ -26,6 +26,7 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:a]
 
 // 设置三原色
 #define rgb(r,g,b,a) [UIColor colorWithRed:r/255.0f green:g/255.0f blue:b/255.0f alpha:a]
+#define rgbR(r) [UIColor colorWithRed:r/255.0f green:r/255.0f blue:r/255.0f alpha:1]
 
 #define k_color_vcBg      rgb(247,249,251,1)
 #define k_color_515151    rgb(51,51,51,1)

@@ -37,6 +37,8 @@
 #import <QMUIKit/QMUIKit.h>
 #import "BBMacros.h"
 
+#import "PPMaker.h"
+
 /*********************************通知相关************************************/
 #define kNotificationCenter [NSNotificationCenter defaultCenter]
 

@@ -125,7 +125,7 @@
             countDownBt.enabled = NO;
             [countDownBt startCountDownWithSecond:60];
         }else{
-            [QMUITips showError:@"验证码发送失败"];
+            [QMUITips showError:getCodeResultM.msg];
             [countDownBt stopCountDown];
             countDownBt.enabled = YES;
         }
@@ -183,6 +183,11 @@
 {
     if (![phoneNo bb_isPhoneNumber] && loginType == BBLoginTypeDefault) {
         [QMUITips showError:@"请填写正确手机号"];
+        return;
+    }
+    
+    if (!kBBHasNetwork) {
+        [QMUITips showError:@"似乎已断开与互联网的连接。"];
         return;
     }
     
@@ -247,21 +252,26 @@
         int resultCode = [[userInfoResultDict objectForKey:@"code"] intValue];
         NSString *resultMsg = [userInfoResultDict objectForKey:@"msg"];
         
-        
         if (resultCode == 0) {
             [QMUITips showSucceed:@"登录成功"];
-
             NSDictionary *userInfoDict = [userInfoResultDict objectForKey:@"data"];
             
             //此处多说一点，因为登录的时候已经保存了一个
             BBUser *user = [BBUser bb_getUser];
             user.hasLogined = YES;
-
+            
             for (NSString *dictKey in userInfoDict.allKeys) {
-                if ([user.properties containsObject:dictKey]) {
-                    [user setValue:[userInfoDict objectForKey:dictKey] forKey:dictKey];
+                if ([dictKey isEqualToString:@"id"]) {
+                    if ([user.properties containsObject:@"userId"]) {
+                        [user setValue:[userInfoDict objectForKey:@"id"] forKey:@"userId"];
+                    }
+                }else{
+                    if ([user.properties containsObject:dictKey]) {
+                        [user setValue:[userInfoDict objectForKey:dictKey] forKey:dictKey];
+                    }
                 }
             }
+            
             
             [BBUser bb_saveUser:user];
             
@@ -305,6 +315,7 @@
 }
 -(void)goToThirdWithType:(BBLoginType)type phone:(NSString *)phone password:(NSString *)password
 {
+    
   //备注：（个人觉得不合理，但接口如此）第三⽅方登录为:QQ、微信、微博。第三⽅方登录必须要绑定⼿手机号和密码，因为⼿手机 号是整个账号体系的唯⼀一标示。后⾯面的推送、下单、配⽹网都需要⽤用 备注:第三⽅方登录时调⽤用登录接⼝口，如果⽤用户没有绑定⼿手机号就让其绑定⼿手机号。 (具体的传参看接⼝口描述)
     
     if (phone.length == 0) {
@@ -380,12 +391,15 @@
 {
     self.headerV = [[BBLoginRegistHeaderView alloc]initWithFrame:CGRectMake(0, 0, _k_w, 200)];
     [self.view addSubview:self.headerV];
+    [self.headerV configureCloseBTWithNeedHidden:self.isHiddenCloseBT];
     BBWeakSelf(self)
-    self.headerV.closeBlock = ^{
-        BBStrongSelf(self)
-        [self dismissViewControllerAnimated:YES completion:nil];
-    };
-    
+    if (!self.isHiddenCloseBT) {
+        self.headerV.closeBlock = ^{
+            BBStrongSelf(self)
+            [self dismissViewControllerAnimated:YES completion:nil];
+        };
+    }
+ 
     self.headerV.LoginRegistSelectedBlock = ^(BOOL isLogin) {
         BBStrongSelf(self)
         [self changLoginOrRegist:isLogin];

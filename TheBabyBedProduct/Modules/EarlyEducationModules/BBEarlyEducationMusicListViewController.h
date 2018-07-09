@@ -8,8 +8,20 @@
 
 #import "BaseViewController.h"
 @class BBMusicCategory;
+@class BBMusic;
+
+typedef NS_ENUM(NSInteger,BBEarlyEducationMusicListVCForType) {
+    BBEarlyEducationMusicListVCForTypeHotRecommend = 0,    //热门推荐
+    BBEarlyEducationMusicListVCForTypeCategory             //分类
+};
 
 @interface BBEarlyEducationMusicListViewController : BaseViewController
-@property(nonatomic,copy) NSString *titleStr;
+@property(nonatomic,copy) NSString *musicListName;
 @property(nonatomic,strong) BBMusicCategory *aMusicCategory;
+/** 用于干啥 */
+@property(nonatomic,assign) BBEarlyEducationMusicListVCForType forType;
+/** 热门推荐数组 */
+@property(nonatomic,strong) NSMutableArray<BBMusic *> *hotRecommends;
+
 @end
+

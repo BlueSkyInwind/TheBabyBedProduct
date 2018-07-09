@@ -9,6 +9,7 @@
 #import "BBHelpAndSuggestionViewController.h"
 #import "WSTableviewTree.h"
 #import "BBSubmitSuggestionViewController.h"
+#import "BBAboutUsViewController.h"
 
 @interface BBHelpAndSuggestionViewController ()<WSTableViewDelegate>
 @property(nonatomic,strong) WSTableView *tableView;
@@ -18,15 +19,10 @@
 
 @implementation BBHelpAndSuggestionViewController
 
-- (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
-    [self.navigationController setNavigationBarHidden:NO animated:animated];
-}
-
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = k_color_vcBg;
-    self.title = @"帮助及意见";
+    self.titleStr = @"帮助及意见";
     for (NSString *title in self.firstLevelTitles) {
         WSTableviewDataModel *dataM = [[WSTableviewDataModel alloc]init];
         dataM.firstLevelStr = title;
@@ -40,7 +36,7 @@
 }
 -(void)creatUI
 {
-    self.tableView = [[WSTableView alloc]initWithFrame:self.view.bounds style:UITableViewStylePlain];
+    self.tableView = [[WSTableView alloc]initWithFrame:CGRectMake(0, PPDevice_navBarHeight, _k_w, _k_h-PPDevice_navBarHeight) style:UITableViewStylePlain];
     [self.view addSubview:self.tableView];
     self.tableView.WSTableViewDelegate = self;
     self.tableView.backgroundColor = k_color_vcBg;
@@ -97,6 +93,12 @@
         //意见反馈
         BBSubmitSuggestionViewController *submitSuggestionVC = [[BBSubmitSuggestionViewController alloc]init];
         [self.navigationController pushViewController:submitSuggestionVC animated:YES];
+    }else{
+        //使用说明
+        BBAboutUsViewController *introVC = [[BBAboutUsViewController alloc]init];
+        introVC.h5Title = @"使用说明";
+        introVC.webUrl = [NSString stringWithFormat:@"%@%@",K_Url_BBBase,K_Url_HelpUse];
+        [self.navigationController pushViewController:introVC animated:YES];
     }
 }
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView

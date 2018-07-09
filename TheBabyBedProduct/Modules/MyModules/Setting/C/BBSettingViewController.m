@@ -21,30 +21,26 @@
 
 @implementation BBSettingViewController
 
-- (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
-    [self.navigationController setNavigationBarHidden:NO animated:animated];
-}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = k_color_vcBg;
-    self.title = @"设置";
+    self.titleStr = @"设置";
     [self creatUI];
     
 }
 -(void)creatUI
 {
-    self.tableView = [UITableView bb_tableVMakeWithSuperV:self.view frame:self.view.bounds delegate:self bgColor:k_color_vcBg style:UITableViewStylePlain];
+    self.tableView = [UITableView bb_tableVMakeWithSuperV:self.view frame:CGRectMake(0, PPDevice_navBarHeight, _k_w, _k_h-PPDevice_navBarHeight) delegate:self bgColor:k_color_vcBg style:UITableViewStylePlain];
     
     UIView *fotterV = [[UIView alloc]init];
     self.tableView.tableFooterView = fotterV;
-    
-    UILabel *currentVersionLB = [UILabel bb_lbMakeWithSuperV:fotterV fontSize:14 alignment:NSTextAlignmentCenter textColor:k_color_515151];
-    currentVersionLB.text = [NSString stringWithFormat:@"当前版本%@",[GlobalTool getAppVersion]];
-    currentVersionLB.frame = CGRectMake(0, 0, _k_w, 20);
-    
+        
     if (BBUserHelpers.hasLogined) {
+        UILabel *currentVersionLB = [UILabel bb_lbMakeWithSuperV:fotterV fontSize:14 alignment:NSTextAlignmentCenter textColor:k_color_515151];
+        currentVersionLB.text = [NSString stringWithFormat:@"当前版本%@",[GlobalTool getAppVersion]];
+        currentVersionLB.frame = CGRectMake(0, 0, _k_w, 20);
+        
         QMUIFillButton *signOutBT = [QMUIFillButton buttonWithType:UIButtonTypeCustom];
         [fotterV addSubview:signOutBT];
         signOutBT.titleLabel.font = [UIFont systemFontOfSize:18];
@@ -69,8 +65,9 @@
         [BBUser bb_saveUser:emptyUser];
         //清理缓存
         [self removeCacheWithHasLoading:NO];
+        self.tableView.tableFooterView = nil;
         [self.tableView reloadData];
-        [QMUITips showLoading:@"您已退出登录" inView:self.view];
+        [QMUITips showLoading:@"您已退出登录" inView:self.view hideAfterDelay:1.5];
     }];
     [self presentViewController:alertC animated:YES completion:nil];
     
@@ -207,6 +204,8 @@
             
         }else if (indexPath.row == 2){
             BBAboutUsViewController *aboutUsVC = [[BBAboutUsViewController alloc]init];
+            aboutUsVC.h5Title = @"关于我们";
+            aboutUsVC.webUrl = [NSString stringWithFormat:@"%@%@",K_Url_BBBase,K_Url_AboutUs];
             [self.navigationController pushViewController:aboutUsVC animated:YES];
         }
     }

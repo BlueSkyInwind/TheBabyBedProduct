@@ -24,10 +24,18 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.view.backgroundColor = k_color_vcBg;
-    self.title = self.aMusicCategory.cat_name;
-    
+    self.titleStr = self.musicListName;
+
     [self creatUI];
-    [self getListData];
+    if (self.forType == BBEarlyEducationMusicListVCForTypeCategory) {
+        [self getListData];
+    }else{
+        [self.tableView ly_startLoading];
+        [self.musicLists addObjectsFromArray:self.hotRecommends];
+        [self.tableView reloadData];
+        [self.tableView ly_endLoading];
+    }
+    
 }
 -(void)getListData
 {
@@ -51,7 +59,7 @@
 }
 -(void)creatUI
 {
-    self.tableView = [UITableView bb_tableVMakeWithSuperV:self.view frame:self.view.bounds delegate:self bgColor:k_color_vcBg style:UITableViewStylePlain];
+    self.tableView = [UITableView bb_tableVMakeWithSuperV:self.view frame:CGRectMake(0, PPDevice_navBarHeight, _k_w, _k_h-PPDevice_navBarHeight) delegate:self bgColor:k_color_vcBg style:UITableViewStylePlain];
     self.tableView.ly_emptyView = [LYEmptyView emptyViewWithImageStr:nil titleStr:@"该列表未查询到歌曲" detailStr:@"你可以去其它列表看看"];
     self.tableView.ly_emptyView.autoShowEmptyView = NO;
     
@@ -71,7 +79,7 @@
     cell.playBlock = ^{
         NSLog(@"点击了第%ld行",indexPath.row);
         BBMusicViewController *musicVC = [BBMusicViewController sharedInstance];
-        musicVC.musicTitle = [self.titleStr bb_safe];
+        musicVC.musicTitle = [self.musicListName bb_safe];
         musicVC.musics = self.musicLists;
         musicVC.playingIndex = indexPath.item;
         [self presentToMusicViewWithMusicVC:musicVC];
@@ -91,6 +99,7 @@
 
 - (void)presentToMusicViewWithMusicVC:(BBMusicViewController *)musicVC {
     UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:musicVC];
+    [navigationController setNavigationBarHidden:YES];
     [self.navigationController presentViewController:navigationController animated:YES completion:nil];
 }
 

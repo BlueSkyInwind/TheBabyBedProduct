@@ -31,8 +31,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.title = @"消息中心";
-    [self addBackItem];
+    self.titleStr = @"消息中心";
     page = 1;
     [self configureview];
 }
@@ -43,23 +42,41 @@
     messageLists = [NSMutableArray array];
     selectMessageList = [NSMutableArray array];
     
-    UIButton * rightEditButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    [rightEditButton setTitle:@"编辑" forState:UIControlStateNormal];
-        [rightEditButton setTitle:@"完成" forState:UIControlStateSelected];
-    [rightEditButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-    [rightEditButton addTarget:self action:@selector(rightButtonClick:) forControlEvents:UIControlEventTouchUpInside];
+//    UIButton * rightEditButton = [UIButton buttonWithType:UIButtonTypeCustom];
+//    [rightEditButton setTitle:@"编辑" forState:UIControlStateNormal];
+//        [rightEditButton setTitle:@"完成" forState:UIControlStateSelected];
+//    [rightEditButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+//    [rightEditButton addTarget:self action:@selector(rightButtonClick:) forControlEvents:UIControlEventTouchUpInside];
+//
+//    UIBarButtonItem * rightButton = [[UIBarButtonItem alloc]initWithCustomView:rightEditButton];
+//    self.navigationItem.rightBarButtonItem = rightButton;
     
-    UIBarButtonItem * rightButton = [[UIBarButtonItem alloc]initWithCustomView:rightEditButton];
-    self.navigationItem.rightBarButtonItem = rightButton;
-    
-    _messageTableView = [[UITableView alloc]init];
-    _messageTableView.delegate = self;
-    _messageTableView.dataSource = self;
-    [self.view addSubview:_messageTableView];
-    [_messageTableView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.edges.equalTo(self.view);
+    [PPMAKE(PPMakeTypeBT) pp_make:^(PPMake *make) {
+        make.intoView(self.navigationView);
+        make.frame(CGRectMake(_k_w-PPWidth(50), self.navigationView.top, PPWidth(50), 44));
+        make.normalTitle(@"编辑");
+        make.highlightedTitle(@"完成");
+        make.addTargetTouchUpInside(self, @selector(rightButtonClick:));
     }];
-    _messageTableView.tableFooterView =  [[UIView alloc]initWithFrame:CGRectZero];
+    
+//    _messageTableView = [[UITableView alloc]init];
+//    _messageTableView.delegate = self;
+//    _messageTableView.dataSource = self;
+//    [self.view addSubview:_messageTableView];
+//    [_messageTableView mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.edges.equalTo(self.view);
+//    }];
+//
+//    _messageTableView.tableFooterView =  [[UIView alloc]initWithFrame:CGRectZero];
+
+    _messageTableView = [PPMAKE(PPMakeTypeTableVPlain) pp_make:^(PPMake *make) {
+        make.intoView(self.view);
+        make.frame(CGRectMake(0, PPDevice_navBarHeight, _k_w, _k_h-PPDevice_navBarHeight));
+        make.bgColor(k_color_vcBg);
+        make.delegate(self);
+        make.hideExtraSeparator(YES);
+    }];
+    
     [self setupMJRefreshTableView];
 }
 -(void)rightButtonClick:(id)sender{

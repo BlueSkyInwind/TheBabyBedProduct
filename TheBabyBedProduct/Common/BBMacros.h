@@ -65,5 +65,7 @@ typedef NS_ENUM(NSInteger,BBApplyType) {
 #import "UIDevice+Adapter.h"
 #import "UIDevice+GetDeviceMessages.h"
 #import "LYEmptyViewHeader.h"
+#import "UIFont+BB.h"
+
 
 #endif /* BBMacros_h */

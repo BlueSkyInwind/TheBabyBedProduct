@@ -21,20 +21,26 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.title = @"省份";
-    [self addBackItem];
+    self.titleStr = @"省份";
     [self configureView];
 }
 
 -(void)configureView{
     
-    self.provinceTableView = [[UITableView alloc]initWithFrame:CGRectZero style:UITableViewStylePlain];
-    self.provinceTableView.delegate = self;
-    self.provinceTableView.dataSource = self;
-    [self.view addSubview:_provinceTableView];
-    [_provinceTableView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.edges.equalTo(self.view);
+    self.provinceTableView = [PPMAKE(PPMakeTypeTableVPlain) pp_make:^(PPMake *make) {
+        make.intoView(self.view);
+        make.frame(CGRectMake(0, PPDevice_navBarHeight, _k_w, _k_h-PPDevice_navBarHeight));
+        make.delegate(self);
     }];
+    
+    
+//    [[UITableView alloc]initWithFrame:CGRectZero style:UITableViewStylePlain];
+//    self.provinceTableView.delegate = self;
+//    self.provinceTableView.dataSource = self;
+//    [self.view addSubview:_provinceTableView];
+//    [_provinceTableView mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.edges.equalTo(self.view);
+//    }];
 
 }
 

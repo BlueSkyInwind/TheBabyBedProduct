@@ -35,7 +35,7 @@
     userNameLB.frame = CGRectMake(avatarImgV.right+8, 30, _k_w-avatarImgV.right-10, 40);
     userNameLB.text = @"爷爷";
     
-    UIView *switchBgV = [[UIView alloc]initWithFrame:CGRectFlatMake(0, userMesBgV.bottom+10, _k_w, 141)];
+    UIView *switchBgV = [[UIView alloc]initWithFrame:CGRectFlatMake(0, userMesBgV.bottom+10, _k_w, 94)];
     [self.view addSubview:switchBgV];
     switchBgV.backgroundColor = [UIColor whiteColor];
     
@@ -70,9 +70,6 @@
     [v addSubview:s];
     v.tag = tag;
     s.transform = CGAffineTransformMakeScale(0.75,0.75);
-    s.onTintColor = [UIColor colorWithRed:76/255.0 green:217/255.0 blue:100/255.0 alpha:1];
-    s.thumbTintColor = [UIColor whiteColor];
-    s.tintColor = [UIColor colorWithRed:229/255.0 green:229/255.0 blue:229/255.0 alpha:1];
     [s addTarget:self action:@selector(switchAction:) forControlEvents:UIControlEventValueChanged];
     
     leftImgV.frame = CGRectMake(10, 13.5, 20, 20);
@@ -101,12 +98,6 @@
         }
             break;
             
-        case 108:
-        {
-            
-        }
-            break;
-            
         default:
             break;
     }
@@ -119,14 +110,14 @@
 -(NSArray<NSString *> *)imgNames
 {
     if (!_imgNames) {
-        _imgNames = @[@"manager",@"frequency",@"allow"];
+        _imgNames = @[@"manager",@"frequency"];
     }
     return _imgNames;
 }
 -(NSArray<NSString *> *)titles
 {
     if (!_titles) {
-        _titles = @[@"提升为管理员",@"允许观看视频",@"允许"];
+        _titles = @[@"提升为管理员",@"允许观看视频"];
     }
     return _titles;
 }

@@ -48,6 +48,10 @@
     self.registBT.alpha = 0.5;
     
 }
+-(void)configureCloseBTWithNeedHidden:(BOOL)needHidden
+{
+    self.closeBT.hidden = needHidden;
+}
 -(void)closeAction
 {
     [self endEditing:YES];

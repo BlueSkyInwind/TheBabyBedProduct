@@ -16,6 +16,10 @@
 
 #import "NetWorkRequestManager.h"
 #import "AppDelegate+BBConfigure.h"
+#import "BaseNavigationViewController.h"
+
+#import "BBLoginAndRegistViewController.h"
+
 
 @interface AppDelegate ()<JPUSHRegisterDelegate,UNUserNotificationCenterDelegate>
 
@@ -29,47 +33,44 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    
-    [[LaunchConfiguration shared] InitializeAppConfiguration];
-    [self initJPush:launchOptions];
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window.backgroundColor = [UIColor whiteColor];
     [application setStatusBarHidden:NO withAnimation:UIStatusBarAnimationNone];
+    
+    
+    if (BBUserHelpers.hasLogined) {
+        self.tabBar = [[BaseTabBarViewController alloc]init];
+        BaseNavigationViewController *baseNav = [[BaseNavigationViewController alloc]initWithRootViewController:self.tabBar];
+        self.window.rootViewController = baseNav;
+    }else{
+        BBLoginAndRegistViewController *loginVC = [[BBLoginAndRegistViewController alloc]init];
+        loginVC.isHiddenCloseBT = YES;
+        BBWeakSelf(loginVC)
+        loginVC.BBLoginOrRegistResultBlock = ^(BOOL isSuccess) {
+            if (isSuccess) {
+                BBStrongSelf(loginVC)
+                [loginVC dismissViewControllerAnimated:YES completion:nil];
+                self.tabBar = [[BaseTabBarViewController alloc]init];
+                BaseNavigationViewController *baseNav = [[BaseNavigationViewController alloc]initWithRootViewController:self.tabBar];
+                self.window.rootViewController = baseNav;
+            }
+        };
+        self.window.rootViewController = loginVC;
+    }
     [self.window makeKeyAndVisible];
-    self.tabBar = [[BaseTabBarViewController alloc]init];
-    self.window.rootViewController = self.tabBar;
-    [self bb_refreshToken];
-    // 初始化全局播放按钮
-//    [self initPlayBtn];
+    
+    [[LaunchConfiguration shared] InitializeAppConfiguration];
+    [self initJPush:launchOptions];
+    
     [self bb_configureShareSDK];
     [self InitializeBMKSDK];
     [self bb_signInAction];
     [self bb_refreshToken];
     [self bb_getIdentities];
-    
-    [self test];
-    
+
     return YES;
 }
 
-- (void)initPlayBtn {
-    
-    self.playBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    [self.playBtn setImage:[UIImage imageNamed:@"cm2_topbar_icn_playing1"] forState:UIControlStateNormal];
-    [self.playBtn setImage:[UIImage imageNamed:@"cm2_topbar_icn_playing1_prs"] forState:UIControlStateHighlighted];
-    [self.playBtn addTarget:self action:@selector(topbarPlayBtnClick:) forControlEvents:UIControlEventTouchUpInside];
-    [self.window addSubview:self.playBtn];
-    
-    CGRect statusBarFrame = [UIApplication sharedApplication].statusBarFrame;
-    
-    [self.playBtn mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.window).offset(statusBarFrame.size.height);
-        make.right.equalTo(self.window).offset(-4);
-        make.width.height.mas_equalTo(44.0f);
-    }];
-    
-    [kNotificationCenter addObserver:self selector:@selector(playStatusChanged:) name:GKWYMUSIC_PLAYSTATECHANGENOTIFICATION object:nil];
-}
 
 /**
  三方初始化

@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
+#define kBBHasNetwork  [GlobalUtility sharedUtility].networkState
+
 @interface GlobalUtility : NSObject
 
 @property (nonatomic,assign) BOOL networkState;

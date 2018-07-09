@@ -19,20 +19,17 @@
 
 @implementation BBAccountNumberViewController
 
-- (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
-    [self.navigationController setNavigationBarHidden:NO animated:animated];
-}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.view.backgroundColor = k_color_vcBg;
-    self.title = @"账号设置";
+    self.titleStr = @"账号设置";
     [self creatUI];
 }
 -(void)creatUI
 {
-    self.tableView = [UITableView bb_tableVMakeWithSuperV:self.view frame:self.view.bounds delegate:self bgColor:k_color_vcBg style:UITableViewStylePlain];
+    self.tableView = [UITableView bb_tableVMakeWithSuperV:self.view frame:CGRectMake(0, PPDevice_navBarHeight, _k_w, _k_h-PPDevice_navBarHeight) delegate:self bgColor:k_color_vcBg style:UITableViewStylePlain];
     
     UIView *fotterV = [[UIView alloc]init];
     self.tableView.tableFooterView = fotterV;

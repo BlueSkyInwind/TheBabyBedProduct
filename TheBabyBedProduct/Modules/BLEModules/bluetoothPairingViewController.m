@@ -17,8 +17,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.title = @"蓝牙配对";
-    [self addBackItem];
+    self.titleStr = @"蓝牙配对";
+
 }
 
 - (void)didReceiveMemoryWarning {

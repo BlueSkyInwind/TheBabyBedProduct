@@ -27,4 +27,8 @@
 @property (nonatomic, strong)NSString<Optional> * zdd_niao;
 @property (nonatomic, strong)NSString<Optional> * zd_niao;
 
+
+@property (nonatomic, strong)NSString<Optional> * ku_anjing;;
+@property (nonatomic, strong)NSString<Optional> * ku_nao;
+
 @end

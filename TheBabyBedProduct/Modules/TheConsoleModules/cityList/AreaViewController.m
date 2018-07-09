@@ -22,8 +22,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.title = @"地区";
-    [self addBackItem];
+    self.titleStr = @"地区";
     [self configureView];
 }
 
@@ -33,13 +32,19 @@
 }
 -(void)configureView{
     
-    self.areaTableView = [[UITableView alloc]initWithFrame:CGRectZero style:UITableViewStylePlain];
-    self.areaTableView.delegate = self;
-    self.areaTableView.dataSource = self;
-    [self.view addSubview:_areaTableView];
-    [_areaTableView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.edges.equalTo(self.view);
+    self.areaTableView = [PPMAKE(PPMakeTypeTableVPlain) pp_make:^(PPMake *make) {
+        make.intoView(self.view);
+        make.frame(CGRectMake(0, PPDevice_navBarHeight, _k_w, _k_h-PPDevice_navBarHeight));
+        make.delegate(self);
     }];
+    
+//    [[UITableView alloc]initWithFrame:CGRectZero style:UITableViewStylePlain];
+//    self.areaTableView.delegate = self;
+//    self.areaTableView.dataSource = self;
+//    [self.view addSubview:_areaTableView];
+//    [_areaTableView mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.edges.equalTo(self.view);
+//    }];
     
 }
 

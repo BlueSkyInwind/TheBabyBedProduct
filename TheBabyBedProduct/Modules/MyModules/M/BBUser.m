@@ -10,6 +10,7 @@
 #import <objc/runtime.h>
 
 @implementation BBUser
+
 -(void)encodeWithCoder:(NSCoder *)aCoder
 {
     //归档
@@ -151,7 +152,7 @@ static BBUser * toGetUser(){
 {
     return _aUser().city;
 }
--(NSString *)curTime
+-(NSInteger)curTime
 {
     return _aUser().curTime;
 }

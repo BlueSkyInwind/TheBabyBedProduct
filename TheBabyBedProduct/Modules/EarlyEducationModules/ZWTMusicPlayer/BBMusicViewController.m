@@ -233,7 +233,6 @@ static void *kBufferingRatioKVOKey = &kBufferingRatioKVOKey;
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    self.navigationController.navigationBarHidden = YES;
     [self remoteControlEventHandler];
     _musicCycleType = [GVUserDefaults standardUserDefaults].musicCycleType;
     [self setupRadioMusicIfNeeded];
@@ -291,7 +290,9 @@ static void *kBufferingRatioKVOKey = &kBufferingRatioKVOKey;
         
         [dict setObject:_music.name forKey:MPMediaItemPropertyTitle];
         [dict setObject:_music.author forKey:MPMediaItemPropertyArtist];
-        [dict setObject:_musicTitle forKey:MPMediaItemPropertyAlbumTitle];
+        if (_musicTitle) {
+            [dict setObject:_musicTitle forKey:MPMediaItemPropertyAlbumTitle];
+        }
         [dict setObject:@(audioDurationSeconds) forKey:MPMediaItemPropertyPlaybackDuration];
         
         [dict setObject:[NSNumber numberWithDouble:[_streamer currentTime]] forKey:MPNowPlayingInfoPropertyElapsedPlaybackTime]; //音乐当前已经播放时间
@@ -365,7 +366,6 @@ static void *kBufferingRatioKVOKey = &kBufferingRatioKVOKey;
 }
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
-    self.navigationController.navigationBarHidden = NO;
     _dontReloadMusic = YES;
 }
 

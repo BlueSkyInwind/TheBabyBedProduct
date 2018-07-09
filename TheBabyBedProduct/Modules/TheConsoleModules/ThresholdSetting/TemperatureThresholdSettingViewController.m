@@ -18,8 +18,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    self.title = @"预值设定";
-    [self addBackItem];
+    self.titleStr = @"预值设定";
     [self configureView];
 }
 -(void)viewWillAppear:(BOOL)animated{
@@ -80,7 +79,9 @@
 #pragma mark --- 网络请求 ----
 
 -(void)SetTemperatureThresholdValueComplication:(void(^)(BOOL isSuccess))finish{
-    [BBRequestTool SetThresholdValueDeviceType:@"2" minValue:self.lowerTemperatureTextfield.text maxValue:self.highTemperatureTextfield.text deviceId:BBUserHelpers.deviceId successBlock:^(EnumServerStatus status, id object) {
+    [BBRequestTool SetThresholdValueDeviceType:@"2" minValue:self.lowerTemperatureTextfield.text maxValue:self.highTemperatureTextfield.text deviceId:BBUserHelpers.deviceId
+                                           img:nil
+                                  successBlock:^(EnumServerStatus status, id object) {
         BaseResultModel *resultM = [[BaseResultModel alloc] initWithDictionary:object error:nil];
         if (resultM.code == 0) {
             finish(true);
