@@ -188,7 +188,6 @@
     NSLog(@"定位失败%@",error);
 }
 
-
 /**
  *用户位置更新后，会调用此函数
  *@param userLocation 新的用户位置

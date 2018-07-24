@@ -21,7 +21,7 @@
     
     _headerBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     _headerBtn.frame = CGRectMake(0, 0, 32, 32);
-    _headerBtn.center = CGPointMake(self.centerY, 16);
+    _headerBtn.center = CGPointMake(16, 16);
     [_headerBtn setBackgroundImage:[UIImage imageNamed:@"home_baby_header_Icon"] forState:UIControlStateNormal];
     _headerBtn.layer.cornerRadius = 16;
     _headerBtn.layer.borderColor = rgb(255, 206, 0, 1).CGColor;
