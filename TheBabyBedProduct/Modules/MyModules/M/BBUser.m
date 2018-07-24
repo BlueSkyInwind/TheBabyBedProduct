@@ -20,7 +20,7 @@
         objc_property_t property = propertys[i];
         const char * propertyName = property_getName(property);
         NSString *name = [NSString stringWithUTF8String:propertyName];
-        if ([self valueForKeyPath: name] && ![name isEqualToString:@"properties"]) {
+        if ([self valueForKeyPath: name]) {
             [aCoder encodeObject:[self valueForKeyPath: name] forKey: name];
         }
     }
@@ -35,7 +35,7 @@
         objc_property_t property = propertys[i];
         const char * propertyName = property_getName(property);
         NSString *name = [NSString stringWithUTF8String:propertyName];
-        if ([aDecoder decodeObjectForKey:name] && ![name isEqualToString:@"properties"]) {
+        if ([aDecoder decodeObjectForKey:name]) {
             [self setValue:[aDecoder decodeObjectForKey:name] forKey:name];
         }
         
@@ -63,10 +63,7 @@ static BBUser * toGetUser(){
     BBUser *user = (BBUser *)[NSKeyedUnarchiver unarchiveObjectWithData:data];
     return user;
 }
-@end
-
-@implementation BBUser (AllProperty)
--(NSArray *)properties
+-(NSArray<NSString *> *)properties
 {
     NSMutableArray *properties = [NSMutableArray array];
     unsigned int propertyCount = 0;
@@ -80,6 +77,8 @@ static BBUser * toGetUser(){
     return properties;
 }
 @end
+
+
 
 
 @implementation BBUser (Handler)

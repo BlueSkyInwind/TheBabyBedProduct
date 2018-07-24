@@ -13,6 +13,7 @@
 @property(nonatomic,copy) void(^closeBlock)(void);
 -(void)loginAction;
 -(void)configureCloseBTWithNeedHidden:(BOOL)needHidden;
+-(void)updateLoginRegistHeaderViewForRegist;
 @end
 
 

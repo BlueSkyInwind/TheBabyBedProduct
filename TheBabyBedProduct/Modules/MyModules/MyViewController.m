@@ -27,10 +27,19 @@
 @end
 
 @implementation MyViewController
+
 -(UIStatusBarStyle)preferredStatusBarStyle
 {
     return UIStatusBarStyleLightContent;
 }
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    //处理用户信息已经变更了，但是UI没刷新
+    [_headerV updateUserMess];
+
+}
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -175,15 +184,6 @@
         BBSettingViewController *settingVC = [[BBSettingViewController alloc]init];
         settingVC.hidesBottomBarWhenPushed = YES;
         [self.navigationController pushViewController:settingVC animated:YES];
-    }
-}
-- (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
-    //处理用户信息已经变更了，但是UI没刷新
-    [_headerV checkNeedRefreshUI];
-    if (BBUserHelpers.myHeaderVHasLogined && !BBUserHelpers.hasLogined) {
-        //退出登录后返回我的页面
-        [_headerV updateUserMess];
     }
 }
 

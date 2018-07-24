@@ -10,11 +10,13 @@
 #import "WSTableviewTree.h"
 #import "BBSubmitSuggestionViewController.h"
 #import "BBAboutUsViewController.h"
+#import "BBQuestionListCell.h"
+#import "BBQuestion.h"
+#import "BBAboutUsViewController.h"
 
-@interface BBHelpAndSuggestionViewController ()<WSTableViewDelegate>
-@property(nonatomic,strong) WSTableView *tableView;
-@property(nonatomic,strong) NSArray *firstLevelTitles;
-@property(nonatomic,strong) NSMutableArray<WSTableviewDataModel *> *dataModels;
+@interface BBHelpAndSuggestionViewController ()<UITableViewDelegate,UITableViewDataSource>
+@property(nonatomic,strong) UITableView *tableView;
+@property(nonatomic,strong) NSMutableArray *questions;
 @end
 
 @implementation BBHelpAndSuggestionViewController
@@ -23,12 +25,6 @@
     [super viewDidLoad];
     self.view.backgroundColor = k_color_vcBg;
     self.titleStr = @"帮助及意见";
-    for (NSString *title in self.firstLevelTitles) {
-        WSTableviewDataModel *dataM = [[WSTableviewDataModel alloc]init];
-        dataM.firstLevelStr = title;
-        dataM.expandable = YES;
-        [self.dataModels addObject:dataM];
-    }
     
     [self creatUI];
     
@@ -36,12 +32,20 @@
 }
 -(void)creatUI
 {
-    self.tableView = [[WSTableView alloc]initWithFrame:CGRectMake(0, PPDevice_navBarHeight, _k_w, _k_h-PPDevice_navBarHeight) style:UITableViewStylePlain];
-    [self.view addSubview:self.tableView];
-    self.tableView.WSTableViewDelegate = self;
-    self.tableView.backgroundColor = k_color_vcBg;
-    //去掉多余的分割线
-    [self.tableView setTableFooterView:[[UIView alloc] initWithFrame:CGRectZero]];
+    self.tableView = [PPMAKE(PPMakeTypeTableVPlain) pp_make:^(PPMake *make) {
+        make.intoView(self.view);
+        make.delegate(self);
+        make.frame(CGRectMake(0, PPDevice_navBarHeight, _k_w, _k_h-PPDevice_navBarHeight));
+        make.bgColor(k_color_vcBg);
+        make.hideAllSeparator(YES);
+    }];
+    
+//    [[WSTableView alloc]initWithFrame:CGRectMake(0, PPDevice_navBarHeight, _k_w, _k_h-PPDevice_navBarHeight) style:UITableViewStylePlain];
+//    [self.view addSubview:self.tableView];
+//    self.tableView.dataSource = self;
+//    self.tableView.backgroundColor = k_color_vcBg;
+//    //去掉多余的分割线
+//    [self.tableView setTableFooterView:[[UIView alloc] initWithFrame:CGRectZero]];
     
     UIView *topV = [[UIView alloc]initWithFrame:CGRectMake(0, 0, _k_w, 210)];
     [self.view addSubview:topV];
@@ -80,11 +84,18 @@
 -(void)getHelpListData
 {
 #warning todo
-    [BBRequestTool bb_requestGetHelpListWithSuccessBlock:^(EnumServerStatus status, id object) {
+    //此处把每页数据放大，就不考虑分页了，个人开发包括平时使用别的APP都没遇到过常见问题还有分页的，所以到底是设计不合理还是我留的一个坑？如果你发现是一个坑，I'm sorry.😜。
+    [BBRequestTool bb_requestGetHelpListWithPageNo:0 pageSize:40 successBlock:^(EnumServerStatus status, id object) {
         NSLog(@"help success %@",object);
+        BBQuestionListRequestResult *requestResult = [BBQuestionListRequestResult mj_objectWithKeyValues:object];
+        if (requestResult.code == 0) {
+            [self.questions addObjectsFromArray:requestResult.data];
+            [self.tableView reloadData];
+        }else{
+            [QMUITips showWithText:requestResult.msg inView:self.view hideAfterDelay:1.2];
+        }
     } failureBlock:^(EnumServerStatus status, id object) {
         NSLog(@"%@",object);
-
     }];
 }
 -(void)topItmeAction:(QMUIButton *)bt
@@ -108,7 +119,7 @@
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return self.dataModels.count;
+    return self.questions.count;
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -116,52 +127,21 @@
 }
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    WSTableviewDataModel *dataModel = self.dataModels[indexPath.row];
-    static NSString *CellIdentifier = @"WSTableViewCell";
-    WSTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    if (!cell){
-      cell = [[WSTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
-    }
-    cell.textLabel.text = dataModel.firstLevelStr;
-    cell.expandable = dataModel.expandable;
 
-    return cell;
-}
--(NSInteger)tableView:(WSTableView *)tableView numberOfSubRowsAtIndexPath:(NSIndexPath *)indexPath
-{
-    return 3;
-}
--(CGFloat)tableView:(WSTableView *)tableView heightForSubRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    return 80;
-}
--(UITableViewCell *)tableView:(WSTableView *)tableView cellForSubRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    static NSString *CellIdentifier = @"WSTableViewCell34";
-    WSTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    if (!cell){
-        cell = [[WSTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+    BBQuestionListCell *questionListCell = [BBQuestionListCell bb_cellMakeWithTableView:tableView];
+    if (self.questions.count > indexPath.row) {
+        [questionListCell setupCellWithQuestion:self.questions[indexPath.row]];
     }
-    cell.textLabel.text = [NSString stringWithFormat:@"%ld--%ld--%ld",(long)indexPath.section,(long)indexPath.row,(long)indexPath.subRow];
-    
-    return cell;
+    return questionListCell;
 }
--(NSArray *)firstLevelTitles
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (!_firstLevelTitles) {
-        _firstLevelTitles = @[
-                              @"不能扫码连接",
-                              @"视频无法直接观看",
-                              @"传感器连接"
-                              ];
-    }
-    return _firstLevelTitles;
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    BBQuestion *question = self.questions[indexPath.row];
+    BBAboutUsViewController *helpDetailWebVC = [[BBAboutUsViewController alloc]init];
+    helpDetailWebVC.h5Title = @"问题详情";
+    helpDetailWebVC.webUrl = [NSString stringWithFormat:@"%@api/help/%@",K_Url_BBBase,question.questionId];
+    [self.navigationController pushViewController:helpDetailWebVC animated:YES];
 }
--(NSMutableArray<WSTableviewDataModel *> *)dataModels
-{
-    if (!_dataModels) {
-        _dataModels = [NSMutableArray array];
-    }
-    return _dataModels;
-}
+
 @end

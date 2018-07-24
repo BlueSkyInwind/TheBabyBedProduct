@@ -137,8 +137,10 @@ typedef NS_ENUM(NSInteger,BBGetCodeType) {
 /**
  帮助list get
  */
--(void)bb_requestGetHelpListWithSuccessBlock:(SuccessBlock)successBlock
-                                failureBlock:(FailureBlock)failureBlock;
+-(void)bb_requestGetHelpListWithPageNo:(NSInteger)pageNo
+                              pageSize:(NSInteger)pageSize
+                          successBlock:(SuccessBlock)successBlock
+                          failureBlock:(FailureBlock)failureBlock;
 
 /**
  签到 post

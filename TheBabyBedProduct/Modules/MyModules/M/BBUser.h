@@ -98,13 +98,13 @@
 
 +(BBUser *)bb_getUser;
 +(void)bb_saveUser:(BBUser *)user;
-
+-(NSArray<NSString *> *)properties;
 @end
 
-@interface BBUser  (AllProperty)
-/** 所有属性 */
-@property(nonatomic,strong,readonly) NSArray *properties;
-@end
+//@interface BBUser  (AllProperty)
+///** 所有属性 */
+//@property(nonatomic,strong,readonly) NSArray *properties;
+//@end
 
 @interface BBUser (Handler)
 -(NSString *)bb_userGenderHandle;
