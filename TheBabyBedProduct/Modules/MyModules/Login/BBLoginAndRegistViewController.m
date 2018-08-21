@@ -25,6 +25,10 @@
 @property(nonatomic,strong) BBLoginRegistHeaderView *headerV;
 @property(nonatomic,strong) BBLoginView *loginV;
 @property(nonatomic,strong) BBRegistView *registV;
+/** 三方登录openid */
+@property(nonatomic,copy) NSString *thirdOpenidQQ;
+@property(nonatomic,copy) NSString *thirdOpenidWB;
+@property(nonatomic,copy) NSString *thirdOpenidWX;
 @end
 
 @implementation BBLoginAndRegistViewController
@@ -37,11 +41,7 @@
 - (UIStatusBarStyle)preferredStatusBarStyle {
     return UIStatusBarStyleLightContent;
 }
-//-(void)loadView
-//{
-//    UIScrollView *scrollV = [UIScrollView new];
-//    self.view = scrollV;
-//}
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -109,14 +109,6 @@
 #pragma mark --- 获取验证码请求
 -(void)getCodeRequest:(NSString *)phone countDownBt:(JKCountDownButton *)countDownBt
 {
-//    [QMUITips showSucceed:@"注册成功"];
-//    BBEditInformationViewController *editInfoVC = [[BBEditInformationViewController alloc]init];
-//    editInfoVC.comesFrom = BBEditInformationVCComesFromRegistSuccess;
-//    editInfoVC.skipBlock = ^{
-//        //注册成功，再次输入账号密码登录
-//        [self changLoginOrRegist:YES];
-//    };
-//    [self.navigationController pushViewController:editInfoVC animated:YES];
     
     [BBRequestTool bb_requestGetCodeWithPhone:phone codeType:BBGetCodeTypeRegist successBlock:^(EnumServerStatus status, id object) {
         BBLoginResultModel *getCodeResultM = [BBLoginResultModel mj_objectWithKeyValues:object];
@@ -139,11 +131,12 @@
 #pragma mark --- 注册点击事件
 -(void)registRequest:(NSString *)phone code:(NSString *)code password:(NSString *)password
 {
+    
     if (!_isAgreeRegistProtocol) {
         [QMUITips showWithText:@"您先同意《软件注册协议》" inView:self.view hideAfterDelay:1.5];
         return;
     }
-    
+
     if (![phone bb_isPhoneNumber]) {
         [QMUITips showError:@"请输入正确手机号" inView:self.view hideAfterDelay:1.5];
         return;
@@ -184,17 +177,62 @@
     if (![phoneNo bb_isPhoneNumber] && loginType == BBLoginTypeDefault) {
         [QMUITips showError:@"请填写正确手机号"];
         return;
+    }else{
+        if (phoneNo.length == 0) {
+            phoneNo = @"";
+        }
+        if (password.length == 0) {
+            password = @"";
+        }
     }
     
     if (!kBBHasNetwork) {
         [QMUITips showError:@"似乎已断开与互联网的连接。"];
         return;
     }
-    
-    [BBRequestTool bb_requestLoginWithPhone:phoneNo password:password loginType:loginType uid:uid openid:openid successBlock:^(EnumServerStatus status, id object) {
+    NSString *realOpenid = openid;
+    NSString *realUid = uid;
+    BBLoginType realLoginType = loginType;
+    if (self.thirdOpenidQQ.length > 0) {
+        realOpenid = self.thirdOpenidQQ;
+        realUid = self.thirdOpenidQQ;
+        realLoginType = BBLoginTypeQQ;
+    }else if (self.thirdOpenidWB){
+        realOpenid = self.thirdOpenidWB;
+        realUid = self.thirdOpenidWB;
+        realLoginType = BBLoginTypeWeiBo;
+    }else if (self.thirdOpenidWX){
+        realOpenid = self.thirdOpenidWX;
+        realUid = self.thirdOpenidWX;
+        realLoginType = BBLoginTypeWeiXin;
+    }
+    [BBRequestTool bb_requestLoginWithPhone:phoneNo password:password loginType:realLoginType uid:realUid openid:realOpenid successBlock:^(EnumServerStatus status, id object) {
         NSLog(@"success %@",object);
         BBLoginResultModel *loginResultM = [BBLoginResultModel mj_objectWithKeyValues:object];
-        if (loginResultM.code == 0) {
+        if (loginResultM.code == 2) {
+             //app拿到openid 之后调用登录接口，接口返回未绑定手机号则进入注册页面，绑定手机号成功之后登录，下次进入直接用openid 就能登录上
+            //授权成功，没有绑定手机号
+            if (loginType == BBLoginTypeQQ) {
+                self.thirdOpenidQQ = openid;
+                self.thirdOpenidWB = nil;
+                self.thirdOpenidWX = nil;
+            }else if (loginType == BBLoginTypeWeiBo){
+                self.thirdOpenidQQ = nil;
+                self.thirdOpenidWB = openid;
+                self.thirdOpenidWX = nil;
+            }else if (loginType == BBLoginTypeWeiXin){
+                self.thirdOpenidQQ = nil;
+                self.thirdOpenidWB = nil;
+                self.thirdOpenidWX = openid;
+            }
+            UIAlertController *alertC = [UIAlertController alertControllerWithTitle:@"授权已成功，还需要绑定手机号" message:@"请在登录页输入你要绑定的手机号和密码，然后再登录" preferredStyle:(UIAlertControllerStyleAlert)];
+            UIAlertAction *cancelAlertAction = [UIAlertAction actionWithTitle:@"确定" style:(UIAlertActionStyleCancel) handler:^(UIAlertAction * _Nonnull action) {
+                
+            }];
+            [alertC addAction:cancelAlertAction];
+            [self presentViewController:alertC animated:YES completion:nil];
+            
+        }else if (loginResultM.code == 0) {
             
             /*
             
@@ -223,15 +261,29 @@
             }
              
                */
-            
+        
+            /*
+             授权成功返回
+            response json --- {
+                code = 0;
+                data =     {
+                    reg = 0;
+                    token = 0701ba2d1a494f95942072e4b27ed0ab;
+                    username = "";
+                };
+                msg = "请求成功";
+            }
+            */
             
             BBUser *user = loginResultM.data;
+            
             user.password = password;
             [BBUser bb_saveUser:user];
             
             //登录成功拉用户信息
             [self getUserInfo];
             [self hasTodaySignIn];
+            
             
         }else{
             [QMUITips showWithText:loginResultM.msg inView:self.view hideAfterDelay:1.5];
@@ -262,11 +314,11 @@
             
             for (NSString *dictKey in userInfoDict.allKeys) {
                 if ([dictKey isEqualToString:@"id"]) {
-                    if ([user.properties containsObject:@"userId"]) {
+                    if ([[user properties] containsObject:@"userId"]) {
                         [user setValue:[userInfoDict objectForKey:@"id"] forKey:@"userId"];
                     }
                 }else{
-                    if ([user.properties containsObject:dictKey]) {
+                    if ([[user properties] containsObject:dictKey]) {
                         [user setValue:[userInfoDict objectForKey:dictKey] forKey:dictKey];
                     }
                 }
@@ -316,20 +368,22 @@
 -(void)goToThirdWithType:(BBLoginType)type phone:(NSString *)phone password:(NSString *)password
 {
     
-  //备注：（个人觉得不合理，但接口如此）第三⽅方登录为:QQ、微信、微博。第三⽅方登录必须要绑定⼿手机号和密码，因为⼿手机 号是整个账号体系的唯⼀一标示。后⾯面的推送、下单、配⽹网都需要⽤用 备注:第三⽅方登录时调⽤用登录接⼝口，如果⽤用户没有绑定⼿手机号就让其绑定⼿手机号。 (具体的传参看接⼝口描述)
-    
-    if (phone.length == 0) {
-        [QMUITips showError:@"手机号不能为空"];
-        return;
-    }
-    if (![phone bb_isPhoneNumber]) {
-        [QMUITips showError:@"请填写正确手机号"];
-        return;
-    }
-    if (password.length == 0) {
-        [QMUITips showError:@"密码不能为空"];
-        return;
-    }
+//  //备注：（个人觉得不合理，但接口如此）第三⽅方登录为:QQ、微信、微博。第三⽅方登录必须要绑定⼿手机号和密码，因为⼿手机 号是整个账号体系的唯⼀一标示。后⾯面的推送、下单、配⽹网都需要⽤用 备注:第三⽅方登录时调⽤用登录接⼝口，如果⽤用户没有绑定⼿手机号就让其绑定⼿手机号。 (具体的传参看接⼝口描述)
+//
+//    if (phone.length == 0) {
+//        [QMUITips showError:@"手机号不能为空"];
+//        return;
+//    }
+//    if (![phone bb_isPhoneNumber]) {
+//        [QMUITips showError:@"请填写正确手机号"];
+//        return;
+//    }
+//    if (password.length == 0) {
+//        [QMUITips showError:@"密码不能为空"];
+//        return;
+//    }
+    //如果是手机号登录  就 传手机号+密码+type+openid=@“”
+    //如果是第三方登录就传 openid +type +手机号=@“”+密码=@“”
     
     if (type == BBLoginTypeQQ) {
         [SSEThirdPartyLoginHelper loginByPlatform:SSDKPlatformTypeQQ onUserSync:^(SSDKUser *user, SSEUserAssociateHandler associateHandler) {
@@ -338,9 +392,9 @@
 //            associateHandler (user.uid, user, user);
             NSLog(@"dd%@",user.rawData);
             NSLog(@"dd%@",user.credential);
-            NSString *str = @"QQ登录授权成功";
-            [QMUITips showSucceed:str inView:self.view hideAfterDelay:2];
-            [self goToLoginWithPhoneNo:phone password:password loginType:BBLoginTypeQQ uid:user.uid openid:user.uid];
+//            NSString *str = @"QQ登录授权成功";
+//            [QMUITips showSucceed:str inView:self.view hideAfterDelay:1];
+            [self goToLoginWithPhoneNo:phone password:phone loginType:BBLoginTypeQQ uid:user.uid openid:user.uid];
         } onLoginResult:^(SSDKResponseState state, SSEBaseUser *user, NSError *error) {
             //失败走这里
             DLog(@"QQ登录结果 %lu",(unsigned long)state);
@@ -389,6 +443,7 @@
 
 -(void)creatHeaderVUI
 {
+    self.isHiddenCloseBT = YES;
     self.headerV = [[BBLoginRegistHeaderView alloc]initWithFrame:CGRectMake(0, 0, _k_w, 200)];
     [self.view addSubview:self.headerV];
     [self.headerV configureCloseBTWithNeedHidden:self.isHiddenCloseBT];
@@ -436,6 +491,21 @@
         
     }
 }
-
+-(void)changToRegist
+{
+    [self.headerV updateLoginRegistHeaderViewForRegist];
+    
+    if (!_currentIsLogin) {
+        return;
+    }else{
+        _currentIsLogin = NO;
+        [UIView animateWithDuration:0.20 delay:0 options:(UIViewAnimationOptionCurveEaseIn) animations:^{
+            self.loginV.frame = CGRectMake(-_k_w, 200, _k_w, _k_h-200);
+            self.registV.frame = CGRectMake(0, 200, _k_w, _k_h-200);
+        } completion:^(BOOL finished) {
+            
+        }];
+    }
+}
 
 @end

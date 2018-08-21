@@ -118,14 +118,7 @@
         [self handelAvatarTapAction];
     }];
 }
--(void)checkNeedRefreshUI
-{
-    BBUser *user = [BBUser bb_getUser];
-    if (![user.username isEqualToString:self.user.username]) {
-        self.user = user;
-        [self judgeItemShowOrHidden];
-    }
-}
+
 -(void)judgeItemShowOrHidden
 {
     /*
@@ -157,7 +150,10 @@
         }else{
             self.babyDaysLB.text = @"";
             self.babyDaysLB.hidden = YES;
-            self.userNameLB.height += 20;
+            CGFloat oneH = 100;
+            CGFloat imgY = (oneH-60)/2;
+            CGFloat lbW = _k_w-20-20-6-self.avatarImgV.right-10-8;
+            self.userNameLB.frame = CGRectMake(self.avatarImgV.right+10, imgY+8, lbW, 24+20);
         }
         
         self.userNameLB.hidden = NO;

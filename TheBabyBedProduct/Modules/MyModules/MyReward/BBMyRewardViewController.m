@@ -297,7 +297,7 @@
             
             BBUser *user = [BBUser bb_getUser];
             for (NSString *dictKey in userInfoDict.allKeys) {
-                if ([user.properties containsObject:dictKey]) {
+                if ([[user properties] containsObject:dictKey]) {
                     [user setValue:[userInfoDict objectForKey:dictKey] forKey:dictKey];
                 }
             }

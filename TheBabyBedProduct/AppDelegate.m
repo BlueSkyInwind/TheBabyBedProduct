@@ -55,7 +55,8 @@
                 self.window.rootViewController = baseNav;
             }
         };
-        self.window.rootViewController = loginVC;
+        BaseNavigationViewController *loginNav = [[BaseNavigationViewController alloc]initWithRootViewController:loginVC];
+        self.window.rootViewController = loginNav;
     }
     [self.window makeKeyAndVisible];
     

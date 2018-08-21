@@ -24,6 +24,4 @@ typedef NS_ENUM(NSInteger,BBMyHeaderViewFuncType) {
 
 -(void)updateUserMess;
 
--(void)checkNeedRefreshUI;
-
 @end

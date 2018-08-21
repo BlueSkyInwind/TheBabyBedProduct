@@ -71,13 +71,17 @@
 }
 -(void)registAction
 {
-    self.bgImgV.image = [UIImage imageNamed:@"mebackground"];
-    self.loginBT.alpha = 0.5;
-    self.registBT.alpha = 1.0;
+    [self updateLoginRegistHeaderViewForRegist];
     
     if (self.LoginRegistSelectedBlock) {
         self.LoginRegistSelectedBlock(NO);
     }
+}
+-(void)updateLoginRegistHeaderViewForRegist
+{
+    self.bgImgV.image = [UIImage imageNamed:@"mebackground"];
+    self.loginBT.alpha = 0.5;
+    self.registBT.alpha = 1.0;
 }
 @end
 

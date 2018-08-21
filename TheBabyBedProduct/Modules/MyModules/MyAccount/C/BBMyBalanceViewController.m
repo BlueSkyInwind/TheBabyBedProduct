@@ -8,6 +8,8 @@
 
 #import "BBMyBalanceViewController.h"
 #import "BBRechargeMoney.h"
+#import "PPTextfield.h"
+#import "PPTextfield+EasilyMake.h"
 
 @interface BBMyBalanceViewController ()
 @property(nonatomic,strong) NSMutableArray<BBRechargeMoney *> *moneyLists;
@@ -17,6 +19,8 @@
 @property(nonatomic,strong) NSMutableArray<UIButton *> *bts;
 /** 选中的button */
 @property(nonatomic,strong) UIButton *selectedBT;
+/** 可输入金额的TF */
+@property(nonatomic,strong) PPTextfield *inputMoneyTF;
 @end
 
 @implementation BBMyBalanceViewController
@@ -117,11 +121,31 @@
             NSString *showStr = [NSString stringWithFormat:@"%ld分钟/¥%.2f",(long)rechargeMoney.rechargeTime,[rechargeMoney.rechargeMoney floatValue]];
             make.normalAttributedFontColorTitle(kFontRegular(14), k_color_515151, showStr);
         }];
+        if (i == 0) {
+            //默认选中第一个
+            [self btAction:bt];
+        }
         [self.bts addObject:bt];
         if (i == self.moneyLists.count -1) {
             scrollMaxH = bt.bottom+PPHeight(20);
         }
     }
+    
+ 
+    self.inputMoneyTF = [PPTextfield pp_tfMakeWithSuperV:scrollView tag:1220 fontSize:14 textColor:k_color_515151 attributedPlaceholderText:@"其他金额请点击这里输入" attributedPlaceholderFontSize:14 attributedPlaceholderTextColor:k_color_153153153];
+    self.inputMoneyTF.isOnlyNumber = YES;
+    BBWeakSelf(self)
+    self.inputMoneyTF.ppTextFieldEndEditBlock = ^(PPTextfield *tf) {
+        if ([tf.text integerValue] < 5) {
+            BBStrongSelf(self)
+            [QMUITips showWithText:@"最低充值5元哦" inView:self.view hideAfterDelay:1.2];
+        }
+    };
+    self.inputMoneyTF.frame = CGRectMake(leftMargin, scrollMaxH, _k_w-leftMargin*2, PPHeight(47));
+    [self.inputMoneyTF pp_make:^(PPMake *make) {
+        make.cornerRadius(4);
+    }];
+    scrollMaxH += PPHeight(47+5);
     
     [PPMAKE(PPMakeTypeLB) pp_make:^(PPMake *make) {
         make.intoView(scrollView);
@@ -130,8 +154,7 @@
         make.textColor(k_color_153153153);
         make.text(@"比率：10分钟一元，最低充值5元");
     }];
-    
-    scrollMaxH += PPHeight(20+50);
+    scrollMaxH += PPHeight(20);
     
     [PPMAKE(PPMakeTypeBT) pp_make:^(PPMake *make) {
         make.intoView(scrollView);
@@ -159,7 +182,17 @@
 #pragma mark --- 内购支付
 -(void)payAction
 {
-    [QMUITips showWithText:@"内购开发中"];
+    NSString *moneyStr = @"";
+    if (self.inputMoneyTF.text.length > 0 && [self.inputMoneyTF.text integerValue] >= 5) {
+        moneyStr = self.inputMoneyTF.text;
+    }else{
+        NSInteger selectedBTTag = self.selectedBT.tag;
+        BBRechargeMoney *rechargeMoney = self.moneyLists[selectedBTTag-130];
+        moneyStr = [NSString stringWithFormat:@"%@",rechargeMoney.rechargeMoney];
+    }
+    
+    [QMUITips showWithText:[NSString stringWithFormat:@"%@充值金额为：%@",@"内购开发中",moneyStr]];
+
 }
 -(void)btAction:(UIButton *)bt
 {

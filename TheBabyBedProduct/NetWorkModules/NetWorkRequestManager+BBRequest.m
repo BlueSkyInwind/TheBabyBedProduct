@@ -70,9 +70,13 @@ static void getRequest(NSString *url,id param,SuccessBlock successBlock,FailureB
     
     if (uid && uid.length > 0) {
         [param setValue:uid forKey:@"uid"];
+    }else{
+        [param setValue:@"" forKey:@"uid"];
     }
     if (openid && openid.length > 0) {
         [param setValue:openid forKey:@"openid"];
+    }else{
+        [param setValue:@"" forKey:@"openid"];
     }
     
     postRequest(K_Url_Login, param, successBlock, failureBlock);
@@ -290,11 +294,15 @@ static void getRequest(NSString *url,id param,SuccessBlock successBlock,FailureB
 /**
  帮助list get
  */
--(void)bb_requestGetHelpListWithSuccessBlock:(SuccessBlock)successBlock
-                                failureBlock:(FailureBlock)failureBlock
+-(void)bb_requestGetHelpListWithPageNo:(NSInteger)pageNo
+                              pageSize:(NSInteger)pageSize
+                          successBlock:(SuccessBlock)successBlock
+                          failureBlock:(FailureBlock)failureBlock
 {
-     getRequest(K_Url_HelpList, nil, successBlock, failureBlock);
+    NSString *url = [NSString stringWithFormat:@"%@?pageNo=%ld&pageSize=%ld",K_Url_HelpList,(long)pageNo,(long)pageSize];
+    getRequest(url, nil, successBlock, failureBlock);
 }
+
 
 /**
  签到 post
