@@ -56,6 +56,7 @@
     _headerView.backBtn.hidden = true;
     _headerView.settingBtn.hidden = true;
     _headerView.statusLabel.hidden = true;
+    _headerView.titleLabel.text = @"";
     [self.view addSubview:_headerView];
     [_headerView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.left.right.equalTo(@0);
