@@ -30,7 +30,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.titleStr = @"体温";
+    self.title = @"体温";
+    self.view.backgroundColor = [UIColor whiteColor];
     [self configureView];
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(sensorDataUpdates:) name:YDA_EVENT_NOTIFICATION object:nil ];
 }
