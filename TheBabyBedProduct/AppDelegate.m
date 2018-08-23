@@ -21,6 +21,7 @@
 #import "BBLoginAndRegistViewController.h"
 
 
+
 @interface AppDelegate ()<JPUSHRegisterDelegate,UNUserNotificationCenterDelegate>
 
 @end
