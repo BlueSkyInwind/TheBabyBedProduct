@@ -2586,7 +2586,6 @@
 				57585AC2206D1AE8001BB202 /* BBFamilyMemberListCell.m in Sources */,
 				8449AC0E2062283300526935 /* NetWorkRequestManager.m in Sources */,
 				574C6CD72069262000F5BF55 /* BBRegistView.m in Sources */,
-				5722098420AD22AC00611BFA /* GKWYMusicLyricView.m in Sources */,
 				57FFFDBD2107876600ADD5DA /* BBQuestion.m in Sources */,
 				57CB447E20A9DB0700268DBE /* BBMusicHotRecommend.m in Sources */,
 				22CF35682073DB1500707F8A /* QRScanView.m in Sources */,

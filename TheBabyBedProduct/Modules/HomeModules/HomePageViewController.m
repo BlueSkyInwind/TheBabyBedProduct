@@ -89,7 +89,7 @@
     self.titleStr = @"首页";
     [self.backBT removeFromSuperview];
     [self configureView];
-    [[BBUdpSocketManager shareInstance] createAsyncUdpSocket];
+//    [[BBUdpSocketManager shareInstance] createAsyncUdpSocket];
 }
 -(void)configureView{
     
@@ -296,7 +296,6 @@
     ScanDeviceCodeViewController *  scanDeviceCodeVC = [[ScanDeviceCodeViewController alloc]init];
     [self.navigationController pushViewController:scanDeviceCodeVC animated:true];
 }
-
 
 
 /*

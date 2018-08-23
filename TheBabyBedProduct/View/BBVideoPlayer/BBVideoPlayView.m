@@ -112,7 +112,7 @@
         make.edges.equalTo(self);
     }];
     [self.player prepareToPlay];
-    [self performSelector:@selector(autoPaly) withObject:self afterDelay:2];
+//    [self performSelector:@selector(autoPaly) withObject:self afterDelay:2];
 }
 -(void)createPlayTimer{
     palyDuration = 0;
@@ -133,6 +133,7 @@
 -(void)palyVideo{
     [self createPlayer:@"rtmp://live.hkstv.hk.lxdns.com/live/hks"];
     [[BBUdpSocketManager shareInstance] sendCFGSettingRequestMessage:@{VideoPlayrStatus:@(1),VideoClarityStatus:@(1)}];
+    [self performSelector:@selector(autoPaly) withObject:self afterDelay:2];
     [self refreshMediaControl];
 }
 
