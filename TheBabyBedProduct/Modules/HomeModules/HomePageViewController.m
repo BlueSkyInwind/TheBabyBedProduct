@@ -45,7 +45,7 @@
 {
     [super viewWillAppear:animated];
     //监测设备的绑定状态
-    [self judgeUserDeviceStatus];
+//    [self judgeUserDeviceStatus];
     
     if (BBUserHelpers.isNeedPopSignIn) {
         

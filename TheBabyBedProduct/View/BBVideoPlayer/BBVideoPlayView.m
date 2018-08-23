@@ -53,11 +53,11 @@
 
 +(id)initBBVideoPlayView:(UIView *)superView videoUrl:(NSString *)videoUrl{
     BBVideoPlayView * playView = [[BBVideoPlayView alloc]initWithFrame:CGRectZero];
-    [playView createPlayer:videoUrl];
     [playView addVerticalUI];
     [playView addLandscapeCtrlView];
     playView.landscapeCtrlView.hidden = true;
     playView.vedioSuperView = superView;
+    [playView createPlayer:videoUrl];
     [superView addSubview:playView];
     [playView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.edges.equalTo(superView);
@@ -78,19 +78,21 @@
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(applicationBecomeActive) name:UIApplicationWillEnterForegroundNotification object:nil];
         // 添加检测app进入后台的观察者
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(applicationEnterBackground) name: UIApplicationDidEnterBackgroundNotification object:nil];
-        // 添加检测app进入后台的观察者
+        // 添加检测播放源
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(changePlayerSource:) name:YDA_CFG_NOTIFICATION object:nil];
 
     }
     return self;
 }
+
 -(void)changePlayerSource:(NSNotification *)notification{
     
     NSDictionary * info = notification.userInfo;
     NSString * addressStr = info[Video_Address];
     _playUrl = addressStr;
     [self createPlayer:_playUrl];
-
+    [self performSelector:@selector(autoPaly) withObject:self afterDelay:2];
+    
 }
 
 -(void)createPlayer:(NSString *)videoUrl{
@@ -108,6 +110,7 @@
     self.autoresizesSubviews = YES;
     [self createPlayTimer];
     [self addSubview:self.player.view];
+    [self sendSubviewToBack:self.player.view];
     [self.player.view mas_makeConstraints:^(MASConstraintMaker *make) {
         make.edges.equalTo(self);
     }];
@@ -124,6 +127,7 @@
 }
 
 -(void)autoPaly{
+    NSLog(@"%@",[NSThread currentThread]);
     if ([self.player isPreparedToPlay]) {
         self.verticalPlayerBtn.alpha = 0.1;
         [self.player play];
@@ -131,8 +135,10 @@
 }
 
 -(void)palyVideo{
+    self.player = nil;
     [self createPlayer:@"rtmp://live.hkstv.hk.lxdns.com/live/hks"];
     [[BBUdpSocketManager shareInstance] sendCFGSettingRequestMessage:@{VideoPlayrStatus:@(1),VideoClarityStatus:@(1)}];
+//    [self.player prepareToPlay];
     [self performSelector:@selector(autoPaly) withObject:self afterDelay:2];
     [self refreshMediaControl];
 }
@@ -146,6 +152,7 @@
     [playTimer invalidate];
     playTimer = nil;
     [self.player stop];
+    [self.player.view removeFromSuperview];
     self.player = nil;
 }
 -(void)refreshMediaControl{
